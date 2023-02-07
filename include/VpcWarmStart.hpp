@@ -11,7 +11,7 @@
 #include "CbcModel.hpp" // CbcModel
 
 // project modules
-#include "Disjunction.hpp" // DisjunctiveTerm, Disjunction, getSolverForTerm
+#include "PartialBBDisjunction.hpp" // DisjunctiveTerm, Disjunction, getSolverForTerm
 
 
 /**
@@ -29,7 +29,7 @@ public:
   std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificate;
 
   /** vector of disjunctions used to create VPCs from previous MIPs */
-  std::vector<Disjunction*> disjunction;
+  std::vector<PartialBBDisjunction*> disjunction;
 
   /** random number generator used to sample from 0-1 distribution to determine
    * if VPCs are created from solving PRLPs or from applying previous disjunctions

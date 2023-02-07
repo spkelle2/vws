@@ -110,7 +110,8 @@ VPC_CBC_VERSION = $(shell git -C ${COIN_OR}/Cbc log -1 --pretty=format:"%H")
 VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
-	cut/VpcWarmStart.cpp
+	cut/VpcWarmStart.cpp \
+	utility/utility.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src
@@ -122,18 +123,23 @@ VPC_SOURCES += \
 	branch/OsiChooseStrongCustom.cpp \
 	utility/nbspace.cpp \
 	utility/OsiProblemData.cpp \
+	utility/preprocess.cpp \
+	utility/SolverHelper.cpp \
+	utility/utility.cpp \
 	utility/VPCSolverInterface.cpp \
 	branch/VPCEventHandler.cpp \
 	cut/CglVPC.cpp \
+	cut/CutHelper.cpp \
 	cut/PRLP.cpp \
+	disjunction/Disjunction.cpp \
 	disjunction/PartialBBDisjunction.cpp \
 	disjunction/SplitDisjunction.cpp \
 	disjunction/VPCDisjunction.cpp
 
 
 # For running tests (need not include these or main if releasing code to others)
-DIR_LIST += $(SRC_DIR)/test
-# SOURCES += test/analysis.cpp test/BBHelper.cpp
+VPC_DIR_LIST += $(SRC_DIR)/test
+VPC_SOURCES += test/analysis.cpp test/BBHelper.cpp
 
 ### Set build values based on user variables ###
 ifeq ($(BUILD_CONFIG),debug)
@@ -217,8 +223,8 @@ VPC_OUT_OBJECTS = $(addprefix $(VPC_OBJ_DIR)/,$(VPC_OBJECTS))
 
 # Set includes
 APPLINCLS = -Iinclude -Iinclude/common -Iinclude/test
-## TEMPORARY CHANGE TO PARENT VPC (NO WIFI)
-APPLINCLS += -I${VPC_DIR}/include
+## TEMPORARY CHANGE TO PARENT VPC (NO WIFI) - common dependency for Disjunction
+APPLINCLS += -I${VPC_DIR}/include -I${VPC_DIR}/include/common -I${VPC_DIR}/include/test
 
 APPLLIB = -lm -lz -lbz2 -lreadline
 ifeq ($(USER),akazachkov)
