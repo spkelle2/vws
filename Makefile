@@ -31,9 +31,13 @@ PROJ_DIR=${PWD}
 COIN_VERSION = master
 EIG_LIB = $(REPOS_DIR)/eigen
 VPC_DIR = ${REPOS_DIR}/vpc
+COIN_OR_BUILD_DIR_DEBUG = buildg
+COIN_OR_BUILD_DIR_RELEASE = build
 
 ifeq ($(USER),sean)
   COIN_OR = /Users/sean/coin-or
+	COIN_OR_BUILD_DIR_DEBUG = dist
+	COIN_OR_BUILD_DIR_RELEASE = dist
   #EIG_LIB = enter/dir/here
 
   # Optional (for testing branch and bound or enabling certain functions):
@@ -82,6 +86,7 @@ ifeq ($(USER),akazachk)
     GUROBI_LINK = gurobi91
     GUROBI_DIR = ${GUROBI_HOME}
     CPLEX_DIR = ${CPLEX_HOME}
+		COIN_OR = ${COIN_OR_HOME}
 		#COIN_OR = $(PROJ_DIR)/../coin-or/Cbc-$(COIN_VERSION)
 		#COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
   endif
@@ -123,9 +128,7 @@ VPC_SOURCES += \
 	branch/OsiChooseStrongCustom.cpp \
 	utility/nbspace.cpp \
 	utility/OsiProblemData.cpp \
-	utility/preprocess.cpp \
 	utility/SolverHelper.cpp \
-	utility/utility.cpp \
 	utility/VPCSolverInterface.cpp \
 	branch/VPCEventHandler.cpp \
 	cut/CglVPC.cpp \
@@ -136,10 +139,9 @@ VPC_SOURCES += \
 	disjunction/SplitDisjunction.cpp \
 	disjunction/VPCDisjunction.cpp
 
-
 # For running tests (need not include these or main if releasing code to others)
-VPC_DIR_LIST += $(SRC_DIR)/test
-VPC_SOURCES += test/analysis.cpp test/BBHelper.cpp
+#DIR_LIST += $(SRC_DIR)/test
+#SOURCES += test/analysis.cpp test/BBHelper.cpp
 
 ### Set build values based on user variables ###
 ifeq ($(BUILD_CONFIG),debug)
@@ -256,10 +258,10 @@ endif
 ifeq ($(USE_COIN),1)
 	# If not defined for the environment, define CBC / BCP here
 	ifeq ($(BUILD_CONFIG),debug)
-		CBC = $(COIN_OR)/dist
+		CBC = $(COIN_OR)/$(COIN_OR_BUILD_DIR_DEBUG)
 	endif
 	ifeq ($(BUILD_CONFIG),release)
-		CBC = $(COIN_OR)/dist
+		CBC = $(COIN_OR)/$(COIN_OR_BUILD_DIR_RELEASE)
 	endif
 	CBClib = $(CBC)/lib
 	# When switching from svn to coinbrew, the new include directory is coin-or not coin
