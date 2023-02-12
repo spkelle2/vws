@@ -115,8 +115,7 @@ VPC_CBC_VERSION = $(shell git -C ${COIN_OR}/Cbc log -1 --pretty=format:"%H")
 VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
-	cut/VpcWarmStart.cpp \
-	utility/utility.cpp
+	cut/VpcWarmStart.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src
@@ -129,6 +128,7 @@ VPC_SOURCES += \
 	utility/nbspace.cpp \
 	utility/OsiProblemData.cpp \
 	utility/SolverHelper.cpp \
+	utility/utility.cpp \
 	utility/VPCSolverInterface.cpp \
 	branch/VPCEventHandler.cpp \
 	cut/CglVPC.cpp \
