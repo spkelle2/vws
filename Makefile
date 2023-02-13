@@ -115,7 +115,8 @@ VPC_CBC_VERSION = $(shell git -C ${COIN_OR}/Cbc log -1 --pretty=format:"%H")
 VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
-	cut/VpcWarmStart.cpp
+	cut/VwsSolverInterface.cpp \
+	utility/MipComp.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src

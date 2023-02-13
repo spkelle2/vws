@@ -22,7 +22,7 @@
  * associated with each VPC. The other MIPs in the series will apply the previous
  * dijsunctions and Farkas multipliers to generate VPCs.
  */
-class VpcWarmStart {
+class VwsSolverInterface {
 public:
   /** vector of Farkas multipliers used to create VPCs from previous MIPs.
    * Indexed [mip][cut][disjunctive term][Farkas multiplier] */
@@ -37,7 +37,7 @@ public:
   std::mt19937 randomNumberGenerator;
 
   /** Default constructor */
-  VpcWarmStart();
+  VwsSolverInterface();
 
   /** Solve given model. With probability p, solve PRLPs to create VPCs. With
    * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
