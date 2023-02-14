@@ -27,3 +27,6 @@ int main(int argc, char** argv) {
 
 } /* main */
 
+// a function to unit test the MipComp class
+
+

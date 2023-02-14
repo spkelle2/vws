@@ -19,9 +19,10 @@ endif
 RM = rm -f
 
 ### Build type ###
-# Choose 'debug' or 'release'
+# Choose 'debug', 'release', or 'test
 # Can also be chosen through make "BUILD_CONFIG=XX" from command line 
-# Or one can call make debug or make release directly
+# Or one can call make debug, make release, or make test directly
+BUILD_CONFIG = test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
 
@@ -116,7 +117,8 @@ VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
 	cut/VwsSolverInterface.cpp \
-	utility/MipComp.cpp
+	utility/MipComp.cpp \
+	utility/VwsUtility.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src

@@ -8,6 +8,9 @@
 #include <string>
 #include <vector>
 
+// coin-or modules
+#include "CbcModel.hpp"
+
 // project modules
 #include "VwsSolverInterface.hpp"
 
@@ -21,25 +24,21 @@ class MipComp {
 public:
 
   // todo: test that ranged constraints work as intended
+  // todo: create VPCs with GMICs in the case only the objective changes (should be fine for variable or constraint additions)
 
   /** max run time on each MIP instance */
   int timeout;
 
   /** vector of file locations for each MIP to solve */
-  std::vector< std::string > mpsFiles;
+  std::vector< CbcModel > mipModels;
 
-  /** the solver used for each mip in the series */
+  /** the solver used for the series of mipModels */
   VwsSolverInterface solver;
 
-  /** Constructor */
+  /** Constructor. Initializes attributes from provided file. */
   MipComp(char * filePath);
 
-  /** reads the list of MIP problems to solve for the MIPComp */
-  std::vector<std::string> parseTestFile(char * filePath);
-
-  /** Solve series of MIP models saved in input file locations. */
+  /** Solve series of MIP models provided at construction. */
   void solveSeries();
-
-  // note: should be able to create VPCs with GMICs in the case the RHS does not change
 
 }; /* VpcWarmStart */

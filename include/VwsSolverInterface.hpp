@@ -42,6 +42,7 @@ public:
   /** Solve given model. With probability p, solve PRLPs to create VPCs. With
    * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
   void solve(CbcModel& model, double p);
+  // todo: start the above with just getting the dual bound
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
 
