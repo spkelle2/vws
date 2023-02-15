@@ -31,8 +31,8 @@ void VwsSolverInterface::solve(CbcModel& model, double p){
   std::uniform_real_distribution<> zeroOneUniformDistribution(0.0, 1.0);
 
   if (zeroOneUniformDistribution(randomNumberGenerator) < p || !disjunction.size()) {
-    std::cout << "solving PRLPs to create VPCs";
+    std::cout << "solving PRLPs to create VPCs" << std::endl;;
   } else {
-    std::cout << "creating VPCs from previous disjunctions and Farkas multipliers";
+    std::cout << "creating VPCs from previous disjunctions and Farkas multipliers" << std::endl;;
   }
 } /* solve */

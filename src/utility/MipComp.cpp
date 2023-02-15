@@ -6,6 +6,7 @@
 
 // standard library
 #include <cstdio> // cout, endl
+#include <ctime> // time_t, localtime, put_time
 #include <filesystem> // path
 #include <regex> // regex
 #include <string> // string
@@ -48,8 +49,36 @@ MipComp::MipComp(char * filePathChars){
     {
       fs::path instancePath(datasetRootDirectory.string() + "/" + str);
       mipModels.push_back(extractModelFromGunzip(instancePath));
+      names.push_back(instancePath.stem());
     }
   }
+
+  // set the solver interface
+  VwsSolverInterface solver = VwsSolverInterface();
+
+  // check to make sure the file was structured correctly
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
 } /* Constructor */
+
+/** Solves each instance in the series and prints each's run metadata to stdout */
+void MipComp::solveSeries() {
+
+  // solve each instance in the series
+  for (int i = 0; i < mipModels.size(); i++) {
+
+    std::time_t t = std::time(nullptr);
+
+    // print instance name and start time
+    std::cout << "[INSTANCE] " << names[i] << std::endl;
+    std::cout << "[START] " << std::put_time(std::localtime(&t), "%FT%T") << std::endl;
+
+    // solve the instance
+    solver.solve(mipModels[i], 1);
+
+    // print end time and dual bound
+    std::cout << "[END] " << std::put_time(std::localtime(&t), "%FT%T") << std::endl;
+    std::cout << "[DUAL BOUND] " << mipModels[i].getBestPossibleObjValue()	<< std::endl;
+  }
+
+} /* solveSeries */

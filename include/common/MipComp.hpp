@@ -32,6 +32,9 @@ public:
   /** vector of file locations for each MIP to solve */
   std::vector< CbcModel > mipModels;
 
+  /** vector of file locations for each MIP to solve */
+  std::vector< std::string > names;
+
   /** the solver used for the series of mipModels */
   VwsSolverInterface solver;
 

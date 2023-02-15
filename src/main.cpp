@@ -23,7 +23,9 @@ int main(int argc, char** argv) {
   // executable and testfile should be only arguments
   assert(argc == 2);
 
+  // create the test runner and solve the provided series
   MipComp testRunner(argv[1]);
+  testRunner.solveSeries();
 
 } /* main */
 
