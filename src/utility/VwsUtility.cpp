@@ -45,6 +45,7 @@ CbcModel extractModelFromGunzip(fs::path instancePath) {
   OsiClpSolverInterface * solver = new OsiClpSolverInterface();
   solver->readMps(instancePath.c_str(), "mps");
   CbcModel model(*solver);
+  model.setLogLevel(0);
   return model;
 }
 
