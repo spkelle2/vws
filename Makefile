@@ -19,10 +19,10 @@ endif
 RM = rm -f
 
 ### Build type ###
-# Choose 'debug', 'release', or 'test
+# Choose 'debug', 'release', or 'unit_test'
 # Can also be chosen through make "BUILD_CONFIG=XX" from command line 
 # Or one can call make debug, make release, or make test directly
-BUILD_CONFIG = test
+BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
 
@@ -306,17 +306,26 @@ endif
 
 ### Targets ###
 all: | directories $(EXECUTABLE)
+# make debug just calls make with BUILD_CONFIG=debug (which defaults to make all with that variable defined)
 debug: FORCE
 	@$(MAKE) "BUILD_CONFIG=debug"
 release: FORCE
 	@$(MAKE) "BUILD_CONFIG=release"
+unit_test: FORCE
+	@$(MAKE) "BUILD_CONFIG=unit_test"
 
+# the executable depends on the following object files
+# once they all exist, linking occurs, making the executable
 $(EXECUTABLE): $(OUT_OBJECTS) $(VPC_OUT_OBJECTS)
 		@echo ' '
 		@echo 'Building target: $@'
 		@echo 'Invoking' $(CC) 'linker'
 		$(CC) $(DEFS) $(CXXLINKFLAGS) $(APPLINCLS) -o $@ $^ $(APPLLIB)
 
+# clang++ $@ is
+# the object files depend on the following source files
+# split out by this project and VPC
+# each source file needs built to create the object file
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		@echo ' '
 		@echo 'Building target: $@'

@@ -7,7 +7,7 @@
 #define CATCH_CONFIG_MAIN
 
 // unit test library
-#include <catch2/catch_test_macros.hpp>
+#include "catch.hpp"
 
 // project modules
 #include "MipComp.hpp"
