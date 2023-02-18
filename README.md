@@ -12,3 +12,11 @@ Whenever the repository is cloned on a new machine, there are several steps to g
 Afterwards, `cd` to the `vpc` directory, call `export PROJ_DIR=$PWD` from that directory, and call `./setup/install_coin.sh` to install `COIN-OR` files into `vpc/lib`.
 
 Then, still in the `vpc` directory, modify the `makefile` to properly set the COIN and CPLEX directories and set `USE_CPLEX` to value `1`. Finally, call `make` then `make archive`.
+
+### Instructions for Running Unit Tests
+Instead of building with `make debug` or `make release`, call `make unit_test
+UNIT_TEST_FILE=<test_subdir>/<test_file>.cpp` to build the corresponding unit tests.
+For example, `make unit_test UNIT_TEST_FILE=test_cut/TestVwsSolverInterface.cpp`
+will build the unit tests in `src/test/test_cut/TestVwsSolverInterface.cpp` as the
+executable `UnitTest/UnitTest`. See the [Catch2 documentation](https://github.com/catchorg/Catch2/blob/devel/docs/command-line.md)
+for the executable's command line interface.
