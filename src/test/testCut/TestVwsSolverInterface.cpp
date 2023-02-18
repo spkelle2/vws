@@ -10,7 +10,7 @@
 #include "catch.hpp"
 
 // project unit test modules
-#include "TestVwsSolverInterface.hpp"
+#include "VwsSolverInterface.hpp"
 
 
 TEST_CASE( "VwsSolverInterface::VwsSolverInterface", "[VwsSolverInterface]" ) {

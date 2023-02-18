@@ -25,6 +25,7 @@ RM = rm -f
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
+UNIT_TEST_FILE = testUtility/TestMipComp.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
@@ -111,7 +112,7 @@ endif
 # can make this take an argument for which unit test to build
 ifeq ($(BUILD_CONFIG),unit_test)
 	EXECUTABLE_STUB = UnitTest
-	SOURCES = test/testUtility/TestMipComp.cpp
+	SOURCES = test/$(UNIT_TEST_FILE)
 endif
 SRC_DIR = src
 DIR_LIST = $(SRC_DIR) $(SRC_DIR)/cut $(SRC_DIR)/utility $(SRC_DIR)/test $(SRC_DIR)/test/testCut $(SRC_DIR)/test/testUtility
