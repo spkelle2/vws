@@ -104,10 +104,17 @@ USE_CLP_SOLVER = 1
 USE_CPLEX_SOLVER = 0
 
 # Concerning executable
-EXECUTABLE_STUB = vws
+ifneq ($(BUILD_CONFIG),unit_test)
+	EXECUTABLE_STUB = vws
+	SOURCES = main.cpp
+endif
+# can make this take an argument for which unit test to build
+ifeq ($(BUILD_CONFIG),unit_test)
+	EXECUTABLE_STUB = UnitTest
+	SOURCES = test/testUtility/TestMipComp.cpp
+endif
 SRC_DIR = src
-SOURCES = main.cpp
-DIR_LIST = $(SRC_DIR) $(SRC_DIR)/cut $(SRC_DIR)/utility
+DIR_LIST = $(SRC_DIR) $(SRC_DIR)/cut $(SRC_DIR)/utility $(SRC_DIR)/test $(SRC_DIR)/test/testCut $(SRC_DIR)/test/testUtility
 
 # Code version
 CODE_VERSION    = $(shell git log -1 --pretty=format:"%H")
@@ -147,11 +154,16 @@ VPC_SOURCES += \
 #SOURCES += test/analysis.cpp test/BBHelper.cpp
 
 ### Set build values based on user variables ###
-ifeq ($(BUILD_CONFIG),debug)
+ifneq ($(BUILD_CONFIG),release)
   # "Debug" build - no optimization, include debugging symbols, and keep inline functions
 	#	SOURCES += utility/debug.cpp
   VPC_SOURCES += utility/vpc_debug.cpp
-  OUT_DIR = Debug
+  ifeq ($(BUILD_CONFIG),debug)
+  	OUT_DIR = Debug
+  endif
+  ifeq ($(BUILD_CONFIG),unit_test)
+		OUT_DIR = UnitTest
+	endif
   DEBUG_FLAG = -g3
   OPT_FLAG = -O0
   DEFS = -DTRACE -DCODE_VERSION="\#${CODE_VERSION}" -DVPC_VERSION="\#${VPC_VERSION}"
@@ -260,7 +272,7 @@ endif
 # Set up COIN-OR stuff
 ifeq ($(USE_COIN),1)
 	# If not defined for the environment, define CBC / BCP here
-	ifeq ($(BUILD_CONFIG),debug)
+	ifneq ($(BUILD_CONFIG),release)
 		CBC = $(COIN_OR)/$(COIN_OR_BUILD_DIR_DEBUG)
 	endif
 	ifeq ($(BUILD_CONFIG),release)

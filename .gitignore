@@ -12,6 +12,7 @@ subdir.mk
 *.pyc
 *.pyo
 *.swp
+UnitTest/
 Debug/
 DebugTmp/
 Release/

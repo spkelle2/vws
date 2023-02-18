@@ -15,7 +15,7 @@
 
 TEST_CASE( "MipComp::MipComp", "[MipComp]" ) {
 
-  MipComp testRunner("/Users/sean/Documents/school/phd/research/warm_starting/vws/test/datasets/testfiles/mat_rhs_bnd_obj_series_1.test");
+  MipComp testRunner("../src/test/datasets/testfiles/mat_rhs_bnd_obj_series_1.test");
 
   REQUIRE( testRunner.timeout == 180 );
   REQUIRE( testRunner.mipModels.size() == 50 );

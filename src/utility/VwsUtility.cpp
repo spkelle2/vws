@@ -25,7 +25,7 @@ namespace fs = std::__fs::filesystem;
 void verify(bool condition, const std::string& msg) {
   if (!condition) {
     std::cerr << msg << std::endl;
-    exit(1);
+    assert(false);  // cause failure with a stack trace
   }
 }
 
