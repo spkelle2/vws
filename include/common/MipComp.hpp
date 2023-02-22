@@ -5,6 +5,7 @@
  */
 
 // standard library
+#include <filesystem> // path
 #include <string>
 #include <vector>
 
@@ -13,6 +14,9 @@
 
 // project modules
 #include "VwsSolverInterface.hpp"
+
+// namespaces
+namespace fs = std::__fs::filesystem;
 
 /**
  * @brief Object to manage runs for the MIP Computational Contest
@@ -29,17 +33,41 @@ public:
   /** max run time on each MIP instance */
   int timeout;
 
-  /** vector of file locations for each MIP to solve */
+  /** vector of MIP instances to solve */
   std::vector< CbcModel > mipModels;
 
-  /** vector of file locations for each MIP to solve */
-  std::vector< std::string > names;
+  /** names of each solved MIP instance */
+  std::vector< std::string > instanceNames;
 
   /** the solver used for the series of mipModels */
   VwsSolverInterface solver;
 
-  /** Constructor. Initializes attributes from provided file. */
-  MipComp(char * filePath);
+  /** the dual bound after solving the root LP relaxation for each instance */
+  std::vector< double > lpBounds;
+
+  /** the dual bound after running cut generation on the root node */
+  std::vector< double > rootDualBounds;
+
+  /** the best found dual bound for each instance */
+  std::vector< double > dualBounds;
+
+  /** the best found primal bound for each instance */
+  std::vector< double > primalBounds;
+
+  /** time to solve the root LP relaxation for each instance */
+  std::vector< double > lpBoundTimes;
+
+  /** time from calling model.branchAndBound() to completion of cut generation on root node */
+  std::vector< double > rootDualBoundTimes;
+
+  /** duration of model.branchAndBound() calls */
+  std::vector< double > terminationTimes;
+
+  /** Where best solutions will be saved */
+  fs::path solutionDirectory;
+
+  /** Constructor. Initializes attributes based on provided file. */
+  MipComp(const char * filePath, const char * solutionDirectoryChars);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

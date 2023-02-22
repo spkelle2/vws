@@ -31,18 +31,27 @@ public:
   /** vector of disjunctions used to create VPCs from previous MIPs */
   std::vector<PartialBBDisjunction*> disjunction;
 
-  /** random number generator used to sample from 0-1 distribution to determine
-   * if VPCs are created from solving PRLPs or from applying previous disjunctions
-   * and Farkas multipliers */
-  std::mt19937 randomNumberGenerator;
+  /** number of solutions to save each solve */
+  int maxSavedSolutions;
+
+  /** All previously encountered solutions
+   * indexed by [problem][solution][variable] */
+  std::vector< std::vector< std::vector<double>>> solutions;
+
+  /** names of variables in each instance
+   * indexed by [problem][column index] */
+  std::vector< std::vector< std::string > > variableNames;
+
+  /** names of constraints in each instance
+   * indexed by [problem][row index] */
+  std::vector< std::vector< std::string > > constraintNames;
 
   /** Default constructor */
-  VwsSolverInterface();
+  VwsSolverInterface(int maxSavedSolutions=100);
 
   /** Solve given model. With probability p, solve PRLPs to create VPCs. With
    * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
-  void solve(CbcModel& model, double p);
-  // todo: start the above with just getting the dual bound
+  void solve(CbcModel& model);
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
 

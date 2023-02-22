@@ -4,35 +4,49 @@
  * @date 2023-01-31
  */
 
-#include <chrono> // now, timeSinceEpoch
+// standard library
 #include <iostream> // cout
-#include <random> // seed_seq, mt19937, uniform_real_distribution
+#include <vector> // vector
 
-// #include "BBHelper.hpp" // doBranchAndBoundWithUserCutsCbc
+// project modules
+#include "VwsUtility.hpp"
 #include "VwsSolverInterface.hpp"
 
 
-/** Default constructor */
-VwsSolverInterface::VwsSolverInterface() {
-  // seed the random number generator
-  const int givenSeed = 1;  // params.get(intParam::RANDOM_SEED);
-  const auto randomSeed = givenSeed; // > 0 ? givenSeed : std::chrono::system_clock::now().time_since_epoch().count();
-  std::seed_seq currentSeed{randomSeed};
-  randomNumberGenerator.seed(currentSeed);
-} /* default constructor */
+/** constructor */
+VwsSolverInterface::VwsSolverInterface(int maxSavedSolutions):
+  maxSavedSolutions(maxSavedSolutions) {
+} /* constructor */
 
 
 /** Solve a MIP with VPCs added */
-void VwsSolverInterface::solve(CbcModel& model, double p){
+void VwsSolverInterface::solve(CbcModel& model){
 
-  // todo: check any assumptions on the model
-  assert(0 <= p && p <= 1);  // probability should be between 0 and 1 inclusive
+  // todo: enforce that we have a MIP with same number of variables and constraints
 
-  std::uniform_real_distribution<> zeroOneUniformDistribution(0.0, 1.0);
+  // set model parameters
+  model.setMaximumSavedSolutions(maxSavedSolutions);
 
-  if (zeroOneUniformDistribution(randomNumberGenerator) < p || !disjunction.size()) {
-    model.initialSolve();
-  } else {
+  // save variable and constraint names
+  variableNames.push_back(getVariableNames(model));
+  constraintNames.push_back(getConstraintNames(model));
+
+  // run initial solve if it hasn't happened yet bc branchAndBound assumes it's done
+  if (model.status() < 0) {
     model.initialSolve();
   }
+
+  // solve the MIP and record related stats
+  model.branchAndBound(3);
+
+  // save the solutions in memory
+  std::vector< std::vector <double>> problemSolutions;
+  for (int j = 0; j < model.numberSavedSolutions(); j++) {
+    std::vector<double> solution(model.savedSolution(j),
+                                 model.savedSolution(j) + model.getNumCols());
+    problemSolutions.push_back(solution);
+  }
+  solutions.push_back(problemSolutions);
+
 } /* solve */
+

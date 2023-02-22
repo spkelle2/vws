@@ -126,6 +126,7 @@ VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 SOURCES += \
 	cut/VwsSolverInterface.cpp \
 	utility/MipComp.cpp \
+	utility/MipCompEventHandler.cpp \
 	utility/VwsUtility.cpp
 
 # VPC directories

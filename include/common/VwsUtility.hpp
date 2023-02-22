@@ -20,3 +20,11 @@ void verify(bool condition, const std::string& msg);
 /** Unzips the .gz file at instancePath and reads it into a CbcModel */
 CbcModel extractModelFromGunzip(fs::path instancePath);
 
+/** get the variable names from a CbcModel */
+std::vector<std::string> getVariableNames(CbcModel &model);
+
+/** get the constraint names from a CbcModel */
+std::vector<std::string> getConstraintNames(CbcModel &model);
+
+/** writes the best solution from <model> to <solutionPath> with the names <variableNames> */
+void writeSolution(CbcModel &model, std::vector<std::string> variableNames, fs::path solutionPath);
