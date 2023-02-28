@@ -13,7 +13,7 @@ ifeq ($(UNAME),Linux)
   SYSTEM = x86-64_linux
 endif
 ifeq ($(UNAME),Darwin)
-  CC     = clang++
+  CC     = g++
   SYSTEM = x86-64_osx
 endif
 RM = rm -f
