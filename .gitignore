@@ -24,7 +24,6 @@ TmpRelease/
 .DS_Store
 *.csv*
 nohup.out
-data/instances/*
-*.mps*
+*.mps
 lib/
 gurobi.log

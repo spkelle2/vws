@@ -44,50 +44,45 @@ void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver){
   constraintNames.push_back(getConstraintNames(instanceSolver));
 
   // preprocess the problem
-  CbcModel model(instanceSolver);
+  CbcModel * model = new CbcModel(instanceSolver);
   CglPreProcess process;
   OsiSolverInterface * preprocessedSolver = process.preProcess(instanceSolver, false, 5);
   verify(preprocessedSolver, "Pre-processing says infeasible");
-  CbcModel preprocessedModel(*preprocessedSolver);
-
-  // Cbc has a bug where it assigns an address to an event handler when none is passed
-  // so give it a placeholder
-  VwsEventHandler* cb = new VwsEventHandler();
-  // CbcModel makes clone of event handler
-  preprocessedModel.passInEventHandler(cb);
-  delete cb;
-  cb = NULL;
+  CbcModel * preprocessedModel = new CbcModel(*preprocessedSolver);
 
   // turn on heuristics
   CbcSolverUsefulData cbcData;
-  CbcMain0(preprocessedModel, cbcData);
-  doHeuristics(&preprocessedModel, 2, cbcData, cbcData.noPrinting(), 1005043);
+  CbcMain0(*preprocessedModel, cbcData);
+  doHeuristics(preprocessedModel, 2, cbcData, cbcData.noPrinting(), 1005043);
 
   // turn on strong branching and cut generation
   CbcStrategyDefault strategy(false, 5, 0);
-  preprocessedModel.setStrategy(strategy);
+  preprocessedModel->setStrategy(strategy);
 
   // set number of solutions to save and time limit
-  preprocessedModel.setMaximumSavedSolutions(maxSavedSolutions);
-  preprocessedModel.setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime);
+  preprocessedModel->setMaximumSavedSolutions(maxSavedSolutions);
+  preprocessedModel->setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime);
 
   // run the solver
-  preprocessedModel.branchAndBound();
+  preprocessedModel->branchAndBound();
 
   // move the solutions and bound info to the original model and solver interface
-  putBackSolutions(&preprocessedModel, &model, &process);
-  process.postProcess(*preprocessedModel.solver());
-  model.moveInfo(preprocessedModel);
+  putBackSolutions(preprocessedModel, model, &process);
+  process.postProcess(*preprocessedModel->solver());
+  model->moveInfo(*preprocessedModel);
   // model.initialSolve();
 
   // save the solutions in memory
   std::vector< std::vector <double>> problemSolutions;
-  for (int j = 0; j < model.numberSavedSolutions(); j++) {
-    std::vector<double> solution(model.savedSolution(j),
-                                 model.savedSolution(j) + model.getNumCols());
+  for (int j = 0; j < model->numberSavedSolutions(); j++) {
+    std::vector<double> solution(model->savedSolution(j),
+                                 model->savedSolution(j) + model->getNumCols());
     problemSolutions.push_back(solution);
   }
   solutions.push_back(problemSolutions);
-  dualBounds.push_back(model.getBestPossibleObjValue());
+  dualBounds.push_back(model->getBestPossibleObjValue());
+
+  delete preprocessedModel;
+  delete model;
 } /* solve */
 

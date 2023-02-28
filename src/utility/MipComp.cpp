@@ -16,8 +16,7 @@
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
 
 // project modules
-#include "MipComp.hpp"
-#include "MipCompEventHandler.hpp" // MipCompEventHandler
+#include "MipComp.hpp" // MipComp
 #include "VwsUtility.hpp" // verify, extractModelFromGunzip, writeSolution
 
 // namespaces
@@ -63,7 +62,7 @@ MipComp::MipComp(const char * filePathChars, const char * solutionDirectoryChars
     // read each .gz file to a CbcModel
     else if (!std::regex_search(str, metadataPattern))
     {
-      // for each model, save it, its name, and add an event handler for data tracking
+      // for each model, save its solver interface and its name
       fs::path instancePath = datasetRootDirectory / str;
       OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip(instancePath);
       instanceSolvers.push_back(instanceSolver);
