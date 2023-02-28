@@ -12,13 +12,14 @@
 #include "MipCompEventHandler.hpp"
 
 MipCompEventHandler::MipCompEventHandler()
-    : CbcEventHandler()
 {
 }
 
 MipCompEventHandler::MipCompEventHandler(const MipCompEventHandler &rhs)
-    : CbcEventHandler(rhs)
-{
+  : rootDualBoundTime(rhs.rootDualBoundTime),
+    rootDualBound(rhs.rootDualBound),
+    CbcEventHandler(rhs){
+
 }
 
 MipCompEventHandler::MipCompEventHandler(CbcModel *model)
@@ -33,6 +34,8 @@ MipCompEventHandler::~MipCompEventHandler()
 MipCompEventHandler &MipCompEventHandler::operator=(const MipCompEventHandler &rhs)
 {
   if (this != &rhs) {
+    rootDualBoundTime = rhs.rootDualBoundTime;
+    rootDualBound = rhs.rootDualBound;
     CbcEventHandler::operator=(rhs);
   }
   return *this;

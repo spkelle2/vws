@@ -17,14 +17,19 @@ namespace fs = std::__fs::filesystem;
 /** Asserts that the condition is true. If not, msg is printed and program terminates */
 void verify(bool condition, const std::string& msg);
 
-/** Unzips the .gz file at instancePath and reads it into a CbcModel */
-CbcModel extractModelFromGunzip(fs::path instancePath);
+/** Unzips the .gz file at instancePath and reads it into an OsiClpSolverInterface */
+OsiClpSolverInterface extractSolverInterfaceFromGunzip(fs::path instancePath);
 
 /** get the variable names from a CbcModel */
-std::vector<std::string> getVariableNames(CbcModel &model);
+std::vector<std::string> getVariableNames(OsiSolverInterface& solverInterface);
 
 /** get the constraint names from a CbcModel */
-std::vector<std::string> getConstraintNames(CbcModel &model);
+std::vector<std::string> getConstraintNames(OsiSolverInterface& solverInterface);
 
-/** writes the best solution from <model> to <solutionPath> with the names <variableNames> */
-void writeSolution(CbcModel &model, std::vector<std::string> variableNames, fs::path solutionPath);
+/** writes solution in <variableValue> to <solutionPath>. Removes previous
+ * solution recorded at <solutionPath>. */
+void writeSolution(std::vector<double> variableValues, std::vector<std::string> variableNames,
+                   fs::path solutionPath);
+
+/** transform solutions from the presolved model to the original instance */
+void putBackSolutions(CbcModel *presolvedModel, CbcModel *model, CglPreProcess *preProcess);

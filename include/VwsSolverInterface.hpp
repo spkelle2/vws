@@ -11,7 +11,7 @@
 #include "CbcModel.hpp" // CbcModel
 
 // project modules
-#include "PartialBBDisjunction.hpp" // DisjunctiveTerm, Disjunction, getSolverForTerm
+#include "PartialBBDisjunction.hpp" // Disjunction
 
 
 /**
@@ -26,17 +26,27 @@ class VwsSolverInterface {
 public:
   /** vector of Farkas multipliers used to create VPCs from previous MIPs.
    * Indexed [mip][cut][disjunctive term][Farkas multiplier] */
-  std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificate;
+  std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificates;
 
   /** vector of disjunctions used to create VPCs from previous MIPs */
-  std::vector<PartialBBDisjunction*> disjunction;
+  std::vector<PartialBBDisjunction*> disjunctions;
 
   /** number of solutions to save each solve */
   int maxSavedSolutions;
 
+  /** number of seconds to give each solve */
+  int maxRunTime;
+
+  /** number of terms to include in each disjunction */
+  int disjunctiveTerms;
+
   /** All previously encountered solutions
    * indexed by [problem][solution][variable] */
   std::vector< std::vector< std::vector<double>>> solutions;
+
+  /** All previously encountered dual bounds
+   * indexed by [problem] */
+  std::vector<double> dualBounds;
 
   /** names of variables in each instance
    * indexed by [problem][column index] */
@@ -47,11 +57,11 @@ public:
   std::vector< std::vector< std::string > > constraintNames;
 
   /** Default constructor */
-  VwsSolverInterface(int maxSavedSolutions=100);
+  VwsSolverInterface(int maxSavedSolutions=100, int maxRunTime=1000000, int disjunctiveTerms=64);
 
   /** Solve given model. With probability p, solve PRLPs to create VPCs. With
    * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
-  void solve(CbcModel& model);
+  void solve(OsiClpSolverInterface& instanceSolver);
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
 
