@@ -54,7 +54,7 @@ void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver){
   // so give it a placeholder
   VwsEventHandler* cb = new VwsEventHandler();
   // CbcModel makes clone of event handler
-  model.passInEventHandler(cb);
+  preprocessedModel.passInEventHandler(cb);
   delete cb;
   cb = NULL;
 
