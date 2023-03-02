@@ -33,7 +33,7 @@ TEST_CASE( "MipComp::MipComp", "[MipComp]" ) {
   REQUIRE( testRunner.instanceNames[1] == "rhs_s2_i02" );
   REQUIRE( testRunner.instanceNames[2] == "rhs_s2_i03" );
   REQUIRE( fs::exists("../src/test/datasets/solutions/rhs_series_2_short") );
-  REQUIRE( testRunner.solver.maxSavedSolutions == 100 );
+  REQUIRE( testRunner.solver.maxExtraSavedSolutions == 100 );
   REQUIRE( testRunner.solver.maxRunTime == 50 );
 }
 

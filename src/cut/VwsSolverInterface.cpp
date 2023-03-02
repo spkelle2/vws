@@ -24,8 +24,8 @@
 
 
 /** constructor */
-VwsSolverInterface::VwsSolverInterface(int maxSavedSolutions, int maxRunTime, int disjunctiveTerms):
-  maxSavedSolutions(maxSavedSolutions),
+VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, int maxRunTime, int disjunctiveTerms):
+  maxExtraSavedSolutions(maxExtraSavedSolutions),
   maxRunTime(maxRunTime),
   disjunctiveTerms(disjunctiveTerms)
   {
@@ -35,7 +35,7 @@ VwsSolverInterface::VwsSolverInterface(int maxSavedSolutions, int maxRunTime, in
 /** Solve a MIP with VPCs added */
 void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver){
 
-  // todo: make preprocessing optional
+  // todo: make preprocessing optional - check if bounds overlap still
   // todo: enforce that we have a MIP with same number of variables and constraints
   // todo: create a parameters file for vws that can set up parameters for VPC and CBC
 
@@ -50,8 +50,7 @@ void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver){
   verify(preprocessedSolver, "Pre-processing says infeasible");
   CbcModel preprocessedModel(*preprocessedSolver);
 
-  // Cbc has a bug where it assigns an address to an event handler when none is passed
-  // so give it a placeholder
+  // set up event handler
   VwsEventHandler* cb = new VwsEventHandler();
   // CbcModel makes clone of event handler
   preprocessedModel.passInEventHandler(cb);
@@ -68,7 +67,8 @@ void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver){
   preprocessedModel.setStrategy(strategy);
 
   // set number of solutions to save and time limit
-  preprocessedModel.setMaximumSavedSolutions(maxSavedSolutions);
+  model.setMaximumSavedSolutions(maxExtraSavedSolutions);
+  preprocessedModel.setMaximumSavedSolutions(maxExtraSavedSolutions);
   preprocessedModel.setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime);
 
   // run the solver

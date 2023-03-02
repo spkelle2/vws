@@ -32,7 +32,7 @@ public:
   std::vector<PartialBBDisjunction*> disjunctions;
 
   /** number of solutions to save each solve */
-  int maxSavedSolutions;
+  int maxExtraSavedSolutions;
 
   /** number of seconds to give each solve */
   int maxRunTime;
@@ -57,7 +57,7 @@ public:
   std::vector< std::vector< std::string > > constraintNames;
 
   /** Default constructor */
-  VwsSolverInterface(int maxSavedSolutions=100, int maxRunTime=1000000, int disjunctiveTerms=64);
+  VwsSolverInterface(int maxExtraSavedSolutions=100, int maxRunTime=1000000, int disjunctiveTerms=64);
 
   /** Solve given model. With probability p, solve PRLPs to create VPCs. With
    * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */

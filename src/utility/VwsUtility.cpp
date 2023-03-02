@@ -96,7 +96,7 @@ void writeSolution(std::vector<double> variableValues, std::vector<std::string> 
 void putBackSolutions(CbcModel *presolvedModel, CbcModel *model, CglPreProcess *preProcess){
   int numberSolutions = presolvedModel->numberSavedSolutions();
   int numberColumns = presolvedModel->getNumCols();
-  if (numberSolutions > 1) {
+  if (numberSolutions >= 1) {
     model->deleteSolutions();
     double *bestSolution =
         CoinCopyOfArray(presolvedModel->bestSolution(), numberColumns);
