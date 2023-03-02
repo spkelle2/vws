@@ -4,7 +4,7 @@
  * @date 2023-01-31
  */
 // standard library modules
-#include <random> // mt19937
+#include <memory> // shared_ptr
 #include <vector>
 
 // shared modules
@@ -61,9 +61,17 @@ public:
 
   /** Solve given model. With probability p, solve PRLPs to create VPCs. With
    * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
-  void solve(OsiClpSolverInterface& instanceSolver);
+  void solve(OsiClpSolverInterface& instanceSolver, bool usePreprocessing=true);
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
+
+protected:
+
+  /** Solve the MIP encoded in instanceSolver without presolving */
+  std::shared_ptr<CbcModel> unprocessedBranchAndCut(OsiClpSolverInterface& solver);
+
+  /** Solve the MIP encoded in instanceSolver with presolving */
+  std::shared_ptr<CbcModel> preprocessedBranchAndCut(OsiClpSolverInterface& instanceSolver);
 
 }; /* VpcWarmStart */
 

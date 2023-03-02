@@ -27,3 +27,4 @@ nohup.out
 *.mps
 lib/
 gurobi.log
+src/test/datasets/
