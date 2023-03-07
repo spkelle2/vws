@@ -5,4 +5,6 @@
 [LHS] -
 [RHS] -
 [MAT] -
-bm23.mps.gz
+datasets/bm23/series_1/bm23_i01.mps.gz
+datasets/bm23/series_1/bm23_i02.mps.gz
+datasets/bm23/series_1/bm23_i03.mps.gz

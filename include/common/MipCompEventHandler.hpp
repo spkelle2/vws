@@ -1,40 +1,43 @@
 /**
- * @file VwsEventHandler.hpp
+ * @file MipCompEventHandler.hpp
  * @author Sean Kelley
- * @date 2023-02-27
+ * @date 2023-03-02
  */
 
 // coin-or modules
 #include "CbcEventHandler.hpp"
 #include <CbcModel.hpp>
 
+// project modules
+#include "RunData.hpp"
+
 /** Class to trap events and capture statistics */
-class VwsEventHandler : public CbcEventHandler {
+class MipCompEventHandler : public CbcEventHandler {
 public:
-  int num_vars;
+  RunData data;
 
   /** Event handler */
   virtual CbcAction event(CbcEvent whichEvent);
 
   /** Default constructor */
-  VwsEventHandler();
+  MipCompEventHandler();
 
   /** constructor from CbcModel */
-  VwsEventHandler(CbcModel *model);
+  MipCompEventHandler(CbcModel *model);
 
   /** Destructor */
-  virtual ~VwsEventHandler();
+  virtual ~MipCompEventHandler();
 
   /** Copy Constructor */
-  VwsEventHandler(const VwsEventHandler& rhs);
+  MipCompEventHandler(const MipCompEventHandler& rhs);
 
   /** Assignment */
-  VwsEventHandler& operator=(const VwsEventHandler& rhs);
+  MipCompEventHandler& operator=(const MipCompEventHandler& rhs);
 
   /** Clone */
   virtual CbcEventHandler* clone() const;
 
 protected:
   /** Copy our stuff */
-  void initialize(const VwsEventHandler* const rhs);
+  void initialize(const MipCompEventHandler* const rhs);
 }; /* VwsEventHandler */

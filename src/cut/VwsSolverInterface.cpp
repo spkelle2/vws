@@ -11,6 +11,7 @@
 #include <vector> // vector
 
 // coin-or modules
+#include "CbcEventHandler.hpp" // CbcEventHandler
 #include "CbcModel.hpp"
 #include "CbcSolver.hpp" // cbcMain0
 #include "CbcSolverHeuristics.hpp" // doHeuristics
@@ -19,7 +20,6 @@
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
 
 // project modules
-#include "VwsEventHandler.hpp"
 #include "VwsSolverInterface.hpp"
 #include "VwsUtility.hpp" // getVariableNames, getConstraintNames, putBackSolutions
 
@@ -33,12 +33,15 @@ VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, int maxRunTim
 } /* constructor */
 
 
-/** Solve a MIP with VPCs added */
-void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver, bool usePreprocessing){
+/** Solve a MIP with VPCs added. Adds the provided eventHandler to the solve,
+ * preprocessing the input model if requested */
+CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
+                                   bool usePreprocessing, CbcEventHandler* eventHandler){
 
   // todo: enforce that we have a MIP with same number of variables and constraints
   // todo: create a parameters file for vws that can set up parameters for VPC and CBC
 
+  // instanceSolver passed by reference since names aren't carried over when CbcModel constructor copies it
   variableNames.push_back(getVariableNames(instanceSolver));
   constraintNames.push_back(getConstraintNames(instanceSolver));
 
@@ -48,9 +51,9 @@ void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver, bool usePr
   // within a subroutine, but still need to access it here, necessitating the pointer
   std::shared_ptr<CbcModel> model;
   if (usePreprocessing) {
-    model = preprocessedBranchAndCut(instanceSolver);
+    model = preprocessedBranchAndCut(instanceSolver, eventHandler);
   } else {
-    model = unprocessedBranchAndCut(instanceSolver);
+    model = unprocessedBranchAndCut(instanceSolver, eventHandler);
   }
 
   // save the solutions in memory
@@ -61,23 +64,21 @@ void VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver, bool usePr
     problemSolutions.push_back(solution);
   }
   solutions.push_back(problemSolutions);
-  dualBounds.push_back(model->getBestPossibleObjValue());
+
+  // return the model for any further analysis by user
+  return *model;
 } /* solve */
 
 /** Uses a default Branch and Cut scheme to solve a MIP without additional preprocessing.
  *  Note: we give a new name to the solver here since it could already be preprocessed
- *  and we don't want to clash names with the unprocessed instanceSolver from the original formulation */
+ *  and we don't want to clash names with the unprocessed instanceSolver from the
+ *  original formulation. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
-    OsiClpSolverInterface& solver){
+    OsiClpSolverInterface& solver, CbcEventHandler* eventHandler){
 
+  // instantiate the model
   std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(solver);
-
-  // set up event handler
-  VwsEventHandler* cb = new VwsEventHandler();
-  // CbcModel makes clone of event handler
-  model->passInEventHandler(cb);
-  delete cb;
-  cb = NULL;
+  model->passInEventHandler(eventHandler);
 
   // turn on heuristics
   CbcSolverUsefulData cbcData;
@@ -102,9 +103,10 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
 } /* unprocessedBranchAndCut */
 
 /** Preprocesses a MIP, uses a default Branch and Cut scheme to solve it,
- * and returns the preprocessed solution information back to the original problem space */
+ * and returns the preprocessed solution information back to the original problem
+ * space. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
-    OsiClpSolverInterface& instanceSolver){
+    OsiClpSolverInterface& instanceSolver, CbcEventHandler* eventHandler){
 
   std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(instanceSolver);
 
@@ -115,13 +117,15 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
   verify(preprocessedSolver, "Pre-processing says infeasible");
 
   // run the default branch and cut scheme on the preprocessed problem
-  std::shared_ptr<CbcModel> preprocessedModel = unprocessedBranchAndCut(*preprocessedSolver);
+  std::shared_ptr<CbcModel> preprocessedModel =
+      unprocessedBranchAndCut(*preprocessedSolver, eventHandler);
 
-  // move the solutions and bound info to the original model and solver interface
+  // move the solutions, bound info, and event handler to the original model/solver interface
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
   putBackSolutions(preprocessedModel.get(), model.get(), &process);
   process.postProcess(*preprocessedModel->solver());
   model->moveInfo(*preprocessedModel);
+  model->passInEventHandler(preprocessedModel->getEventHandler());
 
   return model;
 } /* preprocessedBranchAndCut */

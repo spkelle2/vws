@@ -13,6 +13,7 @@
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
 
 // project modules
+#include "RunData.hpp"
 #include "VwsSolverInterface.hpp"
 
 // namespaces
@@ -33,6 +34,9 @@ public:
   /** max run time on each MIP instance */
   int timeout;
 
+  /** whether or not to use presolve */
+  bool usePreprocessing;
+
   /** the solver used for the series of mipModels */
   VwsSolverInterface seriesSolver;
 
@@ -42,41 +46,23 @@ public:
   /** names of each solved MIP instance */
   std::vector< std::string > instanceNames;
 
-  /** the dual bound after solving the root LP relaxation for each instance */
-  std::vector< double > lpBounds;
-
-  /** the dual bound after running cut generation on the root node */
-  std::vector< double > rootDualBounds;
-
-  /** the best found dual bound for each instance */
-  std::vector< double > dualBounds;
-
-  /** the best found primal bound for each instance */
-  std::vector< double > primalBounds;
-
-  /** time to solve the root LP relaxation for each instance */
-  std::vector< double > lpBoundTimes;
-
-  /** time from calling model.branchAndBound() to completion of cut generation on root node */
-  std::vector< double > rootDualBoundTimes;
-
-  /** duration of model.branchAndBound() calls */
-  std::vector< double > terminationTimes;
-
   /** Where best solutions will be saved */
   fs::path solutionDirectory;
 
   /** Where csvData (e.g. vector attributes) will be saved */
   fs::path csvPath;
 
+  /** vector of RunData objects to store data from each run */
+  std::vector<RunData> runData;
+
   /** Constructor. Initializes attributes based on provided file. */
   MipComp(const char * filePath, const char * solutionDirectoryChars,
-          const char * csvPathChars);
+          const char * csvPathChars, bool usePreprocessing);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();
 
   /** writes the data collected from a test run to a csv */
-  void writeCsvData(fs::path csvPath);
+  void writeCsvData();
 
 }; /* VpcWarmStart */

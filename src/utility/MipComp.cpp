@@ -9,6 +9,7 @@
 #include <ctime> // time_t, localtime, put_time
 #include <filesystem> // path
 #include <fstream> // ofstream
+#include <memory> // shared_ptr
 #include <regex> // regex
 #include <string> // string
 
@@ -17,6 +18,7 @@
 
 // project modules
 #include "MipComp.hpp" // MipComp
+#include "MipCompEventHandler.hpp" // MipCompEventHandler
 #include "VwsUtility.hpp" // verify, extractModelFromGunzip, writeSolution
 
 // namespaces
@@ -26,9 +28,9 @@ namespace fs = std::__fs::filesystem;
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
 MipComp::MipComp(const char * filePathChars, const char * solutionDirectoryChars,
-                 const char * csvPathChars):
-  solutionDirectory(solutionDirectoryChars),
-  csvPath(csvPathChars) {
+                 const char * csvPathChars, bool usePreprocessing):
+  solutionDirectory(solutionDirectoryChars), csvPath(csvPathChars),
+  usePreprocessing(usePreprocessing) {
 
   // validate file paths
   fs::path filePath(filePathChars);
@@ -92,8 +94,16 @@ void MipComp::solveSeries() {
     std::cout << "[INSTANCE] " << instanceNames[i] << ".mps" << std::endl;
     std::cout << "[START] " << std::put_time(std::localtime(&t), "%FT%T") << std::endl;
 
+    // set up event handler for data collection
+    std::shared_ptr<MipCompEventHandler> handler = std::make_shared<MipCompEventHandler>();
+
     // solve the instance
-    seriesSolver.solve(instanceSolver);
+    CbcModel model = seriesSolver.solve(instanceSolver, usePreprocessing, handler.get());
+
+    // correct the recorded dual boun and save the data collected by the event handler
+    *handler = *dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
+    handler->data.dualBound = model.getBestPossibleObjValue();
+    runData.push_back(handler->data);
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){
@@ -103,29 +113,21 @@ void MipComp::solveSeries() {
     // print end time and dual bound
     t = std::time(nullptr);
     std::cout << "[END] " << std::put_time(std::localtime(&t), "%FT%T") << std::endl;
-    std::cout << "[DUAL BOUND] " << seriesSolver.dualBounds[i]	<< std::endl;
+    std::cout << "[DUAL BOUND] " << runData[i].dualBound << std::endl;
   }
-
+  writeCsvData();
 } /* solveSeries */
 
-///** writes the data collected from a test run to a csv */
-//void writeCsvData(){
-//  // check that the inputs meet expectations
-//  verify(fs::exists(csvPath.parent_path()),
-//         "The directory " + csvPath.parent_path().string() + " does not exist.");
-//
-//  std::ofstream file(csvPath.string());
-//  // write the header if the file doesn't exist
-//  if (!fs::exists(csvPath)) {
-//    file << "Instance Name,LP Bound,Root Dual Bound,Dual Bound,Primal Bound,"
-//            "LP Bound Time,Root Dual Bound Time,Termination Time" << std::endl;
-//  }
-//  for (int i = 0; i < instanceSolvers.size(); i++) {
-//    // write each line
-//    file << instanceNames[i] + "," + std::to_string(lpBounds[i]) + "," +
-//            std::to_string(rootDualBounds[i]) + "," + std::to_string(dualBounds[i]) + "," +
-//            std::to_string(primalBounds[i]) + "," + std::to_string(lpBoundTimes[i]) + "," +
-//            std::to_string(rootDualBoundTimes[i]) + "," + std::to_string(terminationTimes[i]) << std::endl;
-//  }
-//  file.close();
-//}
+/** writes the data collected from a test run to a csv */
+void MipComp::writeCsvData(){
+  // check that the inputs meet expectations
+  verify(fs::exists(csvPath.parent_path()),
+         "The directory " + csvPath.parent_path().string() + " does not exist.");
+
+  std::ofstream file(csvPath.string());
+  file << runData[0].getHeader() << std::endl;
+  for (int i = 0; i < instanceSolvers.size(); i++) {
+    file << runData[i].getValues() << std::endl;
+  }
+  file.close();
+}

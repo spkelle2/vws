@@ -70,7 +70,7 @@ void checkSolutions(VwsSolverInterface &seriesSolver, OsiClpSolverInterface &ins
 TEST_CASE("Test a single solve", "[VwsSolverInterface::solve]") {
 
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver);
 
@@ -92,12 +92,12 @@ TEST_CASE("Test a single solve", "[VwsSolverInterface::solve]") {
 TEST_CASE( "Solve a second time with one solution", "[VwsSolverInterface::solve]" ){
 
   // solve a model with the VwsSolverInterface
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver);
 
   // check on rerun that we get acceptable duplication
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23_i01.mps.gz");
   seriesSolver.maxExtraSavedSolutions = 0;
   seriesSolver.solve(instanceSolver);
 
@@ -118,7 +118,7 @@ TEST_CASE( "Solve a second time with one solution", "[VwsSolverInterface::solve]
 
 TEST_CASE( "Solve without preprocessing", "[VwsSolverInterface::solve]" ) {
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver, false);
 

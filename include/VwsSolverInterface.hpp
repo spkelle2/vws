@@ -8,6 +8,7 @@
 #include <vector>
 
 // shared modules
+#include "CbcEventHandler.hpp" // CbcEventHandler
 #include "CbcModel.hpp" // CbcModel
 
 // project modules
@@ -44,10 +45,6 @@ public:
    * indexed by [problem][solution][variable] */
   std::vector< std::vector< std::vector<double>>> solutions;
 
-  /** All previously encountered dual bounds
-   * indexed by [problem] */
-  std::vector<double> dualBounds;
-
   /** names of variables in each instance
    * indexed by [problem][column index] */
   std::vector< std::vector< std::string > > variableNames;
@@ -59,19 +56,21 @@ public:
   /** Default constructor */
   VwsSolverInterface(int maxExtraSavedSolutions=100, int maxRunTime=1000000, int disjunctiveTerms=64);
 
-  /** Solve given model. With probability p, solve PRLPs to create VPCs. With
-   * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
-  void solve(OsiClpSolverInterface& instanceSolver, bool usePreprocessing=true);
+  /** Solve a MIP with VPCs added. */
+  CbcModel solve(OsiClpSolverInterface& instanceSolver, bool usePreprocessing=true,
+                 CbcEventHandler* eventHandler=nullptr);
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
 
 protected:
 
   /** Solve the MIP encoded in instanceSolver without presolving */
-  std::shared_ptr<CbcModel> unprocessedBranchAndCut(OsiClpSolverInterface& solver);
+  std::shared_ptr<CbcModel> unprocessedBranchAndCut(OsiClpSolverInterface& solver,
+                                                    CbcEventHandler* eventHandler);
 
   /** Solve the MIP encoded in instanceSolver with presolving */
-  std::shared_ptr<CbcModel> preprocessedBranchAndCut(OsiClpSolverInterface& instanceSolver);
+  std::shared_ptr<CbcModel> preprocessedBranchAndCut(OsiClpSolverInterface& instanceSolver,
+                                                     CbcEventHandler* eventHandler);
 
 }; /* VpcWarmStart */
 

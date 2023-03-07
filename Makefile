@@ -25,7 +25,7 @@ RM = rm -f
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
-UNIT_TEST_FILE = testCut/TestVwsSolverInterface.cpp
+UNIT_TEST_FILE = testUtility/TestMipComp.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
@@ -126,8 +126,9 @@ VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 SOURCES += \
 	cut/VwsSolverInterface.cpp \
 	cut/CbcSolverHeuristics.cpp \
-	cut/VwsEventHandler.cpp \
 	utility/MipComp.cpp \
+	utility/MipCompEventHandler.cpp \
+	utility/RunData.cpp \
 	utility/VwsUtility.cpp
 
 # VPC directories
