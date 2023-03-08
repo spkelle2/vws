@@ -83,7 +83,12 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
   // turn on heuristics
   CbcSolverUsefulData cbcData;
   CbcMain0(*model, cbcData);
-  doHeuristics(model.get(), 2, cbcData, cbcData.noPrinting(), 1005043);
+  cbcData[CbcParam::DIVEOPT]->setVal(2);
+  cbcData[CbcParam::FPUMPITS]->setVal(30);
+  cbcData[CbcParam::FPUMPTUNE]->setVal(1005043);
+  cbcData[CbcParam::DIVINGC]->setVal("on");
+  cbcData[CbcParam::RINS]->setVal("on");
+  doHeuristics(model.get(), 1, cbcData, cbcData.noPrinting(), 1005043);
 
   // turn on strong branching and cut generation
   CbcStrategyDefault strategy(false, 5, 0);

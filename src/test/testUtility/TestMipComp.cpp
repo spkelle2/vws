@@ -31,19 +31,20 @@ TEST_CASE( "Test Simple") {
   fs::remove_all(solutionDirectory);
   fs::remove_all(csvPath);
 
-  MipComp testRunner(filePath.string().c_str(), solutionDirectory.string().c_str(),
-                     csvPath.string().c_str(), true);
+  MipComp testRunner(filePath.string(), solutionDirectory.string(),
+                     csvPath.string(), true, .5);
 
   SECTION("MipComp::MipComp"){
     REQUIRE( testRunner.usePreprocessing );
-    REQUIRE( testRunner.timeout == 60 );
+    REQUIRE( testRunner.timeout == 30 );
+    REQUIRE( testRunner.timeoutBuffer == 10 );
     REQUIRE( testRunner.instanceSolvers.size() == 3 );
     REQUIRE( testRunner.instanceNames[0] == "bm23_i01" );
     REQUIRE( testRunner.instanceNames[1] == "bm23_i02" );
     REQUIRE( testRunner.instanceNames[2] == "bm23_i03" );
     REQUIRE( fs::exists(solutionDirectory) );
     REQUIRE( testRunner.seriesSolver.maxExtraSavedSolutions == 100 );
-    REQUIRE( testRunner.seriesSolver.maxRunTime == 50 );
+    REQUIRE( testRunner.seriesSolver.maxRunTime == 20 );
   }
 
   SECTION("MipComp::solveSeries"){
@@ -65,17 +66,24 @@ TEST_CASE( "Test Simple") {
 
       // the further we solve, the better the dual bound should be
       REQUIRE(std::abs(testRunner.runData[i].lpBound - 20.57) < .01);
-      REQUIRE(std::abs(testRunner.runData[i].rootDualBound - 25.39) < .01);
+      REQUIRE(std::abs(testRunner.runData[i].rootDualBound - 25.25) < .5);
       REQUIRE(testRunner.runData[i].dualBound == 34);
 
       // we minimize so primal bound should be greater than or equal to dual bound
+      REQUIRE(testRunner.runData[i].heuristicPrimalBound == 34);
       REQUIRE(testRunner.runData[i].primalBound == 34);
 
       // the further we solve, the longer it should take
-      REQUIRE(0 <= testRunner.runData[i].heuristicTime);
+      REQUIRE(0 < testRunner.runData[i].heuristicTime);
       REQUIRE(testRunner.runData[i].heuristicTime < testRunner.runData[i].rootDualBoundTime);
       REQUIRE(testRunner.runData[i].rootDualBoundTime < testRunner.runData[i].terminationTime);
-      REQUIRE(testRunner.runData[i].terminationTime < 1);
+      REQUIRE(testRunner.runData[i].terminationTime < testRunner.runData[i].completionTime + 1);
+      REQUIRE(testRunner.runData[i].completionTime <= 1);
+      REQUIRE(testRunner.runData[i].maxTerminationTime == 20);
+      REQUIRE(testRunner.runData[i].maxCompletionTime == 30);
+
+      // make sure preprocessing was used
+      REQUIRE(testRunner.runData[i].usePreprocessing == 1);
 
       // make sure the solution saved correctly
       std::ifstream file(solutionFile.string());
@@ -98,7 +106,9 @@ TEST_CASE( "Test Simple") {
     // make sure we saved the run data correctly
     std::string str;
     int lineIndex = 0;
-    std::regex re("([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+)");
+    std::regex re("([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
+                  "([0-9\\.]+),([0-9\\.]+)");
     std::smatch match;
 
     // the file should exist
@@ -110,14 +120,31 @@ TEST_CASE( "Test Simple") {
         // all rows except the last should match the pattern
         REQUIRE(std::regex_search(str, match, re));
         // each entry should match the expected value
+        // lpBound
         REQUIRE(std::abs(std::stod(match[1].str()) - 20.57) < .01);
-        REQUIRE(std::abs(std::stod(match[2].str()) - 25.39) < .01);
+        // rootDualBound
+        REQUIRE(std::abs(std::stod(match[2].str()) - 25.25) < .5);
+        // dualBound
         REQUIRE(std::stod(match[3].str()) == 34);
+        // heuristicPrimalBound
         REQUIRE(std::stod(match[4].str()) == 34);
-        REQUIRE(std::stod(match[5].str()) == 0);
-        REQUIRE(0 < std::stod(match[6].str()));
+        // primalBound
+        REQUIRE(std::stod(match[5].str()) == 34);
+        // heuristicTime
+        REQUIRE(std::stod(match[6].str()) > 0);
+        // rootDualBoundTime
         REQUIRE(std::stod(match[6].str()) < std::stod(match[7].str()));
-        REQUIRE(std::stod(match[7].str()) < 1);
+        // terminationTime
+        REQUIRE(std::stod(match[7].str()) < std::stod(match[8].str()) + 1);
+        REQUIRE(std::stod(match[8].str()) < 1);
+        // maxTerminationTime
+        REQUIRE(std::stod(match[9].str()) == 20);
+        // completionTime
+        REQUIRE(std::stod(match[10].str()) <= 1);
+        // maxCompletionTime
+        REQUIRE(std::stod(match[11].str()) == 30);
+        // usePreprocessing
+        REQUIRE(std::stod(match[12].str()) == 1);
       }
       lineIndex++;
     }

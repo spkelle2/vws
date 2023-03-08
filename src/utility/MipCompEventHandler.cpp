@@ -17,8 +17,11 @@
 CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
 
   // overwrite the heuristic time with each primal heuristic pass to get time at the last one
-  if ((model_->specialOptions() & 2048) != 0 && whichEvent == CbcEventHandler::heuristicPass) {
+  if ((model_->specialOptions() & 2048) == 0 &&
+      (whichEvent == CbcEventHandler::afterHeuristic ||
+       whichEvent == CbcEventHandler::heuristicPass)) {
     data.heuristicTime = model_->getCurrentSeconds();
+    data.heuristicPrimalBound = model_->getObjValue();
   }
 
   // pause each time the tree accurately reflects solver status

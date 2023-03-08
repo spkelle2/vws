@@ -27,17 +27,15 @@ namespace fs = std::__fs::filesystem;
 /** Reads the data in file path into MipComp instance. Captures run time limit of
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
-MipComp::MipComp(const char * filePathChars, const char * solutionDirectoryChars,
-                 const char * csvPathChars, bool usePreprocessing):
-  solutionDirectory(solutionDirectoryChars), csvPath(csvPathChars),
-  usePreprocessing(usePreprocessing) {
+MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
+                 std::string csvPathStr, bool usePreprocessing, double timeMultiplier):
+  solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr),
+  usePreprocessing(usePreprocessing), timeoutBuffer(10) {
 
   // validate file paths
-  fs::path filePath(filePathChars);
+  fs::path filePath(filePathStr);
   verify(fs::exists(filePath), "The file path " + filePath.string() + " does not exist.");
-  verify(filePath.extension() == ".test", "MipComp::MipComp: filePath must be a .test file");
-  verify(!fs::exists(solutionDirectory),
-         "The directory " + solutionDirectory.string() + " should not exist.");
+  verify(filePath.extension() == ".test", "filePath must be a .test file");
   verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.");
 
   // instantiate variables we'll need for this function
@@ -58,7 +56,7 @@ MipComp::MipComp(const char * filePathChars, const char * solutionDirectoryChars
 
     // get the timeout amount
     if (std::regex_search(str, timeoutMatch, timeoutPattern)) {
-      timeout = std::stoi(timeoutMatch[1].str());
+      timeout = std::stod(timeoutMatch[1].str()) * timeMultiplier;
     }
 
     // read each .gz file to a CbcModel
@@ -77,7 +75,7 @@ MipComp::MipComp(const char * filePathChars, const char * solutionDirectoryChars
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(100, timeout-10);
+  seriesSolver = VwsSolverInterface(100, timeout-timeoutBuffer);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
@@ -86,13 +84,13 @@ void MipComp::solveSeries() {
   // solve each instance in the series
   for (int i = 0; i < instanceSolvers.size(); i++) {
 
-    std::time_t t = std::time(nullptr);
+    std::time_t startTime = std::time(nullptr);
     OsiClpSolverInterface instanceSolver = instanceSolvers[i];
     fs::path solutionPath = solutionDirectory / (instanceNames[i] + ".sol");
 
     // print instance name and start time
     std::cout << "[INSTANCE] " << instanceNames[i] << ".mps" << std::endl;
-    std::cout << "[START] " << std::put_time(std::localtime(&t), "%FT%T") << std::endl;
+    std::cout << "[START] " << std::put_time(std::localtime(&startTime), "%FT%T") << std::endl;
 
     // set up event handler for data collection
     std::shared_ptr<MipCompEventHandler> handler = std::make_shared<MipCompEventHandler>();
@@ -100,10 +98,12 @@ void MipComp::solveSeries() {
     // solve the instance
     CbcModel model = seriesSolver.solve(instanceSolver, usePreprocessing, handler.get());
 
-    // correct the recorded dual boun and save the data collected by the event handler
+    // correct the recorded dual bound and save the data collected by the event handler
     *handler = *dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
     handler->data.dualBound = model.getBestPossibleObjValue();
-    runData.push_back(handler->data);
+    handler->data.maxTerminationTime = timeout - timeoutBuffer;
+    handler->data.maxCompletionTime = timeout;
+    handler->data.usePreprocessing = usePreprocessing;
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){
@@ -111,9 +111,13 @@ void MipComp::solveSeries() {
     }
 
     // print end time and dual bound
-    t = std::time(nullptr);
-    std::cout << "[END] " << std::put_time(std::localtime(&t), "%FT%T") << std::endl;
-    std::cout << "[DUAL BOUND] " << runData[i].dualBound << std::endl;
+    std::time_t endTime = std::time(nullptr);
+    std::cout << "[END] " << std::put_time(std::localtime(&endTime), "%FT%T") << std::endl;
+    std::cout << "[DUAL BOUND] " << handler->data.dualBound << std::endl;
+
+    // record total time and save the data collected by the event handler
+    handler->data.completionTime = std::difftime(endTime, startTime);
+    runData.push_back(handler->data);
   }
   writeCsvData();
 } /* solveSeries */

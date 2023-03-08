@@ -32,7 +32,11 @@ public:
   // todo: create VPCs with GMICs in the case only the objective changes (should be fine for variable or constraint additions)
 
   /** max run time on each MIP instance */
-  int timeout;
+  double timeout;
+
+  /** how much time short of timeout we limit each instance's solve to ensure we
+   * don't exceed timeout */
+  double timeoutBuffer;
 
   /** whether or not to use presolve */
   bool usePreprocessing;
@@ -56,8 +60,8 @@ public:
   std::vector<RunData> runData;
 
   /** Constructor. Initializes attributes based on provided file. */
-  MipComp(const char * filePath, const char * solutionDirectoryChars,
-          const char * csvPathChars, bool usePreprocessing);
+  MipComp(std::string filePathStr, std::string solutionDirectoryStr, std::string csvPathStr,
+          bool usePreprocessing=true, double timeMultiplier=1.0);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

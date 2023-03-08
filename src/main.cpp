@@ -4,27 +4,26 @@
  * @date 2023-02-01
  */
 
-#include <iostream>
-#include <cstdio>
-#include <string>
-#include <vector>
-#include <chrono> // for timing
-#include <limits> // numeric_limits
-#include <memory> // for smart pointers
+#include <filesystem> // path
+#include <string> // string
 
 
 // Project files
 #include "MipComp.hpp"
+#include "VwsUtility.hpp"
 
 
 /****************** MAIN FUNCTION **********************/
 int main(int argc, char** argv) {
 
-  // executable and testfile should be only arguments
-  assert(argc == 2);
+  // executable, testfile, preprocessing, and time multiple should be only arguments
+  assert(argc == 4);
 
   // create the test runner and solve the provided series
-  MipComp testRunner(argv[1]);
+  fs::path filePath(argv[1]);
+  MipComp testRunner(filePath.string(), "../experiments/solutions",
+                     "../experiments/" + filePath.stem().string() + ".csv",
+                     std::stoi(argv[2]), std::stod(argv[3]));
   testRunner.solveSeries();
 
 } /* main */

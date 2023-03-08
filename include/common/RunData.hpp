@@ -23,6 +23,9 @@ public:
   /** the best found dual bound for each instance */
   double dualBound;
 
+  /** the objective value of the best solution found after primal heuristics */
+  double heuristicPrimalBound;
+
   /** the best found primal bound for each instance */
   double primalBound;
 
@@ -32,8 +35,20 @@ public:
   /** time from calling model.branchAndBound() to completion of cut generation on root node */
   double rootDualBoundTime;
 
-  /** duration of model.branchAndBound() calls */
+  /** duration of model.branchAndBound() call */
   double terminationTime;
+
+  /** max run time given to model.branchAndBound() call */
+  double maxTerminationTime;
+
+  /** duration of set up, model.branchAndBound(), and tear down */
+  double completionTime;
+
+  /** max duration of set up, model.branchAndBound(), and tear down */
+  double maxCompletionTime;
+
+  /** whether or not preprocessing was enabled */
+  bool usePreprocessing;
 
   /** Get a comma-separated string of the names of RunData's attributes */
   std::string getHeader();
