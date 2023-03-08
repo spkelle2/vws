@@ -1,0 +1,3 @@
+cd /home/sek519/warm_starting/vws/experiments
+
+sh run_experiment.sh ${file_path}
