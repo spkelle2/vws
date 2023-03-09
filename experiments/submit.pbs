@@ -1,3 +1,4 @@
 cd /home/sek519/warm_starting/vws/experiments
-
-sh run_experiment.sh ${file_path}
+source /home/sek519/miniconda/bin/activate
+conda activate vws
+sh mipcomp.sh ${file_path}
