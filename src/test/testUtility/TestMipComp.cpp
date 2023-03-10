@@ -8,7 +8,7 @@
 
 // standard library
 #include <cstdlib> // abs
-#include <filesystem> // path
+#include <ghc/filesystem.hpp> // path
 
 // unit test library
 #include "catch.hpp"
@@ -17,7 +17,7 @@
 #include "MipComp.hpp"
 
 // namespaces
-namespace fs = std::filesystem;
+namespace fs = ghc::filesystem;
 
 
 TEST_CASE( "Test Simple") {

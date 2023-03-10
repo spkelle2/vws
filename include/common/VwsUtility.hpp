@@ -5,14 +5,14 @@
  */
 
 // standard library
-#include <filesystem> // path
+#include <ghc/filesystem.hpp> // path
 #include <string> // string
 
 // coin-or modules
 #include "CbcModel.hpp"
 
 // namespaces
-namespace fs = std::filesystem;
+namespace fs = ghc::filesystem;
 
 /** Asserts that the condition is true. If not, msg is printed and program terminates */
 void verify(bool condition, const std::string& msg);

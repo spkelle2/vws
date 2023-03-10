@@ -7,7 +7,7 @@
 // standard library
 #include <cstdio> // cout, endl
 #include <ctime> // time_t, localtime, put_time
-#include <filesystem> // path
+#include <ghc/filesystem.hpp> // path
 #include <fstream> // ofstream
 #include <memory> // shared_ptr
 #include <regex> // regex
@@ -22,7 +22,7 @@
 #include "VwsUtility.hpp" // verify, extractModelFromGunzip, writeSolution
 
 // namespaces
-namespace fs = std::filesystem;
+namespace fs = ghc::filesystem;
 
 /** Reads the data in file path into MipComp instance. Captures run time limit of
  * each instance and creates a CbcModel instance for each mps file. Assumes

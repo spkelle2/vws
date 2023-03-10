@@ -4,7 +4,7 @@
  * @date 2023-02-01
  */
 
-#include <filesystem> // path
+#include <ghc/filesystem.hpp> // path
 #include <string> // string
 
 
@@ -13,7 +13,7 @@
 #include "VwsUtility.hpp"
 
 // namespaces
-namespace fs = std::filesystem;
+namespace fs = ghc::filesystem;
 
 /****************** MAIN FUNCTION **********************/
 int main(int argc, char** argv) {
