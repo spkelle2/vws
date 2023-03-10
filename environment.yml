@@ -10,7 +10,7 @@ dependencies:
   - bzip2
   - ca-certificates
   - certifi
-  - cxx-compiler
+  - gxx
   - ld_impl_linux-64
   - libblas
   - libedit
