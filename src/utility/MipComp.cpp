@@ -6,9 +6,10 @@
 
 // standard library
 #include <cstdio> // cout, endl
-#include <ctime> // time_t, localtime, put_time
+#include <ctime> // time_t, localtime
 #include <ghc/filesystem.hpp> // path
 #include <fstream> // ofstream
+#include <iomanip> // put_time
 #include <memory> // shared_ptr
 #include <regex> // regex
 #include <string> // string
