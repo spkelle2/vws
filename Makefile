@@ -48,6 +48,18 @@ ifeq ($(USER),sean)
   #CPLEX_DIR = enter/dir/here
 endif
 
+ifeq ($(USER),sek519)
+  COIN_OR = /home/sek519/coin-or
+	COIN_OR_BUILD_DIR_DEBUG = dist
+	COIN_OR_BUILD_DIR_RELEASE = dist
+  #EIG_LIB = enter/dir/here
+
+  # Optional (for testing branch and bound or enabling certain functions):
+  #GUROBI_DIR = enter/dir/here
+  #GUROBI_LINK="gurobi80"
+  #CPLEX_DIR = enter/dir/here
+endif
+
 # rossobianco
 ifeq ($(USER),kazaalek)
   GUROBI_LINK = gurobi91
