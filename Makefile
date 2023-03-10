@@ -277,8 +277,7 @@ ifeq ($(CC),clang++)
   APPLLIB += -framework Accelerate
 endif
 ifeq ($(CC),g++)
-	CXXFLAGS += -lstdc++fs
-	CXXLINKFLAGS += -lstdc++fs
+	APPLLIB = -lstdc++fs
   ifneq (${ENV_BLAS_LIB},)
     APPLLIB += -L${ENV_BLAS_LIB} -lblas
   endif
