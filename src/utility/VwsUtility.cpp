@@ -22,7 +22,7 @@
 #include "VwsUtility.hpp"
 
 // namespaces
-namespace fs = std::__fs::filesystem;
+namespace fs = std::filesystem;
 
 void verify(bool condition, const std::string& msg) {
   if (!condition) {

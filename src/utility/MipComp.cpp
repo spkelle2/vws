@@ -22,7 +22,7 @@
 #include "VwsUtility.hpp" // verify, extractModelFromGunzip, writeSolution
 
 // namespaces
-namespace fs = std::__fs::filesystem;
+namespace fs = std::filesystem;
 
 /** Reads the data in file path into MipComp instance. Captures run time limit of
  * each instance and creates a CbcModel instance for each mps file. Assumes

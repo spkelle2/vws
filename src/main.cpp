@@ -12,6 +12,8 @@
 #include "MipComp.hpp"
 #include "VwsUtility.hpp"
 
+// namespaces
+namespace fs = std::filesystem;
 
 /****************** MAIN FUNCTION **********************/
 int main(int argc, char** argv) {

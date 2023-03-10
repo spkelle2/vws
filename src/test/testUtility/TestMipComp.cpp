@@ -17,7 +17,7 @@
 #include "MipComp.hpp"
 
 // namespaces
-namespace fs = std::__fs::filesystem;
+namespace fs = std::filesystem;
 
 
 TEST_CASE( "Test Simple") {
