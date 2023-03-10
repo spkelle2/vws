@@ -22,7 +22,8 @@ int main(int argc, char** argv) {
   assert(argc == 4);
 
   // create the test runner and solve the provided series
-  fs::path filePath(argv[1]);
+  std::string filePathStr(argv[1]);
+  fs::path filePath(filePathStr);
   MipComp testRunner(filePath.string(), "../experiments/solutions",
                      "../experiments/" + filePath.stem().string() + ".csv",
                      std::stoi(argv[2]), std::stod(argv[3]));

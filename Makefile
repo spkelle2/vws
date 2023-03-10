@@ -267,9 +267,9 @@ endif
 # Linker
 CFLAGS = -Wall -MMD -MP
 CFLAGS += -m64 $(DEBUG_FLAG) $(OPT_FLAG) $(EXTRA_FLAGS)
-CXXFLAGS = $(CFLAGS) -std=c++17 -stdlib=libc++ 
+CXXFLAGS = $(CFLAGS) -std=c++17
 #CXXFLAGS = $(CFLAGS) -std=c++17 -Wextra -Wpedantic
-CXXLINKFLAGS += -std=c++17 -stdlib=libc++
+CXXLINKFLAGS += -std=c++17
 ifeq ($(CC),clang++)
   CXXFLAGS += -Wno-gnu-zero-variadic-macro-arguments
   #CXXFLAGS += -stdlib=libc++ 
