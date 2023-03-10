@@ -13,7 +13,7 @@ ifeq ($(UNAME),Linux)
   SYSTEM = x86-64_linux
 endif
 ifeq ($(UNAME),Darwin)
-  CC     = g++
+  CC     = clang++
   SYSTEM = x86-64_osx
 endif
 RM = rm -f
@@ -277,6 +277,8 @@ ifeq ($(CC),clang++)
   APPLLIB += -framework Accelerate
 endif
 ifeq ($(CC),g++)
+	CXXFLAGS += -lstdc++fs
+	CXXLINKFLAGS += -lstdc++fs
   ifneq (${ENV_BLAS_LIB},)
     APPLLIB += -L${ENV_BLAS_LIB} -lblas
   endif
