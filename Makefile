@@ -277,7 +277,7 @@ ifeq ($(CC),clang++)
   APPLLIB += -framework Accelerate
 endif
 ifeq ($(CC),g++)
-	APPLLIB = -lstdc++fs
+	LDLIBS = -lstdc++fs
   ifneq (${ENV_BLAS_LIB},)
     APPLLIB += -L${ENV_BLAS_LIB} -lblas
   endif
@@ -349,7 +349,7 @@ $(EXECUTABLE): $(OUT_OBJECTS) $(VPC_OUT_OBJECTS)
 		@echo ' '
 		@echo 'Building target: $@'
 		@echo 'Invoking' $(CC) 'linker'
-		$(CC) $(DEFS) $(CXXLINKFLAGS) $(APPLINCLS) -o $@ $^ $(APPLLIB)
+		$(CC) $(DEFS) $(CXXLINKFLAGS) $(APPLINCLS) -o $@ $^ $(APPLLIB) $(LDLIBS)
 
 # clang++ $@ is
 # the object files depend on the following source files
@@ -359,7 +359,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		@echo ' '
 		@echo 'Building target: $@'
 		@echo 'Invoking' $(CC) 'compiler'
-		$(CC) $(CXXFLAGS) $(DEFS) $(APPLINCLS) -c $< -o $@ 
+		$(CC) $(CXXFLAGS) $(DEFS) $(APPLINCLS) -c $< -o $@ $(LDLIBS)
 		@echo 'Finished building: $@'
 $(VPC_OBJ_DIR)/%.o: $(VPC_SRC_DIR)/%.cpp
 		@echo ' '
