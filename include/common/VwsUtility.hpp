@@ -12,7 +12,7 @@
 #include "CbcModel.hpp"
 
 // namespaces
-namespace fs = std::__fs::filesystem;
+namespace fs = std::filesystem;
 
 /** Asserts that the condition is true. If not, msg is printed and program terminates */
 void verify(bool condition, const std::string& msg);

@@ -17,7 +17,7 @@
 #include "VwsSolverInterface.hpp"
 
 // namespaces
-namespace fs = std::__fs::filesystem;
+namespace fs = std::filesystem;
 
 /**
  * @brief Object to manage runs for the MIP Computational Contest
