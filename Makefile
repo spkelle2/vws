@@ -267,9 +267,9 @@ endif
 # Linker
 CFLAGS = -Wall -MMD -MP
 CFLAGS += -m64 $(DEBUG_FLAG) $(OPT_FLAG) $(EXTRA_FLAGS)
-CXXFLAGS = $(CFLAGS) -std=c++17
+CXXFLAGS = $(CFLAGS) -std=c++17 -stdlib=libc++ 
 #CXXFLAGS = $(CFLAGS) -std=c++17 -Wextra -Wpedantic
-CXXLINKFLAGS += -std=c++17
+CXXLINKFLAGS += -std=c++17 -stdlib=libc++
 ifeq ($(CC),clang++)
   CXXFLAGS += -Wno-gnu-zero-variadic-macro-arguments
   #CXXFLAGS += -stdlib=libc++ 
@@ -277,7 +277,6 @@ ifeq ($(CC),clang++)
   APPLLIB += -framework Accelerate
 endif
 ifeq ($(CC),g++)
-	LDLIBS = -lstdc++fs
   ifneq (${ENV_BLAS_LIB},)
     APPLLIB += -L${ENV_BLAS_LIB} -lblas
   endif
