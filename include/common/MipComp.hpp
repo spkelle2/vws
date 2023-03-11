@@ -5,7 +5,7 @@
  */
 
 // standard library
-#include <filesystem> // path
+#include <ghc/filesystem.hpp> // path
 #include <string>
 #include <vector>
 
@@ -17,7 +17,7 @@
 #include "VwsSolverInterface.hpp"
 
 // namespaces
-namespace fs = std::filesystem;
+namespace fs = ghc::filesystem;
 
 /**
  * @brief Object to manage runs for the MIP Computational Contest
