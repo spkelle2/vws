@@ -7,7 +7,7 @@
 // standard library
 #include <cstdio> // cerr
 #include <cstdlib> // source
-#include <filesystem> // path
+#include <ghc/filesystem.hpp> // path
 #include <fstream> // ofstream
 #include <iostream> // endl
 #include <string>
@@ -22,7 +22,7 @@
 #include "VwsUtility.hpp"
 
 // namespaces
-namespace fs = std::filesystem;
+namespace fs = ghc::filesystem;
 
 void verify(bool condition, const std::string& msg) {
   if (!condition) {
