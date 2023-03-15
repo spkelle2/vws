@@ -25,7 +25,7 @@ RM = rm -f
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
-UNIT_TEST_FILE = testUtility/TestMipComp.cpp
+UNIT_TEST_FILE = testCut/TestVwsSolverInterface.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..

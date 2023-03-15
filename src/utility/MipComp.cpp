@@ -97,7 +97,8 @@ void MipComp::solveSeries() {
     std::shared_ptr<MipCompEventHandler> handler = std::make_shared<MipCompEventHandler>();
 
     // solve the instance
-    CbcModel model = seriesSolver.solve(instanceSolver, usePreprocessing, handler.get());
+    std::string vpcGenerator = i < instanceSolvers.size()/5 ? "PRLP" : "Farkas";
+    CbcModel model = seriesSolver.solve(instanceSolver, "PRLP", usePreprocessing, handler.get());
 
     // correct the recorded dual bound and save the data collected by the event handler
     *handler = *dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
