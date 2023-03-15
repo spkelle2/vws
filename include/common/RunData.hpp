@@ -9,7 +9,11 @@
 
 
 // standard modules
+#include <ghc/filesystem.hpp> // path
 #include <string> // string
+
+// namespaces
+namespace fs = ghc::filesystem;
 
 /** A data class to track specifics on a given solved MIP instance */
 struct RunData {
@@ -55,6 +59,9 @@ public:
 
   /** Get a comma-separated string of the values of RunData's attributes */
   std::string getValues();
+
+  /** writes this struct's attributes to the given csv file */
+  void writeData(fs::path filePath);
 };
 
 #endif
