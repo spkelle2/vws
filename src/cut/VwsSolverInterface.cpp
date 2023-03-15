@@ -125,6 +125,11 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
   model->setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime - vpcGenTime);
 
+#ifndef TRACE
+  std::cout << "using elapsed time" << std::endl;
+  model->setUseElapsedTime(true);
+#endif
+
   // run the solver
   model->branchAndBound();
 

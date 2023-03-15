@@ -31,7 +31,7 @@ namespace fs = ghc::filesystem;
 MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
                  std::string csvPathStr, bool usePreprocessing, double timeMultiplier):
   solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr),
-  usePreprocessing(usePreprocessing), timeoutBuffer(10) {
+  usePreprocessing(usePreprocessing), timeoutBuffer(0.0) {
 
   // validate file paths
   fs::path filePath(filePathStr);
@@ -76,7 +76,7 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(100, timeout-timeoutBuffer);
+  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, 4);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
@@ -119,21 +119,7 @@ void MipComp::solveSeries() {
 
     // record total time and save the data collected by the event handler
     handler->data.completionTime = std::difftime(endTime, startTime);
+    handler->data.writeData(csvPath);
     runData.push_back(handler->data);
   }
-  writeCsvData();
 } /* solveSeries */
-
-/** writes the data collected from a test run to a csv */
-void MipComp::writeCsvData(){
-  // check that the inputs meet expectations
-  verify(fs::exists(csvPath.parent_path()),
-         "The directory " + csvPath.parent_path().string() + " does not exist.");
-
-  std::ofstream file(csvPath.string());
-  file << runData[0].getHeader() << std::endl;
-  for (int i = 0; i < instanceSolvers.size(); i++) {
-    file << runData[i].getValues() << std::endl;
-  }
-  file.close();
-}
