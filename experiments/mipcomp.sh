@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-../Debug/vws $1 1 1
+../Release/vws ${FILE_PATH} 1 1
