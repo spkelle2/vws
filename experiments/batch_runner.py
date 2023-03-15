@@ -19,7 +19,7 @@ def run_batch(test_fldr: str):
             continue
 
         subprocess.call(
-            ['qsub', '-V', '-q', 'long', '-l', 'ncpus=4,mem=7gb,vmem=7gb,pmem=7gb',
+            ['qsub', '-V', '-q', 'long', '-l', 'ncpus=1,mem=15gb,vmem=15gb,pmem=15gb',
              '-v', f'file_pth={file_pth}', '-e', f'{stem}.err', '-o', f'{stem}.out',
              'submit.pbs']
         )
