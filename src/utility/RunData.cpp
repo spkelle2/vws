@@ -6,10 +6,15 @@
 
 
 // standard modules
+#include <ghc/filesystem.hpp> // path
 #include <string> // string
 
 // project modules
 #include "RunData.hpp"
+#include "VwsUtility.hpp" // verify
+
+// namespaces
+namespace fs = ghc::filesystem;
 
 
 /** Get a comma-separated string of the names of RunData's attributes */
@@ -29,3 +34,21 @@ std::string RunData::getValues(){
     std::to_string(maxCompletionTime) + "," + std::to_string(usePreprocessing);
 }
 
+
+/** writes this struct's attributes to the given csv file */
+void RunData::writeData(fs::path filePath){
+
+  // check that the inputs meet expectations
+  verify(fs::exists(filePath.parent_path()),
+         "The directory " + filePath.parent_path().string() + " does not exist.");
+
+  bool alreadyExists = fs::exists(filePath);
+  std::ofstream file;
+  if (!alreadyExists) {  // start with the header if the file doesn't exist
+    file.open(filePath.string());
+    file << getHeader() << std::endl;
+  } else {  // append to the file otherwise
+    file.open(filePath.string(), std::ios::app);
+  }
+  file << getValues() << std::endl;
+}
