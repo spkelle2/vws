@@ -21,7 +21,7 @@ def run_batch(test_fldr: str):
 
         subprocess.call(
             ['qsub', '-V', '-q', 'long', '-l', 'ncpus=1,mem=15gb,vmem=15gb,pmem=15gb',
-             '-v', f'file_pth={file_pth}', '-e', f'{stem}.err', '-o', f'{stem}.out',
+             '-v', f'FILE_PATH={file_pth}', '-e', f'{stem}.err', '-o', f'{stem}.out',
              'submit.pbs']
         )
 
