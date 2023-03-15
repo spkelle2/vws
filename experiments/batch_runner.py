@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 
 
 def run_batch(test_fldr: str):
@@ -9,7 +10,7 @@ def run_batch(test_fldr: str):
     :return: None
     """
 
-    assert os.path.exists(test_fldr), 'test folder should already exist'
+    assert os.path.exists(test_fldr), f'the path {test_fldr} does not exist'
 
     for file_name in os.listdir(test_fldr):
         stem = file_name.split('.')[0]
@@ -26,5 +27,4 @@ def run_batch(test_fldr: str):
 
 
 if __name__ == '__main__':
-    wkdir = os.path.dirname(os.path.realpath(__file__))
-    run_batch(test_fldr=os.path.join(wkdir, 'src/test/datasets/testfiles'))
+    run_batch(sys.argv[1])
