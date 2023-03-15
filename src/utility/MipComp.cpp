@@ -31,7 +31,7 @@ namespace fs = ghc::filesystem;
 MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
                  std::string csvPathStr, bool usePreprocessing, double timeMultiplier):
   solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr),
-  usePreprocessing(usePreprocessing) {
+  usePreprocessing(usePreprocessing), timeoutBuffer(0.0) {
 
   // validate file paths
   fs::path filePath(filePathStr);
@@ -58,7 +58,6 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
     // get the timeout amount
     if (std::regex_search(str, timeoutMatch, timeoutPattern)) {
       timeout = std::stod(timeoutMatch[1].str()) * timeMultiplier;
-      timeoutBuffer = timeout * 0.4;
     }
 
     // read each .gz file to a CbcModel
