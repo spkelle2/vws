@@ -66,7 +66,4 @@ public:
   /** Solve series of MIP models provided at construction. */
   void solveSeries();
 
-  /** writes the data collected from a test run to a csv */
-  void writeCsvData();
-
 }; /* VpcWarmStart */

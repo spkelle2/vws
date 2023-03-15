@@ -58,7 +58,7 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
     // get the timeout amount
     if (std::regex_search(str, timeoutMatch, timeoutPattern)) {
       timeout = std::stod(timeoutMatch[1].str()) * timeMultiplier;
-      timeoutBuffer = timeout * 0.3;
+      timeoutBuffer = timeout * 0.4;
     }
 
     // read each .gz file to a CbcModel
@@ -119,21 +119,7 @@ void MipComp::solveSeries() {
 
     // record total time and save the data collected by the event handler
     handler->data.completionTime = std::difftime(endTime, startTime);
+    handler->data.writeData(csvPath);
     runData.push_back(handler->data);
   }
-  writeCsvData();
 } /* solveSeries */
-
-/** writes the data collected from a test run to a csv */
-void MipComp::writeCsvData(){
-  // check that the inputs meet expectations
-  verify(fs::exists(csvPath.parent_path()),
-         "The directory " + csvPath.parent_path().string() + " does not exist.");
-
-  std::ofstream file(csvPath.string());
-  file << runData[0].getHeader() << std::endl;
-  for (int i = 0; i < instanceSolvers.size(); i++) {
-    file << runData[i].getValues() << std::endl;
-  }
-  file.close();
-}
