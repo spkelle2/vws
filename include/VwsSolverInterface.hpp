@@ -11,6 +11,9 @@
 #include "CbcEventHandler.hpp" // CbcEventHandler
 #include "CbcModel.hpp" // CbcModel
 
+// vpc modules
+#include "CglVPC.hpp" // CglVPC
+
 // project modules
 #include "PartialBBDisjunction.hpp" // Disjunction
 
@@ -29,14 +32,17 @@ public:
    * Indexed [mip][cut][disjunctive term][Farkas multiplier] */
   std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificates;
 
-  /** vector of disjunctions used to create VPCs from previous MIPs */
-  std::vector<PartialBBDisjunction*> disjunctions;
+  /** vector of cut generators used to create VPCs from PRLPs */
+  std::vector< std::shared_ptr<CglVPC> > vpcGenerators;
 
   /** number of solutions to save each solve */
   int maxExtraSavedSolutions;
 
   /** number of seconds to give each solve */
-  int maxRunTime;
+  double maxRunTime;
+
+  /** max proportion of maxRunTime to allow VPC generation from PRLPs */
+  double vpcGenTimeRatio;
 
   /** number of terms to include in each disjunction */
   int disjunctiveTerms;
@@ -54,23 +60,37 @@ public:
   std::vector< std::vector< std::string > > constraintNames;
 
   /** Default constructor */
-  VwsSolverInterface(int maxExtraSavedSolutions=100, int maxRunTime=1000000, int disjunctiveTerms=64);
+  VwsSolverInterface(int maxExtraSavedSolutions=100, double maxRunTime=1000000,
+                     int disjunctiveTerms=64, double vpcGenTimeRatio=0.1);
 
   /** Solve a MIP with VPCs added. */
-  CbcModel solve(OsiClpSolverInterface& instanceSolver, bool usePreprocessing=true,
-                 CbcEventHandler* eventHandler=nullptr);
+  CbcModel solve(OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
+                 bool usePreprocessing=true, CbcEventHandler* eventHandler=nullptr);
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
 
 protected:
 
   /** Solve the MIP encoded in instanceSolver without presolving */
-  std::shared_ptr<CbcModel> unprocessedBranchAndCut(OsiClpSolverInterface& solver,
-                                                    CbcEventHandler* eventHandler);
+  std::shared_ptr<CbcModel> unprocessedBranchAndCut(
+      OsiClpSolverInterface& solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+      double vpcGenTime);
 
   /** Solve the MIP encoded in instanceSolver with presolving */
-  std::shared_ptr<CbcModel> preprocessedBranchAndCut(OsiClpSolverInterface& instanceSolver,
-                                                     CbcEventHandler* eventHandler);
+  std::shared_ptr<CbcModel> preprocessedBranchAndCut(
+      OsiClpSolverInterface& instanceSolver, OsiCuts* cuts,
+      CbcEventHandler* eventHandler, double vpcGenTime);
+
+  /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
+   *  partially solving the given problem. Simplified from Strengthening's
+   *  CglAdvCut::generateCuts */
+  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromPRLP(OsiClpSolverInterface si,
+                                                         double& vpcGenTime);
+
+  /** Parameterize each previously created disjunctive cut with its disjunction
+   *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
+   *  main.cpp */
+  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromFarkasMultipliers(OsiClpSolverInterface si);
 
 }; /* VpcWarmStart */
 
