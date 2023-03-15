@@ -77,7 +77,7 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(100, timeout-timeoutBuffer);
+  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, 4);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
