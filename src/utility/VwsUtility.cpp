@@ -154,11 +154,12 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
     for (int cut_ind = 0; cut_ind < currCuts.sizeCuts(); cut_ind++) {
       const OsiRowCut* disjCut = currCuts.rowCutPtr(cut_ind);
 
-      // For each term of the disjunction,
-      // we need to explicitly add the constraint(s) defining the disjunctive term
+      // For each term of the disjunction, we need to explicitly add the constraint(s)
+      // defining the disjunctive term. In the form a^T x >= b
       const CoinPackedVector lhs = disjCut->row();
-
-      getCertificate(v[cut_ind][term_ind], lhs.getNumElements(), lhs.getIndices(), lhs.getElements(), termSolver);
+      const double rhs = disjCut->lb();
+      getCertificate(v[cut_ind][term_ind], lhs.getNumElements(), lhs.getIndices(),
+                     lhs.getElements(), rhs, termSolver);
     } // loop over cuts
   } // loop over disjunctive terms
 
@@ -198,6 +199,8 @@ void getCertificate(
     const int* const ind,
     /// [in] nonzero cut coefficients
     const double* const coeff,
+    /// [in] rhs of cut
+    const double cut_rhs,
     // [in] LP solver corresponding to disjunctive term
     OsiSolverInterface* const solver) {
 
@@ -257,7 +260,8 @@ void getCertificate(
 
   // Obtain the cut that the certificate yields (should be the same as the original cut)
   std::vector<double> new_coeff(solver->getNumCols());
-  getCutFromCertificate(new_coeff, v, solver);
+  double new_rhs = 0.0;
+  getCutFromCertificate(new_coeff, new_rhs, v, solver);
 
   int num_errors = 0;
   double total_diff = 0.;
@@ -269,6 +273,7 @@ void getCertificate(
       total_diff += std::abs(diff);
     }
   }
+  std::cout << "cut rhs: " << cut_rhs << "\tcalc: " << new_rhs << "\tdiff: " << new_rhs - cut_rhs << std::endl;
   if (num_errors > 0) {
     const bool should_continue = isZero(total_diff, 1e-3);
     if (should_continue) {
@@ -455,21 +460,71 @@ void insertRow(
 void getCutFromCertificate(
     /// [out] calculated cut coefficients
     std::vector<double>& alpha,
+    /// [out] calculated cut bound
+    double& beta,
     /// [in] Farkas multipliers
     const std::vector<double>& v,
     /// [in] LP solver corresponding to disjunctive term
     const OsiSolverInterface* const solver) {
   alpha.clear();
   alpha.resize(solver->getNumCols(), 0.0);
-
-  // todo: check the dual bound to determine which directions are active
-  // todo: create the RHS
+  beta = 0.0;
 
   const CoinPackedMatrix* mat = solver->getMatrixByCol();
+  double val;
   for (int col = 0; col < solver->getNumCols(); col++) {
     const int start = mat->getVectorFirst(col);
+    const int colFarkasIndex = solver->getNumRows() + col;
     alpha[col] += dotProduct(mat->getVectorSize(col),
                              mat->getIndices() + start, mat->getElements() + start, v.data());
-    alpha[col] += v[solver->getNumRows() + col];
+    alpha[col] += v[colFarkasIndex];
+    if (greaterThanVal(v[colFarkasIndex], 0)){
+      val = v[colFarkasIndex] * solver->getColLower()[col];
+    } else if (lessThanVal(v[colFarkasIndex], 0)) {
+      val = v[colFarkasIndex] * solver->getColUpper()[col];
+    } else {
+      val = 0.0;
+    }
+    if (val > 1e20 || val < -1e20) {
+      std::cout << "hello world" << std::endl;
+    }
+    beta += val;
+  }
+  for (int row = 0; row < solver->getNumRows(); row++) {
+    if (greaterThanVal(v[row], 0)){
+      val = v[row] * solver->getRowLower()[row];
+    } else if (lessThanVal(v[row], 0)) {
+      val = v[row] * solver->getRowUpper()[row];
+    } else {
+      val = 0.0;
+    }
+    if (val > 1e20 || val < -1e20) {
+      std::cout << "hello world" << std::endl;
+    }
+    beta += val;
   }
 } /* getCutFromCertificate */
+
+/** find the smallest value in each column given a vector of row vectors */
+std::vector<double> elementWiseMax(std::vector< std::vector<double> > a){
+  std::vector<double> maxes(a[0].size(), -1e50);
+  for (int termIdx = 0; termIdx < a.size(); termIdx++){
+    for (int colIdx = 0; colIdx < a[termIdx].size(); colIdx++){
+      if (a[termIdx][colIdx] > maxes[colIdx]){
+        maxes[colIdx] = a[termIdx][colIdx];
+      }
+    }
+  }
+  return maxes;
+}
+
+// find the smallest value in a vector
+double min(std::vector<double> a){
+  double min = 1e50;
+  for (int i = 0; i < a.size(); i++){
+    if (a[i] < min){
+      min = a[i];
+    }
+  }
+  return min;
+}

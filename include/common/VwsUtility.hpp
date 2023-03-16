@@ -61,6 +61,8 @@ void getCertificate(
     const int* const ind,
     /// [in] nonzero cut coefficients
     const double* const coeff,
+    /// [in] rhs of cut
+    const double cut_rhs,
     // [in] LP solver corresponding to disjunctive term
     OsiSolverInterface* const solver);
 
@@ -108,7 +110,15 @@ void insertRow(
 void getCutFromCertificate(
     /// [out] calculated cut coefficients
     std::vector<double>& alpha,
+    /// [out] calculated cut bound
+    double& beta,
     /// [in] Farkas multipliers
     const std::vector<double>& v,
     /// [in] LP solver corresponding to disjunctive term
     const OsiSolverInterface* const solver);
+
+/** find the smallest value in each column given a vector of row vectors */
+std::vector<double> elementWiseMax(std::vector< std::vector<double> > a);
+
+// find the smallest value in a vector
+double min(std::vector<double> a);
