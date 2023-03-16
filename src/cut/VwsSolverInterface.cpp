@@ -20,6 +20,11 @@
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
 #include <OsiCuts.hpp> // OsiCuts
 
+// Eigen library
+#include <Eigen/Dense>
+#include <Eigen/Sparse>
+#include <Eigen/SparseLU>
+
 // vpc modules
 #include "CglVPC.hpp" // CglVPC
 #include "SolverInterface.hpp" // SolverInterface
@@ -54,19 +59,21 @@ CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
   verify(vpcGenerator == "PRLP" || vpcGenerator == "Farkas" || vpcGenerator == "None",
          "VwsSolverInterface::solve: vpcGenerator must be either PRLP, Farkas, or None");
 
-  double vpcGenTime = 0.0;
-
   // instanceSolver passed by reference since names aren't carried over when CbcModel constructor copies it
   variableNames.push_back(getVariableNames(instanceSolver));
   constraintNames.push_back(getConstraintNames(instanceSolver));
 
   // create cuts - either by PRLP or by previous farkas multipliers
+  // todo: make a timer class in scope and use it here
+  std::time_t startTime = std::time(nullptr);
   std::shared_ptr<OsiCuts> disjCuts;
   if (vpcGenerator == "PRLP") {
-    disjCuts = createDisjunctiveCutsFromPRLP(instanceSolver, vpcGenTime);
+    disjCuts = createDisjunctiveCutsFromPRLP(instanceSolver);
   } else if (vpcGenerator == "Farkas") {
     disjCuts = createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
   }
+  std::time_t endTime = std::time(nullptr);
+  double vpcGenTime = std::difftime(endTime, startTime);
 
   // instantiate and solve the model
   // we need instanceSolver to instantiate the preprocessor so solution info is
@@ -177,7 +184,7 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
  *  partially solving the given problem encoded in the solver interface.
  *  Simplified from Strengthening's CglAdvCut::generateCuts */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
-    OsiClpSolverInterface si, double& vpcGenTime) {
+    OsiClpSolverInterface si) {
 
   // todo set time limit and get time stats
   si.initialSolve();
@@ -188,7 +195,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   // Set up VPC generation
   VPCParametersNamespace::VPCParameters vpc_params;
   vpc_params.set(VPCParametersNamespace::DISJ_TERMS, disjunctiveTerms);
-  vpc_params.set(VPCParametersNamespace::CUTLIMIT, si.getFractionalIndices().size());
+  vpc_params.set(VPCParametersNamespace::CUTLIMIT, maxRunTime / 10); // si.getFractionalIndices().size()
   vpc_params.set(VPCParametersNamespace::TIMELIMIT, vpcGenTimeRatio * maxRunTime);
   vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, vpcGenTimeRatio * maxRunTime);
   vpc_params.set(VPCParametersNamespace::USE_ALL_ONES, 1);
@@ -199,10 +206,9 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
 
   std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
-  // todo: check that the RHS's created here match what we would get from VwsUtilility::getCertificate
+  // todo: check that what we would get from VwsUtilility::getCertificate matches the RHS's created here
   gen->generateCuts(si, *disjCuts);
   Disjunction* disj = gen->disj();
-  vpcGenTime = gen->timer.get_total_time("TOTAL_TIME");
 
   // if we have cuts, save the cut generator and the Farkas multipliers
   if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
@@ -224,27 +230,46 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromFarkasMult
 
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
-  // todo: recalc RHS from Farkas multipliers
-  std::shared_ptr<OsiCuts> disjCuts;
+  std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
+
+  // set up list of disjunctive cuts
+  // [problemIdx][cutIdx][termIdx][variableIdx]
+  std::vector< std::vector< std::vector< std::vector<double> > > > a;
+  // [problemIdx][cutIdx][termIdx]
+  std::vector< std::vector< std::vector<double> > > b;
+  a.resize(cutCertificates.size());
+  b.resize(cutCertificates.size());
+  for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
+    a[probIdx].resize(cutCertificates[probIdx].size());
+    b[probIdx].resize(cutCertificates[probIdx].size());
+    for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
+      a[probIdx][cutIdx].resize(disjunctiveTerms);
+      b[probIdx][cutIdx].resize(disjunctiveTerms);
+    }
+  }
 
   for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
-    for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+    for (int termIdx=0; termIdx < disjunctiveTerms; termIdx++) {
       Disjunction* disj = vpcGenerators[probIdx]->disj();
-      std::vector< std::vector<double> > a;
-      a.resize(cutCertificates[probIdx][cutIdx].size());
-      for (int termIdx=0; termIdx < cutCertificates[probIdx][cutIdx].size(); termIdx++){
-        OsiSolverInterface* termSolver;
-        disj->getSolverForTerm(termSolver, termIdx, &si, false, .001, NULL);
-        getCutFromCertificate(a[termIdx], cutCertificates[probIdx][cutIdx][termIdx], termSolver);
+      OsiSolverInterface* termSolver;
+      disj->getSolverForTerm(termSolver, termIdx, &si, false, .001, NULL);
+      for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+        a[probIdx][cutIdx][termIdx].resize(si.getNumCols());
+        getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
+                              cutCertificates[probIdx][cutIdx][termIdx], termSolver);
       }
+    }
+    for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+      std::vector<double> alpha = elementWiseMax(a[probIdx][cutIdx]);
+      double beta = min(b[probIdx][cutIdx]);
+      std::vector<int> indices(alpha.size());
+      std::iota(std::begin(indices), std::end(indices), 0);
+      OsiRowCut cut;
+      cut.setRow(alpha.size(), indices.data(), alpha.data());
+      cut.setLb(beta);
+      disjCuts->insert(cut);
     }
   }
 
   return disjCuts;
-
-  // confirm we have a^T x >= b
-  // take a max with those from the other disjunctive terms
-  // take a min for rhs's - maybe need to add a double to getCutFromCertificate to get RHS
-  // use eigen
-
 }

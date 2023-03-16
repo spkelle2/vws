@@ -61,7 +61,7 @@ public:
 
   /** Default constructor */
   VwsSolverInterface(int maxExtraSavedSolutions=100, double maxRunTime=1000000,
-                     int disjunctiveTerms=64, double vpcGenTimeRatio=0.1);
+                     int disjunctiveTerms=16, double vpcGenTimeRatio=0.1);
 
   /** Solve a MIP with VPCs added. */
   CbcModel solve(OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
@@ -84,8 +84,7 @@ protected:
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
    *  partially solving the given problem. Simplified from Strengthening's
    *  CglAdvCut::generateCuts */
-  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromPRLP(OsiClpSolverInterface si,
-                                                         double& vpcGenTime);
+  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromPRLP(OsiClpSolverInterface si);
 
   /** Parameterize each previously created disjunctive cut with its disjunction
    *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
