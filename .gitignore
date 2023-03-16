@@ -22,8 +22,9 @@ Tmp/
 TmpDebug/
 TmpRelease/
 .DS_Store
-*.csv*
 nohup.out
 *.mps
 lib/
 gurobi.log
+*.out
+*.err
