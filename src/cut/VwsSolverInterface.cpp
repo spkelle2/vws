@@ -18,6 +18,17 @@
 #include "CbcStrategy.hpp" // CbcStrategy
 #include "CglPreProcess.hpp" // CglPreProcess
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
+#include <OsiCuts.hpp> // OsiCuts
+
+// Eigen library
+#include <Eigen/Dense>
+#include <Eigen/Sparse>
+#include <Eigen/SparseLU>
+
+// vpc modules
+#include "CglVPC.hpp" // CglVPC
+#include "SolverInterface.hpp" // SolverInterface
+#include "VPCParameters.hpp" // VPCParameters
 
 // project modules
 #include "VwsSolverInterface.hpp"
@@ -25,10 +36,12 @@
 
 
 /** constructor */
-VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, int maxRunTime, int disjunctiveTerms):
+VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, double maxRunTime,
+                                       int disjunctiveTerms, double vpcGenTimeRatio):
   maxExtraSavedSolutions(maxExtraSavedSolutions),
   maxRunTime(maxRunTime),
-  disjunctiveTerms(disjunctiveTerms)
+  disjunctiveTerms(disjunctiveTerms),
+  vpcGenTimeRatio(vpcGenTimeRatio)
   {
 } /* constructor */
 
@@ -36,14 +49,31 @@ VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, int maxRunTim
 /** Solve a MIP with VPCs added. Adds the provided eventHandler to the solve,
  * preprocessing the input model if requested */
 CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
-                                   bool usePreprocessing, CbcEventHandler* eventHandler){
+                                   std::string vpcGenerator, bool usePreprocessing,
+                                   CbcEventHandler* eventHandler){
 
   // todo: enforce that we have a MIP with same number of variables and constraints
+  // todo: enforce that we have a MIP with expected constraint format
   // todo: create a parameters file for vws that can set up parameters for VPC and CBC
+
+  verify(vpcGenerator == "PRLP" || vpcGenerator == "Farkas" || vpcGenerator == "None",
+         "VwsSolverInterface::solve: vpcGenerator must be either PRLP, Farkas, or None");
 
   // instanceSolver passed by reference since names aren't carried over when CbcModel constructor copies it
   variableNames.push_back(getVariableNames(instanceSolver));
   constraintNames.push_back(getConstraintNames(instanceSolver));
+
+  // create cuts - either by PRLP or by previous farkas multipliers
+  // todo: make a timer class in scope and use it here
+  std::time_t startTime = std::time(nullptr);
+  std::shared_ptr<OsiCuts> disjCuts;
+  if (vpcGenerator == "PRLP") {
+    disjCuts = createDisjunctiveCutsFromPRLP(instanceSolver);
+  } else if (vpcGenerator == "Farkas") {
+    disjCuts = createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
+  }
+  std::time_t endTime = std::time(nullptr);
+  double vpcGenTime = std::difftime(endTime, startTime);
 
   // instantiate and solve the model
   // we need instanceSolver to instantiate the preprocessor so solution info is
@@ -51,9 +81,9 @@ CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
   // within a subroutine, but still need to access it here, necessitating the pointer
   std::shared_ptr<CbcModel> model;
   if (usePreprocessing) {
-    model = preprocessedBranchAndCut(instanceSolver, eventHandler);
+    model = preprocessedBranchAndCut(instanceSolver, disjCuts.get(), eventHandler, vpcGenTime);
   } else {
-    model = unprocessedBranchAndCut(instanceSolver, eventHandler);
+    model = unprocessedBranchAndCut(instanceSolver, disjCuts.get(), eventHandler, vpcGenTime);
   }
 
   // save the solutions in memory
@@ -74,9 +104,13 @@ CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
  *  and we don't want to clash names with the unprocessed instanceSolver from the
  *  original formulation. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
-    OsiClpSolverInterface& solver, CbcEventHandler* eventHandler){
+    OsiClpSolverInterface& solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+    double vpcGenTime){
 
   // instantiate the model
+  if (cuts) {
+    solver.applyCuts(*cuts);
+  }
   std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(solver);
   model->passInEventHandler(eventHandler);
 
@@ -96,7 +130,7 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
 
   // set number of solutions to save and time limit
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
-  model->setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime);
+  model->setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime - vpcGenTime);
 
 #ifndef TRACE
   std::cout << "using elapsed time" << std::endl;
@@ -116,8 +150,12 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
  * and returns the preprocessed solution information back to the original problem
  * space. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
-    OsiClpSolverInterface& instanceSolver, CbcEventHandler* eventHandler){
+    OsiClpSolverInterface& instanceSolver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+    double vpcGenTime){
 
+  if (cuts) {
+    instanceSolver.applyCuts(*cuts);
+  }
   std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(instanceSolver);
 
   // preprocess the problem
@@ -128,7 +166,7 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
 
   // run the default branch and cut scheme on the preprocessed problem
   std::shared_ptr<CbcModel> preprocessedModel =
-      unprocessedBranchAndCut(*preprocessedSolver, eventHandler);
+      unprocessedBranchAndCut(*preprocessedSolver, NULL, eventHandler, vpcGenTime);
 
   // move the solutions, bound info, and event handler to the original model/solver interface
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
@@ -139,3 +177,99 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
 
   return model;
 } /* preprocessedBranchAndCut */
+
+// todo: place const wherever I'm copying objects and don't need to
+
+/** Creates cuts from a PRLP relaxation of the disjunctive terms found from
+ *  partially solving the given problem encoded in the solver interface.
+ *  Simplified from Strengthening's CglAdvCut::generateCuts */
+std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
+    OsiClpSolverInterface si) {
+
+  // todo set time limit and get time stats
+  si.initialSolve();
+  verify(si.isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
+  std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
+
+  //==================================================//
+  // Set up VPC generation
+  VPCParametersNamespace::VPCParameters vpc_params;
+  vpc_params.set(VPCParametersNamespace::DISJ_TERMS, disjunctiveTerms);
+  vpc_params.set(VPCParametersNamespace::CUTLIMIT, maxRunTime / 10); // si.getFractionalIndices().size()
+  vpc_params.set(VPCParametersNamespace::TIMELIMIT, vpcGenTimeRatio * maxRunTime);
+  vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, vpcGenTimeRatio * maxRunTime);
+  vpc_params.set(VPCParametersNamespace::USE_ALL_ONES, 1);
+  vpc_params.set(VPCParametersNamespace::USE_ITER_BILINEAR, 1);
+  vpc_params.set(VPCParametersNamespace::USE_DISJ_LB, 1);
+  vpc_params.set(VPCParametersNamespace::USE_TIGHT_POINTS, 0);
+  vpc_params.set(VPCParametersNamespace::USE_TIGHT_RAYS, 0);
+  vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
+
+  std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
+  // todo: check that what we would get from VwsUtilility::getCertificate matches the RHS's created here
+  gen->generateCuts(si, *disjCuts);
+  Disjunction* disj = gen->disj();
+
+  // if we have cuts, save the cut generator and the Farkas multipliers
+  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
+    vpcGenerators.push_back(gen);
+    cutCertificates.push_back(getFarkasMultipliers(si, *gen, *disjCuts));
+    return disjCuts;
+  }
+  else {
+    std::shared_ptr<OsiCuts> emptyCuts;
+    return emptyCuts;
+  }
+}
+
+/** Parameterize each previously created disjunctive cut with its disjunction
+ *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
+ *  main.cpp */
+std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers(
+    OsiClpSolverInterface si) {
+
+  verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
+
+  std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
+
+  // set up list of disjunctive cuts
+  // [problemIdx][cutIdx][termIdx][variableIdx]
+  std::vector< std::vector< std::vector< std::vector<double> > > > a;
+  // [problemIdx][cutIdx][termIdx]
+  std::vector< std::vector< std::vector<double> > > b;
+  a.resize(cutCertificates.size());
+  b.resize(cutCertificates.size());
+  for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
+    a[probIdx].resize(cutCertificates[probIdx].size());
+    b[probIdx].resize(cutCertificates[probIdx].size());
+    for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
+      a[probIdx][cutIdx].resize(disjunctiveTerms);
+      b[probIdx][cutIdx].resize(disjunctiveTerms);
+    }
+  }
+
+  for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
+    for (int termIdx=0; termIdx < disjunctiveTerms; termIdx++) {
+      Disjunction* disj = vpcGenerators[probIdx]->disj();
+      OsiSolverInterface* termSolver;
+      disj->getSolverForTerm(termSolver, termIdx, &si, false, .001, NULL);
+      for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+        a[probIdx][cutIdx][termIdx].resize(si.getNumCols());
+        getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
+                              cutCertificates[probIdx][cutIdx][termIdx], termSolver);
+      }
+    }
+    for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+      std::vector<double> alpha = elementWiseMax(a[probIdx][cutIdx]);
+      double beta = min(b[probIdx][cutIdx]);
+      std::vector<int> indices(alpha.size());
+      std::iota(std::begin(indices), std::end(indices), 0);
+      OsiRowCut cut;
+      cut.setRow(alpha.size(), indices.data(), alpha.data());
+      cut.setLb(beta);
+      disjCuts->insert(cut);
+    }
+  }
+
+  return disjCuts;
+}
