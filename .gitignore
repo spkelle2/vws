@@ -28,3 +28,4 @@ lib/
 gurobi.log
 *.out
 *.err
+.ipynb_checkpoints/

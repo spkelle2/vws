@@ -186,7 +186,6 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
 std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
     OsiClpSolverInterface si) {
 
-  // todo set time limit and get time stats
   si.initialSolve();
   verify(si.isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
@@ -206,7 +205,6 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
 
   std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
-  // todo: check that what we would get from VwsUtilility::getCertificate matches the RHS's created here
   gen->generateCuts(si, *disjCuts);
   Disjunction* disj = gen->disj();
 
@@ -231,8 +229,10 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromFarkasMult
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
+  bool feasibleTermSolver;
+  bool ambiguousTermSolver;
 
-  // set up list of disjunctive cuts
+  // set up vectors of disjunctive cuts
   // [problemIdx][cutIdx][termIdx][variableIdx]
   std::vector< std::vector< std::vector< std::vector<double> > > > a;
   // [problemIdx][cutIdx][termIdx]
@@ -242,23 +242,45 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromFarkasMult
   for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
     a[probIdx].resize(cutCertificates[probIdx].size());
     b[probIdx].resize(cutCertificates[probIdx].size());
+    Disjunction* disj = vpcGenerators[probIdx]->disj();
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
-      a[probIdx][cutIdx].resize(disjunctiveTerms);
-      b[probIdx][cutIdx].resize(disjunctiveTerms);
+      a[probIdx][cutIdx].resize(disj->num_terms);
+      b[probIdx][cutIdx].resize(disj->num_terms);
     }
-  }
 
-  for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
-    for (int termIdx=0; termIdx < disjunctiveTerms; termIdx++) {
-      Disjunction* disj = vpcGenerators[probIdx]->disj();
+    // calculate a cut for each disjunctive term
+    ambiguousTermSolver = false;
+    feasibleTermSolver = false;
+    for (int termIdx=0; termIdx < disj->num_terms; termIdx++) {
       OsiSolverInterface* termSolver;
-      disj->getSolverForTerm(termSolver, termIdx, &si, false, .001, NULL);
+      disj->getSolverForTerm(termSolver, termIdx, &si, false, .001, NULL, false, false);
+      // if we don't know if we're optimal or primal infeasible,
+      // we can't safely use these cuts, so skip to next problem
+      if (!termSolver->isProvenOptimal() && !termSolver->isProvenPrimalInfeasible()){
+        ambiguousTermSolver = true;
+        break;
+      }
       for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
         a[probIdx][cutIdx][termIdx].resize(si.getNumCols());
-        getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
-                              cutCertificates[probIdx][cutIdx][termIdx], termSolver);
+        if (termSolver->isProvenOptimal()) {
+          feasibleTermSolver = true;
+          getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
+                                cutCertificates[probIdx][cutIdx][termIdx], termSolver);
+        } else {
+          // primal infeasible - no cuts will violate this term,
+          // so just make its cut to where it won't be chosen
+          std::fill(a[probIdx][cutIdx][termIdx].begin(), a[probIdx][cutIdx][termIdx].end(), -1e50);
+          b[probIdx][cutIdx][termIdx] = 1e50;
+        }
       }
     }
+
+    // if we are unsure the status of a solver or all terms were infeasible, move on
+    if (ambiguousTermSolver || !feasibleTermSolver) {
+      continue;
+    }
+
+    // create a valid disjunctive cut given all the valid term cuts
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
       std::vector<double> alpha = elementWiseMax(a[probIdx][cutIdx]);
       double beta = min(b[probIdx][cutIdx]);

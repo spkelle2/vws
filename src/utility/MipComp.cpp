@@ -31,7 +31,7 @@ namespace fs = ghc::filesystem;
 MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
                  std::string csvPathStr, bool usePreprocessing, double timeMultiplier):
   solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr),
-  usePreprocessing(usePreprocessing), timeoutBuffer(0.0) {
+  usePreprocessing(usePreprocessing), timeoutBuffer(5) {
 
   // validate file paths
   fs::path filePath(filePathStr);
@@ -76,7 +76,7 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, 4, 0.1);
+  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, 4, 0.3);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
@@ -97,7 +97,14 @@ void MipComp::solveSeries() {
     std::shared_ptr<MipCompEventHandler> handler = std::make_shared<MipCompEventHandler>();
 
     // solve the instance
-    std::string vpcGenerator = i < instanceSolvers.size()/5.0 ? "PRLP" : "Farkas";
+    std::string vpcGenerator;
+    if (i < instanceSolvers.size()/5.0){
+      vpcGenerator = "PRLP";
+    } else if (seriesSolver.cutCertificates.size() > 0) {
+      vpcGenerator = "Farkas";
+    } else {
+      vpcGenerator = "None";
+    }
     CbcModel model = seriesSolver.solve(instanceSolver, vpcGenerator, usePreprocessing, handler.get());
 
     // correct the recorded dual bound and save the data collected by the event handler
@@ -106,6 +113,7 @@ void MipComp::solveSeries() {
     handler->data.maxTerminationTime = timeout - timeoutBuffer;
     handler->data.maxCompletionTime = timeout;
     handler->data.usePreprocessing = usePreprocessing;
+    handler->data.vpcGenerator = vpcGenerator;
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){
