@@ -46,13 +46,19 @@ OsiClpSolverInterface extractSolverInterfaceFromGunzip(fs::path instancePath) {
   // check that the file meets expectations
   verify(fs::exists(instancePath),
        "The file path " + instancePath.string() + " does not exist.");
-  verify(instancePath.extension() == ".gz",
-         "The file path " + instancePath.string() + " must be .gz file");
 
-  // unzip and read the file
-  std::string unzipCommand = "gunzip -k -f " + instancePath.string();
-  std::system(unzipCommand.c_str());
-  instancePath.replace_extension("");
+  // unzip the file if necessary
+  std::string extension = instancePath.extension();
+  if (extension == ".gz") {
+    // unzip and read the file
+    std::string unzipCommand = "gunzip -k -f " + instancePath.string();
+    std::system(unzipCommand.c_str());
+    instancePath.replace_extension("");
+  }
+
+  // check that we have a .mps file
+  verify(instancePath.extension() == ".mps",
+         "The file path " + instancePath.string() + " must be .mps or .mps.gz file");
 
   // read instancePath into a CbcModel
   OsiClpSolverInterface instanceSolver;
