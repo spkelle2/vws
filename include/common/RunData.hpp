@@ -54,6 +54,9 @@ public:
   /** whether or not preprocessing was enabled */
   bool usePreprocessing;
 
+  /** Which generator was used for VPCs */
+  std::string vpcGenerator;
+
   /** Get a comma-separated string of the names of RunData's attributes */
   std::string getHeader();
 

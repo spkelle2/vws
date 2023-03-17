@@ -466,6 +466,10 @@ void getCutFromCertificate(
     const std::vector<double>& v,
     /// [in] LP solver corresponding to disjunctive term
     const OsiSolverInterface* const solver) {
+
+  verify(!solver->isProvenPrimalInfeasible(),
+         "cannot calculate cut with infeasible termSolver.\n");
+
   alpha.clear();
   alpha.resize(solver->getNumCols(), 0.0);
   beta = 0.0;
@@ -485,9 +489,7 @@ void getCutFromCertificate(
     } else {
       val = 0.0;
     }
-    if (val > 1e20 || val < -1e20) {
-      std::cout << "hello world" << std::endl;
-    }
+    verify((val < 1e30 && val > -1e30), "messed up a farkas cofficient");
     beta += val;
   }
   for (int row = 0; row < solver->getNumRows(); row++) {
@@ -498,9 +500,7 @@ void getCutFromCertificate(
     } else {
       val = 0.0;
     }
-    if (val > 1e20 || val < -1e20) {
-      std::cout << "hello world" << std::endl;
-    }
+    verify((val < 1e30 && val > -1e30), "messed up a farkas cofficient");
     beta += val;
   }
 } /* getCutFromCertificate */
