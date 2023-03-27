@@ -29,3 +29,6 @@ gurobi.log
 *.out
 *.err
 .ipynb_checkpoints/
+.idea/
+experiments/*.csv
+experiments/*.png
