@@ -32,3 +32,5 @@ gurobi.log
 .idea/
 experiments/*.csv
 experiments/*.png
+baseline_*
+vpcs_*
