@@ -4,14 +4,18 @@
  * @date 2023-01-31
  */
 // standard library modules
-#include <random> // mt19937
+#include <memory> // shared_ptr
 #include <vector>
 
 // shared modules
+#include "CbcEventHandler.hpp" // CbcEventHandler
 #include "CbcModel.hpp" // CbcModel
 
+// vpc modules
+#include "CglVPC.hpp" // CglVPC
+
 // project modules
-#include "PartialBBDisjunction.hpp" // DisjunctiveTerm, Disjunction, getSolverForTerm
+#include "PartialBBDisjunction.hpp" // Disjunction
 
 
 /**
@@ -26,25 +30,66 @@ class VwsSolverInterface {
 public:
   /** vector of Farkas multipliers used to create VPCs from previous MIPs.
    * Indexed [mip][cut][disjunctive term][Farkas multiplier] */
-  std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificate;
+  std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificates;
 
-  /** vector of disjunctions used to create VPCs from previous MIPs */
-  std::vector<PartialBBDisjunction*> disjunction;
+  /** vector of cut generators used to create VPCs from PRLPs */
+  std::vector< std::shared_ptr<CglVPC> > vpcGenerators;
 
-  /** random number generator used to sample from 0-1 distribution to determine
-   * if VPCs are created from solving PRLPs or from applying previous disjunctions
-   * and Farkas multipliers */
-  std::mt19937 randomNumberGenerator;
+  /** number of solutions to save each solve */
+  int maxExtraSavedSolutions;
+
+  /** number of seconds to give each solve */
+  double maxRunTime;
+
+  /** max proportion of maxRunTime to allow VPC generation from PRLPs */
+  double vpcGenTimeRatio;
+
+  /** number of terms to include in each disjunction */
+  int disjunctiveTerms;
+
+  /** All previously encountered solutions
+   * indexed by [problem][solution][variable] */
+  std::vector< std::vector< std::vector<double>>> solutions;
+
+  /** names of variables in each instance
+   * indexed by [problem][column index] */
+  std::vector< std::vector< std::string > > variableNames;
+
+  /** names of constraints in each instance
+   * indexed by [problem][row index] */
+  std::vector< std::vector< std::string > > constraintNames;
 
   /** Default constructor */
-  VwsSolverInterface();
+  VwsSolverInterface(int maxExtraSavedSolutions=100, double maxRunTime=1000000,
+                     int disjunctiveTerms=16, double vpcGenTimeRatio=0.1);
 
-  /** Solve given model. With probability p, solve PRLPs to create VPCs. With
-   * probability (1-p), create VPCs from previous disjunctions and Farkas multipliers. */
-  void solve(CbcModel& model, double p);
-  // todo: start the above with just getting the dual bound
+  /** Solve a MIP with VPCs added. */
+  CbcModel solve(OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
+                 bool usePreprocessing=true, CbcEventHandler* eventHandler=nullptr);
 
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
+
+protected:
+
+  /** Solve the MIP encoded in instanceSolver without presolving */
+  std::shared_ptr<CbcModel> unprocessedBranchAndCut(
+      OsiClpSolverInterface& solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+      double vpcGenTime);
+
+  /** Solve the MIP encoded in instanceSolver with presolving */
+  std::shared_ptr<CbcModel> preprocessedBranchAndCut(
+      OsiClpSolverInterface& instanceSolver, OsiCuts* cuts,
+      CbcEventHandler* eventHandler, double vpcGenTime);
+
+  /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
+   *  partially solving the given problem. Simplified from Strengthening's
+   *  CglAdvCut::generateCuts */
+  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromPRLP(OsiClpSolverInterface si);
+
+  /** Parameterize each previously created disjunctive cut with its disjunction
+   *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
+   *  main.cpp */
+  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromFarkasMultipliers(OsiClpSolverInterface si);
 
 }; /* VpcWarmStart */
 

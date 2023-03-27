@@ -25,7 +25,7 @@ RM = rm -f
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
-UNIT_TEST_FILE = testUtility/TestMipComp.cpp
+UNIT_TEST_FILE = testCut/TestVwsSolverInterface.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
@@ -38,6 +38,18 @@ COIN_OR_BUILD_DIR_RELEASE = build
 
 ifeq ($(USER),sean)
   COIN_OR = /Users/sean/coin-or
+	COIN_OR_BUILD_DIR_DEBUG = dist
+	COIN_OR_BUILD_DIR_RELEASE = dist
+  #EIG_LIB = enter/dir/here
+
+  # Optional (for testing branch and bound or enabling certain functions):
+  #GUROBI_DIR = enter/dir/here
+  #GUROBI_LINK="gurobi80"
+  #CPLEX_DIR = enter/dir/here
+endif
+
+ifeq ($(USER),sek519)
+  COIN_OR = /home/sek519/coin-or
 	COIN_OR_BUILD_DIR_DEBUG = dist
 	COIN_OR_BUILD_DIR_RELEASE = dist
   #EIG_LIB = enter/dir/here
@@ -125,7 +137,10 @@ VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
 	cut/VwsSolverInterface.cpp \
+	cut/CbcSolverHeuristics.cpp \
 	utility/MipComp.cpp \
+	utility/MipCompEventHandler.cpp \
+	utility/RunData.cpp \
 	utility/VwsUtility.cpp
 
 # VPC directories
@@ -252,9 +267,9 @@ endif
 # Linker
 CFLAGS = -Wall -MMD -MP
 CFLAGS += -m64 $(DEBUG_FLAG) $(OPT_FLAG) $(EXTRA_FLAGS)
-CXXFLAGS = $(CFLAGS) -std=c++14
-#CXXFLAGS = $(CFLAGS) -std=c++14 -Wextra -Wpedantic
-CXXLINKFLAGS += -std=c++14
+CXXFLAGS = $(CFLAGS) -std=c++17
+#CXXFLAGS = $(CFLAGS) -std=c++17 -Wextra -Wpedantic
+CXXLINKFLAGS += -std=c++17
 ifeq ($(CC),clang++)
   CXXFLAGS += -Wno-gnu-zero-variadic-macro-arguments
   #CXXFLAGS += -stdlib=libc++ 
@@ -343,7 +358,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		@echo ' '
 		@echo 'Building target: $@'
 		@echo 'Invoking' $(CC) 'compiler'
-		$(CC) $(CXXFLAGS) $(DEFS) $(APPLINCLS) -c $< -o $@ 
+		$(CC) $(CXXFLAGS) $(DEFS) $(APPLINCLS) -c $< -o $@
 		@echo 'Finished building: $@'
 $(VPC_OBJ_DIR)/%.o: $(VPC_SRC_DIR)/%.cpp
 		@echo ' '

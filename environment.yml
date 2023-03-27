@@ -1,0 +1,36 @@
+name: vws
+channels:
+  - anaconda
+  - conda-forge
+  - bioconda
+  - defaults
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/free
+dependencies:
+  - bzip2
+  - ca-certificates
+  - certifi
+  - gxx
+  - ld_impl_linux-64
+  - libblas
+  - libedit
+  - libffi
+  - libgcc-ng
+  - libgfortran-ng
+  - libgfortran4
+  - liblapack
+  - libopenblas
+  - libstdcxx-ng
+  - ncurses
+  - openssl
+  - pip
+  - python
+  - python_abi
+  - readline
+  - setuptools
+  - sqlite
+  - tk
+  - wheel
+  - xz
+  - zlib
+prefix: /home/sek519/.conda/envs/vws

@@ -12,6 +12,7 @@ subdir.mk
 *.pyc
 *.pyo
 *.swp
+solutions/
 UnitTest/
 Debug/
 DebugTmp/
@@ -21,9 +22,13 @@ Tmp/
 TmpDebug/
 TmpRelease/
 .DS_Store
-*.csv*
 nohup.out
-data/instances/*
-*.mps*
+*.mps
 lib/
 gurobi.log
+*.out
+*.err
+.ipynb_checkpoints/
+.idea/
+experiments/*.csv
+experiments/*.png

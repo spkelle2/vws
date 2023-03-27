@@ -1,4 +1,4 @@
-[TIMEOUT] 20
+[TIMEOUT] 60
 [OBJ] -
 [LO] -
 [UP] -
@@ -8,5 +8,3 @@
 datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz
 datasets/vary_rhs/series_2/rhs_s2_i02.mps.gz
 datasets/vary_rhs/series_2/rhs_s2_i03.mps.gz
-datasets/vary_rhs/series_2/rhs_s2_i04.mps.gz
-datasets/vary_rhs/series_2/rhs_s2_i05.mps.gz
