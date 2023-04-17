@@ -30,10 +30,10 @@ void verify(bool condition, const std::string& msg);
 OsiClpSolverInterface extractSolverInterfaceFromGunzip(fs::path instancePath);
 
 /** get the variable names from a CbcModel */
-std::vector<std::string> getVariableNames(OsiSolverInterface& solverInterface);
+std::vector<std::string> getVariableNames(const OsiSolverInterface& instanceSolver);
 
 /** get the constraint names from a CbcModel */
-std::vector<std::string> getConstraintNames(OsiSolverInterface& solverInterface);
+std::vector<std::string> getConstraintNames(const OsiSolverInterface& instanceSolver);
 
 /** writes solution in <variableValue> to <solutionPath>. Removes previous
  * solution recorded at <solutionPath>. */
@@ -120,5 +120,34 @@ void getCutFromCertificate(
 /** find the smallest value in each column given a vector of row vectors */
 std::vector<double> elementWiseMax(std::vector< std::vector<double> > a);
 
-// find the smallest value in a vector
+/** find the smallest value in a vector */
 double min(std::vector<double> a);
+
+/** check if sol is feasible for solver */
+bool isFeasible(
+    /// [in] problem
+    const OsiSolverInterface& solver,
+    /// [in] solution
+    const std::vector<double>& sol);
+
+/** check if cut is valid for given solution */
+bool isFeasible(
+    /// [in] problem
+    const OsiRowCut& cut,
+    /// [in] solution
+    const std::vector<double>& sol);
+
+/** check if a value is an integer */
+bool isInteger(double val);
+
+/** take a min of two values */
+double min(double a, double b);
+
+/** find the nonzero indices and elemnets of a vector */
+void findNonZero(
+    /// [in] vector
+    const std::vector<double>& vec,
+    /// [out] indices of nonzero elements
+    std::vector<int>& indices,
+    /// [out] nonzero elements
+    std::vector<double>& elements);

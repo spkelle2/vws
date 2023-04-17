@@ -64,21 +64,18 @@ public:
                      int disjunctiveTerms=16, double vpcGenTimeRatio=0.1);
 
   /** Solve a MIP with VPCs added. */
-  CbcModel solve(OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
+  CbcModel solve(const OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
                  bool usePreprocessing=true, CbcEventHandler* eventHandler=nullptr);
-
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
-
-protected:
 
   /** Solve the MIP encoded in instanceSolver without presolving */
   std::shared_ptr<CbcModel> unprocessedBranchAndCut(
-      OsiClpSolverInterface& solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+      OsiClpSolverInterface solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
       double vpcGenTime);
 
   /** Solve the MIP encoded in instanceSolver with presolving */
   std::shared_ptr<CbcModel> preprocessedBranchAndCut(
-      OsiClpSolverInterface& instanceSolver, OsiCuts* cuts,
+      OsiClpSolverInterface instanceSolver, OsiCuts* cuts,
       CbcEventHandler* eventHandler, double vpcGenTime);
 
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from

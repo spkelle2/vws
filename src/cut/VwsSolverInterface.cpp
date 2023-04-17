@@ -32,7 +32,7 @@
 
 // project modules
 #include "VwsSolverInterface.hpp"
-#include "VwsUtility.hpp" // getVariableNames, getConstraintNames, putBackSolutions
+#include "VwsUtility.hpp" // getVariableNames, getConstraintNames, putBackSolutions, findNonZero
 
 
 /** constructor */
@@ -48,7 +48,7 @@ VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, double maxRun
 
 /** Solve a MIP with VPCs added. Adds the provided eventHandler to the solve,
  * preprocessing the input model if requested */
-CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
+CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
                                    std::string vpcGenerator, bool usePreprocessing,
                                    CbcEventHandler* eventHandler){
 
@@ -104,7 +104,7 @@ CbcModel VwsSolverInterface::solve(OsiClpSolverInterface& instanceSolver,
  *  and we don't want to clash names with the unprocessed instanceSolver from the
  *  original formulation. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
-    OsiClpSolverInterface& solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+    OsiClpSolverInterface solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
     double vpcGenTime){
 
   // instantiate the model
@@ -150,7 +150,7 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
  * and returns the preprocessed solution information back to the original problem
  * space. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
-    OsiClpSolverInterface& instanceSolver, OsiCuts* cuts, CbcEventHandler* eventHandler,
+    OsiClpSolverInterface instanceSolver, OsiCuts* cuts, CbcEventHandler* eventHandler,
     double vpcGenTime){
 
   if (cuts) {
@@ -178,8 +178,6 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
   return model;
 } /* preprocessedBranchAndCut */
 
-// todo: place const wherever I'm copying objects and don't need to
-
 /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
  *  partially solving the given problem encoded in the solver interface.
  *  Simplified from Strengthening's CglAdvCut::generateCuts */
@@ -203,6 +201,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   vpc_params.set(VPCParametersNamespace::USE_TIGHT_POINTS, 0);
   vpc_params.set(VPCParametersNamespace::USE_TIGHT_RAYS, 0);
   vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
+  vpc_params.set(VPCParametersNamespace::MODE, 4);  // use most reduced costs
 
   std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
   gen->generateCuts(si, *disjCuts);
@@ -284,10 +283,11 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromFarkasMult
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
       std::vector<double> alpha = elementWiseMax(a[probIdx][cutIdx]);
       double beta = min(b[probIdx][cutIdx]);
-      std::vector<int> indices(alpha.size());
-      std::iota(std::begin(indices), std::end(indices), 0);
+      std::vector<int> indices;
+      std::vector<double> elements;
+      findNonZero(alpha, indices, elements);
       OsiRowCut cut;
-      cut.setRow(alpha.size(), indices.data(), alpha.data());
+      cut.setRow(indices.size(), indices.data(), elements.data());
       cut.setLb(beta);
       disjCuts->insert(cut);
     }

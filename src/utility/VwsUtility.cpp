@@ -5,6 +5,7 @@
  */
 
 // standard library
+#include <cmath> // floor, ceil
 #include <cstdio> // cerr
 #include <cstdlib> // source
 #include <ghc/filesystem.hpp> // path
@@ -67,7 +68,7 @@ OsiClpSolverInterface extractSolverInterfaceFromGunzip(fs::path instancePath) {
 }
 
 // get the variable names from an OsiSolverInterface
-std::vector<std::string> getVariableNames(OsiSolverInterface& instanceSolver) {
+std::vector<std::string> getVariableNames(const OsiSolverInterface& instanceSolver) {
   std::vector<std::string> variableNames;
   for (int i = 0; i < instanceSolver.getNumCols(); i++) {
     variableNames.push_back(instanceSolver.getColName(i, 0));
@@ -76,7 +77,7 @@ std::vector<std::string> getVariableNames(OsiSolverInterface& instanceSolver) {
 }
 
 // get the constraint names from an OsiSolverInterface
-std::vector<std::string> getConstraintNames(OsiSolverInterface& instanceSolver) {
+std::vector<std::string> getConstraintNames(const OsiSolverInterface& instanceSolver) {
   std::vector<std::string> constraintNames;
   for (int i = 0; i < instanceSolver.getNumRows(); i++) {
     constraintNames.push_back(instanceSolver.getRowName(i, 0));
@@ -475,10 +476,19 @@ void getCutFromCertificate(
 
   verify(!solver->isProvenPrimalInfeasible(),
          "cannot calculate cut with infeasible termSolver.\n");
+  verify(v.size() == solver->getNumRows() + solver->getNumCols(), "The number of "
+         "Farkas multipliers should match the number of constraints and variables.\n");
 
   alpha.clear();
   alpha.resize(solver->getNumCols(), 0.0);
   beta = 0.0;
+
+  for (int i = 0; i < v.size(); i++){
+    if (!isZero(v[i], 1e-7)){
+      // print the index and value
+      std::cout << "index: " << i << ", value: " << v[i] << std::endl;
+    }
+  }
 
   const CoinPackedMatrix* mat = solver->getMatrixByCol();
   double val;
@@ -524,7 +534,7 @@ std::vector<double> elementWiseMax(std::vector< std::vector<double> > a){
   return maxes;
 }
 
-// find the smallest value in a vector
+/** find the smallest value in a vector */
 double min(std::vector<double> a){
   double min = 1e50;
   for (int i = 0; i < a.size(); i++){
@@ -533,4 +543,105 @@ double min(std::vector<double> a){
     }
   }
   return min;
+}
+
+/** check if sol is feasible for solver */
+bool isFeasible(
+    /// [in] problem
+    const OsiSolverInterface& solver,
+    /// [in] solution
+    const std::vector<double>& sol) {
+
+  // get bounds and constraint coefficients
+  const double* rowLower = solver.getRowLower();
+  const double* rowUpper = solver.getRowUpper();
+  const double* colLower = solver.getColLower();
+  const double* colUpper = solver.getColUpper();
+  const CoinPackedMatrix* mat = solver.getMatrixByRow();
+  const int* cols = mat->getIndices();
+  const double* elem = mat->getElements();
+
+  // check dimensions match
+  verify(sol.size() == solver.getNumCols(), "solution has wrong dimension");
+
+  // make sure constraints are valid
+  for (int row = 0; row < solver.getNumRows(); row++) {
+    double sum = 0.0;
+    const int start = mat->getVectorFirst(row);
+    const int end = mat->getVectorLast(row);
+    for (int ind = start; ind < end; ind++) {
+      const double j = cols[ind];
+      const double el = elem[ind];
+      sum += el * sol[j];
+    }
+    if (lessThanVal(sum, rowLower[row]) || greaterThanVal(sum, rowUpper[row])) {
+      return false;
+    }
+  }
+
+  // make sure variables are valid
+  for (int col = 0; col < solver.getNumCols(); col++) {
+    if (lessThanVal(sol[col], colLower[col]) || greaterThanVal(sol[col], colUpper[col])) {
+      return false;
+    }
+    if (solver.isInteger(col) && !isInteger(sol[col])) {
+      return false;
+    }
+  }
+  return true;
+} /* isFeasible */
+
+/** check if cut is valid for given solution */
+bool isFeasible(
+    /// [in] problem
+    const OsiRowCut& cut,
+    /// [in] solution
+    const std::vector<double>& sol) {
+
+  double sum = 0.0;
+  for (int ind = 0; ind < cut.row().getNumElements(); ind++) {
+    const double j = cut.row().getIndices()[ind];
+    const double el = cut.row().getElements()[ind];
+    sum += el * sol[j];
+  }
+  if (lessThanVal(sum, cut.lb()) || greaterThanVal(sum, cut.ub())) {
+    // print the sum, the cut lower bound, and cut upper bound
+    std::cout << " lb: " << cut.lb() << "sum: " << sum << " ub: " << cut.ub() << std::endl;
+    return false;
+  } else {
+    return true;
+  }
+} /* isFeasible */
+
+/** check if a value is an integer */
+bool isInteger(double val){
+  return isZero(min(val - std::floor(val), std::ceil(val) - val));
+}
+
+/** take a min of two values */
+double min(double a, double b){
+  if (a < b){
+    return a;
+  } else {
+    return b;
+  }
+}
+
+/** find the nonzero indices and elemnets of a vector */
+void findNonZero(
+    /// [in] vector
+    const std::vector<double>& vec,
+    /// [out] indices of nonzero elements
+    std::vector<int>& indices,
+    /// [out] nonzero elements
+    std::vector<double>& elements) {
+
+  indices.clear();
+  elements.clear();
+  for (int i = 0; i < vec.size(); i++){
+    if (!isZero(vec[i])){
+      indices.push_back(i);
+      elements.push_back(vec[i]);
+    }
+  }
 }
