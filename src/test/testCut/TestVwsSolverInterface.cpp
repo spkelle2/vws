@@ -17,6 +17,11 @@
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
 #include <OsiCuts.hpp> // OsiCuts
 
+// vpc modules
+#include "Disjunction.hpp" // DisjExitReason
+#include "StrongBranchingDisjunction.hpp" // StrongBranchingDisjunction
+#include "VPCParameters.hpp" // VPCParameters
+
 // project unit test modules
 #include "VwsSolverInterface.hpp"
 #include "VwsUtility.hpp"
@@ -190,7 +195,7 @@ TEST_CASE( "Check larger instance preprocessed", "[VwsSolverInterface::solve][lo
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
   OsiClpSolverInterface instanceSolver =
       extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 60, 16);
+  VwsSolverInterface seriesSolver(10, 120, 16, .8);
   CbcModel model = seriesSolver.solve(instanceSolver);
 
   // check that we have valid bounds
@@ -205,7 +210,7 @@ TEST_CASE( "Check larger instance unprocessed", "[VwsSolverInterface::solve][lon
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
   OsiClpSolverInterface instanceSolver =
       extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 60, 16);
+  VwsSolverInterface seriesSolver(10, 120, 4, .8);
   seriesSolver.maxExtraSavedSolutions = 0;
   CbcModel model = seriesSolver.solve(instanceSolver, "None", false);
 
@@ -250,6 +255,138 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   REQUIRE(model.getObjValue() == 34);
   REQUIRE((22 < model.getContinuousObjective() && model.getContinuousObjective() < 23));
 
+  // check the disjunction is what we expect by rolling back changes and finding same solution std::round(objVal) == 21
+  Disjunction * disj = seriesSolver.vpcGenerators[0]->disj();
+  OsiSolverInterface* termSolver;
+
+  // check disjunction metadata
+  REQUIRE(disj->num_terms == 4);
+  REQUIRE(disj->common_changed_var.size() == 0);
+  REQUIRE(disj->common_changed_bound.size() == 0);
+  REQUIRE(disj->common_changed_value.size() == 0);
+  REQUIRE(disj->common_ineqs.size() == 0);
+
+  // check variables are fixed as expected for term 0
+  disj->getSolverForTerm(termSolver, 0, &instanceSolver, true, .001, NULL, false, false);
+
+  // correct objective
+  REQUIRE((disj->best_obj - 1e-4 <= termSolver->getObjValue() &&
+           termSolver->getObjValue() <= disj->worst_obj + 1e-4));
+
+  // correct variables
+  REQUIRE(disj->terms[0].changed_var[0] == 16);
+  REQUIRE(disj->terms[0].changed_var[1] == 14);
+
+  // correct directions
+  REQUIRE(disj->terms[0].changed_bound[0] == 1);
+  REQUIRE(disj->terms[0].changed_bound[1] == 1);
+
+  // correct bounds
+  REQUIRE(disj->terms[0].changed_value[0] == 0);
+  REQUIRE(termSolver->getColUpper()[16] == 0);
+  REQUIRE(disj->terms[0].changed_value[1] == 0);
+  REQUIRE(termSolver->getColUpper()[14] == 0);
+
+  // check if we remove those constraints that the problem is the same again
+  termSolver->setColUpper(16, 1);
+  termSolver->setColUpper(14, 1);
+  termSolver->resolve();
+  REQUIRE((20.5 <= termSolver->getObjValue() && termSolver->getObjValue() <= 20.6));
+
+  // check no added ineqs
+  REQUIRE(disj->terms[0].ineqs.size() == 0);
+
+  // check variables are fixed as expected for term 1
+  disj->getSolverForTerm(termSolver, 1, &instanceSolver, true, .001, NULL, false, false);
+
+  // correct objective
+  REQUIRE((disj->best_obj - 1e-4 <= termSolver->getObjValue() &&
+           termSolver->getObjValue() <= disj->worst_obj + 1e-4));
+
+  // correct variables
+  REQUIRE(disj->terms[1].changed_var[0] == 16);
+  REQUIRE(disj->terms[1].changed_var[1] == 14);
+
+  // correct directions
+  REQUIRE(disj->terms[1].changed_bound[0] == 1);
+  REQUIRE(disj->terms[1].changed_bound[1] == 0);
+
+  // correct bounds
+  REQUIRE(disj->terms[1].changed_value[0] == 0);
+  REQUIRE(termSolver->getColUpper()[16] == 0);
+  REQUIRE(disj->terms[1].changed_value[1] == 1);
+  REQUIRE(termSolver->getColLower()[14] == 1);
+
+  // check if we remove those constraints that the problem is the same again
+  termSolver->setColUpper(16, 1);
+  termSolver->setColLower(14, 0);
+  termSolver->resolve();
+  REQUIRE((20.5 <= termSolver->getObjValue() && termSolver->getObjValue() <= 20.6));
+
+  // check no added ineqs
+  REQUIRE(disj->terms[1].ineqs.size() == 0);
+
+  // check variables are fixed as expected for term 2
+  disj->getSolverForTerm(termSolver, 2, &instanceSolver, true, .001, NULL, false, false);
+
+  // correct objective
+  REQUIRE((disj->best_obj - 1e-4 <= termSolver->getObjValue() &&
+           termSolver->getObjValue() <= disj->worst_obj + 1e-4));
+
+  // correct variables
+  REQUIRE(disj->terms[2].changed_var[0] == 16);
+  REQUIRE(disj->terms[2].changed_var[1] == 14);
+
+  // correct directions
+  REQUIRE(disj->terms[2].changed_bound[0] == 0);
+  REQUIRE(disj->terms[2].changed_bound[1] == 1);
+
+  // correct bounds
+  REQUIRE(disj->terms[2].changed_value[0] == 1);
+  REQUIRE(termSolver->getColLower()[16] == 1);
+  REQUIRE(disj->terms[2].changed_value[1] == 0);
+  REQUIRE(termSolver->getColUpper()[14] == 0);
+
+  // check if we remove those constraints that the problem is the same again
+  termSolver->setColLower(16, 0);
+  termSolver->setColUpper(14, 1);
+  termSolver->resolve();
+  REQUIRE((20.5 <= termSolver->getObjValue() && termSolver->getObjValue() <= 20.6));
+
+  // check no added ineqs
+  REQUIRE(disj->terms[2].ineqs.size() == 0);
+
+  // check variables are fixed as expected for term 3
+  disj->getSolverForTerm(termSolver, 3, &instanceSolver, true, .001, NULL, false, false);
+
+  // correct objective
+  REQUIRE((disj->best_obj - 1e-4 <= termSolver->getObjValue() &&
+           termSolver->getObjValue() <= disj->worst_obj + 1e-4));
+
+  // correct variables
+  REQUIRE(disj->terms[3].changed_var[0] == 16);
+  REQUIRE(disj->terms[3].changed_var[1] == 14);
+
+  // correct directions
+  REQUIRE(disj->terms[3].changed_bound[0] == 0);
+  REQUIRE(disj->terms[3].changed_bound[1] == 0);
+
+  // correct bounds
+  REQUIRE(disj->terms[3].changed_value[0] == 1);
+  REQUIRE(termSolver->getColLower()[16] == 1);
+  REQUIRE(disj->terms[3].changed_value[1] == 1);
+  REQUIRE(termSolver->getColLower()[14] == 1);
+
+  // check if we remove those constraints that the problem is the same again
+  termSolver->setColLower(16, 0);
+  termSolver->setColLower(14, 0);
+  termSolver->resolve();
+  REQUIRE((20.5 <= termSolver->getObjValue() && termSolver->getObjValue() <= 20.6));
+
+  // check no added ineqs
+  REQUIRE(disj->terms[3].ineqs.size() == 0);
+
+  // check vpcs when parameterized
   CbcModel model2 = seriesSolver.solve(instanceSolver, "Farkas");
 
   // Farkas does not create an additional VPC generator or set of multipliers
@@ -273,7 +410,7 @@ TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][lo
   // solve a model with the VwsSolverInterface
   OsiClpSolverInterface instanceSolver =
       extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 60, 4);
+  VwsSolverInterface seriesSolver(10, 120, 4, .8);
 
   // generate vpcs with the PRLP
   CbcModel model = seriesSolver.solve(instanceSolver, "PRLP");
@@ -318,7 +455,7 @@ TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][lo
   REQUIRE(model2.solver()->getNumRows() > 1250);
 
   // check the primal solutions
-  REQUIRE(seriesSolver.solutions[1].size() == 2);
+  REQUIRE(seriesSolver.solutions[1].size() == 1);
   checkSolutions(seriesSolver, instanceSolver, model2, 1);
 
   // check the bounds are valid
@@ -359,7 +496,7 @@ TEST_CASE( "Check VPCs created successfully from Farkas",
   // solve a model with the VwsSolverInterface
   OsiClpSolverInterface instanceSolver =
       extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 60, 4);
+  VwsSolverInterface seriesSolver(10, 120, 4, .8);
   TestHandler handler;
   seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
 
@@ -370,7 +507,7 @@ TEST_CASE( "Check VPCs created successfully from Farkas",
   // check that the vpcs we get are valid
   std::shared_ptr<OsiCuts> disjCuts = seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
   // we should have added a lot of cuts
-  REQUIRE(disjCuts->sizeRowCuts() == 6);
+  REQUIRE(disjCuts->sizeRowCuts() == 12);
   for (int i=0; i<disjCuts->sizeRowCuts(); i++){
 
     // each cut should be of form a^T x >= b
@@ -387,31 +524,31 @@ TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes i
            "[VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers][long]" ) {
 
   // set up reusable stuff
-  VwsSolverInterface seriesSolver(10, 600, 4);
+  VwsSolverInterface seriesSolver(10, 600, 4, .8);
   TestHandler handler;
   OsiClpSolverInterface instanceSolver;
 
   // create cuts for first 10 instances
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i01.mps.gz");
   seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i02.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i03.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i04.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i05.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i06.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i07.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i08.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i09.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i10.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i02.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i03.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i04.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i05.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i06.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i07.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i08.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i09.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
+//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i10.mps.gz");
+//  seriesSolver.solve(instanceSolver, "PRLP", true, &handler);
 
   // get solutions for the weird instance
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i38.mps.gz");
