@@ -201,7 +201,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   vpc_params.set(VPCParametersNamespace::USE_TIGHT_POINTS, 0);
   vpc_params.set(VPCParametersNamespace::USE_TIGHT_RAYS, 0);
   vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
-  vpc_params.set(VPCParametersNamespace::MODE, 4);  // use most reduced costs
+  vpc_params.set(VPCParametersNamespace::MODE, 4);
 
   std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
   gen->generateCuts(si, *disjCuts);

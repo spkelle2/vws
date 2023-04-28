@@ -153,7 +153,7 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
   }
   for (int term_ind = 0; term_ind < disj->num_terms; term_ind++) {
     OsiSolverInterface* termSolver;
-    disj->getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL);
+    disj->getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, false, false);
     if (!termSolver) {
       printf("Disjunctive term %d/%d not created successfully.\n", term_ind+1, disj->num_terms);
       continue;
@@ -482,13 +482,6 @@ void getCutFromCertificate(
   alpha.clear();
   alpha.resize(solver->getNumCols(), 0.0);
   beta = 0.0;
-
-  for (int i = 0; i < v.size(); i++){
-    if (!isZero(v[i], 1e-7)){
-      // print the index and value
-      std::cout << "index: " << i << ", value: " << v[i] << std::endl;
-    }
-  }
 
   const CoinPackedMatrix* mat = solver->getMatrixByCol();
   double val;
