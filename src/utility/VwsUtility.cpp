@@ -156,7 +156,7 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
     disj->getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, false, false);
     if (!termSolver) {
       printf("Disjunctive term %d/%d not created successfully.\n", term_ind+1, disj->num_terms);
-      continue;
+      exit(1); // i think this should be a break right?
     }
     for (int cut_ind = 0; cut_ind < currCuts.sizeCuts(); cut_ind++) {
       const OsiRowCut* disjCut = currCuts.rowCutPtr(cut_ind);
