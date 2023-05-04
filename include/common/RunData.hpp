@@ -21,6 +21,9 @@ public:
   /** the dual bound after solving the root LP relaxation for each instance */
   double lpBound;
 
+  /** the dual bound after running default cut generation on the root node but before adding VPCs */
+  double rootDualBoundPreVpc;
+
   /** the dual bound after running cut generation on the root node */
   double rootDualBound;
 

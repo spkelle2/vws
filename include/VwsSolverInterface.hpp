@@ -8,14 +8,14 @@
 #include <vector>
 
 // shared modules
-#include "CbcEventHandler.hpp" // CbcEventHandler
 #include "CbcModel.hpp" // CbcModel
 
 // vpc modules
 #include "CglVPC.hpp" // CglVPC
+#include "PartialBBDisjunction.hpp" // Disjunction
 
 // project modules
-#include "PartialBBDisjunction.hpp" // Disjunction
+#include "VwsEventHandler.hpp" // CbcEventHandler
 
 
 /**
@@ -65,18 +65,16 @@ public:
 
   /** Solve a MIP with VPCs added. */
   CbcModel solve(const OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
-                 bool usePreprocessing=true, CbcEventHandler* eventHandler=nullptr);
+                 bool usePreprocessing=true, VwsEventHandler* eventHandler=nullptr);
   // note: should be able to create VPCs with GMICs in the case the RHS does not change
 
   /** Solve the MIP encoded in instanceSolver without presolving */
   std::shared_ptr<CbcModel> unprocessedBranchAndCut(
-      OsiClpSolverInterface solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
-      double vpcGenTime);
+      OsiClpSolverInterface solver, VwsEventHandler* eventHandler, double vpcGenTime);
 
   /** Solve the MIP encoded in instanceSolver with presolving */
   std::shared_ptr<CbcModel> preprocessedBranchAndCut(
-      OsiClpSolverInterface instanceSolver, OsiCuts* cuts,
-      CbcEventHandler* eventHandler, double vpcGenTime);
+      OsiClpSolverInterface instanceSolver, VwsEventHandler* eventHandler, double vpcGenTime);
 
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
    *  partially solving the given problem. Simplified from Strengthening's
