@@ -11,7 +11,6 @@
 #include <vector> // vector
 
 // coin-or modules
-#include "CbcEventHandler.hpp" // CbcEventHandler
 #include "CbcModel.hpp"
 #include "CbcSolver.hpp" // cbcMain0
 #include "CbcSolverHeuristics.hpp" // doHeuristics
@@ -27,10 +26,12 @@
 
 // vpc modules
 #include "CglVPC.hpp" // CglVPC
+#include "CompleteDisjunction.hpp" // CompleteDisjunction
 #include "SolverInterface.hpp" // SolverInterface
 #include "VPCParameters.hpp" // VPCParameters
 
 // project modules
+#include "VwsEventHandler.hpp" // VwsEventHandler
 #include "VwsSolverInterface.hpp"
 #include "VwsUtility.hpp" // getVariableNames, getConstraintNames, putBackSolutions, findNonZero
 
@@ -50,7 +51,7 @@ VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, double maxRun
  * preprocessing the input model if requested */
 CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
                                    std::string vpcGenerator, bool usePreprocessing,
-                                   CbcEventHandler* eventHandler){
+                                   VwsEventHandler* eventHandler){
 
   // todo: enforce that we have a MIP with same number of variables and constraints
   // todo: enforce that we have a MIP with expected constraint format
@@ -58,6 +59,16 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
 
   verify(vpcGenerator == "PRLP" || vpcGenerator == "Farkas" || vpcGenerator == "None",
          "VwsSolverInterface::solve: vpcGenerator must be either PRLP, Farkas, or None");
+  // currently, we don't know how to weave cuts through the preprocessor, so we
+  // lack a way to create VPCs and add them after root cut generation
+  verify(!((vpcGenerator == "PRLP" || vpcGenerator == "Farkas") && usePreprocessing),
+         "VwsSolverInterface::solve: if creating VPCs, the preprocessor must be disabled");
+
+  // if we don't have an event handler, create a default one
+  VwsEventHandler h;
+  if (!eventHandler){
+    eventHandler = &h;
+  }
 
   // instanceSolver passed by reference since names aren't carried over when CbcModel constructor copies it
   variableNames.push_back(getVariableNames(instanceSolver));
@@ -72,6 +83,7 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   } else if (vpcGenerator == "Farkas") {
     disjCuts = createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
   }
+  eventHandler->cuts = disjCuts.get();
   std::time_t endTime = std::time(nullptr);
   double vpcGenTime = std::difftime(endTime, startTime);
 
@@ -81,9 +93,9 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   // within a subroutine, but still need to access it here, necessitating the pointer
   std::shared_ptr<CbcModel> model;
   if (usePreprocessing) {
-    model = preprocessedBranchAndCut(instanceSolver, disjCuts.get(), eventHandler, vpcGenTime);
+    model = preprocessedBranchAndCut(instanceSolver, eventHandler, vpcGenTime);
   } else {
-    model = unprocessedBranchAndCut(instanceSolver, disjCuts.get(), eventHandler, vpcGenTime);
+    model = unprocessedBranchAndCut(instanceSolver, eventHandler, vpcGenTime);
   }
 
   // save the solutions in memory
@@ -104,13 +116,8 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
  *  and we don't want to clash names with the unprocessed instanceSolver from the
  *  original formulation. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
-    OsiClpSolverInterface solver, OsiCuts* cuts, CbcEventHandler* eventHandler,
-    double vpcGenTime){
+    OsiClpSolverInterface solver, VwsEventHandler* eventHandler, double vpcGenTime){
 
-  // instantiate the model
-  if (cuts) {
-    solver.applyCuts(*cuts);
-  }
   std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(solver);
   model->passInEventHandler(eventHandler);
 
@@ -150,12 +157,8 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
  * and returns the preprocessed solution information back to the original problem
  * space. Adds the provided eventHandler to the solve. */
 std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
-    OsiClpSolverInterface instanceSolver, OsiCuts* cuts, CbcEventHandler* eventHandler,
-    double vpcGenTime){
+    OsiClpSolverInterface instanceSolver, VwsEventHandler* eventHandler, double vpcGenTime){
 
-  if (cuts) {
-    instanceSolver.applyCuts(*cuts);
-  }
   std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(instanceSolver);
 
   // preprocess the problem
@@ -166,7 +169,7 @@ std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
 
   // run the default branch and cut scheme on the preprocessed problem
   std::shared_ptr<CbcModel> preprocessedModel =
-      unprocessedBranchAndCut(*preprocessedSolver, NULL, eventHandler, vpcGenTime);
+      unprocessedBranchAndCut(*preprocessedSolver, eventHandler, vpcGenTime);
 
   // move the solutions, bound info, and event handler to the original model/solver interface
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
@@ -192,16 +195,16 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   // Set up VPC generation
   VPCParametersNamespace::VPCParameters vpc_params;
   vpc_params.set(VPCParametersNamespace::DISJ_TERMS, disjunctiveTerms);
-  vpc_params.set(VPCParametersNamespace::CUTLIMIT, maxRunTime / 10); // si.getFractionalIndices().size()
-  vpc_params.set(VPCParametersNamespace::TIMELIMIT, vpcGenTimeRatio * maxRunTime);
-  vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, vpcGenTimeRatio * maxRunTime);
-  vpc_params.set(VPCParametersNamespace::USE_ALL_ONES, 1);
-  vpc_params.set(VPCParametersNamespace::USE_ITER_BILINEAR, 1);
-  vpc_params.set(VPCParametersNamespace::USE_DISJ_LB, 1);
-  vpc_params.set(VPCParametersNamespace::USE_TIGHT_POINTS, 0);
-  vpc_params.set(VPCParametersNamespace::USE_TIGHT_RAYS, 0);
-  vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
-  vpc_params.set(VPCParametersNamespace::MODE, 4);
+//  vpc_params.set(VPCParametersNamespace::CUTLIMIT, si.getFractionalIndices().size());
+//  vpc_params.set(VPCParametersNamespace::TIMELIMIT, vpcGenTimeRatio * maxRunTime);
+//  vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, vpcGenTimeRatio * maxRunTime);
+//  vpc_params.set(VPCParametersNamespace::USE_ALL_ONES, 1);
+//  vpc_params.set(VPCParametersNamespace::USE_ITER_BILINEAR, 1);
+//  vpc_params.set(VPCParametersNamespace::USE_DISJ_LB, 1);
+//  vpc_params.set(VPCParametersNamespace::USE_TIGHT_POINTS, 0);
+//  vpc_params.set(VPCParametersNamespace::USE_TIGHT_RAYS, 0);
+//  vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
+  vpc_params.set(VPCParametersNamespace::MODE, 0); // 0 BB, 1 splits, 4 strong branching
 
   std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
   gen->generateCuts(si, *disjCuts);

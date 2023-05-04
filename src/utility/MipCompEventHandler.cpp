@@ -11,10 +11,18 @@
 // project modules
 #include "MipCompEventHandler.hpp"
 #include "RunData.hpp"
+#include "VwsEventHandler.hpp"
 
 
 /** Event handler */
 CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
+
+  if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
+    data.rootDualBoundPreVpc = model_->solver()->getObjValue() * model_->solver()->getObjSense();
+  }
+
+  // don't worry about a return code since noAction is always taken
+  VwsEventHandler::event(whichEvent);
 
   // overwrite the heuristic time with each primal heuristic pass to get time at the last one
   if ((model_->specialOptions() & 2048) == 0 &&
@@ -44,28 +52,29 @@ CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
 }
 
 /** constructor (default) */
-MipCompEventHandler::MipCompEventHandler() : CbcEventHandler(){
+MipCompEventHandler::MipCompEventHandler() : VwsEventHandler(){
   initialize(NULL);
 }
 
 /** constructor from CbcModel */
-MipCompEventHandler::MipCompEventHandler(CbcModel *model) : CbcEventHandler(model){
+MipCompEventHandler::MipCompEventHandler(CbcModel *model) : VwsEventHandler(model){
   initialize(NULL);
 }
 
 /** destructor */
 MipCompEventHandler::~MipCompEventHandler() {
+  VwsEventHandler::~VwsEventHandler();
 }
 
 /** copy constructor */
-MipCompEventHandler::MipCompEventHandler(const MipCompEventHandler& rhs) : CbcEventHandler(rhs) {
+MipCompEventHandler::MipCompEventHandler(const MipCompEventHandler& rhs) : VwsEventHandler(rhs) {
   initialize(&rhs);
 }
 
 /** assignment operator */
 MipCompEventHandler& MipCompEventHandler::operator=(const MipCompEventHandler& rhs) {
   if (this != &rhs) {
-    CbcEventHandler::operator=(rhs);
+    VwsEventHandler::operator=(rhs);
   }
   initialize(&rhs);
   return *this;
@@ -78,6 +87,8 @@ CbcEventHandler* MipCompEventHandler::clone() const {
 
 /** Copy our stuff */
 void MipCompEventHandler::initialize(const MipCompEventHandler* const rhs) {
+  // VwsEventHandler::initialize called either explicitly or through inheritance
+  // in each function calling self's initialize, so no need to call it here
   if (rhs) {
     this->data = rhs->data;
   } else {

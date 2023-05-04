@@ -137,6 +137,7 @@ VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
 	cut/VwsSolverInterface.cpp \
+	cut/VwsEventHandler.cpp \
 	cut/CbcSolverHeuristics.cpp \
 	utility/MipComp.cpp \
 	utility/MipCompEventHandler.cpp \
@@ -160,6 +161,7 @@ VPC_SOURCES += \
 	cut/CglVPC.cpp \
 	cut/CutHelper.cpp \
 	cut/PRLP.cpp \
+	disjunction/CompleteDisjunction.cpp \
 	disjunction/Disjunction.cpp \
 	disjunction/PartialBBDisjunction.cpp \
 	disjunction/SplitDisjunction.cpp \

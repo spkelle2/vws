@@ -10,9 +10,10 @@
 
 // project modules
 #include "RunData.hpp"
+#include "VwsEventHandler.hpp"
 
 /** Class to trap events and capture statistics */
-class MipCompEventHandler : public CbcEventHandler {
+class MipCompEventHandler : public VwsEventHandler {
 public:
   RunData data;
 
