@@ -142,20 +142,19 @@ void putBackSolutions(CbcModel *presolvedModel, CbcModel *model, CglPreProcess *
  *  and the third index is the index of the variable in the disjunctive term.
  *  Borrowed from Strengthening's main.cpp */
 std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
-    const OsiSolverInterface& solver, const CglVPC& gen, const OsiCuts& currCuts) {
-
-  Disjunction* disj = gen.disj();
+    const OsiSolverInterface& solver, const Disjunction& disj, const OsiCuts& currCuts) {
+  
   std::vector< std::vector< std::vector<double> > > v;
   v.resize(currCuts.sizeCuts());
 
   for (int cut_ind = 0; cut_ind < currCuts.sizeCuts(); cut_ind++) {
-    v[cut_ind].resize(disj->num_terms);
+    v[cut_ind].resize(disj.num_terms);
   }
-  for (int term_ind = 0; term_ind < disj->num_terms; term_ind++) {
+  for (int term_ind = 0; term_ind < disj.num_terms; term_ind++) {
     OsiSolverInterface* termSolver;
-    disj->getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, false, false);
+    disj.getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, false, false);
     if (!termSolver) {
-      printf("Disjunctive term %d/%d not created successfully.\n", term_ind+1, disj->num_terms);
+      printf("Disjunctive term %d/%d not created successfully.\n", term_ind+1, disj.num_terms);
       exit(1); // i think this should be a break right?
     }
     for (int cut_ind = 0; cut_ind < currCuts.sizeCuts(); cut_ind++) {

@@ -206,14 +206,15 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
 //  vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
   vpc_params.set(VPCParametersNamespace::MODE, 0); // 0 BB, 1 splits, 4 strong branching
 
-  std::shared_ptr<CglVPC> gen = std::make_shared<CglVPC>(vpc_params);
-  gen->generateCuts(si, *disjCuts);
-  Disjunction* disj = gen->disj();
+  CglVPC gen = CglVPC(vpc_params);
+  gen.generateCuts(si, *disjCuts);
+  std::shared_ptr<CompleteDisjunction> disj = std::make_shared<CompleteDisjunction>();
+  disj->prepareDisjunction(&si, dynamic_cast<VPCDisjunction*>(gen.disj()));
 
-  // if we have cuts, save the cut generator and the Farkas multipliers
-  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
-    vpcGenerators.push_back(gen);
-    cutCertificates.push_back(getFarkasMultipliers(si, *gen, *disjCuts));
+  // if we have cuts and a full tree, save the cut generator and the Farkas multipliers
+  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && gen.disj()->integer_sol.size() == 0){
+    disjunctions.push_back(disj);
+    cutCertificates.push_back(getFarkasMultipliers(si, *disj.get(), *disjCuts));
     return disjCuts;
   }
   else {
@@ -244,7 +245,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromFarkasMult
   for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
     a[probIdx].resize(cutCertificates[probIdx].size());
     b[probIdx].resize(cutCertificates[probIdx].size());
-    Disjunction* disj = vpcGenerators[probIdx]->disj();
+    Disjunction* disj = disjunctions[probIdx].get();
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
       a[probIdx][cutIdx].resize(disj->num_terms);
       b[probIdx][cutIdx].resize(disj->num_terms);

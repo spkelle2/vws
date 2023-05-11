@@ -49,7 +49,7 @@ void putBackSolutions(CbcModel *presolvedModel, CbcModel *model, CglPreProcess *
    *  and the third index is the index of the variable in the disjunctive term.
    *  Borrowed from Strengthening's main.cpp */
 std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
-    const OsiSolverInterface& solver, const CglVPC& gen, const OsiCuts& currCuts);
+    const OsiSolverInterface& solver, const Disjunction& disj, const OsiCuts& currCuts);
 
 /** Find the Farkas certificate for a cut given the solver for its disjunctive term */
 void getCertificate(

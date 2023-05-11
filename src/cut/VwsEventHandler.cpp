@@ -16,7 +16,7 @@
 CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
   // add desired cuts to the root node
-  // todo: ensure propagation throughout the tree
+  // todo: ensure propagation throughout the tree - see john's comment on github
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
     if (cuts) {
       model_->solver()->applyCuts(*cuts);
