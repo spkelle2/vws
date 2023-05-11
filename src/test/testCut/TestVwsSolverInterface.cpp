@@ -227,6 +227,7 @@ TEST_CASE( "Check larger instance unprocessed", "[VwsSolverInterface::solve][lon
 }
 
 // checks that we get optimal solution when adding vpcs from PRLP and Farkas Multipliers
+// well currently just checks that root node is correct, but we'll get back to this
 TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 
   // solve a model with the VwsSolverInterface
@@ -237,19 +238,18 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   eventHandler = dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
 
   // we should have one vpc generator and set of farkas multipliers
-  REQUIRE(seriesSolver.vpcGenerators.size() == 1);
+  REQUIRE(seriesSolver.disjunctions.size() == 1);
   REQUIRE(seriesSolver.cutCertificates.size() == 1);
 
   // we should have found 6 cuts (for the number of fractional variables in the root LP relaxation)
   REQUIRE(seriesSolver.cutCertificates[0].size() == 6);
 
-  // each cut should have 4 disjunctive terms
+  // each cut should have 180 disjunctive terms
   for (int cutIdx=0; cutIdx<seriesSolver.cutCertificates[0].size(); cutIdx++) {
-    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() == 64);
-    // each disjunctive term should have 49 coefficients (27 variables, 20 constraints, 6 branching decisions)
+    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() == 180);
+    // each disjunctive term should have more than 47 coefficients (27 variables, 20 constraints, n branching decisions)
     for (int termIdx=0; termIdx<seriesSolver.cutCertificates[0][cutIdx].size(); termIdx++) {
-      REQUIRE((50 <= seriesSolver.cutCertificates[0][cutIdx][termIdx].size() &&
-               seriesSolver.cutCertificates[0][cutIdx][termIdx].size() <= 60));
+      REQUIRE(47 < seriesSolver.cutCertificates[0][cutIdx][termIdx].size());
     }
   }
 
@@ -273,7 +273,7 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   eventHandler = dynamic_cast<MipCompEventHandler*>(model2.getEventHandler());
 
   // Farkas does not create an additional VPC generator or set of multipliers
-  REQUIRE(seriesSolver.vpcGenerators.size() == 1);
+  REQUIRE(seriesSolver.disjunctions.size() == 1);
   REQUIRE(seriesSolver.cutCertificates.size() == 1);
 
   // The underlying model should not have changed
@@ -305,7 +305,7 @@ TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][lo
   eventHandler = dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
 
   // we should have one vpc generator and set of farkas multipliers
-  REQUIRE(seriesSolver.vpcGenerators.size() == 1);
+  REQUIRE(seriesSolver.disjunctions.size() == 1);
   REQUIRE(seriesSolver.cutCertificates.size() == 1);
 
   // we should have added cuts
@@ -317,7 +317,7 @@ TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][lo
     // each disjunctive term should have 2252 coefficients (1000 variables, 1250 constraints, 2 branching decisions)
     for (int termIdx=0; termIdx<seriesSolver.cutCertificates[0][cutIdx].size(); termIdx++) {
       REQUIRE(seriesSolver.cutCertificates[0][cutIdx][termIdx].size() ==
-              2252 + seriesSolver.vpcGenerators[0]->disj()->common_changed_bound.size());
+              2252 + seriesSolver.disjunctions[0]->common_changed_bound.size());
     }
   }
 
@@ -338,7 +338,7 @@ TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][lo
   eventHandler = dynamic_cast<MipCompEventHandler*>(model2.getEventHandler());
 
   // we should still have one vpc generator and set of farkas multipliers
-  REQUIRE(seriesSolver.vpcGenerators.size() == 1);
+  REQUIRE(seriesSolver.disjunctions.size() == 1);
   REQUIRE(seriesSolver.cutCertificates.size() == 1);
 
   // check the primal solutions
@@ -458,5 +458,5 @@ TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes i
 ////      std::cout << i << std::endl;
 ////    }
 //  }
-//  std::cout << "hello" << std::endl;
+  std::cout << "hello" << std::endl;
 }

@@ -11,8 +11,7 @@
 #include "CbcModel.hpp" // CbcModel
 
 // vpc modules
-#include "CglVPC.hpp" // CglVPC
-#include "PartialBBDisjunction.hpp" // Disjunction
+#include "CompleteDisjunction.hpp" // CompleteDisjunction
 
 // project modules
 #include "VwsEventHandler.hpp" // CbcEventHandler
@@ -33,7 +32,7 @@ public:
   std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificates;
 
   /** vector of cut generators used to create VPCs from PRLPs */
-  std::vector< std::shared_ptr<CglVPC> > vpcGenerators;
+  std::vector< std::shared_ptr<CompleteDisjunction> > disjunctions;
 
   /** number of solutions to save each solve */
   int maxExtraSavedSolutions;
