@@ -18,6 +18,8 @@ class VwsEventHandler : public CbcEventHandler {
 public:
   OsiCuts * cuts;
 
+  bool stopNow;
+
   /** Event handler */
   virtual CbcAction event(CbcEvent whichEvent);
 

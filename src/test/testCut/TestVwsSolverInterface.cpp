@@ -244,9 +244,9 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   // we should have found 6 cuts (for the number of fractional variables in the root LP relaxation)
   REQUIRE(seriesSolver.cutCertificates[0].size() == 6);
 
-  // each cut should have 180 disjunctive terms
+  // each cut should have 64 disjunctive terms
   for (int cutIdx=0; cutIdx<seriesSolver.cutCertificates[0].size(); cutIdx++) {
-    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() == 180);
+    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() == 64);
     // each disjunctive term should have more than 47 coefficients (27 variables, 20 constraints, n branching decisions)
     for (int termIdx=0; termIdx<seriesSolver.cutCertificates[0][cutIdx].size(); termIdx++) {
       REQUIRE(47 < seriesSolver.cutCertificates[0][cutIdx][termIdx].size());

@@ -29,9 +29,9 @@ namespace fs = ghc::filesystem;
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
 MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
-                 std::string csvPathStr, bool usePreprocessing, double timeMultiplier):
+                 std::string csvPathStr, bool benchmark, double timeMultiplier, int terms):
   solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr),
-  usePreprocessing(usePreprocessing), timeoutBuffer(5) {
+  benchmark(benchmark), timeoutBuffer(5), terms(terms) {
 
   // validate file paths
   fs::path filePath(filePathStr);
@@ -76,7 +76,7 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, 4, 0.8);
+  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, terms, 0.8);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
@@ -98,22 +98,23 @@ void MipComp::solveSeries() {
 
     // solve the instance
     std::string vpcGenerator;
-    if (i < instanceSolvers.size()/5.0){
+    if (i < instanceSolvers.size()/5.0 && !benchmark) {
       vpcGenerator = "PRLP";
-    } else if (seriesSolver.cutCertificates.size() > 0) {
+    } else if (seriesSolver.cutCertificates.size() > 0 && !benchmark) {
       vpcGenerator = "Farkas";
     } else {
       vpcGenerator = "None";
     }
-    CbcModel model = seriesSolver.solve(instanceSolver, vpcGenerator, usePreprocessing, handler.get());
+    CbcModel model = seriesSolver.solve(instanceSolver, vpcGenerator, false, handler.get());
 
     // correct the recorded dual bound and save the data collected by the event handler
     *handler = *dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
     handler->data.dualBound = model.getBestPossibleObjValue();
     handler->data.maxTerminationTime = timeout - timeoutBuffer;
     handler->data.maxCompletionTime = timeout;
-    handler->data.usePreprocessing = usePreprocessing;
+    handler->data.benchmark = benchmark;
     handler->data.vpcGenerator = vpcGenerator;
+    handler->data.terms = terms;
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){

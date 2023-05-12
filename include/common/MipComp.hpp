@@ -38,8 +38,11 @@ public:
    * don't exceed timeout */
   double timeoutBuffer;
 
-  /** whether or not to use presolve */
-  bool usePreprocessing;
+  /** 1 if this is a benchmark run, and 0 if this is an experimental run */
+  bool benchmark;
+
+  /** number of disjunctive terms to use in experiments */
+  int terms;
 
   /** the solver used for the series of mipModels */
   VwsSolverInterface seriesSolver;
@@ -61,7 +64,7 @@ public:
 
   /** Constructor. Initializes attributes based on provided file. */
   MipComp(std::string filePathStr, std::string solutionDirectoryStr, std::string csvPathStr,
-          bool usePreprocessing=true, double timeMultiplier=1.0);
+          bool benchmark=true, double timeMultiplier=1.0, int terms=4);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();
