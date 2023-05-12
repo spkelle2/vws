@@ -54,11 +54,14 @@ public:
   /** max duration of set up, model.branchAndBound(), and tear down */
   double maxCompletionTime;
 
-  /** whether or not preprocessing was enabled */
-  bool usePreprocessing;
+  /** whether or not this was a benchmark run */
+  bool benchmark;
 
   /** Which generator was used for VPCs */
   std::string vpcGenerator;
+
+  /** number of terms for generating VPCs */
+  int terms;
 
   /** Get a comma-separated string of the names of RunData's attributes */
   std::string getHeader();

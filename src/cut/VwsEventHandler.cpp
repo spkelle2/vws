@@ -22,10 +22,11 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
       model_->solver()->applyCuts(*cuts);
       model_->solver()->resolve();
       model_->setMoreSpecialOptions2(model_->moreSpecialOptions2() | 524288);
+      stopNow = true;
     }
   }
 
-  return noAction;
+  return stopNow ? stop : noAction;
 }
 
 /** constructor (default) */

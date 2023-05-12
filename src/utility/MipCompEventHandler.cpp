@@ -21,8 +21,8 @@ CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
     data.rootDualBoundPreVpc = model_->solver()->getObjValue() * model_->solver()->getObjSense();
   }
 
-  // don't worry about a return code since noAction is always taken
-  VwsEventHandler::event(whichEvent);
+  // let the VwsEventHandler handle the action
+  CbcAction action = VwsEventHandler::event(whichEvent);
 
   // overwrite the heuristic time with each primal heuristic pass to get time at the last one
   if ((model_->specialOptions() & 2048) == 0 &&
@@ -48,7 +48,7 @@ CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
     data.terminationTime = model_->getCurrentSeconds();
   }
 
-  return noAction;
+  return action;
 }
 
 /** constructor (default) */

@@ -26,8 +26,9 @@
 
 // vpc modules
 #include "CglVPC.hpp" // CglVPC
-#include "CompleteDisjunction.hpp" // CompleteDisjunction
+#include "PartialBBDisjunction.hpp" // PartialBBDisjunction
 #include "SolverInterface.hpp" // SolverInterface
+#include "TimeStats.hpp" // Timer
 #include "VPCParameters.hpp" // VPCParameters
 
 // project modules
@@ -139,11 +140,6 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
   model->setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime - vpcGenTime);
 
-#ifndef TRACE
-  std::cout << "using elapsed time" << std::endl;
-  model->setUseElapsedTime(true);
-#endif
-
   // run the solver
   model->branchAndBound();
 
@@ -208,11 +204,11 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
 
   CglVPC gen = CglVPC(vpc_params);
   gen.generateCuts(si, *disjCuts);
-  std::shared_ptr<CompleteDisjunction> disj = std::make_shared<CompleteDisjunction>();
-  disj->prepareDisjunction(&si, dynamic_cast<VPCDisjunction*>(gen.disj()));
+  std::shared_ptr<Disjunction> disj =
+      std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
 
   // if we have cuts and a full tree, save the cut generator and the Farkas multipliers
-  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && gen.disj()->integer_sol.size() == 0){
+  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
     disjunctions.push_back(disj);
     cutCertificates.push_back(getFarkasMultipliers(si, *disj.get(), *disjCuts));
     return disjCuts;
