@@ -18,15 +18,17 @@ namespace fs = ghc::filesystem;
 /****************** MAIN FUNCTION **********************/
 int main(int argc, char** argv) {
 
-  // executable, testfile, benchmark, time multiple, and disjunctive terms should be only arguments
-  assert(argc == 5);
+  // executable, testfile, output folder, benchmark, time multiple, and disjunctive terms
+  assert(argc == 6);
 
   // create the test runner and solve the provided series
   std::string filePathStr(argv[1]);
   fs::path filePath(filePathStr);
-  MipComp testRunner(filePath.string(), "../experiments/solutions",
-                     "../experiments/" + filePath.stem().string() + ".csv",
-                     std::stoi(argv[2]), std::stod(argv[3]), std::stoi(argv[4]));
+  std::string outputFolderStr(argv[2]);
+  fs::path outputFolder(outputFolderStr);
+  MipComp testRunner(filePath.string(), outputFolder.string() + "/solutions",
+                     outputFolder.string() + "/" + filePath.stem().string() + ".csv",
+                     std::stoi(argv[3]), std::stod(argv[4]), std::stoi(argv[5]));
   testRunner.solveSeries();
 
 } /* main */

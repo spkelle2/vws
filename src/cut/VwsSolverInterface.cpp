@@ -28,7 +28,6 @@
 #include "CglVPC.hpp" // CglVPC
 #include "PartialBBDisjunction.hpp" // PartialBBDisjunction
 #include "SolverInterface.hpp" // SolverInterface
-#include "TimeStats.hpp" // Timer
 #include "VPCParameters.hpp" // VPCParameters
 
 // project modules
@@ -76,8 +75,9 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   constraintNames.push_back(getConstraintNames(instanceSolver));
 
   // create cuts - either by PRLP or by previous farkas multipliers
-  // todo: make a timer class in scope and use it here
-  std::time_t startTime = std::time(nullptr);
+  TimeStats timer;
+  timer.register_name("vpc generation");
+  timer.start_timer("vpc generation");
   std::shared_ptr<OsiCuts> disjCuts;
   if (vpcGenerator == "PRLP") {
     disjCuts = createDisjunctiveCutsFromPRLP(instanceSolver);
@@ -85,8 +85,9 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
     disjCuts = createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
   }
   eventHandler->cuts = disjCuts.get();
-  std::time_t endTime = std::time(nullptr);
-  double vpcGenTime = std::difftime(endTime, startTime);
+  timer.end_timer("vpc generation");
+  double vpcGenTime = timer.get_time("vpc generation");
+  timers.push_back(timer);
 
   // instantiate and solve the model
   // we need instanceSolver to instantiate the preprocessor so solution info is
@@ -192,8 +193,8 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
   VPCParametersNamespace::VPCParameters vpc_params;
   vpc_params.set(VPCParametersNamespace::DISJ_TERMS, disjunctiveTerms);
 //  vpc_params.set(VPCParametersNamespace::CUTLIMIT, si.getFractionalIndices().size());
-//  vpc_params.set(VPCParametersNamespace::TIMELIMIT, vpcGenTimeRatio * maxRunTime);
-//  vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, vpcGenTimeRatio * maxRunTime);
+  vpc_params.set(VPCParametersNamespace::TIMELIMIT, maxRunTime);
+  vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, maxRunTime);
 //  vpc_params.set(VPCParametersNamespace::USE_ALL_ONES, 1);
 //  vpc_params.set(VPCParametersNamespace::USE_ITER_BILINEAR, 1);
 //  vpc_params.set(VPCParametersNamespace::USE_DISJ_LB, 1);

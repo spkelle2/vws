@@ -12,6 +12,7 @@
 
 // vpc modules
 #include "Disjunction.hpp" // CompleteDisjunction
+#include "TimeStats.hpp" // Timer
 
 // project modules
 #include "VwsEventHandler.hpp" // CbcEventHandler
@@ -33,6 +34,9 @@ public:
 
   /** vector of cut generators used to create VPCs from PRLPs */
   std::vector< std::shared_ptr<Disjunction> > disjunctions;
+
+  /** vector of timers associated with each solve */
+  std::vector<TimeStats> timers;
 
   /** number of solutions to save each solve */
   int maxExtraSavedSolutions;

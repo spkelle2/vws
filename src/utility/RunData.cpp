@@ -21,7 +21,7 @@ namespace fs = ghc::filesystem;
 std::string RunData::getHeader(){
   return "lpBound,rootDualBoundPreVpc,rootDualBound,dualBound,heuristicPrimalBound,"
          "primalBound,heuristicTime,rootDualBoundTime,terminationTime,maxTerminationTime,"
-         "completionTime,maxCompletionTime,benchmark,vpcGenerator,terms";
+         "completionTime,maxCompletionTime,benchmark,vpcGenerator,terms,vpcGenerationTime";
 }
 
 /** Get a comma-separated string of the values of RunData's attributes */
@@ -32,7 +32,8 @@ std::string RunData::getValues(){
     std::to_string(heuristicTime) + "," + std::to_string(rootDualBoundTime) + "," +
     std::to_string(terminationTime) + "," + std::to_string(maxTerminationTime) + "," +
     std::to_string(completionTime) + "," + std::to_string(maxCompletionTime) + "," +
-    std::to_string(benchmark) + "," + vpcGenerator + "," + std::to_string(terms);
+    std::to_string(benchmark) + "," + vpcGenerator + "," + std::to_string(terms) +
+    "," + std::to_string(vpcGenerationTime);
 }
 
 

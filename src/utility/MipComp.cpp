@@ -76,7 +76,7 @@ MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
   verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, terms, 0.8);
+  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, terms, 0.1);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
@@ -98,7 +98,7 @@ void MipComp::solveSeries() {
 
     // solve the instance
     std::string vpcGenerator;
-    if (i < instanceSolvers.size()/5.0 && !benchmark) {
+    if (!benchmark) { // i < instanceSolvers.size()/10.0 &&
       vpcGenerator = "PRLP";
     } else if (seriesSolver.cutCertificates.size() > 0 && !benchmark) {
       vpcGenerator = "Farkas";
@@ -115,6 +115,7 @@ void MipComp::solveSeries() {
     handler->data.benchmark = benchmark;
     handler->data.vpcGenerator = vpcGenerator;
     handler->data.terms = terms;
+    handler->data.vpcGenerationTime = seriesSolver.timers[i].get_time("vpc generation");
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){
