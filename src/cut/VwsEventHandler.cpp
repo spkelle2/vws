@@ -4,29 +4,33 @@
  * @date 2023-05-01
  */
 
+#include <memory> // shared_ptr
+
 // coin-or modules
 #include "CbcEventHandler.hpp"
 #include "CbcModel.hpp"
 
 // project modules
+#include "CglStoredVpc.hpp"
 #include "VwsEventHandler.hpp"
 
 
 /** Event handler */
 CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
-  // add desired cuts to the root node
+  // make cuts available after the root node
   // todo: ensure propagation throughout the tree - see john's comment on github
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
     if (cuts) {
-      model_->solver()->applyCuts(*cuts);
-      model_->solver()->resolve();
-      model_->setMoreSpecialOptions2(model_->moreSpecialOptions2() | 524288);
-      stopNow = true;
+      std::shared_ptr<CglStoredVpc> store = std::make_shared<CglStoredVpc>();
+      for (int i = 0; i<cuts->sizeRowCuts(); i++) {
+        store->addCut(cuts->rowCut(i));
+      }
+      model_->addCutGenerator(store.get(), 1, "StoredVPCs");
     }
   }
 
-  return stopNow ? stop : noAction;
+  return noAction;
 }
 
 /** constructor (default) */

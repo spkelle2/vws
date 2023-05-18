@@ -30,16 +30,16 @@ UNIT_TEST_FILE = testUtility/TestMipComp.cpp
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
 PROJ_DIR=${PWD}
-COIN_VERSION = master
+COIN_VERSION = trunk
 EIG_LIB = $(REPOS_DIR)/eigen
 VPC_DIR = ${REPOS_DIR}/vpc
 COIN_OR_BUILD_DIR_DEBUG = buildg
 COIN_OR_BUILD_DIR_RELEASE = build
 
 ifeq ($(USER),sean)
-  COIN_OR = /Users/sean/coin-or
-	COIN_OR_BUILD_DIR_DEBUG = dist
-	COIN_OR_BUILD_DIR_RELEASE = dist
+  COIN_OR = /Users/sean/coin-or/lib/Cbc-trunk
+	COIN_OR_BUILD_DIR_DEBUG = buildg
+	COIN_OR_BUILD_DIR_RELEASE = build
   #EIG_LIB = enter/dir/here
 
   # Optional (for testing branch and bound or enabling certain functions):
@@ -51,7 +51,7 @@ endif
 ifeq ($(USER),sek519)
   COIN_OR = /home/sek519/coin-or
 	COIN_OR_BUILD_DIR_DEBUG = dist
-	COIN_OR_BUILD_DIR_RELEASE = dist
+	COIN_OR_BUILD_DIR_RELEASE = dist-release
   #EIG_LIB = enter/dir/here
 
   # Optional (for testing branch and bound or enabling certain functions):
@@ -139,6 +139,7 @@ SOURCES += \
 	cut/VwsSolverInterface.cpp \
 	cut/VwsEventHandler.cpp \
 	cut/CbcSolverHeuristics.cpp \
+	cut/CglStoredVpc.cpp \
 	utility/MipComp.cpp \
 	utility/MipCompEventHandler.cpp \
 	utility/RunData.cpp \
@@ -237,7 +238,7 @@ endif
 ifeq ($(COIN_VERSION),2.10)
   DEFS += -DCBC_VERSION_210PLUS -DSAVE_NODE_INFO
 endif
-ifeq ($(COIN_VERSION),master)
+ifeq ($(COIN_VERSION),trunk)
   DEFS += -DCBC_VERSION_210PLUS -DCBC_TRUNK -DSAVE_NODE_INFO
 endif
 
@@ -299,7 +300,7 @@ ifeq ($(USE_COIN),1)
 	endif
 	CBClib = $(CBC)/lib
 	# When switching from svn to coinbrew, the new include directory is coin-or not coin
-	ifeq ($(COIN_VERSION),master)
+	ifeq ($(COIN_VERSION),trunk)
 		CBCinc = $(CBC)/include/coin-or
   else
 		CBCinc = $(CBC)/include/coin

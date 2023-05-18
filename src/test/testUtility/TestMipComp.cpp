@@ -68,7 +68,7 @@ TEST_CASE( "Test Simple") {
       REQUIRE(std::abs(testRunner.runData[i].lpBound - 20.57) < .01);
       REQUIRE(std::abs(testRunner.runData[i].rootDualBoundPreVpc - 25) < .5);
       REQUIRE(std::abs(testRunner.runData[i].rootDualBound - 30) < .5);
-      REQUIRE(std::abs(testRunner.runData[i].dualBound - 30) < .5);
+      REQUIRE(testRunner.runData[i].dualBound == 34);
 
       // we minimize so primal bound should be greater than or equal to dual bound
       REQUIRE(testRunner.runData[i].heuristicPrimalBound == 34);
@@ -89,6 +89,7 @@ TEST_CASE( "Test Simple") {
       REQUIRE(((testRunner.runData[i].vpcGenerator == "PRLP") ||
                (testRunner.runData[i].vpcGenerator == "Farkas")));
       REQUIRE(testRunner.runData[i].terms == 64);
+      REQUIRE(testRunner.runData[i].vpcGenerationTime > .01);
 
       // make sure the solution saved correctly
       std::ifstream file(solutionFile.string());
@@ -113,7 +114,7 @@ TEST_CASE( "Test Simple") {
     int lineIndex = 0;
     std::regex re("([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
-                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z]+),([0-9\\.]+)");
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z]+),([0-9\\.]+),([0-9\\.]+)");
     std::smatch match;
 
     // the file should exist
@@ -131,8 +132,8 @@ TEST_CASE( "Test Simple") {
         REQUIRE(std::abs(std::stod(match[2].str()) - 25.25) < .5);
         // rootDualBound
         REQUIRE(std::abs(std::stod(match[3].str()) - 30) < .1);
-        // dualBound - should stop after cuts added
-        REQUIRE(std::abs(std::stod(match[4].str()) - 30) < .1);
+        // dualBound
+        REQUIRE(std::stod(match[4].str()) == 34);
         // heuristicPrimalBound
         REQUIRE(std::stod(match[5].str()) == 34);
         // primalBound
@@ -156,6 +157,8 @@ TEST_CASE( "Test Simple") {
         REQUIRE(((match[14].str() == "Farkas") || (match[14].str() == "PRLP")));
         // disjunctions
         REQUIRE(std::stoi(match[15].str()) == 64);
+        // vpcGenerationTime
+        REQUIRE(std::stod(match[16].str()) > .01);
       }
       lineIndex++;
     }
@@ -207,6 +210,7 @@ TEST_CASE( "Test Simple") {
       REQUIRE(testRunner.runData[i].benchmark);
       REQUIRE(testRunner.runData[i].vpcGenerator == "None");
       REQUIRE(testRunner.runData[i].terms == 64);
+      REQUIRE(testRunner.runData[i].vpcGenerationTime < .01);
 
       // make sure the solution saved correctly
       std::ifstream file(solutionFile.string());
@@ -231,7 +235,7 @@ TEST_CASE( "Test Simple") {
     int lineIndex = 0;
     std::regex re("([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
-                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z]+),([0-9\\.]+)");
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z]+),([0-9\\.]+),([0-9\\.]+)");
     std::smatch match;
 
     // the file should exist
@@ -274,6 +278,8 @@ TEST_CASE( "Test Simple") {
         REQUIRE(match[14].str() == "None");
         // disjunctions
         REQUIRE(std::stoi(match[15].str()) == 64);
+        // vpcGenerationTime
+        REQUIRE(std::stod(match[16].str()) < .01);
       }
       lineIndex++;
     }

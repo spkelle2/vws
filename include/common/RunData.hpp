@@ -63,6 +63,9 @@ public:
   /** number of terms for generating VPCs */
   int terms;
 
+  /** time generating VPCs */
+  double vpcGenerationTime;
+
   /** Get a comma-separated string of the names of RunData's attributes */
   std::string getHeader();
 

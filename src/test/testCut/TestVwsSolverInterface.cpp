@@ -322,7 +322,7 @@ TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][lo
   }
 
   // check the primal solutions
-  REQUIRE(seriesSolver.solutions[0].size() == 1);
+  REQUIRE(seriesSolver.solutions[0].size() >= 1);
   checkSolutions(seriesSolver, instanceSolver, model, 0);
 
   // check the bounds are valid

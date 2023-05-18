@@ -7,6 +7,7 @@
 // coin-or modules
 #include <CbcModel.hpp>
 #include "CbcEventHandler.hpp"
+#include "OsiSolverInterface.hpp"
 
 // project modules
 #include "MipCompEventHandler.hpp"
@@ -16,10 +17,6 @@
 
 /** Event handler */
 CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
-
-  if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
-    data.rootDualBoundPreVpc = model_->solver()->getObjValue() * model_->solver()->getObjSense();
-  }
 
   // let the VwsEventHandler handle the action
   CbcAction action = VwsEventHandler::event(whichEvent);
@@ -32,11 +29,22 @@ CbcEventHandler::CbcAction MipCompEventHandler::event(CbcEvent whichEvent) {
     data.heuristicPrimalBound = model_->getObjValue();
   }
 
-  // pause each time the tree accurately reflects solver status
+  // get root node info
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
     double direction = model_->solver()->getObjSense();
     data.lpBound = model_->getContinuousObjective() * direction;
-    data.rootDualBound = model_->solver()->getObjValue() * direction;
+    data.rootDualBoundPreVpc = model_->solver()->getObjValue() * direction;
+
+    // determine what root dual bound would be if we were able to add VPCs
+    if (cuts) {
+      OsiSolverInterface *solver = model_->solver()->clone();
+      solver->initialSolve();
+      solver->applyCuts(*cuts);
+      solver->resolve();
+      data.rootDualBound = solver->getObjValue() * direction;
+    } else {
+      data.rootDualBound = data.rootDualBoundPreVpc;
+    }
     data.rootDualBoundTime = model_->getCurrentSeconds();
   }
 
