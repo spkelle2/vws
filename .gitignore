@@ -34,3 +34,5 @@ experiments/*.csv
 experiments/*.png
 baseline_*
 vpcs_*
+CMakeLists.txt
+cmake-build-debug/

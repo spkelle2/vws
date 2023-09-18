@@ -1,4 +1,4 @@
-### Makefile for strengthening project
+### Makefile borrowed from akazachk/strengthening project
 # If there are errors, debug with
 #   make --just-print
 # or check defined variables with
@@ -21,7 +21,7 @@ RM = rm -f
 ### Build type ###
 # Choose 'debug', 'release', or 'unit_test'
 # Can also be chosen through make "BUILD_CONFIG=XX" from command line 
-# Or one can call make debug, make release, or make test directly
+# Or one can call make debug, make release, or make unit_test directly
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
@@ -37,7 +37,7 @@ COIN_OR_BUILD_DIR_DEBUG = buildg
 COIN_OR_BUILD_DIR_RELEASE = build
 
 ifeq ($(USER),sean)
-  COIN_OR = /Users/sean/coin-or/lib/Cbc-trunk
+  COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
 	COIN_OR_BUILD_DIR_DEBUG = buildg
 	COIN_OR_BUILD_DIR_RELEASE = build
   #EIG_LIB = enter/dir/here
@@ -49,9 +49,9 @@ ifeq ($(USER),sean)
 endif
 
 ifeq ($(USER),sek519)
-  COIN_OR = /home/sek519/coin-or
-	COIN_OR_BUILD_DIR_DEBUG = dist
-	COIN_OR_BUILD_DIR_RELEASE = dist-release
+  COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
+	COIN_OR_BUILD_DIR_DEBUG = buildg
+	COIN_OR_BUILD_DIR_RELEASE = build
   #EIG_LIB = enter/dir/here
 
   # Optional (for testing branch and bound or enabling certain functions):
