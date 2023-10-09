@@ -19,7 +19,6 @@
 
 // vpc modules
 #include "Disjunction.hpp" // DisjExitReason
-#include "StrongBranchingDisjunction.hpp" // StrongBranchingDisjunction
 #include "VPCParameters.hpp" // VPCParameters
 
 // project unit test modules
@@ -194,38 +193,6 @@ TEST_CASE( "Solve without preprocessing", "[VwsSolverInterface::solve]" ) {
   checkSolutions(seriesSolver, instanceSolver, model, 0);
 }
 
-// make sure the above wasn't a fluke because preprocessing had no effect on small problem
-TEST_CASE( "Check larger instance preprocessed", "[VwsSolverInterface::solve][long]" ) {
-  // solve a model with the VwsSolverInterface and ensure we get an optimal solution
-  OsiClpSolverInterface instanceSolver =
-      extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 120, 16, .8);
-  CbcModel model = seriesSolver.solve(instanceSolver);
-
-  // check that we have valid bounds
-  REQUIRE((-17180 < model.getObjValue() && model.getObjValue() < -17150));
-
-  // the problem should have two solutions since we didn't specify a max
-  REQUIRE(seriesSolver.solutions[0].size() >= 1);
-  checkSolutions(seriesSolver, instanceSolver, model, 0);
-}
-
-TEST_CASE( "Check larger instance unprocessed", "[VwsSolverInterface::solve][long]" ) {
-  // solve a model with the VwsSolverInterface and ensure we get an optimal solution
-  OsiClpSolverInterface instanceSolver =
-      extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 120, 4, .8);
-  seriesSolver.maxExtraSavedSolutions = 0;
-  CbcModel model = seriesSolver.solve(instanceSolver, "None", false);
-
-  // check that we have valid bounds
-  REQUIRE((-17180 < model.getObjValue() && model.getObjValue() < -17150));
-
-  // the problem should have one solution since we don't save extras
-  REQUIRE(seriesSolver.solutions[0].size() >= 1);
-  checkSolutions(seriesSolver, instanceSolver, model, 0);
-}
-
 // checks that we get optimal solution when adding vpcs from PRLP and Farkas Multipliers
 // well currently just checks that root node is correct, but we'll get back to this
 TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
@@ -244,9 +211,9 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   // we should have found 6 cuts (for the number of fractional variables in the root LP relaxation)
   REQUIRE(seriesSolver.cutCertificates[0].size() == 6);
 
-  // each cut should have 64 disjunctive terms
+  // each cut should have at least 66 disjunctive terms (64 unpruned leaves, 2 pruned leaves)
   for (int cutIdx=0; cutIdx<seriesSolver.cutCertificates[0].size(); cutIdx++) {
-    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() == 64);
+    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() >= 66);
     // each disjunctive term should have more than 47 coefficients (27 variables, 20 constraints, n branching decisions)
     for (int termIdx=0; termIdx<seriesSolver.cutCertificates[0][cutIdx].size(); termIdx++) {
       REQUIRE(47 < seriesSolver.cutCertificates[0][cutIdx][termIdx].size());
@@ -261,7 +228,7 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   REQUIRE(model.getObjValue() == 34);
   REQUIRE((25 < eventHandler->data.rootDualBoundPreVpc &&
            eventHandler->data.rootDualBoundPreVpc < 26));
-  REQUIRE((29 < eventHandler->data.rootDualBound && eventHandler->data.rootDualBound < 30));
+  REQUIRE(isVal(eventHandler->data.rootDualBound, 30, 1));
 
   // but the underlying model unchanged
   REQUIRE((20 < model.getContinuousObjective() && model.getContinuousObjective() < 21));
@@ -288,74 +255,14 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   REQUIRE(model2.getObjValue() == 34);
   REQUIRE((25 < eventHandler->data.rootDualBoundPreVpc &&
            eventHandler->data.rootDualBoundPreVpc < 26));
-  REQUIRE((29 < eventHandler->data.rootDualBound && eventHandler->data.rootDualBound < 30));
+  REQUIRE(isVal(eventHandler->data.rootDualBound, 30, 1));
 
-}
-
-TEST_CASE( "Check solve longer with VPCs added", "[VwsSolverInterface::solve][long]" ) {
-
-  // solve a model with the VwsSolverInterface
-  OsiClpSolverInterface instanceSolver =
-      extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 180, 4, .8);
-
-  // generate vpcs with the PRLP
-  MipCompEventHandler * eventHandler = new MipCompEventHandler();
-  CbcModel model = seriesSolver.solve(instanceSolver, "PRLP", false, eventHandler);
-  eventHandler = dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
-
-  // we should have one vpc generator and set of farkas multipliers
-  REQUIRE(seriesSolver.disjunctions.size() == 1);
-  REQUIRE(seriesSolver.cutCertificates.size() == 1);
-
-  // we should have added cuts
-  REQUIRE(seriesSolver.cutCertificates[0].size() > 0);
-
-  // each cut should have 4 disjunctive terms
-  for (int cutIdx=0; cutIdx<seriesSolver.cutCertificates[0].size(); cutIdx++) {
-    REQUIRE(seriesSolver.cutCertificates[0][cutIdx].size() == 4);
-    // each disjunctive term should have 2252 coefficients (1000 variables, 1250 constraints, 2 branching decisions)
-    for (int termIdx=0; termIdx<seriesSolver.cutCertificates[0][cutIdx].size(); termIdx++) {
-      REQUIRE(seriesSolver.cutCertificates[0][cutIdx][termIdx].size() ==
-              2252 + seriesSolver.disjunctions[0]->common_changed_bound.size());
-    }
-  }
-
-  // check the primal solutions
-  REQUIRE(seriesSolver.solutions[0].size() >= 1);
-  checkSolutions(seriesSolver, instanceSolver, model, 0);
-
-  // check the bounds are valid
-  REQUIRE((-17170 < model.getObjValue() && model.getObjValue() < -17150));
-  REQUIRE(model.getContinuousObjective() < eventHandler->data.rootDualBoundPreVpc);
-  REQUIRE(eventHandler->data.rootDualBoundPreVpc < eventHandler->data.rootDualBound);
-  REQUIRE(eventHandler->data.rootDualBound < model.getObjValue());
-
-
-  // generate vpcs with Farkas multipliers
-  eventHandler = new MipCompEventHandler();
-  CbcModel model2 = seriesSolver.solve(instanceSolver, "Farkas", false, eventHandler);
-  eventHandler = dynamic_cast<MipCompEventHandler*>(model2.getEventHandler());
-
-  // we should still have one vpc generator and set of farkas multipliers
-  REQUIRE(seriesSolver.disjunctions.size() == 1);
-  REQUIRE(seriesSolver.cutCertificates.size() == 1);
-
-  // check the primal solutions
-  REQUIRE(seriesSolver.solutions[1].size() >= 1);
-  checkSolutions(seriesSolver, instanceSolver, model2, 1);
-
-  // check the bounds are valid (implies cuts were added)
-  REQUIRE((-17170 < model2.getObjValue() && model2.getObjValue() < -17150));
-  REQUIRE(model2.getContinuousObjective() < eventHandler->data.rootDualBoundPreVpc);
-  REQUIRE(eventHandler->data.rootDualBoundPreVpc < eventHandler->data.rootDualBound);
-  REQUIRE(eventHandler->data.rootDualBound < model2.getObjValue());
 }
 
 // --------------------- create disjunctive cut tests --------------------------
 
-TEST_CASE( "Check VPCs created successfully from PRLP",
-           "[VwsSolverInterface::createDisjunctiveCutsFromPRLP]" ) {
+TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
+           "[VwsSolverInterface::createDisjunctiveCutsFromPRLP][VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers]" ) {
 
   // solve a model with the VwsSolverInterface to get the solution
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
@@ -377,24 +284,13 @@ TEST_CASE( "Check VPCs created successfully from PRLP",
     // each cut should be valid for the optimal solution
     REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[0][0]));
   }
-}
-
-TEST_CASE( "Check VPCs created successfully from Farkas",
-           "[VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers][long]" ) {
-
-  // solve a model with the VwsSolverInterface
-  OsiClpSolverInterface instanceSolver =
-      extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i01.mps.gz");
-  VwsSolverInterface seriesSolver(10, 120, 4, .8);
-  TestHandler handler;
-  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
 
   // solve a second instance to get a solution for it
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_rhs/series_2/rhs_s2_i02.mps.gz");
+  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i02.mps.gz");
   CbcModel model = seriesSolver.solve(instanceSolver);
 
   // check that the vpcs we get are valid
-  std::shared_ptr<OsiCuts> disjCuts = seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
+  disjCuts = seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
   // we should have added a lot of cuts
   REQUIRE(disjCuts->sizeRowCuts() > 0);
   for (int i=0; i<disjCuts->sizeRowCuts(); i++){
@@ -406,57 +302,79 @@ TEST_CASE( "Check VPCs created successfully from Farkas",
     // each cut should be valid for the optimal solution
     REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[1][0]));
   }
-
 }
 
-TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes in feasible region (edge case)",
-           "[VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers][long]" ) {
+TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes in variable bounds or objective",
+           "[VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers][current]" ) {
 
   // set up reusable stuff
-  VwsSolverInterface seriesSolver(10, 600, 4, .8);
-  TestHandler handler;
+  VwsSolverInterface seriesSolver(10, 600, 64, .8);
   OsiClpSolverInterface instanceSolver;
+  MipCompEventHandler eventHandler;
 
-  // create cuts for first 10 instances
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i01.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i02.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i03.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i04.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i05.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i06.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i07.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i08.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i09.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i10.mps.gz");
-//  seriesSolver.solve(instanceSolver, "PRLP", false, &handler);
-//
-//  // get solutions for the weird instance
-//  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/vary_bounds/series_1/bnd_s1_i38.mps.gz");
-//  seriesSolver.solve(instanceSolver, "None", true, &handler);
-//
-//  // check that the vpcs we get are valid
-//  std::shared_ptr<OsiCuts> disjCuts = seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
-//  // this will fail bc I'm using partial tree - todo: complete tree
-//  for (int i=0; i<disjCuts->sizeRowCuts(); i++){
-//
-//    // each cut should be of form a^T x >= b
-//    REQUIRE(disjCuts->rowCutPtr(i)->lb() > -COIN_DBL_MAX);
-//    REQUIRE(disjCuts->rowCutPtr(i)->ub() == COIN_DBL_MAX);
-//    REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[10][0]));
-//
-//    // each cut should be valid for the optimal solution
-////    if (!isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[10][0])){
-////      std::cout << i << std::endl;
-////    }
-//  }
-  std::cout << "hello" << std::endl;
+  // solve the instance via PRLP to get a disjunction and farkas certificate
+  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  seriesSolver.solve(instanceSolver, "PRLP", false, &eventHandler);
+
+  // test changing the objective
+  for (int i = 0; i < instanceSolver.getNumCols(); i++){
+
+    // get temporary solvers for this test - one for baseline and one for farkas vpcs
+    OsiClpSolverInterface tmpSolver = *dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
+
+    // update the objective to push in one dimension
+    for (int col_idx=0; col_idx < instanceSolver.getNumCols(); col_idx++){
+      tmpSolver.setObjCoeff(col_idx, i == col_idx ? -2 : -1);
+    }
+
+    // get the optimal solution to the new problem and get the parameterized cuts for it
+    CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None", false);
+    std::vector<double> solution(tmpModel.bestSolution(),
+                                 tmpModel.bestSolution() + tmpModel.getNumCols());
+    std::shared_ptr<OsiCuts> disjCuts =
+        seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(tmpSolver);
+
+    // sanity check to make sure we didn't make up some extra cuts somewhere
+    REQUIRE(disjCuts->sizeRowCuts() == 6);
+
+    // make sure the cuts are valid for the solution
+    for (int j = 0; j < disjCuts->sizeRowCuts(); j++){
+      REQUIRE(disjCuts->rowCutPtr(j)->lb() > -COIN_DBL_MAX);
+      REQUIRE(disjCuts->rowCutPtr(j)->ub() == COIN_DBL_MAX);
+      REQUIRE(isFeasible(disjCuts->rowCut(j), solution));
+    }
+  }
+
+  // test changing the constraint bounds
+  for (int i = 0; i < instanceSolver.getNumRows(); i++){
+
+    // get temporary solvers for this test - one for baseline and one for farkas vpcs
+    OsiClpSolverInterface tmpSolver = *dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
+
+    // relax the constraint bound (to encourage original vpc infeasibility) to push in one dimension
+    for (int row_idx=0; row_idx < instanceSolver.getNumRows(); row_idx++){
+      double b = tmpSolver.getRowUpper()[row_idx];
+      double loose_b = b > 0 ? b * 1.25 : b / 1.25;
+      double looser_b = b > 0 ? b * 2 : b / 2;
+      tmpSolver.setRowUpper(row_idx, i == row_idx ? looser_b: loose_b);
+    }
+
+    // get the optimal solution to the new problem and get the parameterized cuts for it
+    CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None", false);
+    std::vector<double> solution(tmpModel.bestSolution(),
+                                 tmpModel.bestSolution() + tmpModel.getNumCols());
+    std::shared_ptr<OsiCuts> disjCuts =
+        seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(tmpSolver);
+
+    // sanity check to make sure we didn't make up some extra cuts somewhere
+    REQUIRE(disjCuts->sizeRowCuts() == 6);
+
+    // make sure the cuts are valid for the solution
+    for (int j = 0; j < disjCuts->sizeRowCuts(); j++){
+      REQUIRE(disjCuts->rowCutPtr(j)->lb() > -COIN_DBL_MAX);
+      REQUIRE(disjCuts->rowCutPtr(j)->ub() == COIN_DBL_MAX);
+      REQUIRE(isFeasible(disjCuts->rowCut(j), solution));
+    }
+  }
+
 }

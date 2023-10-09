@@ -19,21 +19,21 @@ namespace fs = ghc::filesystem;
 
 /** Get a comma-separated string of the names of RunData's attributes */
 std::string RunData::getHeader(){
-  return "lpBound,rootDualBoundPreVpc,rootDualBound,dualBound,heuristicPrimalBound,"
+  return "lpBound,lpBoundPostVpc,rootDualBoundPreVpc,rootDualBound,dualBound,heuristicPrimalBound,"
          "primalBound,heuristicTime,rootDualBoundTime,terminationTime,maxTerminationTime,"
          "completionTime,maxCompletionTime,benchmark,vpcGenerator,terms,vpcGenerationTime";
 }
 
 /** Get a comma-separated string of the values of RunData's attributes */
 std::string RunData::getValues(){
-  return std::to_string(lpBound) + "," + std::to_string(rootDualBoundPreVpc) + "," +
-    std::to_string(rootDualBound) + "," + std::to_string(dualBound) + "," +
-    std::to_string(heuristicPrimalBound) + "," + std::to_string(primalBound) + "," +
-    std::to_string(heuristicTime) + "," + std::to_string(rootDualBoundTime) + "," +
-    std::to_string(terminationTime) + "," + std::to_string(maxTerminationTime) + "," +
-    std::to_string(completionTime) + "," + std::to_string(maxCompletionTime) + "," +
-    std::to_string(benchmark) + "," + vpcGenerator + "," + std::to_string(terms) +
-    "," + std::to_string(vpcGenerationTime);
+  return std::to_string(lpBound) + "," + std::to_string(lpBoundPostVpc) + "," +
+    std::to_string(rootDualBoundPreVpc) + "," + std::to_string(rootDualBound) + "," +
+    std::to_string(dualBound) + "," + std::to_string(heuristicPrimalBound) + "," +
+    std::to_string(primalBound) + "," + std::to_string(heuristicTime) + "," +
+    std::to_string(rootDualBoundTime) + "," + std::to_string(terminationTime) + "," +
+    std::to_string(maxTerminationTime) + "," + std::to_string(completionTime) + "," +
+    std::to_string(maxCompletionTime) + "," + std::to_string(benchmark) + "," +
+    vpcGenerator + "," + std::to_string(terms) + "," + std::to_string(vpcGenerationTime);
 }
 
 

@@ -23,9 +23,6 @@
 using namespace Eigen;
 namespace fs = ghc::filesystem;
 
-/** Asserts that the condition is true. If not, msg is printed and program terminates */
-void verify(bool condition, const std::string& msg);
-
 /** Unzips the .gz file at instancePath and reads it into an OsiClpSolverInterface */
 OsiClpSolverInterface extractSolverInterfaceFromGunzip(fs::path instancePath);
 

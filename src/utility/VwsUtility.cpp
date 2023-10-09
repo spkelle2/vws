@@ -36,13 +36,6 @@
 using namespace Eigen;
 namespace fs = ghc::filesystem;
 
-void verify(bool condition, const std::string& msg) {
-  if (!condition) {
-    std::cerr << msg << std::endl;
-    assert(false);  // cause failure with a stack trace
-  }
-}
-
 OsiClpSolverInterface extractSolverInterfaceFromGunzip(fs::path instancePath) {
   // check that the file meets expectations
   verify(fs::exists(instancePath),

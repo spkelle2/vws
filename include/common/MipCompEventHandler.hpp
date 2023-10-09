@@ -41,4 +41,7 @@ public:
 protected:
   /** Copy our stuff */
   void initialize(const MipCompEventHandler* const rhs);
+
+  /** Get the lp bound of the current solver with cuts applied */
+  double getLpBoundWithCuts();
 }; /* VwsEventHandler */
