@@ -25,7 +25,7 @@ RM = rm -f
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
-UNIT_TEST_FILE = testUtility/TestMipComp.cpp
+UNIT_TEST_FILE = testCut/TestVwsSolverInterface.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
@@ -162,11 +162,9 @@ VPC_SOURCES += \
 	cut/CglVPC.cpp \
 	cut/CutHelper.cpp \
 	cut/PRLP.cpp \
-	disjunction/CompleteDisjunction.cpp \
 	disjunction/Disjunction.cpp \
 	disjunction/PartialBBDisjunction.cpp \
 	disjunction/SplitDisjunction.cpp \
-	disjunction/StrongBranchingDisjunction.cpp \
 	disjunction/VPCDisjunction.cpp
 
 # For running tests (need not include these or main if releasing code to others)

@@ -136,6 +136,7 @@ std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
   // turn on strong branching and cut generation
   CbcStrategyDefault strategy(false, 5, 0);
   model->setStrategy(strategy);
+  // model->setLogLevel(2);
 
   // set number of solutions to save and time limit
   model->setMaximumSavedSolutions(maxExtraSavedSolutions);
@@ -195,13 +196,8 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createDisjunctiveCutsFromPRLP(
 //  vpc_params.set(VPCParametersNamespace::CUTLIMIT, si.getFractionalIndices().size());
   vpc_params.set(VPCParametersNamespace::TIMELIMIT, maxRunTime);
   vpc_params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, maxRunTime);
-//  vpc_params.set(VPCParametersNamespace::USE_ALL_ONES, 1);
-//  vpc_params.set(VPCParametersNamespace::USE_ITER_BILINEAR, 1);
-//  vpc_params.set(VPCParametersNamespace::USE_DISJ_LB, 1);
-//  vpc_params.set(VPCParametersNamespace::USE_TIGHT_POINTS, 0);
-//  vpc_params.set(VPCParametersNamespace::USE_TIGHT_RAYS, 0);
-//  vpc_params.set(VPCParametersNamespace::USE_UNIT_VECTORS, 0);
-  vpc_params.set(VPCParametersNamespace::MODE, 0); // 0 BB, 1 splits, 4 strong branching
+  vpc_params.set(VPCParametersNamespace::PARTIAL_BB_KEEP_PRUNED_NODES, 1);
+  vpc_params.set(VPCParametersNamespace::MODE, 0);
 
   CglVPC gen = CglVPC(vpc_params);
   gen.generateCuts(si, *disjCuts);
