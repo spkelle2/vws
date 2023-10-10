@@ -82,12 +82,15 @@ public:
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
    *  partially solving the given problem. Simplified from Strengthening's
    *  CglAdvCut::generateCuts */
-  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromPRLP(OsiClpSolverInterface si);
+  std::shared_ptr<OsiCuts> createVpcsFromNewDisjunctionPRLP(OsiClpSolverInterface si);
 
   /** Parameterize each previously created disjunctive cut with its disjunction
    *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
    *  main.cpp */
-  std::shared_ptr<OsiCuts> createDisjunctiveCutsFromFarkasMultipliers(OsiClpSolverInterface si);
+  std::shared_ptr<OsiCuts> createVpcsFromFarkasMultipliers(OsiClpSolverInterface si);
+
+  /// @brief create VPCs by solving each PRLP resulting from applying each disjunction in <disjunctions> to <si>
+  std::shared_ptr<OsiCuts> createVpcsFromOldDisjunctionPRLP(OsiClpSolverInterface si);
 
 }; /* VpcWarmStart */
 
