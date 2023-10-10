@@ -201,7 +201,7 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver(10, 60, 64);
   MipCompEventHandler * eventHandler = new MipCompEventHandler();
-  CbcModel model = seriesSolver.solve(instanceSolver, "PRLP", false, eventHandler);
+  CbcModel model = seriesSolver.solve(instanceSolver, "New Disjunction", false, eventHandler);
   eventHandler = dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
 
   // we should have one vpc generator and set of farkas multipliers
@@ -262,19 +262,21 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 // --------------------- create disjunctive cut tests --------------------------
 
 TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
-           "[VwsSolverInterface::createDisjunctiveCutsFromPRLP][VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers]" ) {
+           "[VwsSolverInterface::createVpcsFromNewDisjunctionPRLP]"
+           "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
+           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP]") {
 
   // solve a model with the VwsSolverInterface to get the solution
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver);
 
-  // check that the vpcs we get are valid
+  // check that the vpcs we get are valid when solving the PRLP with a new disjunction
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
-  std::shared_ptr<OsiCuts> disjCuts = seriesSolver.createDisjunctiveCutsFromPRLP(instanceSolver);
+  std::shared_ptr<OsiCuts> disjCuts = seriesSolver.createVpcsFromNewDisjunctionPRLP(instanceSolver);
 
   // we should have added some cuts
-  REQUIRE(disjCuts->sizeRowCuts() > 0);
+  REQUIRE(disjCuts->sizeRowCuts() == 6);
   for (int i=0; i<disjCuts->sizeRowCuts(); i++){
 
     // each cut should be of form a^T x >= b
@@ -285,14 +287,13 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
     REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[0][0]));
   }
 
-  // solve a second instance to get a solution for it
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i02.mps.gz");
-  CbcModel model = seriesSolver.solve(instanceSolver);
+  // solve the PRLP with a new disjunction again so we have two disjunctions to use in our following tests
+  disjCuts = seriesSolver.createVpcsFromNewDisjunctionPRLP(instanceSolver);
 
-  // check that the vpcs we get are valid
-  disjCuts = seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(instanceSolver);
-  // we should have added a lot of cuts
-  REQUIRE(disjCuts->sizeRowCuts() > 0);
+  // check that the vpcs we get are valid when we use Farkas Multipliers
+  disjCuts = seriesSolver.createVpcsFromFarkasMultipliers(instanceSolver);
+
+  REQUIRE(disjCuts->sizeRowCuts() == 12);
   for (int i=0; i<disjCuts->sizeRowCuts(); i++){
 
     // each cut should be of form a^T x >= b
@@ -300,12 +301,27 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
     REQUIRE(disjCuts->rowCutPtr(i)->ub() == COIN_DBL_MAX);
 
     // each cut should be valid for the optimal solution
-    REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[1][0]));
+    REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[0][0]));
+  }
+
+  // check that the vpcs we get are valid when we use the old disjunctions in the PRLP
+  disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(instanceSolver);
+
+  REQUIRE(disjCuts->sizeRowCuts() == 12);
+  for (int i=0; i<disjCuts->sizeRowCuts(); i++){
+
+    // each cut should be of form a^T x >= b
+    REQUIRE(disjCuts->rowCutPtr(i)->lb() > -COIN_DBL_MAX);
+    REQUIRE(disjCuts->rowCutPtr(i)->ub() == COIN_DBL_MAX);
+
+    // each cut should be valid for the optimal solution
+    REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[0][0]));
   }
 }
 
-TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes in variable bounds or objective",
-           "[VwsSolverInterface::createDisjunctiveCutsFromFarkasMultipliers][current]" ) {
+TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on parameterized problems",
+           "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
+           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP]" ) {
 
   // set up reusable stuff
   VwsSolverInterface seriesSolver(10, 600, 64, .8);
@@ -314,7 +330,7 @@ TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes i
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
-  seriesSolver.solve(instanceSolver, "PRLP", false, &eventHandler);
+  seriesSolver.solve(instanceSolver, "New Disjunction", false, &eventHandler);
 
   // test changing the objective
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
@@ -332,10 +348,26 @@ TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes i
     std::vector<double> solution(tmpModel.bestSolution(),
                                  tmpModel.bestSolution() + tmpModel.getNumCols());
     std::shared_ptr<OsiCuts> disjCuts =
-        seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(tmpSolver);
+        seriesSolver.createVpcsFromFarkasMultipliers(tmpSolver);
 
     // sanity check to make sure we didn't make up some extra cuts somewhere
     REQUIRE(disjCuts->sizeRowCuts() == 6);
+
+    // make sure the cuts are valid for the solution
+    for (int j = 0; j < disjCuts->sizeRowCuts(); j++){
+      REQUIRE(disjCuts->rowCutPtr(j)->lb() > -COIN_DBL_MAX);
+      REQUIRE(disjCuts->rowCutPtr(j)->ub() == COIN_DBL_MAX);
+      REQUIRE(isFeasible(disjCuts->rowCut(j), solution));
+    }
+
+    // now repeat the experiment for reusing an old disjunction
+    if (i == 13){
+      std::cout << "hello" << std::endl;
+    }
+    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
+
+    // sanity check to make sure we made some cuts
+    REQUIRE(disjCuts->sizeRowCuts() > 0);
 
     // make sure the cuts are valid for the solution
     for (int j = 0; j < disjCuts->sizeRowCuts(); j++){
@@ -364,10 +396,23 @@ TEST_CASE( "Create VPCs from Farkas multipliers on problems with large changes i
     std::vector<double> solution(tmpModel.bestSolution(),
                                  tmpModel.bestSolution() + tmpModel.getNumCols());
     std::shared_ptr<OsiCuts> disjCuts =
-        seriesSolver.createDisjunctiveCutsFromFarkasMultipliers(tmpSolver);
+        seriesSolver.createVpcsFromFarkasMultipliers(tmpSolver);
 
     // sanity check to make sure we didn't make up some extra cuts somewhere
     REQUIRE(disjCuts->sizeRowCuts() == 6);
+
+    // make sure the cuts are valid for the solution
+    for (int j = 0; j < disjCuts->sizeRowCuts(); j++){
+      REQUIRE(disjCuts->rowCutPtr(j)->lb() > -COIN_DBL_MAX);
+      REQUIRE(disjCuts->rowCutPtr(j)->ub() == COIN_DBL_MAX);
+      REQUIRE(isFeasible(disjCuts->rowCut(j), solution));
+    }
+
+    // now repeat the experiment for reusing an old disjunction
+    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
+
+    // sanity check to make sure we made some cuts
+    REQUIRE(disjCuts->sizeRowCuts() > 0);
 
     // make sure the cuts are valid for the solution
     for (int j = 0; j < disjCuts->sizeRowCuts(); j++){
