@@ -321,11 +321,12 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
   VPCParametersNamespace::VPCParameters vpc_params;
   vpc_params.set(VPCParametersNamespace::DISJ_TERMS, disjunctiveTerms);
   vpc_params.set(VPCParametersNamespace::TIMELIMIT, maxRunTime);
+  vpc_params.set(VPCParametersNamespace::RECYCLED_DISJUNCTION, 1);
 
   // create vpcs for each disjunction
   for (const auto& disj : disjunctions){
     CglVPC gen = CglVPC(vpc_params);
-    gen.setDisjunction(disj.get());
+    gen.setDisjunction(disj.get(), 1);
     gen.generateCuts(si, *disjCuts);
   }
 
