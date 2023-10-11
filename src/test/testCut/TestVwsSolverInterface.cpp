@@ -139,6 +139,61 @@ void checkCuts(OsiCuts* cuts, std::vector<double> solution){
   }
 }
 
+int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface seriesSolver){
+
+  // get temporary solvers for this test - one for each way to make cuts
+  OsiClpSolverInterface newDisjSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+  OsiClpSolverInterface farkasSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+  OsiClpSolverInterface oldDisjSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+
+  // get the optimal solution to the new problem
+  CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None", false);
+  std::vector<double> solution(tmpModel.bestSolution(),
+                               tmpModel.bestSolution() + tmpModel.getNumCols());
+
+  // get the cuts from solving the PRLP with a new disjunction - conduct on new
+  // series solver to not add additional disjunctions to what subsequent tests use
+  VwsSolverInterface tmpSeriesSolver(10, 600, seriesSolver.disjunctiveTerms, .8);
+  std::shared_ptr<OsiCuts> newDisjCuts =
+      tmpSeriesSolver.createVpcsFromNewDisjunctionPRLP(newDisjSolver);
+  REQUIRE(newDisjCuts->sizeRowCuts() > 0);
+  checkCuts(newDisjCuts.get(), solution);
+
+  // get the cuts from parameterizing previous ones via farkas multipliers
+  std::shared_ptr<OsiCuts> farkasCuts =
+      seriesSolver.createVpcsFromFarkasMultipliers(farkasSolver);
+  REQUIRE(farkasCuts->sizeRowCuts() == 6);
+  checkCuts(farkasCuts.get(), solution);
+
+  // get the cuts from solving the PRLP with an old disjunction
+  std::shared_ptr<OsiCuts> oldDisjCuts =
+      seriesSolver.createVpcsFromOldDisjunctionPRLP(oldDisjSolver);
+  REQUIRE(oldDisjCuts->sizeRowCuts() > 0);
+  checkCuts(oldDisjCuts.get(), solution);
+
+  // add the cuts to each respective solver
+  newDisjSolver.applyCuts(*newDisjCuts);
+  newDisjSolver.resolve();
+  farkasSolver.applyCuts(*farkasCuts);
+  farkasSolver.resolve();
+  oldDisjSolver.applyCuts(*oldDisjCuts);
+  oldDisjSolver.resolve();
+
+  // check the bounds - greater value should be better as that means more bound tightened
+  REQUIRE(newDisjSolver.getObjValue() - oldDisjSolver.getObjValue() > -1);
+  REQUIRE(oldDisjSolver.getObjValue() - farkasSolver.getObjValue() > -1);
+
+  // keep a count of how many were seriously out of bounds
+  int misordered = 0;
+  if (newDisjSolver.getObjValue() - oldDisjSolver.getObjValue() < -1e-4){
+    misordered++;
+  }
+  if (oldDisjSolver.getObjValue() - farkasSolver.getObjValue() < -1e-4){
+    misordered++;
+  }
+  return misordered;
+}
+
 TEST_CASE("Test a single solve", "[VwsSolverInterface::solve]") {
 
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
@@ -315,12 +370,12 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
   checkCuts(disjCuts.get(), seriesSolver.solutions[0][0]);
 }
 
-TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on parameterized problems",
+TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very different problems",
            "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
-           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP]" ) {
+           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long]" ) {
 
   // set up reusable stuff
-  VwsSolverInterface seriesSolver(10, 600, 4, .8);
+  VwsSolverInterface seriesSolver(10, 600, 64, .8);
   OsiClpSolverInterface instanceSolver;
   MipCompEventHandler eventHandler;
 
@@ -353,28 +408,6 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on paramete
     // under large changes the PRLP may become infeasible and yield no cuts because the LP
     // relaxation solution belongs to a disjunctive term
     disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
-    checkCuts(disjCuts.get(), solution);
-
-    //------------ check subtle changes for recycling disjunction --------------
-    tmpSolver = *dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
-
-    // update the objective to push in one dimension more subtly
-    for (int col_idx=0; col_idx < instanceSolver.getNumCols(); col_idx++){
-      tmpSolver.setObjCoeff(
-          col_idx, i == col_idx ? instanceSolver.getObjCoefficients()[col_idx] * 1.05 :
-          instanceSolver.getObjCoefficients()[col_idx]);
-    }
-
-    // get the optimal solution to the new problem
-    CbcModel tmpModel2 = seriesSolver.solve(tmpSolver, "None", false);
-    for (int j = 0; j < tmpModel2.getNumCols(); j++){
-      solution[j] = tmpModel2.bestSolution()[j];
-    }
-
-    // generate cuts from the previous disjunction
-    // we have small changes so we should never have an infeasible PRLP thus we always get kutz
-    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
-    REQUIRE(disjCuts->sizeRowCuts() > 0);
     checkCuts(disjCuts.get(), solution);
   }
 
@@ -409,28 +442,62 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on paramete
     // relaxation solution belongs to a disjunctive term
     disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
     checkCuts(disjCuts.get(), solution);
+  }
+}
 
-    //------------ check subtle changes for recycling disjunction --------------
-    // get temporary solvers for this test - one for baseline and one for farkas vpcs
-    tmpSolver = *dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
+TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parameterized problems",
+           "[VwsSolverInterface::createVpcsFromNewDisjunctionPRLP"
+           "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
+           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long]" ) {
 
-    // relax the constraint bound only slightly this time
+  // set up reusable stuff
+  VwsSolverInterface seriesSolver(10, 600, 4, .8);
+  OsiClpSolverInterface instanceSolver;
+  MipCompEventHandler eventHandler;
+  int misordered = 0;
+
+  // solve the instance via PRLP to get a disjunction and farkas certificate
+  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  seriesSolver.solve(instanceSolver, "New Disjunction", false, &eventHandler);
+
+  // test changing the objective
+  for (int i = 0; i < instanceSolver.getNumCols(); i++){
+
+    // create a solver to perturb the original instance
+    OsiClpSolverInterface tmpSolver = *dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
+
+    // update the objective in one dimension
+    for (int col_idx=0; col_idx < instanceSolver.getNumCols(); col_idx++){
+      tmpSolver.setObjCoeff(
+          col_idx, i == col_idx ? instanceSolver.getObjCoefficients()[col_idx] * 1.2 :
+          instanceSolver.getObjCoefficients()[col_idx]);
+    }
+    tmpSolver.initialSolve();
+
+    // make sure the cuts are generated and improve the bound as expected
+    misordered = misordered + compareCutGenerators(tmpSolver, seriesSolver);
+
+  }
+
+  // test changing the constraint bounds
+  for (int i = 0; i < instanceSolver.getNumRows(); i++){
+
+    // create a solver to perturb the original instance
+    OsiClpSolverInterface tmpSolver = *dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
+
+    // update the constraint bound
     for (int row_idx=0; row_idx < instanceSolver.getNumRows(); row_idx++){
       double b = tmpSolver.getRowUpper()[row_idx];
-      double looser_b = b > 0 ? b * 1.05 : b / 1.05;
+      double looser_b = b > 0 ? b * 1.2 : b / 1.2;
       tmpSolver.setRowUpper(row_idx, i == row_idx ? looser_b: b);
     }
+    tmpSolver.initialSolve();
 
-    // get the optimal solution to the new problem
-    CbcModel tmpModel2 = seriesSolver.solve(tmpSolver, "None", false);
-    for (int j = 0; j < tmpModel2.getNumCols(); j++){
-      solution[j] = tmpModel2.bestSolution()[j];
-    }
-
-    // generate cuts from the previous disjunction
-    // we have small changes so we should never have an infeasible PRLP thus we always get kutz
-    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
-    REQUIRE(disjCuts->sizeRowCuts() > 0);
-    checkCuts(disjCuts.get(), solution);
+    // make sure the cuts are generated and improve the bound as expected
+    misordered = misordered + compareCutGenerators(tmpSolver, seriesSolver);
   }
+
+  // this number is kinda arbitrary but more the point here is that most of our
+  // bounds should go in order of (new disjunction) > (old disjunction) > (farkas)
+  REQUIRE(misordered < 10);
 }
