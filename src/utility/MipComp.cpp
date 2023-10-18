@@ -19,7 +19,7 @@
 
 // project modules
 #include "MipComp.hpp" // MipComp
-#include "MipCompEventHandler.hpp" // MipCompEventHandler
+#include "VwsEventHandler.hpp" // VwsEventHandler
 #include "VwsUtility.hpp" // verify, extractModelFromGunzip, writeSolution
 
 // namespaces
@@ -94,7 +94,7 @@ void MipComp::solveSeries() {
     std::cout << "[START] " << std::put_time(std::localtime(&startTime), "%FT%T") << std::endl;
 
     // set up event handler for data collection
-    std::shared_ptr<MipCompEventHandler> handler = std::make_shared<MipCompEventHandler>();
+    std::shared_ptr<VwsEventHandler> handler = std::make_shared<VwsEventHandler>();
 
     // solve the instance
     std::string vpcGenerator;
@@ -105,31 +105,22 @@ void MipComp::solveSeries() {
     } else {
       vpcGenerator = "None";
     }
-    CbcModel model = seriesSolver.solve(instanceSolver, vpcGenerator, false, handler.get());
-
-    // correct the recorded dual bound and save the data collected by the event handler
-    *handler = *dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
-    handler->data.dualBound = model.getBestPossibleObjValue();
-    handler->data.maxTerminationTime = timeout - timeoutBuffer;
-    handler->data.maxCompletionTime = timeout;
-    handler->data.benchmark = benchmark;
-    handler->data.vpcGenerator = vpcGenerator;
-    handler->data.terms = terms;
-    handler->data.vpcGenerationTime = seriesSolver.timers[i].get_time("vpc generation");
+    CbcModel model = seriesSolver.solve(instanceSolver, vpcGenerator, *handler);
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){
       writeSolution(seriesSolver.solutions[i][0], seriesSolver.variableNames[i], solutionPath);
     }
 
+    // save the data collected by the event handler
+    *handler = *dynamic_cast<VwsEventHandler*>(model.getEventHandler());
+    handler->data.writeData(csvPath);
+    runData.push_back(handler->data);
+
     // print end time and dual bound
     std::time_t endTime = std::time(nullptr);
     std::cout << "[END] " << std::put_time(std::localtime(&endTime), "%FT%T") << std::endl;
     std::cout << "[DUAL BOUND] " << handler->data.dualBound << std::endl;
 
-    // record total time and save the data collected by the event handler
-    handler->data.completionTime = std::difftime(endTime, startTime);
-    handler->data.writeData(csvPath);
-    runData.push_back(handler->data);
   }
 } /* solveSeries */

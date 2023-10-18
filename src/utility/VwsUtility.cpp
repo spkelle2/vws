@@ -145,7 +145,7 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
   }
   for (int term_ind = 0; term_ind < disj.num_terms; term_ind++) {
     OsiSolverInterface* termSolver;
-    disj.getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, false, false);
+    disj.getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, true);
     if (!termSolver) {
       printf("Disjunctive term %d/%d not created successfully.\n", term_ind+1, disj.num_terms);
       exit(1); // i think this should be a break right?
@@ -530,52 +530,6 @@ double min(std::vector<double> a){
   return min;
 }
 
-/** check if sol is feasible for solver */
-bool isFeasible(
-    /// [in] problem
-    const OsiSolverInterface& solver,
-    /// [in] solution
-    const std::vector<double>& sol) {
-
-  // get bounds and constraint coefficients
-  const double* rowLower = solver.getRowLower();
-  const double* rowUpper = solver.getRowUpper();
-  const double* colLower = solver.getColLower();
-  const double* colUpper = solver.getColUpper();
-  const CoinPackedMatrix* mat = solver.getMatrixByRow();
-  const int* cols = mat->getIndices();
-  const double* elem = mat->getElements();
-
-  // check dimensions match
-  verify(sol.size() == solver.getNumCols(), "solution has wrong dimension");
-
-  // make sure constraints are valid
-  for (int row = 0; row < solver.getNumRows(); row++) {
-    double sum = 0.0;
-    const int start = mat->getVectorFirst(row);
-    const int end = mat->getVectorLast(row);
-    for (int ind = start; ind < end; ind++) {
-      const double j = cols[ind];
-      const double el = elem[ind];
-      sum += el * sol[j];
-    }
-    if (lessThanVal(sum, rowLower[row]) || greaterThanVal(sum, rowUpper[row])) {
-      return false;
-    }
-  }
-
-  // make sure variables are valid
-  for (int col = 0; col < solver.getNumCols(); col++) {
-    if (lessThanVal(sol[col], colLower[col]) || greaterThanVal(sol[col], colUpper[col])) {
-      return false;
-    }
-    if (solver.isInteger(col) && !isInteger(sol[col])) {
-      return false;
-    }
-  }
-  return true;
-} /* isFeasible */
-
 /** check if cut is valid for given solution */
 bool isFeasible(
     /// [in] problem
@@ -597,20 +551,6 @@ bool isFeasible(
     return true;
   }
 } /* isFeasible */
-
-/** check if a value is an integer */
-bool isInteger(double val){
-  return isZero(min(val - std::floor(val), std::ceil(val) - val));
-}
-
-/** take a min of two values */
-double min(double a, double b){
-  if (a < b){
-    return a;
-  } else {
-    return b;
-  }
-}
 
 /** find the nonzero indices and elemnets of a vector */
 void findNonZero(

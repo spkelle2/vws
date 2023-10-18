@@ -141,7 +141,6 @@ SOURCES += \
 	cut/CbcSolverHeuristics.cpp \
 	cut/CglStoredVpc.cpp \
 	utility/MipComp.cpp \
-	utility/MipCompEventHandler.cpp \
 	utility/RunData.cpp \
 	utility/VwsUtility.cpp
 

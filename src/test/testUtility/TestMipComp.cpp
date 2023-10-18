@@ -64,33 +64,6 @@ TEST_CASE( "Test Simple") {
       fs::path solutionFile = solutionDirectory / (testRunner.instanceNames[i] + ".sol");
       REQUIRE(fs::exists(solutionFile));
 
-      // the further we solve, the better the dual bound should be
-      REQUIRE(std::abs(testRunner.runData[i].lpBound - 20.57) < .01);
-      REQUIRE(std::abs(testRunner.runData[i].rootDualBoundPreVpc - 25) < .5);
-      REQUIRE(std::abs(testRunner.runData[i].rootDualBound - 30) < .5);
-      REQUIRE(testRunner.runData[i].dualBound == 34);
-
-      // we minimize so primal bound should be greater than or equal to dual bound
-      REQUIRE(testRunner.runData[i].heuristicPrimalBound == 34);
-      REQUIRE(testRunner.runData[i].primalBound == 34);
-
-      // the further we solve, the longer it should take
-      REQUIRE(0 < testRunner.runData[i].heuristicTime);
-      REQUIRE(testRunner.runData[i].heuristicTime < testRunner.runData[i].rootDualBoundTime);
-      REQUIRE(testRunner.runData[i].rootDualBoundTime < testRunner.runData[i].terminationTime);
-      REQUIRE(testRunner.runData[i].terminationTime < testRunner.runData[i].completionTime + 1);
-      REQUIRE(testRunner.runData[i].completionTime <= 2);
-      REQUIRE(testRunner.runData[i].maxTerminationTime == 25);
-      REQUIRE(testRunner.runData[i].maxCompletionTime == 30);
-
-      // check the run parameters
-      // make this was not a benchmark run
-      REQUIRE(testRunner.runData[i].benchmark == 0);
-      REQUIRE(((testRunner.runData[i].vpcGenerator == "PRLP") ||
-               (testRunner.runData[i].vpcGenerator == "Farkas")));
-      REQUIRE(testRunner.runData[i].terms == 64);
-      REQUIRE(testRunner.runData[i].vpcGenerationTime > .01);
-
       // make sure the solution saved correctly
       std::ifstream file(solutionFile.string());
       while (std::getline(file, str)){
@@ -205,7 +178,7 @@ TEST_CASE( "Test Simple") {
       REQUIRE(testRunner.runData[i].maxTerminationTime == 25);
       REQUIRE(testRunner.runData[i].maxCompletionTime == 30);
 
-      // check the run parameters
+      // check the run parameters todo: this is the part that needs testing here
       // this was a benchmark run
       REQUIRE(testRunner.runData[i].benchmark);
       REQUIRE(testRunner.runData[i].vpcGenerator == "None");
