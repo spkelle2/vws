@@ -29,6 +29,7 @@
 #include "PartialBBDisjunction.hpp" // PartialBBDisjunction
 #include "SolverInterface.hpp" // SolverInterface
 #include "VPCParameters.hpp" // VPCParameters
+#include "utility.hpp"
 
 // project modules
 #include "VwsEventHandler.hpp" // VwsEventHandler
@@ -46,150 +47,111 @@ VwsSolverInterface::VwsSolverInterface(int maxExtraSavedSolutions, double maxRun
   {
 } /* constructor */
 
-
-/** Solve a MIP with VPCs added. Adds the provided eventHandler to the solve,
- * preprocessing the input model if requested */
+/** Solve a MIP with VPCs added. Provides an eventHandler that just gets tossed */
 CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
-                                   std::string vpcGenerator, bool usePreprocessing,
-                                   VwsEventHandler* eventHandler){
+                                   const std::string vpcGenerator){
+  VwsEventHandler h = VwsEventHandler();
+  return solve(instanceSolver, vpcGenerator, h);
+} /* solve */
+
+/** Solve a MIP with VPCs added and add the provided eventHandler to the solve */
+CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
+                                   const std::string vpcGenerator, VwsEventHandler& eventHandler){
 
   // todo: enforce that we have a MIP with same number of variables and constraints
   // todo: enforce that we have a MIP with expected constraint format
   // todo: create a parameters file for vws that can set up parameters for VPC and CBC
 
-  verify(vpcGenerator == "New Disjunction" || vpcGenerator == "Old Disjunction" ||
-         vpcGenerator == "Farkas" || vpcGenerator == "None",
-         "vpcGenerator must be one of New Disjunction, Old Disjunction, Farkas, or None");
-  // currently, we don't know how to weave cuts through the preprocessor, so we
-  // lack a way to create VPCs and add them after root cut generation
-  verify(vpcGenerator == "None" || !usePreprocessing,
-         "if creating VPCs, the preprocessor must be disabled");
-
-  // if we don't have an event handler, create a default one
-  VwsEventHandler h;
-  if (!eventHandler){
-    eventHandler = &h;
+  // start the timers
+  for (auto name : eventHandler.timer_names){
+    eventHandler.timer.register_name(name);
+    eventHandler.timer.start_timer(name);
   }
+
+  // set up the solver - make sure we minimize and that we have a solution
+  OsiClpSolverInterface * si = dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
+  ensureMinimizationObjective(si);
 
   // instanceSolver passed by reference since names aren't carried over when CbcModel constructor copies it
   variableNames.push_back(getVariableNames(instanceSolver));
   constraintNames.push_back(getConstraintNames(instanceSolver));
 
   // create cuts - either by PRLP or by previous farkas multipliers
-  TimeStats timer;
-  timer.register_name("vpc generation");
-  timer.start_timer("vpc generation");
   std::shared_ptr<OsiCuts> disjCuts;
   if (vpcGenerator == "New Disjunction") {
-    disjCuts = createVpcsFromNewDisjunctionPRLP(instanceSolver);
+    disjCuts = createVpcsFromNewDisjunctionPRLP(si, eventHandler);
   } else if (vpcGenerator == "Old Disjunction") {
-    disjCuts = createVpcsFromOldDisjunctionPRLP(instanceSolver);
+    disjCuts = createVpcsFromOldDisjunctionPRLP(si, eventHandler);
   } else if (vpcGenerator == "Farkas") {
-    disjCuts = createVpcsFromFarkasMultipliers(instanceSolver);
-  }
-  eventHandler->cuts = disjCuts.get();
-  timer.end_timer("vpc generation");
-  double vpcGenTime = timer.get_time("vpc generation");
-  timers.push_back(timer);
-
-  // instantiate and solve the model
-  // we need instanceSolver to instantiate the preprocessor so solution info is
-  // returned to it in postprocessing. Therefore, we have to instantiate model
-  // within a subroutine, but still need to access it here, necessitating the pointer
-  std::shared_ptr<CbcModel> model;
-  if (usePreprocessing) {
-    model = preprocessedBranchAndCut(instanceSolver, eventHandler, vpcGenTime);
+    disjCuts = createVpcsFromFarkasMultipliers(si, eventHandler);
+  } else if (vpcGenerator == "None") {
+    si->initialSolve();
+    eventHandler.data.disjunctiveDualBound = si->getObjValue();
   } else {
-    model = unprocessedBranchAndCut(instanceSolver, eventHandler, vpcGenTime);
+    verify(false, "vpcGenerator must be one of New Disjunction, Old Disjunction, Farkas, or None");
   }
 
-  // save the solutions in memory
-  std::vector< std::vector <double>> problemSolutions;
-  for (int j = 0; j < model->numberSavedSolutions(); j++) {
-    std::vector<double> solution(model->savedSolution(j),
-                                 model->savedSolution(j) + model->getNumCols());
-    problemSolutions.push_back(solution);
-  }
-  solutions.push_back(problemSolutions);
+  // update the event handler from cut creation
+  eventHandler.timer.end_timer("vpcGenerationTime");
+  eventHandler.data.vpcGenerationTime = eventHandler.timer.get_time("vpcGenerationTime");
+  eventHandler.cuts = disjCuts.get();
 
-  // return the model for any further analysis by user
-  return *model;
-} /* solve */
-
-/** Uses a default Branch and Cut scheme to solve a MIP without additional preprocessing.
- *  Note: we give a new name to the solver here since it could already be preprocessed
- *  and we don't want to clash names with the unprocessed instanceSolver from the
- *  original formulation. Adds the provided eventHandler to the solve. */
-std::shared_ptr<CbcModel> VwsSolverInterface::unprocessedBranchAndCut(
-    OsiClpSolverInterface solver, VwsEventHandler* eventHandler, double vpcGenTime){
-
-  std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(solver);
-  model->passInEventHandler(eventHandler);
+  // instantiate the MIP model
+  CbcModel model(*si);
+  model.passInEventHandler(&eventHandler);
 
   // turn on heuristics
   CbcSolverUsefulData cbcData;
-  CbcMain0(*model, cbcData);
+  CbcMain0(model, cbcData);
   cbcData[CbcParam::DIVEOPT]->setVal(2);
   cbcData[CbcParam::FPUMPITS]->setVal(30);
   cbcData[CbcParam::FPUMPTUNE]->setVal(1005043);
   cbcData[CbcParam::DIVINGC]->setVal("on");
   cbcData[CbcParam::RINS]->setVal("on");
-  doHeuristics(model.get(), 1, cbcData, cbcData.noPrinting(), 1005043);
+  doHeuristics(&model, 1, cbcData, cbcData.noPrinting(), 1005043);
 
   // turn on strong branching and cut generation
   CbcStrategyDefault strategy(false, 5, 0);
-  model->setStrategy(strategy);
-  // model->setLogLevel(2);
+  model.setStrategy(strategy);
+  // model.setLogLevel(2);
 
   // set number of solutions to save and time limit
-  model->setMaximumSavedSolutions(maxExtraSavedSolutions);
-  model->setDblParam(CbcModel::CbcMaximumSeconds, maxRunTime - vpcGenTime);
+  model.setMaximumSavedSolutions(maxExtraSavedSolutions);
+  model.setDblParam(CbcModel::CbcMaximumSeconds,
+                     maxRunTime - eventHandler.timer.get_time("time"));
 
   // run the solver
-  model->branchAndBound();
+  model.branchAndBound();
 
-  // update the solver interface with the solution info
-  solver = *dynamic_cast<OsiClpSolverInterface*>(model->solver());
+  // save the solutions in memory
+  std::vector< std::vector <double>> problemSolutions;
+  for (int j = 0; j < model.numberSavedSolutions(); j++) {
+    std::vector<double> solution(model.savedSolution(j),
+                                 model.savedSolution(j) + model.getNumCols());
+    problemSolutions.push_back(solution);
+  }
+  solutions.push_back(problemSolutions);
 
+  // finish filling out the eventHandler
+  eventHandler = *dynamic_cast<VwsEventHandler*>(model.getEventHandler());
+  eventHandler.data.vpcGenerator = vpcGenerator;
+  eventHandler.data.dualBound = model.getBestPossibleObjValue();
+  eventHandler.data.maxTime = maxRunTime;
+  eventHandler.data.vpcGenerator = vpcGenerator;
+  eventHandler.data.terms = disjunctiveTerms;
+
+  // return the model for any further analysis by user
   return model;
-} /* unprocessedBranchAndCut */
-
-/** Preprocesses a MIP, uses a default Branch and Cut scheme to solve it,
- * and returns the preprocessed solution information back to the original problem
- * space. Adds the provided eventHandler to the solve. */
-std::shared_ptr<CbcModel> VwsSolverInterface::preprocessedBranchAndCut(
-    OsiClpSolverInterface instanceSolver, VwsEventHandler* eventHandler, double vpcGenTime){
-
-  std::shared_ptr<CbcModel> model = std::make_shared<CbcModel>(instanceSolver);
-
-  // preprocess the problem
-  CglPreProcess process;
-  OsiClpSolverInterface * preprocessedSolver =
-      dynamic_cast<OsiClpSolverInterface*>(process.preProcess(instanceSolver, false, 5));
-  verify(preprocessedSolver, "Pre-processing says infeasible");
-
-  // run the default branch and cut scheme on the preprocessed problem
-  std::shared_ptr<CbcModel> preprocessedModel =
-      unprocessedBranchAndCut(*preprocessedSolver, eventHandler, vpcGenTime);
-
-  // move the solutions, bound info, and event handler to the original model/solver interface
-  model->setMaximumSavedSolutions(maxExtraSavedSolutions);
-  putBackSolutions(preprocessedModel.get(), model.get(), &process);
-  process.postProcess(*preprocessedModel->solver());
-  model->moveInfo(*preprocessedModel);
-  model->passInEventHandler(preprocessedModel->getEventHandler());
-
-  return model;
-} /* preprocessedBranchAndCut */
+} /* solve */
 
 /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
  *  partially solving the given problem encoded in the solver interface.
  *  Simplified from Strengthening's CglAdvCut::generateCuts */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
-    OsiClpSolverInterface si) {
+    OsiClpSolverInterface * si, VwsEventHandler& eventHandler){
 
-  si.initialSolve();
-  verify(si.isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
+  si->initialSolve();
+  verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
 
   //==================================================//
@@ -201,15 +163,21 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   vpc_params.set(VPCParametersNamespace::PARTIAL_BB_KEEP_PRUNED_NODES, 1);
   vpc_params.set(VPCParametersNamespace::MODE, 0);
 
+  // create cuts
   CglVPC gen = CglVPC(vpc_params);
-  gen.generateCuts(si, *disjCuts);
-  std::shared_ptr<Disjunction> disj =
+  gen.generateCuts(*si, *disjCuts);
+
+  // get the disjunction for later
+  std::shared_ptr<PartialBBDisjunction> disj =
       std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
 
+  // record the disjunctive lower bound
+  eventHandler.data.disjunctiveDualBound = disj->best_obj;
+
   // if we have cuts and a full tree, save the cut generator and the Farkas multipliers
-  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
+  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0){
     disjunctions.push_back(disj);
-    cutCertificates.push_back(getFarkasMultipliers(si, *disj.get(), *disjCuts));
+    cutCertificates.push_back(getFarkasMultipliers(*si, *disj.get(), *disjCuts));
     return disjCuts;
   }
   else {
@@ -222,7 +190,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
  *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
  *  main.cpp */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
-    OsiClpSolverInterface si) {
+    OsiClpSolverInterface * si, VwsEventHandler& eventHandler) {
 
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
@@ -240,18 +208,18 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
     a[probIdx].resize(cutCertificates[probIdx].size());
     b[probIdx].resize(cutCertificates[probIdx].size());
-    Disjunction* disj = disjunctions[probIdx].get();
+    PartialBBDisjunction param_disj = disjunctions[probIdx].get()->parameterize(si);
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
-      a[probIdx][cutIdx].resize(disj->num_terms);
-      b[probIdx][cutIdx].resize(disj->num_terms);
+      a[probIdx][cutIdx].resize(param_disj.num_terms);
+      b[probIdx][cutIdx].resize(param_disj.num_terms);
     }
 
     // calculate a cut for each disjunctive term
     ambiguousTermSolver = false;
     feasibleTermSolver = false;
-    for (int termIdx=0; termIdx < disj->num_terms; termIdx++) {
+    for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
       OsiSolverInterface* termSolver;
-      disj->getSolverForTerm(termSolver, termIdx, &si, false, .001, NULL, false, false);
+      param_disj.getSolverForTerm(termSolver, termIdx, si, false, .001, NULL, true);
       // if we don't know if we're optimal or primal infeasible,
       // we can't safely use these cuts, so skip to next problem
       if (!termSolver->isProvenOptimal() && !termSolver->isProvenPrimalInfeasible()){
@@ -259,7 +227,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
         break;
       }
       for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
-        a[probIdx][cutIdx][termIdx].resize(si.getNumCols());
+        a[probIdx][cutIdx][termIdx].resize(si->getNumCols());
         if (termSolver->isProvenOptimal()) {
           feasibleTermSolver = true;
           getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
@@ -290,6 +258,10 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
       cut.setLb(beta);
       disjCuts->insert(cut);
     }
+
+    // update the event handler with the disjunctive lower bound
+    eventHandler.data.disjunctiveDualBound = probIdx == 0 ? param_disj.best_obj :
+        max(param_disj.best_obj, eventHandler.data.disjunctiveDualBound);
   }
 
   return disjCuts;
@@ -305,14 +277,14 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
  * interface and resolving the PRLP
  */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
-    OsiClpSolverInterface si){
+    OsiClpSolverInterface * si, VwsEventHandler& eventHandler){
 
   // make sure we have at least one disjunction already existing
   verify(disjunctions.size() > 0, "We need previous disjunctions for this method");
 
   // CglVPC expects si to be optimal
-  si.initialSolve();
-  verify(si.isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
+  si->initialSolve();
+  verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
 
   // create a container for the cuts
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
@@ -325,9 +297,19 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
 
   // create vpcs for each disjunction
   for (const auto& disj : disjunctions){
+
+    // parameterize the disjunction
+    PartialBBDisjunction param_disj = disj.get()->parameterize(si);
+
+    // create the cut generator and generate cuts
     CglVPC gen = CglVPC(vpc_params);
-    gen.setDisjunction(disj.get(), 1);
-    gen.generateCuts(si, *disjCuts);
+    gen.setDisjunction(&param_disj);
+    gen.generateCuts(*si, *disjCuts);
+
+    // update the event handler with the disjunctive lower bound
+    // each disjunction forms a dual so strongest dual should be max since we minimize
+    eventHandler.data.disjunctiveDualBound = &disj == &disjunctions[0] ? param_disj.best_obj :
+        max(param_disj.best_obj, eventHandler.data.disjunctiveDualBound);
   }
 
   return disjCuts;

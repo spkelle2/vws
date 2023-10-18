@@ -36,3 +36,5 @@ baseline_*
 vpcs_*
 CMakeLists.txt
 cmake-build-debug/
+experiments/old
+experiments/test_sets

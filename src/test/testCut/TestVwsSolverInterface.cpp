@@ -22,66 +22,9 @@
 #include "VPCParameters.hpp" // VPCParameters
 
 // project unit test modules
-#include "MipCompEventHandler.hpp"
 #include "VwsEventHandler.hpp"
 #include "VwsSolverInterface.hpp"
 #include "VwsUtility.hpp"
-
-
-class TestHandler : public VwsEventHandler {
-public:
-  virtual CbcAction event(CbcEvent whichEvent);
-  TestHandler();
-  TestHandler(CbcModel *model);
-  virtual ~TestHandler();
-  TestHandler(const TestHandler &rhs);
-  TestHandler &operator=(const TestHandler &rhs);
-  virtual CbcEventHandler *clone() const;
-};
-
-TestHandler::TestHandler()
-  : VwsEventHandler()
-{
-}
-
-TestHandler::TestHandler(const TestHandler &rhs)
-  : VwsEventHandler(rhs)
-{
-}
-
-TestHandler::TestHandler(CbcModel *model)
-  : VwsEventHandler(model)
-{
-}
-
-TestHandler::~TestHandler()
-{
-  VwsEventHandler::~VwsEventHandler();
-}
-
-TestHandler &TestHandler::operator=(const TestHandler &rhs)
-{
-  if (this != &rhs) {
-    VwsEventHandler::operator=(rhs);
-  }
-  return *this;
-}
-
-CbcEventHandler *TestHandler::clone() const
-{
-  return new TestHandler(*this);
-}
-
-CbcEventHandler::CbcAction TestHandler::event(CbcEvent whichEvent)
-{
-  VwsEventHandler::event(whichEvent);
-
-  // Once we've done root cuts, kill the solve
-  if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::treeStatus) {
-    return stop;
-  }
-  return noAction;
-}
 
 
 // --------------------------- constructor tests -------------------------------
@@ -147,27 +90,28 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   OsiClpSolverInterface oldDisjSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
 
   // get the optimal solution to the new problem
-  CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None", false);
+  CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None");
   std::vector<double> solution(tmpModel.bestSolution(),
                                tmpModel.bestSolution() + tmpModel.getNumCols());
 
   // get the cuts from solving the PRLP with a new disjunction - conduct on new
   // series solver to not add additional disjunctions to what subsequent tests use
   VwsSolverInterface tmpSeriesSolver(10, 600, seriesSolver.disjunctiveTerms, .8);
+  VwsEventHandler eventHandler;
   std::shared_ptr<OsiCuts> newDisjCuts =
-      tmpSeriesSolver.createVpcsFromNewDisjunctionPRLP(newDisjSolver);
+      tmpSeriesSolver.createVpcsFromNewDisjunctionPRLP(&newDisjSolver, eventHandler);
   REQUIRE(newDisjCuts->sizeRowCuts() > 0);
   checkCuts(newDisjCuts.get(), solution);
 
   // get the cuts from parameterizing previous ones via farkas multipliers
   std::shared_ptr<OsiCuts> farkasCuts =
-      seriesSolver.createVpcsFromFarkasMultipliers(farkasSolver);
+      seriesSolver.createVpcsFromFarkasMultipliers(&farkasSolver, eventHandler);
   REQUIRE(farkasCuts->sizeRowCuts() == 6);
   checkCuts(farkasCuts.get(), solution);
 
   // get the cuts from solving the PRLP with an old disjunction
   std::shared_ptr<OsiCuts> oldDisjCuts =
-      seriesSolver.createVpcsFromOldDisjunctionPRLP(oldDisjSolver);
+      seriesSolver.createVpcsFromOldDisjunctionPRLP(&oldDisjSolver, eventHandler);
   REQUIRE(oldDisjCuts->sizeRowCuts() > 0);
   checkCuts(oldDisjCuts.get(), solution);
 
@@ -199,7 +143,7 @@ TEST_CASE("Test a single solve", "[VwsSolverInterface::solve]") {
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
-  CbcModel model = seriesSolver.solve(instanceSolver);
+  CbcModel model = seriesSolver.solve(instanceSolver, "None");
 
   // check that row and column names are correct
   checkNames(seriesSolver, 0);
@@ -220,11 +164,11 @@ TEST_CASE( "Solve a second time", "[VwsSolverInterface::solve]" ){
   // solve a model with the VwsSolverInterface
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
-  seriesSolver.solve(instanceSolver);
+  seriesSolver.solve(instanceSolver, "None");
 
   // check on rerun that we get acceptable duplication
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
-  CbcModel model = seriesSolver.solve(instanceSolver);
+  CbcModel model = seriesSolver.solve(instanceSolver, "None");
 
   // check that row and column names are correct
   checkNames(seriesSolver, 1);
@@ -244,7 +188,7 @@ TEST_CASE( "Solve without preprocessing", "[VwsSolverInterface::solve]" ) {
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
-  CbcModel model = seriesSolver.solve(instanceSolver, "None", false);
+  CbcModel model = seriesSolver.solve(instanceSolver, "None");
 
   // check that row and column names are correct
   checkNames(seriesSolver, 0);
@@ -267,9 +211,8 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   // solve a model with the VwsSolverInterface
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver(10, 60, 64);
-  MipCompEventHandler * eventHandler = new MipCompEventHandler();
-  CbcModel model = seriesSolver.solve(instanceSolver, "New Disjunction", false, eventHandler);
-  eventHandler = dynamic_cast<MipCompEventHandler*>(model.getEventHandler());
+  VwsEventHandler eventHandler;
+  CbcModel model = seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
 
   // we should have one vpc generator and set of farkas multipliers
   REQUIRE(seriesSolver.disjunctions.size() == 1);
@@ -293,18 +236,17 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 
   // check the bounds - root LP relaxation should be much improved from VPCs
   REQUIRE(model.getObjValue() == 34);
-  REQUIRE((25 < eventHandler->data.rootDualBoundPreVpc &&
-           eventHandler->data.rootDualBoundPreVpc < 26));
-  REQUIRE(isVal(eventHandler->data.rootDualBound, 30, 1));
+  REQUIRE((25 < eventHandler.data.rootDualBoundPreVpc &&
+           eventHandler.data.rootDualBoundPreVpc < 26));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 30, 1));
 
   // but the underlying model unchanged
   REQUIRE((20 < model.getContinuousObjective() && model.getContinuousObjective() < 21));
   REQUIRE(model.solver()->getNumRows() == 20);
 
   // check vpcs when parameterized
-  eventHandler = new MipCompEventHandler();
-  CbcModel model2 = seriesSolver.solve(instanceSolver, "Farkas", false, eventHandler);
-  eventHandler = dynamic_cast<MipCompEventHandler*>(model2.getEventHandler());
+  eventHandler = VwsEventHandler();
+  CbcModel model2 = seriesSolver.solve(instanceSolver, "Farkas", eventHandler);
 
   // Farkas does not create an additional VPC generator or set of multipliers
   REQUIRE(seriesSolver.disjunctions.size() == 1);
@@ -320,9 +262,9 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 
   // check the bounds - root LP relaxation should be much improved from VPCs
   REQUIRE(model2.getObjValue() == 34);
-  REQUIRE((25 < eventHandler->data.rootDualBoundPreVpc &&
-           eventHandler->data.rootDualBoundPreVpc < 26));
-  REQUIRE(isVal(eventHandler->data.rootDualBound, 30, 1));
+  REQUIRE((25 < eventHandler.data.rootDualBoundPreVpc &&
+           eventHandler.data.rootDualBoundPreVpc < 26));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 30, 1));
 
 }
 
@@ -336,11 +278,13 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
   // solve a model with the VwsSolverInterface to get the solution
   OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsSolverInterface seriesSolver;
-  seriesSolver.solve(instanceSolver);
+  seriesSolver.solve(instanceSolver, "None");
 
   // check that the vpcs we get are valid when solving the PRLP with a new disjunction
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
-  std::shared_ptr<OsiCuts> disjCuts = seriesSolver.createVpcsFromNewDisjunctionPRLP(instanceSolver);
+  VwsEventHandler eventHandler;
+  std::shared_ptr<OsiCuts> disjCuts =
+      seriesSolver.createVpcsFromNewDisjunctionPRLP(&instanceSolver, eventHandler);
 
   // we should have added some cuts
   REQUIRE(disjCuts->sizeRowCuts() == 6);
@@ -355,16 +299,16 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
   }
 
   // solve the PRLP with a new disjunction again so we have two disjunctions to use in our following tests
-  disjCuts = seriesSolver.createVpcsFromNewDisjunctionPRLP(instanceSolver);
+  disjCuts = seriesSolver.createVpcsFromNewDisjunctionPRLP(&instanceSolver, eventHandler);
 
   // check that the vpcs we get are valid when we use Farkas Multipliers
-  disjCuts = seriesSolver.createVpcsFromFarkasMultipliers(instanceSolver);
+  disjCuts = seriesSolver.createVpcsFromFarkasMultipliers(&instanceSolver, eventHandler);
 
   REQUIRE(disjCuts->sizeRowCuts() == 12);
   checkCuts(disjCuts.get(), seriesSolver.solutions[0][0]);
 
   // check that the vpcs we get are valid when we use the old disjunctions in the PRLP
-  disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(instanceSolver);
+  disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(&instanceSolver, eventHandler);
 
   REQUIRE(disjCuts->sizeRowCuts() == 12);
   checkCuts(disjCuts.get(), seriesSolver.solutions[0][0]);
@@ -377,11 +321,11 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
   // set up reusable stuff
   VwsSolverInterface seriesSolver(10, 600, 64, .8);
   OsiClpSolverInterface instanceSolver;
-  MipCompEventHandler eventHandler;
+  VwsEventHandler eventHandler;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
-  seriesSolver.solve(instanceSolver, "New Disjunction", false, &eventHandler);
+  seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
 
   // test changing the objective
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
@@ -396,18 +340,18 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
     }
 
     // get the optimal solution to the new problem and check the parameterized cuts for it
-    CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None", false);
+    CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None");
     std::vector<double> solution(tmpModel.bestSolution(),
                                  tmpModel.bestSolution() + tmpModel.getNumCols());
     std::shared_ptr<OsiCuts> disjCuts =
-        seriesSolver.createVpcsFromFarkasMultipliers(tmpSolver);
+        seriesSolver.createVpcsFromFarkasMultipliers(&tmpSolver, eventHandler);
     REQUIRE(disjCuts->sizeRowCuts() == 6);
     checkCuts(disjCuts.get(), solution);
 
     // repeat for generating cuts from the previous disjunction
     // under large changes the PRLP may become infeasible and yield no cuts because the LP
     // relaxation solution belongs to a disjunctive term
-    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
+    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(&tmpSolver, eventHandler);
     checkCuts(disjCuts.get(), solution);
   }
 
@@ -427,11 +371,11 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
     }
 
     // get the optimal solution to the new problem and get the parameterized cuts for it
-    CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None", false);
+    CbcModel tmpModel = seriesSolver.solve(tmpSolver, "None");
     std::vector<double> solution(tmpModel.bestSolution(),
                                  tmpModel.bestSolution() + tmpModel.getNumCols());
     std::shared_ptr<OsiCuts> disjCuts =
-        seriesSolver.createVpcsFromFarkasMultipliers(tmpSolver);
+        seriesSolver.createVpcsFromFarkasMultipliers(&tmpSolver, eventHandler);
 
     // sanity check to make sure we didn't make up some extra cuts somewhere
     REQUIRE(disjCuts->sizeRowCuts() == 6);
@@ -440,7 +384,7 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
     // repeat for generating cuts from the previous disjunction
     // under large changes the PRLP may become infeasible and yield no cuts because the LP
     // relaxation solution belongs to a disjunctive term
-    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(tmpSolver);
+    disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(&tmpSolver, eventHandler);
     checkCuts(disjCuts.get(), solution);
   }
 }
@@ -453,12 +397,12 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parame
   // set up reusable stuff
   VwsSolverInterface seriesSolver(10, 600, 4, .8);
   OsiClpSolverInterface instanceSolver;
-  MipCompEventHandler eventHandler;
+  VwsEventHandler eventHandler;
   int misordered = 0;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
   instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
-  seriesSolver.solve(instanceSolver, "New Disjunction", false, &eventHandler);
+  seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
 
   // test changing the objective
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
@@ -500,4 +444,135 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parame
   // this number is kinda arbitrary but more the point here is that most of our
   // bounds should go in order of (new disjunction) > (old disjunction) > (farkas)
   REQUIRE(misordered < 10);
+}
+
+void check_orig(VwsEventHandler& eventHandler){
+  // the further we solve, the better the dual bound should be
+  REQUIRE(isVal(eventHandler.data.lpBound, 20.57, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBoundPreVpc, 25.25, .01));
+  REQUIRE(eventHandler.data.dualBound == 34);
+
+  // we minimize so primal bound should be greater than or equal to dual bound
+  REQUIRE(eventHandler.data.heuristicPrimalBound == 34);
+  REQUIRE(eventHandler.data.primalBound == 34);
+}
+
+void check_param(VwsEventHandler& eventHandler){
+  // the further we solve, the better the dual bound should be
+  REQUIRE(isVal(eventHandler.data.lpBound, 19.09, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBoundPreVpc, 25.30, .01));
+  REQUIRE(eventHandler.data.dualBound == 31);
+
+  // we minimize so primal bound should be greater than or equal to dual bound
+  REQUIRE(eventHandler.data.heuristicPrimalBound == 31);
+  REQUIRE(eventHandler.data.primalBound == 31);
+}
+
+void check_bm23_data(VwsEventHandler& eventHandler){
+  // algorithm step time comparisons
+  REQUIRE(0 < eventHandler.data.vpcGenerationTime);
+  REQUIRE(eventHandler.data.vpcGenerationTime < eventHandler.data.heuristicTime);
+  REQUIRE(eventHandler.data.heuristicTime < eventHandler.data.rootDualBoundTime);
+  REQUIRE(eventHandler.data.rootDualBoundTime < eventHandler.data.terminationTime);
+  REQUIRE(eventHandler.data.terminationTime < 2);
+
+  // solution time comparisons
+  REQUIRE(eventHandler.data.vpcGenerationTime < eventHandler.data.firstSolutionTime);
+  REQUIRE(eventHandler.data.firstSolutionTime < eventHandler.data.bestSolutionTime);
+  REQUIRE(eventHandler.data.bestSolutionTime < eventHandler.data.terminationTime);
+
+  // check the run parameters
+  // make this was not a benchmark run
+  REQUIRE(eventHandler.data.maxTime == 600);
+  REQUIRE(eventHandler.data.terms == 64);
+  REQUIRE(eventHandler.data.iterations > 1000);
+  REQUIRE(eventHandler.data.nodes > 10);
+}
+
+TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
+  
+  // instance solver
+  OsiClpSolverInterface si = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  si.initialSolve();
+  
+  // series solver
+  VwsSolverInterface seriesSolver(10, 600, 64, .8);
+
+  // ------------------------ no vpcs ------------------------------------------
+
+  // solve
+  VwsEventHandler eventHandler;
+  seriesSolver.solve(si, "None", eventHandler);
+  
+  // check the event handler
+  REQUIRE(!eventHandler.cuts);
+  REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 20.57, .01));
+  REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 20.57, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 25.25, .01));
+  REQUIRE(eventHandler.data.vpcGenerator == "None");
+  check_orig(eventHandler);
+  check_bm23_data(eventHandler);
+
+  // ------------------------ New Disjunction ----------------------------------
+
+  // solve
+  eventHandler = VwsEventHandler();
+  seriesSolver.solve(si, "New Disjunction", eventHandler);
+
+  // check the event handler
+  REQUIRE(eventHandler.cuts);
+  REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 30.17, .01));
+  REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 29.98, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 30.03, .01));
+  REQUIRE(eventHandler.data.vpcGenerator == "New Disjunction");
+  check_orig(eventHandler);
+  check_bm23_data(eventHandler);
+
+  // ------------------------ Old Disjunction ----------------------------------
+
+  // perturb the problem
+  for (int col_idx=0; col_idx < si.getNumCols(); col_idx++){
+    bool perturb = col_idx == 25 || col_idx == 0 || col_idx == 13 || col_idx == 22;
+    si.setObjCoeff(
+        col_idx, perturb ? si.getObjCoefficients()[col_idx] * 5 :
+        si.getObjCoefficients()[col_idx]);
+  }
+
+  // update the constraint bounds
+  for (int row_idx=0; row_idx < si.getNumRows(); row_idx++){
+    double b = si.getRowUpper()[row_idx];
+    double looser_b = b > 0 ? b * 1.5 : b / 1.5;
+    bool perturb = row_idx == 2 || row_idx == 7 || row_idx == 12 || row_idx == 17;
+    si.setRowUpper(row_idx, perturb ? looser_b: b);
+  }
+  si.resolve();
+
+  // solve with old disjunction
+  eventHandler = VwsEventHandler();
+  seriesSolver.solve(si, "Old Disjunction", eventHandler);
+
+  // check the event handler
+  REQUIRE(eventHandler.cuts);
+  REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 22.91, .01));
+  REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 22.77, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 25.3, .01));
+  REQUIRE(eventHandler.data.vpcGenerator == "Old Disjunction");
+  check_param(eventHandler);
+  check_bm23_data(eventHandler);
+
+  // ------------------------ Farkas ------------------------------------------
+
+  // solve with no old disjunction
+  eventHandler = VwsEventHandler();
+  seriesSolver.solve(si, "Farkas", eventHandler);
+
+  // check the event handler
+  REQUIRE(eventHandler.cuts);
+  REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 22.91, .01));
+  REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 19.1, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 25.3, .01));
+  REQUIRE(eventHandler.data.vpcGenerator == "Farkas");
+  check_param(eventHandler);
+  check_bm23_data(eventHandler);
+  
 }

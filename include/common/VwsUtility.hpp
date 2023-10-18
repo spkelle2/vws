@@ -120,25 +120,12 @@ std::vector<double> elementWiseMax(std::vector< std::vector<double> > a);
 /** find the smallest value in a vector */
 double min(std::vector<double> a);
 
-/** check if sol is feasible for solver */
-bool isFeasible(
-    /// [in] problem
-    const OsiSolverInterface& solver,
-    /// [in] solution
-    const std::vector<double>& sol);
-
 /** check if cut is valid for given solution */
 bool isFeasible(
     /// [in] problem
     const OsiRowCut& cut,
     /// [in] solution
     const std::vector<double>& sol);
-
-/** check if a value is an integer */
-bool isInteger(double val);
-
-/** take a min of two values */
-double min(double a, double b);
 
 /** find the nonzero indices and elemnets of a vector */
 void findNonZero(

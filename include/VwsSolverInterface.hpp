@@ -11,7 +11,7 @@
 #include "CbcModel.hpp" // CbcModel
 
 // vpc modules
-#include "Disjunction.hpp" // CompleteDisjunction
+#include "PartialBBDisjunction.hpp" // PartialBBDisjunction
 #include "TimeStats.hpp" // Timer
 
 // project modules
@@ -33,7 +33,7 @@ public:
   std::vector< std::vector< std::vector< std::vector<double> > > > cutCertificates;
 
   /** vector of cut generators used to create VPCs from PRLPs */
-  std::vector< std::shared_ptr<Disjunction> > disjunctions;
+  std::vector< std::shared_ptr<PartialBBDisjunction> > disjunctions;
 
   /** vector of timers associated with each solve */
   std::vector<TimeStats> timers;
@@ -67,30 +67,27 @@ public:
                      int disjunctiveTerms=16, double vpcGenTimeRatio=0.1);
 
   /** Solve a MIP with VPCs added. */
-  CbcModel solve(const OsiClpSolverInterface& instanceSolver, std::string vpcGenerator="None",
-                 bool usePreprocessing=true, VwsEventHandler* eventHandler=nullptr);
-  // note: should be able to create VPCs with GMICs in the case the RHS does not change
+  CbcModel solve(const OsiClpSolverInterface& instanceSolver, const std::string vpcGenerator,
+                 VwsEventHandler& eventHandler);
 
-  /** Solve the MIP encoded in instanceSolver without presolving */
-  std::shared_ptr<CbcModel> unprocessedBranchAndCut(
-      OsiClpSolverInterface solver, VwsEventHandler* eventHandler, double vpcGenTime);
-
-  /** Solve the MIP encoded in instanceSolver with presolving */
-  std::shared_ptr<CbcModel> preprocessedBranchAndCut(
-      OsiClpSolverInterface instanceSolver, VwsEventHandler* eventHandler, double vpcGenTime);
+  /** Solve a MIP with VPCs added and not care about the eventHandler */
+  CbcModel solve(const OsiClpSolverInterface& instanceSolver, const std::string vpcGenerator);
 
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
    *  partially solving the given problem. Simplified from Strengthening's
    *  CglAdvCut::generateCuts */
-  std::shared_ptr<OsiCuts> createVpcsFromNewDisjunctionPRLP(OsiClpSolverInterface si);
+  std::shared_ptr<OsiCuts> createVpcsFromNewDisjunctionPRLP(OsiClpSolverInterface* si,
+                                                            VwsEventHandler& eventHandler);
 
   /** Parameterize each previously created disjunctive cut with its disjunction
    *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
    *  main.cpp */
-  std::shared_ptr<OsiCuts> createVpcsFromFarkasMultipliers(OsiClpSolverInterface si);
+  std::shared_ptr<OsiCuts> createVpcsFromFarkasMultipliers(OsiClpSolverInterface* si,
+                                                           VwsEventHandler& eventHandler);
 
   /// @brief create VPCs by solving each PRLP resulting from applying each disjunction in <disjunctions> to <si>
-  std::shared_ptr<OsiCuts> createVpcsFromOldDisjunctionPRLP(OsiClpSolverInterface si);
+  std::shared_ptr<OsiCuts> createVpcsFromOldDisjunctionPRLP(OsiClpSolverInterface* si,
+                                                            VwsEventHandler& eventHandler);
 
-}; /* VpcWarmStart */
+}; /* VwsSolverInterface */
 

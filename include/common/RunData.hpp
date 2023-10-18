@@ -21,6 +21,9 @@ public:
   /** the dual bound after solving the root LP relaxation for each instance */
   double lpBound;
 
+  /** the dual bound of the disjunctions that generated this instances vpcs */
+  double disjunctiveDualBound;
+
   /** the dual bound after solving the root LP relaxation and applying VPCs for each instance */
   double lpBoundPostVpc;
 
@@ -39,26 +42,26 @@ public:
   /** the best found primal bound for each instance */
   double primalBound;
 
-  /** time to finish primal heuristics */
+  /** cumulative time through generating VPCs */
+  double vpcGenerationTime;
+
+  /** cumulative time to finish primal heuristics */
   double heuristicTime;
 
-  /** time from calling model.branchAndBound() to completion of cut generation on root node */
+  /** cumulative time to complete cut generation on root node */
   double rootDualBoundTime;
 
-  /** duration of model.branchAndBound() call */
+  /** cumulative time to find first integer feasible solution */
+  double firstSolutionTime;
+
+  /** cumulative time to find best integer feasible solution */
+  double bestSolutionTime;
+
+  /** cumulative time to end of branch and cut call */
   double terminationTime;
 
-  /** max run time given to model.branchAndBound() call */
-  double maxTerminationTime;
-
-  /** duration of set up, model.branchAndBound(), and tear down */
-  double completionTime;
-
-  /** max duration of set up, model.branchAndBound(), and tear down */
-  double maxCompletionTime;
-
-  /** whether or not this was a benchmark run */
-  bool benchmark;
+  /** max run time given to solve */
+  double maxTime;
 
   /** Which generator was used for VPCs */
   std::string vpcGenerator;
@@ -66,8 +69,11 @@ public:
   /** number of terms for generating VPCs */
   int terms;
 
-  /** time generating VPCs */
-  double vpcGenerationTime;
+  /** number of LP simplex iterations */
+  int iterations;
+
+  /** number of branch and bound nodes */
+  int nodes;
 
   /** Get a comma-separated string of the names of RunData's attributes */
   std::string getHeader();
