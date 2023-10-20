@@ -34,15 +34,11 @@ public:
   /** max run time on each MIP instance */
   double timeout;
 
-  /** how much time short of timeout we limit each instance's solve to ensure we
-   * don't exceed timeout */
-  double timeoutBuffer;
-
-  /** 1 if this is a benchmark run, and 0 if this is an experimental run */
-  bool benchmark;
-
   /** number of disjunctive terms to use in experiments */
   int terms;
+
+  /** name of the way to generate vpcs */
+  std::string vpcGenerator;
 
   /** the solver used for the series of mipModels */
   VwsSolverInterface seriesSolver;
@@ -63,8 +59,9 @@ public:
   std::vector<RunData> runData;
 
   /** Constructor. Initializes attributes based on provided file. */
-  MipComp(std::string filePathStr, std::string solutionDirectoryStr, std::string csvPathStr,
-          bool benchmark=true, double timeMultiplier=1.0, int terms=4);
+  MipComp(std::string filePathStr, std::string solutionDirectoryStr,
+          std::string csvPathStr, double maxRunTime, std::string vpcGenerator,
+          int terms);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

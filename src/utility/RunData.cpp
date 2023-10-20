@@ -38,7 +38,6 @@ std::string RunData::getValues(){
     std::to_string(iterations) + "," + std::to_string(nodes);
 }
 
-
 /** writes this struct's attributes to the given csv file */
 void RunData::writeData(fs::path filePath){
 
