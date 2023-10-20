@@ -18,17 +18,14 @@ namespace fs = ghc::filesystem;
 /****************** MAIN FUNCTION **********************/
 int main(int argc, char** argv) {
 
-  // executable, input folder, output folder, max run time, cut generator, and disjunctive terms
+  // executable, input folder, output file, max run time, cut generator, and disjunctive terms
   assert(argc == 6);
 
   // create the test runner and solve the provided series
   std::string inputFolderStr(argv[1]);
-  fs::path inputFolder(inputFolderStr);
-  std::string outputFolderStr(argv[2]);  // todo: update this to just the output csv location
-  fs::path outputFolder(outputFolderStr);
-  MipComp testRunner(inputFolder.string(), outputFolder.string() + "/solutions",
-                     outputFolder.string() + "/" + inputFolder.stem().string() + ".csv",
-                     std::stod(argv[3]), std::string(argv[4]), std::stoi(argv[5]));
+  std::string outputFileStr(argv[2]);
+  MipComp testRunner(inputFolderStr, outputFileStr, std::stod(argv[3]),
+                     std::string(argv[4]), std::stoi(argv[5]));
   testRunner.solveSeries();
 
 } /* main */

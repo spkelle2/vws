@@ -28,11 +28,9 @@ namespace fs = ghc::filesystem;
 /** Reads the data in file path into MipComp instance. Captures run time limit of
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
-MipComp::MipComp(std::string inputFolderStr, std::string solutionDirectoryStr,
-                 std::string csvPathStr, double maxRunTime, std::string vpcGenerator,
-                 int terms):
-  solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr), terms(terms),
-  timeout(maxRunTime), vpcGenerator(vpcGenerator) {
+MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
+                 std::string vpcGenerator, int terms):
+  csvPath(csvPathStr), terms(terms), timeout(maxRunTime), vpcGenerator(vpcGenerator) {
 
   // container for sorting input files
   std::vector<fs::path> inputFiles;
@@ -41,11 +39,6 @@ MipComp::MipComp(std::string inputFolderStr, std::string solutionDirectoryStr,
   fs::path inputFolder(inputFolderStr);
   verify(fs::is_directory(inputFolder), "The path " + inputFolder.string() + " must exist and be a folder.");
   verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.");
-
-  // create the solution directory if it doesn't exist
-  if (!fs::exists(solutionDirectory)){
-    fs::create_directory(solutionDirectory);
-  }
 
   // get each .mps file in the input folder
   for (const auto& entry : fs::directory_iterator(inputFolder.string())) {
@@ -77,7 +70,6 @@ void MipComp::solveSeries() {
 
     std::time_t startTime = std::time(nullptr);
     OsiClpSolverInterface instanceSolver = instanceSolvers[i];
-    fs::path solutionPath = solutionDirectory / (instanceNames[i] + ".sol");
 
     // print instance name and start time
     std::cout << "[INSTANCE] " << instanceNames[i] << ".mps" << std::endl;
@@ -91,11 +83,6 @@ void MipComp::solveSeries() {
 
     // solve the instance with the given generator
     CbcModel model = seriesSolver.solve(instanceSolver, genType, *handler);
-
-    // write the best solution if it exists
-    if (seriesSolver.solutions[i].size() > 0){
-      writeSolution(seriesSolver.solutions[i][0], seriesSolver.variableNames[i], solutionPath);
-    }
 
     // save the data collected by the event handler
     handler->data.writeData(csvPath);

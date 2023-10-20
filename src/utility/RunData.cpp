@@ -44,6 +44,7 @@ void RunData::writeData(fs::path filePath){
   // check that the inputs meet expectations
   verify(fs::exists(filePath.parent_path()),
          "The directory " + filePath.parent_path().string() + " does not exist.");
+  verify(filePath.extension() == ".csv", "output must be a .csv file");
 
   bool alreadyExists = fs::exists(filePath);
   std::ofstream file;

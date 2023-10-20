@@ -28,15 +28,12 @@ TEST_CASE( "Test Simple") {
 
   // shared setup
   fs::path inputFolder = "../src/test/datasets/bm23";
-  fs::path solutionDirectory = inputFolder.parent_path().parent_path() / "solutions";
   fs::path csvPath = inputFolder.parent_path().parent_path() / "run_data.csv";
 
   // clear out any test files
-  fs::remove_all(solutionDirectory);
   fs::remove_all(csvPath);
 
-  MipComp testRunner(inputFolder.string(), solutionDirectory.string(),
-                     csvPath.string(), 60, "Old Disjunction", 64);
+  MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old Disjunction", 64);
 
   SECTION("MipComp::MipComp"){
     REQUIRE( testRunner.timeout == 60 );
@@ -46,15 +43,13 @@ TEST_CASE( "Test Simple") {
     REQUIRE( testRunner.instanceNames[0] == "bm23_i01" );
     REQUIRE( testRunner.instanceNames[1] == "bm23_i02" );
     REQUIRE( testRunner.instanceNames[2] == "bm23_i03" );
-    REQUIRE( fs::exists(solutionDirectory) );
     REQUIRE( testRunner.seriesSolver.maxExtraSavedSolutions == 0 );
     REQUIRE( testRunner.seriesSolver.maxRunTime == 60 );
   }
 
   SECTION("MipComp::solveSeries quits if no cuts on first instance"){
     // test that series cancels after first instance doesn't generate cuts
-    testRunner = MipComp(inputFolder.string(), solutionDirectory.string(),
-                         csvPath.string(), 1, "Old Disjunction", 128);
+    testRunner = MipComp(inputFolder.string(), csvPath.string(), 1, "Old Disjunction", 128);
     testRunner.solveSeries();
     REQUIRE(testRunner.runData.size() == 1);
   }
@@ -64,35 +59,6 @@ TEST_CASE( "Test Simple") {
 
     // we should have one runData entry for each instance
     REQUIRE( testRunner.runData.size() == 3 );
-
-    for (int i = 0; i < testRunner.instanceSolvers.size(); i++){
-
-      std::string str;
-      int lineIndex = 0;
-      std::regex re("([a-zA-Z0-9_]+)\\s([0-9\\.]+)");
-      std::smatch match;
-
-      // make sure we saved the best solution
-      fs::path solutionFile = solutionDirectory / (testRunner.instanceNames[i] + ".sol");
-      REQUIRE(fs::exists(solutionFile));
-
-      // make sure the solution saved correctly
-      std::ifstream file(solutionFile.string());
-      while (std::getline(file, str)){
-        if (lineIndex < testRunner.instanceSolvers[i].getNumCols()){
-          // all rows except the last should match the pattern
-          REQUIRE(std::regex_search(str, match, re));
-          // each entry's name should match the corresponding column
-          REQUIRE(match[1].str() == testRunner.seriesSolver.variableNames[i][lineIndex]);
-          // all variables are binary
-          REQUIRE((std::stoi(match[2].str()) == 0 || std::stoi(match[2].str()) == 1));
-          // each entry's value should match the corresponding solution
-          REQUIRE(std::stoi(match[2].str()) == testRunner.seriesSolver.solutions[i][0][lineIndex]);
-        }
-        lineIndex++;
-      }
-      file.close();
-    }
 
     // make sure we saved the run data correctly
     std::string str;
@@ -156,6 +122,5 @@ TEST_CASE( "Test Simple") {
   }
 
   // clear out any test files
-  fs::remove_all(solutionDirectory);
   fs::remove_all(csvPath);
 }

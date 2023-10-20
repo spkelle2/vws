@@ -49,9 +49,6 @@ public:
   /** names of each solved MIP instance */
   std::vector< std::string > instanceNames;
 
-  /** Where best solutions will be saved */
-  fs::path solutionDirectory;
-
   /** Where csvData (e.g. vector attributes) will be saved */
   fs::path csvPath;
 
@@ -59,9 +56,8 @@ public:
   std::vector<RunData> runData;
 
   /** Constructor. Initializes attributes based on provided file. */
-  MipComp(std::string filePathStr, std::string solutionDirectoryStr,
-          std::string csvPathStr, double maxRunTime, std::string vpcGenerator,
-          int terms);
+  MipComp(std::string filePathStr, std::string csvPathStr, double maxRunTime,
+          std::string vpcGenerator, int terms);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();
