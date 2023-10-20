@@ -28,55 +28,45 @@ namespace fs = ghc::filesystem;
 /** Reads the data in file path into MipComp instance. Captures run time limit of
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
-MipComp::MipComp(std::string filePathStr, std::string solutionDirectoryStr,
-                 std::string csvPathStr, bool benchmark, double timeMultiplier, int terms):
-  solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr),
-  benchmark(benchmark), timeoutBuffer(5), terms(terms) {
+MipComp::MipComp(std::string inputFolderStr, std::string solutionDirectoryStr,
+                 std::string csvPathStr, double maxRunTime, std::string vpcGenerator,
+                 int terms):
+  solutionDirectory(solutionDirectoryStr), csvPath(csvPathStr), terms(terms),
+  timeout(maxRunTime), vpcGenerator(vpcGenerator) {
+
+  // container for sorting input files
+  std::vector<fs::path> inputFiles;
 
   // validate file paths
-  fs::path filePath(filePathStr);
-  verify(fs::exists(filePath), "The file path " + filePath.string() + " does not exist.");
-  verify(filePath.extension() == ".test", "filePath must be a .test file");
+  fs::path inputFolder(inputFolderStr);
+  verify(fs::is_directory(inputFolder), "The path " + inputFolder.string() + " must exist and be a folder.");
   verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.");
-
-  // instantiate variables we'll need for this function
-  std::ifstream file(filePath.string());
-  fs::path datasetRootDirectory = filePath.parent_path().parent_path().parent_path();
-  std::regex metadataPattern("\\[.*\\]");
-  std::regex timeoutPattern("\\[TIMEOUT\\]\\s*(\\d+)");
-  std::string str;
-  std::smatch timeoutMatch;
 
   // create the solution directory if it doesn't exist
   if (!fs::exists(solutionDirectory)){
     fs::create_directory(solutionDirectory);
   }
 
-  // try to read in the instances and needed metadata in the file
-  while (std::getline(file, str)){
-
-    // get the timeout amount
-    if (std::regex_search(str, timeoutMatch, timeoutPattern)) {
-      timeout = std::stod(timeoutMatch[1].str()) * timeMultiplier;
-    }
-
-    // read each .gz file to a CbcModel
-    else if (!std::regex_search(str, metadataPattern))
-    {
-      // for each model, save its solver interface and its name
-      fs::path instancePath = datasetRootDirectory / str;
-      OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip(instancePath);
-      instanceSolvers.push_back(instanceSolver);
-      instanceNames.push_back(instancePath.stem().replace_extension("").string());
+  // get each .mps file in the input folder
+  for (const auto& entry : fs::directory_iterator(inputFolder.string())) {
+    if (fs::is_regular_file(entry) && entry.path().extension() == ".mps") {
+      inputFiles.push_back(entry.path());
     }
   }
-  file.close();
 
-  // check to make sure the file was structured correctly
-  verify(timeout > 0, "A line beginning with [TIMEOUT] must have value > 0 in .test file.");
+  // Sort the file names alphabetically
+  std::sort(inputFiles.begin(), inputFiles.end());
+
+  // read in each instance in alphabetical order
+  for (const auto& inputPath : inputFiles) {
+    OsiClpSolverInterface instanceSolver;
+    instanceSolver.readMps(inputPath.c_str(), true, false);
+    instanceSolvers.push_back(instanceSolver);
+    instanceNames.push_back(inputPath.stem().replace_extension("").string());
+  }
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(0, timeout-timeoutBuffer, terms, 0.1);
+  seriesSolver = VwsSolverInterface(0, timeout, terms, 1);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
@@ -96,16 +86,11 @@ void MipComp::solveSeries() {
     // set up event handler for data collection
     std::shared_ptr<VwsEventHandler> handler = std::make_shared<VwsEventHandler>();
 
-    // solve the instance
-    std::string vpcGenerator;
-    if (!benchmark) { // i < instanceSolvers.size()/10.0 &&
-      vpcGenerator = "PRLP";
-    } else if (seriesSolver.cutCertificates.size() > 0 && !benchmark) {
-      vpcGenerator = "Farkas";
-    } else {
-      vpcGenerator = "None";
-    }
-    CbcModel model = seriesSolver.solve(instanceSolver, vpcGenerator, *handler);
+    // first iteration should always use New Disjunction if it makes VPCs - otherwise use requested generator
+    std::string genType = i < 1 && vpcGenerator != "None" ? "New Disjunction" : vpcGenerator;
+
+    // solve the instance with the given generator
+    CbcModel model = seriesSolver.solve(instanceSolver, genType, *handler);
 
     // write the best solution if it exists
     if (seriesSolver.solutions[i].size() > 0){
@@ -113,14 +98,12 @@ void MipComp::solveSeries() {
     }
 
     // save the data collected by the event handler
-    *handler = *dynamic_cast<VwsEventHandler*>(model.getEventHandler());
     handler->data.writeData(csvPath);
     runData.push_back(handler->data);
 
-    // print end time and dual bound
+    // print end time
     std::time_t endTime = std::time(nullptr);
     std::cout << "[END] " << std::put_time(std::localtime(&endTime), "%FT%T") << std::endl;
-    std::cout << "[DUAL BOUND] " << handler->data.dualBound << std::endl;
 
   }
 } /* solveSeries */
