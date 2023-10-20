@@ -51,6 +51,14 @@ TEST_CASE( "Test Simple") {
     REQUIRE( testRunner.seriesSolver.maxRunTime == 60 );
   }
 
+  SECTION("MipComp::solveSeries quits if no cuts on first instance"){
+    // test that series cancels after first instance doesn't generate cuts
+    testRunner = MipComp(inputFolder.string(), solutionDirectory.string(),
+                         csvPath.string(), 1, "Old Disjunction", 128);
+    testRunner.solveSeries();
+    REQUIRE(testRunner.runData.size() == 1);
+  }
+
   SECTION("MipComp::solveSeries"){
     testRunner.solveSeries();
 
