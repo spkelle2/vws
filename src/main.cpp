@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
   // create the test runner and solve the provided series
   std::string inputFolderStr(argv[1]);
   fs::path inputFolder(inputFolderStr);
-  std::string outputFolderStr(argv[2]);
+  std::string outputFolderStr(argv[2]);  // todo: update this to just the output csv location
   fs::path outputFolder(outputFolderStr);
   MipComp testRunner(inputFolder.string(), outputFolder.string() + "/solutions",
                      outputFolder.string() + "/" + inputFolder.stem().string() + ".csv",

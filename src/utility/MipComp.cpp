@@ -105,5 +105,10 @@ void MipComp::solveSeries() {
     std::time_t endTime = std::time(nullptr);
     std::cout << "[END] " << std::put_time(std::localtime(&endTime), "%FT%T") << std::endl;
 
+    // stop the series if no cuts are made on the original
+    if (i == 0 and !handler->cuts and vpcGenerator != "None") {
+      std::cout << "[WARNING] No cuts were made on the original instance. Stopping series." << std::endl;
+      break;
+    }
   }
 } /* solveSeries */
