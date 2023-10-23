@@ -4,12 +4,14 @@ channels:
   - conda-forge
   - bioconda
   - defaults
+  - https://conda.anaconda.org/gurobi
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/free
 dependencies:
   - bzip2
   - ca-certificates
   - certifi
+  - gurobi
   - gxx
   - ld_impl_linux-64
   - libblas
