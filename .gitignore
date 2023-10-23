@@ -23,7 +23,6 @@ TmpDebug/
 TmpRelease/
 .DS_Store
 nohup.out
-*.mps
 lib/
 gurobi.log
 *.out
@@ -37,3 +36,4 @@ vpcs_*
 CMakeLists.txt
 cmake-build-debug/
 experiments/old
+experiments/test_sets/
