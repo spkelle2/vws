@@ -33,9 +33,9 @@ TEST_CASE( "Test Simple") {
   // clear out any test files
   fs::remove_all(csvPath);
 
-  MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old Disjunction", 64);
-
   SECTION("MipComp::MipComp"){
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old Disjunction", 64);
+
     REQUIRE( testRunner.timeout == 60 );
     REQUIRE( testRunner.terms == 64 );
     REQUIRE( testRunner.vpcGenerator == "Old Disjunction" );
@@ -49,12 +49,13 @@ TEST_CASE( "Test Simple") {
 
   SECTION("MipComp::solveSeries quits if no cuts on first instance"){
     // test that series cancels after first instance doesn't generate cuts
-    testRunner = MipComp(inputFolder.string(), csvPath.string(), 1, "Old Disjunction", 128);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 1, "Old Disjunction", 128);
     testRunner.solveSeries();
     REQUIRE(testRunner.runData.size() == 1);
   }
 
   SECTION("MipComp::solveSeries"){
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old Disjunction", 64);
     testRunner.solveSeries();
 
     // we should have one runData entry for each instance
