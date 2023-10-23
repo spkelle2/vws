@@ -16,6 +16,71 @@
 // namespaces
 namespace fs = ghc::filesystem;
 
+/** constructor (default) */
+RunData::RunData(){
+  initialize(NULL);
+}
+
+/** copy constructor */
+RunData::RunData(const RunData& rhs){
+  initialize(&rhs);
+}
+
+/** assignment operator */
+RunData& RunData::operator=(const RunData& rhs) {
+  initialize(&rhs);
+  return *this;
+}
+
+/** clone */
+RunData* RunData::clone() const {
+  return new RunData(*this);
+}
+
+/** Copy our stuff */
+void RunData::initialize(const RunData* const rhs) {
+  if (rhs) {
+    this->lpBound = rhs->lpBound;
+    this->disjunctiveDualBound = rhs->disjunctiveDualBound;
+    this->lpBoundPostVpc = rhs->lpBoundPostVpc;
+    this->rootDualBoundPreVpc = rhs->rootDualBoundPreVpc;
+    this->rootDualBound = rhs->rootDualBound;
+    this->dualBound = rhs->dualBound;
+    this->heuristicPrimalBound = rhs->heuristicPrimalBound;
+    this->primalBound = rhs->primalBound;
+    this->vpcGenerationTime = rhs->vpcGenerationTime;
+    this->heuristicTime = rhs->heuristicTime;
+    this->rootDualBoundTime = rhs->rootDualBoundTime;
+    this->firstSolutionTime = rhs->firstSolutionTime;
+    this->bestSolutionTime = rhs->bestSolutionTime;
+    this->terminationTime = rhs->terminationTime;
+    this->maxTime = rhs->maxTime;
+    this->vpcGenerator = rhs->vpcGenerator;
+    this->terms = rhs->terms;
+    this->iterations = rhs->iterations;
+    this->nodes = rhs->nodes;
+  } else {
+    this->lpBound = 0.0;
+    this->disjunctiveDualBound = 0.0;
+    this->lpBoundPostVpc = 0.0;
+    this->rootDualBoundPreVpc = 0.0;
+    this->rootDualBound = 0.0;
+    this->dualBound = 0.0;
+    this->heuristicPrimalBound = 0.0;
+    this->primalBound = 0.0;
+    this->vpcGenerationTime = 0.0;
+    this->heuristicTime = 0.0;
+    this->rootDualBoundTime = 0.0;
+    this->firstSolutionTime = 0.0;
+    this->bestSolutionTime = 0.0;
+    this->terminationTime = 0.0;
+    this->maxTime = 0.0;
+    this->vpcGenerator = "";
+    this->terms = 0;
+    this->iterations = 0;
+    this->nodes = 0;
+  }
+}
 
 /** Get a comma-separated string of the names of RunData's attributes */
 std::string RunData::getHeader(){

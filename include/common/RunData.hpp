@@ -75,6 +75,21 @@ public:
   /** number of branch and bound nodes */
   int nodes;
 
+  /** constructor (default) */
+  RunData();
+
+  /** copy constructor */
+  RunData(const RunData& rhs);
+
+  /** assignment operator */
+  RunData& operator=(const RunData& rhs);
+
+  /** clone */
+  RunData* clone() const;
+
+  /** Copy our stuff */
+  void initialize(const RunData* const rhs);
+
   /** Get a comma-separated string of the names of RunData's attributes */
   std::string getHeader();
 

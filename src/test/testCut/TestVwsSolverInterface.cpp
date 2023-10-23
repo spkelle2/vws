@@ -141,7 +141,9 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
 TEST_CASE("Test a single solve", "[VwsSolverInterface::solve]") {
 
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface instanceSolver;
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   VwsSolverInterface seriesSolver;
   CbcModel model = seriesSolver.solve(instanceSolver, "None");
 
@@ -162,12 +164,13 @@ TEST_CASE("Test a single solve", "[VwsSolverInterface::solve]") {
 TEST_CASE( "Solve a second time", "[VwsSolverInterface::solve]" ){
 
   // solve a model with the VwsSolverInterface
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface instanceSolver;
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver, "None");
 
   // check on rerun that we get acceptable duplication
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   CbcModel model = seriesSolver.solve(instanceSolver, "None");
 
   // check that row and column names are correct
@@ -186,7 +189,9 @@ TEST_CASE( "Solve a second time", "[VwsSolverInterface::solve]" ){
 
 TEST_CASE( "Solve without preprocessing", "[VwsSolverInterface::solve]" ) {
   // solve a model with the VwsSolverInterface and ensure we get an optimal solution
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface instanceSolver;
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   VwsSolverInterface seriesSolver;
   CbcModel model = seriesSolver.solve(instanceSolver, "None");
 
@@ -209,7 +214,9 @@ TEST_CASE( "Solve without preprocessing", "[VwsSolverInterface::solve]" ) {
 TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 
   // solve a model with the VwsSolverInterface
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface instanceSolver;
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   VwsSolverInterface seriesSolver(10, 60, 64);
   VwsEventHandler eventHandler;
   CbcModel model = seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
@@ -276,12 +283,13 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
            "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP]") {
 
   // solve a model with the VwsSolverInterface to get the solution
-  OsiClpSolverInterface instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface instanceSolver;
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver, "None");
 
   // check that the vpcs we get are valid when solving the PRLP with a new disjunction
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/datasets/bm23/series_1/bm23_i01.mps.gz");
   VwsEventHandler eventHandler;
   std::shared_ptr<OsiCuts> disjCuts =
       seriesSolver.createVpcsFromNewDisjunctionPRLP(&instanceSolver, eventHandler);
@@ -324,7 +332,8 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
   VwsEventHandler eventHandler;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
 
   // test changing the objective
@@ -401,7 +410,8 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parame
   int misordered = 0;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
-  instanceSolver = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  instanceSolver.readMps(inputPath.c_str(), true, false);
   seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
 
   // test changing the objective
@@ -492,7 +502,9 @@ void check_bm23_data(VwsEventHandler& eventHandler){
 TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   
   // instance solver
-  OsiClpSolverInterface si = extractSolverInterfaceFromGunzip("../src/test/bm23.mps.gz");
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface si;
+  si.readMps(inputPath.c_str(), true, false);
   si.initialSolve();
   
   // series solver
