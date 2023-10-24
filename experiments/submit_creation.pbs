@@ -1,0 +1,4 @@
+cd /home/sek519/warm_starting/vws/experiments
+source /home/sek519/miniconda/bin/activate
+conda activate vws
+python make_test_set.py

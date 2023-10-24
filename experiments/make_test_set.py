@@ -232,8 +232,6 @@ def main(instances_fldr, samples, perturbations):
             if all(amount == 1 for amount in count.values()):
                 break
 
-            print()
-
 
 if __name__ == '__main__':
-    main(instances_fldr="bm23", samples=10, perturbations=[2, 1, 0])
+    main(instances_fldr="miplib_small_easy", samples=50, perturbations=[2, 1, 0, -1, -2])
