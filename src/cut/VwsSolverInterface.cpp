@@ -115,10 +115,11 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   model.setStrategy(strategy);
   // model.setLogLevel(2);
 
-  // set number of solutions to save and time limit
+  // set miscellaneous parameters
   model.setMaximumSavedSolutions(maxExtraSavedSolutions);
   model.setDblParam(CbcModel::CbcMaximumSeconds,
                      maxRunTime - eventHandler.timer.get_time("time"));
+  model.setLogLevel(0);
 
   // run the solver
   model.branchAndBound();

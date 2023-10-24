@@ -24,11 +24,13 @@ dependencies:
   - libopenblas
   - libstdcxx-ng
   - ncurses
+  - numpy
   - openssl
   - pip
   - python
   - python_abi
   - readline
+  - scipy
   - setuptools
   - sqlite
   - tk

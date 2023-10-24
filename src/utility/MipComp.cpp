@@ -73,6 +73,7 @@ void MipComp::solveSeries() {
 
     // print instance name and start time
     std::cout << "[INSTANCE] " << instanceNames[i] << ".mps" << std::endl;
+    std::cout << "[GENERATOR] " << vpcGenerator << std::endl;
     std::cout << "[START] " << std::put_time(std::localtime(&startTime), "%FT%T") << std::endl;
 
     // set up event handler for data collection
