@@ -39,7 +39,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                         args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms}'
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'medium', '-l', 'ncpus=4,mem=8gb,vmem=8gb,pmem=8gb',
+                            ['qsub', '-V', '-q', 'medium', '-l', 'ncpus=8,mem=16gb,vmem=16gb,pmem=16gb',
                              '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out', 'submit.pbs']
                         )
                     else:
@@ -48,4 +48,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                                          str(max_time), generator, str(terms)])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], False, 300)
+    run_batch(sys.argv[1], True, 300)

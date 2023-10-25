@@ -1,4 +1,4 @@
 cd /home/sek519/warm_starting/vws/experiments
 source /home/sek519/miniconda/bin/activate
 conda activate vws
-../Release/vws ${input_folder} ${output_file} ${max_time} ${generator} ${terms}
+../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
