@@ -32,6 +32,7 @@
 #include "utility.hpp"
 
 // project modules
+#include "CglStoredVpc.hpp" // CglStoredVpc
 #include "VwsEventHandler.hpp" // VwsEventHandler
 #include "VwsSolverInterface.hpp"
 #include "VwsUtility.hpp" // getVariableNames, getConstraintNames, putBackSolutions, findNonZero
@@ -119,7 +120,16 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   model.setMaximumSavedSolutions(maxExtraSavedSolutions);
   model.setDblParam(CbcModel::CbcMaximumSeconds,
                      maxRunTime - eventHandler.timer.get_time("time"));
-  model.setLogLevel(0);
+//  model.setLogLevel(0);
+
+  // add the cuts
+  std::shared_ptr<CglStoredVpc> store = std::make_shared<CglStoredVpc>();
+  if (eventHandler.cuts) {
+    for (int i = 0; i < eventHandler.cuts->sizeRowCuts(); i++) {
+      store->addCut(eventHandler.cuts->rowCut(i));
+    }
+    model.addCutGenerator(store.get(), 1, "StoredVPCs");
+  }
 
   // run the solver
   model.branchAndBound();

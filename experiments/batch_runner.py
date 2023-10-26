@@ -18,7 +18,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
 
     # get the output folder and make sure it does not yet exist, then make it
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
-    os.makedirs(output_fldr, exist_ok=False)
+    os.makedirs(output_fldr, exist_ok=True)
 
     # iterate over instances, their perturbations, disjunctive terms, and generators
     for instance in os.listdir(input_fldr):
@@ -33,6 +33,10 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                     # get the path to folder with the series to run and where to save the output
                     stem = os.path.join(output_fldr, f"{instance}_{perturbation}_{terms}_{generator}")
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
+
+                    # skip if the output already exists
+                    if os.path.exists(stem + ".csv"):
+                        continue
 
                     if remote:
                         # submit the job to the cluster

@@ -43,7 +43,6 @@ void RunData::initialize(const RunData* const rhs) {
     this->lpBound = rhs->lpBound;
     this->disjunctiveDualBound = rhs->disjunctiveDualBound;
     this->lpBoundPostVpc = rhs->lpBoundPostVpc;
-    this->rootDualBoundPreVpc = rhs->rootDualBoundPreVpc;
     this->rootDualBound = rhs->rootDualBound;
     this->dualBound = rhs->dualBound;
     this->heuristicPrimalBound = rhs->heuristicPrimalBound;
@@ -63,7 +62,6 @@ void RunData::initialize(const RunData* const rhs) {
     this->lpBound = 0.0;
     this->disjunctiveDualBound = 0.0;
     this->lpBoundPostVpc = 0.0;
-    this->rootDualBoundPreVpc = 0.0;
     this->rootDualBound = 0.0;
     this->dualBound = 0.0;
     this->heuristicPrimalBound = 0.0;
@@ -84,7 +82,7 @@ void RunData::initialize(const RunData* const rhs) {
 
 /** Get a comma-separated string of the names of RunData's attributes */
 std::string RunData::getHeader(){
-  return "lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBoundPreVpc,rootDualBound,"
+  return "lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,"
          "dualBound,heuristicPrimalBound,primalBound,vpcGenerationTime,heuristicTime,"
          "rootDualBoundTime,firstSolutionTime,bestSolutionTime,terminationTime,maxTime,"
          "vpcGenerator,terms,iterations,nodes";
@@ -93,7 +91,7 @@ std::string RunData::getHeader(){
 /** Get a comma-separated string of the values of RunData's attributes */
 std::string RunData::getValues(){
   return std::to_string(lpBound) + "," + std::to_string(disjunctiveDualBound) + "," +
-    std::to_string(lpBoundPostVpc) + "," + std::to_string(rootDualBoundPreVpc) + "," +
+    std::to_string(lpBoundPostVpc) + "," +
     std::to_string(rootDualBound) + "," + std::to_string(dualBound) + "," +
     std::to_string(heuristicPrimalBound) + "," + std::to_string(primalBound) + "," +
     std::to_string(vpcGenerationTime) + "," + std::to_string(heuristicTime) + "," +

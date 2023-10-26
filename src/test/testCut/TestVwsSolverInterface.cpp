@@ -243,8 +243,6 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 
   // check the bounds - root LP relaxation should be much improved from VPCs
   REQUIRE(model.getObjValue() == 34);
-  REQUIRE((25 < eventHandler.data.rootDualBoundPreVpc &&
-           eventHandler.data.rootDualBoundPreVpc < 26));
   REQUIRE(isVal(eventHandler.data.rootDualBound, 30, 1));
 
   // but the underlying model unchanged
@@ -269,8 +267,6 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
 
   // check the bounds - root LP relaxation should be much improved from VPCs
   REQUIRE(model2.getObjValue() == 34);
-  REQUIRE((25 < eventHandler.data.rootDualBoundPreVpc &&
-           eventHandler.data.rootDualBoundPreVpc < 26));
   REQUIRE(isVal(eventHandler.data.rootDualBound, 30, 1));
 
 }
@@ -459,7 +455,6 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parame
 void check_orig(VwsEventHandler& eventHandler){
   // the further we solve, the better the dual bound should be
   REQUIRE(isVal(eventHandler.data.lpBound, 20.57, .01));
-  REQUIRE(isVal(eventHandler.data.rootDualBoundPreVpc, 25.25, .01));
   REQUIRE(eventHandler.data.dualBound == 34);
 
   // we minimize so primal bound should be greater than or equal to dual bound
@@ -470,7 +465,6 @@ void check_orig(VwsEventHandler& eventHandler){
 void check_param(VwsEventHandler& eventHandler){
   // the further we solve, the better the dual bound should be
   REQUIRE(isVal(eventHandler.data.lpBound, 19.09, .01));
-  REQUIRE(isVal(eventHandler.data.rootDualBoundPreVpc, 25.30, .01));
   REQUIRE(eventHandler.data.dualBound == 31);
 
   // we minimize so primal bound should be greater than or equal to dual bound
@@ -535,7 +529,7 @@ TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   REQUIRE(eventHandler.cuts);
   REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 30.17, .01));
   REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 29.98, .01));
-  REQUIRE(isVal(eventHandler.data.rootDualBound, 30.03, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 30.12, .01));
   REQUIRE(eventHandler.data.vpcGenerator == "New Disjunction");
   check_orig(eventHandler);
   check_bm23_data(eventHandler);
@@ -567,7 +561,7 @@ TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   REQUIRE(eventHandler.cuts);
   REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 22.91, .01));
   REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 22.77, .01));
-  REQUIRE(isVal(eventHandler.data.rootDualBound, 25.3, .01));
+  REQUIRE(isVal(eventHandler.data.rootDualBound, 24.96, .01));
   REQUIRE(eventHandler.data.vpcGenerator == "Old Disjunction");
   check_param(eventHandler);
   check_bm23_data(eventHandler);
