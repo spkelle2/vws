@@ -15,7 +15,6 @@
 #include "utility.hpp"
 
 // project modules
-#include "CglStoredVpc.hpp"
 #include "VwsEventHandler.hpp"
 
 /**
@@ -60,24 +59,12 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
 
-    // get the root dual bound before cuts and after root node cuts (but without vpcs)
+    // get the dual bound before cuts and after root node cuts
     double direction = model_->solver()->getObjSense();
     data.lpBound = model_->getContinuousObjective() * direction;
-    data.rootDualBoundPreVpc = model_->solver()->getObjValue() * direction;
+    data.rootDualBound = model_->solver()->getObjValue() * direction;
 
-    if (cuts) {
-      // get the root dual bound with vpcs
-      data.rootDualBound = getLpBoundWithCuts();
-
-      // vpcs don't play nicely with default cuts, so add them to the pool after the root node
-      std::shared_ptr<CglStoredVpc> store = std::make_shared<CglStoredVpc>();
-      for (int i = 0; i<cuts->sizeRowCuts(); i++) {
-        store->addCut(cuts->rowCut(i));
-      }
-      model_->addCutGenerator(store.get(), 1, "StoredVPCs");
-    } else {
-      data.rootDualBound = data.rootDualBoundPreVpc;
-    }
+    // stop the root node timer
     timer.end_timer("rootDualBoundTime");
     data.rootDualBoundTime = timer.get_time("rootDualBoundTime");
     finished_primal_heuristics = true;
