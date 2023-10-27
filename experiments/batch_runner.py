@@ -44,7 +44,8 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms}'
                         subprocess.call(
                             ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=1,mem=2gb,vmem=2gb,pmem=2gb',
-                             '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out', 'submit.pbs']
+                             '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out',
+                             '-N', stem, 'submit.pbs']
                         )
                     else:
                         # run locally
