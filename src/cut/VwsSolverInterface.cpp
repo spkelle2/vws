@@ -79,9 +79,9 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
 
   // create cuts - either by PRLP or by previous farkas multipliers
   std::shared_ptr<OsiCuts> disjCuts;
-  if (vpcGenerator == "New Disjunction") {
+  if (vpcGenerator == "New") {
     disjCuts = createVpcsFromNewDisjunctionPRLP(si, eventHandler);
-  } else if (vpcGenerator == "Old Disjunction") {
+  } else if (vpcGenerator == "Old") {
     disjCuts = createVpcsFromOldDisjunctionPRLP(si, eventHandler);
   } else if (vpcGenerator == "Farkas") {
     disjCuts = createVpcsFromFarkasMultipliers(si, eventHandler);
@@ -89,7 +89,7 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
     si->initialSolve();
     eventHandler.data.disjunctiveDualBound = si->getObjValue();
   } else {
-    verify(false, "vpcGenerator must be one of New Disjunction, Old Disjunction, Farkas, or None");
+    verify(false, "vpcGenerator must be one of New, Old, Farkas, or None");
   }
 
   // update the event handler from cut creation

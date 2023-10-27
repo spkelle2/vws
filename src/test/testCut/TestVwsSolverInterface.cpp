@@ -94,7 +94,7 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   std::vector<double> solution(tmpModel.bestSolution(),
                                tmpModel.bestSolution() + tmpModel.getNumCols());
 
-  // get the cuts from solving the PRLP with a new disjunction - conduct on new
+  // get the cuts from solving the PRLP with a New - conduct on new
   // series solver to not add additional disjunctions to what subsequent tests use
   VwsSolverInterface tmpSeriesSolver(10, 600, seriesSolver.disjunctiveTerms, .8);
   VwsEventHandler eventHandler;
@@ -109,7 +109,7 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   REQUIRE(farkasCuts->sizeRowCuts() == 6);
   checkCuts(farkasCuts.get(), solution);
 
-  // get the cuts from solving the PRLP with an old disjunction
+  // get the cuts from solving the PRLP with an Old
   std::shared_ptr<OsiCuts> oldDisjCuts =
       seriesSolver.createVpcsFromOldDisjunctionPRLP(&oldDisjSolver, eventHandler);
   REQUIRE(oldDisjCuts->sizeRowCuts() > 0);
@@ -219,7 +219,7 @@ TEST_CASE( "Check solve with VPCs added", "[VwsSolverInterface::solve]" ) {
   instanceSolver.readMps(inputPath.c_str(), true, false);
   VwsSolverInterface seriesSolver(10, 60, 64);
   VwsEventHandler eventHandler;
-  CbcModel model = seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
+  CbcModel model = seriesSolver.solve(instanceSolver, "New", eventHandler);
 
   // we should have one vpc generator and set of farkas multipliers
   REQUIRE(seriesSolver.disjunctions.size() == 1);
@@ -285,7 +285,7 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
   VwsSolverInterface seriesSolver;
   seriesSolver.solve(instanceSolver, "None");
 
-  // check that the vpcs we get are valid when solving the PRLP with a new disjunction
+  // check that the vpcs we get are valid when solving the PRLP with a New
   VwsEventHandler eventHandler;
   std::shared_ptr<OsiCuts> disjCuts =
       seriesSolver.createVpcsFromNewDisjunctionPRLP(&instanceSolver, eventHandler);
@@ -302,7 +302,7 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
     REQUIRE(isFeasible(disjCuts->rowCut(i), seriesSolver.solutions[0][0]));
   }
 
-  // solve the PRLP with a new disjunction again so we have two disjunctions to use in our following tests
+  // solve the PRLP with a New again so we have two disjunctions to use in our following tests
   disjCuts = seriesSolver.createVpcsFromNewDisjunctionPRLP(&instanceSolver, eventHandler);
 
   // check that the vpcs we get are valid when we use Farkas Multipliers
@@ -311,14 +311,14 @@ TEST_CASE( "Check VPCs from both PRLP and Farkas are valid",
   REQUIRE(disjCuts->sizeRowCuts() == 12);
   checkCuts(disjCuts.get(), seriesSolver.solutions[0][0]);
 
-  // check that the vpcs we get are valid when we use the old disjunctions in the PRLP
+  // check that the vpcs we get are valid when we use the Olds in the PRLP
   disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(&instanceSolver, eventHandler);
 
   REQUIRE(disjCuts->sizeRowCuts() == 12);
   checkCuts(disjCuts.get(), seriesSolver.solutions[0][0]);
 }
 
-TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very different problems",
+TEST_CASE( "Create VPCs from Farkas multipliers and Olds on very different problems",
            "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
            "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long]" ) {
 
@@ -330,7 +330,7 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
   // solve the instance via PRLP to get a disjunction and farkas certificate
   fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
   instanceSolver.readMps(inputPath.c_str(), true, false);
-  seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
+  seriesSolver.solve(instanceSolver, "New", eventHandler);
 
   // test changing the objective
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
@@ -394,7 +394,7 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions on very dif
   }
 }
 
-TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parameterized problems",
+TEST_CASE( "Create VPCs from Farkas multipliers and Olds less parameterized problems",
            "[VwsSolverInterface::createVpcsFromNewDisjunctionPRLP"
            "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
            "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long]" ) {
@@ -408,7 +408,7 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parame
   // solve the instance via PRLP to get a disjunction and farkas certificate
   fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
   instanceSolver.readMps(inputPath.c_str(), true, false);
-  seriesSolver.solve(instanceSolver, "New Disjunction", eventHandler);
+  seriesSolver.solve(instanceSolver, "New", eventHandler);
 
   // test changing the objective
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
@@ -448,7 +448,7 @@ TEST_CASE( "Create VPCs from Farkas multipliers and old disjunctions less parame
   }
 
   // this number is kinda arbitrary but more the point here is that most of our
-  // bounds should go in order of (new disjunction) > (old disjunction) > (farkas)
+  // bounds should go in order of (New) > (Old) > (farkas)
   REQUIRE(misordered < 10);
 }
 
@@ -519,22 +519,22 @@ TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   check_orig(eventHandler);
   check_bm23_data(eventHandler);
 
-  // ------------------------ New Disjunction ----------------------------------
+  // ------------------------ New ----------------------------------
 
   // solve
   eventHandler = VwsEventHandler();
-  seriesSolver.solve(si, "New Disjunction", eventHandler);
+  seriesSolver.solve(si, "New", eventHandler);
 
   // check the event handler
   REQUIRE(eventHandler.cuts);
   REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 30.17, .01));
   REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 29.98, .01));
   REQUIRE(isVal(eventHandler.data.rootDualBound, 30.12, .01));
-  REQUIRE(eventHandler.data.vpcGenerator == "New Disjunction");
+  REQUIRE(eventHandler.data.vpcGenerator == "New");
   check_orig(eventHandler);
   check_bm23_data(eventHandler);
 
-  // ------------------------ Old Disjunction ----------------------------------
+  // ------------------------ Old ----------------------------------
 
   // perturb the problem
   for (int col_idx=0; col_idx < si.getNumCols(); col_idx++){
@@ -553,22 +553,22 @@ TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   }
   si.resolve();
 
-  // solve with old disjunction
+  // solve with Old
   eventHandler = VwsEventHandler();
-  seriesSolver.solve(si, "Old Disjunction", eventHandler);
+  seriesSolver.solve(si, "Old", eventHandler);
 
   // check the event handler
   REQUIRE(eventHandler.cuts);
   REQUIRE(isVal(eventHandler.data.disjunctiveDualBound, 22.91, .01));
   REQUIRE(isVal(eventHandler.data.lpBoundPostVpc, 22.77, .01));
   REQUIRE(isVal(eventHandler.data.rootDualBound, 24.96, .01));
-  REQUIRE(eventHandler.data.vpcGenerator == "Old Disjunction");
+  REQUIRE(eventHandler.data.vpcGenerator == "Old");
   check_param(eventHandler);
   check_bm23_data(eventHandler);
 
   // ------------------------ Farkas ------------------------------------------
 
-  // solve with no old disjunction
+  // solve with no Old
   eventHandler = VwsEventHandler();
   seriesSolver.solve(si, "Farkas", eventHandler);
 

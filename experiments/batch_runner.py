@@ -28,7 +28,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                 continue
             for terms in [4, 16, 64]:
-                for generator in ["None", "New Disjunction", "Old Disjunction", "Farkas"]:
+                for generator in ["None", "New", "Old", "Farkas"]:
 
                     # get the path to folder with the series to run and where to save the output
                     test_name = f"{instance}_{perturbation}_{terms}_{generator}"

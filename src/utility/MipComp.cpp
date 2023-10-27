@@ -79,8 +79,8 @@ void MipComp::solveSeries() {
     // set up event handler for data collection
     std::shared_ptr<VwsEventHandler> handler = std::make_shared<VwsEventHandler>();
 
-    // first iteration should always use New Disjunction if it makes VPCs - otherwise use requested generator
-    std::string genType = i < 1 && vpcGenerator != "None" ? "New Disjunction" : vpcGenerator;
+    // first iteration should always use New if it makes VPCs - otherwise use requested generator
+    std::string genType = i < 1 && vpcGenerator != "None" ? "New" : vpcGenerator;
 
     // solve the instance with the given generator
     CbcModel model = seriesSolver.solve(instanceSolver, genType, *handler);
