@@ -27,7 +27,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
         for perturbation in os.listdir(os.path.join(input_fldr, instance)):
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                 continue
-            for terms in [4, 8, 16, 32, 64, 128, 256]:
+            for terms in [4, 16, 64]:
                 for generator in ["None", "New Disjunction", "Old Disjunction", "Farkas"]:
 
                     # get the path to folder with the series to run and where to save the output
@@ -43,7 +43,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                         args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms}'
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'medium', '-l', 'ncpus=8,mem=16gb,vmem=16gb,pmem=16gb',
+                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=4,mem=8gb,vmem=8gb,pmem=8gb',
                              '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out', 'submit.pbs']
                         )
                     else:
