@@ -34,11 +34,11 @@ TEST_CASE( "Test Simple") {
   fs::remove_all(csvPath);
 
   SECTION("MipComp::MipComp"){
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old Disjunction", 64);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 64);
 
     REQUIRE( testRunner.timeout == 60 );
     REQUIRE( testRunner.terms == 64 );
-    REQUIRE( testRunner.vpcGenerator == "Old Disjunction" );
+    REQUIRE( testRunner.vpcGenerator == "Old" );
     REQUIRE( testRunner.instanceSolvers.size() == 3 );
     REQUIRE( testRunner.instanceNames[0] == "bm23_i01" );
     REQUIRE( testRunner.instanceNames[1] == "bm23_i02" );
@@ -49,13 +49,13 @@ TEST_CASE( "Test Simple") {
 
   SECTION("MipComp::solveSeries quits if no cuts on first instance"){
     // test that series cancels after first instance doesn't generate cuts
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 1, "Old Disjunction", 128);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 1, "Old", 128);
     testRunner.solveSeries();
     REQUIRE(testRunner.runData.size() == 1);
   }
 
   SECTION("MipComp::solveSeries"){
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old Disjunction", 64);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 64);
     testRunner.solveSeries();
 
     // we should have one runData entry for each instance
@@ -107,7 +107,7 @@ TEST_CASE( "Test Simple") {
         // maxTime
         REQUIRE(isVal(std::stod(match[14].str()), testRunner.runData[lineIndex - 1].maxTime, 1e-4));
         // VPC generator
-        REQUIRE(match[15].str() == (lineIndex == 1 ? "New Disjunction" : testRunner.vpcGenerator));
+        REQUIRE(match[15].str() == (lineIndex == 1 ? "New" : testRunner.vpcGenerator));
         // terms
         REQUIRE(isVal(std::stoi(match[16].str()), testRunner.runData[lineIndex - 1].terms, 1e-4));
         // iterations
