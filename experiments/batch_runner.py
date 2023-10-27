@@ -31,7 +31,8 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                 for generator in ["None", "New Disjunction", "Old Disjunction", "Farkas"]:
 
                     # get the path to folder with the series to run and where to save the output
-                    stem = os.path.join(output_fldr, f"{instance}_{perturbation}_{terms}_{generator}")
+                    test_name = f"{instance}_{perturbation}_{terms}_{generator}"
+                    stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
 
                     # skip if the output already exists
@@ -43,9 +44,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                         args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms}'
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=1,mem=2gb,vmem=2gb,pmem=2gb',
+                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
                              '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out',
-                             '-N', stem, 'submit.pbs']
+                             '-N', test_name, 'submit.pbs']
                         )
                     else:
                         # run locally
