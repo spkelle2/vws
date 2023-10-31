@@ -85,6 +85,11 @@ void MipComp::solveSeries() {
     // solve the instance with the given generator
     CbcModel model = seriesSolver.solve(instanceSolver, genType, *handler);
 
+    // stop the series if no cuts are made on New. Need new to generate cuts so
+    // we have a disjunction/multipliers to reuse and an ideal bound to compare
+    verify(!(!handler->cuts and ((i == 0 and vpcGenerator != "None") or vpcGenerator == "New")),
+           "[WARNING] No vpcs were made from a new disjunction. Stopping series.");
+
     // save the data collected by the event handler
     handler->data.writeData(csvPath);
     runData.push_back(handler->data);
@@ -92,11 +97,5 @@ void MipComp::solveSeries() {
     // print end time
     std::time_t endTime = std::time(nullptr);
     std::cout << "[END] " << std::put_time(std::localtime(&endTime), "%FT%T") << std::endl;
-
-    // stop the series if no cuts are made on the original
-    if (i == 0 and !handler->cuts and vpcGenerator != "None") {
-      std::cout << "[WARNING] No cuts were made on the original instance. Stopping series." << std::endl;
-      break;
-    }
   }
 } /* solveSeries */
