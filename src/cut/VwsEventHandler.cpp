@@ -17,35 +17,27 @@
 // project modules
 #include "VwsEventHandler.hpp"
 
-/**
- * @details apply the cuts to the current solver and return the objective value
- *
- * @return the objective value of the current solver after applying the cuts
- */
-double VwsEventHandler::getLpBoundWithCuts() {
-
-  double direction = model_->solver()->getObjSense();
-
-  // copy the solver
-  OsiSolverInterface *solver = model_->solver()->clone();
-  solver->initialSolve();
-
-  // apply the cuts
-  if (cuts){
-    solver->applyCuts(*cuts);
-  }
-  solver->resolve();
-
-  // return the objective value
-  return solver->getObjValue() * direction;
-}
-
 /** Event handler */
 CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
-  // get the bound from vpcs alone - just gets LP relaxation if no cuts
+  // get the bound from LP relaxation with and without vpcs
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::startUp){
-    data.lpBoundPostVpc = getLpBoundWithCuts();
+
+    double direction = model_->solver()->getObjSense();
+    OsiSolverInterface *solver = model_->solver()->clone();
+
+    // get the LP bound
+    solver->initialSolve();
+    data.lpBound = solver->getObjValue() * direction;
+
+    // apply the cuts
+    if (cuts){
+      solver->applyCuts(*cuts);
+    }
+    solver->resolve();
+
+    // get the LP bound after vpcs
+    data.lpBoundPostVpc = solver->getObjValue() * direction;
   }
 
   // overwrite heuristic time and bound with each primal heuristic pass to values at last one
@@ -61,7 +53,6 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
     // get the dual bound before cuts and after root node cuts
     double direction = model_->solver()->getObjSense();
-    data.lpBound = model_->getContinuousObjective() * direction;
     data.rootDualBound = model_->solver()->getObjValue() * direction;
 
     // stop the root node timer

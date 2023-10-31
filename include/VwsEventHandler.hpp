@@ -57,6 +57,4 @@ protected:
   /** Copy our stuff */
   void initialize(const VwsEventHandler* const rhs);
 
-  /** Get the lp bound of the current solver with cuts applied */
-  double getLpBoundWithCuts();
 }; /* VwsEventHandler */

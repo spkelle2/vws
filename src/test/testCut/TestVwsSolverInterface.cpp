@@ -580,5 +580,5 @@ TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   REQUIRE(eventHandler.data.vpcGenerator == "Farkas");
   check_param(eventHandler);
   check_bm23_data(eventHandler);
-  
+
 }
