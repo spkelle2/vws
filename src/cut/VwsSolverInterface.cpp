@@ -119,7 +119,7 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   // set miscellaneous parameters
   model.setMaximumSavedSolutions(maxExtraSavedSolutions);
   model.setDblParam(CbcModel::CbcMaximumSeconds,
-                     maxRunTime - eventHandler.timer.get_time("time"));
+                     maxRunTime - eventHandler.timer.get_time("vpcGenerationTime"));
 //  model.setLogLevel(0);
 
   // add the cuts
@@ -145,6 +145,12 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
 
   // finish filling out the eventHandler
   eventHandler = *dynamic_cast<VwsEventHandler*>(model.getEventHandler());
+  eventHandler.data.lpBound = si->getObjValue();
+  if (disjCuts){
+    si->applyCuts(*disjCuts);
+  }
+  si->resolve();
+  eventHandler.data.lpBoundPostVpc = si->getObjValue();
   eventHandler.data.vpcGenerator = vpcGenerator;
   eventHandler.data.dualBound = model.getBestPossibleObjValue();
   eventHandler.data.maxTime = maxRunTime;
