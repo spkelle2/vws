@@ -20,26 +20,6 @@
 /** Event handler */
 CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
-  // get the bound from LP relaxation with and without vpcs
-  if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::startUp){
-
-    double direction = model_->solver()->getObjSense();
-    OsiSolverInterface *solver = model_->solver()->clone();
-
-    // get the LP bound
-    solver->initialSolve();
-    data.lpBound = solver->getObjValue() * direction;
-
-    // apply the cuts
-    if (cuts){
-      solver->applyCuts(*cuts);
-    }
-    solver->resolve();
-
-    // get the LP bound after vpcs
-    data.lpBoundPostVpc = solver->getObjValue() * direction;
-  }
-
   // overwrite heuristic time and bound with each primal heuristic pass to values at last one
   if ((model_->specialOptions() & 2048) == 0 && (whichEvent == CbcEventHandler::afterHeuristic ||
        whichEvent == CbcEventHandler::heuristicPass) && !finished_primal_heuristics) {
