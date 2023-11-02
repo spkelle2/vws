@@ -1,0 +1,49 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 75 (real var 83), it is -1.016992e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 83: dot product with obj < 0. Obj viol from solver: -0.00000010. Calculated: -0.00000010.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 2 ray 75 does not satisfy the objective cut. Activity: -0.00000010. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+Since we minimize, disjunctive dual bound should not be less than LP relaxation objective value.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b0a6a020a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b0a6adda060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b0a6add9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b0a6addb42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b0a6add2e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b0a6add2f12]
+../Debug/vws(+0x1b0427) [0x563f10a67427]
+../Debug/vws(+0x1fdd88) [0x563f10ab4d88]
+../Debug/vws(+0x105bb8) [0x563f109bcbb8]
+../Debug/vws(+0x103f4c) [0x563f109baf4c]
+../Debug/vws(+0x127b00) [0x563f109deb00]
+../Debug/vws(+0x79d6a) [0x563f10930d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b0a6adc72e1]
+../Debug/vws(+0x79259) [0x563f10930259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b0a6a020a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b0a6adda060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b0a6add9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b0a6addb42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b0a6a020b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b0a6adda060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b0a6add9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b0a6addb42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b0a6add2e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b0a6add2f12]
+../Debug/vws(+0x1b0427) [0x563f10a67427]
+../Debug/vws(+0x1fdd88) [0x563f10ab4d88]
+../Debug/vws(+0x105bb8) [0x563f109bcbb8]
+../Debug/vws(+0x103f4c) [0x563f109baf4c]
+../Debug/vws(+0x127b00) [0x563f109deb00]
+../Debug/vws(+0x79d6a) [0x563f10930d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b0a6adc72e1]
+../Debug/vws(+0x79259) [0x563f10930259]
+
+
+/var/spool/torque/mom_priv/jobs/1216665.polyp1.ie.lehigh.edu.SC: line 4: 22576 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
