@@ -1,0 +1,59 @@
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ac99696ba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ac997725060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ac997724fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ac99772642a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2ac9972ec026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2ac9972ea514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2ac9972ea566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2ac9972ea758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2ac9972eab85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_Z12resizeDoublePdiidb+0x59) [0x2ac996dc4a18]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN8ClpModel6resizeEii+0x13e) [0x2ac996dc501c]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex6resizeEii+0x26) [0x2ac996eb8f98]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface6addRowEiPKiPKddd+0x8d) [0x2ac99661ebd1]
+../Debug/vws(+0x1f7b00) [0x556602b9ab00]
+../Debug/vws(+0x1fdb5f) [0x556602ba0b5f]
+../Debug/vws(+0x105bb8) [0x556602aa8bb8]
+../Debug/vws(+0x103f4c) [0x556602aa6f4c]
+../Debug/vws(+0x127b00) [0x556602acab00]
+../Debug/vws(+0x79d6a) [0x556602a1cd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ac9977122e1]
+../Debug/vws(+0x79259) [0x556602a1c259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ac99696ba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ac997725060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ac997724fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ac99772642a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2ac99696bb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ac997725060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ac997724fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ac99772642a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2ac9972ec026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2ac9972ea514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2ac9972ea566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2ac9972ea758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2ac9972eab85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_Z12resizeDoublePdiidb+0x59) [0x2ac996dc4a18]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN8ClpModel6resizeEii+0x13e) [0x2ac996dc501c]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex6resizeEii+0x26) [0x2ac996eb8f98]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface6addRowEiPKiPKddd+0x8d) [0x2ac99661ebd1]
+../Debug/vws(+0x1f7b00) [0x556602b9ab00]
+../Debug/vws(+0x1fdb5f) [0x556602ba0b5f]
+../Debug/vws(+0x105bb8) [0x556602aa8bb8]
+../Debug/vws(+0x103f4c) [0x556602aa6f4c]
+../Debug/vws(+0x127b00) [0x556602acab00]
+../Debug/vws(+0x79d6a) [0x556602a1cd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ac9977122e1]
+../Debug/vws(+0x79259) [0x556602a1c259]
+
+
+/var/spool/torque/mom_priv/jobs/1216877.polyp1.ie.lehigh.edu.SC: line 4: 29490 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
