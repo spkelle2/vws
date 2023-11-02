@@ -2,7 +2,7 @@ import shutil
 import os
 
 # Directory containing the files to be copied
-source_directory = 'miplib_small_easy_binary'
+source_directory = 'miplib_small_easy'
 
 # Read the list of filenames from mips.txt
 with open('mips.txt', 'r') as file:
