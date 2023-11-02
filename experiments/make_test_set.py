@@ -234,4 +234,4 @@ def main(instances_fldr, samples, perturbations):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="miplib_smaller_easy_binary", samples=10, perturbations=[1, 0, -1])
+    main(instances_fldr="miplib_small_easy", samples=10, perturbations=[1, 0, -1])
