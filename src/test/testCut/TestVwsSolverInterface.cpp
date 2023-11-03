@@ -486,9 +486,13 @@ void check_bm23_data(VwsEventHandler& eventHandler){
   REQUIRE(eventHandler.data.bestSolutionTime < eventHandler.data.terminationTime);
 
   // check the run parameters
-  // make this was not a benchmark run
   REQUIRE(eventHandler.data.maxTime == 600);
   REQUIRE(eventHandler.data.terms == 64);
+  if (eventHandler.data.vpcGenerator == "None"){
+    REQUIRE(eventHandler.data.actualTerms == 0);
+  } else {
+    REQUIRE(eventHandler.data.actualTerms == 69);
+  }
   REQUIRE(eventHandler.data.iterations > 1000);
   REQUIRE(eventHandler.data.nodes > 10);
 }

@@ -54,7 +54,12 @@ public:
 
 protected:
   bool finished_primal_heuristics;
+  bool finished_root_cuts;
+
   /** Copy our stuff */
   void initialize(const VwsEventHandler* const rhs);
+
+  /** Set the root cut stats */
+  void setRootCutStats();
 
 }; /* VwsEventHandler */
