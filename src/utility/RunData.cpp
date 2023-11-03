@@ -58,6 +58,7 @@ void RunData::initialize(const RunData* const rhs) {
     this->terms = rhs->terms;
     this->iterations = rhs->iterations;
     this->nodes = rhs->nodes;
+    this->actualTerms = rhs->actualTerms;
   } else {
     this->lpBound = 0.0;
     this->disjunctiveDualBound = 0.0;
@@ -77,6 +78,7 @@ void RunData::initialize(const RunData* const rhs) {
     this->terms = 0;
     this->iterations = 0;
     this->nodes = 0;
+    this->actualTerms = 0;
   }
 }
 
@@ -85,7 +87,7 @@ std::string RunData::getHeader(){
   return "lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,"
          "dualBound,heuristicPrimalBound,primalBound,vpcGenerationTime,heuristicTime,"
          "rootDualBoundTime,firstSolutionTime,bestSolutionTime,terminationTime,maxTime,"
-         "vpcGenerator,terms,iterations,nodes";
+         "vpcGenerator,terms,iterations,nodes,actualTerms";
 }
 
 /** Get a comma-separated string of the values of RunData's attributes */
@@ -98,7 +100,7 @@ std::string RunData::getValues(){
     std::to_string(rootDualBoundTime) + "," + std::to_string(firstSolutionTime) + "," +
     std::to_string(bestSolutionTime) + "," + std::to_string(terminationTime) + "," +
     std::to_string(maxTime) + "," + vpcGenerator + "," + std::to_string(terms) + "," +
-    std::to_string(iterations) + "," + std::to_string(nodes);
+    std::to_string(iterations) + "," + std::to_string(nodes) + "," + std::to_string(actualTerms);
 }
 
 /** writes this struct's attributes to the given csv file */

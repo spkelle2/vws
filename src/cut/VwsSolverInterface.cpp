@@ -188,8 +188,9 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   std::shared_ptr<PartialBBDisjunction> disj =
       std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
 
-  // record the disjunctive lower bound
+  // record the disjunctive metatdata
   eventHandler.data.disjunctiveDualBound = disj->best_obj;
+  eventHandler.data.actualTerms = disj->num_terms;
 
   // if we have cuts and a full tree, save the cut generator and the Farkas multipliers
   if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0){
@@ -210,6 +211,10 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     OsiClpSolverInterface * si, VwsEventHandler& eventHandler) {
 
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
+
+  // LP relaxation will have to be feasible for any of the following to matter
+  si->initialSolve();
+  verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
 
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
   bool feasibleTermSolver;
@@ -277,8 +282,10 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     }
 
     // update the event handler with the disjunctive lower bound
-    eventHandler.data.disjunctiveDualBound = probIdx == 0 ? param_disj.best_obj :
-        max(param_disj.best_obj, eventHandler.data.disjunctiveDualBound);
+    if (probIdx == 0 || eventHandler.data.disjunctiveDualBound < param_disj.best_obj){
+      eventHandler.data.disjunctiveDualBound = param_disj.best_obj;
+      eventHandler.data.actualTerms = param_disj.num_terms;
+    }
   }
 
   return disjCuts;
@@ -325,8 +332,10 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
 
     // update the event handler with the disjunctive lower bound
     // each disjunction forms a dual so strongest dual should be max since we minimize
-    eventHandler.data.disjunctiveDualBound = &disj == &disjunctions[0] ? param_disj.best_obj :
-        max(param_disj.best_obj, eventHandler.data.disjunctiveDualBound);
+    if (&disj == &disjunctions[0] || eventHandler.data.disjunctiveDualBound < param_disj.best_obj){
+      eventHandler.data.disjunctiveDualBound = param_disj.best_obj;
+      eventHandler.data.actualTerms = param_disj.num_terms;
+    }
   }
 
   return disjCuts;

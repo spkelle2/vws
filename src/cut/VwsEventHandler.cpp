@@ -17,6 +17,16 @@
 // project modules
 #include "VwsEventHandler.hpp"
 
+void VwsEventHandler::setRootCutStats(){
+  // get the dual bound after root node cuts
+  double direction = model_->solver()->getObjSense();
+  data.rootDualBound = model_->solver()->getObjValue() * direction;
+
+  // stop the root node timer
+  timer.end_timer("rootDualBoundTime");
+  data.rootDualBoundTime = timer.get_time("rootDualBoundTime");
+}
+
 /** Event handler */
 CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
@@ -30,15 +40,9 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
   }
 
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::afterRootCuts) {
-
-    // get the dual bound before cuts and after root node cuts
-    double direction = model_->solver()->getObjSense();
-    data.rootDualBound = model_->solver()->getObjValue() * direction;
-
-    // stop the root node timer
-    timer.end_timer("rootDualBoundTime");
-    data.rootDualBoundTime = timer.get_time("rootDualBoundTime");
+    setRootCutStats();
     finished_primal_heuristics = true;
+    finished_root_cuts = true;
   }
 
   // record solution times
@@ -50,7 +54,7 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
         data.firstSolutionTime = timer.get_time("firstSolutionTime");
       }
       // record time to best solution
-      if (model_->solver()->getObjValue() < model_->getObjValue()){
+      if (model_->solver()->getObjValue() <= model_->getObjValue()){
         timer.end_timer("bestSolutionTime");
         data.bestSolutionTime = timer.get_time("bestSolutionTime");
         timer.start_timer("bestSolutionTime");
@@ -59,6 +63,9 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
 
   // pause when we hit a terminating condition
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::endSearch) {
+    if (!finished_root_cuts) {
+      setRootCutStats();
+    }
     double direction = model_->solver()->getObjSense();
     data.dualBound = model_->getBestPossibleObjValue() * direction;
     data.primalBound = model_->getObjValue() * direction;
@@ -111,9 +118,11 @@ void VwsEventHandler::initialize(const VwsEventHandler* const rhs) {
     this->data = rhs->data;
     this->timer = rhs->timer;
     this->finished_primal_heuristics = rhs->finished_primal_heuristics;
+    this->finished_root_cuts = rhs->finished_root_cuts;
   } else {
     RunData data = RunData();
     TimeStats timer = TimeStats();
     finished_primal_heuristics = false;
+    finished_root_cuts = false;
   }
 }

@@ -72,6 +72,9 @@ public:
   /** number of branch and bound nodes */
   int nodes;
 
+  /** max sized disjunction used to  */
+  int actualTerms;
+
   /** constructor (default) */
   RunData();
 
