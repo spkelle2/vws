@@ -21,35 +21,35 @@
 
 
 ERROR while running Cbc. Signal SIGSEGV caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b327636ba4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3277125060]
-../Debug/vws(+0x1f797b) [0x561c572b197b]
-../Debug/vws(+0x1311cd) [0x561c571eb1cd]
-../Debug/vws(+0x104daf) [0x561c571bedaf]
-../Debug/vws(+0x103ee1) [0x561c571bdee1]
-../Debug/vws(+0x127b00) [0x561c571e1b00]
-../Debug/vws(+0x79d6a) [0x561c57133d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b32771122e1]
-../Debug/vws(+0x79259) [0x561c57133259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b331117ba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3311f35060]
+../Debug/vws(+0x1f7b99) [0x558a12876b99]
+../Debug/vws(+0x1313eb) [0x558a127b03eb]
+../Debug/vws(+0x104dce) [0x558a12783dce]
+../Debug/vws(+0x103ee1) [0x558a12782ee1]
+../Debug/vws(+0x127c3a) [0x558a127a6c3a]
+../Debug/vws(+0x79d6a) [0x558a126f8d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3311f222e1]
+../Debug/vws(+0x79259) [0x558a126f8259]
 
 
 
 
 ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b327636ba4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3277125060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3277124fff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b327712642a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b327636bb29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3277125060]
-../Debug/vws(+0x1f797b) [0x561c572b197b]
-../Debug/vws(+0x1311cd) [0x561c571eb1cd]
-../Debug/vws(+0x104daf) [0x561c571bedaf]
-../Debug/vws(+0x103ee1) [0x561c571bdee1]
-../Debug/vws(+0x127b00) [0x561c571e1b00]
-../Debug/vws(+0x79d6a) [0x561c57133d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b32771122e1]
-../Debug/vws(+0x79259) [0x561c57133259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b331117ba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3311f35060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3311f34fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3311f3642a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b331117bb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3311f35060]
+../Debug/vws(+0x1f7b99) [0x558a12876b99]
+../Debug/vws(+0x1313eb) [0x558a127b03eb]
+../Debug/vws(+0x104dce) [0x558a12783dce]
+../Debug/vws(+0x103ee1) [0x558a12782ee1]
+../Debug/vws(+0x127c3a) [0x558a127a6c3a]
+../Debug/vws(+0x79d6a) [0x558a126f8d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3311f222e1]
+../Debug/vws(+0x79259) [0x558a126f8259]
 
 
-/var/spool/torque/mom_priv/jobs/1217208.polyp1.ie.lehigh.edu.SC: line 4: 31383 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+/var/spool/torque/mom_priv/jobs/1223010.polyp1.ie.lehigh.edu.SC: line 4:  6870 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

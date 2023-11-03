@@ -1,0 +1,49 @@
+messed up a farkas cofficient
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2af51a288a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2af51b042060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2af51b041fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2af51b04342a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2af51b03ae67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2af51b03af12]
+../Debug/vws(+0x1b0427) [0x55bd85cc6427]
+../Debug/vws(+0x133373) [0x55bd85c49373]
+../Debug/vws(+0x131b3a) [0x55bd85c47b3a]
+../Debug/vws(+0x1312e6) [0x55bd85c472e6]
+../Debug/vws(+0x104daf) [0x55bd85c1adaf]
+../Debug/vws(+0x103ee1) [0x55bd85c19ee1]
+../Debug/vws(+0x127b00) [0x55bd85c3db00]
+../Debug/vws(+0x79d6a) [0x55bd85b8fd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2af51b02f2e1]
+../Debug/vws(+0x79259) [0x55bd85b8f259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2af51a288a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2af51b042060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2af51b041fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2af51b04342a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2af51a288b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2af51b042060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2af51b041fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2af51b04342a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2af51b03ae67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2af51b03af12]
+../Debug/vws(+0x1b0427) [0x55bd85cc6427]
+../Debug/vws(+0x133373) [0x55bd85c49373]
+../Debug/vws(+0x131b3a) [0x55bd85c47b3a]
+../Debug/vws(+0x1312e6) [0x55bd85c472e6]
+../Debug/vws(+0x104daf) [0x55bd85c1adaf]
+../Debug/vws(+0x103ee1) [0x55bd85c19ee1]
+../Debug/vws(+0x127b00) [0x55bd85c3db00]
+../Debug/vws(+0x79d6a) [0x55bd85b8fd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2af51b02f2e1]
+../Debug/vws(+0x79259) [0x55bd85b8f259]
+
+
+/var/spool/torque/mom_priv/jobs/1218952.polyp1.ie.lehigh.edu.SC: line 4: 31884 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

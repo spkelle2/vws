@@ -1,0 +1,40 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+[WARNING] No vpcs were made from a new disjunction. Stopping series.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4098ecca4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4099c86060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4099c85fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4099c8742a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b4099c7ee67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b4099c7ef12]
+../Debug/vws(+0x1b0427) [0x561c959b9427]
+../Debug/vws(+0x127bb8) [0x561c95930bb8]
+../Debug/vws(+0x79d6a) [0x561c95882d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4099c732e1]
+../Debug/vws(+0x79259) [0x561c95882259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4098ecca4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4099c86060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4099c85fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4099c8742a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b4098eccb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4099c86060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4099c85fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4099c8742a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b4099c7ee67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b4099c7ef12]
+../Debug/vws(+0x1b0427) [0x561c959b9427]
+../Debug/vws(+0x127bb8) [0x561c95930bb8]
+../Debug/vws(+0x79d6a) [0x561c95882d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4099c732e1]
+../Debug/vws(+0x79259) [0x561c95882259]
+
+
+/var/spool/torque/mom_priv/jobs/1217496.polyp1.ie.lehigh.edu.SC: line 4: 12167 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

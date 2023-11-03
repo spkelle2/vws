@@ -1,0 +1,47 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 1167875.166, now it is 1167185.726.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 7/8 (node id 19) is somewhat incorrect. During BB, it was 1176212.500, now it is 1175512.500.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 8/8 (node id 18) is somewhat incorrect. During BB, it was 1176695.000, now it is 1173820.000.
+vws: /home/sek519/warm_starting/vpc/lib/Cbc-trunk/Cbc/src/CbcModel.cpp:11117: int CbcModel::takeOffCuts(OsiCuts&, bool, OsiCuts*, int, const OsiRowCut**): Assertion `numberRowsAtContinuous_ + totalNumberCuts == solver_->getNumRows()' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b35014c6a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3502280060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b350227ffff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b350228142a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b3502278e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b3502278f12]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel11takeOffCutsER7OsiCutsbPS0_iPPK9OsiRowCut+0xf3) [0x2b350146f1e7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel12chooseBranchERP7CbcNodeiS1_R7OsiCutsRbP18CoinWarmStartBasisPKdS9_RP15OsiSolverBranch+0x122f) [0x2b3501480e1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xaf15) [0x2b3501455573]
+../Debug/vws(+0x104589) [0x562222624589]
+../Debug/vws(+0x127b00) [0x562222647b00]
+../Debug/vws(+0x79d6a) [0x562222599d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b350226d2e1]
+../Debug/vws(+0x79259) [0x562222599259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b35014c6a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3502280060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b350227ffff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b350228142a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b35014c6b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3502280060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b350227ffff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b350228142a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b3502278e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b3502278f12]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel11takeOffCutsER7OsiCutsbPS0_iPPK9OsiRowCut+0xf3) [0x2b350146f1e7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel12chooseBranchERP7CbcNodeiS1_R7OsiCutsRbP18CoinWarmStartBasisPKdS9_RP15OsiSolverBranch+0x122f) [0x2b3501480e1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xaf15) [0x2b3501455573]
+../Debug/vws(+0x104589) [0x562222624589]
+../Debug/vws(+0x127b00) [0x562222647b00]
+../Debug/vws(+0x79d6a) [0x562222599d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b350226d2e1]
+../Debug/vws(+0x79259) [0x562222599259]
+
+
+/var/spool/torque/mom_priv/jobs/1219598.polyp1.ie.lehigh.edu.SC: line 4:  7540 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

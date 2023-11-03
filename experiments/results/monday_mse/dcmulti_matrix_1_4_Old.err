@@ -1,0 +1,49 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+Since we minimize, disjunctive dual bound should not be less than LP relaxation objective value.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b66e65c7a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b66e7381060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b66e7380fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b66e738242a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b66e7379e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b66e7379f12]
+../Debug/vws(+0x1b0427) [0x564225920427]
+../Debug/vws(+0x1fdd88) [0x56422596dd88]
+../Debug/vws(+0x105bb8) [0x564225875bb8]
+../Debug/vws(+0x103f4c) [0x564225873f4c]
+../Debug/vws(+0x127b00) [0x564225897b00]
+../Debug/vws(+0x79d6a) [0x5642257e9d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b66e736e2e1]
+../Debug/vws(+0x79259) [0x5642257e9259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b66e65c7a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b66e7381060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b66e7380fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b66e738242a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b66e65c7b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b66e7381060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b66e7380fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b66e738242a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b66e7379e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b66e7379f12]
+../Debug/vws(+0x1b0427) [0x564225920427]
+../Debug/vws(+0x1fdd88) [0x56422596dd88]
+../Debug/vws(+0x105bb8) [0x564225875bb8]
+../Debug/vws(+0x103f4c) [0x564225873f4c]
+../Debug/vws(+0x127b00) [0x564225897b00]
+../Debug/vws(+0x79d6a) [0x5642257e9d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b66e736e2e1]
+../Debug/vws(+0x79259) [0x5642257e9259]
+
+
+/var/spool/torque/mom_priv/jobs/1220205.polyp1.ie.lehigh.edu.SC: line 4: 23691 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

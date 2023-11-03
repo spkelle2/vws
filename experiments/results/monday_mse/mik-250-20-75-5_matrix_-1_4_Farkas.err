@@ -1,0 +1,59 @@
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ad84bb49a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad84c903060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad84c902fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad84c90442a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2ad84c4ca026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2ad84c4c8514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2ad84c4c8566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2ad84c4c8758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2ad84c4c8b85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix27resizeForAddingMinorVectorsEPKi+0x305) [0x2ad84c3246e5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix17appendMinorVectorEiPKiPKd+0x162) [0x2ad84c31cb9a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix9appendRowEiPKiPKd+0x3a) [0x2ad84c318f20]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface6addRowEiPKiPKddd+0x13a) [0x2ad84b7fcc7e]
+../Debug/vws(+0x1f7b00) [0x558b5c72fb00]
+../Debug/vws(+0x1fdb5f) [0x558b5c735b5f]
+../Debug/vws(+0x10512c) [0x558b5c63d12c]
+../Debug/vws(+0x103fb7) [0x558b5c63bfb7]
+../Debug/vws(+0x127b00) [0x558b5c65fb00]
+../Debug/vws(+0x79d6a) [0x558b5c5b1d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ad84c8f02e1]
+../Debug/vws(+0x79259) [0x558b5c5b1259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ad84bb49a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad84c903060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad84c902fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad84c90442a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2ad84bb49b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad84c903060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad84c902fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad84c90442a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2ad84c4ca026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2ad84c4c8514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2ad84c4c8566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2ad84c4c8758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2ad84c4c8b85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix27resizeForAddingMinorVectorsEPKi+0x305) [0x2ad84c3246e5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix17appendMinorVectorEiPKiPKd+0x162) [0x2ad84c31cb9a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix9appendRowEiPKiPKd+0x3a) [0x2ad84c318f20]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface6addRowEiPKiPKddd+0x13a) [0x2ad84b7fcc7e]
+../Debug/vws(+0x1f7b00) [0x558b5c72fb00]
+../Debug/vws(+0x1fdb5f) [0x558b5c735b5f]
+../Debug/vws(+0x10512c) [0x558b5c63d12c]
+../Debug/vws(+0x103fb7) [0x558b5c63bfb7]
+../Debug/vws(+0x127b00) [0x558b5c65fb00]
+../Debug/vws(+0x79d6a) [0x558b5c5b1d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ad84c8f02e1]
+../Debug/vws(+0x79259) [0x558b5c5b1259]
+
+
+/var/spool/torque/mom_priv/jobs/1217770.polyp1.ie.lehigh.edu.SC: line 4: 18504 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

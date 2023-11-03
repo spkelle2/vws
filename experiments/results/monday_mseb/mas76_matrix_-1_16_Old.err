@@ -1,0 +1,5 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 130: Calculated dot product with obj differs from solver's. Obj viol from solver: 875.33986197. Calculated: 875.33986183.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 69: Calculated dot product with obj differs from solver's. Obj viol from solver: 909.33468311. Calculated: 909.33468323.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 121 (real var 133), it is -1.435426e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 133: dot product with obj < 0. Obj viol from solver: -0.00000014. Calculated: -0.00000014.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 1 ray 121 does not satisfy the objective cut. Activity: -0.00000014. RHS: 0.00000000. Small enough violation that we only send a warning.

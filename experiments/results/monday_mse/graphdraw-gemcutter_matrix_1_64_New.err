@@ -1,0 +1,57 @@
+Disjunction does not represent a full binary tree.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2afc301faa4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afc30fb4060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2afc30fb3fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2afc30fb542a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2afc30face67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2afc30facf12]
+../Debug/vws(+0x1b0427) [0x560597b0f427]
+../Debug/vws(+0x1c6a1b) [0x560597b25a1b]
+../Debug/vws(+0x1c5c86) [0x560597b24c86]
+../Debug/vws(+0x1bcc46) [0x560597b1bc46]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2afc3018c959]
+../Debug/vws(+0x1fe716) [0x560597b5d716]
+../Debug/vws(+0x1fc8e5) [0x560597b5b8e5]
+../Debug/vws(+0x1d5956) [0x560597b34956]
+../Debug/vws(+0x104c60) [0x560597a63c60]
+../Debug/vws(+0x103ee1) [0x560597a62ee1]
+../Debug/vws(+0x127b00) [0x560597a86b00]
+../Debug/vws(+0x79d6a) [0x5605979d8d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2afc30fa12e1]
+../Debug/vws(+0x79259) [0x5605979d8259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2afc301faa4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afc30fb4060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2afc30fb3fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2afc30fb542a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2afc301fab29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afc30fb4060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2afc30fb3fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2afc30fb542a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2afc30face67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2afc30facf12]
+../Debug/vws(+0x1b0427) [0x560597b0f427]
+../Debug/vws(+0x1c6a1b) [0x560597b25a1b]
+../Debug/vws(+0x1c5c86) [0x560597b24c86]
+../Debug/vws(+0x1bcc46) [0x560597b1bc46]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2afc3018c959]
+../Debug/vws(+0x1fe716) [0x560597b5d716]
+../Debug/vws(+0x1fc8e5) [0x560597b5b8e5]
+../Debug/vws(+0x1d5956) [0x560597b34956]
+../Debug/vws(+0x104c60) [0x560597a63c60]
+../Debug/vws(+0x103ee1) [0x560597a62ee1]
+../Debug/vws(+0x127b00) [0x560597a86b00]
+../Debug/vws(+0x79d6a) [0x5605979d8d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2afc30fa12e1]
+../Debug/vws(+0x79259) [0x5605979d8259]
+
+
+/var/spool/torque/mom_priv/jobs/1218736.polyp1.ie.lehigh.edu.SC: line 4: 26193 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

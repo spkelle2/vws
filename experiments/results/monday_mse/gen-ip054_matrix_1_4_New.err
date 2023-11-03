@@ -1,0 +1,2 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 6786.439, now it is 6784.412.
+=>> PBS: job killed: walltime 3632 exceeded limit 3600

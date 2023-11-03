@@ -1,0 +1,39 @@
+[WARNING] No vpcs were made from a new disjunction. Stopping series.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b02795c9a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b027a383060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b027a382fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b027a38442a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b027a37be67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b027a37bf12]
+../Debug/vws(+0x1b0427) [0x55e77d44d427]
+../Debug/vws(+0x127bb8) [0x55e77d3c4bb8]
+../Debug/vws(+0x79d6a) [0x55e77d316d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b027a3702e1]
+../Debug/vws(+0x79259) [0x55e77d316259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b02795c9a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b027a383060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b027a382fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b027a38442a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b02795c9b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b027a383060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b027a382fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b027a38442a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b027a37be67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b027a37bf12]
+../Debug/vws(+0x1b0427) [0x55e77d44d427]
+../Debug/vws(+0x127bb8) [0x55e77d3c4bb8]
+../Debug/vws(+0x79d6a) [0x55e77d316d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b027a3702e1]
+../Debug/vws(+0x79259) [0x55e77d316259]
+
+
+/var/spool/torque/mom_priv/jobs/1219224.polyp1.ie.lehigh.edu.SC: line 4: 24536 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

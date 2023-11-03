@@ -1,0 +1,59 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 18383.81853962. Calculated: 18383.81853908.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 30648.27506161. Calculated: 30648.27506149.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 42255.60393047. Calculated: 42255.60393014.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 10040.57884407. Calculated: 10040.57884378.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 126443649.24387217. Calculated: 126443649.24387184.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 22325.26045275. Calculated: 22325.26045249.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 1323861.96922970. Calculated: 1323861.96922949.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 8353.65843678. Calculated: 8353.65843574.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 56111876.89661121. Calculated: 56111876.89661016.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 32194.80000019. Calculated: 32194.80000000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 56135718.03817463. Calculated: 56135718.03817443.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 2259540187.21999884. Calculated: 2259540187.21999979.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 32194.80000019. Calculated: 32194.80000000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 2259560018.41999865. Calculated: 2259560018.42000008.
+Since we minimize, disjunctive dual bound should not be less than LP relaxation objective value.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4ec0465a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4ec121f060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4ec121efff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4ec122042a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b4ec1217e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b4ec1217f12]
+../Debug/vws(+0x1b0427) [0x55ca5bc53427]
+../Debug/vws(+0x1fdd88) [0x55ca5bca0d88]
+../Debug/vws(+0x105bb8) [0x55ca5bba8bb8]
+../Debug/vws(+0x103f4c) [0x55ca5bba6f4c]
+../Debug/vws(+0x127b00) [0x55ca5bbcab00]
+../Debug/vws(+0x79d6a) [0x55ca5bb1cd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4ec120c2e1]
+../Debug/vws(+0x79259) [0x55ca5bb1c259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4ec0465a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4ec121f060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4ec121efff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4ec122042a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b4ec0465b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4ec121f060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4ec121efff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4ec122042a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b4ec1217e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b4ec1217f12]
+../Debug/vws(+0x1b0427) [0x55ca5bc53427]
+../Debug/vws(+0x1fdd88) [0x55ca5bca0d88]
+../Debug/vws(+0x105bb8) [0x55ca5bba8bb8]
+../Debug/vws(+0x103f4c) [0x55ca5bba6f4c]
+../Debug/vws(+0x127b00) [0x55ca5bbcab00]
+../Debug/vws(+0x79d6a) [0x55ca5bb1cd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4ec120c2e1]
+../Debug/vws(+0x79259) [0x55ca5bb1c259]
+
+
+/var/spool/torque/mom_priv/jobs/1220073.polyp1.ie.lehigh.edu.SC: line 4: 29678 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

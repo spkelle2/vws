@@ -1,0 +1,48 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 18383.81853962. Calculated: 18383.81853908.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 30648.27506161. Calculated: 30648.27506149.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 42255.60393047. Calculated: 42255.60393014.
+Since we minimize, disjunctive dual bound should not be less than LP relaxation objective value.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b3aefc20a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3af09da060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3af09d9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3af09db42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b3af09d2e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b3af09d2f12]
+../Debug/vws(+0x1b0427) [0x55ed67a41427]
+../Debug/vws(+0x1fdd88) [0x55ed67a8ed88]
+../Debug/vws(+0x105bb8) [0x55ed67996bb8]
+../Debug/vws(+0x103f4c) [0x55ed67994f4c]
+../Debug/vws(+0x127b00) [0x55ed679b8b00]
+../Debug/vws(+0x79d6a) [0x55ed6790ad6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3af09c72e1]
+../Debug/vws(+0x79259) [0x55ed6790a259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b3aefc20a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3af09da060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3af09d9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3af09db42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b3aefc20b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3af09da060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3af09d9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3af09db42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b3af09d2e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b3af09d2f12]
+../Debug/vws(+0x1b0427) [0x55ed67a41427]
+../Debug/vws(+0x1fdd88) [0x55ed67a8ed88]
+../Debug/vws(+0x105bb8) [0x55ed67996bb8]
+../Debug/vws(+0x103f4c) [0x55ed67994f4c]
+../Debug/vws(+0x127b00) [0x55ed679b8b00]
+../Debug/vws(+0x79d6a) [0x55ed6790ad6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3af09c72e1]
+../Debug/vws(+0x79259) [0x55ed6790a259]
+
+
+/var/spool/torque/mom_priv/jobs/1220001.polyp1.ie.lehigh.edu.SC: line 4: 10336 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

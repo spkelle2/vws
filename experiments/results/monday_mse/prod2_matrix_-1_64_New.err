@@ -1,0 +1,39 @@
+
+
+ERROR while running Cbc. Signal SIGSEGV caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b274c23da4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b274cff7060]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12applyRowCutsEiPPK9OsiRowCut+0x14e) [0x2b274bef6b28]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12applyRowCutsEiPK9OsiRowCut+0xc1) [0x2b274bef69b5]
+../Debug/vws(+0x1f7b8d) [0x5570ea8c4b8d]
+../Debug/vws(+0x1311cd) [0x5570ea7fe1cd]
+../Debug/vws(+0x104daf) [0x5570ea7d1daf]
+../Debug/vws(+0x103ee1) [0x5570ea7d0ee1]
+../Debug/vws(+0x127b00) [0x5570ea7f4b00]
+../Debug/vws(+0x79d6a) [0x5570ea746d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b274cfe42e1]
+../Debug/vws(+0x79259) [0x5570ea746259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b274c23da4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b274cff7060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b274cff6fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b274cff842a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b274c23db29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b274cff7060]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12applyRowCutsEiPPK9OsiRowCut+0x14e) [0x2b274bef6b28]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12applyRowCutsEiPK9OsiRowCut+0xc1) [0x2b274bef69b5]
+../Debug/vws(+0x1f7b8d) [0x5570ea8c4b8d]
+../Debug/vws(+0x1311cd) [0x5570ea7fe1cd]
+../Debug/vws(+0x104daf) [0x5570ea7d1daf]
+../Debug/vws(+0x103ee1) [0x5570ea7d0ee1]
+../Debug/vws(+0x127b00) [0x5570ea7f4b00]
+../Debug/vws(+0x79d6a) [0x5570ea746d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b274cfe42e1]
+../Debug/vws(+0x79259) [0x5570ea746259]
+
+
+/var/spool/torque/mom_priv/jobs/1217512.polyp1.ie.lehigh.edu.SC: line 4:  2049 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

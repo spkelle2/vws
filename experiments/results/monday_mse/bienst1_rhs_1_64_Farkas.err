@@ -1,0 +1,40 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (90.124000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+[WARNING] No vpcs were made from a new disjunction. Stopping series.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b9ba05e3a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b9ba139d060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b9ba139cfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b9ba139e42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b9ba1395e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b9ba1395f12]
+../Debug/vws(+0x1b0427) [0x5638aee74427]
+../Debug/vws(+0x127bb8) [0x5638aedebbb8]
+../Debug/vws(+0x79d6a) [0x5638aed3dd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b9ba138a2e1]
+../Debug/vws(+0x79259) [0x5638aed3d259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b9ba05e3a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b9ba139d060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b9ba139cfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b9ba139e42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b9ba05e3b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b9ba139d060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b9ba139cfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b9ba139e42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b9ba1395e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b9ba1395f12]
+../Debug/vws(+0x1b0427) [0x5638aee74427]
+../Debug/vws(+0x127bb8) [0x5638aedebbb8]
+../Debug/vws(+0x79d6a) [0x5638aed3dd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b9ba138a2e1]
+../Debug/vws(+0x79259) [0x5638aed3d259]
+
+
+/var/spool/torque/mom_priv/jobs/1220310.polyp1.ie.lehigh.edu.SC: line 4: 25241 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

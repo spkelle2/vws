@@ -1,0 +1,43 @@
+Solver must be optimal to create disjunctive cuts
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b2b8729fa4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b2b88059060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b2b88058fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b2b8805a42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b2b88051e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b2b88051f12]
+../Debug/vws(+0x1b0475) [0x55594cfb6475]
+../Debug/vws(+0x1059ab) [0x55594cf0b9ab]
+../Debug/vws(+0x103f4a) [0x55594cf09f4a]
+../Debug/vws(+0x127b85) [0x55594cf2db85]
+../Debug/vws(+0x79d6a) [0x55594ce7fd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b2b880462e1]
+../Debug/vws(+0x79259) [0x55594ce7f259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b2b8729fa4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b2b88059060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b2b88058fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b2b8805a42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b2b8729fb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b2b88059060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b2b88058fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b2b8805a42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b2b88051e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b2b88051f12]
+../Debug/vws(+0x1b0475) [0x55594cfb6475]
+../Debug/vws(+0x1059ab) [0x55594cf0b9ab]
+../Debug/vws(+0x103f4a) [0x55594cf09f4a]
+../Debug/vws(+0x127b85) [0x55594cf2db85]
+../Debug/vws(+0x79d6a) [0x55594ce7fd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b2b880462e1]
+../Debug/vws(+0x79259) [0x55594ce7f259]
+
+
+/var/spool/torque/mom_priv/jobs/1216028.polyp1.ie.lehigh.edu.SC: line 4:  5054 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

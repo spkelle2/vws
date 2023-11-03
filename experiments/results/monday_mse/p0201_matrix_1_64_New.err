@@ -1,0 +1,41 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/32 (node id 0) is somewhat incorrect. During BB, it was 7060.098, now it is 7056.063.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/32 (node id 0) is somewhat incorrect. During BB, it was 7195.937, now it is 7183.996.
+[WARNING] No vpcs were made from a new disjunction. Stopping series.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b56d3247a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b56d4001060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b56d4000fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b56d400242a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b56d3ff9e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b56d3ff9f12]
+../Debug/vws(+0x1b0427) [0x5611fb123427]
+../Debug/vws(+0x127bb8) [0x5611fb09abb8]
+../Debug/vws(+0x79d6a) [0x5611fafecd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b56d3fee2e1]
+../Debug/vws(+0x79259) [0x5611fafec259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b56d3247a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b56d4001060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b56d4000fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b56d400242a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b56d3247b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b56d4001060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b56d4000fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b56d400242a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b56d3ff9e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b56d3ff9f12]
+../Debug/vws(+0x1b0427) [0x5611fb123427]
+../Debug/vws(+0x127bb8) [0x5611fb09abb8]
+../Debug/vws(+0x79d6a) [0x5611fafecd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b56d3fee2e1]
+../Debug/vws(+0x79259) [0x5611fafec259]
+
+
+/var/spool/torque/mom_priv/jobs/1218844.polyp1.ie.lehigh.edu.SC: line 4:  6620 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

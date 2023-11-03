@@ -1,0 +1,70 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 1167875.166, now it is 1167185.726.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 7/8 (node id 19) is somewhat incorrect. During BB, it was 1176212.500, now it is 1175512.500.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 8/8 (node id 18) is somewhat incorrect. During BB, it was 1176695.000, now it is 1173820.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 1164372.112, now it is 1163682.671.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 1168989.795, now it is 1168300.354.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 6/8 (node id 18) is somewhat incorrect. During BB, it was 1179877.500, now it is 1177185.833.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 7/8 (node id 19) is somewhat incorrect. During BB, it was 1174085.000, now it is 1172704.200.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 1171735.127, now it is 1171018.834.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 1171735.127, now it is 1171018.834.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 15) is somewhat incorrect. During BB, it was 1175566.198, now it is 1175028.525.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 3/8 (node id 19) is somewhat incorrect. During BB, it was 1176178.125, now it is 1175338.125.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 6/8 (node id 18) is somewhat incorrect. During BB, it was 1177623.000, now it is 1177473.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 8/8 (node id 12) is somewhat incorrect. During BB, it was 1178942.825, now it is 1177687.200.
+Disjunction does not represent a full binary tree.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b89afb52a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b89b090c060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b89b090bfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b89b090d42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b89b0904e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b89b0904f12]
+../Debug/vws(+0x1b0427) [0x55b27ea22427]
+../Debug/vws(+0x1c6a1b) [0x55b27ea38a1b]
+../Debug/vws(+0x1c5c86) [0x55b27ea37c86]
+../Debug/vws(+0x1bcc46) [0x55b27ea2ec46]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b89afae4959]
+../Debug/vws(+0x1fe716) [0x55b27ea70716]
+../Debug/vws(+0x1fc8e5) [0x55b27ea6e8e5]
+../Debug/vws(+0x1d5956) [0x55b27ea47956]
+../Debug/vws(+0x104c60) [0x55b27e976c60]
+../Debug/vws(+0x103ee1) [0x55b27e975ee1]
+../Debug/vws(+0x127b00) [0x55b27e999b00]
+../Debug/vws(+0x79d6a) [0x55b27e8ebd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b89b08f92e1]
+../Debug/vws(+0x79259) [0x55b27e8eb259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b89afb52a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b89b090c060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b89b090bfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b89b090d42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b89afb52b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b89b090c060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b89b090bfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b89b090d42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b89b0904e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b89b0904f12]
+../Debug/vws(+0x1b0427) [0x55b27ea22427]
+../Debug/vws(+0x1c6a1b) [0x55b27ea38a1b]
+../Debug/vws(+0x1c5c86) [0x55b27ea37c86]
+../Debug/vws(+0x1bcc46) [0x55b27ea2ec46]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b89afae4959]
+../Debug/vws(+0x1fe716) [0x55b27ea70716]
+../Debug/vws(+0x1fc8e5) [0x55b27ea6e8e5]
+../Debug/vws(+0x1d5956) [0x55b27ea47956]
+../Debug/vws(+0x104c60) [0x55b27e976c60]
+../Debug/vws(+0x103ee1) [0x55b27e975ee1]
+../Debug/vws(+0x127b00) [0x55b27e999b00]
+../Debug/vws(+0x79d6a) [0x55b27e8ebd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b89b08f92e1]
+../Debug/vws(+0x79259) [0x55b27e8eb259]
+
+
+/var/spool/torque/mom_priv/jobs/1219548.polyp1.ie.lehigh.edu.SC: line 4: 21314 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

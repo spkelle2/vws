@@ -4,37 +4,37 @@ vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void ver
 
 
 ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b2720ce5a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b2721a9f060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b2721a9efff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b2721aa042a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b2721a97e67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b2721a97f12]
-../Debug/vws(+0x1b0427) [0x563d95d4b427]
-../Debug/vws(+0x127bb8) [0x563d95cc2bb8]
-../Debug/vws(+0x79d6a) [0x563d95c14d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b2721a8c2e1]
-../Debug/vws(+0x79259) [0x563d95c14259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b18c01fba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b18c0fb5060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b18c0fb4fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b18c0fb642a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b18c0fade67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b18c0fadf12]
+../Debug/vws(+0x1b0645) [0x56100f2bd645]
+../Debug/vws(+0x127cf2) [0x56100f234cf2]
+../Debug/vws(+0x79d6a) [0x56100f186d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b18c0fa22e1]
+../Debug/vws(+0x79259) [0x56100f186259]
 
 
 
 
 ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b2720ce5a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b2721a9f060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b2721a9efff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b2721aa042a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b2720ce5b29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b2721a9f060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b2721a9efff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b2721aa042a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b2721a97e67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b2721a97f12]
-../Debug/vws(+0x1b0427) [0x563d95d4b427]
-../Debug/vws(+0x127bb8) [0x563d95cc2bb8]
-../Debug/vws(+0x79d6a) [0x563d95c14d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b2721a8c2e1]
-../Debug/vws(+0x79259) [0x563d95c14259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b18c01fba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b18c0fb5060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b18c0fb4fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b18c0fb642a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b18c01fbb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b18c0fb5060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b18c0fb4fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b18c0fb642a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b18c0fade67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b18c0fadf12]
+../Debug/vws(+0x1b0645) [0x56100f2bd645]
+../Debug/vws(+0x127cf2) [0x56100f234cf2]
+../Debug/vws(+0x79d6a) [0x56100f186d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b18c0fa22e1]
+../Debug/vws(+0x79259) [0x56100f186259]
 
 
-/var/spool/torque/mom_priv/jobs/1217104.polyp1.ie.lehigh.edu.SC: line 4: 25076 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+/var/spool/torque/mom_priv/jobs/1222906.polyp1.ie.lehigh.edu.SC: line 4: 22983 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

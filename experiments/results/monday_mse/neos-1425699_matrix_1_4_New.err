@@ -1,0 +1,62 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 18383.81853962. Calculated: 18383.81853908.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 30648.27506161. Calculated: 30648.27506149.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 42255.60393047. Calculated: 42255.60393014.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 53152.13166285. Calculated: 53152.13166246.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 4327036684.641, now it is 4327024711.101.
+Disjunction does not represent a full binary tree.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b47ec7b1a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b47ed56b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b47ed56afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b47ed56c42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b47ed563e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b47ed563f12]
+../Debug/vws(+0x1b0427) [0x55a8c79ca427]
+../Debug/vws(+0x1c6a1b) [0x55a8c79e0a1b]
+../Debug/vws(+0x1c5c86) [0x55a8c79dfc86]
+../Debug/vws(+0x1bcc46) [0x55a8c79d6c46]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b47ec743959]
+../Debug/vws(+0x1fe716) [0x55a8c7a18716]
+../Debug/vws(+0x1fc8e5) [0x55a8c7a168e5]
+../Debug/vws(+0x1d5956) [0x55a8c79ef956]
+../Debug/vws(+0x104c60) [0x55a8c791ec60]
+../Debug/vws(+0x103ee1) [0x55a8c791dee1]
+../Debug/vws(+0x127b00) [0x55a8c7941b00]
+../Debug/vws(+0x79d6a) [0x55a8c7893d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b47ed5582e1]
+../Debug/vws(+0x79259) [0x55a8c7893259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b47ec7b1a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b47ed56b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b47ed56afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b47ed56c42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b47ec7b1b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b47ed56b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b47ed56afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b47ed56c42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b47ed563e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b47ed563f12]
+../Debug/vws(+0x1b0427) [0x55a8c79ca427]
+../Debug/vws(+0x1c6a1b) [0x55a8c79e0a1b]
+../Debug/vws(+0x1c5c86) [0x55a8c79dfc86]
+../Debug/vws(+0x1bcc46) [0x55a8c79d6c46]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b47ec743959]
+../Debug/vws(+0x1fe716) [0x55a8c7a18716]
+../Debug/vws(+0x1fc8e5) [0x55a8c7a168e5]
+../Debug/vws(+0x1d5956) [0x55a8c79ef956]
+../Debug/vws(+0x104c60) [0x55a8c791ec60]
+../Debug/vws(+0x103ee1) [0x55a8c791dee1]
+../Debug/vws(+0x127b00) [0x55a8c7941b00]
+../Debug/vws(+0x79d6a) [0x55a8c7893d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b47ed5582e1]
+../Debug/vws(+0x79259) [0x55a8c7893259]
+
+
+/var/spool/torque/mom_priv/jobs/1219988.polyp1.ie.lehigh.edu.SC: line 4: 13019 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

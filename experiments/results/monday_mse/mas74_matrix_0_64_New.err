@@ -1,0 +1,46 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 30 (real var 33), it is -1.077396e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 33: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 11 ray 30 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2 (real var 2), it is -1.003318e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 2: dot product with obj < 0. Obj viol from solver: -0.00000010. Calculated: -0.00000010.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 46 ray 2 does not satisfy the objective cut. Activity: -0.00000010. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+[WARNING] No vpcs were made from a new disjunction. Stopping series.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ad7a1665a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad7a241f060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad7a241efff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad7a242042a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2ad7a2417e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2ad7a2417f12]
+../Debug/vws(+0x1b0427) [0x55af6c9b5427]
+../Debug/vws(+0x127bb8) [0x55af6c92cbb8]
+../Debug/vws(+0x79d6a) [0x55af6c87ed6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ad7a240c2e1]
+../Debug/vws(+0x79259) [0x55af6c87e259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ad7a1665a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad7a241f060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad7a241efff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad7a242042a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2ad7a1665b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad7a241f060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad7a241efff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad7a242042a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2ad7a2417e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2ad7a2417f12]
+../Debug/vws(+0x1b0427) [0x55af6c9b5427]
+../Debug/vws(+0x127bb8) [0x55af6c92cbb8]
+../Debug/vws(+0x79d6a) [0x55af6c87ed6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ad7a240c2e1]
+../Debug/vws(+0x79259) [0x55af6c87e259]
+
+
+/var/spool/torque/mom_priv/jobs/1217380.polyp1.ie.lehigh.edu.SC: line 4: 13829 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

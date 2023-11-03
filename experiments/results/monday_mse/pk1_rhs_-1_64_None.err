@@ -1,0 +1,55 @@
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2abfa9cd1a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2abfaaa8b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2abfaaa8afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2abfaaa8c42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN18ClpSimplexProgress7loopingEv+0xc35) [0x2abfaa29f293]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual21statusOfProblemInDualERiiPdR11ClpDataSavei+0x216d) [0x2abfaa22ffe9]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual10gutsOfDualEiRPdiR11ClpDataSave+0x41f) [0x2abfaa2218c7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual4dualEii+0x2e3) [0x2abfaa22210d]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex4dualEii+0x168) [0x2abfaa1ffcee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface7resolveEv+0x1584) [0x2abfa99765ac]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel7resolveEP18OsiSolverInterface+0x178) [0x2abfa9c8a2a0]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel7resolveEP11CbcNodeInfoiPdS2_S2_+0xb49) [0x2abfa9c7b681]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel13solveWithCutsER7OsiCutsiP7CbcNode+0x55e) [0x2abfa9c72102]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel9doOneNodeEPS_RP7CbcNodeS3_+0x1f9b) [0x2abfa9c91e6b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe44d) [0x2abfa9c63aab]
+../Debug/vws(+0x104589) [0x55bcbae6e589]
+../Debug/vws(+0x127b00) [0x55bcbae91b00]
+../Debug/vws(+0x79d6a) [0x55bcbade3d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2abfaaa782e1]
+../Debug/vws(+0x79259) [0x55bcbade3259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2abfa9cd1a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2abfaaa8b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2abfaaa8afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2abfaaa8c42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2abfa9cd1b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2abfaaa8b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2abfaaa8afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2abfaaa8c42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN18ClpSimplexProgress7loopingEv+0xc35) [0x2abfaa29f293]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual21statusOfProblemInDualERiiPdR11ClpDataSavei+0x216d) [0x2abfaa22ffe9]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual10gutsOfDualEiRPdiR11ClpDataSave+0x41f) [0x2abfaa2218c7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual4dualEii+0x2e3) [0x2abfaa22210d]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex4dualEii+0x168) [0x2abfaa1ffcee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface7resolveEv+0x1584) [0x2abfa99765ac]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel7resolveEP18OsiSolverInterface+0x178) [0x2abfa9c8a2a0]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel7resolveEP11CbcNodeInfoiPdS2_S2_+0xb49) [0x2abfa9c7b681]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel13solveWithCutsER7OsiCutsiP7CbcNode+0x55e) [0x2abfa9c72102]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel9doOneNodeEPS_RP7CbcNodeS3_+0x1f9b) [0x2abfa9c91e6b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe44d) [0x2abfa9c63aab]
+../Debug/vws(+0x104589) [0x55bcbae6e589]
+../Debug/vws(+0x127b00) [0x55bcbae91b00]
+../Debug/vws(+0x79d6a) [0x55bcbade3d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2abfaaa782e1]
+../Debug/vws(+0x79259) [0x55bcbade3259]
+
+
+/var/spool/torque/mom_priv/jobs/1219815.polyp1.ie.lehigh.edu.SC: line 4: 19866 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
