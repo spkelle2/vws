@@ -1,0 +1,73 @@
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ab13e752a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ab13f50c060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ab13f50bfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ab13f50d42a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2ab13f0d3026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2ab13f0d1514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2ab13f0d1566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2ab13f0d1758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2ab13f0d1b85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength8getArrayEl+0x93) [0x2ab13eec19f5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength11getCapacityEll+0x79) [0x2ab13eec1c1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength14conditionalNewEl+0x38) [0x2ab13eec1d44]
+../Debug/vws(_ZN38CoinFactorizationDoubleArrayWithLength14conditionalNewEl+0x37) [0x557b8521724f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization8getAreasEiiii+0x21a) [0x2ab13ee8a8dc]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN16ClpFactorization9factorizeEP10ClpSimplexib+0x1a5a) [0x2ab13eb7af74]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex17internalFactorizeEi+0x16c1) [0x2ab13ec6ee3b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex7startupEii+0x4d0) [0x2ab13ec90cd6]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual12startupSolveEiPdi+0x8b) [0x2ab13eca1b3f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual4dualEii+0x21d) [0x2ab13eca3047]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex4dualEii+0x168) [0x2ab13ec80cee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface7resolveEv+0x1584) [0x2ab13e3f75ac]
+../Debug/vws(+0x1f7ad0) [0x557b85378ad0]
+../Debug/vws(+0x1050bd) [0x557b852860bd]
+../Debug/vws(+0x103fbd) [0x557b85284fbd]
+../Debug/vws(+0x127be9) [0x557b852a8be9]
+../Debug/vws(+0x79d6a) [0x557b851fad6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ab13f4f92e1]
+../Debug/vws(+0x79259) [0x557b851fa259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ab13e752a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ab13f50c060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ab13f50bfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ab13f50d42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2ab13e752b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ab13f50c060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ab13f50bfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ab13f50d42a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2ab13f0d3026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2ab13f0d1514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2ab13f0d1566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2ab13f0d1758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2ab13f0d1b85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength8getArrayEl+0x93) [0x2ab13eec19f5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength11getCapacityEll+0x79) [0x2ab13eec1c1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength14conditionalNewEl+0x38) [0x2ab13eec1d44]
+../Debug/vws(_ZN38CoinFactorizationDoubleArrayWithLength14conditionalNewEl+0x37) [0x557b8521724f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization8getAreasEiiii+0x21a) [0x2ab13ee8a8dc]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN16ClpFactorization9factorizeEP10ClpSimplexib+0x1a5a) [0x2ab13eb7af74]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex17internalFactorizeEi+0x16c1) [0x2ab13ec6ee3b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex7startupEii+0x4d0) [0x2ab13ec90cd6]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual12startupSolveEiPdi+0x8b) [0x2ab13eca1b3f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual4dualEii+0x21d) [0x2ab13eca3047]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex4dualEii+0x168) [0x2ab13ec80cee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface7resolveEv+0x1584) [0x2ab13e3f75ac]
+../Debug/vws(+0x1f7ad0) [0x557b85378ad0]
+../Debug/vws(+0x1050bd) [0x557b852860bd]
+../Debug/vws(+0x103fbd) [0x557b85284fbd]
+../Debug/vws(+0x127be9) [0x557b852a8be9]
+../Debug/vws(+0x79d6a) [0x557b851fad6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ab13f4f92e1]
+../Debug/vws(+0x79259) [0x557b851fa259]
+
+
+/var/spool/torque/mom_priv/jobs/1210711.polyp1.ie.lehigh.edu.SC: line 4: 27686 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

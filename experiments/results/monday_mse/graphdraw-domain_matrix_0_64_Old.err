@@ -1,0 +1,45 @@
+Since we minimize, disjunctive dual bound should not be less than LP relaxation objective value.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b1dce206a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b1dcefc0060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b1dcefbffff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b1dcefc142a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b1dcefb8e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b1dcefb8f12]
+../Debug/vws(+0x1b0427) [0x55db7e0b5427]
+../Debug/vws(+0x1fdd88) [0x55db7e102d88]
+../Debug/vws(+0x105bb8) [0x55db7e00abb8]
+../Debug/vws(+0x103f4c) [0x55db7e008f4c]
+../Debug/vws(+0x127b00) [0x55db7e02cb00]
+../Debug/vws(+0x79d6a) [0x55db7df7ed6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b1dcefad2e1]
+../Debug/vws(+0x79259) [0x55db7df7e259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b1dce206a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b1dcefc0060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b1dcefbffff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b1dcefc142a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b1dce206b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b1dcefc0060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b1dcefbffff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b1dcefc142a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b1dcefb8e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b1dcefb8f12]
+../Debug/vws(+0x1b0427) [0x55db7e0b5427]
+../Debug/vws(+0x1fdd88) [0x55db7e102d88]
+../Debug/vws(+0x105bb8) [0x55db7e00abb8]
+../Debug/vws(+0x103f4c) [0x55db7e008f4c]
+../Debug/vws(+0x127b00) [0x55db7e02cb00]
+../Debug/vws(+0x79d6a) [0x55db7df7ed6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b1dcefad2e1]
+../Debug/vws(+0x79259) [0x55db7df7e259]
+
+
+/var/spool/torque/mom_priv/jobs/1219349.polyp1.ie.lehigh.edu.SC: line 4: 18867 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

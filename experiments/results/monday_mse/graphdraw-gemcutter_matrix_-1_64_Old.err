@@ -1,0 +1,71 @@
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b7747320a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b77480da060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b77480d9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b77480db42a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2b7747ca1026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2b7747c9f514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2b7747c9f566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2b7747c9f758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2b7747c9fb85]
+../Debug/vws(_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv+0x5e) [0x55e26609dfaa]
+../Debug/vws(_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m+0x28) [0x55e266099c92]
+../Debug/vws(_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm+0x2a) [0x55e2660928d8]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_+0x2c) [0x2b774736bd54]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_+0x16b) [0x2b7747369c2f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN8ClpModel10gutsOfCopyERKS_i+0x3f8) [0x2b77477788e2]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN8ClpModelC2ERKS_i+0x175) [0x2b77477781ab]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplexC1ERKS_i+0x2a) [0x2b774783e630]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterfaceC1ERKS_+0x275) [0x2b7746fd7733]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZNK21OsiClpSolverInterface5cloneEb+0x3e) [0x2b7746fd6b24]
+../Debug/vws(+0x1f7748) [0x55e26619e748]
+../Debug/vws(+0x1fdb5f) [0x55e2661a4b5f]
+../Debug/vws(+0x105bb8) [0x55e2660acbb8]
+../Debug/vws(+0x103f4c) [0x55e2660aaf4c]
+../Debug/vws(+0x127b00) [0x55e2660ceb00]
+../Debug/vws(+0x79d6a) [0x55e266020d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b77480c72e1]
+../Debug/vws(+0x79259) [0x55e266020259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b7747320a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b77480da060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b77480d9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b77480db42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b7747320b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b77480da060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b77480d9fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b77480db42a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2b7747ca1026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2b7747c9f514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2b7747c9f566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2b7747c9f758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2b7747c9fb85]
+../Debug/vws(_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv+0x5e) [0x55e26609dfaa]
+../Debug/vws(_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m+0x28) [0x55e266099c92]
+../Debug/vws(_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm+0x2a) [0x55e2660928d8]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_+0x2c) [0x2b774736bd54]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_+0x16b) [0x2b7747369c2f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN8ClpModel10gutsOfCopyERKS_i+0x3f8) [0x2b77477788e2]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN8ClpModelC2ERKS_i+0x175) [0x2b77477781ab]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplexC1ERKS_i+0x2a) [0x2b774783e630]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterfaceC1ERKS_+0x275) [0x2b7746fd7733]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZNK21OsiClpSolverInterface5cloneEb+0x3e) [0x2b7746fd6b24]
+../Debug/vws(+0x1f7748) [0x55e26619e748]
+../Debug/vws(+0x1fdb5f) [0x55e2661a4b5f]
+../Debug/vws(+0x105bb8) [0x55e2660acbb8]
+../Debug/vws(+0x103f4c) [0x55e2660aaf4c]
+../Debug/vws(+0x127b00) [0x55e2660ceb00]
+../Debug/vws(+0x79d6a) [0x55e266020d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b77480c72e1]
+../Debug/vws(+0x79259) [0x55e266020259]
+
+
+/var/spool/torque/mom_priv/jobs/1218821.polyp1.ie.lehigh.edu.SC: line 4: 25221 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

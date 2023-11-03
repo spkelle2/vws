@@ -1,0 +1,9 @@
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+
+
+ERROR while running Cbc. Signal SIGSEGV caught. Getting stack trace.
+/var/spool/torque/mom_priv/jobs/1217486.polyp1.ie.lehigh.edu.SC: line 4:  8351 Segmentation fault      (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

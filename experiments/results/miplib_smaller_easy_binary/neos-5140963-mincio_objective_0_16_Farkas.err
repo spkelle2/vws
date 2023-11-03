@@ -1,1 +1,43 @@
-*** ERROR (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/SolverHelper.cpp:448: Solver is dual infeasible. Check why this happened!
+Solver must be optimal to create disjunctive cuts
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b5d442ffa4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b5d450b9060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b5d450b8fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b5d450ba42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b5d450b1e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b5d450b1f12]
+../Debug/vws(+0x1b0645) [0x56410a610645]
+../Debug/vws(+0x105051) [0x56410a565051]
+../Debug/vws(+0x103fb7) [0x56410a563fb7]
+../Debug/vws(+0x127c3a) [0x56410a587c3a]
+../Debug/vws(+0x79d6a) [0x56410a4d9d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b5d450a62e1]
+../Debug/vws(+0x79259) [0x56410a4d9259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b5d442ffa4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b5d450b9060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b5d450b8fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b5d450ba42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b5d442ffb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b5d450b9060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b5d450b8fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b5d450ba42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b5d450b1e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b5d450b1f12]
+../Debug/vws(+0x1b0645) [0x56410a610645]
+../Debug/vws(+0x105051) [0x56410a565051]
+../Debug/vws(+0x103fb7) [0x56410a563fb7]
+../Debug/vws(+0x127c3a) [0x56410a587c3a]
+../Debug/vws(+0x79d6a) [0x56410a4d9d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b5d450a62e1]
+../Debug/vws(+0x79259) [0x56410a4d9259]
+
+
+/var/spool/torque/mom_priv/jobs/1222832.polyp1.ie.lehigh.edu.SC: line 4:  4617 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

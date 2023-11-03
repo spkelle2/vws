@@ -1,0 +1,44 @@
+vws: /home/sek519/warm_starting/vpc/lib/Cbc-trunk/Cbc/src/CbcModel.cpp:11117: int CbcModel::takeOffCuts(OsiCuts&, bool, OsiCuts*, int, const OsiRowCut**): Assertion `numberRowsAtContinuous_ + totalNumberCuts == solver_->getNumRows()' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2af8c4a13a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2af8c57cd060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2af8c57ccfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2af8c57ce42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2af8c57c5e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2af8c57c5f12]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel11takeOffCutsER7OsiCutsbPS0_iPPK9OsiRowCut+0xf3) [0x2af8c49bc1e7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel12chooseBranchERP7CbcNodeiS1_R7OsiCutsRbP18CoinWarmStartBasisPKdS9_RP15OsiSolverBranch+0x122f) [0x2af8c49cde1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xaf15) [0x2af8c49a2573]
+../Debug/vws(+0x10457e) [0x564b51a0e57e]
+../Debug/vws(+0x127b85) [0x564b51a31b85]
+../Debug/vws(+0x79d6a) [0x564b51983d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2af8c57ba2e1]
+../Debug/vws(+0x79259) [0x564b51983259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2af8c4a13a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2af8c57cd060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2af8c57ccfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2af8c57ce42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2af8c4a13b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2af8c57cd060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2af8c57ccfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2af8c57ce42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2af8c57c5e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2af8c57c5f12]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel11takeOffCutsER7OsiCutsbPS0_iPPK9OsiRowCut+0xf3) [0x2af8c49bc1e7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel12chooseBranchERP7CbcNodeiS1_R7OsiCutsRbP18CoinWarmStartBasisPKdS9_RP15OsiSolverBranch+0x122f) [0x2af8c49cde1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xaf15) [0x2af8c49a2573]
+../Debug/vws(+0x10457e) [0x564b51a0e57e]
+../Debug/vws(+0x127b85) [0x564b51a31b85]
+../Debug/vws(+0x79d6a) [0x564b51983d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2af8c57ba2e1]
+../Debug/vws(+0x79259) [0x564b51983259]
+
+
+/var/spool/torque/mom_priv/jobs/1216165.polyp1.ie.lehigh.edu.SC: line 4: 22578 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

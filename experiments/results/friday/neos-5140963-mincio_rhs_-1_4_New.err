@@ -1,0 +1,59 @@
+node_id must be in stats_.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4bb59dba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4bb6795060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4bb6794fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4bb679642a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b4bb678de67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b4bb678df12]
+../Debug/vws(+0x1b0475) [0x55e2619fb475]
+../Debug/vws(+0x1c237c) [0x55e261a0d37c]
+../Debug/vws(+0x1c248d) [0x55e261a0d48d]
+../Debug/vws(+0x1c5028) [0x55e261a10028]
+../Debug/vws(+0x1bcc94) [0x55e261a07c94]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b4bb596d959]
+../Debug/vws(+0x1fe284) [0x55e261a49284]
+../Debug/vws(+0x1fc52d) [0x55e261a4752d]
+../Debug/vws(+0x1d559e) [0x55e261a2059e]
+../Debug/vws(+0x104b84) [0x55e26194fb84]
+../Debug/vws(+0x103edf) [0x55e26194eedf]
+../Debug/vws(+0x127b85) [0x55e261972b85]
+../Debug/vws(+0x79d6a) [0x55e2618c4d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4bb67822e1]
+../Debug/vws(+0x79259) [0x55e2618c4259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4bb59dba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4bb6795060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4bb6794fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4bb679642a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b4bb59dbb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4bb6795060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4bb6794fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4bb679642a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b4bb678de67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b4bb678df12]
+../Debug/vws(+0x1b0475) [0x55e2619fb475]
+../Debug/vws(+0x1c237c) [0x55e261a0d37c]
+../Debug/vws(+0x1c248d) [0x55e261a0d48d]
+../Debug/vws(+0x1c5028) [0x55e261a10028]
+../Debug/vws(+0x1bcc94) [0x55e261a07c94]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b4bb596d959]
+../Debug/vws(+0x1fe284) [0x55e261a49284]
+../Debug/vws(+0x1fc52d) [0x55e261a4752d]
+../Debug/vws(+0x1d559e) [0x55e261a2059e]
+../Debug/vws(+0x104b84) [0x55e26194fb84]
+../Debug/vws(+0x103edf) [0x55e26194eedf]
+../Debug/vws(+0x127b85) [0x55e261972b85]
+../Debug/vws(+0x79d6a) [0x55e2618c4d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4bb67822e1]
+../Debug/vws(+0x79259) [0x55e2618c4259]
+
+
+/var/spool/torque/mom_priv/jobs/1216075.polyp1.ie.lehigh.edu.SC: line 4: 24006 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

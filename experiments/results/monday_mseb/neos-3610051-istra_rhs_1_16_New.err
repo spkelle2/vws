@@ -1,0 +1,49 @@
+messed up a farkas cofficient
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b3e41944a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3e426fe060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3e426fdfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3e426ff42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b3e426f6e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b3e426f6f12]
+../Debug/vws(+0x1b0427) [0x563dbd8c1427]
+../Debug/vws(+0x133373) [0x563dbd844373]
+../Debug/vws(+0x131b3a) [0x563dbd842b3a]
+../Debug/vws(+0x1312e6) [0x563dbd8422e6]
+../Debug/vws(+0x104daf) [0x563dbd815daf]
+../Debug/vws(+0x103ee1) [0x563dbd814ee1]
+../Debug/vws(+0x127b00) [0x563dbd838b00]
+../Debug/vws(+0x79d6a) [0x563dbd78ad6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3e426eb2e1]
+../Debug/vws(+0x79259) [0x563dbd78a259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b3e41944a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3e426fe060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3e426fdfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3e426ff42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b3e41944b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3e426fe060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3e426fdfff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3e426ff42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b3e426f6e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b3e426f6f12]
+../Debug/vws(+0x1b0427) [0x563dbd8c1427]
+../Debug/vws(+0x133373) [0x563dbd844373]
+../Debug/vws(+0x131b3a) [0x563dbd842b3a]
+../Debug/vws(+0x1312e6) [0x563dbd8422e6]
+../Debug/vws(+0x104daf) [0x563dbd815daf]
+../Debug/vws(+0x103ee1) [0x563dbd814ee1]
+../Debug/vws(+0x127b00) [0x563dbd838b00]
+../Debug/vws(+0x79d6a) [0x563dbd78ad6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3e426eb2e1]
+../Debug/vws(+0x79259) [0x563dbd78a259]
+
+
+/var/spool/torque/mom_priv/jobs/1216764.polyp1.ie.lehigh.edu.SC: line 4:  8846 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

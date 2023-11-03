@@ -1,0 +1,81 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 144 (real var 290), it is -4.625602e-06. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 290: dot product with obj < 0. Obj viol from solver: -0.00000463. Calculated: -0.00000463.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 18 ray 144 does not satisfy the objective cut. Activity: -0.00000463. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 144 (real var 290), it is -4.719048e-06. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 290: dot product with obj < 0. Obj viol from solver: -0.00000472. Calculated: -0.00000472.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 18 ray 144 does not satisfy the objective cut. Activity: -0.00000472. RHS: 0.00000000. Small enough violation that we only send a warning.
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b709659da4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b7097357060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b7097356fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b709735842a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2b7096f1e026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2b7096f1c514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2b7096f1c566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2b7096f1c758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2b7096f1cb85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength8getArrayEl+0x93) [0x2b7096d0c9f5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength11getCapacityEll+0x79) [0x2b7096d0cc1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength14conditionalNewEl+0x38) [0x2b7096d0cd44]
+../Debug/vws(_ZN22CoinIntArrayWithLength14conditionalNewEl+0x37) [0x55ba1aab861d]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization8getAreasEiiii+0x235) [0x2b7096cd58f7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN16ClpFactorization9factorizeEP10ClpSimplexib+0x1a5a) [0x2b70969c5f74]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex17internalFactorizeEi+0x16c1) [0x2b7096ab9e3b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex7startupEii+0x4d0) [0x2b7096adbcd6]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual12startupSolveEiPdi+0x8b) [0x2b7096aecb3f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual4dualEii+0x21d) [0x2b7096aee047]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex4dualEii+0x168) [0x2b7096acbcee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface7resolveEv+0x1584) [0x2b70962425ac]
+../Debug/vws(+0x1f7d1e) [0x55ba1ac19d1e]
+../Debug/vws(+0x1fdb5f) [0x55ba1ac1fb5f]
+../Debug/vws(+0x105bb8) [0x55ba1ab27bb8]
+../Debug/vws(+0x103f4c) [0x55ba1ab25f4c]
+../Debug/vws(+0x127b00) [0x55ba1ab49b00]
+../Debug/vws(+0x79d6a) [0x55ba1aa9bd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b70973442e1]
+../Debug/vws(+0x79259) [0x55ba1aa9b259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b709659da4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b7097357060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b7097356fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b709735842a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b709659db29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b7097357060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b7097356fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b709735842a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2b7096f1e026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2b7096f1c514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2b7096f1c566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2b7096f1c758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2b7096f1cb85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength8getArrayEl+0x93) [0x2b7096d0c9f5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength11getCapacityEll+0x79) [0x2b7096d0cc1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength14conditionalNewEl+0x38) [0x2b7096d0cd44]
+../Debug/vws(_ZN22CoinIntArrayWithLength14conditionalNewEl+0x37) [0x55ba1aab861d]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization8getAreasEiiii+0x235) [0x2b7096cd58f7]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN16ClpFactorization9factorizeEP10ClpSimplexib+0x1a5a) [0x2b70969c5f74]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex17internalFactorizeEi+0x16c1) [0x2b7096ab9e3b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex7startupEii+0x4d0) [0x2b7096adbcd6]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual12startupSolveEiPdi+0x8b) [0x2b7096aecb3f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN14ClpSimplexDual4dualEii+0x21d) [0x2b7096aee047]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libClp.so.0(_ZN10ClpSimplex4dualEii+0x168) [0x2b7096acbcee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface7resolveEv+0x1584) [0x2b70962425ac]
+../Debug/vws(+0x1f7d1e) [0x55ba1ac19d1e]
+../Debug/vws(+0x1fdb5f) [0x55ba1ac1fb5f]
+../Debug/vws(+0x105bb8) [0x55ba1ab27bb8]
+../Debug/vws(+0x103f4c) [0x55ba1ab25f4c]
+../Debug/vws(+0x127b00) [0x55ba1ab49b00]
+../Debug/vws(+0x79d6a) [0x55ba1aa9bd6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b70973442e1]
+../Debug/vws(+0x79259) [0x55ba1aa9b259]
+
+
+/var/spool/torque/mom_priv/jobs/1218269.polyp1.ie.lehigh.edu.SC: line 4: 15802 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

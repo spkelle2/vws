@@ -1,0 +1,63 @@
+*** WARNING (version #1ed723f): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 185279.557, now it is 183910.318.
+*** WARNING (version #1ed723f): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 185279.557, now it is 183910.318.
+*** WARNING (version #1ed723f): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 187538.472, now it is 185541.452.
+*** WARNING (version #1ed723f): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 187538.472, now it is 185541.452.
+node_id must be in stats_.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b57f4e31a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b57f5beb060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b57f5beafff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b57f5bec42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b57f5be3e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b57f5be3f12]
+../Debug/vws(+0x1b0475) [0x5557cb62a475]
+../Debug/vws(+0x1c237c) [0x5557cb63c37c]
+../Debug/vws(+0x1c248d) [0x5557cb63c48d]
+../Debug/vws(+0x1c4943) [0x5557cb63e943]
+../Debug/vws(+0x1bcc94) [0x5557cb636c94]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b57f4dc3959]
+../Debug/vws(+0x1fe284) [0x5557cb678284]
+../Debug/vws(+0x1fc52d) [0x5557cb67652d]
+../Debug/vws(+0x1d559e) [0x5557cb64f59e]
+../Debug/vws(+0x104b84) [0x5557cb57eb84]
+../Debug/vws(+0x103edf) [0x5557cb57dedf]
+../Debug/vws(+0x127b85) [0x5557cb5a1b85]
+../Debug/vws(+0x79d6a) [0x5557cb4f3d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b57f5bd82e1]
+../Debug/vws(+0x79259) [0x5557cb4f3259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b57f4e31a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b57f5beb060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b57f5beafff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b57f5bec42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b57f4e31b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b57f5beb060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b57f5beafff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b57f5bec42a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b57f5be3e67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b57f5be3f12]
+../Debug/vws(+0x1b0475) [0x5557cb62a475]
+../Debug/vws(+0x1c237c) [0x5557cb63c37c]
+../Debug/vws(+0x1c248d) [0x5557cb63c48d]
+../Debug/vws(+0x1c4943) [0x5557cb63e943]
+../Debug/vws(+0x1bcc94) [0x5557cb636c94]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0xe2fb) [0x2b57f4dc3959]
+../Debug/vws(+0x1fe284) [0x5557cb678284]
+../Debug/vws(+0x1fc52d) [0x5557cb67652d]
+../Debug/vws(+0x1d559e) [0x5557cb64f59e]
+../Debug/vws(+0x104b84) [0x5557cb57eb84]
+../Debug/vws(+0x103edf) [0x5557cb57dedf]
+../Debug/vws(+0x127b85) [0x5557cb5a1b85]
+../Debug/vws(+0x79d6a) [0x5557cb4f3d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b57f5bd82e1]
+../Debug/vws(+0x79259) [0x5557cb4f3259]
+
+
+/var/spool/torque/mom_priv/jobs/1216159.polyp1.ie.lehigh.edu.SC: line 4:  6251 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

@@ -1,0 +1,18 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 130 (real var 141), it is -2.078694e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 135 (real var 146), it is -1.315484e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 141: dot product with obj < 0. Obj viol from solver: -0.00000021. Calculated: -0.00000021.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 4 ray 130 does not satisfy the objective cut. Activity: -0.00000021. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 146: dot product with obj < 0. Obj viol from solver: -0.00000013. Calculated: -0.00000013.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 4 ray 135 does not satisfy the objective cut. Activity: -0.00000013. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 117 (real var 128), it is -1.665341e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 128: dot product with obj < 0. Obj viol from solver: -0.00000017. Calculated: -0.00000017.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 6 ray 117 does not satisfy the objective cut. Activity: -0.00000017. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.

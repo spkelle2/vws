@@ -1,0 +1,3 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 187.383, now it is 185.410.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 191.979, now it is 188.059.
+*** ERROR (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1250: Objective at parent node 1/2 (node id 0) is incorrect. During BB, it was 200.197, now it is 187.530.

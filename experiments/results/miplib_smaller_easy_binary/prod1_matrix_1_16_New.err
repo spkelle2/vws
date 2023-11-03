@@ -81,39 +81,39 @@
 
 
 ERROR while running Cbc. Signal SIGSEGV caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2adffbd44a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2adffcafe060]
-/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2adffc6c2443]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2adffb9eb3b8]
-../Debug/vws(+0x1f7bdc) [0x55f4d1517bdc]
-../Debug/vws(+0x1311cd) [0x55f4d14511cd]
-../Debug/vws(+0x104daf) [0x55f4d1424daf]
-../Debug/vws(+0x103ee1) [0x55f4d1423ee1]
-../Debug/vws(+0x127b00) [0x55f4d1447b00]
-../Debug/vws(+0x79d6a) [0x55f4d1399d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2adffcaeb2e1]
-../Debug/vws(+0x79259) [0x55f4d1399259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2afb4266ba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afb43425060]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2afb42fe9443]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2afb423163b8]
+../Debug/vws(+0x1f7dfa) [0x5624f2914dfa]
+../Debug/vws(+0x1313eb) [0x5624f284e3eb]
+../Debug/vws(+0x104dce) [0x5624f2821dce]
+../Debug/vws(+0x103ee1) [0x5624f2820ee1]
+../Debug/vws(+0x127c3a) [0x5624f2844c3a]
+../Debug/vws(+0x79d6a) [0x5624f2796d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2afb434122e1]
+../Debug/vws(+0x79259) [0x5624f2796259]
 
 
 
 
 ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2adffbd44a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2adffcafe060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2adffcafdfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2adffcaff42a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2adffbd44b29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2adffcafe060]
-/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2adffc6c2443]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2adffb9eb3b8]
-../Debug/vws(+0x1f7bdc) [0x55f4d1517bdc]
-../Debug/vws(+0x1311cd) [0x55f4d14511cd]
-../Debug/vws(+0x104daf) [0x55f4d1424daf]
-../Debug/vws(+0x103ee1) [0x55f4d1423ee1]
-../Debug/vws(+0x127b00) [0x55f4d1447b00]
-../Debug/vws(+0x79d6a) [0x55f4d1399d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2adffcaeb2e1]
-../Debug/vws(+0x79259) [0x55f4d1399259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2afb4266ba4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afb43425060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2afb43424fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2afb4342642a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2afb4266bb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afb43425060]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2afb42fe9443]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2afb423163b8]
+../Debug/vws(+0x1f7dfa) [0x5624f2914dfa]
+../Debug/vws(+0x1313eb) [0x5624f284e3eb]
+../Debug/vws(+0x104dce) [0x5624f2821dce]
+../Debug/vws(+0x103ee1) [0x5624f2820ee1]
+../Debug/vws(+0x127c3a) [0x5624f2844c3a]
+../Debug/vws(+0x79d6a) [0x5624f2796d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2afb434122e1]
+../Debug/vws(+0x79259) [0x5624f2796259]
 
 
-/var/spool/torque/mom_priv/jobs/1217196.polyp1.ie.lehigh.edu.SC: line 4: 26234 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+/var/spool/torque/mom_priv/jobs/1222998.polyp1.ie.lehigh.edu.SC: line 4: 23039 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

@@ -1,0 +1,73 @@
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4a59efea4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4a5acb8060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4a5acb7fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4a5acb942a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2b4a5a87f026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2b4a5a87d514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2b4a5a87d566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2b4a5a87d758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2b4a5a87db85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength8getArrayEl+0x93) [0x2b4a5a66d9f5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength11getCapacityEll+0x79) [0x2b4a5a66dc1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength14conditionalNewEl+0x38) [0x2b4a5a66dd44]
+../Debug/vws(_ZN38CoinFactorizationDoubleArrayWithLength14conditionalNewEl+0x37) [0x564d4c52f24f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization8getAreasEiiii+0x272) [0x2b4a5a636934]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization9factorizeERK16CoinPackedMatrixPiS3_d+0x1f3) [0x2b4a5a634e23]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN14duprow3_action8presolveEP18CoinPresolveMatrixPK18CoinPresolveAction+0xa91) [0x2b4a5a70a03f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsi.so.0(_ZN11OsiPresolve8presolveEP18CoinPresolveMatrix+0x9ac) [0x2b4a59c4d528]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsi.so.0(_ZN11OsiPresolve14presolvedModelER18OsiSolverInterfacedbiPKcbS3_PKd+0x5fb) [0x2b4a59c4a8d1]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZNK12CbcHeuristic19smallBranchAndBoundEP18OsiSolverInterfaceiPdRddNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x5cd) [0x2b4a59e1f909]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN17CbcHeuristicFPump16solutionInternalERdPd+0x8ac3) [0x2b4a59e43f81]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN17CbcHeuristicFPump8solutionERdPd+0xba3) [0x2b4a59e468c3]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel18doHeuristicsAtRootEi+0xb3c) [0x2b4a59ebad0e]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0x5f9d) [0x2b4a59e885fb]
+../Debug/vws(+0x104589) [0x564d4c59d589]
+../Debug/vws(+0x127b00) [0x564d4c5c0b00]
+../Debug/vws(+0x79d6a) [0x564d4c512d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4a5aca52e1]
+../Debug/vws(+0x79259) [0x564d4c512259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b4a59efea4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4a5acb8060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4a5acb7fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4a5acb942a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b4a59efeb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b4a5acb8060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b4a5acb7fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b4a5acb942a]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0xc0) [0x2b4a5a87f026]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0514) [0x2b4a5a87d514]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(+0xb0566) [0x2b4a5a87d566]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__cxa_rethrow+0) [0x2b4a5a87d758]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(_Znwm+0x59) [0x2b4a5a87db85]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength8getArrayEl+0x93) [0x2b4a5a66d9f5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength11getCapacityEll+0x79) [0x2b4a5a66dc1b]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN19CoinArrayWithLength14conditionalNewEl+0x38) [0x2b4a5a66dd44]
+../Debug/vws(_ZN38CoinFactorizationDoubleArrayWithLength14conditionalNewEl+0x37) [0x564d4c52f24f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization8getAreasEiiii+0x272) [0x2b4a5a636934]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN17CoinFactorization9factorizeERK16CoinPackedMatrixPiS3_d+0x1f3) [0x2b4a5a634e23]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCoinUtils.so.0(_ZN14duprow3_action8presolveEP18CoinPresolveMatrixPK18CoinPresolveAction+0xa91) [0x2b4a5a70a03f]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsi.so.0(_ZN11OsiPresolve8presolveEP18CoinPresolveMatrix+0x9ac) [0x2b4a59c4d528]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsi.so.0(_ZN11OsiPresolve14presolvedModelER18OsiSolverInterfacedbiPKcbS3_PKd+0x5fb) [0x2b4a59c4a8d1]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZNK12CbcHeuristic19smallBranchAndBoundEP18OsiSolverInterfaceiPdRddNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x5cd) [0x2b4a59e1f909]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN17CbcHeuristicFPump16solutionInternalERdPd+0x8ac3) [0x2b4a59e43f81]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN17CbcHeuristicFPump8solutionERdPd+0xba3) [0x2b4a59e468c3]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel18doHeuristicsAtRootEi+0xb3c) [0x2b4a59ebad0e]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0x5f9d) [0x2b4a59e885fb]
+../Debug/vws(+0x104589) [0x564d4c59d589]
+../Debug/vws(+0x127b00) [0x564d4c5c0b00]
+../Debug/vws(+0x79d6a) [0x564d4c512d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b4a5aca52e1]
+../Debug/vws(+0x79259) [0x564d4c512259]
+
+
+/var/spool/torque/mom_priv/jobs/1217562.polyp1.ie.lehigh.edu.SC: line 4:  4068 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

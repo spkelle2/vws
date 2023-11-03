@@ -1,0 +1,6 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/32 (node id 0) is somewhat incorrect. During BB, it was 112228.228, now it is 112130.041.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 29/32 (node id 87) is somewhat incorrect. During BB, it was 112415.240, now it is 112399.825.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 30/32 (node id 48) is somewhat incorrect. During BB, it was 112407.840, now it is 112392.425.
+Disjunction does not represent a full binary tree.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+/var/spool/torque/mom_priv/jobs/1217548.polyp1.ie.lehigh.edu.SC: line 4: 24075 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

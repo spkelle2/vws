@@ -1,0 +1,43 @@
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 29 (real var 33), it is -1.169747e-07. Small enough error that we only send warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 33: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 10 ray 29 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+[WARNING] No vpcs were made from a new disjunction. Stopping series.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b7d7948ca4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b7d7a246060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b7d7a245fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b7d7a24742a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b7d7a23ee67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b7d7a23ef12]
+../Debug/vws(+0x1b0427) [0x55e2afdcf427]
+../Debug/vws(+0x127bb8) [0x55e2afd46bb8]
+../Debug/vws(+0x79d6a) [0x55e2afc98d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b7d7a2332e1]
+../Debug/vws(+0x79259) [0x55e2afc98259]
+
+
+
+
+ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b7d7948ca4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b7d7a246060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b7d7a245fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b7d7a24742a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b7d7948cb29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b7d7a246060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b7d7a245fff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b7d7a24742a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b7d7a23ee67]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b7d7a23ef12]
+../Debug/vws(+0x1b0427) [0x55e2afdcf427]
+../Debug/vws(+0x127bb8) [0x55e2afd46bb8]
+../Debug/vws(+0x79d6a) [0x55e2afc98d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b7d7a2332e1]
+../Debug/vws(+0x79259) [0x55e2afc98259]
+
+
+/var/spool/torque/mom_priv/jobs/1217388.polyp1.ie.lehigh.edu.SC: line 4: 21499 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
