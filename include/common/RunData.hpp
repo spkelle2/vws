@@ -18,6 +18,10 @@ namespace fs = ghc::filesystem;
 /** A data class to track specifics on a given solved MIP instance */
 struct RunData {
 public:
+
+  /** the index of the instance */
+  int instanceIndex;
+
   /** the dual bound after solving the root LP relaxation for each instance */
   double lpBound;
 
@@ -72,8 +76,17 @@ public:
   /** number of branch and bound nodes */
   int nodes;
 
-  /** max sized disjunction used to  */
+  /** size of disjunction that generated vpcs */
   int actualTerms;
+
+  /** vector of primal bounds at given point in time */
+  std::vector<double> primalBounds;
+
+  /** vector of dual bounds at given point in time */
+  std::vector<double> dualBounds;
+
+  /** vector times that bounds are captured */
+  std::vector<double> times;
 
   /** constructor (default) */
   RunData();
@@ -96,8 +109,14 @@ public:
   /** Get a comma-separated string of the values of RunData's attributes */
   std::string getValues();
 
+  /** Get a comma-separated string of the names of RunData's attributes tracking bound closure */
+  std::string getBoundHeader();
+
+  /** Get a comma-separated string of the values of RunData's attributes tracking bound closure */
+  std::string getBoundValues();
+
   /** writes this struct's attributes to the given csv file */
-  void writeData(fs::path filePath);
+  void writeData(fs::path filePath, std::string kind);
 };
 
 #endif

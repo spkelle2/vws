@@ -114,6 +114,7 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   // turn on strong branching and cut generation
   CbcStrategyDefault strategy(false, 5, 0);
   model.setStrategy(strategy);
+  model.setDblParam(CbcModel::CbcAllowableFractionGap, .01); // stop at 1% gap
   // model.setLogLevel(2);
 
   // set miscellaneous parameters
@@ -153,6 +154,9 @@ CbcModel VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   eventHandler.data.lpBoundPostVpc = si->getObjValue();
   eventHandler.data.vpcGenerator = vpcGenerator;
   eventHandler.data.dualBound = model.getBestPossibleObjValue();
+  eventHandler.data.dualBounds.push_back(model.getBestPossibleObjValue());
+  eventHandler.data.primalBounds.push_back(model.getObjValue());
+  eventHandler.data.times.push_back(eventHandler.timer.get_time("terminationTime"));
   eventHandler.data.maxTime = maxRunTime;
   eventHandler.data.vpcGenerator = vpcGenerator;
   eventHandler.data.terms = disjunctiveTerms;

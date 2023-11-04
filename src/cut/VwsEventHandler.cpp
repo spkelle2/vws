@@ -61,6 +61,16 @@ CbcEventHandler::CbcAction VwsEventHandler::event(CbcEvent whichEvent) {
       }
   }
 
+  // take snapshot of primal and dual bounds after each node
+  if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::node) {
+    double direction = model_->solver()->getObjSense();
+    timer.end_timer("terminationTime");
+    data.times.push_back(timer.get_time("terminationTime"));
+    data.dualBounds.push_back(model_->getBestPossibleObjValue() * direction);
+    data.primalBounds.push_back(model_->getObjValue() * direction);
+    timer.start_timer("terminationTime");
+  }
+
   // pause when we hit a terminating condition
   if ((model_->specialOptions() & 2048) == 0 && whichEvent == CbcEventHandler::endSearch) {
     if (!finished_root_cuts) {

@@ -52,6 +52,9 @@ public:
   /** Where csvData (e.g. vector attributes) will be saved */
   fs::path csvPath;
 
+  /** Where bound data  will be saved */
+  fs::path boundPath;
+
   /** vector of RunData objects to store data from each run */
   std::vector<RunData> runData;
 

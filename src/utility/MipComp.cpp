@@ -35,10 +35,15 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
   // container for sorting input files
   std::vector<fs::path> inputFiles;
 
+  // path for saving bound data
+  boundPath = csvPath;
+  boundPath.replace_extension("").concat("_bound.csv");
+
   // validate file paths
   fs::path inputFolder(inputFolderStr);
   verify(fs::is_directory(inputFolder), "The path " + inputFolder.string() + " must exist and be a folder.");
   verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.");
+  verify(!fs::exists(boundPath), "The file " + boundPath.string() + " should not exist.");
 
   // get each .mps file in the input folder
   for (const auto& entry : fs::directory_iterator(inputFolder.string())) {
@@ -85,14 +90,22 @@ void MipComp::solveSeries() {
     // solve the instance with the given generator
     CbcModel model = seriesSolver.solve(instanceSolver, genType, *handler);
 
-    // stop the series if no cuts are made on New. Need new to generate cuts so
-    // we have a disjunction/multipliers to reuse and an ideal bound to compare
-    verify(!(!handler->cuts and ((i == 0 and vpcGenerator != "None") or vpcGenerator == "New")),
-           "[WARNING] No vpcs were made from a new disjunction. Stopping series.");
+    // mark the instance index
+    handler->data.instanceIndex = i;
 
-    // save the data collected by the event handler
-    handler->data.writeData(csvPath);
-    runData.push_back(handler->data);
+    // stop the series if we sought vpcs on the first iteration but didn't get any.
+    // Need to generate cuts so we have a disjunction/multipliers to reuse and an ideal bound to compare
+    verify(handler->cuts or i > 0 or vpcGenerator == "None",
+           "No vpcs were made from a new disjunction in first iteration. Stopping series.");
+
+    // if generating vpcs didn't work, just skip recording this instance
+    // since bound comparisons will be off or incomplete
+    if (handler->cuts or vpcGenerator == "None"){
+      // save the data collected by the event handler
+      handler->data.writeData(csvPath, "meta");
+      handler->data.writeData(boundPath, "bound");
+      runData.push_back(handler->data);
+    }
 
     // print end time
     std::time_t endTime = std::time(nullptr);
