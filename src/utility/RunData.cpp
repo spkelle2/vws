@@ -40,6 +40,7 @@ RunData* RunData::clone() const {
 /** Copy our stuff */
 void RunData::initialize(const RunData* const rhs) {
   if (rhs) {
+    this->instanceIndex = rhs->instanceIndex;
     this->lpBound = rhs->lpBound;
     this->disjunctiveDualBound = rhs->disjunctiveDualBound;
     this->lpBoundPostVpc = rhs->lpBoundPostVpc;
@@ -59,7 +60,11 @@ void RunData::initialize(const RunData* const rhs) {
     this->iterations = rhs->iterations;
     this->nodes = rhs->nodes;
     this->actualTerms = rhs->actualTerms;
+    this->primalBounds = rhs->primalBounds;
+    this->dualBounds = rhs->dualBounds;
+    this->times = rhs->times;
   } else {
+    this->instanceIndex = 0;
     this->lpBound = 0.0;
     this->disjunctiveDualBound = 0.0;
     this->lpBoundPostVpc = 0.0;
@@ -79,12 +84,15 @@ void RunData::initialize(const RunData* const rhs) {
     this->iterations = 0;
     this->nodes = 0;
     this->actualTerms = 0;
+    this->primalBounds = std::vector<double>();
+    this->dualBounds = std::vector<double>();
+    this->times = std::vector<double>();
   }
 }
 
 /** Get a comma-separated string of the names of RunData's attributes */
 std::string RunData::getHeader(){
-  return "lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,"
+  return "instanceIndex,lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,"
          "dualBound,heuristicPrimalBound,primalBound,vpcGenerationTime,heuristicTime,"
          "rootDualBoundTime,firstSolutionTime,bestSolutionTime,terminationTime,maxTime,"
          "vpcGenerator,terms,iterations,nodes,actualTerms";
@@ -92,8 +100,8 @@ std::string RunData::getHeader(){
 
 /** Get a comma-separated string of the values of RunData's attributes */
 std::string RunData::getValues(){
-  return std::to_string(lpBound) + "," + std::to_string(disjunctiveDualBound) + "," +
-    std::to_string(lpBoundPostVpc) + "," +
+  return std::to_string(instanceIndex) + "," + std::to_string(lpBound) + "," +
+    std::to_string(disjunctiveDualBound) + "," + std::to_string(lpBoundPostVpc) + "," +
     std::to_string(rootDualBound) + "," + std::to_string(dualBound) + "," +
     std::to_string(heuristicPrimalBound) + "," + std::to_string(primalBound) + "," +
     std::to_string(vpcGenerationTime) + "," + std::to_string(heuristicTime) + "," +
@@ -104,9 +112,10 @@ std::string RunData::getValues(){
 }
 
 /** writes this struct's attributes to the given csv file */
-void RunData::writeData(fs::path filePath){
+void RunData::writeData(fs::path filePath, std::string kind){
 
   // check that the inputs meet expectations
+  verify(kind == "meta" or kind == "bound", "kind must be either meta or bound");
   verify(fs::exists(filePath.parent_path()),
          "The directory " + filePath.parent_path().string() + " does not exist.");
   verify(filePath.extension() == ".csv", "output must be a .csv file");
@@ -115,9 +124,45 @@ void RunData::writeData(fs::path filePath){
   std::ofstream file;
   if (!alreadyExists) {  // start with the header if the file doesn't exist
     file.open(filePath.string());
-    file << getHeader() << std::endl;
+    if (kind == "meta"){
+      file << getHeader() << std::endl;
+    } else {
+      file << getBoundHeader() << std::endl;
+    }
   } else {  // append to the file otherwise
     file.open(filePath.string(), std::ios::app);
   }
-  file << getValues() << std::endl;
+  if (kind == "meta"){
+    file << getValues() << std::endl;
+  } else {
+    file << getBoundValues() << std::endl;
+  }
+}
+
+/** Get a comma-separated string of the names of RunData's attributes tracking bound closure */
+std::string RunData::getBoundHeader(){
+  return "instanceIndex,primalBounds,dualBounds,times";
+}
+
+/** Get a comma-separated string of the values of RunData's attributes tracking bound closure */
+std::string RunData::getBoundValues(){
+  std::string csvString;
+  // Sample the times to get a reasonable number of points
+  int numSamples = 1000;
+  int spacing = 1 + (int) times.size() / numSamples;
+
+  // record the bounds and times at each sample
+  for (int i = 0; i < times.size() - 1; i += spacing) {
+    // Concatenate elements with commas and add a newline character
+    csvString += std::to_string(instanceIndex) + "," +
+                 std::to_string(primalBounds[i]) + "," +
+                 std::to_string(dualBounds[i]) + "," +
+                 std::to_string(times[i]) + "\n";
+  }
+  // add the last entry without a newline
+  csvString += std::to_string(instanceIndex) + "," +
+               std::to_string(primalBounds[times.size() - 1]) + "," +
+               std::to_string(dualBounds[times.size() - 1]) + "," +
+               std::to_string(times[times.size() - 1]);
+  return csvString;
 }

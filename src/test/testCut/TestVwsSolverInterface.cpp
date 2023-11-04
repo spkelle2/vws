@@ -586,3 +586,31 @@ TEST_CASE( "Check event handler stats", "[VwsSolverInterface::solve]" ){
   check_bm23_data(eventHandler);
 
 }
+
+TEST_CASE("Check that bounds close", "VwsSolverInterface::Solve"){
+  // solve a model with the VwsSolverInterface
+  fs::path inputPath("../src/test/datasets/bm23/bm23_i01.mps");
+  OsiClpSolverInterface instanceSolver;
+  instanceSolver.readMps(inputPath.c_str(), true, false);
+  VwsSolverInterface seriesSolver(10, 60, 4);
+  VwsEventHandler eventHandler;
+  CbcModel model = seriesSolver.solve(instanceSolver, "None", eventHandler);
+
+  // make sure sizes are as expected
+  REQUIRE(eventHandler.data.times.size() > 10);
+  REQUIRE(eventHandler.data.times.size() == eventHandler.data.primalBounds.size());
+  REQUIRE(eventHandler.data.dualBounds.size() == eventHandler.data.primalBounds.size());
+
+  // check bounds progress as expected
+  for (int i = 1; i < eventHandler.data.times.size(); i++){
+    REQUIRE(eventHandler.data.primalBounds[i] >= eventHandler.data.dualBounds[i]);
+    REQUIRE(eventHandler.data.times[i] >= eventHandler.data.times[i-1]);
+    REQUIRE(eventHandler.data.primalBounds[i] <= eventHandler.data.primalBounds[i-1]);
+    REQUIRE(eventHandler.data.dualBounds[i] >= eventHandler.data.dualBounds[i-1]);
+  }
+
+  // check last bounds recorded correctly
+  int size = eventHandler.data.primalBounds.size();
+  REQUIRE(eventHandler.data.primalBounds[size - 1] == 34);
+  REQUIRE(eventHandler.data.dualBounds[size - 1] == 34);
+}

@@ -44,7 +44,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                         args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms}'
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
+                            ['qsub', '-V', '-q', 'small', '-l', 'ncpus=4,mem=8gb,vmem=8gb,pmem=8gb',
                              '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
@@ -54,4 +54,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                                          str(max_time), generator, str(terms)])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], True, 300)
+    run_batch(sys.argv[1], True, 1200)
