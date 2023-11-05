@@ -21,35 +21,39 @@
 
 
 ERROR while running Cbc. Signal SIGSEGV caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b331117ba4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3311f35060]
-../Debug/vws(+0x1f7b99) [0x558a12876b99]
-../Debug/vws(+0x1313eb) [0x558a127b03eb]
-../Debug/vws(+0x104dce) [0x558a12783dce]
-../Debug/vws(+0x103ee1) [0x558a12782ee1]
-../Debug/vws(+0x127c3a) [0x558a127a6c3a]
-../Debug/vws(+0x79d6a) [0x558a126f8d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3311f222e1]
-../Debug/vws(+0x79259) [0x558a126f8259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b36671b1a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3667f6b060]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2b3667b2f443]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2b3666e583b8]
+../Debug/vws(+0x1f952a) [0x5620fabc452a]
+../Debug/vws(+0x133665) [0x5620faafe665]
+../Debug/vws(+0x104f72) [0x5620faacff72]
+../Debug/vws(+0x103f29) [0x5620faacef29]
+../Debug/vws(+0x128652) [0x5620faaf3652]
+../Debug/vws(+0x79d6a) [0x5620faa44d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3667f582e1]
+../Debug/vws(+0x79259) [0x5620faa44259]
 
 
 
 
 ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b331117ba4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3311f35060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3311f34fff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3311f3642a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b331117bb29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3311f35060]
-../Debug/vws(+0x1f7b99) [0x558a12876b99]
-../Debug/vws(+0x1313eb) [0x558a127b03eb]
-../Debug/vws(+0x104dce) [0x558a12783dce]
-../Debug/vws(+0x103ee1) [0x558a12782ee1]
-../Debug/vws(+0x127c3a) [0x558a127a6c3a]
-../Debug/vws(+0x79d6a) [0x558a126f8d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3311f222e1]
-../Debug/vws(+0x79259) [0x558a126f8259]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b36671b1a4b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3667f6b060]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b3667f6afff]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b3667f6c42a]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b36671b1b29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b3667f6b060]
+/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2b3667b2f443]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2b3666e583b8]
+../Debug/vws(+0x1f952a) [0x5620fabc452a]
+../Debug/vws(+0x133665) [0x5620faafe665]
+../Debug/vws(+0x104f72) [0x5620faacff72]
+../Debug/vws(+0x103f29) [0x5620faacef29]
+../Debug/vws(+0x128652) [0x5620faaf3652]
+../Debug/vws(+0x79d6a) [0x5620faa44d6a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b3667f582e1]
+../Debug/vws(+0x79259) [0x5620faa44259]
 
 
-/var/spool/torque/mom_priv/jobs/1223010.polyp1.ie.lehigh.edu.SC: line 4:  6870 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+/var/spool/torque/mom_priv/jobs/1223973.polyp1.ie.lehigh.edu.SC: line 4: 14951 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

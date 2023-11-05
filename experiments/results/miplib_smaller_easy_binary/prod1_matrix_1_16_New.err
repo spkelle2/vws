@@ -78,42 +78,59 @@
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
-
-
-ERROR while running Cbc. Signal SIGSEGV caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2afb4266ba4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afb43425060]
-/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2afb42fe9443]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2afb423163b8]
-../Debug/vws(+0x1f7dfa) [0x5624f2914dfa]
-../Debug/vws(+0x1313eb) [0x5624f284e3eb]
-../Debug/vws(+0x104dce) [0x5624f2821dce]
-../Debug/vws(+0x103ee1) [0x5624f2820ee1]
-../Debug/vws(+0x127c3a) [0x5624f2844c3a]
-../Debug/vws(+0x79d6a) [0x5624f2796d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2afb434122e1]
-../Debug/vws(+0x79259) [0x5624f2796259]
-
-
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2afb4266ba4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afb43425060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2afb43424fff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2afb4342642a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2afb4266bb29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2afb43425060]
-/home/sek519/miniconda/envs/vws/lib/libstdc++.so.6(__dynamic_cast+0x1d) [0x2afb42fe9443]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface12setWarmStartEPK13CoinWarmStart+0x56) [0x2afb423163b8]
-../Debug/vws(+0x1f7dfa) [0x5624f2914dfa]
-../Debug/vws(+0x1313eb) [0x5624f284e3eb]
-../Debug/vws(+0x104dce) [0x5624f2821dce]
-../Debug/vws(+0x103ee1) [0x5624f2820ee1]
-../Debug/vws(+0x127c3a) [0x5624f2844c3a]
-../Debug/vws(+0x79d6a) [0x5624f2796d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2afb434122e1]
-../Debug/vws(+0x79259) [0x5624f2796259]
-
-
-/var/spool/torque/mom_priv/jobs/1222998.polyp1.ie.lehigh.edu.SC: line 4: 23039 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -99.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was -98.000, now it is -100.000.
+=>> PBS: job killed: walltime 7208 exceeded limit 7200

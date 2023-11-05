@@ -1,2 +1,2 @@
-lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,dualBound,heuristicPrimalBound,primalBound,vpcGenerationTime,heuristicTime,rootDualBoundTime,firstSolutionTime,bestSolutionTime,terminationTime,maxTime,vpcGenerator,terms,iterations,nodes,actualTerms
-8877.000000,10186.285714,10168.357465,10353.827675,10739.048057,17928.000000,14787.000000,97.893519,99.764886,104.691403,99.764791,246.739623,300.191145,300.000000,New,64,121188,12816,696
+instanceIndex,lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,dualBound,heuristicPrimalBound,primalBound,vpcGenerationTime,heuristicTime,rootDualBoundTime,firstSolutionTime,bestSolutionTime,terminationTime,maxTime,vpcGenerator,terms,iterations,nodes,actualTerms
+0,8877.000000,10186.285714,10168.357465,10353.827675,11404.571429,17928.000000,14410.000000,97.538033,99.423887,104.314704,99.423870,731.508609,1201.378162,1200.000000,New,64,678812,73160,696

@@ -1,3 +1,0 @@
-The branching decisions in fixed_var, fixed_bound, and fixed_value are inconsistent with the expectations on the solver.
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1210691.polyp1.ie.lehigh.edu.SC: line 4: 14883 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
