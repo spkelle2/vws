@@ -1,6 +1,0 @@
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 7060.098, now it is 7056.063.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 7195.937, now it is 7183.996.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 7266.006, now it is 7219.865.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 7176.344, now it is 7121.995.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 7302.148, now it is 7301.260.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 7288.035, now it is 7287.524.

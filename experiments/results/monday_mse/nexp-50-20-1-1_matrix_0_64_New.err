@@ -1,1 +1,0 @@
-*** ERROR (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1250: Objective at parent node 1/32 (node id 0) is incorrect. During BB, it was 12.376, now it is 11.926.

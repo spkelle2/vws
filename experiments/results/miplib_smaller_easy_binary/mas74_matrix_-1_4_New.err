@@ -528,42 +528,4 @@
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 147: dot product with obj < 0. Obj viol from solver: -0.00000126. Calculated: -0.00000126.
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 4 ray 136 does not satisfy the objective cut. Activity: -0.00000126. RHS: 0.00000000. Small enough violation that we only send a warning.
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
-[WARNING] No vpcs were made from a new disjunction. Stopping series.
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ad9bdd64a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad9beb1e060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad9beb1dfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad9beb1f42a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2ad9beb16e67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2ad9beb16f12]
-../Debug/vws(+0x1b0645) [0x555c2831a645]
-../Debug/vws(+0x127cf2) [0x555c28291cf2]
-../Debug/vws(+0x79d6a) [0x555c281e3d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ad9beb0b2e1]
-../Debug/vws(+0x79259) [0x555c281e3259]
-
-
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2ad9bdd64a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad9beb1e060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad9beb1dfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad9beb1f42a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2ad9bdd64b29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2ad9beb1e060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2ad9beb1dfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2ad9beb1f42a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2ad9beb16e67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2ad9beb16f12]
-../Debug/vws(+0x1b0645) [0x555c2831a645]
-../Debug/vws(+0x127cf2) [0x555c28291cf2]
-../Debug/vws(+0x79d6a) [0x555c281e3d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2ad9beb0b2e1]
-../Debug/vws(+0x79259) [0x555c281e3259]
-
-
-/var/spool/torque/mom_priv/jobs/1222466.polyp1.ie.lehigh.edu.SC: line 4: 24272 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+=>> PBS: job killed: walltime 7201 exceeded limit 7200

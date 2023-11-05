@@ -6,42 +6,4 @@
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 141: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 2 ray 130 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
-[WARNING] No vpcs were made from a new disjunction. Stopping series.
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2baa8b268a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2baa8c022060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2baa8c021fff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2baa8c02342a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2baa8c01ae67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2baa8c01af12]
-../Debug/vws(+0x1b0645) [0x55a1e5c5b645]
-../Debug/vws(+0x127cf2) [0x55a1e5bd2cf2]
-../Debug/vws(+0x79d6a) [0x55a1e5b24d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2baa8c00f2e1]
-../Debug/vws(+0x79259) [0x55a1e5b24259]
-
-
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2baa8b268a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2baa8c022060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2baa8c021fff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2baa8c02342a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2baa8b268b29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2baa8c022060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2baa8c021fff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2baa8c02342a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2baa8c01ae67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2baa8c01af12]
-../Debug/vws(+0x1b0645) [0x55a1e5c5b645]
-../Debug/vws(+0x127cf2) [0x55a1e5bd2cf2]
-../Debug/vws(+0x79d6a) [0x55a1e5b24d6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2baa8c00f2e1]
-../Debug/vws(+0x79259) [0x55a1e5b24259]
-
-
-/var/spool/torque/mom_priv/jobs/1222418.polyp1.ie.lehigh.edu.SC: line 4: 25882 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 12 (real var 13), it is -1.108128e-07. Small enough error that we only send warning.

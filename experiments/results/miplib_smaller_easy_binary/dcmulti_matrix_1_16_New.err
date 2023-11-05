@@ -1,40 +1,7 @@
 *** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 18591.9 was found prior while getting disjunction.
-[WARNING] No vpcs were made from a new disjunction. Stopping series.
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b010ddb3a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b010eb6d060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b010eb6cfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b010eb6e42a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b010eb65e67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b010eb65f12]
-../Debug/vws(+0x1b0645) [0x558a069f2645]
-../Debug/vws(+0x127cf2) [0x558a06969cf2]
-../Debug/vws(+0x79d6a) [0x558a068bbd6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b010eb5a2e1]
-../Debug/vws(+0x79259) [0x558a068bb259]
-
-
-
-
-ERROR while running Cbc. Signal SIGABRT caught. Getting stack trace.
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x277) [0x2b010ddb3a4b]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b010eb6d060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b010eb6cfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b010eb6e42a]
-/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/buildg/lib/libCbc.so.0(_Z15CbcCrashHandleri+0x355) [0x2b010ddb3b29]
-/lib/x86_64-linux-gnu/libc.so.6(+0x33060) [0x2b010eb6d060]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcf) [0x2b010eb6cfff]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a) [0x2b010eb6e42a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2be67) [0x2b010eb65e67]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2bf12) [0x2b010eb65f12]
-../Debug/vws(+0x1b0645) [0x558a069f2645]
-../Debug/vws(+0x127cf2) [0x558a06969cf2]
-../Debug/vws(+0x79d6a) [0x558a068bbd6a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1) [0x2b010eb5a2e1]
-../Debug/vws(+0x79259) [0x558a068bb259]
-
-
-/var/spool/torque/mom_priv/jobs/1222914.polyp1.ie.lehigh.edu.SC: line 4:  6106 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 9648.42 was found prior while getting disjunction.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 11670.4 was found prior while getting disjunction.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 8963.39 was found prior while getting disjunction.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 8404.8 was found prior while getting disjunction.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 11685.8 was found prior while getting disjunction.
+*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 11093.1 was found prior while getting disjunction.
