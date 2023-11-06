@@ -70,6 +70,8 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
 /** Solves each instance in the series and prints each's run metadata to stdout */
 void MipComp::solveSeries() {
 
+  // todo: include nodes and iterations from VPC in count
+  
   // solve each instance in the series
   for (int i = 0; i < instanceSolvers.size(); i++) {
 
