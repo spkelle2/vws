@@ -33,85 +33,25 @@ PROJ_DIR=${PWD}
 COIN_VERSION = trunk
 EIG_LIB = $(REPOS_DIR)/eigen
 VPC_DIR = ${REPOS_DIR}/vpc
+COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
 COIN_OR_BUILD_DIR_DEBUG = buildg
 COIN_OR_BUILD_DIR_RELEASE = build
-
-ifeq ($(USER),sean)
-  COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
-	COIN_OR_BUILD_DIR_DEBUG = buildg
-	COIN_OR_BUILD_DIR_RELEASE = build
-  #EIG_LIB = enter/dir/here
-
-  # Optional (for testing branch and bound or enabling certain functions):
-  #GUROBI_DIR = enter/dir/here
-  #GUROBI_LINK="gurobi80"
-  #CPLEX_DIR = enter/dir/here
-endif
+GUROBI_DIR = /Library/gurobi1003
+GUROBI_LINK="gurobi100"
 
 ifeq ($(USER),sek519)
-  COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
-	COIN_OR_BUILD_DIR_DEBUG = buildg
-	COIN_OR_BUILD_DIR_RELEASE = build
-  #EIG_LIB = enter/dir/here
-
   # Optional (for testing branch and bound or enabling certain functions):
   #GUROBI_DIR = enter/dir/here
   #GUROBI_LINK="gurobi80"
   #CPLEX_DIR = enter/dir/here
 endif
 
-# rossobianco
-ifeq ($(USER),kazaalek)
-  GUROBI_LINK = gurobi91
-	GUROBI_DIR = ${GUROBI_HOME}
-  #CPLEX_DIR = /home/ibm/cplex/20.1/cplex
-	CPLEX_DIR = ${CPLEX_HOME}
-	COIN_OR = /local_workspace/$(USER)/coin-or/Cbc-$(COIN_VERSION)
-	EIG_LIB = ${HOME}/repos/eigen
-endif
-
-# HiPerGator
-ifeq ($(USER),akazachkov)
-  ifeq ($(UNAME),Linux)
-	  COIN_OR = ${HOME}/repos/coin-or/Cbc-$(COIN_VERSION)
-    GUROBI_LINK = gurobi95
-    GUROBI_DIR = ${GUROBI_LOCAL}
-		CPLEX_DIR = ${CPLEX_HOME}
-		CONDA_LIB = ${HOME}/.conda/envs/vpc/lib
-	endif
-	# MacStudio
-  ifeq ($(UNAME),Darwin)
-    GUROBI_LINK = gurobi95
-    GUROBI_DIR = ${GUROBI_HOME}
-    CPLEX_DIR = ${CPLEX_HOME}
-  endif
-endif
-
-ifeq ($(USER),akazachk)
-	# ComputeCanada
-  ifeq ($(UNAME),Linux)
-		COIN_OR = ${HOME}/projects/def-alodi/$(USER)/coin-or/Cbc-$(COIN_VERSION)
-    GUROBI_LINK = gurobi91
-    GUROBI_DIR = ${GUROBI_LOCAL}
-    CPLEX_DIR = ${CPLEX_HOME}
-  endif
-	# Mac
-  ifeq ($(UNAME),Darwin)
-    GUROBI_LINK = gurobi91
-    GUROBI_DIR = ${GUROBI_HOME}
-    CPLEX_DIR = ${CPLEX_HOME}
-		COIN_OR = ${COIN_OR_HOME}
-		#COIN_OR = $(PROJ_DIR)/../coin-or/Cbc-$(COIN_VERSION)
-		#COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
-  endif
-endif
-
-# Options for solvers
+# Options for solvers - do not change these - we expect Gurobi to be installed for vws
 USE_COIN   = 1
 USE_CLP    = 1
 USE_EIGEN  = 1
 USE_CBC    = 1
-USE_GUROBI = 0
+USE_GUROBI = 1
 USE_CPLEX  = 0
 USE_CLP_SOLVER = 1
 USE_CPLEX_SOLVER = 0
@@ -137,16 +77,13 @@ VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
 	cut/VwsSolverInterface.cpp \
-	cut/VwsEventHandler.cpp \
-	cut/CbcSolverHeuristics.cpp \
-	cut/CglStoredVpc.cpp \
 	utility/MipComp.cpp \
 	utility/RunData.cpp \
 	utility/VwsUtility.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src
-VPC_DIR_LIST = $(VPC_SRC_DIR) $(VPC_SRC_DIR)/branch $(VPC_SRC_DIR)/cut $(VPC_SRC_DIR)/disjunction $(VPC_SRC_DIR)/utility
+VPC_DIR_LIST = $(VPC_SRC_DIR) $(VPC_SRC_DIR)/branch $(VPC_SRC_DIR)/cut $(VPC_SRC_DIR)/disjunction $(VPC_SRC_DIR)/utility $(VPC_SRC_DIR)/test
 
 VPC_SOURCES += \
 	branch/CbcBranchStrongDecision.cpp \
@@ -164,7 +101,8 @@ VPC_SOURCES += \
 	disjunction/Disjunction.cpp \
 	disjunction/PartialBBDisjunction.cpp \
 	disjunction/SplitDisjunction.cpp \
-	disjunction/VPCDisjunction.cpp
+	disjunction/VPCDisjunction.cpp \
+	test/BBHelper.cpp
 
 # For running tests (need not include these or main if releasing code to others)
 #DIR_LIST += $(SRC_DIR)/test
@@ -211,6 +149,8 @@ ifeq ($(USE_CLP_SOLVER),1)
   DEFS += -DUSE_CLP_SOLVER
 endif
 ifeq ($(USE_CBC),1)
+	VPC_SOURCES += test/CbcHelper.cpp \
+		test/CglStoredVpc.cpp
   DEFS += -DUSE_CBC
   DEFS += -DVPC_CBC_VERSION="\#${VPC_CBC_VERSION}"
 endif
@@ -219,9 +159,9 @@ ifeq ($(USE_EIGEN),1)
 endif
 ifeq ($(USE_GUROBI),1)
   DEFS += -DUSE_GUROBI
-  SOURCES += test/GurobiHelper.cpp
-  GUROBI_INC="${GUROBI_DIR}/include"
-  GUROBI_LIB="${GUROBI_DIR}/lib"
+  VPC_SOURCES += test/GurobiHelper.cpp
+  GUROBI_INC="${GUROBI_DIR}/macos_universal2/include"
+  GUROBI_LIB="${GUROBI_DIR}/macos_universal2/lib"
 endif
 ifeq ($(USE_CPLEX),1)
   DEFS += -DIL_STD -DUSE_CPLEX

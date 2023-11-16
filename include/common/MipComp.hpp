@@ -28,14 +28,7 @@ namespace fs = ghc::filesystem;
 class MipComp {
 public:
 
-  // todo: test that ranged constraints work as intended
   // todo: create VPCs with GMICs in the case only the objective changes (should be fine for variable or constraint additions)
-
-  /** max run time on each MIP instance */
-  double timeout;
-
-  /** number of disjunctive terms to use in experiments */
-  int terms;
 
   /** name of the way to generate vpcs */
   std::string vpcGenerator;
@@ -52,15 +45,12 @@ public:
   /** Where csvData (e.g. vector attributes) will be saved */
   fs::path csvPath;
 
-  /** Where bound data  will be saved */
-  fs::path boundPath;
-
   /** vector of RunData objects to store data from each run */
   std::vector<RunData> runData;
 
   /** Constructor. Initializes attributes based on provided file. */
   MipComp(std::string filePathStr, std::string csvPathStr, double maxRunTime,
-          std::string vpcGenerator, int terms);
+          std::string vpcGenerator, int terms, std::string mipSolver);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

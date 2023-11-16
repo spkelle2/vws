@@ -24,8 +24,9 @@ int main(int argc, char** argv) {
   // create the test runner and solve the provided series
   std::string inputFolderStr(argv[1]);
   std::string outputFileStr(argv[2]);
+  std::string mipSolver(argv[6]);
   MipComp testRunner(inputFolderStr, outputFileStr, std::stod(argv[3]),
-                     std::string(argv[4]), std::stoi(argv[5]));
+                     std::string(argv[4]), std::stoi(argv[5]), mipSolver);
   testRunner.solveSeries();
 
 } /* main */
