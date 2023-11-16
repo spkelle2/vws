@@ -29,21 +29,16 @@ namespace fs = ghc::filesystem;
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
 MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
-                 std::string vpcGenerator, int terms):
-  csvPath(csvPathStr), terms(terms), timeout(maxRunTime), vpcGenerator(vpcGenerator) {
+                 std::string vpcGenerator, int terms, std::string mipSolver):
+  csvPath(csvPathStr), vpcGenerator(vpcGenerator) {
 
   // container for sorting input files
   std::vector<fs::path> inputFiles;
-
-  // path for saving bound data
-  boundPath = csvPath;
-  boundPath.replace_extension("").concat("_bound.csv");
 
   // validate file paths
   fs::path inputFolder(inputFolderStr);
   verify(fs::is_directory(inputFolder), "The path " + inputFolder.string() + " must exist and be a folder.");
   verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.");
-  verify(!fs::exists(boundPath), "The file " + boundPath.string() + " should not exist.");
 
   // get each .mps file in the input folder
   for (const auto& entry : fs::directory_iterator(inputFolder.string())) {
@@ -62,16 +57,30 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
     instanceSolvers.push_back(instanceSolver);
     instanceNames.push_back(inputPath.stem().replace_extension("").string());
   }
+  
+  // set parameters
+  VPCParametersNamespace::VPCParameters params;
+  params.set(VPCParametersNamespace::DISJ_TERMS, terms); // how many active leaves in the disjunction
+  params.set(VPCParametersNamespace::TIMELIMIT, maxRunTime); // max time for vpc generation
+  params.set(VPCParametersNamespace::PARTIAL_BB_TIMELIMIT, maxRunTime); // max time for creating partial bb tree
+  params.set(VPCParametersNamespace::PARTIAL_BB_KEEP_PRUNED_NODES, 1); // get the entirety of the partial bb tree
+  params.set(VPCParametersNamespace::MODE, 0); // create a partial bb tree to get the disjunction
+  // todo: check these are applied as expected
+  params.set(VPCParametersNamespace::BB_STRATEGY, VPCParametersNamespace::get_bb_option_value({
+    VPCParametersNamespace::BB_Strategy_Options::user_cuts, // to allow VPCs
+    VPCParametersNamespace::BB_Strategy_Options::all_cuts_on, // to see effects "in practice"
+    VPCParametersNamespace::BB_Strategy_Options::presolve_off, // to compare disjunctive dual bound to root dual bound
+    VPCParametersNamespace::BB_Strategy_Options::heuristics_on, // to see effects "in practice"
+    VPCParametersNamespace::BB_Strategy_Options::strong_branching_on // to see effects "in practice"
+  }));
 
   // set the solver interface
-  seriesSolver = VwsSolverInterface(0, timeout, terms, 1);
+  seriesSolver = VwsSolverInterface(params, mipSolver);
 } /* Constructor */
 
 /** Solves each instance in the series and prints each's run metadata to stdout */
 void MipComp::solveSeries() {
 
-  // todo: include nodes and iterations from VPC in count
-  
   // solve each instance in the series
   for (int i = 0; i < instanceSolvers.size(); i++) {
 
@@ -83,30 +92,26 @@ void MipComp::solveSeries() {
     std::cout << "[GENERATOR] " << vpcGenerator << std::endl;
     std::cout << "[START] " << std::put_time(std::localtime(&startTime), "%FT%T") << std::endl;
 
-    // set up event handler for data collection
-    std::shared_ptr<VwsEventHandler> handler = std::make_shared<VwsEventHandler>();
-
     // first iteration should always use New if it makes VPCs - otherwise use requested generator
     std::string genType = i < 1 && vpcGenerator != "None" ? "New" : vpcGenerator;
 
     // solve the instance with the given generator
-    CbcModel model = seriesSolver.solve(instanceSolver, genType, *handler);
+    RunData data = seriesSolver.solve(instanceSolver, genType);
 
     // mark the instance index
-    handler->data.instanceIndex = i;
+    data.instanceIndex = i;
 
     // stop the series if we sought vpcs on the first iteration but didn't get any.
     // Need to generate cuts so we have a disjunction/multipliers to reuse and an ideal bound to compare
-    verify(handler->cuts or i > 0 or vpcGenerator == "None",
+    verify(vpcGenerator == "None" or i > 0 or data.numCuts,
            "No vpcs were made from a new disjunction in first iteration. Stopping series.");
 
     // if generating vpcs didn't work, just skip recording this instance
     // since bound comparisons will be off or incomplete
-    if (handler->cuts or vpcGenerator == "None"){
+    if (data.numCuts or vpcGenerator == "None"){
       // save the data collected by the event handler
-      handler->data.writeData(csvPath, "meta");
-      handler->data.writeData(boundPath, "bound");
-      runData.push_back(handler->data);
+      data.writeData(csvPath);
+      runData.push_back(data);
     }
 
     // print end time

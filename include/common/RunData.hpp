@@ -19,8 +19,19 @@ namespace fs = ghc::filesystem;
 struct RunData {
 public:
 
+  // primary keys
+
   /** the index of the instance */
   int instanceIndex;
+
+  /** The method used for generating VPCs */
+  std::string vpcGenerator;
+
+  /** The number of active leaves in the partial branch and bound tree from which
+   * we get a disjunction that generated VPCs */
+  int terms;
+
+  // bound stats
 
   /** the dual bound after solving the root LP relaxation for each instance */
   double lpBound;
@@ -37,23 +48,16 @@ public:
   /** the best found dual bound for each instance */
   double dualBound;
 
-  /** the objective value of the best solution found after primal heuristics */
-  double heuristicPrimalBound;
-
   /** the best found primal bound for each instance */
   double primalBound;
+
+  // time stats
 
   /** cumulative time through generating VPCs */
   double vpcGenerationTime;
 
-  /** cumulative time to finish primal heuristics */
-  double heuristicTime;
-
   /** cumulative time to complete cut generation on root node */
   double rootDualBoundTime;
-
-  /** cumulative time to find first integer feasible solution */
-  double firstSolutionTime;
 
   /** cumulative time to find best integer feasible solution */
   double bestSolutionTime;
@@ -61,32 +65,24 @@ public:
   /** cumulative time to end of branch and cut call */
   double terminationTime;
 
-  /** max run time given to solve */
-  double maxTime;
-
-  /** Which generator was used for VPCs */
-  std::string vpcGenerator;
-
-  /** number of terms for generating VPCs */
-  int terms;
-
-  /** number of LP simplex iterations */
-  int iterations;
+  // misc performance stats
 
   /** number of branch and bound nodes */
   int nodes;
 
+  /** number of LP simplex iterations */
+  int iterations;
+
+  // misc statistics
+
+  /** max run time given to solve */
+  double maxTime;
+
   /** size of disjunction that generated vpcs */
   int actualTerms;
 
-  /** vector of primal bounds at given point in time */
-  std::vector<double> primalBounds;
-
-  /** vector of dual bounds at given point in time */
-  std::vector<double> dualBounds;
-
-  /** vector times that bounds are captured */
-  std::vector<double> times;
+  /** number of vpcs generated */
+  int numCuts;
 
   /** constructor (default) */
   RunData();
@@ -109,14 +105,8 @@ public:
   /** Get a comma-separated string of the values of RunData's attributes */
   std::string getValues();
 
-  /** Get a comma-separated string of the names of RunData's attributes tracking bound closure */
-  std::string getBoundHeader();
-
-  /** Get a comma-separated string of the values of RunData's attributes tracking bound closure */
-  std::string getBoundValues();
-
   /** writes this struct's attributes to the given csv file */
-  void writeData(fs::path filePath, std::string kind);
+  void writeData(fs::path filePath);
 };
 
 #endif
