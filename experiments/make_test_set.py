@@ -134,7 +134,6 @@ def main(instances_fldr, samples, perturbations):
         os.mkdir(perturbed_instance_dir)
         # read in the instance
         mdl = gp.read(instance_pth)
-        mdl.setParam("SolutionLimit", 1)
         mdl.setParam("TimeLimit", 1)
         mdl.setParam('OutputFlag', 0)
         mdl.optimize()
