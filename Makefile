@@ -36,14 +36,13 @@ VPC_DIR = ${REPOS_DIR}/vpc
 COIN_OR = $(VPC_DIR)/lib/Cbc-$(COIN_VERSION)
 COIN_OR_BUILD_DIR_DEBUG = buildg
 COIN_OR_BUILD_DIR_RELEASE = build
-GUROBI_DIR = /Library/gurobi1003
+GUROBI_DIR = /Library/gurobi1003/macos_universal2
 GUROBI_LINK="gurobi100"
 
 ifeq ($(USER),sek519)
   # Optional (for testing branch and bound or enabling certain functions):
-  #GUROBI_DIR = enter/dir/here
-  #GUROBI_LINK="gurobi80"
-  #CPLEX_DIR = enter/dir/here
+  GUROBI_DIR = /usr/local/gurobi/linux64
+  GUROBI_LINK="gurobi100"
 endif
 
 # Options for solvers - do not change these - we expect Gurobi to be installed for vws
@@ -157,8 +156,8 @@ endif
 ifeq ($(USE_GUROBI),1)
   DEFS += -DUSE_GUROBI
   VPC_SOURCES += test/GurobiHelper.cpp
-  GUROBI_INC="${GUROBI_DIR}/macos_universal2/include"
-  GUROBI_LIB="${GUROBI_DIR}/macos_universal2/lib"
+  GUROBI_INC="${GUROBI_DIR}/include"
+  GUROBI_LIB="${GUROBI_DIR}/lib"
 endif
 ifeq ($(USE_CPLEX),1)
   DEFS += -DIL_STD -DUSE_CPLEX
