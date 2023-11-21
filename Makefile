@@ -41,7 +41,7 @@ GUROBI_LINK="gurobi100"
 
 ifeq ($(USER),sek519)
   # Optional (for testing branch and bound or enabling certain functions):
-  GUROBI_DIR = /usr/local/gurobi/linux64
+  GUROBI_DIR = /home/sek519/gurobi1003/linux64
   GUROBI_LINK="gurobi100"
 endif
 
