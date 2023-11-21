@@ -3,7 +3,8 @@ import subprocess
 import sys
 
 
-def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
+def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
+              mip_solver: str = "CBC", provide_primal_bound: bool = True):
     """ For all problems and perturbations, run the .mps associated with each series
 
     :param test_fldr: directory containing directories of instances which in turn
@@ -42,9 +43,10 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                     if remote:
                         # submit the job to the cluster
                         args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
-                            f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms}'
+                            f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
+                            f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)},'
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'short', '-l', 'ncpus=4,mem=8gb,vmem=8gb,pmem=8gb',
+                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=4,mem=8gb,vmem=8gb,pmem=8gb',
                              '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
@@ -54,4 +56,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                                          str(max_time), generator, str(terms)])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], True, 600)
+    run_batch(sys.argv[1])
