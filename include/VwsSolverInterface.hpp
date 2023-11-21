@@ -15,7 +15,7 @@
 #include "TimeStats.hpp" // Timer
 
 // project modules
-#include "VwsEventHandler.hpp" // CbcEventHandler
+#include "RunData.hpp" // RunData
 
 struct BBInfo {
   double obj = 0.; // objective value of best IP-feasible solution
@@ -61,7 +61,8 @@ public:
   VwsSolverInterface(VPCParametersNamespace::VPCParameters params, std::string mipSolver);
 
   /** Solve a MIP with VPCs added */
-  RunData solve(const OsiClpSolverInterface& instanceSolver, const std::string vpcGenerator);
+  RunData solve(const OsiClpSolverInterface& instanceSolver, const std::string vpcGenerator,
+                double primalBound=std::numeric_limits<double>::max());
 
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
    *  partially solving the given problem. Simplified from Strengthening's

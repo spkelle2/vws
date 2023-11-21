@@ -25,7 +25,7 @@ RM = rm -f
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
-UNIT_TEST_FILE = testCut/TestVwsSolverInterface.cpp
+UNIT_TEST_FILE = TestMipComp.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
@@ -33,7 +33,7 @@ PROJ_DIR=${PWD}
 COIN_VERSION = trunk
 EIG_LIB = $(REPOS_DIR)/eigen
 VPC_DIR = ${REPOS_DIR}/vpc
-COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
+COIN_OR = $(VPC_DIR)/lib/Cbc-$(COIN_VERSION)
 COIN_OR_BUILD_DIR_DEBUG = buildg
 COIN_OR_BUILD_DIR_RELEASE = build
 GUROBI_DIR = /Library/gurobi1003
@@ -67,7 +67,7 @@ ifeq ($(BUILD_CONFIG),unit_test)
 	SOURCES = test/$(UNIT_TEST_FILE)
 endif
 SRC_DIR = src
-DIR_LIST = $(SRC_DIR) $(SRC_DIR)/cut $(SRC_DIR)/utility $(SRC_DIR)/test $(SRC_DIR)/test/testCut $(SRC_DIR)/test/testUtility
+DIR_LIST = $(SRC_DIR) $(SRC_DIR)/test
 
 # Code version
 CODE_VERSION    = $(shell git log -1 --pretty=format:"%H")
@@ -76,10 +76,10 @@ VPC_CBC_VERSION = $(shell git -C ${COIN_OR}/Cbc log -1 --pretty=format:"%H")
 VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
-	cut/VwsSolverInterface.cpp \
-	utility/MipComp.cpp \
-	utility/RunData.cpp \
-	utility/VwsUtility.cpp
+	VwsSolverInterface.cpp \
+	MipComp.cpp \
+	RunData.cpp \
+	VwsUtility.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src
@@ -103,10 +103,6 @@ VPC_SOURCES += \
 	disjunction/SplitDisjunction.cpp \
 	disjunction/VPCDisjunction.cpp \
 	test/BBHelper.cpp
-
-# For running tests (need not include these or main if releasing code to others)
-#DIR_LIST += $(SRC_DIR)/test
-#SOURCES += test/analysis.cpp test/BBHelper.cpp
 
 ### Set build values based on user variables ###
 ifneq ($(BUILD_CONFIG),release)
@@ -150,7 +146,8 @@ ifeq ($(USE_CLP_SOLVER),1)
 endif
 ifeq ($(USE_CBC),1)
 	VPC_SOURCES += test/CbcHelper.cpp \
-		test/CglStoredVpc.cpp
+		test/CglStoredVpc.cpp \
+		test/CbcSolverHeuristics.cpp
   DEFS += -DUSE_CBC
   DEFS += -DVPC_CBC_VERSION="\#${VPC_CBC_VERSION}"
 endif
@@ -196,7 +193,7 @@ VPC_OBJECTS = $(VPC_SOURCES:.cpp=.o)
 VPC_OUT_OBJECTS = $(addprefix $(VPC_OBJ_DIR)/,$(VPC_OBJECTS))
 
 # Set includes
-APPLINCLS = -Iinclude -Iinclude/common -Iinclude/test
+APPLINCLS = -Iinclude -Iinclude/test
 ## TEMPORARY CHANGE TO PARENT VPC (NO WIFI) - common dependency for Disjunction
 APPLINCLS += -I${VPC_DIR}/include -I${VPC_DIR}/include/common -I${VPC_DIR}/include/test
 

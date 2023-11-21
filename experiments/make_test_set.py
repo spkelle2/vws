@@ -91,6 +91,11 @@ def perturb_bounds(mdl: gp.Model, p: int) -> Union[tuple[list, list], tuple[None
         return prev_l, prev_u
 
 
+def write_objective(stem: str, val: float):
+    with open(f"{stem}.pb", 'w') as file:
+        file.write(str(val))
+
+
 def main(instances_fldr, samples, perturbations):
     """This function creates a test set of instances for the experiments.
 
@@ -112,7 +117,9 @@ def main(instances_fldr, samples, perturbations):
     os.mkdir(os.path.join('test_sets', instances_fldr))
 
     # iterate over all files in the instances directory
-    for instance_file in os.listdir(os.path.join('instances', instances_fldr)):
+    for instance_idx, instance_file in enumerate(os.listdir(os.path.join('instances', instances_fldr))):
+
+        print(f"instance {instance_idx + 1} of {len(os.listdir(os.path.join('instances', instances_fldr)))}")
 
         # get information about the instance location
         instance_name, extension = os.path.splitext(instance_file)
@@ -129,7 +136,8 @@ def main(instances_fldr, samples, perturbations):
         mdl = gp.read(instance_pth)
         mdl.setParam("SolutionLimit", 1)
         mdl.setParam("TimeLimit", 1)
-        # mdl.setParam('OutputFlag', 0)
+        mdl.setParam('OutputFlag', 0)
+        mdl.optimize()
 
         for p in perturbations:
             count = {"objective": 1, "rhs": 1, "matrix": 1, "bound": 1, "all": 1}
@@ -139,7 +147,10 @@ def main(instances_fldr, samples, perturbations):
                 series_fldr = os.path.join(perturbed_instance_dir, f"{kind}_{p}")
                 os.mkdir(series_fldr)
                 # Copy and rename the file as the first instance
-                shutil.copy(instance_pth, os.path.join(series_fldr, f"{instance_name}_0{extension}"))
+                stem = os.path.join(series_fldr, f"{instance_name}_0")
+                shutil.copy(instance_pth, f"{stem}{extension}")
+                # save its objective value
+                write_objective(stem, mdl.objVal)
 
             iterations = 0
             # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
@@ -162,8 +173,10 @@ def main(instances_fldr, samples, perturbations):
                     tmp_mdl.setParam("SolutionLimit", 1)
                     tmp_mdl.optimize()
                     if tmp_mdl.solCount >= 1:
-                        tmp_mdl.write(os.path.join(perturbed_instance_dir, f"objective_{p}",
-                                                   f"{instance_name}_{count['objective']}{extension}"))
+                        stem = os.path.join(perturbed_instance_dir, f"objective_{p}",
+                                            f"{instance_name}_{count['objective']}")
+                        tmp_mdl.write(f"{stem}{extension}")
+                        write_objective(stem, tmp_mdl.objVal)
                         count["objective"] += 1
 
                 # write the rhs perturbation if it is feasible
@@ -174,8 +187,10 @@ def main(instances_fldr, samples, perturbations):
                         tmp_mdl.getConstrs()[i].Rhs = coef
                     tmp_mdl.optimize()
                     if tmp_mdl.solCount >= 1:
-                        tmp_mdl.write(os.path.join(perturbed_instance_dir, f"rhs_{p}",
-                                                   f"{instance_name}_{count['rhs']}{extension}"))
+                        stem = os.path.join(perturbed_instance_dir, f"rhs_{p}",
+                                            f"{instance_name}_{count['rhs']}")
+                        tmp_mdl.write(f"{stem}{extension}")
+                        write_objective(stem, tmp_mdl.objVal)
                         count['rhs'] += 1
 
                 # write the matrix perturbation if it is feasible
@@ -186,8 +201,10 @@ def main(instances_fldr, samples, perturbations):
                         tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
                     tmp_mdl.optimize()
                     if tmp_mdl.solCount >= 1:
-                        tmp_mdl.write(os.path.join(perturbed_instance_dir, f"matrix_{p}",
-                                                   f"{instance_name}_{count['matrix']}{extension}"))
+                        stem = os.path.join(perturbed_instance_dir, f"matrix_{p}",
+                                            f"{instance_name}_{count['matrix']}")
+                        tmp_mdl.write(f"{stem}{extension}")
+                        write_objective(stem, tmp_mdl.objVal)
                         count['matrix'] += 1
 
                 # write the bound perturbation if it is feasible
@@ -199,8 +216,10 @@ def main(instances_fldr, samples, perturbations):
                         tmp_mdl.getVars()[j].ub = ub
                     tmp_mdl.optimize()
                     if tmp_mdl.solCount >= 1:
-                        tmp_mdl.write(os.path.join(perturbed_instance_dir, f"bound_{p}",
-                                                   f"{instance_name}_{count['bound']}{extension}"))
+                        stem = os.path.join(perturbed_instance_dir, f"bound_{p}",
+                                            f"{instance_name}_{count['bound']}")
+                        tmp_mdl.write(f"{stem}{extension}")
+                        write_objective(stem, tmp_mdl.objVal)
                         count['bound'] += 1
 
                 # write the all perturbation if it is feasible
@@ -218,8 +237,10 @@ def main(instances_fldr, samples, perturbations):
                         tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
                     tmp_mdl.optimize()
                     if tmp_mdl.solCount >= 1:
-                        tmp_mdl.write(os.path.join(perturbed_instance_dir, f"all_{p}",
-                                                   f"{instance_name}_{count['all']}{extension}"))
+                        stem = os.path.join(perturbed_instance_dir, f"all_{p}",
+                                            f"{instance_name}_{count['all']}")
+                        tmp_mdl.write(f"{stem}{extension}")
+                        write_objective(stem, tmp_mdl.objVal)
                         count['all'] += 1
 
             for kind, amount in count.items():
@@ -234,4 +255,4 @@ def main(instances_fldr, samples, perturbations):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="miplib_small_easy", samples=10, perturbations=[1, 0, -1])
+    main(instances_fldr="miplib3", samples=10, perturbations=[1, 0, -1])

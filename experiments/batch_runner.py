@@ -54,4 +54,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300):
                                          str(max_time), generator, str(terms)])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], True, 1200)
+    run_batch(sys.argv[1], True, 600)
