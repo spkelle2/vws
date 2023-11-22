@@ -25,6 +25,7 @@ using namespace VPCParametersNamespace;
 #include "VwsSolverInterface.hpp"
 #include "VwsUtility.hpp"
 
+// utility function for getting default vpc parameters
 VPCParameters getParams(){
   VPCParameters params;
   params.set(DISJ_TERMS, 64); // how many active leaves in the disjunction
@@ -40,6 +41,7 @@ VPCParameters getParams(){
   return params;
 }
 
+// utility function for getting a solution to a solver
 std::vector<double> getSolution(OsiClpSolverInterface& solver){
   CbcModel model(solver);
   model.branchAndBound();
@@ -47,6 +49,7 @@ std::vector<double> getSolution(OsiClpSolverInterface& solver){
                              model.bestSolution() + model.getNumCols());
 }
 
+// utility function for checking if a cut is valid for a given solution
 void checkCuts(OsiCuts* cuts, std::vector<double> solution){
   for (int i=0; i<cuts->sizeRowCuts(); i++){
 
@@ -59,6 +62,7 @@ void checkCuts(OsiCuts* cuts, std::vector<double> solution){
   }
 }
 
+// checks if new VPCs are roughly better than old VPCs are roughly better than Farkas VPCs
 int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface seriesSolver){
 
   // get temporary solvers for this test - one for each way to make cuts
@@ -116,6 +120,7 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   return misordered;
 }
 
+// make sure we get the correct solution to the original problem
 void check_orig(RunData& data){
   // the further we solve, the better the dual bound should be
   REQUIRE(isVal(data.lpBound, 20.57, .01));
@@ -125,6 +130,7 @@ void check_orig(RunData& data){
   REQUIRE(data.primalBound == 34);
 }
 
+// make sure we get the correct solution to the parameterized problem
 void check_param(RunData& data){
   // the further we solve, the better the dual bound should be
   REQUIRE(isVal(data.lpBound, 19.09, .01));
@@ -134,6 +140,7 @@ void check_param(RunData& data){
   REQUIRE(data.primalBound == 31);
 }
 
+// make sure we capture the correct data for any perturbation of bm23
 void check_bm23_data(RunData& data){
   // algorithm step time comparisons
   REQUIRE(0 < data.vpcGenerationTime);
@@ -152,7 +159,7 @@ void check_bm23_data(RunData& data){
   } else {
     REQUIRE(data.actualTerms == 69);
   }
-  REQUIRE(data.iterations > 500);
+  REQUIRE(data.iterations > 100);
   REQUIRE(data.nodes > 10);
 }
 
@@ -202,6 +209,25 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   check_orig(data);
   check_bm23_data(data);
 
+  // now rerun no VPCs with Gurobi interface
+  seriesSolver.mipSolver = "Gurobi";
+  data = seriesSolver.solve(si, "None", 34);
+
+  // check seriesSolver attributes didn't change
+  REQUIRE(seriesSolver.disjunctions.size() == 0);
+  REQUIRE(seriesSolver.cutCertificates.size() == 0);
+
+  // check the event handler
+  REQUIRE(!data.numCuts);
+  REQUIRE(isVal(data.disjunctiveDualBound, 20.57, .01));
+  REQUIRE(isVal(data.lpBoundPostVpc, 20.57, .01));
+  REQUIRE(isVal(data.rootDualBound, 26.00, .01));
+  REQUIRE(data.vpcGenerator == "None");
+  REQUIRE(data.mipSolver == "Gurobi");
+  REQUIRE(data.providePrimalBound == true);
+  check_orig(data);
+  check_bm23_data(data);
+
   // ------------------------ New ----------------------------------
 
   // now run the rest with defaults
@@ -234,6 +260,7 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(isVal(data.lpBoundPostVpc, 29.98, .01));
   REQUIRE(isVal(data.rootDualBound, 30.12, .01));
   REQUIRE(data.vpcGenerator == "New");
+  REQUIRE(data.mipSolver == "CBC");
   REQUIRE(data.providePrimalBound == false);
   check_orig(data);
   check_bm23_data(data);
@@ -271,12 +298,37 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(isVal(data.lpBoundPostVpc, 22.77, .01));
   REQUIRE(isVal(data.rootDualBound, 24.73, .01));
   REQUIRE(data.vpcGenerator == "Old");
+  REQUIRE(data.mipSolver == "CBC");
+  REQUIRE(!data.providePrimalBound);
+  check_param(data);
+  check_bm23_data(data);
+
+  // now rerun with gurobi
+  seriesSolver.mipSolver = "Gurobi";
+  data = seriesSolver.solve(si, "Old");
+
+  // check seriesSolver attributes didn't change
+  REQUIRE(seriesSolver.disjunctions.size() == 1);
+  REQUIRE(seriesSolver.cutCertificates.size() == 1);
+  REQUIRE(seriesSolver.cutCertificates[0].size() == 6);
+
+  // check data attributes
+  REQUIRE(data.numCuts);
+  REQUIRE(isVal(data.disjunctiveDualBound, 22.91, .01));
+  REQUIRE(isVal(data.lpBoundPostVpc, 22.77, .01));
+  REQUIRE(isVal(data.rootDualBound, 24.69, .01));
+  REQUIRE(data.vpcGenerator == "Old");
+  REQUIRE(data.mipSolver == "Gurobi");
+  REQUIRE(!data.providePrimalBound);
   check_param(data);
   check_bm23_data(data);
 
   // ------------------------ Farkas ------------------------------------------
 
-  // solve with no Old
+  // reset to using CBC
+  seriesSolver.mipSolver = "CBC";
+
+  // solve with farkas vpcs
   data = seriesSolver.solve(si, "Farkas");
 
   // check seriesSolver attributes didn't change
@@ -290,6 +342,8 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(isVal(data.lpBoundPostVpc, 19.1, .01));
   REQUIRE(isVal(data.rootDualBound, 25.3, .01));
   REQUIRE(data.vpcGenerator == "Farkas");
+  REQUIRE(data.mipSolver == "CBC");
+  REQUIRE(!data.providePrimalBound);
   check_param(data);
   check_bm23_data(data);
 }

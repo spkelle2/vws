@@ -51,11 +51,6 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   // create a container to track run stats
   RunData data;
 
-  // give a little boost to primalBound if we have one so we find the corresponding solution
-  if (primalBound < std::numeric_limits<double>::max()) {
-    primalBound += 1e-6;
-  }
-
   // set up the solver - make sure we minimize and that we have a solution
   OsiClpSolverInterface * si = dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
   ensureMinimizationObjective(si);
