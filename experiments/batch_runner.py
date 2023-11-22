@@ -53,7 +53,8 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                     else:
                         # run locally
                         subprocess.call(["../Debug/vws", series_input_fldr, stem + ".csv",
-                                         str(max_time), generator, str(terms)])
+                                         str(max_time), generator, str(terms),
+                                         mip_solver, str(int(provide_primal_bound))])
 
 if __name__ == '__main__':
     run_batch(sys.argv[1])
