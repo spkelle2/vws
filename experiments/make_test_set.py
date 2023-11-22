@@ -134,9 +134,20 @@ def main(instances_fldr, samples, perturbations):
         os.mkdir(perturbed_instance_dir)
         # read in the instance
         mdl = gp.read(instance_pth)
-        mdl.setParam("TimeLimit", 1)
+
+        # get the optimal primal bound
+        mdl.setParam("TimeLimit", 60)
         mdl.setParam('OutputFlag', 0)
         mdl.optimize()
+        if mdl.status != gp.GRB.OPTIMAL:
+            print(f"Warning: {instance_name} could not be solved in 60 seconds. skipping.")
+            continue
+        objective_value = mdl.objVal
+
+        # set some parameters common to all perturbations' copies of the model
+        mdl.setParam("TimeLimit", 1)
+        mdl.setParam("SolutionLimit", 1)
+        mdl.update()
 
         for p in perturbations:
             count = {"objective": 1, "rhs": 1, "matrix": 1, "bound": 1, "all": 1}
@@ -149,7 +160,7 @@ def main(instances_fldr, samples, perturbations):
                 stem = os.path.join(series_fldr, f"{instance_name}_0")
                 shutil.copy(instance_pth, f"{stem}{extension}")
                 # save its objective value
-                write_objective(stem, mdl.objVal)
+                write_objective(stem, objective_value)
 
             iterations = 0
             # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
@@ -169,7 +180,6 @@ def main(instances_fldr, samples, perturbations):
                     tmp_mdl = mdl.copy()
                     for j, coef in enumerate(c):
                         tmp_mdl.getVars()[j].Obj = coef
-                    tmp_mdl.setParam("SolutionLimit", 1)
                     tmp_mdl.optimize()
                     if tmp_mdl.solCount >= 1:
                         stem = os.path.join(perturbed_instance_dir, f"objective_{p}",
@@ -181,7 +191,6 @@ def main(instances_fldr, samples, perturbations):
                 # write the rhs perturbation if it is feasible
                 if b is not None and count["rhs"] <= samples:
                     tmp_mdl = mdl.copy()
-                    tmp_mdl.setParam("SolutionLimit", 1)
                     for i, coef in enumerate(b):
                         tmp_mdl.getConstrs()[i].Rhs = coef
                     tmp_mdl.optimize()
@@ -195,7 +204,6 @@ def main(instances_fldr, samples, perturbations):
                 # write the matrix perturbation if it is feasible
                 if A is not None and count["matrix"] <= samples:
                     tmp_mdl = mdl.copy()
-                    tmp_mdl.setParam("SolutionLimit", 1)
                     for i, j in zip(*A.nonzero()):
                         tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
                     tmp_mdl.optimize()
@@ -209,7 +217,6 @@ def main(instances_fldr, samples, perturbations):
                 # write the bound perturbation if it is feasible
                 if l is not None and u is not None and count["bound"] <= samples:
                     tmp_mdl = mdl.copy()
-                    tmp_mdl.setParam("SolutionLimit", 1)
                     for j, (lb, ub) in enumerate(zip(l, u)):
                         tmp_mdl.getVars()[j].lb = lb
                         tmp_mdl.getVars()[j].ub = ub
@@ -225,7 +232,6 @@ def main(instances_fldr, samples, perturbations):
                 if l is not None and u is not None and A is not None and \
                         b is not None and c is not None and count["all"] <= samples:
                     tmp_mdl = mdl.copy()
-                    tmp_mdl.setParam("SolutionLimit", 1)
                     for j, coef in enumerate(c):
                         tmp_mdl.getVars()[j].Obj = coef
                         tmp_mdl.getVars()[j].lb = l[j]
