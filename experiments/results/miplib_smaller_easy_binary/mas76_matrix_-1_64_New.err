@@ -1,6 +1,0 @@
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 6: Calculated dot product with obj differs from solver's. Obj viol from solver: 4519.83271463. Calculated: 4519.83271478.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 45: Calculated dot product with obj differs from solver's. Obj viol from solver: 810.16728537. Calculated: 810.16728522.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 84: Calculated dot product with obj differs from solver's. Obj viol from solver: 4813.16728537. Calculated: 4813.16728522.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 153: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.16728537. Calculated: 0.16728522.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
-=>> PBS: job killed: walltime 7245 exceeded limit 7200
