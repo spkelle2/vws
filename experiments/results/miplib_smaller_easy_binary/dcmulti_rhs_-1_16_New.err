@@ -1,7 +1,0 @@
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 185279.557, now it is 183910.318.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 185279.557, now it is 183910.318.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 185279.557, now it is 183910.318.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 187538.472, now it is 185541.452.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 187538.472, now it is 185541.452.
-*** WARNING (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 187538.472, now it is 185541.452.
-*** ERROR (version #870a55a): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1250: Objective at parent node 1/8 (node id 0) is incorrect. During BB, it was 190161.627, now it is 183579.507.

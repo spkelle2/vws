@@ -1,0 +1,9 @@
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114745.521, now it is 114740.518.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114642.248, now it is 114015.430.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114214.370, now it is 114113.777.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114223.090, now it is 114109.752.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114197.699, now it is 113992.811.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 113800.029, now it is 113464.557.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/3 (node id 0) is somewhat incorrect. During BB, it was 114268.867, now it is 114214.058.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114546.128, now it is 114232.095.
+=>> PBS: job killed: walltime 3631 exceeded limit 3600

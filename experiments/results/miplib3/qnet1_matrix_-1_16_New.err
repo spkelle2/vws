@@ -1,0 +1,6 @@
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 14830.263, now it is 14500.784.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 289: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 441: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 444: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 447: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
+*** ERROR (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1250: Objective at parent node 1/8 (node id 0) is incorrect. During BB, it was 12421.761, now it is 10614.989.

@@ -1,2 +1,0 @@
-instanceIndex,lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,dualBound,heuristicPrimalBound,primalBound,vpcGenerationTime,heuristicTime,rootDualBoundTime,firstSolutionTime,bestSolutionTime,terminationTime,maxTime,vpcGenerator,terms,iterations,nodes,actualTerms
-0,8877.000000,8894.285714,8894.285714,9962.000000,11386.571389,17928.000000,14393.000000,2.245120,4.095711,4.840846,4.095583,615.922760,1201.406367,1200.000000,New,4,782774,85422,4
