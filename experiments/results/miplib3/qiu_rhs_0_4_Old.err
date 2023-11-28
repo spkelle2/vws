@@ -1,3 +1,10 @@
-must have primalBound > root LP objective value when minimizing
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1230898.polyp1.ie.lehigh.edu.SC: line 4: 12315 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 73.70367148. Calculated: 73.70367239.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 114.03400000. Calculated: 114.03400045.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 147.40734443. Calculated: 147.40735035.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 36.10609427. Calculated: 36.10611105.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 73.65424963. Calculated: 73.65426601.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 103.18768958. Calculated: 103.18770908.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 51.58122249. Calculated: 51.58123517.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 73.70367801. Calculated: 73.70369070.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 114.03400589. Calculated: 114.03403080.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 147.40735032. Calculated: 147.40735624.

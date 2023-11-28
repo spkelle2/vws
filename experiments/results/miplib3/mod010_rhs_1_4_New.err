@@ -1,0 +1,4 @@
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 6831 was found prior while getting disjunction.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 6682 was found prior while getting disjunction.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 7635 was found prior while getting disjunction.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 7846 was found prior while getting disjunction.
