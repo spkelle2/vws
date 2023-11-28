@@ -31,6 +31,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
             for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
+                    if instance != "10teams" or perturbation != "objective_1" or terms != 4 or generator != "None":
+                        continue
+
                     # get the path to folder with the series to run and where to save the output
                     test_name = f"{instance}_{perturbation}_{terms}_{generator}"
                     stem = os.path.join(output_fldr, test_name)
@@ -44,9 +47,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                         # submit the job to the cluster
                         args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
-                            f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)},'
+                            f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=4,mem=8gb,vmem=8gb,pmem=8gb',
+                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
                              '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
@@ -57,4 +60,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                                          mip_solver, str(int(provide_primal_bound))])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1])
+    run_batch(sys.argv[1], False)
