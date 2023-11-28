@@ -54,6 +54,7 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   // set up the solver - make sure we minimize and that we have a solution
   OsiClpSolverInterface * si = dynamic_cast<OsiClpSolverInterface*>(instanceSolver.clone());
   ensureMinimizationObjective(si);
+  si->initialSolve();
 
   // make sure primalBound is somewhat reasonable
   verify(primalBound >= si->getObjValue(),
@@ -148,7 +149,6 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
     OsiClpSolverInterface * si, RunData& data){
 
-  si->initialSolve();
   verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
 
@@ -187,7 +187,6 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
   // LP relaxation will have to be feasible for any of the following to matter
-  si->initialSolve();
   verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
 
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
@@ -281,7 +280,6 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
   verify(disjunctions.size() > 0, "We need previous disjunctions for this method");
 
   // CglVPC expects si to be optimal
-  si->initialSolve();
   verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
 
   // create a container for the cuts
