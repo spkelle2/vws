@@ -1,1 +1,3 @@
-*** ERROR (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/test/CbcHelper.cpp:294: CBC: Failed to optimize MIP.
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1234863.polyp1.ie.lehigh.edu.SC: line 4:  4876 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

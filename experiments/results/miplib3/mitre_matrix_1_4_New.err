@@ -1,5 +1,3 @@
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 114745.521, now it is 114740.518.
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/2 (node id 0) is somewhat incorrect. During BB, it was 112162.734, now it is 112098.722.
 *** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1114: Calculated dot product with obj differs from solver's. Obj viol from solver: 5.55633564. Calculated: 5.55633554.
 *** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1116: Calculated dot product with obj differs from solver's. Obj viol from solver: 5.51609321. Calculated: 5.51609311.
 *** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1123: Calculated dot product with obj differs from solver's. Obj viol from solver: 6.35576884. Calculated: 6.35576873.
@@ -14,5 +12,6 @@
 *** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 5273: Calculated dot product with obj differs from solver's. Obj viol from solver: 3.94296204. Calculated: 3.94296194.
 *** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 5289: Calculated dot product with obj differs from solver's. Obj viol from solver: 7.46683543. Calculated: 7.46683532.
 *** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 12765: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.97681493. Calculated: 0.97681477.
-vws: /home/sek519/warm_starting/vpc/lib/Cbc-trunk/Cbc/src/CbcModel.cpp:11117: int CbcModel::takeOffCuts(OsiCuts&, bool, OsiCuts*, int, const OsiRowCut**): Assertion `numberRowsAtContinuous_ + totalNumberCuts == solver_->getNumRows()' failed.
-/var/spool/torque/mom_priv/jobs/1230045.polyp1.ie.lehigh.edu.SC: line 4: 24733 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1234373.polyp1.ie.lehigh.edu.SC: line 4: 12313 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

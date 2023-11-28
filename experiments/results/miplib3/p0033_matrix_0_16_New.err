@@ -1,2 +1,2 @@
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1258: Objective at parent node 1/8 (node id 0) is somewhat incorrect. During BB, it was 2290.637, now it is 2288.195.
-*** ERROR (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1250: Objective at parent node 1/8 (node id 0) is incorrect. During BB, it was 2621.200, now it is 2517.314.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 3095 was found prior while getting disjunction.
+*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 2847 was found prior while getting disjunction.
