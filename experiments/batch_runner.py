@@ -31,9 +31,6 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
             for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
-                    if instance != "10teams" or perturbation != "objective_1" or terms != 4 or generator != "None":
-                        continue
-
                     # get the path to folder with the series to run and where to save the output
                     test_name = f"{instance}_{perturbation}_{terms}_{generator}"
                     stem = os.path.join(output_fldr, test_name)
@@ -60,4 +57,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                                          mip_solver, str(int(provide_primal_bound))])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], False)
+    run_batch(sys.argv[1])
