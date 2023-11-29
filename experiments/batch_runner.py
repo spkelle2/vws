@@ -57,4 +57,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                                          mip_solver, str(int(provide_primal_bound))])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1])
+    run_batch(sys.argv[1], mip_solver="Gurobi")

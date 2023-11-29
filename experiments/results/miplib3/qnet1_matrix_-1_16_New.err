@@ -1,5 +1,0 @@
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 289: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 441: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 444: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
-*** WARNING (version #29c91db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 447: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.15813907. Calculated: 0.15813919.
-=>> PBS: job killed: walltime 3622 exceeded limit 3600
