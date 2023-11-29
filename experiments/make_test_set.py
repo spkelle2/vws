@@ -132,8 +132,8 @@ def main(instances_fldr, samples, perturbations):
             continue
         # make a directory for each of the series for this instance
         os.mkdir(perturbed_instance_dir)
-        # read in the instance
-        mdl = gp.read(instance_pth)
+        # read in the presolved instance - should help with reducing tree size in VPC
+        mdl = gp.read(instance_pth).presolve()
 
         # get the optimal primal bound
         mdl.setParam("TimeLimit", 60)
@@ -158,7 +158,7 @@ def main(instances_fldr, samples, perturbations):
                 os.mkdir(series_fldr)
                 # Copy and rename the file as the first instance
                 stem = os.path.join(series_fldr, f"{instance_name}_0")
-                shutil.copy(instance_pth, f"{stem}{extension}")
+                mdl.write(f"{stem}{extension}")
                 # save its objective value
                 write_objective(stem, objective_value)
 
