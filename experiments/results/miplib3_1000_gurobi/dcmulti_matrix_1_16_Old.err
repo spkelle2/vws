@@ -1,3 +1,1 @@
-mipSolver must be CBC or GUROBI
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:651: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1242019.polyp1.ie.lehigh.edu.SC: line 4: 16593 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+*** ERROR (version #a64d04a): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Unable to open file '/tmp/tmpvpcsQJNzQ.mps.gz' for input
