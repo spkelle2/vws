@@ -17,6 +17,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
     assert os.path.exists(input_fldr), f'{test_fldr} must belong in the "test_sets" ' \
         f'folder and the path {input_fldr} must exist'
 
+    # make sure we have a valid mip solver
+    assert mip_solver in ["CBC", "GUROBI"], "mip_solver must be either CBC or GUROBI"
+
     # get the output folder and make sure it does not yet exist, then make it
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
@@ -57,4 +60,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                                          mip_solver, str(int(provide_primal_bound))])
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="Gurobi")
+    run_batch(sys.argv[1], mip_solver="GUROBI")
