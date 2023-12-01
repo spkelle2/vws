@@ -1,0 +1,1 @@
+*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:783: We are assuming that if pruning by integrality, the objective we calculated should be the same as the objective of the solver.
