@@ -1,0 +1,3 @@
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 40: Calculated dot product with obj differs from solver's. Obj viol from solver: 2476251.76832920. Calculated: 2476251.76832902.
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 3264770.83072427. Calculated: 3264770.83072417.
