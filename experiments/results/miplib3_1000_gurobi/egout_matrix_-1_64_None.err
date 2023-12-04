@@ -1,1 +1,0 @@
-*** ERROR (version #a64d04a): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:582: Gurobi: Exception caught: Unable to open file '/tmp/tmpvpcuUhBR2.mps.gz' for input
