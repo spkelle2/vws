@@ -695,4 +695,4 @@
 *** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 82 ray 861 does not satisfy the objective cut. Activity: -0.00000291. RHS: 0.00000000. Small enough violation that we only send a warning.
 *** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000236. Calculated: -0.00000236.
 *** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 82 ray 862 does not satisfy the objective cut. Activity: -0.00000236. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
+No vpcs were made from a new disjunction in first iteration. Stopping series.

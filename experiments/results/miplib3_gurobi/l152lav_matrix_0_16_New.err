@@ -1,1 +1,3 @@
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+=>> PBS: job killed: walltime 3638 exceeded limit 3600

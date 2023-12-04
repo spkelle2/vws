@@ -103358,4 +103358,3 @@ v[4256] = -5.24603e-12
 v[4257] = 4.44089e-16
 v[4258] = 4.44089e-16
 v[4259] = 0
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
