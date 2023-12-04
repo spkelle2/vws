@@ -1,8 +1,6 @@
 import os
 import subprocess
 
-from make_test_instance import make_instance_set
-
 
 def main(instances_fldr, remote: bool = True):
     """This function creates a test set of instances for the experiments.
