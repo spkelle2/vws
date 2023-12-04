@@ -41,4 +41,4 @@ def main(instances_fldr, remote: bool = True):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="bm23", remote=False)
+    main(instances_fldr="bm23")
