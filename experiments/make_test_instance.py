@@ -108,8 +108,6 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     :return: None
     """
 
-    print("called!")
-
     assert isinstance(samples, int) and samples > 0, "samples should be a positive integer"
     assert all(isinstance(x, int) for x in perturbations), "perturbations should be a list of integers"
 
@@ -122,7 +120,12 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     # filter out non .mps files
     if extension != '.mps':
         return
-    # make a directory for each of the series for this instance
+    # skip if the instance already exists
+    if os.path.exists(perturbed_instance_dir):
+        print(f"Warning: {instance_name} already exists. skipping.",
+              file=sys.stderr)
+        return
+    # make a directory to hold the series for this instance
     os.mkdir(perturbed_instance_dir)
     # read in the presolved instance - should help with reducing tree size in VPC
     mdl = gp.read(instance_pth).presolve()
@@ -132,7 +135,8 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     mdl.setParam('OutputFlag', 0)
     mdl.optimize()
     if mdl.status != gp.GRB.OPTIMAL:
-        print(f"Warning: {instance_name} could not be solved in 300 seconds. skipping.")
+        print(f"Warning: {instance_name} could not be solved in 300 seconds. skipping.",
+              file=sys.stderr)
         return
     objective_value = mdl.objVal
 
@@ -231,5 +235,4 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
 
 
 if __name__ == '__main__':
-    print("called!")
     make_instance_set(sys.argv[1], sys.argv[2])

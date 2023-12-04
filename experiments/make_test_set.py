@@ -16,9 +16,10 @@ def main(instances_fldr, remote: bool = True):
     # input checks
     assert os.path.exists(os.path.join('instances', instances_fldr)),\
         f'"instances/{instances_fldr}" should exist'
-    assert not os.path.exists(os.path.join('test_sets', instances_fldr)),\
-        f'"test_sets/{instances_fldr}" directory should not exist'
-    os.mkdir(os.path.join('test_sets', instances_fldr))
+
+    # make output directory if it doesn't exist
+    if not os.path.exists(os.path.join('test_sets', instances_fldr)):
+        os.mkdir(os.path.join('test_sets', instances_fldr))
 
     # iterate over all files in the instances directory
     for instance_idx, instance_file in enumerate(os.listdir(os.path.join('instances', instances_fldr))):
@@ -29,7 +30,7 @@ def main(instances_fldr, remote: bool = True):
             # submit the job to the cluster
             args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
             subprocess.call(
-                ['qsub', '-V', '-q', 'long', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
+                ['qsub', '-V', '-q', 'medium', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
                  '-v', args, '-e', f'{instance_name}.err', '-o', f'{instance_name}.out',
                  '-N', instance_name, 'submit_creation.pbs']
             )
