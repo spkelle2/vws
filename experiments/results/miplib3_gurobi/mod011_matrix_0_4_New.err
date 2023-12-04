@@ -7,4 +7,4 @@
 *** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 23414548.12129748. Calculated: 23414548.12129730.
 *** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 10592250.26487312. Calculated: 10592250.26487301.
 *** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 10675999.01404396. Calculated: 10675999.01404409.
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 17799392.98114921. Calculated: 17799392.98114911.

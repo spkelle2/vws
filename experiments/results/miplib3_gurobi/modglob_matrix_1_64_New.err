@@ -1,1 +1,3 @@
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 140: Calculated dot product with obj differs from solver's. Obj viol from solver: 946.69726005. Calculated: 946.69726015.
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 140: Calculated dot product with obj differs from solver's. Obj viol from solver: 946.69726005. Calculated: 946.69726015.
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 140: Calculated dot product with obj differs from solver's. Obj viol from solver: 946.69726005. Calculated: 946.69726015.

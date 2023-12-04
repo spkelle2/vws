@@ -1,1 +1,1 @@
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
+=>> PBS: job killed: walltime 3619 exceeded limit 3600

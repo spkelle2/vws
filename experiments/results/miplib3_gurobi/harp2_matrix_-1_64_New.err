@@ -1,1 +1,4 @@
-*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Request denied: license expired
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 511486.46243462. Calculated: 511486.46243473.
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:989: CglVPC::setupConstraints: Objective at disjunctive term 293/697 is incorrect. Before, it was -85035555.744, now it is -85035555.744.
+*** ERROR (version #e4f5f09): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 253768.21337987. Calculated: 253768.23378839.
