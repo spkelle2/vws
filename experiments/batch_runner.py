@@ -40,7 +40,7 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
 
                     # skip if the output already exists
-                    if os.path.exists(stem + ".csv"):
+                    if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
                         continue
 
                     if remote:
