@@ -2,7 +2,7 @@ import os
 import subprocess
 
 
-def main(instances_fldr, remote: bool = True):
+def main(instances_fldr, remote: bool = False):
     """This function creates a test set of instances for the experiments.
 
     :param instances_fldr: the name of the folder in the instances directory
@@ -40,4 +40,4 @@ def main(instances_fldr, remote: bool = True):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="bm23")
+    main(instances_fldr="miplib_5000")
