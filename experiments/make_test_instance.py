@@ -98,7 +98,7 @@ def write_objective(stem: str, val: float):
 
 
 def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
-                      perturbations: tuple[int] = (1, 2, 3, 4, 5)):
+                      perturbations: tuple[int] = (0, )):
     """ make the test set for a single instance
 
     :param instance_file: the saved instance
