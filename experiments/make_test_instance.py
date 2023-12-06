@@ -98,18 +98,18 @@ def write_objective(stem: str, val: float):
 
 
 def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
-                      perturbations: tuple[int] = (0, )):
+                      degrees: tuple[int] = (0, 1, 2)):
     """ make the test set for a single instance
 
     :param instance_file: the saved instance
     :param instances_fldr: folder where saved instance can be found
     :param samples: number of samples to make of each perturbation
-    :param perturbations: perturbations to make
+    :param degrees: degrees of perturbations to make
     :return: None
     """
 
     assert isinstance(samples, int) and samples > 0, "samples should be a positive integer"
-    assert all(isinstance(x, int) for x in perturbations), "perturbations should be a list of integers"
+    assert all(isinstance(x, int) for x in degrees), "degrees should be a list of integers"
 
     # get information about the instance location
     instance_name, extension = os.path.splitext(instance_file)
@@ -120,13 +120,9 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     # filter out non .mps files
     if extension != '.mps':
         return
-    # skip if the instance already exists
-    if os.path.exists(perturbed_instance_dir):
-        print(f"Warning: {instance_name} already exists. skipping.",
-              file=sys.stderr)
-        return
-    # make a directory to hold the series for this instance
-    os.mkdir(perturbed_instance_dir)
+    # make a directory to hold the series for this instance if it doesn't exist
+    if not os.path.exists(perturbed_instance_dir):
+        os.mkdir(perturbed_instance_dir)
     # read in the presolved instance - should help with reducing tree size in VPC
     mdl = gp.read(instance_pth).presolve()
 
@@ -145,17 +141,26 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
         with open("cbc.txt", 'a') as file:
             file.write(f"{instance_name}\n")
 
-    for p in perturbations:
+    for p in degrees:
         count = {"objective": 1, "rhs": 1, "matrix": 1, "bound": 1}
+        exists = {"objective": False, "rhs": False, "matrix": False, "bound": False}
         for kind in count:
             # create a directory for each kind of perturbation of this instance
             series_fldr = os.path.join(perturbed_instance_dir, f"{kind}_{p}")
-            os.mkdir(series_fldr)
+            if not os.path.exists(series_fldr):
+                os.mkdir(series_fldr)
+            else:
+                exists[kind] = True
+                continue
             # Copy and rename the file as the first instance
             stem = os.path.join(series_fldr, f"{instance_name}_0")
             mdl.write(f"{stem}{extension}")
             # save its objective value
             write_objective(stem, objective_value)
+
+        # if all perturbations to this degree already exist, skip to the next
+        if all(exists.values()):
+            continue
 
         iterations = 0
         # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
@@ -171,7 +176,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
             l, u = perturb_bounds(mdl, p)
 
             # write the objective perturbation if it is feasible
-            if c is not None and count["objective"] <= samples:
+            if not exists["objective"] and c is not None:
                 tmp_mdl = mdl.copy()
                 for j, coef in enumerate(c):
                     tmp_mdl.getVars()[j].Obj = coef
@@ -184,7 +189,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     count["objective"] += 1
 
             # write the rhs perturbation if it is feasible
-            if b is not None and count["rhs"] <= samples:
+            if not exists["rhs"] and b is not None:
                 tmp_mdl = mdl.copy()
                 for i, coef in enumerate(b):
                     tmp_mdl.getConstrs()[i].Rhs = coef
@@ -197,7 +202,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     count['rhs'] += 1
 
             # write the matrix perturbation if it is feasible
-            if A is not None and count["matrix"] <= samples:
+            if not exists["matrix"] and A is not None:
                 tmp_mdl = mdl.copy()
                 for i, j in zip(*A.nonzero()):
                     tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
@@ -210,7 +215,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     count['matrix'] += 1
 
             # write the bound perturbation if it is feasible
-            if l is not None and u is not None and count["bound"] <= samples:
+            if not exists["bound"] and l is not None and u is not None:
                 tmp_mdl = mdl.copy()
                 for j, (lb, ub) in enumerate(zip(l, u)):
                     tmp_mdl.getVars()[j].lb = lb
