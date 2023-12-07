@@ -56,6 +56,14 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   ensureMinimizationObjective(si);
   si->initialSolve();
 
+  // get the number of fractional integer variables
+  int fractional_int_vars = 0;
+  for (int i=0; i < si->getNumCols(); i++){
+    if (si->isInteger(i) && !isInteger(si->getColSolution()[i])){
+      fractional_int_vars++;
+    }
+  }
+
   // make sure primalBound is somewhat reasonable
   verify(primalBound >= si->getObjValue(),
          "must have primalBound > root LP objective value when minimizing");
@@ -69,12 +77,14 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   std::shared_ptr<OsiCuts> disjCuts;
   if (vpcGenerator == "New") {
     disjCuts = createVpcsFromNewDisjunctionPRLP(si, data);
+    data.cutLimit = params.get(VPCParametersNamespace::CUTLIMIT) > 0 ?
+                    params.get(VPCParametersNamespace::CUTLIMIT) :
+                    -1 * params.get(VPCParametersNamespace::CUTLIMIT) * fractional_int_vars;
   } else if (vpcGenerator == "Old") {
     disjCuts = createVpcsFromOldDisjunctionPRLP(si, data);
   } else if (vpcGenerator == "Farkas") {
     disjCuts = createVpcsFromFarkasMultipliers(si, data);
   } else if (vpcGenerator == "None") {
-    si->initialSolve();
     data.disjunctiveDualBound = si->getObjValue();
   } else {
     verify(false, "vpcGenerator must be one of New, Old, Farkas, or None");

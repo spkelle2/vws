@@ -74,7 +74,7 @@ TEST_CASE( "Test Simple") {
     std::regex re("([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
-                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+)");
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+)");
     std::smatch match;
 
     // the file should exist
@@ -121,10 +121,12 @@ TEST_CASE( "Test Simple") {
         REQUIRE(isVal(std::stoi(match[17].str()), testRunner.runData[lineIndex - 1].actualTerms, 1e-4));
         // numCuts
         REQUIRE(isVal(std::stod(match[18].str()), testRunner.runData[lineIndex - 1].numCuts, 1e-4));
+        // cutLimit
+        REQUIRE(isVal(std::stod(match[19].str()), testRunner.runData[lineIndex - 1].cutLimit, 1e-4));
         // mipSolver
-        REQUIRE(match[19].str() == testRunner.runData[lineIndex - 1].mipSolver);
+        REQUIRE(match[20].str() == testRunner.runData[lineIndex - 1].mipSolver);
         // providePrimalBound
-        REQUIRE(isVal(std::stod(match[20].str()), testRunner.runData[lineIndex - 1].providePrimalBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[21].str()), testRunner.runData[lineIndex - 1].providePrimalBound, 1e-4));
       }
       lineIndex++;
     }

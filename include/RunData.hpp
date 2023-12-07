@@ -84,6 +84,9 @@ public:
   /** number of vpcs generated */
   int numCuts;
 
+  /** max number of vpcs possible to generate */
+  int cutLimit;
+
   /** which mip solver was used */
   std::string mipSolver;
 

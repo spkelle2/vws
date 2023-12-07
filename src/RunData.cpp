@@ -58,6 +58,7 @@ void RunData::initialize(const RunData* const rhs) {
     this->maxTime = rhs->maxTime;
     this->actualTerms = rhs->actualTerms;
     this->numCuts = rhs->numCuts;
+    this->cutLimit = rhs->cutLimit;
     this->mipSolver = rhs->mipSolver;
     this->providePrimalBound = rhs->providePrimalBound;
   } else {
@@ -79,6 +80,7 @@ void RunData::initialize(const RunData* const rhs) {
     this->maxTime = 0.0;
     this->actualTerms = 0;
     this->numCuts = 0;
+    this->cutLimit = 0;
     this->mipSolver = "";
     this->providePrimalBound = false;
   }
@@ -89,7 +91,7 @@ std::string RunData::getHeader(){
   return "instanceIndex,vpcGenerator,terms,lpBound,disjunctiveDualBound,"
          "lpBoundPostVpc,rootDualBound,dualBound,primalBound,vpcGenerationTime,"
          "rootDualBoundTime,bestSolutionTime,terminationTime,nodes,iterations,"
-         "maxTime,actualTerms,numCuts,mipSolver,providePrimalBound";
+         "maxTime,actualTerms,numCuts,cutLimit,mipSolver,providePrimalBound";
 }
 
 /** Get a comma-separated string of the values of RunData's attributes */
@@ -103,7 +105,7 @@ std::string RunData::getValues(){
     std::to_string(terminationTime) + "," + std::to_string(nodes) + "," +
     std::to_string(iterations) + "," + std::to_string(maxTime) + "," +
     std::to_string(actualTerms) + "," + std::to_string(numCuts) + "," +
-    mipSolver + "," + std::to_string(providePrimalBound);
+    std::to_string(cutLimit) + "," + mipSolver + "," + std::to_string(providePrimalBound);
 }
 
 /** writes this struct's attributes to the given csv file */
