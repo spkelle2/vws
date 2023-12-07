@@ -27,16 +27,22 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
 
+    # read the strings in cbc.txt into a list
+    with open("cbc.txt", "r") as f:
+        cbc_instances = f.readlines()
+
     # iterate over instances, their perturbations, disjunctive terms, and generators
     for instance in os.listdir(input_fldr):
         if not os.path.isdir(os.path.join(input_fldr, instance)):
             continue
+        if mip_solver == "CBC" and instance+'\n' not in cbc_instances:
+            continue
+
         for perturbation in os.listdir(os.path.join(input_fldr, instance)):
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                 continue
-
             # skip large perturbations for now
-            attribute, degree = perturbation.split("_")
+            attribute, degree = perturbation.rsplit("_")
             degree = int(degree)
             if degree > 1:
                 continue
@@ -78,4 +84,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
 
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="CBC", remote=False)
+    run_batch(sys.argv[1], mip_solver="CBC")
