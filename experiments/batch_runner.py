@@ -20,6 +20,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
     # make sure we have a valid mip solver
     assert mip_solver in ["CBC", "GUROBI"], "mip_solver must be either CBC or GUROBI"
 
+    # track number of jobs submitted
+    count = 0
+
     # get the output folder and make sure it does not yet exist, then make it
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
@@ -31,6 +34,13 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
         for perturbation in os.listdir(os.path.join(input_fldr, instance)):
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                 continue
+
+            # skip large perturbations for now
+            attribute, degree = perturbation.split("_")
+            degree = int(degree)
+            if degree > 1:
+                continue
+
             for terms in [4, 64, 256]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
@@ -59,5 +69,13 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                                          str(max_time), generator, str(terms),
                                          mip_solver, str(int(provide_primal_bound))])
 
+                    # increment the job counter
+                    count += 1
+
+                    # exit if we've hit the queue limit
+                    if count >= 2000:
+                        return
+
+
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="GUROBI")
+    run_batch(sys.argv[1], mip_solver="CBC", remote=False)

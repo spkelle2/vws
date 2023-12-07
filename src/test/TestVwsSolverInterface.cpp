@@ -161,6 +161,11 @@ void check_bm23_data(RunData& data){
   }
   REQUIRE(data.iterations > 100);
   REQUIRE(data.nodes > 10);
+  if (data.vpcGenerator == "New"){
+    REQUIRE(data.cutLimit == 6);
+  } else {
+    REQUIRE(data.cutLimit == 0);
+  }
 }
 
 TEST_CASE("Test default constructor", "[VwsSolverInterface::VwsSolverInterface]") {
