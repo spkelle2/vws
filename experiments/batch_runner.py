@@ -79,9 +79,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                     count += 1
 
                     # exit if we've hit the queue limit
-                    if count >= 2000:
+                    if count >= 4000:
                         return
 
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="CBC")
+    run_batch(sys.argv[1], mip_solver="GUROBI")
