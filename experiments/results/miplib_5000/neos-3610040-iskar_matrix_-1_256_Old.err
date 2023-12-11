@@ -1,0 +1,12 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 52 (real var 226), it is -2.072917e-06. Small enough error that we only send warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 226: dot product with obj < 0. Obj viol from solver: -0.00000207. Calculated: -0.00000207.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 43 ray 52 does not satisfy the objective cut. Activity: -0.00000207. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 65 (real var 241), it is -9.255450e-07. Small enough error that we only send warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 241: dot product with obj < 0. Obj viol from solver: -0.00000093. Calculated: -0.00000093.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 56 ray 65 does not satisfy the objective cut. Activity: -0.00000093. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 60 (real var 241), it is -6.921287e-07. Small enough error that we only send warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 241: dot product with obj < 0. Obj viol from solver: -0.00000069. Calculated: -0.00000069.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 340 ray 60 does not satisfy the objective cut. Activity: -0.00000069. RHS: 0.00000000. Small enough violation that we only send a warning.
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1286074.polyp1.ie.lehigh.edu.SC: line 4: 32547 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
