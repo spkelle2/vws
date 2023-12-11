@@ -81,7 +81,6 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
   // set parameters
   VPCParameters params;
   params.set(DISJ_TERMS, terms); // how many active leaves in the disjunction
-  params.set(CUTLIMIT, -10); // create 10x as many cuts as fractional integer variables in LP relaxation solution
   params.set(TIMELIMIT, maxRunTime); // max time for vpc generation
   params.set(PARTIAL_BB_TIMELIMIT, maxRunTime); // max time for creating partial bb tree
   params.set(PARTIAL_BB_KEEP_PRUNED_NODES, 1); // get the entirety of the partial bb tree
