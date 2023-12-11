@@ -7,9 +7,6 @@
 #include <memory> // shared_ptr
 #include <vector>
 
-// shared modules
-#include "CbcModel.hpp" // CbcModel
-
 // vpc modules
 #include "PartialBBDisjunction.hpp" // PartialBBDisjunction
 #include "TimeStats.hpp" // Timer
