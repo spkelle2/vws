@@ -62,19 +62,23 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
                         continue
 
-                    coral_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
+                    remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
                         f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
                         subprocess.call(
                             ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
-                             '-v', coral_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
+                             '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
                     elif machine == "sol":
-                        sol_args = coral_args + f",STEM={stem},TEST_NAME={test_name}"
-                        subprocess.call(["sbatch", f"--export={sol_args}", "submit.sh"])
+                        subprocess.call([
+                            "sbatch", f"--job-name={test_name}", f"--output={stem}.out",
+                            f"--error={stem}.err", "--time=60", "--ntasks=1",
+                            "--cpus-per-task=1", "--mem=4G", "--partition=engi",
+                            f"--export={remote_args}", "submit.sh"
+                        ])
                     else:
                         # run locally
                         local_args = ["../Debug/vws", series_input_fldr, stem + ".csv",
