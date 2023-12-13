@@ -45,8 +45,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                 continue
             # skip large perturbations for now
-            attribute, degree = perturbation.rsplit("_")
-            degree = int(degree)
+            degree = int(perturbation.split("_")[-1])
             if degree > 1:
                 continue
 
@@ -60,6 +59,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
 
                     # skip if the output already exists
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
+                        print(f"{test_name} already ran")
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
