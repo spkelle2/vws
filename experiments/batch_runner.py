@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 
-def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
+def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
               mip_solver: str = "CBC", provide_primal_bound: bool = True):
     """ For all problems and perturbations, run the .mps associated with each series
 
@@ -16,6 +16,9 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
     input_fldr = os.path.join(os.getcwd(), "test_sets", test_fldr)
     assert os.path.exists(input_fldr), f'{test_fldr} must belong in the "test_sets" ' \
         f'folder and the path {input_fldr} must exist'
+
+    # make sure we have a valid machine
+    assert machine in ["coral", "local", "sol"], "machine must be coral, local, or sol"
 
     # make sure we have a valid mip solver
     assert mip_solver in ["CBC", "GUROBI"], "mip_solver must be either CBC or GUROBI"
@@ -59,16 +62,19 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
                         continue
 
-                    if remote:
+                    coral_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
+                        f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
+                        f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
+                    if machine == "coral":
                         # submit the job to the cluster
-                        args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem+".csv"},'\
-                            f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
-                            f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                         subprocess.call(
                             ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
-                             '-v', args, '-e', f'{stem}.err', '-o', f'{stem}.out',
+                             '-v', coral_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
+                    elif machine == "sol":
+                        sol_args = coral_args + f",STEM={stem},TEST_NAME={test_name}"
+                        subprocess.call(["sbatch", f"--export={sol_args}", "submit.sh"])
                     else:
                         # run locally
                         subprocess.call(["../Debug/vws", series_input_fldr, stem + ".csv",
@@ -84,4 +90,4 @@ def run_batch(test_fldr: str, remote: bool = True, max_time: int = 300,
 
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="GUROBI")
+    run_batch(sys.argv[1], mip_solver="CBC", machine="sol")
