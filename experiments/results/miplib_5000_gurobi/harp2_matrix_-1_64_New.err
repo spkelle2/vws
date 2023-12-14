@@ -1,0 +1,8 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1095: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.10833474. Calculated: 0.10833464.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1095: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.10797162. Calculated: 0.10797152.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1087: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00391625. Calculated: 0.00391615.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 320: Calculated dot product with obj differs from solver's. Obj viol from solver: 4166032.42162065. Calculated: 4166032.42162076.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 323: Calculated dot product with obj differs from solver's. Obj viol from solver: 7418139.64005039. Calculated: 7418139.64005056.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 703: Calculated dot product with obj differs from solver's. Obj viol from solver: 4055524.61658747. Calculated: 4055524.61658760.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 729: Calculated dot product with obj differs from solver's. Obj viol from solver: 3731168.69552844. Calculated: 3731168.69552856.
+=>> PBS: job killed: walltime 3613 exceeded limit 3600

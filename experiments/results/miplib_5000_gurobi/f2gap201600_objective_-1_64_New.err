@@ -1,0 +1,2 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1459: Calculated dot product with obj differs from solver's. Obj viol from solver: 8.93695844. Calculated: 8.93695831.
+=>> PBS: job killed: walltime 3605 exceeded limit 3600
