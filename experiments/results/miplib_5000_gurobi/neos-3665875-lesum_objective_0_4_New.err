@@ -1,0 +1,13 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 2563: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.09939608. Calculated: 0.09939624.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 2587: Calculated dot product with obj differs from solver's. Obj viol from solver: 2.09939608. Calculated: 2.09939624.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 2603: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.90060392. Calculated: 0.90060376.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 2651: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.90060392. Calculated: 0.90060376.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3179: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.09939608. Calculated: 0.09939624.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3227: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.09939608. Calculated: 0.09939624.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3363: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.04969804. Calculated: 0.04969827.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3443: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.09939608. Calculated: 0.09939624.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3643: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.90060392. Calculated: 0.90060376.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3739: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.09939608. Calculated: 0.09939624.
+messed up a farkas cofficient
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
+/var/spool/torque/mom_priv/jobs/1303697.polyp1.ie.lehigh.edu.SC: line 4:  5099 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
