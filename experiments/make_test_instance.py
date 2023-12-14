@@ -193,6 +193,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count["objective"] += 1
+                del tmp_mdl
 
             # write the rhs perturbation if it is solvable
             if not exists["rhs"] and b is not None:
@@ -206,6 +207,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count['rhs'] += 1
+                del tmp_mdl
 
             # write the matrix perturbation if it is solvable
             if not exists["matrix"] and A is not None:
@@ -219,6 +221,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count['matrix'] += 1
+                del tmp_mdl
 
             # write the bound perturbation if it is solvable
             if not exists["bound"] and l is not None and u is not None:
@@ -233,6 +236,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count['bound'] += 1
+                del tmp_mdl
 
         for kind, amount in count.items():
             if amount == 1:
