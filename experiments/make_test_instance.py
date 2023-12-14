@@ -97,8 +97,13 @@ def write_objective(stem: str, val: float):
         file.write(str(val))
 
 
+def keep_perturbing(count: dict, samples: int):
+    """ keep perturbing if we do not have enough samples """
+    return sum(v - 1 for v in count.values()) < samples
+
+
 def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
-                      degrees: tuple[int] = (-1, 0, 1)):
+                      degrees: tuple[int] = (-1, 1)):
     """ make the test set for a single instance
 
     :param instance_file: the saved instance
@@ -127,17 +132,17 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     mdl = gp.read(instance_pth).presolve()
 
     # get the optimal primal bound
-    mdl.setParam("TimeLimit", 300)
+    mdl.setParam("TimeLimit", 3600)
     mdl.setParam('OutputFlag', 0)
     mdl.optimize()
     if mdl.status != gp.GRB.OPTIMAL:
-        print(f"Warning: {instance_name} could not be solved in 300 seconds. skipping.",
+        print(f"Warning: {instance_name} could not be solved in 3600 seconds. skipping.",
               file=sys.stderr)
         return
     objective_value = mdl.objVal
 
-    # if mdl solved in under 10 seconds, append its name to the file cbc.txt
-    if mdl.Runtime < 10:
+    # if mdl solved in under 120 seconds, append its name to the file cbc.txt
+    if mdl.Runtime < 120:
         with open("cbc.txt", 'a') as file:
             file.write(f"{instance_name}\n")
 
@@ -162,9 +167,10 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
         if all(exists.values()):
             continue
 
-        iterations = 0
         # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
-        while iterations < samples:
+        iterations = 0
+        while iterations < samples and keep_perturbing(count, samples):
+            # update termination condition
             iterations += 1
 
             # perturb the instance
@@ -175,53 +181,53 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
             c = perturb(np.array(mdl.getAttr('OBJ')), p)
             l, u = perturb_bounds(mdl, p)
 
-            # write the objective perturbation if it is feasible
+            # write the objective perturbation if it is solvable
             if not exists["objective"] and c is not None:
                 tmp_mdl = mdl.copy()
                 for j, coef in enumerate(c):
                     tmp_mdl.getVars()[j].Obj = coef
                 tmp_mdl.optimize()
-                if tmp_mdl.solCount >= 1:
+                if tmp_mdl.status == gp.GRB.OPTIMAL:
                     stem = os.path.join(perturbed_instance_dir, f"objective_{p}",
                                         f"{instance_name}_{count['objective']}")
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count["objective"] += 1
 
-            # write the rhs perturbation if it is feasible
+            # write the rhs perturbation if it is solvable
             if not exists["rhs"] and b is not None:
                 tmp_mdl = mdl.copy()
                 for i, coef in enumerate(b):
                     tmp_mdl.getConstrs()[i].Rhs = coef
                 tmp_mdl.optimize()
-                if tmp_mdl.solCount >= 1:
+                if tmp_mdl.status == gp.GRB.OPTIMAL:
                     stem = os.path.join(perturbed_instance_dir, f"rhs_{p}",
                                         f"{instance_name}_{count['rhs']}")
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count['rhs'] += 1
 
-            # write the matrix perturbation if it is feasible
+            # write the matrix perturbation if it is solvable
             if not exists["matrix"] and A is not None:
                 tmp_mdl = mdl.copy()
                 for i, j in zip(*A.nonzero()):
                     tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
                 tmp_mdl.optimize()
-                if tmp_mdl.solCount >= 1:
+                if tmp_mdl.status == gp.GRB.OPTIMAL:
                     stem = os.path.join(perturbed_instance_dir, f"matrix_{p}",
                                         f"{instance_name}_{count['matrix']}")
                     tmp_mdl.write(f"{stem}{extension}")
                     write_objective(stem, tmp_mdl.objVal)
                     count['matrix'] += 1
 
-            # write the bound perturbation if it is feasible
+            # write the bound perturbation if it is solvable
             if not exists["bound"] and l is not None and u is not None:
                 tmp_mdl = mdl.copy()
                 for j, (lb, ub) in enumerate(zip(l, u)):
                     tmp_mdl.getVars()[j].lb = lb
                     tmp_mdl.getVars()[j].ub = ub
                 tmp_mdl.optimize()
-                if tmp_mdl.solCount >= 1:
+                if tmp_mdl.status == gp.GRB.OPTIMAL:
                     stem = os.path.join(perturbed_instance_dir, f"bound_{p}",
                                         f"{instance_name}_{count['bound']}")
                     tmp_mdl.write(f"{stem}{extension}")
@@ -229,9 +235,8 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
                     count['bound'] += 1
 
         for kind, amount in count.items():
-            if amount <= samples:
-                print(f"Warning: {instance_name} has {amount - 1} {kind} for p = {p}")
             if amount == 1:
+                print(f"Warning: {instance_name} has {amount - 1} {kind} for p = {p}")
                 # delete the folder if there are no perturbations
                 shutil.rmtree(os.path.join(perturbed_instance_dir, f"{kind}_{p}"))
 

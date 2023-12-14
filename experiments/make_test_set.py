@@ -30,7 +30,7 @@ def main(instances_fldr, remote: bool = False):
             # submit the job to the cluster
             args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
             subprocess.call(
-                ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
+                ['qsub', '-V', '-q', 'long', '-l', 'ncpus=1,mem=2gb,vmem=2gb,pmem=2gb',
                  '-v', args, '-e', f'{instance_name}.err', '-o', f'{instance_name}.out',
                  '-N', instance_name, 'submit_creation.pbs']
             )
@@ -40,4 +40,4 @@ def main(instances_fldr, remote: bool = False):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="miplib_5000", remote=True)
+    main(instances_fldr="bm23", remote=True)
