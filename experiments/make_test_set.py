@@ -26,11 +26,15 @@ def main(instances_fldr, remote: bool = False):
         instance_name, extension = os.path.splitext(instance_file)
         print(f"instance {instance_idx + 1} of {len(os.listdir(os.path.join('instances', instances_fldr)))}")
 
+	if os.path.exists(os.path.join('test_sets', instances_fldr, instance_name):
+		print(f"{instance_name} already exists"))
+		continue
+
         if remote:
             # submit the job to the cluster
             args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
             subprocess.call(
-                ['qsub', '-V', '-q', 'long', '-l', 'ncpus=1,mem=2gb,vmem=2gb,pmem=2gb',
+                ['qsub', '-V', '-q', 'long', '-l', 'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb',
                  '-v', args, '-e', f'{instance_name}.err', '-o', f'{instance_name}.out',
                  '-N', instance_name, 'submit_creation.pbs']
             )
@@ -40,4 +44,4 @@ def main(instances_fldr, remote: bool = False):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="bm23", remote=True)
+    main(instances_fldr="miplib_5000", remote=True)
