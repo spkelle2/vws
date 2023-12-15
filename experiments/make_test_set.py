@@ -26,9 +26,9 @@ def main(instances_fldr, remote: bool = False):
         instance_name, extension = os.path.splitext(instance_file)
         print(f"instance {instance_idx + 1} of {len(os.listdir(os.path.join('instances', instances_fldr)))}")
 
-	if os.path.exists(os.path.join('test_sets', instances_fldr, instance_name):
-		print(f"{instance_name} already exists"))
-		continue
+        if os.path.exists(os.path.join('test_sets', instances_fldr, instance_name)):
+            print(f"{instance_name} already exists")
+            continue
 
         if remote:
             # submit the job to the cluster
