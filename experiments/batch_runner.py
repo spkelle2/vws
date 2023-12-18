@@ -85,7 +85,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
                     num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
                     time_limit = num_mips * (df.loc[(instance, terms), "total_time"] if
-                                             (instance, terms) in df.index else max_time * 2)
+                                             (instance, terms) in df.index else (max_time * 2))
                     queue = get_queue(ceil(time_limit / 3600))
 
                     # skip if the output already exists

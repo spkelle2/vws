@@ -26,6 +26,7 @@ dependencies:
   - ncurses
   - numpy
   - openssl
+  - pandas
   - pip
   - python
   - python_abi
