@@ -1,9 +1,28 @@
+from math import ceil
+import numpy as np
 import os
+import pandas as pd
 import subprocess
 import sys
 
 
-def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
+def get_queue(time_limit):
+    """ Get the queue to submit to based on the time limit
+
+    :param time_limit: the time limit required in hours
+    :return: the queue to submit to
+    """
+    if time_limit <= 1:
+        return "batch"
+    elif time_limit <= 2:
+        return "short"
+    elif time_limit <= 4:
+        return "medium"
+    else:
+        return "long"
+
+
+def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
               mip_solver: str = "CBC", provide_primal_bound: bool = True):
     """ For all problems and perturbations, run the .mps associated with each series
 
@@ -30,6 +49,18 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
 
+    # get aleks' results for run times
+    groups, fields = ["INSTANCE", "disj_terms"], ["VPC_GEN_TIME", "AVG REF TIME", "AVG REF+V TIME"]
+    df = pd.read_csv("aleks_results.csv")
+    df = df[groups + fields]
+    df["INSTANCE"] = df["INSTANCE"].str.replace("_presolved", "")
+    df = df.groupby(groups).mean()[fields]
+    bb_time = np.maximum(df["AVG REF TIME"], df["AVG REF+V TIME"])
+    # get upper bounds on run time on our servers
+    df["total_time"] = np.minimum(max_time, 10 * (df["VPC_GEN_TIME"] + bb_time))
+    if mip_solver == "CBC":  # adjust for cbc being slower
+        df["total_time"] = np.minimum(max_time, 10 * df["total_time"])
+
     # read the strings in cbc.txt into a list
     with open("cbc.txt", "r") as f:
         cbc_instances = f.readlines()
@@ -44,18 +75,18 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
         for perturbation in os.listdir(os.path.join(input_fldr, instance)):
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                 continue
-            # skip large perturbations for now
-            degree = int(perturbation.split("_")[-1])
-            if degree > 1:
-                continue
 
-            for terms in [4, 64, 256]:
+            for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
                     # get the path to folder with the series to run and where to save the output
                     test_name = f"{instance}_{perturbation}_{terms}_{generator}"
                     stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
+                    num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
+                    time_limit = num_mips * (df.loc[(instance, terms), "total_time"] if
+                                             (instance, terms) in df.index else max_time * 2)
+                    queue = get_queue(ceil(time_limit / 3600))
 
                     # skip if the output already exists
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
@@ -63,19 +94,19 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
-                        f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
+                        f'MAX_TIME={time_limit},GENERATOR={generator},TERMS={terms},' \
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
                         subprocess.call(
-                            ['qsub', '-V', '-q', 'batch', '-l', 'ncpus=2,mem=4gb,vmem=4gb,pmem=4gb',
+                            ['qsub', '-V', '-q', queue, '-l', 'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb',
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
                     elif machine == "sol":
                         subprocess.call([
                             "sbatch", f"--job-name={test_name}", f"--output={stem}.out",
-                            f"--error={stem}.err", "--time=60", "--ntasks=1",
+                            f"--error={stem}.err", f"--time={time_limit * 60}", "--ntasks=1",
                             "--cpus-per-task=1", "--mem=4G", "--partition=engi",
                             f"--export={remote_args}", "submit.sh"
                         ])
@@ -92,8 +123,9 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 300,
 
                     # exit if we've hit the queue limit
                     if count >= 4000:
+                        print("Queue limit reached")
                         return
 
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="CBC", machine="sol")
+    run_batch(sys.argv[1], mip_solver="GUROBI", machine="coral")

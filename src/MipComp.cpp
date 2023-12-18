@@ -85,6 +85,7 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
   params.set(PARTIAL_BB_TIMELIMIT, maxRunTime); // max time for creating partial bb tree
   params.set(PARTIAL_BB_KEEP_PRUNED_NODES, 1); // get the entirety of the partial bb tree
   params.set(MODE, 0); // create a partial bb tree to get the disjunction
+  params.set(VPCParametersNamespace::BB_TIMELIMIT, maxRunTime); // max time for branch and cut
   params.set(intParam::VERBOSITY, 1); // light output
   params.set(stringParam::TMPFOLDER, "."); // save tmp files in current directory
   if (providePrimalBound) {

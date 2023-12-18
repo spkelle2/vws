@@ -94,8 +94,6 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   timer.end_timer("vpcGenerationTime");
 
   // configure args for solver helpers
-  double run_time = max(params.get(VPCParametersNamespace::TIMELIMIT) - timer.get_time("vpcGenerationTime"), 1.0);
-  params.set(VPCParametersNamespace::BB_TIMELIMIT, run_time);
   BBInfo info; // container for stats that vpc tracks for us
 
   // call the appropriate solver helper subroutine
