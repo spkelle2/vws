@@ -106,7 +106,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     elif machine == "sol":
                         subprocess.call([
                             "sbatch", f"--job-name={test_name}", f"--output={stem}.out",
-                            f"--error={stem}.err", f"--time={time_limit * 60}", "--ntasks=1",
+                            f"--error={stem}.err", f"--time={ceil(time_limit / 60)}", "--ntasks=1",
                             "--cpus-per-task=1", "--mem=4G", "--partition=engi",
                             f"--export={remote_args}", "submit.sh"
                         ])
