@@ -28,7 +28,6 @@ gurobi.log
 *.out
 .ipynb_checkpoints/
 .idea/
-experiments/*.csv
 experiments/*.png
 baseline_*
 vpcs_*
@@ -38,3 +37,4 @@ experiments/old
 experiments/test_sets/
 experiments/outputs
 tmpvpc*
+experiments/outfiles/
