@@ -99,7 +99,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     if machine == "coral":
                         # submit the job to the cluster
                         subprocess.call(
-                            ['qsub', '-V', '-q', queue, '-l', 'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb',
+                            ['qsub', '-V', '-q', "urgent", '-l', 'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb',
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
