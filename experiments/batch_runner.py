@@ -84,9 +84,10 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
                     num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
-                    time_limit = num_mips * (df.loc[(instance, terms), "total_time"] if
-                                             (instance, terms) in df.index else (max_time * 2))
-                    queue = get_queue(ceil(time_limit / 3600))
+                    run_time_limit = ceil(df.loc[(instance, terms), "total_time"] if
+                                          (instance, terms) in df.index else (max_time * 2))  # seconds
+                    total_time_limit = ceil(run_time_limit * num_mips / 3600)  # hours
+                    queue = get_queue(ceil(total_time_limit / 3600))
 
                     # skip if the output already exists
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
@@ -94,19 +95,20 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
-                        f'MAX_TIME={time_limit},GENERATOR={generator},TERMS={terms},' \
+                        f'MAX_TIME={run_time_limit},GENERATOR={generator},TERMS={terms},' \
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
+                        resources = f'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb,walltime={total_time_limit}:00:00'
                         subprocess.call(
-                            ['qsub', '-V', '-q', "urgent", '-l', 'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb',
+                            ['qsub', '-V', '-q', "urgent", '-l', resources,
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
                     elif machine == "sol":
                         subprocess.call([
                             "sbatch", f"--job-name={test_name}", f"--output={stem}.out",
-                            f"--error={stem}.err", f"--time={ceil(time_limit / 60)}", "--ntasks=1",
+                            f"--error={stem}.err", f"--time={total_time_limit * 60}", "--ntasks=1",
                             "--cpus-per-task=1", "--mem=4G", "--partition=engi",
                             f"--export={remote_args}", "submit.sh"
                         ])
