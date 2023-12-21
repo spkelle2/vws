@@ -23,7 +23,8 @@ def get_queue(time_limit):
 
 
 def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
-              mip_solver: str = "CBC", provide_primal_bound: bool = True):
+              mip_solver: str = "CBC", provide_primal_bound: bool = True,
+              queue_limit: int = 4000):
     """ For all problems and perturbations, run the .mps associated with each series
 
     :param test_fldr: directory containing directories of instances which in turn
@@ -42,8 +43,8 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
     # make sure we have a valid mip solver
     assert mip_solver in ["CBC", "GUROBI"], "mip_solver must be either CBC or GUROBI"
 
-    # track number of jobs submitted
-    count = 0
+    # track number of jobs
+    total_jobs, complete_jobs, submit_jobs = 0, 0, 0
 
     # get the output folder and make sure it does not yet exist, then make it
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
@@ -79,6 +80,9 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
+                    # increment the total number of jobs
+                    total_jobs += 1
+
                     # get the path to folder with the series to run and where to save the output
                     test_name = f"{instance}_{perturbation}_{terms}_{generator}"
                     stem = os.path.join(output_fldr, test_name)
@@ -92,6 +96,11 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     # skip if the output already exists
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
                         print(f"{test_name} already ran")
+                        complete_jobs += 1
+                        continue
+
+                    # skip if we've hit the queue limit
+                    if submit_jobs >= queue_limit:
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
@@ -120,13 +129,16 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         print(" ".join(local_args))
                         subprocess.call(local_args)
 
-                    # increment the job counter
-                    count += 1
+                    submit_jobs += 1
 
                     # exit if we've hit the queue limit
-                    if count >= 4000:
+                    if submit_jobs >= queue_limit:
                         print("Queue limit reached")
-                        return
+
+    print(f"{total_jobs} total jobs")
+    print(f"{complete_jobs} already ran")
+    print(f"{submit_jobs} submitted")
+    print(f"{total_jobs - complete_jobs - submit_jobs} remaining")
 
 
 if __name__ == '__main__':
