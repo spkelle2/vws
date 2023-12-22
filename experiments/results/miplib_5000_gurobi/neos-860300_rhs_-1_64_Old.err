@@ -1,1 +1,2 @@
-=>> PBS: job killed: walltime 3636 exceeded limit 3600
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 3201 was found prior while getting disjunction.
+No vpcs were made from a new disjunction in first iteration. Stopping series.

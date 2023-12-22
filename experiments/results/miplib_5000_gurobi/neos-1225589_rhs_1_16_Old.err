@@ -1,0 +1,2 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 131866953.76864231. Calculated: 131866953.76864216.
+*** ERROR (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 141865430.17733017. Calculated: 141854446.98381305.

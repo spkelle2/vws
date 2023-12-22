@@ -1,1 +1,1 @@
-*** ERROR (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:1216: Solver not proven optimal for node -1.
+=>> PBS: job killed: walltime 3625 exceeded limit 3600

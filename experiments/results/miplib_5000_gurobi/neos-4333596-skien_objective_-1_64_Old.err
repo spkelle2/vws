@@ -1,7 +1,6 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 782: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00089969. Calculated: 0.00089958.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 782: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00087468. Calculated: 0.00087457.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 782: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00087468. Calculated: 0.00087457.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 782: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00087468. Calculated: 0.00087457.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 9552.62744120. Calculated: 9552.62744238.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 14061.36095228. Calculated: 14061.36095245.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 17071.78018304. Calculated: 17071.78018321.
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1313480.polyp1.ie.lehigh.edu.SC: line 4: 31199 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+/var/spool/torque/mom_priv/jobs/1332744.polyp1.ie.lehigh.edu.SC: line 4: 32065 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

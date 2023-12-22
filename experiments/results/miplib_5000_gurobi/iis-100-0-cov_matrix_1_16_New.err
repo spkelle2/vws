@@ -1,0 +1,4 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 25 (real var 1398), it is -1.696520e-07. Small enough error that we only send warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 1398: dot product with obj < 0. Obj viol from solver: -0.00000017. Calculated: -0.00000017.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 11 ray 25 does not satisfy the objective cut. Activity: -0.00000017. RHS: 0.00000000. Small enough violation that we only send a warning.
+=>> PBS: job killed: walltime 21645 exceeded limit 21600

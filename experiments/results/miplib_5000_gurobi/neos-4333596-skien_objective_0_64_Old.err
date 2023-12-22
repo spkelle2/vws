@@ -1,8 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 771: Calculated dot product with obj differs from solver's. Obj viol from solver: 31.62920629. Calculated: 31.62920642.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 10513.71732054. Calculated: 10513.71732070.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 13691.33241223. Calculated: 13691.33241240.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 18152.02000352. Calculated: 18152.02000369.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 16507.11822930. Calculated: 16507.11822946.
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1313456.polyp1.ie.lehigh.edu.SC: line 4: 20956 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

@@ -1,1 +1,1 @@
-/var/spool/torque/mom_priv/jobs/1304312.polyp1.ie.lehigh.edu.SC: line 4: 19324 Segmentation fault      ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+/var/spool/torque/mom_priv/jobs/1319393.polyp1.ie.lehigh.edu.SC: line 4: 28628 Segmentation fault      (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
