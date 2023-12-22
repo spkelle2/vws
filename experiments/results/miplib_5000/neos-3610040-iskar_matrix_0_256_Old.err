@@ -1,9 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 46 (real var 215), it is -5.212677e-07. Small enough error that we only send warning.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 215: dot product with obj < 0. Obj viol from solver: -0.00000052. Calculated: -0.00000052.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 17 ray 46 does not satisfy the objective cut. Activity: -0.00000052. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 48 (real var 215), it is -5.212677e-07. Small enough error that we only send warning.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 215: dot product with obj < 0. Obj viol from solver: -0.00000052. Calculated: -0.00000052.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 160 ray 48 does not satisfy the objective cut. Activity: -0.00000052. RHS: 0.00000000. Small enough violation that we only send a warning.
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1286026.polyp1.ie.lehigh.edu.SC: line 4: 26355 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

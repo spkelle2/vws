@@ -53,7 +53,6 @@
 *** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1279: Calculated dot product with obj differs from solver's. Obj viol from solver: 217.81578831. Calculated: 217.81578821.
 *** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1307: Calculated dot product with obj differs from solver's. Obj viol from solver: 9.37005331. Calculated: 9.37005321.
 *** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 812: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.12670514. Calculated: 0.12670504.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1305370.polyp1.ie.lehigh.edu.SC: line 4: 18836 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+/var/spool/torque/mom_priv/jobs/1320547.polyp1.ie.lehigh.edu.SC: line 4:  8340 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

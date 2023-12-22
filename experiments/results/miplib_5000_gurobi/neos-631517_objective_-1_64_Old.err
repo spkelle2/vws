@@ -1,5 +1,1 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 149: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.50596870. Calculated: 1.50596883.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1364: Calculated dot product with obj differs from solver's. Obj viol from solver: 8.49403130. Calculated: 8.49403117.
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1307806.polyp1.ie.lehigh.edu.SC: line 4:  6696 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+No vpcs were made from a new disjunction in first iteration. Stopping series.
