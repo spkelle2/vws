@@ -50,18 +50,6 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
 
-    # get aleks' results for run times
-    groups, fields = ["INSTANCE", "disj_terms"], ["VPC_GEN_TIME", "AVG REF TIME", "AVG REF+V TIME"]
-    df = pd.read_csv("aleks_results.csv")
-    df = df[groups + fields]
-    df["INSTANCE"] = df["INSTANCE"].str.replace("_presolved", "")
-    df = df.groupby(groups).mean()[fields]
-    bb_time = np.maximum(df["AVG REF TIME"], df["AVG REF+V TIME"])
-    # get upper bounds on run time on our servers
-    df["total_time"] = np.minimum(max_time, 10 * (df["VPC_GEN_TIME"] + bb_time))
-    if mip_solver == "CBC":  # adjust for cbc being slower
-        df["total_time"] = np.minimum(max_time, 10 * df["total_time"])
-
     # read the strings in cbc.txt into a list
     with open("cbc.txt", "r") as f:
         cbc_instances = f.readlines()
@@ -88,10 +76,8 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
                     num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
-                    run_time_limit = ceil(df.loc[(instance, terms), "total_time"] if
-                                          (instance, terms) in df.index else (max_time * 2))  # seconds
-                    total_time_limit = ceil(run_time_limit * num_mips / 3600)  # hours
-                    queue = get_queue(ceil(total_time_limit / 3600))
+                    total_time_limit = ceil(2 * max_time * num_mips / 3600)  # hours
+                    queue = get_queue(total_time_limit)
 
                     # skip if the output already exists
                     if os.path.exists(stem + ".csv") or os.path.exists(stem + ".err"):
@@ -104,7 +90,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
-                        f'MAX_TIME={run_time_limit},GENERATOR={generator},TERMS={terms},' \
+                        f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
