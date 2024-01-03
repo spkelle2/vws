@@ -25,7 +25,6 @@ TmpRelease/
 nohup.out
 lib/
 gurobi.log
-*.out
 .ipynb_checkpoints/
 .idea/
 experiments/*.png
@@ -39,3 +38,4 @@ experiments/outputs
 tmpvpc*
 experiments/outfiles/
 core
+*.out
