@@ -16,13 +16,14 @@ def norm_diff(v1: np.ndarray, v2: np.ndarray) -> float:
     return abs(np.linalg.norm(v1) - np.linalg.norm(v2))
 
 
-def perturb(vector: np.ndarray, p: int) -> Union[np.ndarray, None]:
+def perturb(vector: np.ndarray, p: int, unit: int = 1) -> Union[np.ndarray, None]:
     """This function perturbs a vector by 2^p degrees and within 2^p % of its norm.
     It does so by randomly adding or subtracting 1 from a random element of the vector
     until the perturbation is achieved.
 
     :param vector: the vector to be perturbed
     :param p: the power of 2 to perturb the vector by
+    :param unit: the increment of element perturbation
     :return: the perturbed vector
     """
     # maybe randomly add or subtract 1 until we get to 2^p degrees or 2^p % of the norm difference
@@ -34,7 +35,7 @@ def perturb(vector: np.ndarray, p: int) -> Union[np.ndarray, None]:
 
     while angle_diff(new_vector, vector) < 2 ** p and norm_diff(new_vector, vector) < 2 ** p:
         prev_vector = new_vector.copy()
-        new_vector[np.random.randint(new_vector.shape[0])] += np.random.choice([-1, 1])
+        new_vector[np.random.randint(new_vector.shape[0])] += np.random.choice([-unit, unit])
 
     if all(prev_vector == vector):
         return None
@@ -132,17 +133,17 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     mdl = gp.read(instance_pth).presolve()
 
     # get the optimal primal bound
-    mdl.setParam("TimeLimit", 3600)
+    mdl.setParam("TimeLimit", 14400)
     mdl.setParam('OutputFlag', 0)
     mdl.optimize()
     if mdl.status != gp.GRB.OPTIMAL:
-        print(f"Warning: {instance_name} could not be solved in 3600 seconds. skipping.",
+        print(f"Warning: {instance_name} could not be solved in 14400 seconds. skipping.",
               file=sys.stderr)
         return
     objective_value = mdl.objVal
 
-    # if mdl solved in under 120 seconds, append its name to the file cbc.txt
-    if mdl.Runtime < 120:
+    # if mdl solved in under 1200 seconds, append its name to the file cbc.txt
+    if mdl.Runtime < 1200:
         with open("cbc.txt", 'a') as file:
             file.write(f"{instance_name}\n")
 
@@ -178,8 +179,16 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
             A = csr_matrix((coefs, mdl.getA().nonzero()), mdl.getA().shape) \
                 if coefs is not None else None
             b = perturb(np.array(mdl.getAttr('RHS')), p)
-            c = perturb(np.array(mdl.getAttr('OBJ')), p)
             l, u = perturb_bounds(mdl, p)
+
+            # make several attempts at the objective since it won't change feasibility
+            c, unit = None, 1
+            while c is None and unit > 1e-3:
+                c = perturb(np.array(mdl.getAttr('OBJ')), p, unit)
+                unit *= .5
+            if c is None:
+                print(f"Warning: {instance_name} objective could not be perturbed for p = {p}",
+                      file=sys.stderr)
 
             # write the objective perturbation if it is solvable
             if not exists["objective"] and c is not None:
