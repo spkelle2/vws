@@ -50,6 +50,9 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
 
+    # read the memory required for each instance
+    mem_df = pd.read_csv("more_memory.csv", index_col=0)
+
     # read the strings in cbc.txt into a list
     with open("cbc.txt", "r") as f:
         cbc_instances = f.readlines()
@@ -60,6 +63,11 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             continue
         if mip_solver == "CBC" and instance+'\n' not in cbc_instances:
             continue
+
+        # get the memory required for this instance
+        instance_file = instance + ".mps"
+        mem = mem_df.loc[instance_file, 'memory'] if instance_file in mem_df.index else 4
+        print(f"instance {instance} requires {mem}gb")
 
         for perturbation in os.listdir(os.path.join(input_fldr, instance)):
             if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
@@ -94,7 +102,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
-                        resources = f'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb,walltime={total_time_limit}:00:00'
+                        resources = f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
                         subprocess.call(
                             ['qsub', '-V', '-q', "urgent", '-l', resources,
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
@@ -104,7 +112,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         subprocess.call([
                             "sbatch", f"--job-name={test_name}", f"--output={stem}.out",
                             f"--error={stem}.err", f"--time={total_time_limit * 60}", "--ntasks=1",
-                            "--cpus-per-task=1", "--mem=4G", "--partition=engi",
+                            "--cpus-per-task=1", f"--mem={mem}G", "--partition=engi",
                             f"--export={remote_args}", "submit.sh"
                         ])
                     else:
@@ -128,4 +136,4 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
 
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="GUROBI", machine="coral")
+    run_batch(sys.argv[1], mip_solver="CBC", machine="local")

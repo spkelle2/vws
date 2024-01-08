@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+import pandas as pd
+
 
 def main(instances_fldr, remote: bool = False):
     """This function creates a test set of instances for the experiments.
@@ -21,10 +23,16 @@ def main(instances_fldr, remote: bool = False):
     if not os.path.exists(os.path.join('test_sets', instances_fldr)):
         os.mkdir(os.path.join('test_sets', instances_fldr))
 
+    # read the memory required for each instance
+    mem_df = pd.read_csv("more_memory.csv", index_col=0)
+
     # iterate over all files in the instances directory
     for instance_idx, instance_file in enumerate(os.listdir(os.path.join('instances', instances_fldr))):
         instance_name, extension = os.path.splitext(instance_file)
         print(f"instance {instance_idx + 1} of {len(os.listdir(os.path.join('instances', instances_fldr)))}")
+
+        # get the memory required for this instance
+        mem = mem_df.loc[instance_file, 'memory'] if instance_file in mem_df.index else 4
 
         if os.path.exists(f'{instance_name}.err'):
             print(f"{instance_name} already ran")
@@ -34,7 +42,7 @@ def main(instances_fldr, remote: bool = False):
             # submit the job to the cluster
             args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
             subprocess.call(
-                ['qsub', '-V', '-q', 'long', '-l', 'ncpus=1,mem=4gb,vmem=4gb,pmem=4gb',
+                ['qsub', '-V', '-q', 'long', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb',
                  '-v', args, '-e', f'{instance_name}.err', '-o', f'{instance_name}.out',
                  '-N', instance_name, 'submit_creation.pbs']
             )

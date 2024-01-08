@@ -130,7 +130,11 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     if not os.path.exists(perturbed_instance_dir):
         os.mkdir(perturbed_instance_dir)
     # read in the presolved instance - should help with reducing tree size in VPC
-    mdl = gp.read(instance_pth).presolve()
+    try:
+        mdl = gp.read(instance_pth).presolve()
+    except gp.GurobiError:
+        # model could not be presolved
+        mdl = gp.read(instance_pth)
 
     # get the optimal primal bound
     mdl.setParam("TimeLimit", 14400)

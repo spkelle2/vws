@@ -40,3 +40,4 @@ experiments/outfiles/
 core
 *.out
 experiments/*.err
+outfiles/
