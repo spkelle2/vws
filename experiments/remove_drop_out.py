@@ -5,7 +5,8 @@ test_set_path = "test_sets/miplib_5000"
 instances_path = "instances/miplib_5000"
 
 # Get a list of folders in test_set/miplib_5000
-folders_to_check = [folder for folder in os.listdir(test_set_path) if os.path.isdir(os.path.join(test_set_path, folder))]
+folders_to_check = [folder for folder in os.listdir(test_set_path) if
+                    os.path.isdir(os.path.join(test_set_path, folder))]
 
 for folder in folders_to_check:
     # Construct the path to the corresponding .mps file in instances/miplib_5000
