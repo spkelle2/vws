@@ -39,3 +39,4 @@ tmpvpc*
 experiments/outfiles/
 core
 *.out
+outfiles/
