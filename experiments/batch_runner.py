@@ -63,6 +63,9 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             continue
         if mip_solver == "CBC" and instance+'\n' not in cbc_instances:
             continue
+        if instance in ["neos-1601936", "neos-933562", "rococoB10-011000",
+                        "timtab2", "assign1-5-8", "neos-916792", "mc8"]:
+            continue
 
         # get the memory required for this instance
         instance_file = instance + ".mps"
@@ -84,7 +87,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
                     num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
-                    total_time_limit = ceil(2 * max_time * num_mips / 3600)  # hours
+                    total_time_limit = ceil(2 * max_time * num_mips / 3600) + 1 # hours
                     queue = get_queue(total_time_limit)
 
                     # skip if the output already exists
@@ -136,4 +139,4 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
 
 
 if __name__ == '__main__':
-    run_batch(sys.argv[1], mip_solver="CBC", machine="local")
+    run_batch(sys.argv[1], mip_solver="GUROBI", machine="coral")
