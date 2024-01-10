@@ -63,8 +63,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             continue
         if mip_solver == "CBC" and instance+'\n' not in cbc_instances:
             continue
-        if instance in ["neos-933562", "timtab2"]:
-            continue
+        # partial: "neos-933562", "timtab2"
 
         # get the memory required for this instance
         instance_file = instance + ".mps"
