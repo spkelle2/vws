@@ -63,8 +63,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             continue
         if mip_solver == "CBC" and instance+'\n' not in cbc_instances:
             continue
-        if instance in ["neos-1601936", "neos-933562", "rococoB10-011000",
-                        "timtab2", "assign1-5-8", "neos-916792", "mc8"]:
+        if instance in ["neos-933562", "timtab2"]:
             continue
 
         # get the memory required for this instance
