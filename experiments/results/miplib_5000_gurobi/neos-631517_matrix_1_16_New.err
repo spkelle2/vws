@@ -1,6 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1358: Calculated dot product with obj differs from solver's. Obj viol from solver: 5.00411664. Calculated: 5.00411654.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 677: Calculated dot product with obj differs from solver's. Obj viol from solver: 271.51598443. Calculated: 271.51598460.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 694: Calculated dot product with obj differs from solver's. Obj viol from solver: 113.86921406. Calculated: 113.86921423.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 757: Calculated dot product with obj differs from solver's. Obj viol from solver: 642214.99012146. Calculated: 642214.99012129.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 759: Calculated dot product with obj differs from solver's. Obj viol from solver: 249.98697589. Calculated: 249.98697577.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1197: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.99302587. Calculated: 1.99302576.
