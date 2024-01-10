@@ -67,7 +67,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
 
         # get the memory required for this instance
         instance_file = instance + ".mps"
-        mem = mem_df.loc[instance_file, 'memory'] if instance_file in mem_df.index else 4
+        mem = int(mem_df.loc[instance_file, 'memory']) if instance_file in mem_df.index else 4
         print(f"instance {instance} requires {mem}gb")
 
         for perturbation in os.listdir(os.path.join(input_fldr, instance)):
