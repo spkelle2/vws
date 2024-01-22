@@ -1,0 +1,8 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 501: Calculated dot product with obj differs from solver's. Obj viol from solver: 70.25889526. Calculated: 70.25889514.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 502: Calculated dot product with obj differs from solver's. Obj viol from solver: 50.25889526. Calculated: 50.25889514.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 719: Calculated dot product with obj differs from solver's. Obj viol from solver: 48.65889526. Calculated: 48.65889514.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 720: Calculated dot product with obj differs from solver's. Obj viol from solver: 46.65889526. Calculated: 46.65889514.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 721: Calculated dot product with obj differs from solver's. Obj viol from solver: 30.25889526. Calculated: 30.25889514.
+messed up a farkas cofficient
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
+/var/spool/torque/mom_priv/jobs/1368217.polyp1.ie.lehigh.edu.SC: line 4: 25831 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

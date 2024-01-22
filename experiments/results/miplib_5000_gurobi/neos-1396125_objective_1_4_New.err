@@ -1,0 +1,2 @@
+vws: /home/sek519/warm_starting/vpc/lib/Cbc-trunk/Clp/src/ClpNonLinearCost.cpp:953: void ClpNonLinearCost::checkInfeasibilities(double): Assertion `fabs(lowerValue) < 1.0e100' failed.
+/var/spool/torque/mom_priv/jobs/1384487.polyp1.ie.lehigh.edu.SC: line 4: 16269 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

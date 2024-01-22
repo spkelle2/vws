@@ -1,0 +1,13 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 300143846.62811863. Calculated: 300143846.62811852.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 131866953.76864231. Calculated: 131866953.76864216.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 316778848.39531028. Calculated: 316778848.39531016.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 202365069.90021956. Calculated: 202365069.90021968.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 164012384.05645978. Calculated: 164012384.05645993.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 342659995.37166548. Calculated: 342659995.37166560.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 341329041.68798757. Calculated: 341329041.68798769.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 260269825.27725273. Calculated: 260269825.27725261.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:155: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 372170883.09743893. Calculated: 372170883.09743905.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1248: Calculated dot product with obj differs from solver's. Obj viol from solver: 227800122.00000015. Calculated: 227800122.00000000.
+messed up a farkas cofficient
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
+/var/spool/torque/mom_priv/jobs/1384831.polyp1.ie.lehigh.edu.SC: line 4: 31461 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

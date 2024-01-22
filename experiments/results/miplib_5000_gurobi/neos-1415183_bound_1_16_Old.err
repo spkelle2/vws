@@ -1,0 +1,9 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 5518: dot product with obj < 0. Obj viol from solver: -0.00000000. Calculated: -0.00000015.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 5518: Calculated dot product with obj differs from solver's. Obj viol from solver: -0.00000000. Calculated: -0.00000015.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 214 ray 2712 does not satisfy the objective cut. Activity: -0.00000015. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 5557: Calculated dot product with obj differs from solver's. Obj viol from solver: -0.00000000. Calculated: 0.00000015.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 5535: dot product with obj < 0. Obj viol from solver: -0.00000000. Calculated: -0.00000017.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 5535: Calculated dot product with obj differs from solver's. Obj viol from solver: -0.00000000. Calculated: -0.00000017.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 216 ray 2728 does not satisfy the objective cut. Activity: -0.00000017. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (67.948000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+No vpcs were made from a new disjunction in first iteration. Stopping series.
