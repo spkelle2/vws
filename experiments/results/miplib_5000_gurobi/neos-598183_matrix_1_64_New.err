@@ -1,0 +1,5 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 997: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.20822416. Calculated: 0.20822427.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1129: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.81889445. Calculated: 0.81889456.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1179: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.34780088. Calculated: 0.34780074.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (64.376000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 1125: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.52437236. Calculated: 0.52437246.

@@ -1,0 +1,1 @@
+*** ERROR (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:613: Gurobi: Exception caught: Unable to open Gurobi license file '/usr/local/gurobi/gurobi.lic'
