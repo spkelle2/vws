@@ -1,31 +1,55 @@
 import gurobi as gu
-import shutil
 import os
+import pandas as pd
+import shutil
 
-# get source and destination directories
-source_directory = '/Users/sean/Documents/school/phd/research/warm_starting/miplib2'
-destination_directory = 'miplib_5000'
+df = pd.read_csv("../dropped.csv", index_col=0)
+# flag = False
 
-# Copy the files to the current directory
-for filename in os.listdir(source_directory):
+# iterate over all folders
+for fldr in ["coral", "miplib2", "miplib3", "miplib2003", "miplib2010", "miplib2017"]:
 
-    # get the source and destination paths
-    source_path = os.path.join(source_directory, filename)
-    dest_path = os.path.join(destination_directory, filename)
+    # get source and destination directories
+    source_directory = f'/Users/sean/Documents/school/phd/research/warm_starting/{fldr}'
+    destination_directory = 'miplib_5000'
 
-    # if we have a file that isn't a MIP or has already been copied, skip it
-    if not filename.endswith(".mps") or os.path.isfile(dest_path):
-        continue
+    # Copy the files to the current directory
+    for filename in os.listdir(source_directory):
 
-    # check if the file is a MIP with less than 5000 rows and columns
-    try:
-        mdl = gu.read(source_path)
-    except gu.GurobiError:
-        print(f"gurobi could not read {filename}")
-        continue
-    if mdl.NumVars > 5000 or mdl.NumConstrs > 5000:
-        continue
+        # get the source and destination paths
+        source_path = os.path.join(source_directory, filename)
+        dest_path = os.path.join(destination_directory, filename)
 
-    # we have a candidate file, so copy it!
-    print(f"copying {filename}!")
-    shutil.copy2(source_path, dest_path)
+        # if the file is in the dropped list, skip it (and make sure it's not already copied)
+        if filename[:-4] in df.index:
+            if os.path.isfile(dest_path):
+                os.remove(dest_path)
+            continue
+
+        # if we have a file that isn't a MIP or has already been copied, skip it
+        if not filename.endswith(".mps") or os.path.isfile(dest_path):
+            continue
+
+        # skip ahead if rerunning
+        # if filename == "mspp16.mps":
+        #     flag = True
+        #
+        # if not flag:
+        #     continue
+
+        # skip obnoxious files
+        if filename in ["zib01.mps", "zib02.mps", "ns1663818.mps", "hawaiiv10-130.mps", "mspp16.mps"]:
+            continue
+
+        # check if the file is a presolved MIP with less than 5000 rows and columns
+        try:
+            mdl = gu.read(source_path).presolve()
+        except gu.GurobiError:
+            print(f"gurobi could not read and/or presolve {filename}")
+            continue
+        if mdl.NumVars > 5000 or mdl.NumConstrs > 5000:
+            continue
+
+        # we have a candidate file, so copy it!
+        print(f"copying {filename}!")
+        shutil.copy2(source_path, dest_path)
