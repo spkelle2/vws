@@ -36,7 +36,9 @@ def main(instances_fldr, remote: bool = False):
         # get the memory required for this instance
         mem = mem_df.loc[instance_file, 'memory'] if instance_file in mem_df.index else 4
 
-        if os.path.exists(f'outfiles/{instance_name}.err'):
+        # skip if the instance has already been run - i.e. has a nonempty instances folder
+        if os.path.exists(os.path.join('test_sets', instances_fldr, instance_name)) and \
+                any(os.listdir(os.path.join('test_sets', instances_fldr, instance_name))):
             print(f"{instance_name} already ran")
             continue
 
