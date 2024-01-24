@@ -19,6 +19,8 @@ def main(instances_fldr, remote: bool = False):
     assert os.path.exists(os.path.join('instances', instances_fldr)),\
         f'"instances/{instances_fldr}" should exist'
 
+    jobs_submitted = 0
+
     # make output directory if it doesn't exist
     if not os.path.exists(os.path.join('test_sets', instances_fldr)):
         os.mkdir(os.path.join('test_sets', instances_fldr))
@@ -34,21 +36,25 @@ def main(instances_fldr, remote: bool = False):
         # get the memory required for this instance
         mem = mem_df.loc[instance_file, 'memory'] if instance_file in mem_df.index else 4
 
-        if os.path.exists(f'{instance_name}.err'):
+        if os.path.exists(f'outfiles/{instance_name}.err'):
             print(f"{instance_name} already ran")
             continue
 
+        jobs_submitted += 1
         if remote:
             # submit the job to the cluster
             args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
             subprocess.call(
-                ['qsub', '-V', '-q', 'long', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb',
-                 '-v', args, '-e', f'{instance_name}.err', '-o', f'{instance_name}.out',
+                ['qsub', '-V', '-q', 'urgent', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb',
+                 '-v', args, '-e', f'outfiles/{instance_name}.err', '-o', f'outfiles/{instance_name}.out',
                  '-N', instance_name, 'submit_creation.pbs']
             )
         else:
             # run locally
             subprocess.call(["python", "make_test_instance.py", instance_file, instances_fldr])
+
+    print(f"submitted {jobs_submitted} jobs")
+    print(f"there are {instance_idx + 1} instances")
 
 
 if __name__ == '__main__':
