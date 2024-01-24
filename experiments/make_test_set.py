@@ -34,7 +34,7 @@ def main(instances_fldr, remote: bool = False):
         print(f"instance {instance_idx + 1} of {len(os.listdir(os.path.join('instances', instances_fldr)))}")
 
         # get the memory required for this instance
-        mem = mem_df.loc[instance_file, 'memory'] if instance_file in mem_df.index else 4
+        mem = int(mem_df.loc[instance_file, 'memory']) if instance_file in mem_df.index else 4
 
         # skip if the instance has already been run - i.e. has a nonempty instances folder
         if os.path.exists(os.path.join('test_sets', instances_fldr, instance_name)) and \
