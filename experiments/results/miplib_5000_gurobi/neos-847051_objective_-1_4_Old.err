@@ -1,0 +1,1 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 492 (real var 1413), it is -3.874171e-06. Small enough error that we only send warning.

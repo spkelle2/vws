@@ -1,0 +1,7 @@
+Calculated A_i . x = -0.000061 instead of correct value of b_i = 0.000000.
+Calculated A_i . x = 0.000035 instead of correct value of b_i = 0.000000.
+Calculated A_i . x = -0.000061 instead of correct value of b_i = 0.000000.
+Calculated A_i . x = 0.000087 instead of correct value of b_i = 0.000000.
+messed up a farkas cofficient
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
+/var/spool/torque/mom_priv/jobs/1397435.polyp1.ie.lehigh.edu.SC: line 4: 32258 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

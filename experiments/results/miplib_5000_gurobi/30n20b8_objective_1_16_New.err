@@ -1,0 +1,7 @@
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3171: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00000946. Calculated: 0.00000932.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3185: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00001290. Calculated: 0.00001271.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1206 (real var 1312), it is -1.208921e-06. Small enough error that we only send warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 1312: dot product with obj < 0. Obj viol from solver: -0.00000121. Calculated: -0.00000121.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1243: Term 219 ray 1206 does not satisfy the objective cut. Activity: -0.00000121. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (89.628000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+No vpcs were made from a new disjunction in first iteration. Stopping series.
