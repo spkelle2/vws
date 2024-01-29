@@ -41,3 +41,4 @@ core
 *.out
 experiments/*.err
 outfiles/
+*.tar.gz
