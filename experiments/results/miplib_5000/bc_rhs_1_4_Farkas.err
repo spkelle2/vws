@@ -1,0 +1,194 @@
+*** Error in `../Release/vws': corrupted size vs. prev_size: 0x000055af6436d2f0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x70bfb)[0x2af958abbbfb]
+/lib/x86_64-linux-gnu/libc.so.6(+0x76fc6)[0x2af958ac1fc6]
+/lib/x86_64-linux-gnu/libc.so.6(+0x780a4)[0x2af958ac30a4]
+../Release/vws(+0xa4835)[0x55af5fb50835]
+../Release/vws(+0x9e3c2)[0x55af5fb4a3c2]
+../Release/vws(+0x9f6e7)[0x55af5fb4b6e7]
+../Release/vws(+0xa1cb5)[0x55af5fb4dcb5]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/build/lib/libCbc.so.0(_ZN8CbcModel14branchAndBoundEi+0x3bd5)[0x2af9553a2cf5]
+../Release/vws(+0xc7787)[0x55af5fb73787]
+../Release/vws(+0xc7ba7)[0x55af5fb73ba7]
+../Release/vws(+0xaf127)[0x55af5fb5b127]
+../Release/vws(+0x37f21)[0x55af5fae3f21]
+../Release/vws(+0x3a002)[0x55af5fae6002]
+../Release/vws(+0x54892)[0x55af5fb00892]
+../Release/vws(+0x31248)[0x55af5fadd248]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1)[0x2af958a6b2e1]
+../Release/vws(+0x32681)[0x55af5fade681]
+======= Memory map: ========
+2af95507e000-2af9550a1000 r-xp 00000000 08:01 267597                     /lib/x86_64-linux-gnu/ld-2.24.so
+2af9550a1000-2af9550a3000 rw-p 00000000 00:00 0 
+2af9550a3000-2af9550a6000 r--p 00000000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2af9550a6000-2af9550b4000 r-xp 00003000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2af9550b4000-2af9550bb000 r--p 00011000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2af9550bb000-2af9550bc000 r--p 00017000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2af9550bc000-2af9550bd000 rw-p 00018000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2af9550bd000-2af9550bf000 r--p 00000000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2af9550bf000-2af9550cd000 r-xp 00002000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2af9550cd000-2af9550cf000 r--p 00010000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2af9550cf000-2af9550d0000 r--p 00011000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2af9550d0000-2af9550d1000 rw-p 00012000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2af9550d1000-2af9550e9000 r--p 00000000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2af9550e9000-2af955114000 r-xp 00018000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2af955114000-2af95511e000 r--p 00043000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2af95511e000-2af955121000 r--p 0004c000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2af955121000-2af955127000 rw-p 0004f000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2af955127000-2af955128000 rw-p 00000000 00:00 0 
+2af955128000-2af95513d000 r--p 00000000 00:2c 234984926                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2af95513d000-2af95516d000 r-xp 00015000 00:2c 234984926                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2af95516d000-2af955177000 r--p 00045000 00:2c 234984926                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2af955177000-2af955179000 r--p 0004f000 00:2c 234984926                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2af955179000-2af95517a000 rw-p 00051000 00:2c 234984926                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2af95517a000-2af95517c000 rw-p 00000000 00:00 0 
+2af95517c000-2af9551a4000 r--p 00000000 00:2c 234984933                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2af9551a4000-2af955267000 r-xp 00028000 00:2c 234984933                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2af955267000-2af955287000 r--p 000eb000 00:2c 234984933                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2af955287000-2af955289000 r--p 0010b000 00:2c 234984933                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2af955289000-2af95528b000 rw-p 0010d000 00:2c 234984933                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2af95528b000-2af955294000 rw-p 00000000 00:00 0 
+2af9552a1000-2af9552a2000 r--p 00023000 08:01 267597                     /lib/x86_64-linux-gnu/ld-2.24.so
+2af9552a2000-2af9552a3000 rw-p 00024000 08:01 267597                     /lib/x86_64-linux-gnu/ld-2.24.so
+2af9552a3000-2af9552a4000 rw-p 00000000 00:00 0 
+2af9552a4000-2af955312000 r--p 00000000 00:2c 234984938                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2af955312000-2af955460000 r-xp 0006e000 00:2c 234984938                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2af955460000-2af9554ab000 r--p 001bc000 00:2c 234984938                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2af9554ab000-2af9554b7000 r--p 00207000 00:2c 234984938                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2af9554b7000-2af9554bb000 rw-p 00213000 00:2c 234984938                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2af9554bb000-2af9554d3000 r--p 00000000 00:2c 234984897                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2af9554d3000-2af955503000 r-xp 00018000 00:2c 234984897                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2af955503000-2af955517000 r--p 00048000 00:2c 234984897                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2af955517000-2af955519000 r--p 0005c000 00:2c 234984897                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2af955519000-2af95551a000 rw-p 0005e000 00:2c 234984897                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2af95551a000-2af955559000 r--p 00000000 00:2c 234984922                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2af955559000-2af9556e5000 r-xp 0003f000 00:2c 234984922                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2af9556e5000-2af955728000 r--p 001cb000 00:2c 234984922                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2af955728000-2af95572b000 r--p 0020d000 00:2c 234984922                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2af95572b000-2af95572f000 rw-p 00210000 00:2c 234984922                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2af95572f000-2af955769000 r--p 00000000 00:2c 234984908                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2af955769000-2af95584f000 r-xp 0003a000 00:2c 234984908                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2af95584f000-2af95587c000 r--p 00120000 00:2c 234984908                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2af95587c000-2af95587f000 r--p 0014c000 00:2c 234984908                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2af95587f000-2af955882000 rw-p 0014f000 00:2c 234984908                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2af955882000-2af9582a5000 r-xp 00000000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2af9582a5000-2af9584a5000 ---p 02a23000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2af9584a5000-2af95850f000 r--p 02a23000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2af95850f000-2af958534000 rw-p 02a8d000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2af958534000-2af958541000 rw-p 00000000 00:00 0 
+2af958541000-2af958544000 rw-p 02bf6000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2af95857a000-2af95867d000 r-xp 00000000 08:01 279536                     /lib/x86_64-linux-gnu/libm-2.24.so
+2af95867d000-2af95887c000 ---p 00103000 08:01 279536                     /lib/x86_64-linux-gnu/libm-2.24.so
+2af95887c000-2af95887d000 r--p 00102000 08:01 279536                     /lib/x86_64-linux-gnu/libm-2.24.so
+2af95887d000-2af95887e000 rw-p 00103000 08:01 279536                     /lib/x86_64-linux-gnu/libm-2.24.so
+2af95887e000-2af958924000 r--p 00000000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2af958924000-2af9589b8000 r-xp 000a6000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2af9589b8000-2af958a20000 r--p 0013a000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2af958a20000-2af958a2b000 r--p 001a1000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2af958a2b000-2af958a2f000 rw-p 001ac000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2af958a2f000-2af958a32000 rw-p 00000000 00:00 0 
+2af958a32000-2af958a36000 r--p 00000000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2af958a36000-2af958a46000 r-xp 00004000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2af958a46000-2af958a49000 r--p 00014000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2af958a49000-2af958a4a000 r--p 00016000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2af958a4a000-2af958a4b000 rw-p 00017000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2af958a4b000-2af958be0000 r-xp 00000000 08:01 279532                     /lib/x86_64-linux-gnu/libc-2.24.so
+2af958be0000-2af958de0000 ---p 00195000 08:01 279532                     /lib/x86_64-linux-gnu/libc-2.24.so
+2af958de0000-2af958de4000 r--p 00195000 08:01 279532                     /lib/x86_64-linux-gnu/libc-2.24.so
+2af958de4000-2af958de6000 rw-p 00199000 08:01 279532                     /lib/x86_64-linux-gnu/libc-2.24.so
+2af958de6000-2af958dea000 rw-p 00000000 00:00 0 
+2af958dea000-2af958dfa000 r--p 00000000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2af958dfa000-2af958e14000 r-xp 00010000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2af958e14000-2af958e25000 r--p 0002a000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2af958e25000-2af958e29000 r--p 0003a000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2af958e29000-2af958e2a000 rw-p 0003e000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2af958e2a000-2af958e31000 r-xp 00000000 08:01 279631                     /lib/x86_64-linux-gnu/librt-2.24.so
+2af958e31000-2af959030000 ---p 00007000 08:01 279631                     /lib/x86_64-linux-gnu/librt-2.24.so
+2af959030000-2af959031000 r--p 00006000 08:01 279631                     /lib/x86_64-linux-gnu/librt-2.24.so
+2af959031000-2af959032000 rw-p 00007000 08:01 279631                     /lib/x86_64-linux-gnu/librt-2.24.so
+2af959032000-2af95904a000 r-xp 00000000 08:01 279629                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2af95904a000-2af959249000 ---p 00018000 08:01 279629                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2af959249000-2af95924a000 r--p 00017000 08:01 279629                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2af95924a000-2af95924b000 rw-p 00018000 08:01 279629                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2af95924b000-2af95924f000 rw-p 00000000 00:00 0 
+2af95924f000-2af959348000 r--p 00000000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af959348000-2af959349000 r-xp 000f9000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af959349000-2af95934f000 ---p 000fa000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af95934f000-2af95ae32000 r-xp 00100000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af95ae32000-2af95b005000 r--p 01be3000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af95b005000-2af95b013000 r--p 01db5000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af95b013000-2af95b021000 rw-p 01dc3000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2af95b021000-2af95b032000 rw-p 00000000 00:00 0 
+2af95b032000-2af95b035000 r-xp 00000000 08:01 279535                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2af95b035000-2af95b234000 ---p 00003000 08:01 279535                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2af95b234000-2af95b235000 r--p 00002000 08:01 279535                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2af95b235000-2af95b236000 rw-p 00003000 08:01 279535                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2af95b236000-2af95b251000 r--p 00000000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2af95b251000-2af95b340000 r-xp 0001b000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2af95b340000-2af95b361000 r--p 0010a000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2af95b361000-2af95b362000 ---p 0012b000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2af95b362000-2af95b363000 r--p 0012b000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2af95b363000-2af95b364000 rw-p 0012c000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2af95b364000-2af95b365000 rw-p 00000000 00:00 0 
+2af95b365000-2af95b368000 r--p 00000000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2af95b368000-2af95b387000 r-xp 00003000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2af95b387000-2af95b39d000 r--p 00022000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2af95b39d000-2af95b39e000 r--p 00038000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2af95b39e000-2af95b39f000 rw-p 00039000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2af95b39f000-2af95b3b1000 rw-p 00000000 00:00 0 
+2af95b3b1000-2af95b3b2000 ---p 00000000 00:00 0 
+2af95b3b2000-2af95b5b2000 rw-p 00000000 00:00 0 
+2af95b5b2000-2af95b5b3000 ---p 00000000 00:00 0 
+2af95b5b3000-2af95b7b3000 rw-p 00000000 00:00 0 
+2af95b7b3000-2af9637b3000 rw-p 00000000 00:00 0 
+2af9637b3000-2af9637b4000 ---p 00000000 00:00 0 
+2af9637b4000-2af9639b4000 rw-p 00000000 00:00 0 
+2af9639b4000-2af96b9b4000 rw-p 00000000 00:00 0 
+2af96b9b4000-2af96b9b5000 ---p 00000000 00:00 0 
+2af96b9b5000-2af96bbb5000 rw-p 00000000 00:00 0 
+2af96bbb5000-2af973bb5000 rw-p 00000000 00:00 0 
+2af973bb5000-2af973bb6000 ---p 00000000 00:00 0 
+2af973bb6000-2af973db6000 rw-p 00000000 00:00 0 
+2af973db6000-2af97bdb6000 rw-p 00000000 00:00 0 
+2af97bdb6000-2af97bdb7000 ---p 00000000 00:00 0 
+2af97bdb7000-2af97bfb7000 rw-p 00000000 00:00 0 
+2af97bfb7000-2af983fb7000 rw-p 00000000 00:00 0 
+2af983fb7000-2af983fb8000 ---p 00000000 00:00 0 
+2af983fb8000-2af9841b8000 rw-p 00000000 00:00 0 
+2af9841b8000-2af98c1b8000 rw-p 00000000 00:00 0 
+2af98c1b8000-2af98c1b9000 ---p 00000000 00:00 0 
+2af98c1b9000-2af98c3b9000 rw-p 00000000 00:00 0 
+2af98c3b9000-2af9943b9000 rw-p 00000000 00:00 0 
+2af9943b9000-2af9943ba000 ---p 00000000 00:00 0 
+2af9943ba000-2af9945ba000 rw-p 00000000 00:00 0 
+2af9945ba000-2af99c5ba000 rw-p 00000000 00:00 0 
+2af99c5ba000-2af99c5bb000 ---p 00000000 00:00 0 
+2af99c5bb000-2af99c7bb000 rw-p 00000000 00:00 0 
+2af99c7bb000-2af9a47bb000 rw-p 00000000 00:00 0 
+2af9a47bb000-2af9a47bc000 ---p 00000000 00:00 0 
+2af9a47bc000-2af9a49bc000 rw-p 00000000 00:00 0 
+2af9a49bc000-2af9ac9bc000 rw-p 00000000 00:00 0 
+2af9ac9bc000-2af9ac9bd000 ---p 00000000 00:00 0 
+2af9ac9bd000-2af9acbbd000 rw-p 00000000 00:00 0 
+2af9acbbd000-2af9acbbe000 ---p 00000000 00:00 0 
+2af9acbbe000-2af9acdbe000 rw-p 00000000 00:00 0 
+2af9acdbe000-2af9bcdbe000 rw-p 00000000 00:00 0 
+2af9bcdbe000-2af9bcdbf000 ---p 00000000 00:00 0 
+2af9bcdbf000-2af9bcfbf000 rw-p 00000000 00:00 0 
+2af9bcfbf000-2af9c4fbf000 rw-p 00000000 00:00 0 
+2af9c4fbf000-2af9c4fc0000 ---p 00000000 00:00 0 
+2af9c4fc0000-2af9c51c0000 rw-p 00000000 00:00 0 
+2af9c51c0000-2af9d51c0000 rw-p 00000000 00:00 0 
+2af9d8000000-2af9d8021000 rw-p 00000000 00:00 0 
+2af9d8021000-2af9dc000000 ---p 00000000 00:00 0 
+55af5faac000-55af5facf000 r--p 00000000 00:2c 235732531                  /home/sek519/warm_starting/vws/Release/vws
+55af5facf000-55af5fba8000 r-xp 00023000 00:2c 235732531                  /home/sek519/warm_starting/vws/Release/vws
+55af5fba8000-55af5fbdd000 r--p 000fc000 00:2c 235732531                  /home/sek519/warm_starting/vws/Release/vws
+55af5fbdd000-55af5fbe3000 r--p 00130000 00:2c 235732531                  /home/sek519/warm_starting/vws/Release/vws
+55af5fbe3000-55af5fbe5000 rw-p 00136000 00:2c 235732531                  /home/sek519/warm_starting/vws/Release/vws
+55af61aed000-55af672dc000 rw-p 00000000 00:00 0                          [heap]
+7fffc1c06000-7fffc1c28000 rw-p 00000000 00:00 0                          [stack]
+7fffc1d54000-7fffc1d56000 r--p 00000000 00:00 0                          [vvar]
+7fffc1d56000-7fffc1d58000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+/var/spool/torque/mom_priv/jobs/1397815.polyp1.ie.lehigh.edu.SC: line 4:   727 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
