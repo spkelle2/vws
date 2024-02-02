@@ -1,10 +1,7 @@
 import gurobi as gu
 import os
-import pandas as pd
 import shutil
 
-df = pd.read_csv("../dropped.csv", index_col=0)
-# flag = False
 
 # iterate over all folders
 for fldr in ["coral", "miplib2", "miplib3", "miplib2003", "miplib2010", "miplib2017"]:
@@ -20,25 +17,8 @@ for fldr in ["coral", "miplib2", "miplib3", "miplib2003", "miplib2010", "miplib2
         source_path = os.path.join(source_directory, filename)
         dest_path = os.path.join(destination_directory, filename)
 
-        # if the file is in the dropped list, skip it (and make sure it's not already copied)
-        if filename[:-4] in df.index:
-            if os.path.isfile(dest_path):
-                os.remove(dest_path)
-            continue
-
         # if we have a file that isn't a MIP or has already been copied, skip it
         if not filename.endswith(".mps") or os.path.isfile(dest_path):
-            continue
-
-        # skip ahead if rerunning
-        # if filename == "mspp16.mps":
-        #     flag = True
-        #
-        # if not flag:
-        #     continue
-
-        # skip obnoxious files
-        if filename in ["zib01.mps", "zib02.mps", "ns1663818.mps", "hawaiiv10-130.mps", "mspp16.mps"]:
             continue
 
         # check if the file is a presolved MIP with less than 5000 rows and columns

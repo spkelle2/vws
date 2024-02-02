@@ -24,7 +24,7 @@ def get_queue(time_limit):
 
 def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
               mip_solver: str = "CBC", provide_primal_bound: bool = True,
-              queue_limit: int = 8000):
+              queue_limit: int = 100):
     """ For all problems and perturbations, run the .mps associated with each series
 
     :param test_fldr: directory containing directories of instances which in turn
@@ -63,7 +63,6 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             continue
         if mip_solver == "CBC" and instance+'\n' not in cbc_instances:
             continue
-        # partial: "neos-933562", "timtab2"
 
         # get the memory required for this instance
         instance_file = instance + ".mps"
@@ -76,6 +75,10 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
 
             for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
+
+                    # skip some of the time
+                    if np.random.rand() > 0.01:
+                        continue
 
                     # increment the total number of jobs
                     total_jobs += 1

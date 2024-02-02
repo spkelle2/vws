@@ -60,4 +60,4 @@ def main(instances_fldr, remote: bool = False):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="miplib_5000", remote=True)
+    main(instances_fldr="miplib_5000_release", remote=True)
