@@ -35,6 +35,7 @@ dependencies:
   - setuptools
   - sqlite
   - tk
+  - valgrind
   - wheel
   - xz
   - zlib
