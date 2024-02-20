@@ -128,9 +128,9 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
     si->resolve();
   }
   data.lpBoundPostVpc = si->getObjValue();
-  data.rootDualBound = info.last_cut_pass;
+  data.rootDualBound = info.last_cut_pass > 1e99 ? si->getObjValue() : info.last_cut_pass;
   data.dualBound = info.bound;
-  data.primalBound = info.obj;
+  data.primalBound = min(info.obj, primalBound);
 
   // get remaining time stats
   data.vpcGenerationTime = timer.get_time("vpcGenerationTime");
