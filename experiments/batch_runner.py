@@ -24,7 +24,7 @@ def get_queue(time_limit):
 
 def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
               mip_solver: str = "CBC", provide_primal_bound: bool = True,
-              queue_limit: int = 100):
+              queue_limit: int = 10000):
     """ For all problems and perturbations, run the .mps associated with each series
 
     :param test_fldr: directory containing directories of instances which in turn
@@ -76,10 +76,6 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
-                    # skip some of the time
-                    if np.random.rand() > 0.01:
-                        continue
-
                     # increment the total number of jobs
                     total_jobs += 1
 
@@ -88,7 +84,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
                     num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
-                    total_time_limit = ceil(2 * max_time * num_mips / 3600) + 1 # hours
+                    total_time_limit = ceil(2 * max_time * num_mips / 3600) + 1  # hours
                     queue = get_queue(total_time_limit)
 
                     # skip if the output already exists
@@ -121,7 +117,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         ])
                     else:
                         # run locally
-                        local_args = ["../Debug/vws", series_input_fldr, stem + ".csv",
+                        local_args = ["../Release/vws", series_input_fldr, stem + ".csv",
                                       str(max_time), generator, str(terms),
                                       mip_solver, str(int(provide_primal_bound))]
                         print(" ".join(local_args))
