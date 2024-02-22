@@ -24,7 +24,7 @@ def get_queue(time_limit):
 
 def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
               mip_solver: str = "CBC", provide_primal_bound: bool = True,
-              queue_limit: int = 10000):
+              queue_limit: int = 10):
     """ For all problems and perturbations, run the .mps associated with each series
 
     :param test_fldr: directory containing directories of instances which in turn
@@ -102,7 +102,10 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
-                        resources = f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
+                        node_number = np.random.randint(2, 13)
+                        node_str = f"nodes=polyp{node_number},"
+                        # node_str = ""
+                        resources = node_str + f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
                         subprocess.call(
                             ['qsub', '-V', '-q', "urgent", '-l', resources,
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
