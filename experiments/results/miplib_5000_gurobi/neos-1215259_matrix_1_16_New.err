@@ -1,1 +1,0 @@
-*** ERROR (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:982: CglVPC::setupConstraints: Objective at disjunctive term 97/362 is incorrect. Before, it was 1031291.799, now it is 41.842.

@@ -1,2 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:989: CglVPC::setupConstraints: Objective at disjunctive term 740/4474 is incorrect. Before, it was 93513329492299.219, now it is 6576809.781.
-*** ERROR (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 51 (real var 123), it is -4.110000e+02.

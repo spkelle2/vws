@@ -1,6 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 699: Calculated dot product with obj differs from solver's. Obj viol from solver: 26.21818787. Calculated: 26.21818809.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 700: Calculated dot product with obj differs from solver's. Obj viol from solver: 17.92016699. Calculated: 17.92016722.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 701: Calculated dot product with obj differs from solver's. Obj viol from solver: 15.92016699. Calculated: 15.92016722.
-messed up a farkas cofficient
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1368201.polyp1.ie.lehigh.edu.SC: line 4: 18558 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

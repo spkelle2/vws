@@ -1,6 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (63.800000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (64.668000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (60.408000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (62.876000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 3128: Calculated dot product with obj differs from solver's. Obj viol from solver: 3.27578062. Calculated: 3.27578075.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (60.556000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.

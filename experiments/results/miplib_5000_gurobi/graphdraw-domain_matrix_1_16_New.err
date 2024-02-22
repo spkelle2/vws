@@ -1,3 +1,0 @@
-Disjunction does not represent a full binary tree.
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1381011.polyp1.ie.lehigh.edu.SC: line 4: 18569 Aborted                 ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

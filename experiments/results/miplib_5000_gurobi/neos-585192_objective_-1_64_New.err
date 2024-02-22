@@ -1,2 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (60.264000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-/var/spool/torque/mom_priv/jobs/1377715.polyp1.ie.lehigh.edu.SC: line 4: 17740 Segmentation fault      ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

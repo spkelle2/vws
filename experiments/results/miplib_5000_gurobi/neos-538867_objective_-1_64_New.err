@@ -1,7 +1,0 @@
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (60.432000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (63.260000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (65.888000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #0ca050f): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (63.828000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1388407.polyp1.ie.lehigh.edu.SC: line 4: 13827 Aborted                 (core dumped) ../Debug/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
