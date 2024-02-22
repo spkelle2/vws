@@ -104,6 +104,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         # submit the job to the cluster
                         node_number = np.random.randint(2, 13)
                         node_str = f"nodes=polyp{node_number},"
+                        print(f"running on polyp{node_number}")
                         # node_str = ""
                         resources = node_str + f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
                         subprocess.call(
