@@ -23,7 +23,7 @@ RM = rm -f
 # Can also be chosen through make "BUILD_CONFIG=XX" from command line 
 # Or one can call make debug, make release, or make unit_test directly
 BUILD_CONFIG = unit_test
-BUILD_CONFIG = release1
+BUILD_CONFIG = release
 BUILD_CONFIG = debug
 UNIT_TEST_FILE = TestVwsSolverInterface.cpp
 
@@ -104,7 +104,7 @@ VPC_SOURCES += \
 	test/BBHelper.cpp
 
 ### Set build values based on user variables ###
-ifneq ($(BUILD_CONFIG),release1)
+ifneq ($(BUILD_CONFIG),release)
   # "Debug" build - no optimization, include debugging symbols, and keep inline functions
 	#	SOURCES += utility/debug.cpp
   VPC_SOURCES += utility/vpc_debug.cpp
@@ -125,9 +125,9 @@ ifneq ($(BUILD_CONFIG),release1)
     endif
   endif
 endif
-ifeq ($(BUILD_CONFIG),release1)
-  # "release1" build - maximum optimization, no debug symbols
-  OUT_DIR = Release1
+ifeq ($(BUILD_CONFIG),release)
+  # "release" build - maximum optimization, no debug symbols
+  OUT_DIR = Release
   DEBUG_FLAG = 
   OPT_FLAG = -O3
   DEFS = -DCODE_VERSION="\#${CODE_VERSION}" -DVPC_VERSION="\#${VPC_VERSION}"
@@ -178,7 +178,7 @@ endif
 EXECUTABLE = $(OUT_DIR)/$(EXECUTABLE_STUB)
 
 # It is important that the only thing that changes about these directories
-# is OUT_DIR depending on whether it is the debug or release1 build
+# is OUT_DIR depending on whether it is the debug or release build
 # This is because later (building dependencies, archive file, cleaning, etc.)
 # depends on this fact (when doing *_debug targets)
 OBJ_DIR = $(OUT_DIR)/$(SRC_DIR)
@@ -225,10 +225,10 @@ endif
 # Set up COIN-OR stuff
 ifeq ($(USE_COIN),1)
 	# If not defined for the environment, define CBC / BCP here
-	ifneq ($(BUILD_CONFIG),release1)
+	ifneq ($(BUILD_CONFIG),release)
 		CBC = $(COIN_OR)/$(COIN_OR_BUILD_DIR_DEBUG)
 	endif
-	ifeq ($(BUILD_CONFIG),release1)
+	ifeq ($(BUILD_CONFIG),release)
 		CBC = $(COIN_OR)/$(COIN_OR_BUILD_DIR_RELEASE)
 	endif
 	CBClib = $(CBC)/lib
@@ -274,8 +274,8 @@ all: | directories $(EXECUTABLE)
 # make debug just calls make with BUILD_CONFIG=debug (which defaults to make all with that variable defined)
 debug: FORCE
 	@$(MAKE) "BUILD_CONFIG=debug"
-release1: FORCE
-	@$(MAKE) "BUILD_CONFIG=release1"
+release: FORCE
+	@$(MAKE) "BUILD_CONFIG=release"
 unit_test: FORCE
 	@$(MAKE) "BUILD_CONFIG=unit_test"
 
