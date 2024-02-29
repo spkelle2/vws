@@ -1,0 +1,3 @@
+*** WARNING (version #53bfdf0): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (70.756000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+*** WARNING (version #53bfdf0): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (69.400000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+*** WARNING (version #53bfdf0): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (72.852000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
