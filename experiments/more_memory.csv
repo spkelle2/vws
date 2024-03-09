@@ -1,114 +1,197 @@
-file_name,memory
-pigeon-16.mps,16.0
-sp98ic.mps,8.0
-mc8.mps,8.0
-neos-916792.mps,8.0
-neos-555343.mps,8.0
-neos-810286.mps,8.0
-neos-3046601-motu.mps,16.0
-pigeon-11.mps,8.0
-neos-1420790.mps,8.0
-neos-1121679.mps,16.0
-neos-5261882-treska.mps,8.0
-neos-1440460.mps,8.0
-p100x588b.mps,8.0
-neos-1436709.mps,8.0
-rococoB10-011000.mps,8.0
-pigeon-12.mps,8.0
-pigeon-13.mps,8.0
-go19.mps,8.0
-r80x800.mps,8.0
-markshare1.mps,8.0
-m100n500k4r1.mps,16.0
-neos-3592146-hawea.mps,16.0
-neos-3530903-gauja.mps,8.0
-neos-3024952-loue.mps,16.0
-gsvm2rl5.mps,8.0
-neos-1426635.mps,8.0
-queens-30.mps,8.0
-neos-574665.mps,8.0
-neos-5051588-culgoa.mps,8.0
-milo-v13-4-3d-3-0.mps,8.0
-bppc6-02.mps,16.0
-gmu-35-50.mps,8.0
-icir97_potential.mps,8.0
-neos-1464762.mps,16.0
-neos-3762025-ognon.mps,16.0
-neos-584146.mps,16.0
-neos-933562.mps,8.0
-neos-1429461.mps,8.0
-ger50-17-ptp-pop-6t.mps,16.0
-50v-10.mps,8.0
-neos-1460246.mps,8.0
-d10200.mps,8.0
-nobel-eu-DBE.mps,8.0
-neos-3046615-murg.mps,16.0
-neos-1595230.mps,8.0
-f2gap201600.mps,8.0
-bc.mps,8.0
-neos-1460641.mps,16.0
-timtab2.mps,8.0
-n4-3.mps,8.0
-neos-1346382.mps,16.0
-neos-1467467.mps,8.0
-supportcase20.mps,16.0
-neos-935496.mps,8.0
-breastcancer-regularized.mps,16.0
-neos-717614.mps,8.0
-neos-555298.mps,8.0
-ta1-UUM.mps,16.0
-fhnw-binpack4-48.mps,8.0
-neos-1460543.mps,16.0
-neos-3118745-obra.mps,8.0
-neos-548251.mps,8.0
-neos-1467371.mps,16.0
-aflow40b.mps,8.0
-n5-3.mps,8.0
-neos-1171692.mps,8.0
-neos-582605.mps,16.0
-usAbbrv-8-25_70.mps,8.0
-d20200.mps,16.0
-neos-1442119.mps,8.0
-neos-1442657.mps,8.0
-pigeon-20.mps,16.0
-neos-1426662.mps,8.0
-neos-3373491-avoca.mps,16.0
-neos-916173.mps,8.0
-neos-1601936.mps,8.0
-pigeon-19.mps,8.0
-probportfolio.mps,16.0
-mc7.mps,8.0
-assign1-5-8.mps,8.0
-neos-1429185.mps,16.0
-gen-ip016.mps,8.0
-janos-us-DDM.mps,16.0
-neos-911970.mps,8.0
-bm23.mps,8.0
-ns1606230.mps,16.0
-neos-5078479-escaut.mps,16.0
-mc11.mps,16.0
-neos-5075914-elvire.mps,8.0
-milo-v13-4-3d-4-0.mps,8.0
-radiationm18-12-05.mps,8.0
-nag.mps,8.0
-bppc6-06.mps,8.0
-neos-3009394-lami.mps,8.0
-cvrpp-n16k8vrpi.mps,8.0
-neos-5045105-creuse.mps,8.0
-neos-3083819-nubu.mps,8.0
-sct2.mps,8.0
-stoch-vrpvrp-s5v2c8vrp-v2c8i.mps,8.0
-mkc.mps,8.0
-maxgasflow.mps,8.0
-n6-3.mps,8.0
-dfn-bwin-DBE.mps,8.0
-neos-3426085-ticino.mps,8.0
-gsvm2rl9.mps,8.0
-fhnw-binpack4-77.mps,8.0
-bley_xs1noM.mps,8.0
-neos-702280.mps,8.0
-neos-1622252.mps,8.0
-ger50-17-ptp-pop-3t.mps,8.0
-liu.mps,8.0
-neos-3068746-nene.mps,8.0
-neos-3211096-shag.mps,8.0
+file_name,memory,reason
+pigeon-16.mps,16.0,hard solve
+sp98ic.mps,8.0,hard solve
+mc8.mps,8.0,hard solve
+neos-916792.mps,8.0,hard solve
+neos-555343.mps,8.0,hard solve
+neos-810286.mps,8.0,hard solve
+neos-3046601-motu.mps,16.0,hard solve
+pigeon-11.mps,8.0,hard solve
+neos-1420790.mps,8.0,hard solve
+neos-1121679.mps,16.0,hard solve
+neos-5261882-treska.mps,8.0,hard solve
+neos-1440460.mps,8.0,hard solve
+p100x588b.mps,8.0,hard solve
+neos-1436709.mps,8.0,hard solve
+rococoB10-011000.mps,8.0,hard solve
+pigeon-12.mps,8.0,hard solve
+pigeon-13.mps,8.0,hard solve
+go19.mps,8.0,hard solve
+r80x800.mps,8.0,hard solve
+markshare1.mps,8.0,hard solve
+m100n500k4r1.mps,16.0,hard solve
+neos-3592146-hawea.mps,16.0,hard solve
+neos-3530903-gauja.mps,8.0,hard solve
+neos-3024952-loue.mps,16.0,hard solve
+gsvm2rl5.mps,8.0,hard solve
+neos-1426635.mps,8.0,hard solve
+queens-30.mps,8.0,hard solve
+neos-574665.mps,16.0,hard solve
+neos-5051588-culgoa.mps,16.0,hard solve
+milo-v13-4-3d-3-0.mps,8.0,hard solve
+bppc6-02.mps,16.0,hard solve
+gmu-35-50.mps,8.0,hard solve
+icir97_potential.mps,8.0,hard solve
+neos-1464762.mps,16.0,hard solve
+neos-3762025-ognon.mps,16.0,hard solve
+neos-584146.mps,16.0,hard solve
+neos-933562.mps,8.0,hard solve
+neos-1429461.mps,8.0,hard solve
+ger50-17-ptp-pop-6t.mps,16.0,hard solve
+50v-10.mps,8.0,hard solve
+neos-1460246.mps,8.0,hard solve
+d10200.mps,8.0,hard solve
+nobel-eu-DBE.mps,8.0,hard solve
+neos-3046615-murg.mps,16.0,hard solve
+neos-1595230.mps,8.0,hard solve
+f2gap201600.mps,8.0,hard solve
+bc.mps,8.0,hard solve
+neos-1460641.mps,16.0,hard solve
+timtab2.mps,8.0,hard solve
+n4-3.mps,8.0,hard solve
+neos-1346382.mps,16.0,hard solve
+neos-1467467.mps,8.0,hard solve
+supportcase20.mps,16.0,hard solve
+neos-935496.mps,8.0,hard solve
+breastcancer-regularized.mps,16.0,hard solve
+neos-717614.mps,8.0,hard solve
+neos-555298.mps,8.0,hard solve
+ta1-UUM.mps,16.0,hard solve
+fhnw-binpack4-48.mps,8.0,hard solve
+neos-1460543.mps,16.0,hard solve
+neos-3118745-obra.mps,8.0,hard solve
+neos-548251.mps,8.0,hard solve
+neos-1467371.mps,16.0,hard solve
+aflow40b.mps,8.0,hard solve
+n5-3.mps,8.0,hard solve
+neos-1171692.mps,8.0,hard solve
+neos-582605.mps,16.0,hard solve
+usAbbrv-8-25_70.mps,8.0,hard solve
+d20200.mps,16.0,hard solve
+neos-1442119.mps,8.0,hard solve
+neos-1442657.mps,8.0,hard solve
+pigeon-20.mps,16.0,hard solve
+neos-1426662.mps,8.0,hard solve
+neos-3373491-avoca.mps,16.0,hard solve
+neos-916173.mps,8.0,hard solve
+neos-1601936.mps,8.0,hard solve
+pigeon-19.mps,8.0,hard solve
+probportfolio.mps,16.0,hard solve
+mc7.mps,8.0,hard solve
+assign1-5-8.mps,8.0,hard solve
+neos-1429185.mps,16.0,hard solve
+gen-ip016.mps,8.0,hard solve
+janos-us-DDM.mps,16.0,hard solve
+neos-911970.mps,8.0,hard solve
+bm23.mps,8.0,hard solve
+ns1606230.mps,16.0,hard solve
+neos-5078479-escaut.mps,16.0,hard solve
+mc11.mps,16.0,hard solve
+neos-5075914-elvire.mps,8.0,hard solve
+milo-v13-4-3d-4-0.mps,8.0,hard solve
+radiationm18-12-05.mps,16.0,hard solve
+nag.mps,8.0,hard solve
+bppc6-06.mps,8.0,hard solve
+neos-3009394-lami.mps,8.0,hard solve
+cvrpp-n16k8vrpi.mps,8.0,hard solve
+neos-5045105-creuse.mps,8.0,hard solve
+neos-3083819-nubu.mps,8.0,hard solve
+sct2.mps,8.0,hard solve
+stoch-vrpvrp-s5v2c8vrp-v2c8i.mps,8.0,hard solve
+mkc.mps,8.0,hard solve
+maxgasflow.mps,8.0,hard solve
+n6-3.mps,8.0,hard solve
+dfn-bwin-DBE.mps,8.0,hard solve
+neos-3426085-ticino.mps,8.0,hard solve
+gsvm2rl9.mps,8.0,hard solve
+fhnw-binpack4-77.mps,8.0,hard solve
+bley_xs1noM.mps,8.0,hard solve
+neos-702280.mps,8.0,hard solve
+neos-1622252.mps,8.0,hard solve
+ger50-17-ptp-pop-3t.mps,8.0,hard solve
+liu.mps,8.0,hard solve
+neos-3068746-nene.mps,8.0,hard solve
+neos-3211096-shag.mps,8.0,hard solve
+arki001.mps,16.0,big disjunction
+h50x2450.mps,16.0,big disjunction
+blp-ir98.mps,16.0,big disjunction
+neos18.mps,16.0,big disjunction
+neos-1582420.mps,16.0,big disjunction
+mik-250-20-75-5.mps,16.0,big disjunction
+neos-631517.mps,16.0,big disjunction
+nexp-50-20-4-2.mps,16.0,big disjunction
+app2-2.mps,16.0,big disjunction
+uct-subprob.mps,16.0,big disjunction
+gen-ip036.mps,16.0,big disjunction
+neos-3610051-istra.mps,16.0,big disjunction
+ci-s4.mps,16.0,big disjunction
+traininstance6.mps,16.0,big disjunction
+mik-250-20-75-2.mps,16.0,big disjunction
+neos-585192.mps,16.0,big disjunction
+a1c1s1.mps,16.0,big disjunction
+mcsched.mps,16.0,big disjunction
+neos-5140963-mincio.mps,16.0,big disjunction
+a2c1s1.mps,16.0,big disjunction
+neos-4387871-tavua.mps,16.0,big disjunction
+decomp1.mps,16.0,big disjunction
+piperout-03.mps,16.0,big disjunction
+supportcase17.mps,16.0,big disjunction
+acc-tight5.mps,16.0,big disjunction
+gus-sch.mps,16.0,big disjunction
+gt2.mps,16.0,big disjunction
+blend2.mps,16.0,big disjunction
+neos-585467.mps,16.0,big disjunction
+sorrell8.mps,16.0,big disjunction
+neos-4333464-siret.mps,16.0,big disjunction
+nsrand-ipx.mps,16.0,big disjunction
+csched007.mps,16.0,big disjunction
+glass4.mps,16.0,big disjunction
+graphdraw-gemcutter.mps,16.0,big disjunction
+neos-1599274.mps,16.0,big disjunction
+shipschedule6shipsmixi.mps,16.0,big disjunction
+aflow30a.mps,16.0,big disjunction
+rout.mps,16.0,big disjunction
+neos-595904.mps,16.0,big disjunction
+supportcase27i.mps,16.0,big disjunction
+neos22.mps,16.0,big disjunction
+neos-555884.mps,16.0,big disjunction
+shipschedule3shipsi.mps,16.0,big disjunction
+neos-480878.mps,16.0,big disjunction
+cap6000.mps,16.0,big disjunction
+graph20-20-1rand.mps,16.0,big disjunction
+lotsize.mps,16.0,big disjunction
+misc07.mps,16.0,big disjunction
+neos-686190.mps,16.0,big disjunction
+app1-1.mps,16.0,big disjunction
+roll3000.mps,16.0,big disjunction
+neos2.mps,16.0,big disjunction
+piperout-d27.mps,16.0,big disjunction
+neos-1330346.mps,16.0,big disjunction
+b2c1s1.mps,16.0,big disjunction
+neos-4650160-yukon.mps,16.0,big disjunction
+supportcase25.mps,16.0,big disjunction
+irp.mps,16.0,big disjunction
+neos-4333596-skien.mps,16.0,big disjunction
+seymour1.mps,16.0,big disjunction
+30n20b8.mps,16.0,big disjunction
+neos-503737.mps,16.0,big disjunction
+neos-3610173-itata.mps,16.0,big disjunction
+bppc8-09.mps,16.0,big disjunction
+neos-4393408-tinui.mps,16.0,big disjunction
+n2seq36f.mps,16.0,big disjunction
+lectsched-4-obj.mps,16.0,big disjunction
+b1c1s1.mps,16.0,big disjunction
+haprp.mps,16.0,big disjunction
+sp98ir.mps,16.0,big disjunction
+ns1830653.mps,16.0,big disjunction
+eil33-2.mps,16.0,big disjunction
+piperout-d20.mps,16.0,big disjunction
+mik-250-20-75-4.mps,16.0,big disjunction
+nu120-pr12.mps,16.0,big disjunction
+exp-1-500-5-5.mps,16.0,big disjunction
+neos-3627168-kasai.mps,16.0,big disjunction
+toll-like.mps,16.0,big disjunction
+csched010.mps,16.0,big disjunction
+neos-860300.mps,16.0,big disjunction
+prod2.mps,16.0,big disjunction
+mtest4ma.mps,16.0,big disjunction

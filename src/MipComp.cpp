@@ -75,7 +75,7 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
     std::ifstream primalBoundFile(primalBoundPath);
     std::string line;
     std::getline(primalBoundFile, line);
-    primalBounds.push_back(std::stof(line));
+    primalBounds.push_back(std::stod(line));
   }
   
   // set parameters
@@ -125,8 +125,8 @@ void MipComp::solveSeries() {
     std::string genType = i < 1 && vpcGenerator != "None" ? "New" : vpcGenerator;
 
     // solve the instance with the given generator
-    float primalBound = primalBounds.size() > 0 ? primalBounds[i] :
-        std::numeric_limits<float>::max();
+    double primalBound = primalBounds.size() > 0 ? primalBounds[i] :
+        std::numeric_limits<double>::max();
     RunData data = seriesSolver.solve(instanceSolver, genType, primalBound);
 
     // mark the instance index

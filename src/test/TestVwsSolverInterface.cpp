@@ -179,7 +179,7 @@ TEST_CASE("Test default constructor", "[VwsSolverInterface::VwsSolverInterface]"
 TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
 
   // instance solver
-  fs::path inputPath("../src/test/test_instances/bm23_i01.mps");
+  fs::path inputPath("../src/test/test_instances/bm23/bm23_i01.mps");
   OsiClpSolverInterface si;
   si.readMps(inputPath.c_str(), true, false);
   si.initialSolve();
@@ -365,7 +365,7 @@ TEST_CASE( "for small perturbations check that New VPCs > Old VPCc > Farkas VPCs
   int misordered = 0;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
-  fs::path inputPath("../src/test/test_instances/bm23_i01.mps");
+  fs::path inputPath("../src/test/test_instances/bm23/bm23_i01.mps");
   instanceSolver.readMps(inputPath.c_str(), true, false);
   RunData data = seriesSolver.solve(instanceSolver, "New");
 
@@ -420,7 +420,7 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
   OsiClpSolverInterface instanceSolver;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
-  fs::path inputPath("../src/test/test_instances/bm23_i01.mps");
+  fs::path inputPath("../src/test/test_instances/bm23/bm23_i01.mps");
   instanceSolver.readMps(inputPath.c_str(), true, false);
   RunData data = seriesSolver.solve(instanceSolver, "New");
 

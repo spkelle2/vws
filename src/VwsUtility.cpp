@@ -165,7 +165,7 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
   return v;
 }
 
-/// Given problem is (with A an [m x n] matrix)
+/// Given problem is (with A an [m x n] matrix) we know this because of how we defined termSolver
 ///   Ax - s = b
 ///   x >= 0
 ///   s >= 0
@@ -184,7 +184,7 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
 /// If A is invertible,
 /// then we can take v^T = alpha^T A^{-1}
 /// or, equivalently, v = (A^{-1})^T alpha
-/// This means that v_j can be calcuated as the dot product of the j-th column of A^{-1} with alpha
+/// This means that v_j can be calculated as the dot product of the j-th column of A^{-1} with alpha
 ///
 /// * General case
 /// If A is not invertible, then we need only consider the relaxed corner polyhedron
@@ -235,7 +235,7 @@ void getCertificate(
   createEigenMatrix(A, solver, rows, cols);
   assert(A.rows() == solver->getNumCols());
 
-  // Now set up right-hand side for solver (should be equal to alpha)
+  // Now set up right-hand side for solver (this vector is the same as our alpha vector/cut coefs)
   Eigen::VectorXd b(solver->getNumCols());
   b.setZero();
   for (int tmp_ind = 0; tmp_ind < num_elem; tmp_ind++) {
@@ -257,11 +257,20 @@ void getCertificate(
     tmp_ind++;
   }
 
-  // Obtain the cut that the certificate yields (should be the same as the original cut)
+  // Obtain the cut that the certificate yields (should be the same/really close as the original cut)
   std::vector<double> new_coeff(solver->getNumCols());
   double new_rhs = 0.0;
   getCutFromCertificate(new_coeff, new_rhs, v, solver);
 
+  // if we nerfed the cut, then we should nerf the certificate
+  std::vector<double> zero_vector = std::vector<double>(new_coeff.size(), 0.0);
+  if (new_coeff == zero_vector) {
+    fprintf(stderr, "setting all farkas coefficients to 0\n");
+    v = std::vector<double>(v.size(), 0.0);
+    return;
+  }
+
+  // otherwise do aleks' check of making sure we get the same cut back
   int num_errors = 0;
   double total_diff = 0.;
   for (int i = 0; i < solver->getNumCols(); i++) {
@@ -490,7 +499,15 @@ void getCutFromCertificate(
     } else {
       val = 0.0;
     }
-    verify((val < 1e30 && val > -1e30), "messed up a farkas cofficient");
+    // nerf the valid inequality for this term if we get a numerical error
+    // the issue here is coming from eigen saying something that should be 0 is
+    // on the wrong side of it, which leads our method here to use the wrong bound
+    if (val > 1e30 || val < -1e30){
+      fprintf(stderr, "messed up a farkas cofficient\n");
+      alpha = std::vector<double>(alpha.size(), 0.0);
+      beta = 0.0;
+      return;
+    }
     beta += val;
   }
   for (int row = 0; row < solver->getNumRows(); row++) {
@@ -501,7 +518,12 @@ void getCutFromCertificate(
     } else {
       val = 0.0;
     }
-    verify((val < 1e30 && val > -1e30), "messed up a farkas cofficient");
+    if (val > 1e30 || val < -1e30){
+      fprintf(stderr, "messed up a farkas cofficient\n");
+      alpha = std::vector<double>(alpha.size(), 0.0);
+      beta = 0.0;
+      return;
+    }
     beta += val;
   }
 } /* getCutFromCertificate */
@@ -552,7 +574,7 @@ bool isFeasible(
   }
 } /* isFeasible */
 
-/** find the nonzero indices and elemnets of a vector */
+/** find the nonzero indices and elements of a vector */
 void findNonZero(
     /// [in] vector
     const std::vector<double>& vec,

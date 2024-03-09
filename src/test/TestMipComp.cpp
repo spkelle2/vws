@@ -29,13 +29,12 @@ namespace fs = ghc::filesystem;
 TEST_CASE( "Test Simple") {
 
   // shared setup
-  fs::path inputFolder = "../src/test/test_instances";
+  fs::path inputFolder = "../src/test/test_instances/bm23";
   fs::path csvPath = inputFolder.parent_path().parent_path() / "run_data.csv";
-  fs::path boundPath = inputFolder.parent_path().parent_path() / "run_data_bound.csv";
+  fs::path csvPath2 = inputFolder.parent_path().parent_path() / "run_data2.csv";
 
   // clear out any test files
   fs::remove_all(csvPath);
-  fs::remove_all(boundPath);
 
   SECTION("MipComp::MipComp"){
     MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 64, "CBC", true);
@@ -133,7 +132,31 @@ TEST_CASE( "Test Simple") {
     file.close();
   }
 
+  SECTION("VwsUtility::getCertificate"){
+
+    // read in data
+    fs::path inputFolder = "../src/test/test_instances/f2gap801600";
+
+    // create test runners
+    MipComp testRunnerFarkas(inputFolder.string(), csvPath.string(), 30, "Farkas", 16, "CBC", true);
+    MipComp testRunnerNone(inputFolder.string(), csvPath2.string(), 30, "None", 16, "CBC", true);
+
+    // create rundata containers
+    RunData runDataFarkas;
+    RunData runDataNone;
+
+    // check to make sure we get the same dual bounds
+    // i.e. make sure we didn't
+    for (int i = 0; i < testRunnerFarkas.instanceSolvers.size(); i++){
+      RunData runDataFarkas = testRunnerFarkas.seriesSolver.solve(
+          testRunnerFarkas.instanceSolvers[i], i < 1 ? "New" : "Farkas", 1e10);
+      RunData runDataNone = testRunnerNone.seriesSolver.solve(
+          testRunnerFarkas.instanceSolvers[i], "None", 1e10);
+      REQUIRE(isZero(runDataFarkas.dualBound - runDataNone.dualBound, 1e-3));
+    }
+  }
+
   // clear out any test files
   fs::remove_all(csvPath);
-  fs::remove_all(boundPath);
+  fs::remove_all(csvPath2);
 }

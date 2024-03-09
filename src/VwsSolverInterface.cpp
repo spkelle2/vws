@@ -65,8 +65,8 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   }
 
   // make sure primalBound is somewhat reasonable
-  verify(primalBound >= si->getObjValue(),
-         "must have primalBound > root LP objective value when minimizing");
+  verify(primalBound >= si->getObjValue() - 1e-6,
+         "must have primalBound >= root LP objective value when minimizing");
 
   // start the timer for cut generation
   TimeStats timer;
@@ -166,6 +166,12 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   CglVPC gen = CglVPC(params);
   gen.generateCuts(*si, *disjCuts);
 
+  // return if we have no disjunction
+  if (!gen.disj()){
+    printf("No disjunction was found. Skipping this iteration\n");
+    return disjCuts;
+  }
+
   // get the disjunction for later
   std::shared_ptr<PartialBBDisjunction> disj =
       std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
@@ -174,13 +180,16 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   data.disjunctiveDualBound = disj->best_obj;
   data.actualTerms = disj->num_terms;
 
-  // if we have cuts and a full tree, save the cut generator and the Farkas multipliers
-  if (disj && disj->terms.size() > 0 && disjCuts->sizeCuts() > 0){
+  // if we have cuts and no solution, save the cut generator and the Farkas multipliers
+  if (disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
     disjunctions.push_back(disj);
     cutCertificates.push_back(getFarkasMultipliers(*si, *disj.get(), *disjCuts));
     return disjCuts;
   }
   else {
+    if (disj->integer_sol.size() > 0){
+      printf("Disjunction has integer solution. Skipping this iteration since we can't handle this\n");
+    }
     std::shared_ptr<OsiCuts> emptyCuts;
     return emptyCuts;
   }

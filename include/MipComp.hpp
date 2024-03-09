@@ -43,7 +43,7 @@ public:
   std::vector< std::string > instanceNames;
 
   /** the corresponding optimal objective value for each instance in instanceSolvers */
-  std::vector< float > primalBounds;
+  std::vector< double > primalBounds;
 
   /** Where csvData (e.g. vector attributes) will be saved */
   fs::path csvPath;
