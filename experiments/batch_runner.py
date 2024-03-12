@@ -19,12 +19,12 @@ def get_queue(time_limit):
     elif time_limit <= 4:
         return "medium"
     else:
-        return "long"
+        return "mediumlong"
 
 
 def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
               mip_solver: str = "CBC", provide_primal_bound: bool = True,
-              queue_limit: int = 8000):
+              cumulative_queue_limit: int = 8000):
     """ For all problems and perturbations, run the .mps associated with each series
 
     :param test_fldr: directory containing directories of instances which in turn
@@ -44,7 +44,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
     assert mip_solver in ["CBC", "GUROBI"], "mip_solver must be either CBC or GUROBI"
 
     # track number of jobs
-    total_jobs, complete_jobs, submit_jobs = 0, 0, 0
+    total_jobs, complete_jobs, submit_jobs, mediumlong_submissions = 0, 0, 0, 0
 
     # get the output folder and make sure it does not yet exist, then make it
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
@@ -93,8 +93,8 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         complete_jobs += 1
                         continue
 
-                    # skip if we've hit the queue limit
-                    if submit_jobs >= queue_limit:
+                    # skip if we've hit the cumulative or mediumlong submission limit
+                    if submit_jobs >= cumulative_queue_limit or (queue == "mediumlong" and mediumlong_submissions > 1200):
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
@@ -102,13 +102,12 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
-                        # node_number = np.random.randint(2, 14)
-                        # node_str = f"nodes=polyp{node_number},"
-                        # print(f"running on polyp{node_number}")
-                        node_str = ""
-                        resources = node_str + f'mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
+                        print(f"submitting to queue {queue}")
+                        if queue == "mediumlong":
+                            mediumlong_submissions += 1
+                        resources = f'mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
                         subprocess.call(
-                            ['qsub', '-V', '-q', "background", '-l', resources,
+                            ['qsub', '-V', '-q', queue, '-l', resources,
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
@@ -130,7 +129,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     submit_jobs += 1
 
                     # exit if we've hit the queue limit
-                    if submit_jobs >= queue_limit:
+                    if submit_jobs >= cumulative_queue_limit:
                         print("Queue limit reached")
 
     print(f"{total_jobs} total jobs")
