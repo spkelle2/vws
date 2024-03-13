@@ -94,7 +94,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         continue
 
                     # skip if we've hit the cumulative or mediumlong submission limit
-                    if submit_jobs >= cumulative_queue_limit or (queue == "mediumlong" and mediumlong_submissions > 1200):
+                    if submit_jobs >= cumulative_queue_limit:  # or (queue == "mediumlong" and mediumlong_submissions > 1200):
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
@@ -102,12 +102,12 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                         f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)}'
                     if machine == "coral":
                         # submit the job to the cluster
-                        print(f"submitting to queue {queue}")
+                        # print(f"submitting to queue {queue}")
                         if queue == "mediumlong":
                             mediumlong_submissions += 1
                         resources = f'mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime={total_time_limit}:00:00'
                         subprocess.call(
-                            ['qsub', '-V', '-q', queue, '-l', resources,
+                            ['qsub', '-V', '-q', "background", '-l', resources,
                              '-v', remote_args, '-e', f'{stem}.err', '-o', f'{stem}.out',
                              '-N', test_name, 'submit.pbs']
                         )
