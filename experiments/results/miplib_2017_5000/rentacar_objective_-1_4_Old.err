@@ -1,5 +1,5 @@
 2977: cut: 620308	calc: 620308	diff: -4.29573e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 4.29573e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 4.29573e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 1.90958e-14
 x[1] = 2.37809
@@ -10334,7 +10334,7 @@ v[4257] = 1.90958e-14
 v[4258] = 1.90958e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.40282e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.40282e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.40282e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 2.30926e-14
 x[1] = 2.37809
@@ -20669,7 +20669,7 @@ v[4257] = 2.30926e-14
 v[4258] = 2.30926e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.45055e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.45055e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.45055e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 1.28786e-14
 x[1] = 2.37809
@@ -31004,7 +31004,7 @@ v[4257] = 1.28786e-14
 v[4258] = 1.28786e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.47383e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.47383e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.47383e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 1.37668e-14
 x[1] = 2.37809
@@ -41339,7 +41339,7 @@ v[4257] = 1.37668e-14
 v[4258] = 1.37668e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.44007e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.44007e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.44007e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 2.66454e-14
 x[1] = 2.37809
@@ -51674,7 +51674,7 @@ v[4257] = 2.66454e-14
 v[4258] = 2.66454e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.90573e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.90573e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.90573e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 3.73035e-14
 x[1] = 2.37809
@@ -62009,7 +62009,7 @@ v[4257] = 3.73035e-14
 v[4258] = 3.73035e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: 1.11177e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 1.11177e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 1.11177e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 1.11022e-14
 x[1] = 2.37809
@@ -72344,7 +72344,7 @@ v[4257] = 1.11022e-14
 v[4258] = 1.11022e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.39234e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.39234e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.39234e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 3.24185e-14
 x[1] = 2.37809
@@ -82679,7 +82679,7 @@ v[4257] = 3.24185e-14
 v[4258] = 3.24185e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.40282e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.40282e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.40282e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 3.15303e-14
 x[1] = 2.37809
@@ -93014,7 +93014,7 @@ v[4257] = 3.15303e-14
 v[4258] = 3.15303e-14
 v[4259] = 0
 2977: cut: 620308	calc: 620308	diff: -3.42028e-07
-*** WARNING (version #53bfdf0): src/VwsUtility.cpp:280: Number of differences between true and calculated cuts: 1. Total difference: 3.42028e-07. Small enough difference that we will try to continue, but beware of numerical issues.
+*** WARNING (version #c05a931): src/VwsUtility.cpp:289: Number of differences between true and calculated cuts: 1. Total difference: 3.42028e-07. Small enough difference that we will try to continue, but beware of numerical issues.
 x:
 x[0] = 2.13163e-14
 x[1] = 2.37809
@@ -103349,5 +103349,6 @@ v[4257] = 2.13163e-14
 v[4258] = 2.13163e-14
 v[4259] = 0
 messed up a farkas cofficient
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1444089.polyp1.ie.lehigh.edu.SC: line 4: 26311 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0

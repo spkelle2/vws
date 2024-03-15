@@ -1,3 +1,1 @@
-messed up a farkas cofficient
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:653: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1450820.polyp1.ie.lehigh.edu.SC: line 4:  4959 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+*** ERROR (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:981: CglVPC::setupConstraints: Objective at disjunctive term 626/1238 is incorrect. Before, it was 1820691441539.200, now it is 7016478.774.

@@ -1,3 +1,6 @@
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1444409.polyp1.ie.lehigh.edu.SC: line 4: 11125 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 155: Calculated dot product with obj differs from solver's. Obj viol from solver: 134339304.70087084. Calculated: 134339304.70087096.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 184: Calculated dot product with obj differs from solver's. Obj viol from solver: 108169513.60879432. Calculated: 108169513.60879448.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 155: Calculated dot product with obj differs from solver's. Obj viol from solver: 134339304.70087084. Calculated: 134339304.70087096.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 184: Calculated dot product with obj differs from solver's. Obj viol from solver: 108169513.60879432. Calculated: 108169513.60879448.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 155: Calculated dot product with obj differs from solver's. Obj viol from solver: 134339304.70087084. Calculated: 134339304.70087096.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:372: Ray 184: Calculated dot product with obj differs from solver's. Obj viol from solver: 108169513.60879432. Calculated: 108169513.60879448.

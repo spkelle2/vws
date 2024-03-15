@@ -1,1 +1,1 @@
-*** ERROR (version #53bfdf0): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 553958.71793747. Calculated: 535801.00000000.
+*** ERROR (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 553958.71793747. Calculated: 535801.00000000.

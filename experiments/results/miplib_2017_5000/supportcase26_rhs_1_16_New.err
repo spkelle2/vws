@@ -1,1 +1,1 @@
-/var/spool/torque/mom_priv/jobs/1444020.polyp1.ie.lehigh.edu.SC: line 4:  6686 Segmentation fault      ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
+No vpcs were made from a new disjunction in first iteration. Stopping series.
