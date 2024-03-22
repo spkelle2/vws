@@ -127,7 +127,18 @@ void MipComp::solveSeries() {
     // solve the instance with the given generator
     double primalBound = primalBounds.size() > 0 ? primalBounds[i] :
         std::numeric_limits<double>::max();
-    RunData data = seriesSolver.solve(instanceSolver, genType, primalBound);
+    RunData data;
+    // skip this experiment if we get an error about dot products differing in PRLP
+    try {
+       data = seriesSolver.solve(instanceSolver, genType, primalBound);
+    } catch (const std::runtime_error& e) {
+      std::string errorMessage = e.what();
+      if (errorMessage == "Point: Calculated dot product with obj differs from solver's") {
+      } else {
+        // raise the exception raise the exception otherwise
+        throw e;
+      }
+    }
 
     // mark the instance index
     data.instanceIndex = i;

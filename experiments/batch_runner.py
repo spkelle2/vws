@@ -95,7 +95,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
 
                     # skip if we've hit the cumulative or mediumlong submission limit
                     if submit_jobs >= cumulative_queue_limit or \
-                            (queue == "mediumlong" and mediumlong_submissions > 1200):
+                            (queue == "mediumlong" and mediumlong_submissions > 2400):
                         continue
 
                     remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
