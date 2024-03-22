@@ -1,0 +1,318 @@
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 53 (real var 173), it is -1.980077e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 64 (real var 193), it is -1.455939e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 249 (real var 493), it is -1.980077e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 260 (real var 513), it is -1.980077e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3049 (real var 5950), it is -9.076654e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3063 (real var 5976), it is -3.403258e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3069 (real var 5986), it is -3.403258e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3076 (real var 5993), it is -1.546935e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3156 (real var 6213), it is -2.658203e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3157 (real var 6216), it is -1.111268e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3163 (real var 6223), it is -1.546935e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3165 (real var 6225), it is -1.134419e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3356 (real var 6800), it is -9.076654e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3367 (real var 6840), it is -9.076654e-07. Small enough error that we only send warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 173: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 53 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 193: dot product with obj < 0. Obj viol from solver: -0.00000015. Calculated: -0.00000014.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 64 does not satisfy the objective cut. Activity: -0.00000014. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 493: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 249 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 513: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 260 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 5950: dot product with obj < 0. Obj viol from solver: -0.00000091. Calculated: -0.00000091.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3049 does not satisfy the objective cut. Activity: -0.00000091. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 5976: dot product with obj < 0. Obj viol from solver: -0.00000034. Calculated: -0.00000034.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3063 does not satisfy the objective cut. Activity: -0.00000034. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 5986: dot product with obj < 0. Obj viol from solver: -0.00000034. Calculated: -0.00000034.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3069 does not satisfy the objective cut. Activity: -0.00000034. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 5993: dot product with obj < 0. Obj viol from solver: -0.00000015. Calculated: -0.00000015.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3076 does not satisfy the objective cut. Activity: -0.00000015. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 6213: dot product with obj < 0. Obj viol from solver: -0.00000027. Calculated: -0.00000027.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3156 does not satisfy the objective cut. Activity: -0.00000027. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 6216: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3157 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 6223: dot product with obj < 0. Obj viol from solver: -0.00000015. Calculated: -0.00000015.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3163 does not satisfy the objective cut. Activity: -0.00000015. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 6225: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3165 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 6800: dot product with obj < 0. Obj viol from solver: -0.00000091. Calculated: -0.00000091.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3356 does not satisfy the objective cut. Activity: -0.00000091. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:358: Ray 6840: dot product with obj < 0. Obj viol from solver: -0.00000091. Calculated: -0.00000091.
+*** WARNING (version #c05a931): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 3367 does not satisfy the objective cut. Activity: -0.00000091. RHS: 0.00000000. Small enough violation that we only send a warning.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
