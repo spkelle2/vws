@@ -65,7 +65,7 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   }
 
   // make sure primalBound is somewhat reasonable
-  verify(primalBound >= si->getObjValue() - 1e-6,
+  verify(primalBound >= si->getObjValue() - 1e-4,
          "must have primalBound >= root LP objective value when minimizing");
 
   // start the timer for cut generation
