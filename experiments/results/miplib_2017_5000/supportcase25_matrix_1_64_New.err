@@ -1,0 +1,620 @@
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 400 (real var 532), it is -1.333313e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 401 (real var 533), it is -1.333313e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 532: dot product with obj < 0. Obj viol from solver: -0.00000013. Calculated: -0.00000013.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 100 ray 400 does not satisfy the objective cut. Activity: -0.00000013. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 533: dot product with obj < 0. Obj viol from solver: -0.00000013. Calculated: -0.00000013.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 100 ray 401 does not satisfy the objective cut. Activity: -0.00000013. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 393 (real var 532), it is -1.333313e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 394 (real var 533), it is -1.333313e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 532: dot product with obj < 0. Obj viol from solver: -0.00000013. Calculated: -0.00000013.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 393 does not satisfy the objective cut. Activity: -0.00000013. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 533: dot product with obj < 0. Obj viol from solver: -0.00000013. Calculated: -0.00000013.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 101 ray 394 does not satisfy the objective cut. Activity: -0.00000013. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2282 (real var 4757), it is -1.041122e-06. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 4757: dot product with obj < 0. Obj viol from solver: -0.00000104. Calculated: -0.00000104.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 135 ray 2282 does not satisfy the objective cut. Activity: -0.00000104. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3577 (real var 7298), it is -1.658465e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7298: dot product with obj < 0. Obj viol from solver: -0.00000017. Calculated: -0.00000017.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 206 ray 3577 does not satisfy the objective cut. Activity: -0.00000017. RHS: 0.00000000. Small enough violation that we only send a warning.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2558 (real var 5238), it is -3.748965e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5238: dot product with obj < 0. Obj viol from solver: -0.00000037. Calculated: -0.00000037.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 111 ray 2558 does not satisfy the objective cut. Activity: -0.00000037. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2550 (real var 5238), it is -3.748965e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5238: dot product with obj < 0. Obj viol from solver: -0.00000037. Calculated: -0.00000037.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 112 ray 2550 does not satisfy the objective cut. Activity: -0.00000037. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3379 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 141 ray 3379 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3375 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 142 ray 3375 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2929 (real var 5833), it is -1.325005e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5833: dot product with obj < 0. Obj viol from solver: -0.00000013. Calculated: -0.00000013.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 143 ray 2929 does not satisfy the objective cut. Activity: -0.00000013. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2783 (real var 5612), it is -3.446299e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5612: dot product with obj < 0. Obj viol from solver: -0.00000034. Calculated: -0.00000034.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 148 ray 2783 does not satisfy the objective cut. Activity: -0.00000034. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3521 (real var 7291), it is -4.836754e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7291: dot product with obj < 0. Obj viol from solver: -0.00000048. Calculated: -0.00000048.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 226 ray 3521 does not satisfy the objective cut. Activity: -0.00000048. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3353 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 246 ray 3353 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3358 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 247 ray 3358 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3354 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 269 ray 3354 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3358 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 270 ray 3358 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3348 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 274 ray 3348 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3349 (real var 7022), it is -1.853157e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7022: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 275 ray 3349 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2571 (real var 5238), it is -3.748965e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5238: dot product with obj < 0. Obj viol from solver: -0.00000037. Calculated: -0.00000037.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 283 ray 2571 does not satisfy the objective cut. Activity: -0.00000037. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2575 (real var 5238), it is -3.748965e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5238: dot product with obj < 0. Obj viol from solver: -0.00000037. Calculated: -0.00000037.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 284 ray 2575 does not satisfy the objective cut. Activity: -0.00000037. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3324 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 68 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3321 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 72 ray 3321 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3332 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 84 ray 3332 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 85 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3304 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 88 ray 3304 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3330 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 93 ray 3330 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3330 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 99 ray 3330 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 100 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3307 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 103 ray 3307 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3327 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 105 ray 3327 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3331 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 115 ray 3331 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3327 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 116 ray 3327 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3282 (real var 6416), it is -5.219512e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3301 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6416: dot product with obj < 0. Obj viol from solver: -0.00000052. Calculated: -0.00000052.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 117 ray 3282 does not satisfy the objective cut. Activity: -0.00000052. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 117 ray 3301 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3306 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 118 ray 3306 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3321 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 125 ray 3321 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3329 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3563 (real var 7339), it is -1.822939e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 126 ray 3329 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7339: dot product with obj < 0. Obj viol from solver: -0.00000018. Calculated: -0.00000018.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 126 ray 3563 does not satisfy the objective cut. Activity: -0.00000018. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3329 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 129 ray 3329 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3304 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 130 ray 3304 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3310 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 131 ray 3310 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3327 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 135 ray 3327 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3316 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 138 ray 3316 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3320 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 142 ray 3320 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3322 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 143 ray 3322 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3329 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3565 (real var 7339), it is -1.822939e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 144 ray 3329 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7339: dot product with obj < 0. Obj viol from solver: -0.00000018. Calculated: -0.00000018.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 144 ray 3565 does not satisfy the objective cut. Activity: -0.00000018. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3314 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 147 ray 3314 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3316 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 148 ray 3316 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3330 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 149 ray 3330 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 150 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3321 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 151 ray 3321 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3321 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 152 ray 3321 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3307 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 161 ray 3307 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 166 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3282 (real var 6428), it is -4.853471e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3310 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6428: dot product with obj < 0. Obj viol from solver: -0.00000049. Calculated: -0.00000049.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 169 ray 3282 does not satisfy the objective cut. Activity: -0.00000049. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 169 ray 3310 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3278 (real var 6428), it is -4.853471e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6428: dot product with obj < 0. Obj viol from solver: -0.00000049. Calculated: -0.00000049.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 170 ray 3278 does not satisfy the objective cut. Activity: -0.00000049. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3317 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 171 ray 3317 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3314 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 172 ray 3314 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3315 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 175 ray 3315 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3317 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 176 ray 3317 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3301 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 177 ray 3301 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3299 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 178 ray 3299 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3284 (real var 6416), it is -5.219512e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3306 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6416: dot product with obj < 0. Obj viol from solver: -0.00000052. Calculated: -0.00000052.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 181 ray 3284 does not satisfy the objective cut. Activity: -0.00000052. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 181 ray 3306 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3309 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 182 ray 3309 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3325 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 190 ray 3325 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3315 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 192 ray 3315 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3358 (real var 6967), it is -4.602719e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 194 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6967: dot product with obj < 0. Obj viol from solver: -0.00000046. Calculated: -0.00000046.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 194 ray 3358 does not satisfy the objective cut. Activity: -0.00000046. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3323 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3355 (real var 6967), it is -4.602719e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 195 ray 3323 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6967: dot product with obj < 0. Obj viol from solver: -0.00000046. Calculated: -0.00000046.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 195 ray 3355 does not satisfy the objective cut. Activity: -0.00000046. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 196 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3281 (real var 6428), it is -4.853471e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3304 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6428: dot product with obj < 0. Obj viol from solver: -0.00000049. Calculated: -0.00000049.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 198 ray 3281 does not satisfy the objective cut. Activity: -0.00000049. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 198 ray 3304 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3275 (real var 6428), it is -4.853471e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6428: dot product with obj < 0. Obj viol from solver: -0.00000049. Calculated: -0.00000049.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 199 ray 3275 does not satisfy the objective cut. Activity: -0.00000049. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3325 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 206 ray 3325 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3309 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 208 ray 3309 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 213 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3312 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 214 ray 3312 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3319 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3352 (real var 6971), it is -2.035395e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 215 ray 3319 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6971: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 215 ray 3352 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3330 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 216 ray 3330 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3321 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3352 (real var 6966), it is -3.259030e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 225 ray 3321 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6966: dot product with obj < 0. Obj viol from solver: -0.00000033. Calculated: -0.00000033.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 225 ray 3352 does not satisfy the objective cut. Activity: -0.00000033. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3315 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 226 ray 3315 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3325 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 227 ray 3325 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3300 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 233 ray 3300 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3303 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 234 ray 3303 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3307 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 243 ray 3307 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3329 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 245 ray 3329 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3324 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 246 ray 3324 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3326 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 247 ray 3326 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3303 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 249 ray 3303 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3322 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3355 (real var 6967), it is -4.602719e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 254 ray 3322 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6967: dot product with obj < 0. Obj viol from solver: -0.00000046. Calculated: -0.00000046.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 254 ray 3355 does not satisfy the objective cut. Activity: -0.00000046. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3325 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 255 ray 3325 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3282 (real var 6428), it is -4.853471e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3309 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6428: dot product with obj < 0. Obj viol from solver: -0.00000049. Calculated: -0.00000049.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 257 ray 3282 does not satisfy the objective cut. Activity: -0.00000049. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 257 ray 3309 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3276 (real var 6428), it is -4.853471e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6428: dot product with obj < 0. Obj viol from solver: -0.00000049. Calculated: -0.00000049.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 258 ray 3276 does not satisfy the objective cut. Activity: -0.00000049. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3312 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 259 ray 3312 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3309 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 260 ray 3309 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3325 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3563 (real var 7339), it is -1.822939e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 261 ray 3325 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7339: dot product with obj < 0. Obj viol from solver: -0.00000018. Calculated: -0.00000018.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 261 ray 3563 does not satisfy the objective cut. Activity: -0.00000018. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3323 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 262 ray 3323 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3308 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 264 ray 3308 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3307 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 265 ray 3307 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3306 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 275 ray 3306 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3313 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 277 ray 3313 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3313 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 278 ray 3313 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3323 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 279 ray 3323 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3310 (real var 6885), it is -6.045592e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6885: dot product with obj < 0. Obj viol from solver: -0.00000060. Calculated: -0.00000060.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 281 ray 3310 does not satisfy the objective cut. Activity: -0.00000060. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3564 (real var 7339), it is -1.822939e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7339: dot product with obj < 0. Obj viol from solver: -0.00000018. Calculated: -0.00000018.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 283 ray 3564 does not satisfy the objective cut. Activity: -0.00000018. RHS: 0.00000000. Small enough violation that we only send a warning.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2903 (real var 5826), it is -3.860626e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5826: dot product with obj < 0. Obj viol from solver: -0.00000039. Calculated: -0.00000039.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 127 ray 2903 does not satisfy the objective cut. Activity: -0.00000039. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3300 (real var 6723), it is -4.639969e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6723: dot product with obj < 0. Obj viol from solver: -0.00000046. Calculated: -0.00000046.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 129 ray 3300 does not satisfy the objective cut. Activity: -0.00000046. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3295 (real var 6944), it is -1.553364e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6944: dot product with obj < 0. Obj viol from solver: -0.00000016. Calculated: -0.00000016.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 172 ray 3295 does not satisfy the objective cut. Activity: -0.00000016. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3294 (real var 6944), it is -1.553364e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6944: dot product with obj < 0. Obj viol from solver: -0.00000016. Calculated: -0.00000016.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 173 ray 3294 does not satisfy the objective cut. Activity: -0.00000016. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1231 (real var 2866), it is -1.213131e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 2866: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 188 ray 1231 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3499 (real var 7226), it is -2.621862e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 7226: dot product with obj < 0. Obj viol from solver: -0.00000026. Calculated: -0.00000026.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 242 ray 3499 does not satisfy the objective cut. Activity: -0.00000026. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3291 (real var 6622), it is -1.991229e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6622: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 246 ray 3291 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3293 (real var 6622), it is -1.991229e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6622: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 247 ray 3293 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1229 (real var 2866), it is -1.213131e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 2866: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 249 ray 1229 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3296 (real var 6622), it is -1.991229e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6622: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 263 ray 3296 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3301 (real var 6622), it is -1.991229e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6622: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 264 ray 3301 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2875 (real var 5643), it is -1.166013e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5643: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 275 ray 2875 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 3304 (real var 6667), it is -5.203135e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 6667: dot product with obj < 0. Obj viol from solver: -0.00000052. Calculated: -0.00000052.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 285 ray 3304 does not satisfy the objective cut. Activity: -0.00000052. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2874 (real var 5643), it is -1.166013e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 5643: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 299 ray 2874 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.

@@ -1,0 +1,32 @@
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (68.928000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (65.724000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 414 (real var 1480), it is -7.247423e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 430 (real var 1499), it is -7.247423e-07. Small enough error that we only send warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1480: dot product with obj < 0. Obj viol from solver: -0.00000072. Calculated: -0.00000072.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 1 ray 414 does not satisfy the objective cut. Activity: -0.00000072. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1499: dot product with obj < 0. Obj viol from solver: -0.00000072. Calculated: -0.00000072.
+*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1242: Term 1 ray 430 does not satisfy the objective cut. Activity: -0.00000072. RHS: 0.00000000. Small enough violation that we only send a warning.

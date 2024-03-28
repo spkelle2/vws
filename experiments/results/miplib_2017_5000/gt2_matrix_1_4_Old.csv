@@ -1,0 +1,2 @@
+instanceIndex,vpcGenerator,terms,lpBound,disjunctiveDualBound,lpBoundPostVpc,rootDualBound,dualBound,primalBound,vpcGenerationTime,rootDualBoundTime,bestSolutionTime,terminationTime,nodes,iterations,maxTime,actualTerms,numCuts,cutLimit,mipSolver,providePrimalBound
+0,New,4,20146.761297,20163.257804,20163.257804,20872.310921,21166.000000,21166.000000,0.067098,0.112757,0.067098,0.113381,2,236,3600.000000,4,3,14,GUROBI,1
