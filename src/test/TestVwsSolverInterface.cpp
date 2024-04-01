@@ -28,7 +28,7 @@ using namespace VPCParametersNamespace;
 // utility function for getting default vpc parameters
 VPCParameters getParams(){
   VPCParameters params;
-  params.set(DISJ_TERMS, 64); // how many active leaves in the disjunction
+  params.set(DISJ_TERMS, 69); // how many total leaves in the disjunction
   params.set(TIMELIMIT, 10); // max time for vpc generation
   params.set(PARTIAL_BB_TIMELIMIT, 10); // max time for creating partial bb tree
   params.set(PARTIAL_BB_KEEP_PRUNED_NODES, 1); // get the entirety of the partial bb tree
@@ -153,7 +153,7 @@ void check_bm23_data(RunData& data){
 
   // check the run parameters
   REQUIRE(data.maxTime == 10);
-  REQUIRE(data.terms == 64);
+  REQUIRE(data.terms == 69);
   if (data.vpcGenerator == "None"){
     REQUIRE(data.actualTerms == 0);
   } else {
@@ -172,7 +172,7 @@ TEST_CASE("Test default constructor", "[VwsSolverInterface::VwsSolverInterface]"
   // Ensure we set up as expected
   VwsSolverInterface seriesSolver(getParams(), "CBC");
   REQUIRE(seriesSolver.mipSolver == "CBC");
-  REQUIRE(seriesSolver.params.get(DISJ_TERMS) == 64);
+  REQUIRE(seriesSolver.params.get(DISJ_TERMS) == 69);
   REQUIRE(seriesSolver.params.get(TIMELIMIT) == 10);
 }
 

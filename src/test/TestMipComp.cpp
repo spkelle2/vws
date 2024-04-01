@@ -37,7 +37,7 @@ TEST_CASE( "Test Simple") {
   fs::remove_all(csvPath);
 
   SECTION("MipComp::MipComp"){
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 64, "CBC", true);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 69, "CBC", true);
 
     REQUIRE( testRunner.vpcGenerator == "Old" );
     REQUIRE( testRunner.instanceSolvers.size() == 3 );
@@ -47,7 +47,7 @@ TEST_CASE( "Test Simple") {
     REQUIRE( testRunner.primalBounds[0] == 34 );
     REQUIRE( testRunner.primalBounds[1] == 34 );
     REQUIRE( testRunner.primalBounds[2] == 34 );
-    REQUIRE( testRunner.seriesSolver.params.get(DISJ_TERMS) == 64 );
+    REQUIRE( testRunner.seriesSolver.params.get(DISJ_TERMS) == 69 );
     REQUIRE( testRunner.seriesSolver.params.get(TIMELIMIT) == 60 );
     REQUIRE( testRunner.seriesSolver.params.get(PARTIAL_BB_KEEP_PRUNED_NODES) == 1 );
     REQUIRE( testRunner.mipSolver == "CBC" );
@@ -61,7 +61,7 @@ TEST_CASE( "Test Simple") {
   }
 
   SECTION("MipComp::solveSeries"){
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 64, "CBC", true);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 69, "CBC", true);
     testRunner.solveSeries();
 
     // we should have one runData entry for each instance
