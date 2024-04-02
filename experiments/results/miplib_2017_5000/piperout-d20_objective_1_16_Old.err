@@ -1,12 +1,84 @@
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8008: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01686079. Calculated: 0.01686121.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8008: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01685989. Calculated: 0.01686030.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8023: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.62785451. Calculated: 25.62785411.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 5025: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01514939. Calculated: 0.01514922.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8039: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.54917779. Calculated: 25.54917762.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8023: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.54589227. Calculated: 25.54589195.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8039: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.61565120. Calculated: 25.61565089.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 5023: Calculated dot product with obj differs from solver's. Obj viol from solver: 17.48490232. Calculated: 17.48490212.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 5025: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.90355900. Calculated: 25.90355883.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8039: Calculated dot product with obj differs from solver's. Obj viol from solver: 12.68313164. Calculated: 12.68313147.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8015: Calculated dot product with obj differs from solver's. Obj viol from solver: 12.07032063. Calculated: 12.07032000.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8039: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.40497393. Calculated: 25.40497366.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #b974f25): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8008: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01686079. Calculated: 0.01686121.
+*** WARNING (version #b974f25): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8008: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01685989. Calculated: 0.01686030.
+*** WARNING (version #b974f25): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 8023: Calculated dot product with obj differs from solver's. Obj viol from solver: 25.62785451. Calculated: 25.62785411.
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1521277.polyp1.ie.lehigh.edu.SC: line 4:  5476 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

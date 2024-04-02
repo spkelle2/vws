@@ -1,3 +1,0 @@
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:988: CglVPC::setupConstraints: Objective at disjunctive term 84/136 is incorrect. Before, it was 383066.330, now it is -305.198.
-*** WARNING (version #95fe077): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (60.268000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-No vpcs were made from a new disjunction in first iteration. Stopping series.
