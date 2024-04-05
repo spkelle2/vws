@@ -76,6 +76,10 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
             for terms in [4, 16, 64]:
                 for generator in ["None", "New", "Old", "Farkas"]:
 
+                    # use this to just rerun what we already had
+                    if submit_jobs + complete_jobs >= 4000:
+                        continue
+
                     # increment the total number of jobs
                     total_jobs += 1
 
