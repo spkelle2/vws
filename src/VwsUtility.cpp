@@ -215,7 +215,29 @@ void getCertificate(
   solver->setObjective(cut_coeff.data());
   solver->resolve();
   if (!solver->isProvenOptimal()) {
+#ifdef USE_GUROBI_SOLVER
+    // solve the LP relaxation for the current model -- keep working here
+    std::string f_name;
+    createTmpFileCopy(params, solver, f_name);
+    GRBEnv env = GRBEnv();
+    GRBModel model = GRBModel(env, f_name.c_str());
+    GRBModel relaxed_model = model.relax();
+    relaxed_model.set(GRB_IntParam_InfUnbdInfo, 1);
+    relaxed_model.optimize();
+
+    // verify that relaxed_model is infeasible
+    verify(relaxed_model.get(GRB_IntAttr_Status) == GRB_INFEASIBLE,
+           "CLP says the term is infeasible but Gurobi does not.");
+
+    // get the Farkas Dual (i.e. a cut that proves infeasibility)
+    for (int i = 0; i < lpRelaxation.get(GRB_IntAttr_NumConstrs); ++i) {
+      v[i] = lpRelaxation.getConstrs()[i].FarkasDual;
+    }
+
+    remove(f_name.c_str()); // remove temporary file
+#else
     return;
+#endif
   }
   solver->enableFactorization();
 
