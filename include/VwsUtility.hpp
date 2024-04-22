@@ -60,8 +60,12 @@ void getCertificate(
     const double* const coeff,
     /// [in] rhs of cut
     const double cut_rhs,
-    // [in] LP solver corresponding to disjunctive term
-    OsiSolverInterface* const solver);
+    // [in] LP solver corresponding to disjunctive term with variable bounds in constraints
+    OsiSolverInterface* const solver,
+    // [in] LP solver corresponding to disjunctive term with variable bounds in bounds
+    OsiSolverInterface* const solverWithBounds,
+    // [in] LP solver corresponding to root node relaxation
+    OsiSolverInterface* const rootSolver);
 
 /** create the basis matrix for generating the cut certificate */
 void createEigenMatrix(

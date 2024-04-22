@@ -32,6 +32,11 @@
 // project modules
 #include "VwsUtility.hpp"
 
+// Gurobi
+#ifdef USE_GUROBI
+#include <gurobi_c++.h>
+#endif
+
 // namespaces
 using namespace Eigen;
 namespace fs = ghc::filesystem;
@@ -145,7 +150,9 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
   }
   for (int term_ind = 0; term_ind < disj.num_terms; term_ind++) {
     OsiSolverInterface* termSolver;
+    OsiSolverInterface* termSolverWithBounds;
     disj.getSolverForTerm(termSolver, term_ind, &solver, false, .001, NULL, true);
+    disj.getSolverForTerm(termSolverWithBounds, term_ind, &solver, true, .001, NULL, true);
     if (!termSolver) {
       printf("Disjunctive term %d/%d not created successfully.\n", term_ind+1, disj.num_terms);
       exit(1); // i think this should be a break right?
@@ -158,17 +165,17 @@ std::vector< std::vector < std::vector<double> > > getFarkasMultipliers(
       const CoinPackedVector lhs = disjCut->row();
       const double rhs = disjCut->lb();
       getCertificate(v[cut_ind][term_ind], lhs.getNumElements(), lhs.getIndices(),
-                     lhs.getElements(), rhs, termSolver);
+                     lhs.getElements(), rhs, termSolver, termSolverWithBounds, &solver);
     } // loop over cuts
   } // loop over disjunctive terms
 
   return v;
 }
 
-/// Given problem is (with A an [m x n] matrix) we know this because of how we defined termSolver
-///   Ax - s = b
-///   x >= 0
-///   s >= 0
+/// Given problem is (with A an [(m + m_t) x n] matrix) we know this because of how we defined termSolver
+///   Ax - s = b    (m + m_t constraints)
+///   x >= 0        (n decision variables)
+///   s >= 0        (m + m_t slack variables)
 /// Suppose the basis is B (m columns); note that some of these might be slack variables
 /// Denote by N the remaining n columns (the cobasis)
 ///
@@ -200,25 +207,42 @@ void getCertificate(
     const double* const coeff,
     /// [in] rhs of cut
     const double cut_rhs,
-    // [in] LP solver corresponding to disjunctive term
-    OsiSolverInterface* const solver) {
+    // [in] LP solver corresponding to disjunctive term with variable bounds in constraints
+    OsiSolverInterface* const solver,
+    // [in] LP solver corresponding to disjunctive term with variable bounds in bounds
+    OsiSolverInterface* const solverWithBounds
+    // [in] LP solver corresponding to root node relaxation
+    OsiSolverInterface* const rootSolver) {
 
   v.clear();
   v.resize(solver->getNumCols() + solver->getNumRows(), 0.0);
+  coeff_norm = 0.0;
 
   // Get dense cut coefficients so that we can set the objective vector to
   // determine which constraints are active (i.e. contribute to this cut)
+  // also get the norm of the cut coefficients in case we need to scale the cut we find if infeasible
   std::vector<double> cut_coeff(solver->getNumCols(), 0.0);
   for (int i = 0; i < num_elem; i++) {
     cut_coeff[ind[i]] = coeff[i];
+    coeff_norm += coeff[i] ** 2;
   }
+  coeff_norm = sqrt(coeff_norm);
+
+  // optimize the solver relative to the cut to get the basis
   solver->setObjective(cut_coeff.data());
   solver->resolve();
+
+  // if no solution, no basis. Use the Farkas Dual certificate of infeasibility
   if (!solver->isProvenOptimal()) {
-#ifdef USE_GUROBI_SOLVER
-    // solve the LP relaxation for the current model -- keep working here
+#ifdef USE_GUROBI
+    // copy the LP relaxation for the current model
     std::string f_name;
-    createTmpFileCopy(params, solver, f_name);
+    createTmpFileCopy(params, solverWithBounds, f_name);
+    createTmpFilename(f_name, "", ".");
+    solver->writeMps(f_name.c_str(), "mps", solver->getObjSense());
+    f_name += ".mps"; // writeMps calls writeMpsNative, which invokes the CoinMpsIO writer with gzip option = 1
+
+    // solve the copy of the LP relaxation with Gurobi
     GRBEnv env = GRBEnv();
     GRBModel model = GRBModel(env, f_name.c_str());
     GRBModel relaxed_model = model.relax();
@@ -229,57 +253,67 @@ void getCertificate(
     verify(relaxed_model.get(GRB_IntAttr_Status) == GRB_INFEASIBLE,
            "CLP says the term is infeasible but Gurobi does not.");
 
-    // get the Farkas Dual (i.e. a cut that proves infeasibility)
-    for (int i = 0; i < lpRelaxation.get(GRB_IntAttr_NumConstrs); ++i) {
-      v[i] = lpRelaxation.getConstrs()[i].FarkasDual;
+    // get the Farkas Dual (i.e. multipliers to generate a cut that proves infeasibility)
+    for (int i = 0; i < relaxed_model.get(GRB_IntAttr_NumConstrs); ++i) {
+      // gurobi gives multipliers assuming Ax <= b, so multiply by -1 for our assumption Ax >= b
+      v[i] = -1 * relaxed_model.getConstrs()[i].FarkasDual;
     }
 
+    // todo: give cut same scale as original cut
+
+    // remove temporary files
+    std::string f_name_no_ext = f_name.substr(0, f_name.size() - 4);
+    std::string f_name_gz = f_name + ".gz";
+    remove(f_name_gz.c_str());
+    remove(f_name_no_ext.c_str());
     remove(f_name.c_str()); // remove temporary file
 #else
     return;
 #endif
-  }
-  solver->enableFactorization();
+  } else {
+    // We have an optimal solution, so use its basis to figure out the Farkas multipliers
+    solver->enableFactorization();
 
-  // Collect nonbasic variables
-  std::vector<int> rows, cols;
-  for (int var = 0; var < solver->getNumCols() + solver->getNumRows(); var++) {
-    if (!isBasicVar(solver, var)) {
-      if (var < solver->getNumCols()) {
-        cols.push_back(var);
-      } else {
-        rows.push_back(var - solver->getNumCols());
+    // Collect nonbasic variables
+    std::vector<int> rows, cols;
+    for (int var = 0; var < solver->getNumCols() + solver->getNumRows(); var++) {
+      if (!isBasicVar(solver, var)) {
+        if (var < solver->getNumCols()) {
+          cols.push_back(var);
+        } else {
+          rows.push_back(var - solver->getNumCols());
+        }
       }
+    }
+
+    Eigen::SparseMatrix<double,Eigen::RowMajor> A;
+    createEigenMatrix(A, solver, rows, cols);
+    assert(A.rows() == solver->getNumCols());
+
+    // Now set up right-hand side for solver (this vector is the same as our alpha vector/cut coefs)
+    Eigen::VectorXd b(solver->getNumCols());
+    b.setZero();
+    for (int tmp_ind = 0; tmp_ind < num_elem; tmp_ind++) {
+      b(ind[tmp_ind]) = coeff[tmp_ind];
+    }
+
+    Eigen::VectorXd x(solver->getNumCols());
+    solveLinearSystem(x, A.transpose(), b);
+
+    int tmp_ind = 0;
+    for (const int& row : rows) {
+      const double mult = 1.; //(solver->getRowSense()[row] == 'L') ? -1. : 1.;
+      v[row] = mult * x(tmp_ind);
+      tmp_ind++;
+    }
+    for (const int& col : cols) {
+      const double mult = 1.; //isNonBasicUBVar(solver, col) ? -1. : 1.;
+      v[solver->getNumRows() + col] = mult * x(tmp_ind);
+      tmp_ind++;
     }
   }
 
-  Eigen::SparseMatrix<double,Eigen::RowMajor> A;
-  createEigenMatrix(A, solver, rows, cols);
-  assert(A.rows() == solver->getNumCols());
-
-  // Now set up right-hand side for solver (this vector is the same as our alpha vector/cut coefs)
-  Eigen::VectorXd b(solver->getNumCols());
-  b.setZero();
-  for (int tmp_ind = 0; tmp_ind < num_elem; tmp_ind++) {
-    b(ind[tmp_ind]) = coeff[tmp_ind];
-  }
-
-  Eigen::VectorXd x(solver->getNumCols());
-  solveLinearSystem(x, A.transpose(), b);
-
-  int tmp_ind = 0;
-  for (const int& row : rows) {
-    const double mult = 1.; //(solver->getRowSense()[row] == 'L') ? -1. : 1.;
-    v[row] = mult * x(tmp_ind);
-    tmp_ind++;
-  }
-  for (const int& col : cols) {
-    const double mult = 1.; //isNonBasicUBVar(solver, col) ? -1. : 1.;
-    v[solver->getNumRows() + col] = mult * x(tmp_ind);
-    tmp_ind++;
-  }
-
-  // Obtain the cut that the certificate yields (should be the same/really close as the original cut)
+  // Obtain the cut that the certificate yields (should be the same/really close as the original cut if node feasible)
   std::vector<double> new_coeff(solver->getNumCols());
   double new_rhs = 0.0;
   getCutFromCertificate(new_coeff, new_rhs, v, solver);
@@ -292,49 +326,82 @@ void getCertificate(
     return;
   }
 
-  // otherwise do aleks' check of making sure we get the same cut back
-  int num_errors = 0;
-  double total_diff = 0.;
-  for (int i = 0; i < solver->getNumCols(); i++) {
-    const double diff = cut_coeff[i] - new_coeff[i];
-    if (greaterThanVal(std::abs(diff), 0.0)) {
-      fprintf(stderr, "%d: cut: %g\tcalc: %g\tdiff: %g\n", i, cut_coeff[i], new_coeff[i], diff);
-      num_errors++;
-      total_diff += std::abs(diff);
+  // just pass in the original solver too
+  if (!solver->isProvenOptimal()) {
+
+    // check that the cut is valid for the original solver
+    // optimize the original solver relative to the farkas proof of infeasibility cut
+    OsiSolverInterface* tmpSolver = rootSolver->clone();
+    tmpSolver->setObjective(new_coeff.data());
+    tmpSolver->resolve();
+    // our cut is new_coeff^T x >= new_rhs, so all feasible point's objective values should be at least new_rhs
+    verify(!lessThanVal(tmpSolver->getObjValue(), new_rhs),
+           "The proof of infeasibility cut should be valid for the original solver.");
+
+    // check that the cut is invalid for the disjunctive constraints
+    std::vector<double> x_star(solver->getNumCols());
+    double infeasible_rhs = 0;
+    for (int i = 0; i < x_star.size(); i++){
+      if (v[i] < 0){
+        x_star[i] = solverWithBounds->getColLower()[i];
+        verify(solverWithBounds->getColLower()[i] > -1*COIN_DBL_MAX,
+               "we expect variable to have finite lower bound");
+      } else if (v[i] > 0){
+        x_star[i] = solverWithBounds->getColUpper()[i];
+        verify(solverWithBounds->getColLower()[i] > -1*COIN_DBL_MAX,
+               "we expect variable to have finite upper bound");
+      } else {
+        x_star[i] = 0;
+      }
+      infeasible_rhs += new_coeff[i] * x_star[i];
     }
-  }
-  std::cout << "cut rhs: " << cut_rhs << "\tcalc: " << new_rhs << "\tdiff: " << new_rhs - cut_rhs << std::endl;
-  if (num_errors > 0) {
-    const bool should_continue = isZero(total_diff, 1e-3);
-    if (should_continue) {
-      // Send warning
-      warning_msg(warnstring,
-                  "Number of differences between true and calculated cuts: %d. Total difference: %g. Small enough difference that we will try to continue, but beware of numerical issues.\n",
+    verify(lessThanVal(infeasible_rhs, new_rhs),
+           "nearest point in disjunctive term should be infeasible");
+  } else {
+    // otherwise do aleks' check of making sure we get the same cut back
+    int num_errors = 0;
+    double total_diff = 0.;
+    for (int i = 0; i < solver->getNumCols(); i++) {
+      const double diff = cut_coeff[i] - new_coeff[i];
+      if (greaterThanVal(std::abs(diff), 0.0)) {
+        fprintf(stderr, "%d: cut: %g\tcalc: %g\tdiff: %g\n", i, cut_coeff[i], new_coeff[i], diff);
+        num_errors++;
+        total_diff += std::abs(diff);
+      }
+    }
+    std::cout << "cut rhs: " << cut_rhs << "\tcalc: " << new_rhs << "\tdiff: " << new_rhs - cut_rhs << std::endl;
+    if (num_errors > 0) {
+      const bool should_continue = isZero(total_diff, 1e-3);
+      if (should_continue) {
+        // Send warning
+        warning_msg(warnstring,
+                    "Number of differences between true and calculated cuts: %d. Total difference: %g. Small enough difference that we will try to continue, but beware of numerical issues.\n",
+                    num_errors, total_diff);
+      } else {
+        // Exit
+        error_msg(errorstring,
+                  "Number of differences between true and calculated cuts: %d. Total difference: %g. Exiting.\n",
                   num_errors, total_diff);
-    } else {
-      // Exit
-      error_msg(errorstring,
-                "Number of differences between true and calculated cuts: %d. Total difference: %g. Exiting.\n",
-                num_errors, total_diff);
-      writeErrorToLog(errorstring, NULL);
+        writeErrorToLog(errorstring, NULL);
+      }
+      fprintf(stderr, "x:\n");
+      for (int i = 0; i < solver->getNumCols(); i++) {
+        fprintf(stderr, "x[%d] = %g\n", i, x(i));
+      }
+      fprintf(stderr, "b:\n");
+      for (int i = 0; i < solver->getNumCols(); i++) {
+        fprintf(stderr, "b[%d] = %g\n", i, b(i));
+      }
+      fprintf(stderr, "v:\n");
+      for (int i = 0; i < (int) v.size(); i++) {
+        fprintf(stderr, "v[%d] = %g\n", i, v[i]);
+      }
+      if (!should_continue) {
+        exit(1);
+      }
     }
-    fprintf(stderr, "x:\n");
-    for (int i = 0; i < solver->getNumCols(); i++) {
-      fprintf(stderr, "x[%d] = %g\n", i, x(i));
-    }
-    fprintf(stderr, "b:\n");
-    for (int i = 0; i < solver->getNumCols(); i++) {
-      fprintf(stderr, "b[%d] = %g\n", i, b(i));
-    }
-    fprintf(stderr, "v:\n");
-    for (int i = 0; i < (int) v.size(); i++) {
-      fprintf(stderr, "v[%d] = %g\n", i, v[i]);
-    }
-    if (!should_continue) {
-      exit(1);
-    }
+    solver->disableFactorization();
   }
-  solver->disableFactorization();
 } /* getCertificate */
 
 /** create the basis matrix for generating the cut certificate */
