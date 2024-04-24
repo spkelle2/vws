@@ -219,13 +219,15 @@ void getCertificate(
   }
   solver->enableFactorization();
 
-  // Collect nonbasic variables
+  // Collect nonbasic variables - i.e. the decision and slack variables tight against one of their bounds
   std::vector<int> rows, cols;
   for (int var = 0; var < solver->getNumCols() + solver->getNumRows(); var++) {
     if (!isBasicVar(solver, var)) {
       if (var < solver->getNumCols()) {
+        // decision variable tight at bound => active root variable bound constraint
         cols.push_back(var);
       } else {
+        // slack variable tight at bound means active root or disjunctive (i.e. tightened variable) constraint
         rows.push_back(var - solver->getNumCols());
       }
     }

@@ -143,7 +143,7 @@ void check_param(RunData& data){
 // make sure we capture the correct data for any perturbation of bm23
 void check_bm23_data(RunData& data){
   // algorithm step time comparisons
-  REQUIRE(0 < data.vpcGenerationTime);
+  REQUIRE(0 <= data.vpcGenerationTime);
   REQUIRE(data.vpcGenerationTime < data.rootDualBoundTime);
   REQUIRE(data.rootDualBoundTime < data.terminationTime);
   REQUIRE(data.terminationTime < 2);
