@@ -93,6 +93,17 @@ public:
   /** was the primal bound provided or not */
   bool providePrimalBound;
 
+  // sensitivity analysis
+
+  /** the number of infeasible terms in the disjunction */
+  int infeasibleTerms;
+
+  /** the number of terms that went from feasible to infeasible */
+  int feasibleToInfeasibleTerms;
+
+  /** the number of terms that went from infeasible to feasible */
+  int infeasibleToFeasibleTerms;
+
   /** constructor (default) */
   RunData();
 

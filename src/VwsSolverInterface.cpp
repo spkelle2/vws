@@ -179,6 +179,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   // record the disjunctive metatdata
   data.disjunctiveDualBound = disj->best_obj;
   data.actualTerms = disj->num_terms;
+  data.infeasibleTerms = disj->num_infeasible_terms;
 
   // if we have cuts and no solution, save the cut generator and the Farkas multipliers
   if (disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
@@ -232,12 +233,25 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
       OsiSolverInterface* termSolver;
       param_disj.getSolverForTerm(termSolver, termIdx, si, false, .001, NULL, true);
+
+      // check if we changed feasibility states for this term by perturbing
+      if (termSolver->isProvenOptimal() && !disjunctions[probIdx].get()->terms[termIdx].is_feasible){
+        data.infeasibleToFeasibleTerms++;
+      } else if (!termSolver->isProvenOptimal()){
+        data.infeasibleTerms++;
+        if (disjunctions[probIdx].get()->terms[termIdx].is_feasible){
+          data.feasibleToInfeasibleTerms++;
+        }
+      }
+
       // if we don't know if we're optimal or primal infeasible,
       // we can't safely use these cuts, so skip to next problem
       if (!termSolver->isProvenOptimal() && !termSolver->isProvenPrimalInfeasible()){
         ambiguousTermSolver = true;
         break;
       }
+
+      // get the cut for this term
       for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
         a[probIdx][cutIdx][termIdx].resize(si->getNumCols());
         if (termSolver->isProvenOptimal()) {
@@ -321,6 +335,19 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
     if (&disj == &disjunctions[0] || data.disjunctiveDualBound < param_disj.best_obj){
       data.disjunctiveDualBound = param_disj.best_obj;
       data.actualTerms = param_disj.num_terms;
+    }
+
+    // record term statuses and changes to term statuses
+    for (int i = 0; i < param_disj.num_terms; i++){
+      if (!param_disj.terms[i].is_feasible){
+        data.infeasibleTerms++;
+      }
+      if (disj->terms[i].is_feasible && !param_disj.terms[i].is_feasible) {
+        data.feasibleToInfeasibleTerms++;
+      }
+      if (!disj->terms[i].is_feasible && param_disj.terms[i].is_feasible) {
+        data.infeasibleToFeasibleTerms++;
+      }
     }
   }
 

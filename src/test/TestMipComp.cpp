@@ -73,7 +73,8 @@ TEST_CASE( "Test Simple") {
     std::regex re("([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
-                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+)");
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),"
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+)");
     std::smatch match;
 
     // the file should exist
@@ -126,6 +127,13 @@ TEST_CASE( "Test Simple") {
         REQUIRE(match[20].str() == testRunner.runData[lineIndex - 1].mipSolver);
         // providePrimalBound
         REQUIRE(isVal(std::stod(match[21].str()), testRunner.runData[lineIndex - 1].providePrimalBound, 1e-4));
+        // infeasibleTerms
+        REQUIRE(isVal(std::stoi(match[22].str()), testRunner.runData[lineIndex - 1].infeasibleTerms, 1e-4));
+        // feasibleToInfeasibleTerms
+        REQUIRE(isVal(std::stoi(match[23].str()), testRunner.runData[lineIndex - 1].feasibleToInfeasibleTerms, 1e-4));
+        // infeasibleToFeasibleTerms
+        REQUIRE(isVal(std::stoi(match[24].str()), testRunner.runData[lineIndex - 1].infeasibleToFeasibleTerms, 1e-4));
+
       }
       lineIndex++;
     }

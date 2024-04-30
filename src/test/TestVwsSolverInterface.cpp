@@ -233,6 +233,11 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   check_orig(data);
   check_bm23_data(data);
 
+  // check sensitivity stats
+  REQUIRE(data.infeasibleTerms == 0);
+  REQUIRE(data.feasibleToInfeasibleTerms == 0);
+  REQUIRE(data.infeasibleToFeasibleTerms == 0);
+
   // ------------------------ New ----------------------------------
 
   // now run the rest with defaults
@@ -269,6 +274,11 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(data.providePrimalBound == false);
   check_orig(data);
   check_bm23_data(data);
+
+  // check sensitivity stats
+  REQUIRE(data.infeasibleTerms == 3);
+  REQUIRE(data.feasibleToInfeasibleTerms == 0);
+  REQUIRE(data.infeasibleToFeasibleTerms == 0);
 
   // ------------------------ Old ----------------------------------
 
@@ -328,6 +338,11 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   check_param(data);
   check_bm23_data(data);
 
+  // check sensitivity stats
+  REQUIRE(data.infeasibleTerms == 1);
+  REQUIRE(data.feasibleToInfeasibleTerms == 0);
+  REQUIRE(data.infeasibleToFeasibleTerms == 2);
+
   // ------------------------ Farkas ------------------------------------------
 
   // reset to using CBC
@@ -351,6 +366,11 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(!data.providePrimalBound);
   check_param(data);
   check_bm23_data(data);
+
+  // check sensitivity stats
+  REQUIRE(data.infeasibleTerms == 1);
+  REQUIRE(data.feasibleToInfeasibleTerms == 0);
+  REQUIRE(data.infeasibleToFeasibleTerms == 2);
 }
 
 // also checks that the cuts are valid for the given solution

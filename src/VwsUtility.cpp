@@ -213,11 +213,12 @@ void getCertificate(
     cut_coeff[ind[i]] = coeff[i];
   }
   solver->setObjective(cut_coeff.data());
+  solver->enableFactorization();
   solver->resolve();
+  // todo: update this - we should be able to ignore this part if parameterizing once we get a basis
   if (!solver->isProvenOptimal()) {
     return;
   }
-  solver->enableFactorization();
 
   // Collect nonbasic variables - i.e. the decision and slack variables tight against one of their bounds
   std::vector<int> rows, cols;
