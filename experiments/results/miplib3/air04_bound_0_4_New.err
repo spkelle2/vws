@@ -1,1 +1,3 @@
-=>> PBS: job killed: walltime 54005 exceeded limit 54000
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1531912.polyp1.ie.lehigh.edu.SC: line 4:  8674 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

@@ -1,1 +1,6 @@
-*** WARNING (version #55f4a46): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (62.804000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (62.680000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1530744.polyp1.ie.lehigh.edu.SC: line 4: 12147 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
