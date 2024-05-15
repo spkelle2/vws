@@ -1,0 +1,3 @@
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2341 (real var 2464), it is -1.196116e-06. Small enough error that we only send warning.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 2464: dot product with obj < 0. Obj viol from solver: -0.00000120. Calculated: -0.00000120.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 41 ray 2341 does not satisfy the objective cut. Activity: -0.00000120. RHS: 0.00000000. Small enough violation that we only send a warning.

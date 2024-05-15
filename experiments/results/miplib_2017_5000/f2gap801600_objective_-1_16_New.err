@@ -1,0 +1,5 @@
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1612: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.01356998. Calculated: 1.01357009.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1622: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.05126515. Calculated: 1.05126532.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1608: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.02948799. Calculated: 1.02948811.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1619: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.02128043. Calculated: 1.02128053.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1622: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.05126516. Calculated: 1.05126533.

@@ -1,0 +1,69 @@
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 235 (real var 300), it is -8.500263e-07. Small enough error that we only send warning.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 366 (real var 451), it is -8.500524e-07. Small enough error that we only send warning.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 300: dot product with obj < 0. Obj viol from solver: -0.00000085. Calculated: -0.00000085.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 9 ray 235 does not satisfy the objective cut. Activity: -0.00000085. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 451: dot product with obj < 0. Obj viol from solver: -0.00000085. Calculated: -0.00000085.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 9 ray 366 does not satisfy the objective cut. Activity: -0.00000085. RHS: 0.00000000. Small enough violation that we only send a warning.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 156: Calculated dot product with obj differs from solver's. Obj viol from solver: 2.03705299. Calculated: 2.03705288.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 228: Calculated dot product with obj differs from solver's. Obj viol from solver: 4.52531006. Calculated: 4.52531016.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1268: Calculated dot product with obj differs from solver's. Obj viol from solver: 5.97916591. Calculated: 5.97916603.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 22: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.82638898. Calculated: 1.82638886.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1164: Calculated dot product with obj differs from solver's. Obj viol from solver: 21.89105791. Calculated: 21.89105802.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 698: Calculated dot product with obj differs from solver's. Obj viol from solver: 2.85431747. Calculated: 2.85431736.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 699: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.42883525. Calculated: 1.42883537.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1111: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.12124810. Calculated: 1.12124825.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1268: Calculated dot product with obj differs from solver's. Obj viol from solver: 3.38762053. Calculated: 3.38762043.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
