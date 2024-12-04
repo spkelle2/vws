@@ -176,7 +176,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   std::shared_ptr<PartialBBDisjunction> disj =
       std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
 
-  // record the disjunctive metatdata
+  // record the disjunctive metadata
   data.disjunctiveDualBound = disj->best_obj;
   data.actualTerms = disj->num_terms;
   data.infeasibleTerms = disj->num_infeasible_terms;
