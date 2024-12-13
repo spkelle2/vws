@@ -47,7 +47,7 @@ def main(instances_fldr, remote: bool = True):
             # submit the job to the cluster
             args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
             subprocess.call(
-                ['qsub', '-V', '-q', 'mediumlong', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb',
+                ['qsub', '-V', '-q', 'mediumlong', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime=23:59:00',
                  '-v', args, '-e', f'outfiles/{instance_name}.err', '-o', f'outfiles/{instance_name}.out',
                  '-N', instance_name, 'submit_creation.pbs']
             )

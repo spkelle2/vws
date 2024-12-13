@@ -261,7 +261,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                 b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
                 unit *= .5
             if b is None:
-                print(f"Warning: {instance_name} objective could not be perturbed for p = {p}",
+                print(f"Warning: {instance_name} rhs could not be perturbed for p = {p}",
                       file=sys.stderr)
 
             # perturb the objective
