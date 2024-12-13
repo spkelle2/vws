@@ -16,26 +16,49 @@ def norm_diff(v1: np.ndarray, v2: np.ndarray) -> float:
     return abs(np.linalg.norm(v1) - np.linalg.norm(v2))
 
 
-def perturb(vector: np.ndarray, p: int, unit: int = 1) -> Union[np.ndarray, None]:
+def perturb(vector: np.ndarray, p: int, unit: int = 1, prioritize=False) -> Union[np.ndarray, None]:
     """This function perturbs a vector by 2^p degrees and within 2^p % of its norm.
-    It does so by randomly adding or subtracting 1 from a random element of the vector
-    until the perturbation is achieved.
+    It prioritizes perturbing non-integer, non-binary, and then binary values.
 
     :param vector: the vector to be perturbed
     :param p: the power of 2 to perturb the vector by
     :param unit: the increment of element perturbation
     :return: the perturbed vector
     """
-    # maybe randomly add or subtract 1 until we get to 2^p degrees or 2^p % of the norm difference
     assert isinstance(vector, np.ndarray), "vector should be a numpy array"
     assert len(vector.shape) == 1, "vector should be 1-D"
+
+    def is_binary(val):
+        return np.isclose(val, 0) or np.isclose(val, 1)
+
+    def is_integer(val):
+        return np.isclose(val % 1, 0)
 
     new_vector = vector.copy()
     prev_vector = None
 
+    # Categorize indices
+    non_integer_indices = [i for i, val in enumerate(vector) if not is_integer(val)]
+    non_binary_indices = [i for i, val in enumerate(vector) if is_integer(val) and not is_binary(val)]
+    binary_indices = [i for i, val in enumerate(vector) if is_binary(val)]
+
     while angle_diff(new_vector, vector) < 2 ** p and norm_diff(new_vector, vector) < 2 ** p:
         prev_vector = new_vector.copy()
-        new_vector[np.random.randint(new_vector.shape[0])] += np.random.choice([-unit, unit])
+
+        if prioritize:
+            # Choose perturbation index based on priority
+            if non_integer_indices:
+                index = np.random.choice(non_integer_indices)
+            elif non_binary_indices:
+                index = np.random.choice(non_binary_indices)
+            else:
+                index = np.random.choice(binary_indices)
+        else:
+            # otherwise just take a random index
+            index = np.random.randint(new_vector.shape[0])
+
+        # Apply random perturbation
+        new_vector[index] += np.random.choice([-unit, unit])
 
     if all(prev_vector == vector):
         return None
@@ -103,19 +126,65 @@ def keep_perturbing(count: dict, samples: int):
     return sum(v - 1 for v in count.values()) < samples
 
 
-def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
-                      degrees: tuple[int] = (-1, 1)):
+def presolve_instance(base_mdl: gp.Model, instance_name: str, max_vars: int, max_cons: int,
+                      perturbation: str = None, p: int = None) -> Union[gp.Model, None]:
+    """ presolve the instance and return the presolved instance if it is within the size limits """
+
+    try:
+        presolved_base_mdl = base_mdl.presolve()
+    except gp.GurobiError:
+        # model could not be presolved
+        presolved_base_mdl = base_mdl
+
+    if presolved_base_mdl.numConstrs > max_cons or presolved_base_mdl.numVars > max_vars:
+        warn_str = f"Warning: {instance_name} presolve failed to reduce to maximum size"
+        if perturbation and p:
+            warn_str += f" for {perturbation} perturbation and degree {p}"
+        print(warn_str, file=sys.stderr)
+        return
+    else:
+        return presolved_base_mdl
+
+
+def try_solving(presolved_tmp_mdl, perturbation, p, perturbed_instance_dir, instance_name, count, extension):
+    """ try solving the perturbed instance and write it if it is solvable """
+
+    presolved_tmp_mdl.setParam("TimeLimit", 3600)
+    presolved_tmp_mdl.setParam('OutputFlag', 0)
+    presolved_tmp_mdl.optimize()
+    if presolved_tmp_mdl.status == gp.GRB.OPTIMAL:
+        stem = os.path.join(perturbed_instance_dir, f"{perturbation}_{p}",
+                            f"{instance_name}_{count[perturbation]}")
+        presolved_tmp_mdl.write(f"{stem}{extension}")
+        write_objective(stem, presolved_tmp_mdl.objVal)
+        count[perturbation] += 1
+    else:
+        print(f"Warning: {instance_name} could not be solved for {perturbation} perturbation and degree {p}",
+              file=sys.stderr)
+
+
+def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
+                      degrees: tuple[int] = (1, -1), try_multiple: int = 10,
+                      max_vars: int = 5000, max_cons: int = 5000):
     """ make the test set for a single instance
 
     :param instance_file: the saved instance
     :param instances_fldr: folder where saved instance can be found
     :param samples: number of samples to make of each perturbation
     :param degrees: degrees of perturbations to make
+    :param try_multiple: how many multiples of samples to try before giving up
+    :param max_vars: maximum number of variables in the presolved instance
+    :param max_cons: maximum number of constraints in the presolved instance
     :return: None
     """
 
     assert isinstance(samples, int) and samples > 0, "samples should be a positive integer"
     assert all(isinstance(x, int) for x in degrees), "degrees should be a list of integers"
+    assert isinstance(try_multiple, int) and try_multiple > 0, "try_multiple should be a positive integer"
+
+    # order degrees descending
+    degrees = list(degrees)
+    degrees = sorted(degrees, reverse=True)
 
     # get information about the instance location
     instance_name, extension = os.path.splitext(instance_file)
@@ -129,31 +198,28 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
     # make a directory to hold the series for this instance if it doesn't exist
     if not os.path.exists(perturbed_instance_dir):
         os.mkdir(perturbed_instance_dir)
-    # read in the presolved instance - should help with reducing tree size in VPC
-    try:
-        mdl = gp.read(instance_pth).presolve()
-    except gp.GurobiError:
-        # model could not be presolved
-        mdl = gp.read(instance_pth)
 
-    # get the optimal primal bound
-    mdl.setParam("TimeLimit", 14400)
-    mdl.setParam('OutputFlag', 0)
-    mdl.optimize()
-    if mdl.status != gp.GRB.OPTIMAL:
-        print(f"Warning: {instance_name} could not be solved in 14400 seconds. skipping.",
+    # read in the instance
+    base_mdl = gp.read(instance_pth)
+    base_mdl.setParam("TimeLimit", 3600)
+    base_mdl.setParam('OutputFlag', 0)
+
+    # presolve it, and skip if it is too large
+    presolved_base_mdl = presolve_instance(base_mdl, instance_name, max_vars, max_cons)
+    if not presolved_base_mdl:
+        return
+
+    # get the optimal presolved primal bound
+    presolved_base_mdl.optimize()
+    if presolved_base_mdl.status != gp.GRB.OPTIMAL:
+        print(f"Warning: {instance_name} could not be solved in 3600 seconds. skipping.",
               file=sys.stderr)
         return
-    objective_value = mdl.objVal
-
-    # if mdl solved in under 1200 seconds, append its name to the file cbc.txt
-    if mdl.Runtime < 1200:
-        with open("cbc.txt", 'a') as file:
-            file.write(f"{instance_name}\n")
+    objective_value = presolved_base_mdl.objVal
 
     for p in degrees:
-        count = {"objective": 1, "rhs": 1, "matrix": 1, "bound": 1}
-        exists = {"objective": False, "rhs": False, "matrix": False, "bound": False}
+        count = {"objective": 1, "rhs": 1, "matrix": 1}
+        exists = {"objective": False, "rhs": False, "matrix": False}
         for kind in count:
             # create a directory for each kind of perturbation of this instance
             series_fldr = os.path.join(perturbed_instance_dir, f"{kind}_{p}")
@@ -162,9 +228,9 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
             else:
                 exists[kind] = True
                 continue
-            # Copy and rename the file as the first instance
+            # Copy and rename the presolved base instance as the first instance - should help with reducing tree size in VPC
             stem = os.path.join(series_fldr, f"{instance_name}_0")
-            mdl.write(f"{stem}{extension}")
+            presolved_base_mdl.write(f"{stem}{extension}")
             # save its objective value
             write_objective(stem, objective_value)
 
@@ -174,89 +240,74 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 10,
 
         # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
         iterations = 0
-        while iterations < samples and keep_perturbing(count, samples):
+        while iterations < try_multiple * samples and any(v - 1 < samples for v in count.values()):
             # update termination condition
             iterations += 1
 
-            # perturb the instance
-            coefs = perturb(np.array(mdl.getA().data), p)
-            A = csr_matrix((coefs, mdl.getA().nonzero()), mdl.getA().shape) \
-                if coefs is not None else None
-            b = perturb(np.array(mdl.getAttr('RHS')), p)
-            l, u = perturb_bounds(mdl, p)
+            # perturb the constraint matrix
+            A, unit = None, 1
+            while A is None and unit > 1e-3:
+                coefs = perturb(np.array(base_mdl.getA().data), p, unit)
+                A = csr_matrix((coefs, base_mdl.getA().nonzero()), base_mdl.getA().shape) \
+                    if coefs is not None else None
+                unit *= .5
+            if A is None:
+                print(f"Warning: {instance_name} constraint matrix could not be perturbed for p = {p}",
+                      file=sys.stderr)
 
-            # make several attempts at the objective since it won't change feasibility
+            # perturb the rhs
+            b, unit = None, 1
+            while b is None and unit > 1e-3:
+                b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
+                unit *= .5
+            if b is None:
+                print(f"Warning: {instance_name} objective could not be perturbed for p = {p}",
+                      file=sys.stderr)
+
+            # perturb the objective
             c, unit = None, 1
             while c is None and unit > 1e-3:
-                c = perturb(np.array(mdl.getAttr('OBJ')), p, unit)
+                c = perturb(np.array(base_mdl.getAttr('OBJ')), p, unit)
                 unit *= .5
             if c is None:
                 print(f"Warning: {instance_name} objective could not be perturbed for p = {p}",
                       file=sys.stderr)
 
-            # write the objective perturbation if it is solvable
+            # write the objective perturbation if it presolves to our expected size and is solvable
             if not exists["objective"] and c is not None:
-                tmp_mdl = mdl.copy()
+                tmp_mdl = base_mdl.copy()
                 for j, coef in enumerate(c):
                     tmp_mdl.getVars()[j].Obj = coef
-                tmp_mdl.optimize()
-                if tmp_mdl.status == gp.GRB.OPTIMAL:
-                    stem = os.path.join(perturbed_instance_dir, f"objective_{p}",
-                                        f"{instance_name}_{count['objective']}")
-                    tmp_mdl.write(f"{stem}{extension}")
-                    write_objective(stem, tmp_mdl.objVal)
-                    count["objective"] += 1
-                del tmp_mdl
+                presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "objective", p)
+                if presolved_tmp_mdl:
+                    try_solving(presolved_tmp_mdl, "objective", p, perturbed_instance_dir, instance_name, count, extension)
 
             # write the rhs perturbation if it is solvable
             if not exists["rhs"] and b is not None:
-                tmp_mdl = mdl.copy()
+                tmp_mdl = base_mdl.copy()
                 for i, coef in enumerate(b):
                     tmp_mdl.getConstrs()[i].Rhs = coef
-                tmp_mdl.optimize()
-                if tmp_mdl.status == gp.GRB.OPTIMAL:
-                    stem = os.path.join(perturbed_instance_dir, f"rhs_{p}",
-                                        f"{instance_name}_{count['rhs']}")
-                    tmp_mdl.write(f"{stem}{extension}")
-                    write_objective(stem, tmp_mdl.objVal)
-                    count['rhs'] += 1
-                del tmp_mdl
+                presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "rhs", p)
+                if presolved_tmp_mdl:
+                    try_solving(presolved_tmp_mdl, "rhs", p, perturbed_instance_dir, instance_name, count, extension)
 
             # write the matrix perturbation if it is solvable
             if not exists["matrix"] and A is not None:
-                tmp_mdl = mdl.copy()
+                tmp_mdl = base_mdl.copy()
                 for i, j in zip(*A.nonzero()):
                     tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
-                tmp_mdl.optimize()
-                if tmp_mdl.status == gp.GRB.OPTIMAL:
-                    stem = os.path.join(perturbed_instance_dir, f"matrix_{p}",
-                                        f"{instance_name}_{count['matrix']}")
-                    tmp_mdl.write(f"{stem}{extension}")
-                    write_objective(stem, tmp_mdl.objVal)
-                    count['matrix'] += 1
-                del tmp_mdl
-
-            # write the bound perturbation if it is solvable
-            if not exists["bound"] and l is not None and u is not None:
-                tmp_mdl = mdl.copy()
-                for j, (lb, ub) in enumerate(zip(l, u)):
-                    tmp_mdl.getVars()[j].lb = lb
-                    tmp_mdl.getVars()[j].ub = ub
-                tmp_mdl.optimize()
-                if tmp_mdl.status == gp.GRB.OPTIMAL:
-                    stem = os.path.join(perturbed_instance_dir, f"bound_{p}",
-                                        f"{instance_name}_{count['bound']}")
-                    tmp_mdl.write(f"{stem}{extension}")
-                    write_objective(stem, tmp_mdl.objVal)
-                    count['bound'] += 1
-                del tmp_mdl
+                presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "matrix", p)
+                if presolved_tmp_mdl:
+                    try_solving(presolved_tmp_mdl, "matrix", p, perturbed_instance_dir, instance_name, count, extension)
 
         for kind, amount in count.items():
+            if amount - 1 < samples:
+                print(f"Warning: {instance_name} has {amount - 1} samples of {kind} for p = {p}")
             if amount == 1:
-                print(f"Warning: {instance_name} has {amount - 1} {kind} for p = {p}")
                 # delete the folder if there are no perturbations
                 shutil.rmtree(os.path.join(perturbed_instance_dir, f"{kind}_{p}"))
 
+        # if we don't find samples for this degree, we aren't going to as we keep dropping
         if all(amount == 1 for amount in count.values()):
             break
 

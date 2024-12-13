@@ -4,11 +4,11 @@ import shutil
 
 
 # iterate over all folders
-for fldr in ["coral", "miplib2", "miplib3", "miplib2003", "miplib2010", "miplib2017"]:
+for fldr in ["miplib2017"]:  # "coral", "miplib2", "miplib3", "miplib2003", "miplib2010",
 
     # get source and destination directories
     source_directory = f'/Users/sean/Documents/school/phd/research/warm_starting/{fldr}'
-    destination_directory = 'miplib_5000'
+    destination_directory = 'miplib_2017_5000_v2'
 
     # Copy the files to the current directory
     for filename in os.listdir(source_directory):
