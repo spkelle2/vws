@@ -1,4 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:990: CglVPC::setupConstraints: Objective at disjunctive term 34/55 is incorrect. Before, it was 210621.718, now it is 208368.678.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:990: CglVPC::setupConstraints: Objective at disjunctive term 35/55 is incorrect. Before, it was 210255.774, now it is 208002.734.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:990: CglVPC::setupConstraints: Objective at disjunctive term 36/55 is incorrect. Before, it was 210348.013, now it is 208094.973.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:990: CglVPC::setupConstraints: Objective at disjunctive term 37/55 is incorrect. Before, it was 210413.655, now it is 208160.615.

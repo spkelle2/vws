@@ -1,10 +1,10 @@
 import os
-import subprocess
-
 import pandas as pd
+import subprocess
+import sys
 
 
-def main(instances_fldr, remote: bool = False):
+def main(instances_fldr, remote: bool = True):
     """This function creates a test set of instances for the experiments.
 
     :param instances_fldr: the name of the folder in the instances directory
@@ -60,4 +60,4 @@ def main(instances_fldr, remote: bool = False):
 
 
 if __name__ == '__main__':
-    main(instances_fldr="bm23", remote=False)
+    main(instances_fldr=sys.argv[1])
