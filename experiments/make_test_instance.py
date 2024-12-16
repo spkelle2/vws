@@ -137,10 +137,12 @@ def presolve_instance(base_mdl: gp.Model, instance_name: str, max_vars: int, max
         presolved_base_mdl = base_mdl
 
     if presolved_base_mdl.numConstrs > max_cons or presolved_base_mdl.numVars > max_vars:
-        warn_str = f"Warning: {instance_name} presolve failed to reduce to maximum size"
+        warn_str = f"{instance_name} presolve failed to reduce to maximum size"
         if perturbation and p:
-            warn_str += f" for {perturbation} perturbation and degree {p}"
-        print(warn_str, file=sys.stderr)
+            warn_str = "Warning: " + warn_str + f" for {perturbation} perturbation and degree {p}"
+            print(warn_str)
+        else:
+            print(warn_str, file=sys.stderr)
         return
     else:
         return presolved_base_mdl
@@ -159,8 +161,7 @@ def try_solving(presolved_tmp_mdl, perturbation, p, perturbed_instance_dir, inst
         write_objective(stem, presolved_tmp_mdl.objVal)
         count[perturbation] += 1
     else:
-        print(f"Warning: {instance_name} could not be solved for {perturbation} perturbation and degree {p}",
-              file=sys.stderr)
+        print(f"Warning: {instance_name} could not be solved for {perturbation} perturbation and degree {p}")
 
 
 def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
@@ -209,10 +210,10 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
     if not presolved_base_mdl:
         return
 
-    # get the optimal presolved primal bound
+    # get the optimal presolved primal bound, and skip if it is solved to optimality
     presolved_base_mdl.optimize()
     if presolved_base_mdl.status != gp.GRB.OPTIMAL:
-        print(f"Warning: {instance_name} could not be solved in 3600 seconds. skipping.",
+        print(f"{instance_name} could not be solved in 3600 seconds. skipping.",
               file=sys.stderr)
         return
     objective_value = presolved_base_mdl.objVal
@@ -252,8 +253,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                     if coefs is not None else None
                 unit *= .5
             if A is None:
-                print(f"Warning: {instance_name} constraint matrix could not be perturbed for p = {p}",
-                      file=sys.stderr)
+                print(f"Warning: {instance_name} constraint matrix could not be perturbed for p = {p}")
 
             # perturb the rhs
             b, unit = None, 1
@@ -261,8 +261,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                 b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
                 unit *= .5
             if b is None:
-                print(f"Warning: {instance_name} rhs could not be perturbed for p = {p}",
-                      file=sys.stderr)
+                print(f"Warning: {instance_name} rhs could not be perturbed for p = {p}")
 
             # perturb the objective
             c, unit = None, 1
@@ -270,11 +269,10 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                 c = perturb(np.array(base_mdl.getAttr('OBJ')), p, unit)
                 unit *= .5
             if c is None:
-                print(f"Warning: {instance_name} objective could not be perturbed for p = {p}",
-                      file=sys.stderr)
+                print(f"Warning: {instance_name} objective could not be perturbed for p = {p}")
 
             # write the objective perturbation if it presolves to our expected size and is solvable
-            if not exists["objective"] and c is not None:
+            if not exists["objective"] and c is not None and count["objective"] - 1 < samples:
                 tmp_mdl = base_mdl.copy()
                 for j, coef in enumerate(c):
                     tmp_mdl.getVars()[j].Obj = coef
@@ -283,7 +281,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                     try_solving(presolved_tmp_mdl, "objective", p, perturbed_instance_dir, instance_name, count, extension)
 
             # write the rhs perturbation if it is solvable
-            if not exists["rhs"] and b is not None:
+            if not exists["rhs"] and b is not None and count["rhs"] - 1 < samples:
                 tmp_mdl = base_mdl.copy()
                 for i, coef in enumerate(b):
                     tmp_mdl.getConstrs()[i].Rhs = coef
@@ -292,7 +290,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                     try_solving(presolved_tmp_mdl, "rhs", p, perturbed_instance_dir, instance_name, count, extension)
 
             # write the matrix perturbation if it is solvable
-            if not exists["matrix"] and A is not None:
+            if not exists["matrix"] and A is not None and count["matrix"] - 1 < samples:
                 tmp_mdl = base_mdl.copy()
                 for i, j in zip(*A.nonzero()):
                     tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
@@ -302,13 +300,14 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
         for kind, amount in count.items():
             if amount - 1 < samples:
-                print(f"Warning: {instance_name} has {amount - 1} samples of {kind} for p = {p}")
+                print(f"{instance_name} has {amount - 1} samples of {kind} for p = {p}", file=sys.stderr)
             if amount == 1:
                 # delete the folder if there are no perturbations
                 shutil.rmtree(os.path.join(perturbed_instance_dir, f"{kind}_{p}"))
 
         # if we don't find samples for this degree, we aren't going to as we keep dropping
         if all(amount == 1 for amount in count.values()):
+            print(f"{instance_name} failed to perturb any elements for p = {p}", file=sys.stderr)
             break
 
 
