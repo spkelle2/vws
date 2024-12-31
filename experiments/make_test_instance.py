@@ -4,6 +4,7 @@ import os
 from scipy.sparse import csr_matrix
 import shutil
 import sys
+import time
 from typing import Union
 
 
@@ -165,15 +166,13 @@ def try_solving(presolved_tmp_mdl, perturbation, p, perturbed_instance_dir, inst
 
 
 def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
-                      degrees: tuple[int] = (1, -1), try_multiple: int = 10,
-                      max_vars: int = 5000, max_cons: int = 5000):
+                      degrees: tuple[int] = (1, -1), max_vars: int = 5000, max_cons: int = 5000):
     """ make the test set for a single instance
 
     :param instance_file: the saved instance
     :param instances_fldr: folder where saved instance can be found
     :param samples: number of samples to make of each perturbation
     :param degrees: degrees of perturbations to make
-    :param try_multiple: how many multiples of samples to try before giving up
     :param max_vars: maximum number of variables in the presolved instance
     :param max_cons: maximum number of constraints in the presolved instance
     :return: None
@@ -181,7 +180,6 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
     assert isinstance(samples, int) and samples > 0, "samples should be a positive integer"
     assert all(isinstance(x, int) for x in degrees), "degrees should be a list of integers"
-    assert isinstance(try_multiple, int) and try_multiple > 0, "try_multiple should be a positive integer"
 
     # order degrees descending
     degrees = list(degrees)
@@ -219,6 +217,8 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
     objective_value = presolved_base_mdl.objVal
 
     for p in degrees:
+        start_time = time.time()
+        max_duration = 10 * 60 * 60  # 10 hours in seconds
         count = {"objective": 1, "rhs": 1, "matrix": 1}
         exists = {"objective": False, "rhs": False, "matrix": False}
         for kind in count:
@@ -241,7 +241,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
         # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
         iterations = 0
-        while iterations < try_multiple * samples and any(v - 1 < samples for v in count.values()):
+        while iterations < 1000 and any(v - 1 < samples for v in count.values()) and time.time() - start_time < max_duration:
             # update termination condition
             iterations += 1
 
@@ -304,11 +304,6 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
             if amount == 1:
                 # delete the folder if there are no perturbations
                 shutil.rmtree(os.path.join(perturbed_instance_dir, f"{kind}_{p}"))
-
-        # if we don't find samples for this degree, we aren't going to as we keep dropping
-        if all(amount == 1 for amount in count.values()):
-            print(f"{instance_name} failed to perturb any elements for p = {p}", file=sys.stderr)
-            break
 
 
 if __name__ == '__main__':
