@@ -247,7 +247,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
             # perturb the constraint matrix
             A, unit = None, 1
-            while A is None and unit > 1e-3:
+            while A is None and unit > 1e-6:
                 coefs = perturb(np.array(base_mdl.getA().data), p, unit)
                 A = csr_matrix((coefs, base_mdl.getA().nonzero()), base_mdl.getA().shape) \
                     if coefs is not None else None
@@ -257,7 +257,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
             # perturb the rhs
             b, unit = None, 1
-            while b is None and unit > 1e-3:
+            while b is None and unit > 1e-6:
                 b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
                 unit *= .5
             if b is None:
@@ -265,7 +265,7 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
             # perturb the objective
             c, unit = None, 1
-            while c is None and unit > 1e-3:
+            while c is None and unit > 1e-6:
                 c = perturb(np.array(base_mdl.getAttr('OBJ')), p, unit)
                 unit *= .5
             if c is None:

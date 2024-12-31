@@ -59,7 +59,7 @@ neos-555298.mps,8.0,hard solve
 ta1-UUM.mps,15.0,hard solve
 fhnw-binpack4-48.mps,8.0,hard solve
 neos-1460543.mps,15.0,hard solve
-neos-3118745-obra.mps,8.0,hard solve
+neos-3118745-obra.mps,15.0,hard solve
 neos-548251.mps,8.0,hard solve
 neos-1467371.mps,15.0,hard solve
 aflow40b.mps,8.0,hard solve
@@ -80,7 +80,7 @@ probportfolio.mps,15.0,hard solve
 mc7.mps,8.0,hard solve
 assign1-5-8.mps,8.0,hard solve
 neos-1429185.mps,15.0,hard solve
-gen-ip016.mps,8.0,hard solve
+gen-ip016.mps,15.0,hard solve
 janos-us-DDM.mps,15.0,hard solve
 neos-911970.mps,8.0,hard solve
 bm23.mps,8.0,hard solve
@@ -112,3 +112,11 @@ ger50-17-ptp-pop-3t.mps,15.0,hard solve
 liu.mps,15.0,hard solve
 neos-3068746-nene.mps,15.0,hard solve
 neos-3211096-shag.mps,15.0,hard solve
+ej.mps,8.0,
+neos-3661949-lesse.mps,8.0,
+mik-250-20-75-3.mps,8.0,
+mik-250-20-75-5.mps,8.0,
+f2gap201600.mps,8.0,
+control30-3-2-3.mps,8.0,
+umts.mps,8.0,
+neos-1171737.mps,8.0,
