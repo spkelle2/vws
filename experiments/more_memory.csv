@@ -3,7 +3,7 @@ pigeon-16.mps,15.0,hard solve
 sp98ic.mps,8.0,hard solve
 mc8.mps,8.0,hard solve
 neos-916792.mps,8.0,hard solve
-neos-555343.mps,8.0,hard solve
+neos-555343.mps,15.0,hard solve
 neos-810286.mps,8.0,hard solve
 neos-3046601-motu.mps,15.0,hard solve
 pigeon-11.mps,8.0,hard solve
@@ -112,11 +112,21 @@ ger50-17-ptp-pop-3t.mps,15.0,hard solve
 liu.mps,15.0,hard solve
 neos-3068746-nene.mps,15.0,hard solve
 neos-3211096-shag.mps,15.0,hard solve
-ej.mps,8.0,
-neos-3661949-lesse.mps,8.0,
+ej.mps,15.0,
+neos-3661949-lesse.mps,15.0,
 mik-250-20-75-3.mps,8.0,
 mik-250-20-75-5.mps,8.0,
 f2gap201600.mps,8.0,
 control30-3-2-3.mps,8.0,
 umts.mps,8.0,
 neos-1171737.mps,8.0,
+neos-2657525-crna.mps,8.0,
+n13-3.mps,8.0,
+cost266-UUE.mps,8.0,
+mik-250-20-75-1.mps,8.0,
+bppc4-08.mps,8.0,
+nsrand-ipx.mps,8.0,
+neos-595904.mps,8.0,
+neos-5182409-nasivi.mps,8.0,
+neos-3627168-kasai.mps,8.0,
+milo-v12-6-r2-40-1.mps,8.0,
