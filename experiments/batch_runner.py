@@ -46,7 +46,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
     # track number of jobs
     total_jobs, complete_jobs, submit_jobs, mediumlong_submissions = 0, 0, 0, 0
 
-    # get the output folder and make sure it does not yet exist, then make it
+    # get the output folder and make it if it doesn't exist
     output_fldr = os.path.join(os.getcwd(), "results", test_fldr)
     os.makedirs(output_fldr, exist_ok=True)
 
