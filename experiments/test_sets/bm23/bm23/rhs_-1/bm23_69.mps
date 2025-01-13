@@ -538,7 +538,7 @@ RHS
     RHS1      R106      33
     RHS1      R107      -5
     RHS1      R108      3
-    RHS1      R109      18
+    RHS1      R109      17
     RHS1      R110      10
     RHS1      R111      17
     RHS1      R112      -5

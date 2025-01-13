@@ -25,7 +25,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     C101      OBJ       3
     C101      R101      2
-    C101      R102      -6
+    C101      R102      -5
     C101      R103      5
     C101      R104      -9
     C101      R105      8
@@ -182,7 +182,7 @@ COLUMNS
     C109      R113      2
     C109      R114      9
     C109      R115      8
-    C109      R116      4
+    C109      R116      3
     C109      R117      -3
     C109      R118      -1
     C109      R120      9

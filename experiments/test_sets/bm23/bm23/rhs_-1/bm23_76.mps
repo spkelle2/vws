@@ -543,9 +543,9 @@ RHS
     RHS1      R111      17
     RHS1      R112      -5
     RHS1      R113      4
-    RHS1      R114      21
+    RHS1      R114      20
     RHS1      R115      24
-    RHS1      R116      -7
+    RHS1      R116      -6
     RHS1      R117      17
     RHS1      R118      -13
     RHS1      R119      -30
