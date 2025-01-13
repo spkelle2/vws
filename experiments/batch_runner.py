@@ -84,7 +84,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     stem = os.path.join(output_fldr, test_name)
                     series_input_fldr = os.path.join(input_fldr, instance, perturbation)
                     num_mips = len([f for f in os.listdir(series_input_fldr) if f.endswith(".mps")])
-                    total_time_limit = ceil(2 * max_time * num_mips / 3600) + 1  # hours
+                    total_time_limit = min(ceil(2 * max_time * num_mips / 3600) + 1, 23)  # hours
                     queue = get_queue(total_time_limit)
 
                     # skip if the output already exists
