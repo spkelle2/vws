@@ -1,3 +1,0 @@
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1549050.polyp1.ie.lehigh.edu.SC: line 4:  5326 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

@@ -1,1 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:990: CglVPC::setupConstraints: Objective at disjunctive term 24/58 is incorrect. Before, it was 1940.029, now it is 1939.078.

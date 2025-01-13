@@ -1,4 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 65 (real var 338), it is -3.125000e-06. Small enough error that we only send warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 338: dot product with obj < 0. Obj viol from solver: -0.00000312. Calculated: -0.00000313.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 3 ray 65 does not satisfy the objective cut. Activity: -0.00000313. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (64.860000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.

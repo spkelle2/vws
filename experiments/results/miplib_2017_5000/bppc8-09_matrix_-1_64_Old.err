@@ -1,6 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 427: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.05066421. Calculated: 0.05066437.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 112 (real var 127), it is -3.867510e-06. Small enough error that we only send warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 127: dot product with obj < 0. Obj viol from solver: -0.00000387. Calculated: -0.00000387.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 5 ray 112 does not satisfy the objective cut. Activity: -0.00000387. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 384: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00000652. Calculated: 0.00000638.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 427: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00000652. Calculated: 0.00000638.

@@ -1,2 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 71: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.02295432. Calculated: 0.02295421.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 323: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.97704568. Calculated: 0.97704579.

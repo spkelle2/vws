@@ -1,7 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 118 (real var 130), it is -1.133129e-07. Small enough error that we only send warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 130: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 0 ray 118 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 10 (real var 11), it is -1.204243e-07. Small enough error that we only send warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 11: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 7 ray 10 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
