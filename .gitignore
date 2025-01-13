@@ -34,7 +34,9 @@ CMakeLists.txt
 cmake-build-debug/
 experiments/old
 experiments/test_sets/
+!experiments/test_sets/bm23/
 experiments/outputs
+!experiments/outputs/bm23/
 tmpvpc*
 experiments/outfiles/
 core
