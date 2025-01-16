@@ -19,7 +19,7 @@ namespace fs = ghc::filesystem;
 int main(int argc, char** argv) {
 
   // executable, input folder, output file, max run time, cut generator, and disjunctive terms
-  assert(argc == 8);
+  assert(argc == 9);
 
   // create the test runner and solve the provided series
   std::string inputFolderStr(argv[1]);
@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
   std::string mipSolver(argv[6]);
   MipComp testRunner(inputFolderStr, outputFileStr, std::stod(argv[3]),
                      std::string(argv[4]), std::stoi(argv[5]), mipSolver,
-                     std::stoi(argv[7]));
+                     std::stoi(argv[7]), std::stoi(argv[8]));
   testRunner.solveSeries();
 
 } /* main */

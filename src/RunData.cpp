@@ -41,6 +41,7 @@ RunData* RunData::clone() const {
 void RunData::initialize(const RunData* const rhs) {
   if (rhs) {
     this->instanceIndex = rhs->instanceIndex;
+    this->seedIndex = rhs->seedIndex;
     this->vpcGenerator = rhs->vpcGenerator;
     this->terms = rhs->terms;
     this->lpBound = rhs->lpBound;
@@ -66,6 +67,7 @@ void RunData::initialize(const RunData* const rhs) {
     this->infeasibleToFeasibleTerms = rhs->infeasibleToFeasibleTerms;
   } else {
     this->instanceIndex = 0;
+    this->seedIndex = 0;
     this->vpcGenerator = "";
     this->terms = 0;
     this->lpBound = 0.0;
@@ -94,7 +96,7 @@ void RunData::initialize(const RunData* const rhs) {
 
 /** Get a comma-separated string of the names of RunData's attributes */
 std::string RunData::getHeader(){
-  return "instanceIndex,vpcGenerator,terms,lpBound,disjunctiveDualBound,"
+  return "instanceIndex,seedIndex,vpcGenerator,terms,lpBound,disjunctiveDualBound,"
          "lpBoundPostVpc,rootDualBound,dualBound,primalBound,vpcGenerationTime,"
          "rootDualBoundTime,bestSolutionTime,terminationTime,nodes,iterations,"
          "maxTime,actualTerms,numCuts,cutLimit,mipSolver,providePrimalBound,"
@@ -103,7 +105,7 @@ std::string RunData::getHeader(){
 
 /** Get a comma-separated string of the values of RunData's attributes */
 std::string RunData::getValues(){
-  return std::to_string(instanceIndex) + "," + vpcGenerator + "," +
+  return std::to_string(instanceIndex) + "," + std::to_string(seedIndex) + "," + vpcGenerator + "," +
     std::to_string(terms) + "," + std::to_string(lpBound) + "," +
     std::to_string(disjunctiveDualBound) + "," + std::to_string(lpBoundPostVpc) + "," +
     std::to_string(rootDualBound) + "," + std::to_string(dualBound) + "," +

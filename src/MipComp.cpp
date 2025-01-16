@@ -12,6 +12,8 @@
 #include <memory> // shared_ptr
 #include <regex> // regex
 #include <string> // string
+#include <cstdlib> // for srand() and rand()
+#include <ctime>   // for time()
 
 // coin-or modules
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
@@ -31,8 +33,9 @@ namespace fs = ghc::filesystem;
  * each instance and creates a CbcModel instance for each mps file. Assumes
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
 MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
-                 std::string vpcGenerator, int terms, std::string mipSolver, bool providePrimalBound):
-  csvPath(csvPathStr), vpcGenerator(vpcGenerator), mipSolver(mipSolver) {
+                 std::string vpcGenerator, int terms, std::string mipSolver,
+                 bool providePrimalBound, int seedIndex) :
+  csvPath(csvPathStr), vpcGenerator(vpcGenerator), mipSolver(mipSolver), seedIndex(seedIndex) {
 
   // containers for sorting input files and bounds
   std::vector<fs::path> inputFiles;
@@ -40,8 +43,8 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
 
   // validate file paths
   fs::path inputFolder(inputFolderStr);
-  verify(fs::is_directory(inputFolder), "The path " + inputFolder.string() + " must exist and be a folder.");
-  verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.");
+  verify(fs::is_directory(inputFolder), "The path " + inputFolder.string() + " must exist and be a folder.", false);
+  verify(!fs::exists(csvPath), "The file " + csvPath.string() + " should not exist.", false);
 
   // get each .mps file in the input folder
   for (const auto& entry : fs::directory_iterator(inputFolder.string())) {
@@ -51,7 +54,7 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
         fs::path pb_file = entry.path();
         pb_file.replace_extension(".pb");
         verify(fs::exists(pb_file), "The optimal objective for " + entry.path().string() +
-                                    " should be supplied in " + pb_file.string());
+                                    " should be supplied in " + pb_file.string(), false);
         primalBoundFiles.push_back(pb_file);
       }
     }
@@ -77,9 +80,14 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
     std::getline(primalBoundFile, line);
     primalBounds.push_back(std::stod(line));
   }
+
+  // Seed the random number generator with the current time and generate a random number
+  srand(time(0));
+  int randomNum = rand() % 100 + 1;
   
   // set parameters
   VPCParameters params;
+  params.set(RANDOM_SEED, randomNum); // how many active leaves in the disjunction
   params.set(DISJ_TERMS, terms); // how many active leaves in the disjunction
   params.set(TIMELIMIT, maxRunTime); // max time for vpc generation
   params.set(PARTIAL_BB_TIMELIMIT, maxRunTime); // max time for creating partial bb tree
@@ -128,23 +136,33 @@ void MipComp::solveSeries() {
     double primalBound = primalBounds.size() > 0 ? primalBounds[i] :
         std::numeric_limits<double>::max();
     RunData data;
-    // skip this experiment if we get an error about dot products differing in PRLP
     try {
        data = seriesSolver.solve(instanceSolver, genType, primalBound);
     } catch (const std::runtime_error& e) {
+
+      // skip this experiment if we get an error other than dot product difference
       std::string errorMessage = e.what();
-      if (errorMessage == "Point: Calculated dot product with obj differs from solver's") {
-      } else {
-        // raise the exception raise the exception otherwise
-        throw e;
+      if (errorMessage != "Point: Calculated dot product with obj differs from solver's") {
+
+        // print the error message, unless we know it printed already
+        if (errorMessage != "VPC tried to exit with error code 1") {
+          std::cerr << errorMessage << std::endl;
+        }
+        // breaking if we expected VPCs in the first iteration and did not get them
+        if (vpcGenerator != "None" and i == 0 and data.numCuts == 0){
+          std::cerr << "No vpcs were made from a new disjunction in first iteration. Stopping series." << std::endl;
+          break;
+        } else {
+          // otherwise this is still a critical error, but just for this iteration, so move on
+          continue;
+        }
       }
     }
 
-    // mark the instance index
-    data.instanceIndex = i;
-
     // stop the series if we sought vpcs on the first iteration but didn't get any.
     // Need to generate cuts so we have a disjunction/multipliers to reuse and an ideal bound to compare
+    data.instanceIndex = i;
+    data.seedIndex = seedIndex;
     if (vpcGenerator != "None" and i == 0 and data.numCuts == 0){
       std::cerr << "No vpcs were made from a new disjunction in first iteration. Stopping series." << std::endl;
       break;

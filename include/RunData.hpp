@@ -24,6 +24,9 @@ public:
   /** the index of the instance */
   int instanceIndex;
 
+  /** get the index of the random seed */
+  int seedIndex;
+
   /** The method used for generating VPCs */
   std::string vpcGenerator;
 

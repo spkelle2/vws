@@ -54,9 +54,13 @@ public:
   /** which solver to use for experiments */
   std::string mipSolver;
 
+  /** index of the random seed */
+  int seedIndex;
+
   /** Constructor. Initializes attributes based on provided file. */
   MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
-          std::string vpcGenerator, int terms, std::string mipSolver, bool providePrimalBound);
+          std::string vpcGenerator, int terms, std::string mipSolver,
+          bool providePrimalBound, int seedIndex);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

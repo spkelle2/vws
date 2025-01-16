@@ -37,7 +37,7 @@ TEST_CASE( "Test Simple") {
   fs::remove_all(csvPath);
 
   SECTION("MipComp::MipComp"){
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 69, "CBC", true);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 69, "CBC", true, 0);
 
     REQUIRE( testRunner.vpcGenerator == "Old" );
     REQUIRE( testRunner.instanceSolvers.size() == 3 );
@@ -51,17 +51,18 @@ TEST_CASE( "Test Simple") {
     REQUIRE( testRunner.seriesSolver.params.get(TIMELIMIT) == 60 );
     REQUIRE( testRunner.seriesSolver.params.get(PARTIAL_BB_KEEP_PRUNED_NODES) == 1 );
     REQUIRE( testRunner.mipSolver == "CBC" );
+    REQUIRE( testRunner.seedIndex == 0 );
   }
 
   SECTION("MipComp::solveSeries quits if no cuts on first instance"){
     // test that series cancels after first instance doesn't generate cuts
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 1, "Old", 128, "CBC", false);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 1, "Old", 128, "CBC", false, 0);
     testRunner.solveSeries();
     REQUIRE(testRunner.runData.size() == 0);
   }
 
   SECTION("MipComp::solveSeries"){
-    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 69, "CBC", true);
+    MipComp testRunner(inputFolder.string(), csvPath.string(), 60, "Old", 69, "CBC", true, 0);
     testRunner.solveSeries();
 
     // we should have one runData entry for each instance
@@ -70,7 +71,7 @@ TEST_CASE( "Test Simple") {
     // make sure we saved the run data correctly
     std::string str;
     int lineIndex = 0;
-    std::regex re("([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
+    std::regex re("([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),"
@@ -87,52 +88,54 @@ TEST_CASE( "Test Simple") {
         REQUIRE(std::regex_search(str, match, re));
         // instanceIndex
         REQUIRE(isVal(std::stoi(match[1].str()), testRunner.runData[lineIndex - 1].instanceIndex, 1e-4));
+        // seedIndex
+        REQUIRE(isVal(std::stoi(match[2].str()), testRunner.runData[lineIndex - 1].seedIndex, 1e-4));
         // VPC generator
-        REQUIRE(match[2].str() == (lineIndex == 1 ? "New" : testRunner.vpcGenerator));
+        REQUIRE(match[3].str() == (lineIndex == 1 ? "New" : testRunner.vpcGenerator));
         // terms
-        REQUIRE(isVal(std::stoi(match[3].str()), testRunner.runData[lineIndex - 1].terms, 1e-4));
+        REQUIRE(isVal(std::stoi(match[4].str()), testRunner.runData[lineIndex - 1].terms, 1e-4));
         // lpBound
-        REQUIRE(isVal(std::stod(match[4].str()), testRunner.runData[lineIndex - 1].lpBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[5].str()), testRunner.runData[lineIndex - 1].lpBound, 1e-4));
         // disjunctiveDualBound
-        REQUIRE(isVal(std::stod(match[5].str()), testRunner.runData[lineIndex - 1].disjunctiveDualBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[6].str()), testRunner.runData[lineIndex - 1].disjunctiveDualBound, 1e-4));
         // lpBoundPostVpc
-        REQUIRE(isVal(std::stod(match[6].str()), testRunner.runData[lineIndex - 1].lpBoundPostVpc, 1e-4));
+        REQUIRE(isVal(std::stod(match[7].str()), testRunner.runData[lineIndex - 1].lpBoundPostVpc, 1e-4));
         // rootDualBound
-        REQUIRE(isVal(std::stod(match[7].str()), testRunner.runData[lineIndex - 1].rootDualBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[8].str()), testRunner.runData[lineIndex - 1].rootDualBound, 1e-4));
         // dualBound
-        REQUIRE(isVal(std::stod(match[8].str()), testRunner.runData[lineIndex - 1].dualBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[9].str()), testRunner.runData[lineIndex - 1].dualBound, 1e-4));
         // primalBound
-        REQUIRE(isVal(std::stod(match[9].str()), testRunner.runData[lineIndex - 1].primalBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[10].str()), testRunner.runData[lineIndex - 1].primalBound, 1e-4));
         // vpcGenerationTime
-        REQUIRE(isVal(std::stod(match[10].str()), testRunner.runData[lineIndex - 1].vpcGenerationTime, 1e-4));
+        REQUIRE(isVal(std::stod(match[11].str()), testRunner.runData[lineIndex - 1].vpcGenerationTime, 1e-4));
         // rootDualBoundTime
-        REQUIRE(isVal(std::stod(match[11].str()), testRunner.runData[lineIndex - 1].rootDualBoundTime, 1e-4));
+        REQUIRE(isVal(std::stod(match[12].str()), testRunner.runData[lineIndex - 1].rootDualBoundTime, 1e-4));
         // bestSolutionTime
-        REQUIRE(isVal(std::stod(match[12].str()), testRunner.runData[lineIndex - 1].bestSolutionTime, 1e-4));
+        REQUIRE(isVal(std::stod(match[13].str()), testRunner.runData[lineIndex - 1].bestSolutionTime, 1e-4));
         // terminationTime
-        REQUIRE(isVal(std::stod(match[13].str()), testRunner.runData[lineIndex - 1].terminationTime, 1e-4));
+        REQUIRE(isVal(std::stod(match[14].str()), testRunner.runData[lineIndex - 1].terminationTime, 1e-4));
         // nodes
-        REQUIRE(isVal(std::stoi(match[14].str()), testRunner.runData[lineIndex - 1].nodes, 1e-4));
+        REQUIRE(isVal(std::stoi(match[15].str()), testRunner.runData[lineIndex - 1].nodes, 1e-4));
         // iterations
-        REQUIRE(isVal(std::stoi(match[15].str()), testRunner.runData[lineIndex - 1].iterations, 1e-4));
+        REQUIRE(isVal(std::stoi(match[16].str()), testRunner.runData[lineIndex - 1].iterations, 1e-4));
         // maxTime
-        REQUIRE(isVal(std::stod(match[16].str()), testRunner.runData[lineIndex - 1].maxTime, 1e-4));
+        REQUIRE(isVal(std::stod(match[17].str()), testRunner.runData[lineIndex - 1].maxTime, 1e-4));
         // actualTerms
-        REQUIRE(isVal(std::stoi(match[17].str()), testRunner.runData[lineIndex - 1].actualTerms, 1e-4));
+        REQUIRE(isVal(std::stoi(match[18].str()), testRunner.runData[lineIndex - 1].actualTerms, 1e-4));
         // numCuts
-        REQUIRE(isVal(std::stod(match[18].str()), testRunner.runData[lineIndex - 1].numCuts, 1e-4));
+        REQUIRE(isVal(std::stod(match[19].str()), testRunner.runData[lineIndex - 1].numCuts, 1e-4));
         // cutLimit
-        REQUIRE(isVal(std::stod(match[19].str()), testRunner.runData[lineIndex - 1].cutLimit, 1e-4));
+        REQUIRE(isVal(std::stod(match[20].str()), testRunner.runData[lineIndex - 1].cutLimit, 1e-4));
         // mipSolver
-        REQUIRE(match[20].str() == testRunner.runData[lineIndex - 1].mipSolver);
+        REQUIRE(match[21].str() == testRunner.runData[lineIndex - 1].mipSolver);
         // providePrimalBound
-        REQUIRE(isVal(std::stod(match[21].str()), testRunner.runData[lineIndex - 1].providePrimalBound, 1e-4));
+        REQUIRE(isVal(std::stod(match[22].str()), testRunner.runData[lineIndex - 1].providePrimalBound, 1e-4));
         // infeasibleTerms
-        REQUIRE(isVal(std::stoi(match[22].str()), testRunner.runData[lineIndex - 1].infeasibleTerms, 1e-4));
+        REQUIRE(isVal(std::stoi(match[23].str()), testRunner.runData[lineIndex - 1].infeasibleTerms, 1e-4));
         // feasibleToInfeasibleTerms
-        REQUIRE(isVal(std::stoi(match[23].str()), testRunner.runData[lineIndex - 1].feasibleToInfeasibleTerms, 1e-4));
+        REQUIRE(isVal(std::stoi(match[24].str()), testRunner.runData[lineIndex - 1].feasibleToInfeasibleTerms, 1e-4));
         // infeasibleToFeasibleTerms
-        REQUIRE(isVal(std::stoi(match[24].str()), testRunner.runData[lineIndex - 1].infeasibleToFeasibleTerms, 1e-4));
+        REQUIRE(isVal(std::stoi(match[25].str()), testRunner.runData[lineIndex - 1].infeasibleToFeasibleTerms, 1e-4));
 
       }
       lineIndex++;
@@ -146,8 +149,8 @@ TEST_CASE( "Test Simple") {
     fs::path inputFolder = "../src/test/test_instances/f2gap801600";
 
     // create test runners
-    MipComp testRunnerFarkas(inputFolder.string(), csvPath.string(), 30, "Farkas", 16, "CBC", true);
-    MipComp testRunnerNone(inputFolder.string(), csvPath2.string(), 30, "None", 16, "CBC", true);
+    MipComp testRunnerFarkas(inputFolder.string(), csvPath.string(), 30, "Farkas", 16, "CBC", true, 0);
+    MipComp testRunnerNone(inputFolder.string(), csvPath2.string(), 30, "None", 16, "CBC", true, 0);
 
     // create rundata containers
     RunData runDataFarkas;
