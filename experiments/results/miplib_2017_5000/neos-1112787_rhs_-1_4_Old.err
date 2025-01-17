@@ -1,0 +1,5 @@
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 2064978809.13391113. Calculated: 2064978809.13404751.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 79555807994.05084229. Calculated: 79555807994.05073547.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 94572832302.14630127. Calculated: 94572832302.14627075.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:547: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00012207. Calculated: 0.00005742.
+No vpcs were made from a new disjunction in first iteration. Stopping series.

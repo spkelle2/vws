@@ -1,0 +1,3 @@
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (75.720000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (69.544000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
+=>> PBS: job killed: walltime 39639 exceeded limit 39600

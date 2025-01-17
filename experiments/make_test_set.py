@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 
-def main(instances_fldr, remote: bool = True):
+def main(instances_fldr, remote: bool = False, samples=3):
     """This function creates a test set of instances for the experiments.
 
     :param instances_fldr: the name of the folder in the instances directory
@@ -45,7 +45,7 @@ def main(instances_fldr, remote: bool = True):
         jobs_submitted += 1
         if remote:
             # submit the job to the cluster
-            args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr}'
+            args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr},SAMPLES={samples}'
             subprocess.call(
                 ['qsub', '-V', '-q', 'mediumlong', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime=23:59:00',
                  '-v', args, '-e', f'outfiles/{instance_name}.err', '-o', f'outfiles/{instance_name}.out',
@@ -53,11 +53,12 @@ def main(instances_fldr, remote: bool = True):
             )
         else:
             # run locally
-            subprocess.call(["python", "make_test_instance.py", instance_file, instances_fldr])
+            subprocess.call(["python", "make_test_instance.py", instance_file, instances_fldr, str(samples)])
 
     print(f"submitted {jobs_submitted} jobs")
     print(f"there are {instance_idx + 1} instances")
 
 
 if __name__ == '__main__':
-    main(instances_fldr=sys.argv[1])
+    samples = 3 if len(sys.argv) < 3 else int(sys.argv[2])
+    main(instances_fldr=sys.argv[1], samples=samples)

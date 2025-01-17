@@ -298,6 +298,9 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
                 if presolved_tmp_mdl:
                     try_solving(presolved_tmp_mdl, "matrix", p, perturbed_instance_dir, instance_name, count, extension)
 
+            if iterations % 50 == 0:
+                print(f"after {iterations} iterations, {instance_name} has {count} samples for p = {p}")
+
         for kind, amount in count.items():
             if amount - 1 < samples:
                 print(f"{instance_name} has {amount - 1} samples of {kind} for p = {p}", file=sys.stderr)
@@ -307,4 +310,4 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
 
 
 if __name__ == '__main__':
-    make_instance_set(sys.argv[1], sys.argv[2])
+    make_instance_set(sys.argv[1], sys.argv[2], samples=int(sys.argv[3]))
