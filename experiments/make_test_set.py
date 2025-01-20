@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 
-def main(instances_fldr, remote: bool = False, samples=3):
+def main(instances_fldr, remote: bool = True, samples=3):
     """This function creates a test set of instances for the experiments.
 
     :param instances_fldr: the name of the folder in the instances directory
