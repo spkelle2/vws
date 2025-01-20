@@ -4379,7 +4379,7 @@ RHS
     RHS1      OBS0207   -0.001
     RHS1      OBS0208   -0.001
     RHS1      OBS0209   -0.001
-    RHS1      OBS0210   -0.001
+    RHS1      OBS0210   -8.8125000000000009e-03
     RHS1      OBS0211   -0.001
     RHS1      OBS0212   -0.001
     RHS1      OBS0213   -0.001
@@ -4565,7 +4565,7 @@ RHS
     RHS1      OBS0393   -0.001
     RHS1      OBS0394   -0.001
     RHS1      OBS0395   -0.001
-    RHS1      OBS0396   0.0068125
+    RHS1      OBS0396   -0.001
     RHS1      OBS0397   -0.001
     RHS1      OBS0398   -0.001
     RHS1      OBS0399   -0.001
@@ -5078,7 +5078,7 @@ BOUNDS
  UP BND1      D0393     1
  UP BND1      D0394     1
  UP BND1      D0395     1
- UP BND1      D0396     0.992195304695305
+ UP BND1      D0396     1
  UP BND1      D0397     1
  UP BND1      D0398     1
  UP BND1      D0399     1

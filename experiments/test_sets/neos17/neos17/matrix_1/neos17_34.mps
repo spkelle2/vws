@@ -1046,7 +1046,7 @@ COLUMNS
     A10       OBS0445   1
     A10       OBS0449   1
     A10       OBS0453   1
-    A10       OBS0456   1
+    A10       OBS0456   2
     A10       OBS0462   1
     A10       OBS0465   1
     A10       OBS0470   1
@@ -2701,7 +2701,7 @@ COLUMNS
     A25       OBS0474   1
     A25       OBS0475   -1
     A25       OBS0476   1
-    A25       OBS0477   2
+    A25       OBS0477   1
     A25       OBS0478   1
     A25       OBS0479   1
     A25       OBS0480   1

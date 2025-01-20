@@ -1010,7 +1010,7 @@ COLUMNS
     A10       OBS0235   1
     A10       OBS0260   1
     A10       OBS0263   1
-    A10       OBS0264   1
+    A10       OBS0264   0.5
     A10       OBS0269   1
     A10       OBS0273   1
     A10       OBS0278   1

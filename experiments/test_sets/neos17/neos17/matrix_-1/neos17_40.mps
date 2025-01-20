@@ -560,7 +560,7 @@ COLUMNS
     A02       OBS0012   1
     A02       OBS0015   1
     A02       OBS0018   1
-    A02       OBS0020   0.5
+    A02       OBS0020   1
     A02       OBS0021   1
     A02       OBS0023   1
     A02       OBS0026   1
@@ -2596,7 +2596,7 @@ COLUMNS
     A25       OBS0369   1
     A25       OBS0370   1
     A25       OBS0371   1
-    A25       OBS0372   1
+    A25       OBS0372   1.5
     A25       OBS0373   1
     A25       OBS0374   1
     A25       OBS0375   1

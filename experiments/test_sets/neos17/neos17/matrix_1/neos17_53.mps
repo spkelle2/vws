@@ -1497,7 +1497,7 @@ COLUMNS
     A16       OBS0331   1
     A16       OBS0337   1
     A16       OBS0342   1
-    A16       OBS0351   2
+    A16       OBS0351   1
     A16       OBS0354   1
     A16       OBS0363   1
     A16       OBS0372   1
@@ -2104,7 +2104,7 @@ COLUMNS
     A23       OBS0094   1
     A23       OBS0163   1
     A23       OBS0167   1
-    A23       OBS0229   1
+    A23       OBS0229   2
     A23       OBS0278   1
     A23       OBS0323   1
     A23       OBS0334   1

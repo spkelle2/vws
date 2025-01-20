@@ -1566,7 +1566,7 @@ COLUMNS
     A18       OBS0130   1
     A18       OBS0140   1
     A18       OBS0143   1
-    A18       OBS0148   1
+    A18       OBS0148   0.5
     A18       OBS0153   1
     A18       OBS0161   1
     A18       OBS0170   1

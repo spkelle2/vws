@@ -1065,7 +1065,7 @@ COLUMNS
     A11       OBS0083   1
     A11       OBS0090   1
     A11       OBS0099   1
-    A11       OBS0104   0.5
+    A11       OBS0104   1
     A11       OBS0110   1
     A11       OBS0116   1
     A11       OBS0124   1

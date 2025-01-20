@@ -1618,7 +1618,7 @@ COLUMNS
     A18       OBS0483   1
     A18       EQCONST   1
     A19       OBS0002   1
-    A19       OBS0005   0.5
+    A19       OBS0005   1
     A19       OBS0006   1
     A19       OBS0008   1
     A19       OBS0009   1
@@ -2793,7 +2793,7 @@ COLUMNS
     B25       OBS0080   1
     B25       OBS0081   -1
     B25       OBS0082   -1
-    B25       OBS0083   -1
+    B25       OBS0083   -1.5
     B25       OBS0084   -1
     B25       OBS0085   1
     B25       OBS0086   -1

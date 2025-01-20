@@ -804,7 +804,7 @@ COLUMNS
     A05       OBS0475   -1
     A05       EQCONST   1
     A06       OBS0013   1
-    A06       OBS0018   1.5
+    A06       OBS0018   1
     A06       OBS0047   -1
     A06       OBS0056   1
     A06       OBS0060   1

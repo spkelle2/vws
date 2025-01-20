@@ -1189,7 +1189,7 @@ COLUMNS
     A13       OBS0219   1
     A13       OBS0221   1
     A13       OBS0226   1
-    A13       OBS0227   -2
+    A13       OBS0227   -1
     A13       OBS0228   -1
     A13       OBS0230   1
     A13       OBS0236   1
@@ -1257,7 +1257,7 @@ COLUMNS
     A14       OBS0197   1
     A14       OBS0218   1
     A14       OBS0220   1
-    A14       OBS0225   2
+    A14       OBS0225   1
     A14       OBS0268   1
     A14       OBS0277   1
     A14       OBS0292   1
@@ -1318,7 +1318,7 @@ COLUMNS
     A15       OBS0134   1
     A15       OBS0146   1
     A15       OBS0148   1
-    A15       OBS0154   1
+    A15       OBS0154   2
     A15       OBS0158   1
     A15       OBS0160   1
     A15       OBS0168   1

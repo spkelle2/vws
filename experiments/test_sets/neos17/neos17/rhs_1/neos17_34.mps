@@ -3269,7 +3269,7 @@ COLUMNS
     D0035     OBJ       0.00356
     D0035     OBS0035   -1.001
     D0036     OBJ       0.02493
-    D0036     OBS0036   -1.001
+    D0036     OBS0036   -0.96975
     D0037     OBJ       0.00045
     D0037     OBS0037   -1.001
     D0038     OBJ       0.00045
@@ -4205,7 +4205,7 @@ RHS
     RHS1      OBS0033   -0.001
     RHS1      OBS0034   -0.001
     RHS1      OBS0035   -0.001
-    RHS1      OBS0036   -0.001
+    RHS1      OBS0036   0.03025
     RHS1      OBS0037   -0.001
     RHS1      OBS0038   -0.001
     RHS1      OBS0039   -0.001
@@ -4652,7 +4652,7 @@ RHS
     RHS1      OBS0480   -0.001
     RHS1      OBS0481   -0.001
     RHS1      OBS0482   -0.001
-    RHS1      OBS0483   0.03025
+    RHS1      OBS0483   -0.001
     RHS1      OBS0484   -0.001
     RHS1      OBS0485   -0.001
     RHS1      EQCONST   1

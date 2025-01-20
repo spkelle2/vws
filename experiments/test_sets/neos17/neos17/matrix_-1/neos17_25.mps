@@ -655,7 +655,7 @@ COLUMNS
     A02       OBS0248   1
     A02       OBS0249   1
     A02       OBS0256   1
-    A02       OBS0259   1
+    A02       OBS0259   0.5
     A02       OBS0260   1
     A02       OBS0261   1
     A02       OBS0264   1

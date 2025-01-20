@@ -626,7 +626,7 @@ COLUMNS
     A02       OBS0173   1
     A02       OBS0182   1
     A02       OBS0184   -1
-    A02       OBS0185   2
+    A02       OBS0185   1
     A02       OBS0186   1
     A02       OBS0191   1
     A02       OBS0193   1
@@ -1430,7 +1430,7 @@ COLUMNS
     A16       OBS0042   1
     A16       OBS0052   1
     A16       OBS0055   1
-    A16       OBS0056   2
+    A16       OBS0056   1
     A16       OBS0061   1
     A16       OBS0064   1
     A16       OBS0065   1
@@ -3046,7 +3046,7 @@ COLUMNS
     B25       OBS0333   -1
     B25       OBS0334   -1
     B25       OBS0335   1
-    B25       OBS0336   2
+    B25       OBS0336   1
     B25       OBS0337   -1
     B25       OBS0338   -1
     B25       OBS0339   1

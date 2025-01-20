@@ -491,7 +491,7 @@ COLUMNS
     A01       OBS0021   1
     A01       OBS0035   1
     A01       OBS0048   1
-    A01       OBS0052   1
+    A01       OBS0052   0.5
     A01       OBS0055   1
     A01       OBS0065   1
     A01       OBS0068   1
@@ -977,7 +977,7 @@ COLUMNS
     A09       OBS0444   1
     A09       OBS0455   1
     A09       OBS0477   1
-    A09       OBS0482   1.5
+    A09       OBS0482   1
     A09       EQCONST   1
     A10       OBS0002   1
     A10       OBS0006   1

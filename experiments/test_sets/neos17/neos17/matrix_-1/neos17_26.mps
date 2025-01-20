@@ -497,7 +497,7 @@ COLUMNS
     A01       OBS0068   1
     A01       OBS0069   1
     A01       OBS0077   1
-    A01       OBS0083   1.5
+    A01       OBS0083   1
     A01       OBS0107   -1
     A01       OBS0112   1
     A01       OBS0121   -1

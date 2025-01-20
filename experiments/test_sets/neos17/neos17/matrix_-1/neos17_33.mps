@@ -1867,7 +1867,7 @@ COLUMNS
     A21       OBS0052   1
     A21       OBS0055   1
     A21       OBS0057   1
-    A21       OBS0058   -1
+    A21       OBS0058   -0.5
     A21       OBS0060   1
     A21       OBS0061   1
     A21       OBS0062   1

@@ -942,7 +942,7 @@ COLUMNS
     A09       OBS0118   1
     A09       OBS0137   1
     A09       OBS0142   1
-    A09       OBS0145   1
+    A09       OBS0145   2
     A09       OBS0146   1
     A09       OBS0149   1
     A09       OBS0151   1
@@ -2416,7 +2416,7 @@ COLUMNS
     A25       OBS0189   1
     A25       OBS0190   1
     A25       OBS0191   1
-    A25       OBS0192   2
+    A25       OBS0192   1
     A25       OBS0193   1
     A25       OBS0194   1
     A25       OBS0195   1
@@ -2660,7 +2660,7 @@ COLUMNS
     A25       OBS0433   1
     A25       OBS0434   1
     A25       OBS0435   1
-    A25       OBS0436   2
+    A25       OBS0436   1
     A25       OBS0437   -1
     A25       OBS0438   1
     A25       OBS0439   1

@@ -2185,7 +2185,7 @@ COLUMNS
     A24       OBS0318   1
     A24       OBS0321   1
     A24       OBS0327   1
-    A24       OBS0328   1
+    A24       OBS0328   0.5
     A24       OBS0329   1
     A24       OBS0344   1
     A24       OBS0350   1

@@ -165,25 +165,21 @@ def try_solving(presolved_tmp_mdl, perturbation, p, perturbed_instance_dir, inst
         print(f"Warning: {instance_name} could not be solved for {perturbation} perturbation and degree {p}")
 
 
-def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
-                      degrees: tuple[int] = (1, -1), max_vars: int = 5000, max_cons: int = 5000):
+def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int = 3,
+                      max_vars: int = 5000, max_cons: int = 5000):
     """ make the test set for a single instance
 
     :param instance_file: the saved instance
     :param instances_fldr: folder where saved instance can be found
+    :param p: the power of 2 to perturb the instance by
     :param samples: number of samples to make of each perturbation
-    :param degrees: degrees of perturbations to make
     :param max_vars: maximum number of variables in the presolved instance
     :param max_cons: maximum number of constraints in the presolved instance
     :return: None
     """
 
     assert isinstance(samples, int) and samples > 0, "samples should be a positive integer"
-    assert all(isinstance(x, int) for x in degrees), "degrees should be a list of integers"
-
-    # order degrees descending
-    degrees = list(degrees)
-    degrees = sorted(degrees, reverse=True)
+    assert isinstance(p, int), "p should be an integer"
 
     # get information about the instance location
     instance_name, extension = os.path.splitext(instance_file)
@@ -216,98 +212,94 @@ def make_instance_set(instance_file, instances_fldr: str, samples: int = 3,
         return
     objective_value = presolved_base_mdl.objVal
 
-    for p in degrees:
-        start_time = time.time()
-        max_duration = 10 * 60 * 60  # 10 hours in seconds
-        count = {"objective": 1, "rhs": 1, "matrix": 1}
-        exists = {"objective": False, "rhs": False, "matrix": False}
-        for kind in count:
-            # create a directory for each kind of perturbation of this instance
-            series_fldr = os.path.join(perturbed_instance_dir, f"{kind}_{p}")
-            if not os.path.exists(series_fldr):
-                os.mkdir(series_fldr)
-            else:
-                exists[kind] = True
+    start_time = time.time()
+    max_duration = 23 * 60 * 60  # 23 hours in seconds
+    count = {"objective": 1, "rhs": 1, "matrix": 1}
+    for kind in count:
+        # create a directory for each kind of perturbation of this instance
+        series_fldr = os.path.join(perturbed_instance_dir, f"{kind}_{p}")
+        if not os.path.exists(series_fldr):
+            os.mkdir(series_fldr)
+        else:
+            # get a count of the number of existing test instances
+            count[kind] = len([f for f in os.listdir(series_fldr) if f.endswith(extension) and not f.startswith("._")])
+            if count[kind] > 0:
                 continue
-            # Copy and rename the presolved base instance as the first instance - should help with reducing tree size in VPC
-            stem = os.path.join(series_fldr, f"{instance_name}_0")
-            presolved_base_mdl.write(f"{stem}{extension}")
-            # save its objective value
-            write_objective(stem, objective_value)
+        # Copy and rename the presolved base instance as the first instance - should help with reducing tree size in VPC
+        stem = os.path.join(series_fldr, f"{instance_name}_0")
+        presolved_base_mdl.write(f"{stem}{extension}")
+        # save its objective value
+        write_objective(stem, objective_value)
 
-        # if all perturbations to this degree already exist, skip to the next
-        if all(exists.values()):
-            continue
+    # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
+    iterations = 0
+    while iterations < 1000 and any(v - 1 < samples for v in count.values()) and time.time() - start_time < max_duration:
+        # update termination condition
+        iterations += 1
 
-        # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
-        iterations = 0
-        while iterations < 1000 and any(v - 1 < samples for v in count.values()) and time.time() - start_time < max_duration:
-            # update termination condition
-            iterations += 1
+        # perturb the constraint matrix
+        A, unit = None, 1
+        while A is None and unit > 1e-6:
+            coefs = perturb(np.array(base_mdl.getA().data), p, unit)
+            A = csr_matrix((coefs, base_mdl.getA().nonzero()), base_mdl.getA().shape) \
+                if coefs is not None else None
+            unit *= .5
+        if A is None:
+            print(f"Warning: {instance_name} constraint matrix could not be perturbed for p = {p}")
 
-            # perturb the constraint matrix
-            A, unit = None, 1
-            while A is None and unit > 1e-6:
-                coefs = perturb(np.array(base_mdl.getA().data), p, unit)
-                A = csr_matrix((coefs, base_mdl.getA().nonzero()), base_mdl.getA().shape) \
-                    if coefs is not None else None
-                unit *= .5
-            if A is None:
-                print(f"Warning: {instance_name} constraint matrix could not be perturbed for p = {p}")
+        # perturb the rhs
+        b, unit = None, 1
+        while b is None and unit > 1e-6:
+            b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
+            unit *= .5
+        if b is None:
+            print(f"Warning: {instance_name} rhs could not be perturbed for p = {p}")
 
-            # perturb the rhs
-            b, unit = None, 1
-            while b is None and unit > 1e-6:
-                b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
-                unit *= .5
-            if b is None:
-                print(f"Warning: {instance_name} rhs could not be perturbed for p = {p}")
+        # perturb the objective
+        c, unit = None, 1
+        while c is None and unit > 1e-6:
+            c = perturb(np.array(base_mdl.getAttr('OBJ')), p, unit)
+            unit *= .5
+        if c is None:
+            print(f"Warning: {instance_name} objective could not be perturbed for p = {p}")
 
-            # perturb the objective
-            c, unit = None, 1
-            while c is None and unit > 1e-6:
-                c = perturb(np.array(base_mdl.getAttr('OBJ')), p, unit)
-                unit *= .5
-            if c is None:
-                print(f"Warning: {instance_name} objective could not be perturbed for p = {p}")
+        # write the objective perturbation if it presolves to our expected size and is solvable
+        if c is not None and count["objective"] - 1 < samples:
+            tmp_mdl = base_mdl.copy()
+            for j, coef in enumerate(c):
+                tmp_mdl.getVars()[j].Obj = coef
+            presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "objective", p)
+            if presolved_tmp_mdl:
+                try_solving(presolved_tmp_mdl, "objective", p, perturbed_instance_dir, instance_name, count, extension)
 
-            # write the objective perturbation if it presolves to our expected size and is solvable
-            if not exists["objective"] and c is not None and count["objective"] - 1 < samples:
-                tmp_mdl = base_mdl.copy()
-                for j, coef in enumerate(c):
-                    tmp_mdl.getVars()[j].Obj = coef
-                presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "objective", p)
-                if presolved_tmp_mdl:
-                    try_solving(presolved_tmp_mdl, "objective", p, perturbed_instance_dir, instance_name, count, extension)
+        # write the rhs perturbation if it is solvable
+        if b is not None and count["rhs"] - 1 < samples:
+            tmp_mdl = base_mdl.copy()
+            for i, coef in enumerate(b):
+                tmp_mdl.getConstrs()[i].Rhs = coef
+            presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "rhs", p)
+            if presolved_tmp_mdl:
+                try_solving(presolved_tmp_mdl, "rhs", p, perturbed_instance_dir, instance_name, count, extension)
 
-            # write the rhs perturbation if it is solvable
-            if not exists["rhs"] and b is not None and count["rhs"] - 1 < samples:
-                tmp_mdl = base_mdl.copy()
-                for i, coef in enumerate(b):
-                    tmp_mdl.getConstrs()[i].Rhs = coef
-                presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "rhs", p)
-                if presolved_tmp_mdl:
-                    try_solving(presolved_tmp_mdl, "rhs", p, perturbed_instance_dir, instance_name, count, extension)
+        # write the matrix perturbation if it is solvable
+        if A is not None and count["matrix"] - 1 < samples:
+            tmp_mdl = base_mdl.copy()
+            for i, j in zip(*A.nonzero()):
+                tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
+            presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "matrix", p)
+            if presolved_tmp_mdl:
+                try_solving(presolved_tmp_mdl, "matrix", p, perturbed_instance_dir, instance_name, count, extension)
 
-            # write the matrix perturbation if it is solvable
-            if not exists["matrix"] and A is not None and count["matrix"] - 1 < samples:
-                tmp_mdl = base_mdl.copy()
-                for i, j in zip(*A.nonzero()):
-                    tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
-                presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "matrix", p)
-                if presolved_tmp_mdl:
-                    try_solving(presolved_tmp_mdl, "matrix", p, perturbed_instance_dir, instance_name, count, extension)
+        if iterations % 50 == 0:
+            print(f"after {iterations} iterations, {instance_name} has {count} samples for p = {p}")
 
-            if iterations % 50 == 0:
-                print(f"after {iterations} iterations, {instance_name} has {count} samples for p = {p}")
-
-        for kind, amount in count.items():
-            if amount - 1 < samples:
-                print(f"{instance_name} has {amount - 1} samples of {kind} for p = {p}", file=sys.stderr)
-            if amount == 1:
-                # delete the folder if there are no perturbations
-                shutil.rmtree(os.path.join(perturbed_instance_dir, f"{kind}_{p}"))
+    for kind, amount in count.items():
+        if amount - 1 < samples:
+            print(f"{instance_name} has {amount - 1} samples of {kind} for p = {p}", file=sys.stderr)
+        if amount == 1:
+            # delete the folder if there are no perturbations
+            shutil.rmtree(os.path.join(perturbed_instance_dir, f"{kind}_{p}"))
 
 
 if __name__ == '__main__':
-    make_instance_set(sys.argv[1], sys.argv[2], samples=int(sys.argv[3]))
+    make_instance_set(sys.argv[1], sys.argv[2], int(sys.argv[3]), samples=int(sys.argv[4]))

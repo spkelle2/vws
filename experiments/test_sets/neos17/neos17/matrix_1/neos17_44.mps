@@ -1390,7 +1390,7 @@ COLUMNS
     A15       OBS0409   1
     A15       OBS0410   1
     A15       OBS0414   1
-    A15       OBS0418   2
+    A15       OBS0418   1
     A15       OBS0425   1
     A15       OBS0429   -1
     A15       OBS0431   1
@@ -1398,7 +1398,7 @@ COLUMNS
     A15       OBS0435   1
     A15       OBS0436   1
     A15       OBS0437   -1
-    A15       OBS0438   1
+    A15       OBS0438   2
     A15       OBS0439   1
     A15       OBS0441   1
     A15       OBS0443   1
@@ -2042,7 +2042,7 @@ COLUMNS
     A21       OBS0480   1
     A21       OBS0482   1
     A21       EQCONST   1
-    A22       OBS0005   2
+    A22       OBS0005   1
     A22       OBS0006   1
     A22       OBS0007   1
     A22       OBS0018   1
@@ -3291,7 +3291,7 @@ COLUMNS
     D0046     OBJ       0.00178
     D0046     OBS0046   -1.001
     D0047     OBJ       0.02237
-    D0047     OBS0047   -1.001
+    D0047     OBS0047   -1.0010000000000001e+00
     D0048     OBJ       0.00045
     D0048     OBS0048   -1.001
     D0049     OBJ       0.00134

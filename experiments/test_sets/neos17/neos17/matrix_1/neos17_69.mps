@@ -1593,7 +1593,7 @@ COLUMNS
     A18       OBS0332   1
     A18       OBS0342   1
     A18       OBS0356   1
-    A18       OBS0372   2
+    A18       OBS0372   1
     A18       OBS0375   1
     A18       OBS0378   1
     A18       OBS0381   1
@@ -3005,7 +3005,7 @@ COLUMNS
     B25       OBS0292   -1
     B25       OBS0293   -1
     B25       OBS0294   -1
-    B25       OBS0295   -1
+    B25       OBS0295   -2
     B25       OBS0296   -1
     B25       OBS0297   -1
     B25       OBS0298   -1

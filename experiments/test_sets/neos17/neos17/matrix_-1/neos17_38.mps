@@ -1978,7 +1978,7 @@ COLUMNS
     A21       OBS0320   1
     A21       OBS0321   1
     A21       OBS0328   1
-    A21       OBS0330   1.5
+    A21       OBS0330   1
     A21       OBS0333   1
     A21       OBS0334   1
     A21       OBS0335   -1
@@ -2953,7 +2953,7 @@ COLUMNS
     B25       OBS0240   1
     B25       OBS0241   -1
     B25       OBS0242   -1
-    B25       OBS0243   -1
+    B25       OBS0243   -1.5
     B25       OBS0244   -1
     B25       OBS0245   -1
     B25       OBS0246   -1

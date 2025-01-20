@@ -1285,7 +1285,7 @@ COLUMNS
     A14       OBS0412   1
     A14       OBS0436   1
     A14       OBS0446   1
-    A14       OBS0452   1
+    A14       OBS0452   2
     A14       OBS0458   1
     A14       OBS0462   1
     A14       OBS0473   1
@@ -1422,7 +1422,7 @@ COLUMNS
     A15       EQCONST   1
     A16       OBS0001   1
     A16       OBS0002   1
-    A16       OBS0014   2
+    A16       OBS0014   1
     A16       OBS0018   1
     A16       OBS0021   1
     A16       OBS0035   1
@@ -1897,7 +1897,7 @@ COLUMNS
     A21       OBS0133   1
     A21       OBS0136   1
     A21       OBS0139   1
-    A21       OBS0142   2
+    A21       OBS0142   1
     A21       OBS0144   1
     A21       OBS0145   1
     A21       OBS0147   1
@@ -2715,7 +2715,7 @@ COLUMNS
     B25       OBS0002   -1
     B25       OBS0003   -1
     B25       OBS0004   -1
-    B25       OBS0005   -1
+    B25       OBS0005   -2
     B25       OBS0006   -1
     B25       OBS0007   -1
     B25       OBS0008   -1

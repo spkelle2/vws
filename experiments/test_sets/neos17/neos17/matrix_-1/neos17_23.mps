@@ -2664,7 +2664,7 @@ COLUMNS
     A25       OBS0437   -1
     A25       OBS0438   1
     A25       OBS0439   1
-    A25       OBS0440   1
+    A25       OBS0440   1.5
     A25       OBS0441   1
     A25       OBS0442   1
     A25       OBS0443   1

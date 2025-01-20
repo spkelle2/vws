@@ -1948,7 +1948,7 @@ COLUMNS
     A21       OBS0244   1
     A21       OBS0245   1
     A21       OBS0249   1
-    A21       OBS0250   1
+    A21       OBS0250   1.5
     A21       OBS0251   1
     A21       OBS0252   1
     A21       OBS0258   1

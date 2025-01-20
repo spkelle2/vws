@@ -641,7 +641,7 @@ COLUMNS
     A02       OBS0212   1
     A02       OBS0213   1
     A02       OBS0216   1
-    A02       OBS0220   1.5
+    A02       OBS0220   1
     A02       OBS0222   1
     A02       OBS0223   1
     A02       OBS0225   1
@@ -1194,7 +1194,7 @@ COLUMNS
     A13       OBS0230   1
     A13       OBS0236   1
     A13       OBS0240   -1
-    A13       OBS0242   1
+    A13       OBS0242   0.5
     A13       OBS0253   1
     A13       OBS0264   1
     A13       OBS0270   1

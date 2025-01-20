@@ -813,7 +813,7 @@ COLUMNS
     A06       OBS0079   1
     A06       OBS0080   -1
     A06       OBS0092   1
-    A06       OBS0094   1.5
+    A06       OBS0094   1
     A06       OBS0101   1
     A06       OBS0107   -1
     A06       OBS0111   1

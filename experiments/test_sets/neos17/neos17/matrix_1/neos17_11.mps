@@ -1283,7 +1283,7 @@ COLUMNS
     A14       OBS0400   1
     A14       OBS0402   1
     A14       OBS0412   1
-    A14       OBS0436   1
+    A14       OBS0436   2
     A14       OBS0446   1
     A14       OBS0452   1
     A14       OBS0458   1
@@ -1400,7 +1400,7 @@ COLUMNS
     A15       OBS0437   -1
     A15       OBS0438   1
     A15       OBS0439   1
-    A15       OBS0441   1
+    A15       OBS0441   2
     A15       OBS0443   1
     A15       OBS0446   1
     A15       OBS0448   1
@@ -3170,7 +3170,7 @@ COLUMNS
     B25       OBS0457   -1
     B25       OBS0458   -1
     B25       OBS0459   -1
-    B25       OBS0460   -2
+    B25       OBS0460   -1
     B25       OBS0461   -1
     B25       OBS0462   -1
     B25       OBS0463   -1

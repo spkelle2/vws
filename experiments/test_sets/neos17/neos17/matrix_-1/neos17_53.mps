@@ -2001,7 +2001,7 @@ COLUMNS
     A21       OBS0377   1
     A21       OBS0378   1
     A21       OBS0388   1
-    A21       OBS0390   1
+    A21       OBS0390   0.5
     A21       OBS0391   1
     A21       OBS0393   1
     A21       OBS0394   1
@@ -2557,7 +2557,7 @@ COLUMNS
     A25       OBS0330   1
     A25       OBS0331   1
     A25       OBS0332   1
-    A25       OBS0333   1.5
+    A25       OBS0333   1
     A25       OBS0334   1
     A25       OBS0335   -1
     A25       OBS0336   -1

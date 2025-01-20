@@ -4377,7 +4377,7 @@ RHS
     RHS1      OBS0205   -0.001
     RHS1      OBS0206   -0.001
     RHS1      OBS0207   -0.001
-    RHS1      OBS0208   -0.03225
+    RHS1      OBS0208   -0.001
     RHS1      OBS0209   -0.001
     RHS1      OBS0210   -0.001
     RHS1      OBS0211   -0.001
@@ -4524,7 +4524,7 @@ RHS
     RHS1      OBS0352   -0.001
     RHS1      OBS0353   -0.001
     RHS1      OBS0354   -0.001
-    RHS1      OBS0355   -0.001
+    RHS1      OBS0355   0.03025
     RHS1      OBS0356   -0.001
     RHS1      OBS0357   -0.001
     RHS1      OBS0358   -0.001

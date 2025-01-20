@@ -750,7 +750,7 @@ COLUMNS
     A03       OBS0041   1
     A03       OBS0051   1
     A03       OBS0064   1
-    A03       OBS0097   1
+    A03       OBS0097   1.5
     A03       OBS0145   1
     A03       OBS0184   -1
     A03       OBS0203   1

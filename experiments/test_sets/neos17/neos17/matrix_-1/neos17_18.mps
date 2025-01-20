@@ -2121,7 +2121,7 @@ COLUMNS
     A24       OBS0014   1
     A24       OBS0021   1
     A24       OBS0025   1
-    A24       OBS0028   -1
+    A24       OBS0028   -1.5
     A24       OBS0029   1
     A24       OBS0039   1
     A24       OBS0041   1
@@ -2290,7 +2290,7 @@ COLUMNS
     A25       OBS0063   1
     A25       OBS0064   1
     A25       OBS0065   1
-    A25       OBS0066   1.5
+    A25       OBS0066   1
     A25       OBS0067   1
     A25       OBS0068   1
     A25       OBS0069   1

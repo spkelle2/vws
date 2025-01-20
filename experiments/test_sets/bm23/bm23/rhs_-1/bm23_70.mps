@@ -549,7 +549,6 @@ RHS
     RHS1      R117      17
     RHS1      R118      -13
     RHS1      R119      -30
-    RHS1      R120      1
 BOUNDS
  BV BND1      C101    
  BV BND1      C102    

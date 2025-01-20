@@ -1128,7 +1128,7 @@ COLUMNS
     A12       OBS0228   -1
     A12       OBS0246   1
     A12       OBS0259   1
-    A12       OBS0263   1
+    A12       OBS0263   1.5
     A12       OBS0279   1
     A12       OBS0319   1
     A12       OBS0322   1
@@ -1849,7 +1849,7 @@ COLUMNS
     A21       OBS0006   1
     A21       OBS0008   1
     A21       OBS0009   1
-    A21       OBS0012   1.5
+    A21       OBS0012   1
     A21       OBS0014   1
     A21       OBS0015   1
     A21       OBS0019   1

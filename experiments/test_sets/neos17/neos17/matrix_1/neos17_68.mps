@@ -1172,7 +1172,7 @@ COLUMNS
     A13       OBS0148   1
     A13       OBS0150   1
     A13       OBS0152   1
-    A13       OBS0154   1
+    A13       OBS0154   2
     A13       OBS0162   1
     A13       OBS0166   1
     A13       OBS0176   1
@@ -1233,7 +1233,7 @@ COLUMNS
     A13       OBS0456   1
     A13       OBS0464   1
     A13       OBS0466   1
-    A13       OBS0467   2
+    A13       OBS0467   1
     A13       OBS0478   1
     A13       OBS0481   -1
     A13       EQCONST   1

@@ -1423,7 +1423,7 @@ COLUMNS
     A16       OBS0001   1
     A16       OBS0002   1
     A16       OBS0014   1
-    A16       OBS0018   1
+    A16       OBS0018   1.5
     A16       OBS0021   1
     A16       OBS0035   1
     A16       OBS0041   1

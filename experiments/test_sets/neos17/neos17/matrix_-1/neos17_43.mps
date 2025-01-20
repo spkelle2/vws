@@ -1640,7 +1640,7 @@ COLUMNS
     A19       OBS0057   1
     A19       OBS0060   1
     A19       OBS0066   1
-    A19       OBS0068   0.5
+    A19       OBS0068   1
     A19       OBS0070   1
     A19       OBS0071   1
     A19       OBS0072   1

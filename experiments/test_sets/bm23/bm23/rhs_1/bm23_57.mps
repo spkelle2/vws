@@ -531,24 +531,24 @@ COLUMNS
     MARKER    'MARKER'                 'INTEND'
 RHS
     RHS1      R101      65
-    RHS1      R102      -15
-    RHS1      R103      -10
-    RHS1      R104      34
-    RHS1      R105      12
+    RHS1      R102      -16
+    RHS1      R103      -9
+    RHS1      R104      32
+    RHS1      R105      15
     RHS1      R106      33
-    RHS1      R107      -5
-    RHS1      R108      3
+    RHS1      R107      -6
+    RHS1      R108      2
     RHS1      R109      18
     RHS1      R110      10
-    RHS1      R111      17
-    RHS1      R112      -5
-    RHS1      R113      3
-    RHS1      R114      21
-    RHS1      R115      23
+    RHS1      R111      18
+    RHS1      R112      -6
+    RHS1      R113      4
+    RHS1      R114      20
+    RHS1      R115      25
     RHS1      R116      -6
-    RHS1      R117      18
-    RHS1      R118      -13
-    RHS1      R119      -29
+    RHS1      R117      17
+    RHS1      R118      -14
+    RHS1      R119      -31
     RHS1      R120      1
 BOUNDS
  BV BND1      C101    

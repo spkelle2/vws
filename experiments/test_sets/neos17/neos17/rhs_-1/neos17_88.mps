@@ -4574,7 +4574,7 @@ RHS
     RHS1      OBS0402   -0.001
     RHS1      OBS0403   -0.001
     RHS1      OBS0404   -0.001
-    RHS1      OBS0405   -0.001
+    RHS1      OBS0405   -8.8125000000000009e-03
     RHS1      OBS0406   -0.001
     RHS1      OBS0407   -0.001
     RHS1      OBS0408   -0.001
@@ -4655,34 +4655,34 @@ RHS
     RHS1      OBS0483   -0.001
     RHS1      OBS0484   -0.001
     RHS1      OBS0485   -0.001
-    RHS1      EQCONST   1.125
+    RHS1      EQCONST   1
 BOUNDS
- UP BND1      A01       1.125
- UP BND1      A02       1.125
- UP BND1      A03       1.125
- UP BND1      A04       1.125
- UP BND1      A05       1.125
- UP BND1      A06       1.125
- UP BND1      A07       1.125
- UP BND1      A08       1.125
- UP BND1      A09       1.125
- UP BND1      A10       1.125
- UP BND1      A11       1.125
- UP BND1      A12       1.125
- UP BND1      A13       1.125
- UP BND1      A14       1.125
- UP BND1      A15       1.125
- UP BND1      A16       1.125
- UP BND1      A17       1.125
- UP BND1      A18       1.125
- UP BND1      A19       1.125
- UP BND1      A20       1.125
- UP BND1      A21       1.125
- UP BND1      A22       1.125
- UP BND1      A23       1.125
- UP BND1      A24       1.125
- UP BND1      A25       1.125
- UP BND1      B25       1.125
+ UP BND1      A01       1
+ UP BND1      A02       1
+ UP BND1      A03       1
+ UP BND1      A04       1
+ UP BND1      A05       1
+ UP BND1      A06       1
+ UP BND1      A07       1
+ UP BND1      A08       1
+ UP BND1      A09       1
+ UP BND1      A10       1
+ UP BND1      A11       1
+ UP BND1      A12       1
+ UP BND1      A13       1
+ UP BND1      A14       1
+ UP BND1      A15       1
+ UP BND1      A16       1
+ UP BND1      A17       1
+ UP BND1      A18       1
+ UP BND1      A19       1
+ UP BND1      A20       1
+ UP BND1      A21       1
+ UP BND1      A22       1
+ UP BND1      A23       1
+ UP BND1      A24       1
+ UP BND1      A25       1
+ UP BND1      B25       1
  BV BND1      D0001   
  BV BND1      D0002   
  BV BND1      D0003   

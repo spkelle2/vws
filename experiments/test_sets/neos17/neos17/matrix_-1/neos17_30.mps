@@ -1938,7 +1938,7 @@ COLUMNS
     A21       OBS0223   1
     A21       OBS0224   1
     A21       OBS0225   1
-    A21       OBS0227   -0.5
+    A21       OBS0227   -1
     A21       OBS0230   1
     A21       OBS0231   1
     A21       OBS0233   1

@@ -1337,7 +1337,7 @@ COLUMNS
     A15       OBS0222   1
     A15       OBS0230   1
     A15       OBS0238   1
-    A15       OBS0248   0.5
+    A15       OBS0248   1
     A15       OBS0254   -1
     A15       OBS0255   1
     A15       OBS0263   1

@@ -1051,7 +1051,7 @@ COLUMNS
     A10       OBS0465   1
     A10       OBS0470   1
     A10       OBS0472   1
-    A10       OBS0474   1.5
+    A10       OBS0474   1
     A10       OBS0480   1
     A10       EQCONST   1
     A11       OBS0002   1
@@ -3124,7 +3124,7 @@ COLUMNS
     B25       OBS0411   -1
     B25       OBS0412   -1
     B25       OBS0413   -1
-    B25       OBS0414   -1
+    B25       OBS0414   -0.5
     B25       OBS0415   -1
     B25       OBS0416   -1
     B25       OBS0417   -1

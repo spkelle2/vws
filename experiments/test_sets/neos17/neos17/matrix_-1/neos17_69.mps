@@ -1776,7 +1776,7 @@ COLUMNS
     A19       OBS0361   1
     A19       OBS0365   1
     A19       OBS0368   1
-    A19       OBS0373   1
+    A19       OBS0373   0.5
     A19       OBS0377   1
     A19       OBS0381   1
     A19       OBS0383   1
@@ -2931,7 +2931,7 @@ COLUMNS
     B25       OBS0218   -1
     B25       OBS0219   -1
     B25       OBS0220   -1
-    B25       OBS0221   -1.5
+    B25       OBS0221   -1
     B25       OBS0222   -1
     B25       OBS0223   -1
     B25       OBS0224   -1

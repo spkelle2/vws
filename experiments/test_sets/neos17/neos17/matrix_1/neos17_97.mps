@@ -532,7 +532,7 @@ COLUMNS
     A01       OBS0318   1
     A01       OBS0323   1
     A01       OBS0346   1
-    A01       OBS0351   1
+    A01       OBS0351   2
     A01       OBS0352   1
     A01       OBS0354   1
     A01       OBS0364   1
@@ -1116,7 +1116,7 @@ COLUMNS
     A11       OBS0436   1
     A11       OBS0441   1
     A11       OBS0450   1
-    A11       OBS0464   2
+    A11       OBS0464   1
     A11       OBS0476   1
     A11       OBS0481   -1
     A11       EQCONST   1
@@ -2334,7 +2334,7 @@ COLUMNS
     A25       OBS0107   -1
     A25       OBS0108   1
     A25       OBS0109   1
-    A25       OBS0110   1
+    A25       OBS0110   2
     A25       OBS0111   1
     A25       OBS0112   1
     A25       OBS0113   1
@@ -3071,7 +3071,7 @@ COLUMNS
     B25       OBS0358   -1
     B25       OBS0359   -1
     B25       OBS0360   -1
-    B25       OBS0361   -2
+    B25       OBS0361   -1
     B25       OBS0362   -1
     B25       OBS0363   -1
     B25       OBS0364   -1

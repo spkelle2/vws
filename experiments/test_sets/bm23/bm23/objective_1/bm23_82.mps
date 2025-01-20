@@ -23,7 +23,7 @@ ROWS
  L  R120    
 COLUMNS
     MARKER    'MARKER'                 'INTORG'
-    C101      OBJ       2.5
+    C101      OBJ       3
     C101      R101      2
     C101      R102      -6
     C101      R103      5
@@ -81,7 +81,7 @@ COLUMNS
     C103      R118      -5
     C103      R119      -8
     C103      R120      2
-    C104      OBJ       7.5
+    C104      OBJ       8
     C104      R102      -3
     C104      R103      -3
     C104      R104      9
@@ -96,7 +96,7 @@ COLUMNS
     C104      R116      -3
     C104      R117      -6
     C104      R119      -5
-    C105      OBJ       6
+    C105      OBJ       5.5
     C105      R101      3
     C105      R103      -8
     C105      R104      -1
@@ -298,7 +298,7 @@ COLUMNS
     C115      R117      6
     C115      R118      -4
     C115      R119      -8
-    C116      OBJ       7
+    C116      OBJ       7.5
     C116      R101      4
     C116      R102      7
     C116      R103      2
@@ -379,7 +379,7 @@ COLUMNS
     C119      R118      -1
     C119      R119      4
     C119      R120      3
-    C120      OBJ       4
+    C120      OBJ       4.5
     C120      R101      4
     C120      R102      -7
     C120      R103      -3
@@ -491,7 +491,7 @@ COLUMNS
     C125      R117      9
     C125      R119      -6
     C125      R120      -4
-    C126      OBJ       1.5
+    C126      OBJ       1
     C126      R101      6
     C126      R102      3
     C126      R103      4

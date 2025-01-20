@@ -1340,7 +1340,7 @@ COLUMNS
     A15       OBS0248   1
     A15       OBS0254   -1
     A15       OBS0255   1
-    A15       OBS0263   1
+    A15       OBS0263   0.5
     A15       OBS0269   1
     A15       OBS0272   1
     A15       OBS0276   1
@@ -2080,7 +2080,7 @@ COLUMNS
     A22       OBS0328   1
     A22       OBS0329   1
     A22       OBS0348   1
-    A22       OBS0358   1.5
+    A22       OBS0358   1
     A22       OBS0367   1
     A22       OBS0386   1
     A22       OBS0400   1

@@ -3103,7 +3103,7 @@ COLUMNS
     B25       OBS0390   -1
     B25       OBS0391   -1
     B25       OBS0392   -1
-    B25       OBS0393   -1
+    B25       OBS0393   -1.5
     B25       OBS0394   -1
     B25       OBS0395   -1
     B25       OBS0396   1

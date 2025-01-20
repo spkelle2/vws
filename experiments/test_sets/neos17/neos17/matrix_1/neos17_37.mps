@@ -1133,7 +1133,7 @@ COLUMNS
     A12       OBS0319   1
     A12       OBS0322   1
     A12       OBS0355   1
-    A12       OBS0392   2
+    A12       OBS0392   1
     A12       OBS0408   1
     A12       OBS0413   1
     A12       OBS0417   1
@@ -1145,7 +1145,7 @@ COLUMNS
     A13       OBS0004   1
     A13       OBS0005   1
     A13       OBS0011   1
-    A13       OBS0012   1
+    A13       OBS0012   2
     A13       OBS0018   1
     A13       OBS0024   1
     A13       OBS0025   1
@@ -1368,7 +1368,7 @@ COLUMNS
     A15       OBS0352   1
     A15       OBS0354   1
     A15       OBS0357   1
-    A15       OBS0364   1
+    A15       OBS0364   2
     A15       OBS0373   1
     A15       OBS0376   1
     A15       OBS0378   1
@@ -1851,7 +1851,7 @@ COLUMNS
     A21       OBS0009   1
     A21       OBS0012   1
     A21       OBS0014   1
-    A21       OBS0015   1
+    A21       OBS0015   2
     A21       OBS0019   1
     A21       OBS0022   -1
     A21       OBS0025   1
@@ -3824,7 +3824,7 @@ COLUMNS
     D0312     OBJ       0.00045
     D0312     OBS0312   -1.001
     D0313     OBJ       0.00045
-    D0313     OBS0313   -2.001
+    D0313     OBS0313   -1.001
     D0314     OBJ       0.00045
     D0314     OBS0314   -1.001
     D0315     OBJ       0.00045

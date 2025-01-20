@@ -36,24 +36,20 @@ def main(instances_fldr, remote: bool = False, samples=3):
         # get the memory required for this instance
         mem = int(mem_df.loc[instance_file, 'memory']) if instance_file in mem_df.index else 4
 
-        # skip if the instance has already been run - i.e. has a nonempty instances folder
-        if os.path.exists(os.path.join('test_sets', instances_fldr, instance_name)) and \
-                any(os.listdir(os.path.join('test_sets', instances_fldr, instance_name))):
-            print(f"{instance_name} already ran")
-            continue
-
-        jobs_submitted += 1
-        if remote:
-            # submit the job to the cluster
-            args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr},SAMPLES={samples}'
-            subprocess.call(
-                ['qsub', '-V', '-q', 'mediumlong', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime=23:59:00',
-                 '-v', args, '-e', f'outfiles/{instance_name}.err', '-o', f'outfiles/{instance_name}.out',
-                 '-N', instance_name, 'submit_creation.pbs']
-            )
-        else:
-            # run locally
-            subprocess.call(["python", "make_test_instance.py", instance_file, instances_fldr, str(samples)])
+        for p in [-1, 1]:
+            jobs_submitted += 1
+            if remote:
+                # submit the job to the cluster
+                args = f'INSTANCE_FILE={instance_file},INSTANCES_FLDR={instances_fldr},P={p},SAMPLES={samples}'
+                subprocess.call(
+                    ['qsub', '-V', '-q', 'mediumlong', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime=23:59:00',
+                     '-v', args, '-e', f'outfiles/{instance_name}.err', '-o', f'outfiles/{instance_name}.out',
+                     '-N', instance_name, 'submit_creation.pbs']
+                )
+            else:
+                # run locally
+                subprocess.call(["python", "make_test_instance.py", instance_file,
+                                 instances_fldr, str(p), str(samples)])
 
     print(f"submitted {jobs_submitted} jobs")
     print(f"there are {instance_idx + 1} instances")

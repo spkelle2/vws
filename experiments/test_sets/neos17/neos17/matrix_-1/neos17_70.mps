@@ -1827,7 +1827,7 @@ COLUMNS
     A20       OBS0020   1
     A20       OBS0026   1
     A20       OBS0043   1
-    A20       OBS0047   -1
+    A20       OBS0047   -1.5
     A20       OBS0120   1
     A20       OBS0163   1
     A20       OBS0211   -1
@@ -3150,7 +3150,7 @@ COLUMNS
     B25       OBS0437   1
     B25       OBS0438   -1
     B25       OBS0439   -1
-    B25       OBS0440   -0.5
+    B25       OBS0440   -1
     B25       OBS0441   -1
     B25       OBS0442   -1
     B25       OBS0443   -1

@@ -1542,7 +1542,7 @@ COLUMNS
     A17       OBS0343   1
     A17       OBS0354   1
     A17       OBS0373   1
-    A17       OBS0395   1.5
+    A17       OBS0395   1
     A17       OBS0419   -1
     A17       OBS0423   1
     A17       OBS0430   1

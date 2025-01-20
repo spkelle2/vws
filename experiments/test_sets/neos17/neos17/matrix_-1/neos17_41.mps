@@ -2724,7 +2724,7 @@ COLUMNS
     B25       OBS0011   -1
     B25       OBS0012   -1
     B25       OBS0013   -1
-    B25       OBS0014   -0.5
+    B25       OBS0014   -1
     B25       OBS0015   -1
     B25       OBS0016   -1
     B25       OBS0017   -1
@@ -2956,7 +2956,7 @@ COLUMNS
     B25       OBS0243   -1
     B25       OBS0244   -1
     B25       OBS0245   -1
-    B25       OBS0246   -1
+    B25       OBS0246   -0.5
     B25       OBS0247   -1
     B25       OBS0248   -1
     B25       OBS0249   -1
