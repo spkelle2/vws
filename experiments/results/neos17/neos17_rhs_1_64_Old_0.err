@@ -1,28 +1,4 @@
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -1.346254e-01.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 4 (real var 4), it is -3.930070e-02.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2 (real var 4), it is -3.975025e-02.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -1.431069e-01.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2 (real var 4), it is -3.975025e-02.
-VPC tried to exit with error code 1
-Assertion failed
-*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01848012. Calculated: 0.01848911.
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2 (real var 2), it is -4.243756e-02.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 2 (real var 4), it is -3.975025e-02.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.422577e-02.
-VPC tried to exit with error code 1
-Assertion failed
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (62.716000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1795998.polyp1.ie.lehigh.edu.SC: line 4: 29814 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
+/var/spool/torque/mom_priv/jobs/1796368.polyp1.ie.lehigh.edu.SC: line 4: 13498 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

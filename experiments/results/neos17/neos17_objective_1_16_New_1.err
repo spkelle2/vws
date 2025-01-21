@@ -70,4 +70,4 @@ messed up a farkas cofficient
 setting all farkas coefficients to 0
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1796077.polyp1.ie.lehigh.edu.SC: line 4: 21860 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
+/var/spool/torque/mom_priv/jobs/1796447.polyp1.ie.lehigh.edu.SC: line 4:  2150 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

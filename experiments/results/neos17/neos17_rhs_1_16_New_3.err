@@ -124,9 +124,9 @@ messed up a farkas cofficient
 setting all farkas coefficients to 0
 messed up a farkas cofficient
 setting all farkas coefficients to 0
-*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 274 (real var 611), it is -5.907784e-07. Small enough error that we only send warning.
-*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 611: dot product with obj < 0. Obj viol from solver: -0.00000059. Calculated: -0.00000059.
-*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1279: Term 2 ray 274 does not satisfy the objective cut. Activity: -0.00000059. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 274 (real var 611), it is -5.907784e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 611: dot product with obj < 0. Obj viol from solver: -0.00000059. Calculated: -0.00000059.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 274 does not satisfy the objective cut. Activity: -0.00000059. RHS: 0.00000000. Small enough violation that we only send a warning.
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1796209.polyp1.ie.lehigh.edu.SC: line 4: 16686 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
+/var/spool/torque/mom_priv/jobs/1796579.polyp1.ie.lehigh.edu.SC: line 4: 23993 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

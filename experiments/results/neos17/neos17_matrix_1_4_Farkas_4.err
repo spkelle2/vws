@@ -1,6 +1,3 @@
-
-CondaMemoryError: The conda process ran out of memory. Increase system memory and/or try again.
-
 The number of Farkas multipliers should match the number of constraints and variables.
 
 Assertion failed

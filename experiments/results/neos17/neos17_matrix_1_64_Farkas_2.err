@@ -3,4 +3,4 @@ The number of Farkas multipliers should match the number of constraints and vari
 Assertion failed
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1796131.polyp1.ie.lehigh.edu.SC: line 4: 22991 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
+/var/spool/torque/mom_priv/jobs/1796501.polyp1.ie.lehigh.edu.SC: line 4: 15433 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
