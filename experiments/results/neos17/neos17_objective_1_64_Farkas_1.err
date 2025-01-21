@@ -1,0 +1,18 @@
+The number of Farkas multipliers should match the number of constraints and variables.
+
+Assertion failed
+The number of Farkas multipliers should match the number of constraints and variables.
+
+Assertion failed
+The number of Farkas multipliers should match the number of constraints and variables.
+
+Assertion failed
+The number of Farkas multipliers should match the number of constraints and variables.
+
+Assertion failed
+The number of Farkas multipliers should match the number of constraints and variables.
+
+Assertion failed
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1796083.polyp1.ie.lehigh.edu.SC: line 4: 21933 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

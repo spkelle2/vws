@@ -1,0 +1,483 @@
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.070668e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -6.530735e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -9.030394e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.438462e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.933495e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.416667e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.933495e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -9.030394e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -9.030394e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -1.782883e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.070668e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 3), it is -1.804868e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -1.125307e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -1.125307e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -8.573348e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 1), it is -1.486920e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -8.737640e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.416667e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -9.493659e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 3), it is -1.804868e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -5.060257e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.933495e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -8.573348e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -3.659458e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -5.060257e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -8.573348e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -8.737640e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -9.493659e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 21.32440537. Calculated: 31.16060226.
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -8.737640e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -8.573348e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -9.030394e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -1.125307e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.070668e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -3.632100e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.438462e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 1), it is -2.655899e-01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 46.81636978. Calculated: 174.68692928.
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 1), it is -2.655899e-01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.309934e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.933495e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** WARNING (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 46.62669650. Calculated: 174.49725600.
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.377165e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -5.237006e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -4.873826e+00.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -2.070668e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 0 (real var 0), it is -3.632100e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -3.341393e+01.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #0ab0695): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:676: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 1 (real var 2), it is -4.385573e+00.
+VPC tried to exit with error code 1
+Assertion failed
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1795782.polyp1.ie.lehigh.edu.SC: line 4:  5657 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

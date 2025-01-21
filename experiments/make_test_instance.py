@@ -233,7 +233,7 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
 
     # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
     iterations = 0
-    while iterations < 1000 and any(v - 1 < samples for v in count.values()) and time.time() - start_time < max_duration:
+    while any(v - 1 < samples for v in count.values()) and time.time() - start_time < max_duration:
         # update termination condition
         iterations += 1
 
