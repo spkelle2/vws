@@ -69,7 +69,17 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
     OsiClpSolverInterface instanceSolver;
     instanceSolver.readMps(inputPath.c_str(), true, false);
     instanceSolvers.push_back(instanceSolver);
-    instanceNames.push_back(inputPath.stem().replace_extension("").string());
+    std::string instance_name = inputPath.stem().replace_extension("").string();
+    instanceNames.push_back(instance_name);
+
+    // capture index since alphabetical order doesn't match instance number for long series
+    std::regex number_at_end_pattern(R"((\d+)$)");
+    std::smatch match;
+    if (std::regex_search(instance_name, match, number_at_end_pattern)) {
+      instanceIndices.push_back(std::stoi(match[1].str()));
+    } else {
+      verify(false, "No number found at the end of the string.");
+    }
   }
 
   // read in each optimal objective in alphabetical order
@@ -161,7 +171,7 @@ void MipComp::solveSeries() {
 
     // stop the series if we sought vpcs on the first iteration but didn't get any.
     // Need to generate cuts so we have a disjunction/multipliers to reuse and an ideal bound to compare
-    data.instanceIndex = i;
+    data.instanceIndex = instanceIndices[i];
     data.seedIndex = seedIndex;
     if (vpcGenerator != "None" and i == 0 and data.numCuts == 0){
       std::cerr << "No vpcs were made from a new disjunction in first iteration. Stopping series." << std::endl;

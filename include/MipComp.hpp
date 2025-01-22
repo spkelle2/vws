@@ -42,6 +42,9 @@ public:
   /** names of each solved MIP instance */
   std::vector< std::string > instanceNames;
 
+  /** indices of each solve MIP instance */
+  std::vector< int > instanceIndices;
+
   /** the corresponding optimal objective value for each instance in instanceSolvers */
   std::vector< double > primalBounds;
 
