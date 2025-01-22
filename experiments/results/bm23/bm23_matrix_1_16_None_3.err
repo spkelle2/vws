@@ -1,8 +1,14 @@
 Traceback (most recent call last):
   File "/home/sek519/miniconda/bin/conda", line 12, in <module>
     from conda.cli import main
-  File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/__init__.py", line 11, in <module>
-    from json import JSONEncoder
+  File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/__init__.py", line 22, in <module>
+    from .common.compat import text_type, iteritems
+  File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/common/compat.py", line 14, in <module>
+    from tempfile import mkdtemp
+  File "/home/sek519/miniconda/lib/python3.9/tempfile.py", line 45, in <module>
+    from random import Random as _Random
+  File "/home/sek519/miniconda/lib/python3.9/random.py", line 55, in <module>
+    from bisect import bisect as _bisect
   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
   File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
   File "<frozen importlib._bootstrap>", line 925, in _find_spec

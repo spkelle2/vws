@@ -6,8 +6,21 @@
         from ..activate import main as activator_main
       File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/activate.py", line 22, in <module>
         from .base.context import ROOT_ENV_NAME, context, locate_prefix_by_name
-      File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/base/context.py", line 12, in <module>
-        import platform
+      File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/base/context.py", line 32, in <module>
+        from ..common.configuration import (Configuration, ConfigurationLoadError, MapParameter,
+      File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/common/configuration.py", line 36, in <module>
+        from .path import expand
+      File "/home/sek519/miniconda/lib/python3.9/site-packages/conda/common/path.py", line 17, in <module>
+        from distutils.spawn import find_executable
+      File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 925, in _find_spec
+      File "/home/sek519/miniconda/lib/python3.9/site-packages/_distutils_hack/__init__.py", line 97, in find_spec
+        return method()
+      File "/home/sek519/miniconda/lib/python3.9/site-packages/_distutils_hack/__init__.py", line 104, in spec_for_distutils
+        import importlib.abc
+      File "/home/sek519/miniconda/lib/python3.9/importlib/abc.py", line 17, in <module>
+        from typing import Protocol, runtime_checkable
       File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
       File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
       File "<frozen importlib._bootstrap>", line 925, in _find_spec

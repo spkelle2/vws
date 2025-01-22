@@ -7,10 +7,10 @@ Traceback (most recent call last):
     from .decoder import JSONDecoder, JSONDecodeError
   File "/home/sek519/miniconda/lib/python3.9/json/decoder.py", line 3, in <module>
     import re
-  File "/home/sek519/miniconda/lib/python3.9/re.py", line 124, in <module>
-    import enum
-  File "/home/sek519/miniconda/lib/python3.9/enum.py", line 2, in <module>
-    from types import MappingProxyType, DynamicClassAttribute
+  File "/home/sek519/miniconda/lib/python3.9/re.py", line 125, in <module>
+    import sre_compile
+  File "/home/sek519/miniconda/lib/python3.9/sre_compile.py", line 14, in <module>
+    import sre_parse
   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
   File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
   File "<frozen importlib._bootstrap>", line 925, in _find_spec
