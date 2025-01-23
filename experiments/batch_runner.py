@@ -61,7 +61,6 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
         cbc_instances = f.readlines()
 
     # iterate over instances, their perturbations, disjunctive terms, and generators
-    # todo: this needs to be done differently for everything to read correctly
     for seed_index in range(repeats):
         for instance in os.listdir(input_fldr):
             if not os.path.isdir(os.path.join(input_fldr, instance)):
