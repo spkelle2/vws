@@ -1,0 +1,7 @@
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 908: Calculated dot product with obj differs from solver's. Obj viol from solver: 12.00074029. Calculated: 12.00074044.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 908: Calculated dot product with obj differs from solver's. Obj viol from solver: 12.00073586. Calculated: 12.00073598.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1607: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.01201901. Calculated: 1.01201915.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1610: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.01492790. Calculated: 1.01492806.
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1797844.polyp1.ie.lehigh.edu.SC: line 4:  6720 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
