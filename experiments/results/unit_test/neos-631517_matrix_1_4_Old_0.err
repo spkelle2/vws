@@ -1,0 +1,2 @@
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: -109747.09324419. Calculated: 224237.11789148.
+/var/spool/torque/mom_priv/jobs/1801306.polyp1.ie.lehigh.edu.SC: line 4: 13457 Segmentation fault      ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

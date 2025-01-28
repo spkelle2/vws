@@ -1,0 +1,28 @@
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 288 (real var 469), it is -4.780351e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 300 (real var 490), it is -4.780351e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 303 (real var 497), it is -4.780351e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 314 (real var 512), it is -4.780351e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 319 (real var 519), it is -4.780351e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 469: dot product with obj < 0. Obj viol from solver: -0.00000048. Calculated: -0.00000048.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 288 does not satisfy the objective cut. Activity: -0.00000048. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 490: dot product with obj < 0. Obj viol from solver: -0.00000048. Calculated: -0.00000048.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 300 does not satisfy the objective cut. Activity: -0.00000048. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 497: dot product with obj < 0. Obj viol from solver: -0.00000048. Calculated: -0.00000048.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 303 does not satisfy the objective cut. Activity: -0.00000048. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 512: dot product with obj < 0. Obj viol from solver: -0.00000048. Calculated: -0.00000048.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 314 does not satisfy the objective cut. Activity: -0.00000048. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 519: dot product with obj < 0. Obj viol from solver: -0.00000048. Calculated: -0.00000048.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 319 does not satisfy the objective cut. Activity: -0.00000048. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (70.832000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.

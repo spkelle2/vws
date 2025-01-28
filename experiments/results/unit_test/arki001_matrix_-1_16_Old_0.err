@@ -1,0 +1,333 @@
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1459), it is -3.021228e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1467), it is -3.021138e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 862 (real var 1491), it is -7.140213e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 186 (real var 252), it is -1.988055e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 843 (real var 1247), it is -1.988127e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1459), it is -3.021226e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 862 (real var 1467), it is -3.021139e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 863 (real var 1491), it is -7.140110e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 252: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 0 ray 186 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1247: dot product with obj < 0. Obj viol from solver: -0.00000020. Calculated: -0.00000020.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 0 ray 843 does not satisfy the objective cut. Activity: -0.00000020. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 0 ray 861 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 0 ray 862 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 0 ray 863 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 842 (real var 1247), it is -1.876694e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 843 (real var 1248), it is -1.091322e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1459), it is -2.959686e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 862 (real var 1467), it is -2.959597e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 863 (real var 1491), it is -2.209509e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1247: dot product with obj < 0. Obj viol from solver: -0.00000019. Calculated: -0.00000019.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 1 ray 842 does not satisfy the objective cut. Activity: -0.00000019. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1248: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 1 ray 843 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000296. Calculated: -0.00000296.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 1 ray 861 does not satisfy the objective cut. Activity: -0.00000296. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000296. Calculated: -0.00000296.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 1 ray 862 does not satisfy the objective cut. Activity: -0.00000296. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000221. Calculated: -0.00000221.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 1 ray 863 does not satisfy the objective cut. Activity: -0.00000221. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.021225e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.021137e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.140120e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 2 ray 861 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1459), it is -3.021231e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1467), it is -3.021142e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 862 (real var 1491), it is -7.140268e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 3 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 3 ray 861 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 3 ray 862 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.021233e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.021143e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.140103e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 4 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 4 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 4 ray 861 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.019447e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.019360e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.292191e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 5 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 5 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000073. Calculated: -0.00000073.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 5 ray 861 does not satisfy the objective cut. Activity: -0.00000073. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 725 (real var 903), it is -1.497938e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 726 (real var 904), it is -1.497992e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.021230e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.021140e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.140139e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 903: dot product with obj < 0. Obj viol from solver: -0.00000015. Calculated: -0.00000015.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 6 ray 725 does not satisfy the objective cut. Activity: -0.00000015. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 904: dot product with obj < 0. Obj viol from solver: -0.00000015. Calculated: -0.00000015.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 6 ray 726 does not satisfy the objective cut. Activity: -0.00000015. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 6 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 6 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 6 ray 861 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.021226e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.021138e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.140112e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 7 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 7 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 7 ray 861 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1459), it is -3.023340e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1467), it is -3.023251e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 862 (real var 1491), it is -1.213737e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 12 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 12 ray 861 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000121. Calculated: -0.00000121.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 12 ray 862 does not satisfy the objective cut. Activity: -0.00000121. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 729 (real var 904), it is -3.247205e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 844 (real var 1248), it is -1.091543e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1459), it is -2.959070e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1467), it is -2.958982e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 862 (real var 1491), it is -2.358395e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 904: dot product with obj < 0. Obj viol from solver: -0.00000032. Calculated: -0.00000032.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 13 ray 729 does not satisfy the objective cut. Activity: -0.00000032. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1248: dot product with obj < 0. Obj viol from solver: -0.00000011. Calculated: -0.00000011.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 13 ray 844 does not satisfy the objective cut. Activity: -0.00000011. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000296. Calculated: -0.00000296.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 13 ray 860 does not satisfy the objective cut. Activity: -0.00000296. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000296. Calculated: -0.00000296.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 13 ray 861 does not satisfy the objective cut. Activity: -0.00000296. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000236. Calculated: -0.00000236.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 13 ray 862 does not satisfy the objective cut. Activity: -0.00000236. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.021231e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.021142e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.140265e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 14 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 14 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 14 ray 861 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 859 (real var 1459), it is -3.021231e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 860 (real var 1467), it is -3.021142e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 861 (real var 1491), it is -7.140268e-07. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1459: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 15 ray 859 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1467: dot product with obj < 0. Obj viol from solver: -0.00000302. Calculated: -0.00000302.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 15 ray 860 does not satisfy the objective cut. Activity: -0.00000302. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1491: dot product with obj < 0. Obj viol from solver: -0.00000071. Calculated: -0.00000071.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 15 ray 861 does not satisfy the objective cut. Activity: -0.00000071. RHS: 0.00000000. Small enough violation that we only send a warning.
+messed up a farkas cofficient
+setting all farkas coefficients to 0
+*** Error in `../Release/vws': double free or corruption (!prev): 0x000055e8a9a20330 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x70bfb)[0x2b4e08430bfb]
+/lib/x86_64-linux-gnu/libc.so.6(+0x76fc6)[0x2b4e08436fc6]
+/lib/x86_64-linux-gnu/libc.so.6(+0x7780e)[0x2b4e0843780e]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix16gutsOfDestructorEv+0x2e)[0x2b4e05152cee]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix27resizeForAddingMinorVectorsEPKi+0x4a0)[0x2b4e05155df0]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0(_ZN16CoinPackedMatrix17appendMinorVectorEiPKiPKd+0xb7)[0x2b4e05156237]
+/home/sek519/warm_starting/vws/../vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0(_ZN21OsiClpSolverInterface6addRowEiPKiPKddd+0xb0)[0x2b4e04ad1a90]
+../Release/vws(+0xdf42a)[0x55e8a26de42a]
+../Release/vws(+0xe1e29)[0x55e8a26e0e29]
+../Release/vws(+0x3aff7)[0x55e8a2639ff7]
+../Release/vws(+0x3d2be)[0x55e8a263c2be]
+../Release/vws(+0x58748)[0x55e8a2657748]
+../Release/vws(+0x339c2)[0x55e8a26329c2]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1)[0x2b4e083e02e1]
+../Release/vws(+0x34e01)[0x55e8a2633e01]
+======= Memory map: ========
+2b4e049f4000-2b4e04a17000 r-xp 00000000 08:05 527455                     /lib/x86_64-linux-gnu/ld-2.24.so
+2b4e04a17000-2b4e04a19000 rw-p 00000000 00:00 0 
+2b4e04a19000-2b4e04a1c000 r--p 00000000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2b4e04a1c000-2b4e04a2a000 r-xp 00003000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2b4e04a2a000-2b4e04a31000 r--p 00011000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2b4e04a31000-2b4e04a32000 r--p 00017000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2b4e04a32000-2b4e04a33000 rw-p 00018000 00:2c 235724777                  /home/sek519/miniconda/envs/vws/lib/libz.so.1.2.13
+2b4e04a33000-2b4e04a35000 r--p 00000000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2b4e04a35000-2b4e04a43000 r-xp 00002000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2b4e04a43000-2b4e04a45000 r--p 00010000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2b4e04a45000-2b4e04a46000 r--p 00011000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2b4e04a46000-2b4e04a47000 rw-p 00012000 00:2c 234676138                  /home/sek519/miniconda/envs/vws/lib/libbz2.so.1.0.8
+2b4e04a47000-2b4e04a5f000 r--p 00000000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2b4e04a5f000-2b4e04a8a000 r-xp 00018000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2b4e04a8a000-2b4e04a94000 r--p 00043000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2b4e04a94000-2b4e04a97000 r--p 0004c000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2b4e04a97000-2b4e04a9d000 rw-p 0004f000 00:2c 234710701                  /home/sek519/miniconda/envs/vws/lib/libreadline.so.8.1
+2b4e04a9d000-2b4e04a9e000 rw-p 00000000 00:00 0 
+2b4e04a9e000-2b4e04ab3000 r--p 00000000 00:2c 234489484                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2b4e04ab3000-2b4e04ae3000 r-xp 00015000 00:2c 234489484                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2b4e04ae3000-2b4e04aed000 r--p 00045000 00:2c 234489484                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2b4e04aed000-2b4e04aef000 r--p 0004f000 00:2c 234489484                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2b4e04aef000-2b4e04af0000 rw-p 00051000 00:2c 234489484                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsiClp.so.0.0.0
+2b4e04af0000-2b4e04af2000 rw-p 00000000 00:00 0 
+2b4e04af2000-2b4e04b1a000 r--p 00000000 00:2c 234489794                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2b4e04b1a000-2b4e04bdd000 r-xp 00028000 00:2c 234489794                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2b4e04bdd000-2b4e04bfd000 r--p 000eb000 00:2c 234489794                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2b4e04bfd000-2b4e04bff000 r--p 0010b000 00:2c 234489794                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2b4e04bff000-2b4e04c01000 rw-p 0010d000 00:2c 234489794                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCgl.so.0.0.0
+2b4e04c01000-2b4e04c09000 rw-p 00000000 00:00 0 
+2b4e04c09000-2b4e04c10000 r--s 00000000 08:06 1713796                    /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+2b4e04c10000-2b4e04c11000 rw-p 00000000 00:00 0 
+2b4e04c17000-2b4e04c18000 r--p 00023000 08:05 527455                     /lib/x86_64-linux-gnu/ld-2.24.so
+2b4e04c18000-2b4e04c19000 rw-p 00024000 08:05 527455                     /lib/x86_64-linux-gnu/ld-2.24.so
+2b4e04c19000-2b4e04c1a000 rw-p 00000000 00:00 0 
+2b4e04c1a000-2b4e04c88000 r--p 00000000 00:2c 234490095                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2b4e04c88000-2b4e04dd6000 r-xp 0006e000 00:2c 234490095                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2b4e04dd6000-2b4e04e21000 r--p 001bc000 00:2c 234490095                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2b4e04e21000-2b4e04e2d000 r--p 00207000 00:2c 234490095                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2b4e04e2d000-2b4e04e31000 rw-p 00213000 00:2c 234490095                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCbc.so.0.0.0
+2b4e04e31000-2b4e04e49000 r--p 00000000 00:2c 234489204                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2b4e04e49000-2b4e04e79000 r-xp 00018000 00:2c 234489204                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2b4e04e79000-2b4e04e8d000 r--p 00048000 00:2c 234489204                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2b4e04e8d000-2b4e04e8f000 r--p 0005c000 00:2c 234489204                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2b4e04e8f000-2b4e04e90000 rw-p 0005e000 00:2c 234489204                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libOsi.so.0.0.0
+2b4e04e90000-2b4e04ecf000 r--p 00000000 00:2c 234489467                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2b4e04ecf000-2b4e0505b000 r-xp 0003f000 00:2c 234489467                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2b4e0505b000-2b4e0509e000 r--p 001cb000 00:2c 234489467                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2b4e0509e000-2b4e050a1000 r--p 0020d000 00:2c 234489467                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2b4e050a1000-2b4e050a5000 rw-p 00210000 00:2c 234489467                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libClp.so.0.0.0
+2b4e050a5000-2b4e050df000 r--p 00000000 00:2c 234489064                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2b4e050df000-2b4e051c5000 r-xp 0003a000 00:2c 234489064                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2b4e051c5000-2b4e051f2000 r--p 00120000 00:2c 234489064                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2b4e051f2000-2b4e051f5000 r--p 0014c000 00:2c 234489064                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2b4e051f5000-2b4e051f8000 rw-p 0014f000 00:2c 234489064                  /home/sek519/warm_starting/vpc/lib/Cbc-trunk/build/lib/libCoinUtils.so.0.0.0
+2b4e051f8000-2b4e07c1b000 r-xp 00000000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2b4e07c1b000-2b4e07e1b000 ---p 02a23000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2b4e07e1b000-2b4e07e85000 r--p 02a23000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2b4e07e85000-2b4e07eaa000 rw-p 02a8d000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2b4e07eaa000-2b4e07eb7000 rw-p 00000000 00:00 0 
+2b4e07eb7000-2b4e07eba000 rw-p 02bf6000 00:2c 234521354                  /home/sek519/miniconda/envs/vws/lib/libgurobi100.so
+2b4e07eba000-2b4e07eef000 r--s 00000000 08:07 130657                     /var/cache/nscd/hosts
+2b4e07eef000-2b4e07ff2000 r-xp 00000000 08:05 527463                     /lib/x86_64-linux-gnu/libm-2.24.so
+2b4e07ff2000-2b4e081f1000 ---p 00103000 08:05 527463                     /lib/x86_64-linux-gnu/libm-2.24.so
+2b4e081f1000-2b4e081f2000 r--p 00102000 08:05 527463                     /lib/x86_64-linux-gnu/libm-2.24.so
+2b4e081f2000-2b4e081f3000 rw-p 00103000 08:05 527463                     /lib/x86_64-linux-gnu/libm-2.24.so
+2b4e081f3000-2b4e08299000 r--p 00000000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2b4e08299000-2b4e0832d000 r-xp 000a6000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2b4e0832d000-2b4e08395000 r--p 0013a000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2b4e08395000-2b4e083a0000 r--p 001a1000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2b4e083a0000-2b4e083a4000 rw-p 001ac000 00:2c 235724303                  /home/sek519/miniconda/envs/vws/lib/libstdc++.so.6.0.30
+2b4e083a4000-2b4e083a7000 rw-p 00000000 00:00 0 
+2b4e083a7000-2b4e083ab000 r--p 00000000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2b4e083ab000-2b4e083bb000 r-xp 00004000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2b4e083bb000-2b4e083be000 r--p 00014000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2b4e083be000-2b4e083bf000 r--p 00016000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2b4e083bf000-2b4e083c0000 rw-p 00017000 00:2c 235727575                  /home/sek519/miniconda/envs/vws/lib/libgcc_s.so.1
+2b4e083c0000-2b4e08555000 r-xp 00000000 08:05 527459                     /lib/x86_64-linux-gnu/libc-2.24.so
+2b4e08555000-2b4e08755000 ---p 00195000 08:05 527459                     /lib/x86_64-linux-gnu/libc-2.24.so
+2b4e08755000-2b4e08759000 r--p 00195000 08:05 527459                     /lib/x86_64-linux-gnu/libc-2.24.so
+2b4e08759000-2b4e0875b000 rw-p 00199000 08:05 527459                     /lib/x86_64-linux-gnu/libc-2.24.so
+2b4e0875b000-2b4e0875f000 rw-p 00000000 00:00 0 
+2b4e0875f000-2b4e0876f000 r--p 00000000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2b4e0876f000-2b4e08789000 r-xp 00010000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2b4e08789000-2b4e0879a000 r--p 0002a000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2b4e0879a000-2b4e0879e000 r--p 0003a000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2b4e0879e000-2b4e0879f000 rw-p 0003e000 00:2c 235728014                  /home/sek519/miniconda/envs/vws/lib/libtinfo.so.6.3
+2b4e0879f000-2b4e087a6000 r-xp 00000000 08:05 527476                     /lib/x86_64-linux-gnu/librt-2.24.so
+2b4e087a6000-2b4e089a5000 ---p 00007000 08:05 527476                     /lib/x86_64-linux-gnu/librt-2.24.so
+2b4e089a5000-2b4e089a6000 r--p 00006000 08:05 527476                     /lib/x86_64-linux-gnu/librt-2.24.so
+2b4e089a6000-2b4e089a7000 rw-p 00007000 08:05 527476                     /lib/x86_64-linux-gnu/librt-2.24.so
+2b4e089a7000-2b4e089bf000 r-xp 00000000 08:05 527474                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2b4e089bf000-2b4e08bbe000 ---p 00018000 08:05 527474                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2b4e08bbe000-2b4e08bbf000 r--p 00017000 08:05 527474                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2b4e08bbf000-2b4e08bc0000 rw-p 00018000 08:05 527474                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+2b4e08bc0000-2b4e08bc4000 rw-p 00000000 00:00 0 
+2b4e08bc4000-2b4e08cbd000 r--p 00000000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e08cbd000-2b4e08cbe000 r-xp 000f9000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e08cbe000-2b4e08cc4000 ---p 000fa000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e08cc4000-2b4e0a7a7000 r-xp 00100000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e0a7a7000-2b4e0a97a000 r--p 01be3000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e0a97a000-2b4e0a988000 r--p 01db5000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e0a988000-2b4e0a996000 rw-p 01dc3000 00:2c 235427053                  /home/sek519/miniconda/envs/vws/lib/libopenblasp-r0.3.12.so
+2b4e0a996000-2b4e0a9a7000 rw-p 00000000 00:00 0 
+2b4e0a9a7000-2b4e0a9aa000 r-xp 00000000 08:05 527462                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2b4e0a9aa000-2b4e0aba9000 ---p 00003000 08:05 527462                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2b4e0aba9000-2b4e0abaa000 r--p 00002000 08:05 527462                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2b4e0abaa000-2b4e0abab000 rw-p 00003000 08:05 527462                     /lib/x86_64-linux-gnu/libdl-2.24.so
+2b4e0abab000-2b4e0abc6000 r--p 00000000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2b4e0abc6000-2b4e0acb5000 r-xp 0001b000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2b4e0acb5000-2b4e0acd6000 r--p 0010a000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2b4e0acd6000-2b4e0acd7000 ---p 0012b000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2b4e0acd7000-2b4e0acd8000 r--p 0012b000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2b4e0acd8000-2b4e0acd9000 rw-p 0012c000 00:2c 235723995                  /home/sek519/miniconda/envs/vws/lib/libgfortran.so.4.0.0
+2b4e0acd9000-2b4e0acda000 rw-p 00000000 00:00 0 
+2b4e0acda000-2b4e0acdd000 r--p 00000000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2b4e0acdd000-2b4e0acfc000 r-xp 00003000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2b4e0acfc000-2b4e0ad12000 r--p 00022000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2b4e0ad12000-2b4e0ad13000 r--p 00038000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2b4e0ad13000-2b4e0ad14000 rw-p 00039000 00:2c 235727572                  /home/sek519/miniconda/envs/vws/lib/libquadmath.so.0.0.0
+2b4e0ad14000-2b4e0ad26000 rw-p 00000000 00:00 0 
+2b4e0ad26000-2b4e0ad27000 ---p 00000000 00:00 0 
+2b4e0ad27000-2b4e0af27000 rw-p 00000000 00:00 0 
+2b4e0af27000-2b4e0af28000 ---p 00000000 00:00 0 
+2b4e0af28000-2b4e0b128000 rw-p 00000000 00:00 0 
+2b4e0b128000-2b4e0b129000 ---p 00000000 00:00 0 
+2b4e0b129000-2b4e0b329000 rw-p 00000000 00:00 0 
+2b4e0b329000-2b4e1b329000 rw-p 00000000 00:00 0 
+2b4e1b329000-2b4e1b32a000 ---p 00000000 00:00 0 
+2b4e1b32a000-2b4e1b52a000 rw-p 00000000 00:00 0 
+2b4e1b52a000-2b4e2352a000 rw-p 00000000 00:00 0 
+2b4e2352a000-2b4e2352b000 ---p 00000000 00:00 0 
+2b4e2352b000-2b4e2372b000 rw-p 00000000 00:00 0 
+2b4e2372b000-2b4e2b72b000 rw-p 00000000 00:00 0 
+2b4e2b72b000-2b4e2b72c000 ---p 00000000 00:00 0 
+2b4e2b72c000-2b4e2b92c000 rw-p 00000000 00:00 0 
+2b4e2b92c000-2b4e3392c000 rw-p 00000000 00:00 0 
+2b4e3392c000-2b4e3392d000 ---p 00000000 00:00 0 
+2b4e3392d000-2b4e33b2d000 rw-p 00000000 00:00 0 
+2b4e33b2d000-2b4e3bb2d000 rw-p 00000000 00:00 0 
+2b4e3bb2d000-2b4e3bb2e000 ---p 00000000 00:00 0 
+2b4e3bb2e000-2b4e3bd2e000 rw-p 00000000 00:00 0 
+2b4e3bd2e000-2b4e43d2e000 rw-p 00000000 00:00 0 
+2b4e43d2e000-2b4e43d2f000 ---p 00000000 00:00 0 
+2b4e43d2f000-2b4e43f2f000 rw-p 00000000 00:00 0 
+2b4e43f2f000-2b4e4bf2f000 rw-p 00000000 00:00 0 
+2b4e4bf2f000-2b4e4bf30000 ---p 00000000 00:00 0 
+2b4e4bf30000-2b4e4c130000 rw-p 00000000 00:00 0 
+2b4e4c130000-2b4e54130000 rw-p 00000000 00:00 0 
+2b4e54130000-2b4e54131000 ---p 00000000 00:00 0 
+2b4e54131000-2b4e54331000 rw-p 00000000 00:00 0 
+2b4e54331000-2b4e54332000 ---p 00000000 00:00 0 
+2b4e54332000-2b4e54532000 rw-p 00000000 00:00 0 
+2b4e54532000-2b4e54533000 ---p 00000000 00:00 0 
+2b4e54533000-2b4e54733000 rw-p 00000000 00:00 0 
+2b4e54733000-2b4e54734000 ---p 00000000 00:00 0 
+2b4e54734000-2b4e54934000 rw-p 00000000 00:00 0 
+2b4e54934000-2b4e54935000 ---p 00000000 00:00 0 
+2b4e54935000-2b4e54b35000 rw-p 00000000 00:00 0 
+2b4e54b35000-2b4e5cb35000 rw-p 00000000 00:00 0 
+2b4e5cb35000-2b4e5cb6a000 r--s 00000000 08:07 129619                     /var/cache/nscd/passwd
+2b4e5cc36000-2b4e84c36000 rw-p 00000000 00:00 0 
+2b4e84c36000-2b4e84dd1000 r--p 00000000 08:06 1703020                    /usr/lib/locale/locale-archive
+2b4e84dd1000-2b4e84dd2000 ---p 00000000 00:00 0 
+2b4e84dd2000-2b4e84fd2000 rw-p 00000000 00:00 0 
+2b4e88000000-2b4e88021000 rw-p 00000000 00:00 0 
+2b4e88021000-2b4e8c000000 ---p 00000000 00:00 0 
+55e8a25ff000-55e8a2623000 r--p 00000000 00:2c 234490588                  /home/sek519/warm_starting/vws/Release/vws
+55e8a2623000-55e8a2717000 r-xp 00024000 00:2c 234490588                  /home/sek519/warm_starting/vws/Release/vws
+55e8a2717000-55e8a2750000 r--p 00118000 00:2c 234490588                  /home/sek519/warm_starting/vws/Release/vws
+55e8a2750000-55e8a2756000 r--p 00151000 00:2c 234490588                  /home/sek519/warm_starting/vws/Release/vws
+55e8a2756000-55e8a2758000 rw-p 00157000 00:2c 234490588                  /home/sek519/warm_starting/vws/Release/vws
+55e8a3520000-55e8a9ab0000 rw-p 00000000 00:00 0                          [heap]
+7ffdb3530000-7ffdb3552000 rw-p 00000000 00:00 0                          [stack]
+7ffdb3561000-7ffdb3563000 r--p 00000000 00:00 0                          [vvar]
+7ffdb3563000-7ffdb3565000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+/var/spool/torque/mom_priv/jobs/1801418.polyp1.ie.lehigh.edu.SC: line 4: 28300 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}

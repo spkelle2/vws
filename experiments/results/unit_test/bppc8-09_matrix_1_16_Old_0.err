@@ -1,0 +1,13 @@
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 456: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00003904. Calculated: 0.00003890.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 448: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00003559. Calculated: 0.00003572.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 450: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00003523. Calculated: 0.00003536.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 453: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00003523. Calculated: 0.00003535.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 450: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00003518. Calculated: 0.00003508.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 421: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00007323. Calculated: 0.00007340.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 405: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00018182. Calculated: 0.00018171.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 431: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00000015. Calculated: 0.00000026.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.

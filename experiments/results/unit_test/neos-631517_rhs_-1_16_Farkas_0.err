@@ -1,0 +1,4 @@
+The number of Farkas multipliers should match the number of constraints and variables.
+
+Assertion failed
+/var/spool/torque/mom_priv/jobs/1801359.polyp1.ie.lehigh.edu.SC: line 4: 19438 Segmentation fault      (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
