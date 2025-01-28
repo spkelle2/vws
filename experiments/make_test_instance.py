@@ -240,8 +240,8 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
         # perturb the constraint matrix
         A, unit = None, 1
         while A is None and unit > 1e-6:
-            coefs = perturb(np.array(base_mdl.getA().data), p, unit)
-            A = csr_matrix((coefs, base_mdl.getA().nonzero()), base_mdl.getA().shape) \
+            coefs = perturb(np.array(presolved_base_mdl.getA().data), p, unit)
+            A = csr_matrix((coefs, presolved_base_mdl.getA().nonzero()), presolved_base_mdl.getA().shape) \
                 if coefs is not None else None
             unit *= .5
         if A is None:
@@ -250,7 +250,7 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
         # perturb the rhs
         b, unit = None, 1
         while b is None and unit > 1e-6:
-            b = perturb(np.array(base_mdl.getAttr('RHS')), p, unit)
+            b = perturb(np.array(presolved_base_mdl.getAttr('RHS')), p, unit)
             unit *= .5
         if b is None:
             print(f"Warning: {instance_name} rhs could not be perturbed for p = {p}")
@@ -258,37 +258,31 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
         # perturb the objective
         c, unit = None, 1
         while c is None and unit > 1e-6:
-            c = perturb(np.array(base_mdl.getAttr('OBJ')), p, unit)
+            c = perturb(np.array(presolved_base_mdl.getAttr('OBJ')), p, unit)
             unit *= .5
         if c is None:
             print(f"Warning: {instance_name} objective could not be perturbed for p = {p}")
 
         # write the objective perturbation if it presolves to our expected size and is solvable
         if c is not None and count["objective"] - 1 < samples:
-            tmp_mdl = base_mdl.copy()
+            tmp_mdl = presolved_base_mdl.copy()
             for j, coef in enumerate(c):
                 tmp_mdl.getVars()[j].Obj = coef
-            presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "objective", p)
-            if presolved_tmp_mdl:
-                try_solving(presolved_tmp_mdl, "objective", p, perturbed_instance_dir, instance_name, count, extension)
+            try_solving(tmp_mdl, "objective", p, perturbed_instance_dir, instance_name, count, extension)
 
         # write the rhs perturbation if it is solvable
         if b is not None and count["rhs"] - 1 < samples:
-            tmp_mdl = base_mdl.copy()
+            tmp_mdl = presolved_base_mdl.copy()
             for i, coef in enumerate(b):
                 tmp_mdl.getConstrs()[i].Rhs = coef
-            presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "rhs", p)
-            if presolved_tmp_mdl:
-                try_solving(presolved_tmp_mdl, "rhs", p, perturbed_instance_dir, instance_name, count, extension)
+            try_solving(tmp_mdl, "rhs", p, perturbed_instance_dir, instance_name, count, extension)
 
         # write the matrix perturbation if it is solvable
         if A is not None and count["matrix"] - 1 < samples:
-            tmp_mdl = base_mdl.copy()
+            tmp_mdl = presolved_base_mdl.copy()
             for i, j in zip(*A.nonzero()):
                 tmp_mdl.chgCoeff(tmp_mdl.getConstrs()[i], tmp_mdl.getVars()[j], A[i, j])
-            presolved_tmp_mdl = presolve_instance(tmp_mdl, instance_name, max_vars, max_cons, "matrix", p)
-            if presolved_tmp_mdl:
-                try_solving(presolved_tmp_mdl, "matrix", p, perturbed_instance_dir, instance_name, count, extension)
+            try_solving(tmp_mdl, "matrix", p, perturbed_instance_dir, instance_name, count, extension)
 
         if iterations % 50 == 0:
             print(f"after {iterations} iterations, {instance_name} has {count} samples for p = {p}")
