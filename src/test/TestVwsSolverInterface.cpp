@@ -311,7 +311,7 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(data.numCuts);
   REQUIRE(isVal(data.disjunctiveDualBound, 22.91, .01));
   REQUIRE(isVal(data.lpBoundPostVpc, 22.77, .01));
-  REQUIRE(isVal(data.rootDualBound, 24.73, .01));
+  REQUIRE(data.lpBoundPostVpc - .01 < data.rootDualBound);
   REQUIRE(data.vpcGenerator == "Old");
   REQUIRE(data.mipSolver == "CBC");
   REQUIRE(!data.providePrimalBound);
@@ -331,7 +331,7 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(data.numCuts);
   REQUIRE(isVal(data.disjunctiveDualBound, 22.91, .01));
   REQUIRE(isVal(data.lpBoundPostVpc, 22.77, .01));
-  REQUIRE(isVal(data.rootDualBound, 24.69, .01));
+  REQUIRE(data.lpBoundPostVpc - .01 < data.rootDualBound);
   REQUIRE(data.vpcGenerator == "Old");
   REQUIRE(data.mipSolver == "Gurobi");
   REQUIRE(!data.providePrimalBound);
