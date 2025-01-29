@@ -1,4 +1,4 @@
-NAME r50x360_copy_pre
+NAME r50x360_pre_copy
 ROWS
  N  OBJ
  E  CNS...01
@@ -2199,7 +2199,7 @@ COLUMNS
     y....180  OBJ       45
     y....180  UC...180  -100
     y....181  OBJ       27
-    y....181  UC...181  -99.75
+    y....181  UC...181  -100
     y....182  OBJ       26
     y....182  UC...182  -100
     y....183  OBJ       26
@@ -2605,7 +2605,7 @@ RHS
     RHS1      CNS...47  -1
     RHS1      CNS...48  4
     RHS1      CNS...50  6
-    RHS1      UC...181  0.25
+    RHS1      UC...197  -0.25
 BOUNDS
  UP BND1      x....001  100
  UP BND1      x....002  100

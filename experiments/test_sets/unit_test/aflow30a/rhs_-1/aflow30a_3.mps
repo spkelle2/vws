@@ -1,4 +1,4 @@
-NAME _copy_pre
+NAME _pre_copy
 ROWS
  N  OBJ
  E  c30     
@@ -1442,7 +1442,7 @@ COLUMNS
     x358      c416      -76
     x359      OBJ       279
     x359      c80       58
-    x359      c417      -78.75
+    x359      c417      -79
     x360      OBJ       -16
     x360      c66       69
     x360      c418      -65
@@ -2880,7 +2880,7 @@ RHS
     RHS1      OBJ       -4601
     RHS1      c30       1
     RHS1      c31       6
-    RHS1      c32       8
+    RHS1      c32       9
     RHS1      c33       10
     RHS1      c34       7
     RHS1      c35       7
@@ -2932,11 +2932,16 @@ RHS
     RHS1      c88       54
     RHS1      c95       61
     RHS1      c96       13
-    RHS1      c109      76
+    RHS1      c109      75
     RHS1      c114      19
     RHS1      c135      36
     RHS1      c137      52
-    RHS1      c417      0.25
+    RHS1      c181      1
+    RHS1      c210      -1
+    RHS1      c233      -1
+    RHS1      c375      -1
+    RHS1      c418      1
+    RHS1      c441      1
 BOUNDS
  BV BND1      x15     
  BV BND1      x17     

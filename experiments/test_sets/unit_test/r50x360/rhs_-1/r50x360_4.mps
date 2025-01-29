@@ -1,4 +1,4 @@
-NAME r50x360_copy_pre
+NAME r50x360_pre_copy
 ROWS
  N  OBJ
  E  CNS...01
@@ -405,6 +405,7 @@ ROWS
  L  UC...355
  L  UC...356
  L  UC...357
+ L  UC...358
  L  UC...359
  L  UC...360
 COLUMNS
@@ -1831,6 +1832,7 @@ COLUMNS
     x....358  OBJ       7
     x....358  CNS...01  -1
     x....358  CNS...15  1
+    x....358  UC...358  1
     x....359  OBJ       5
     x....359  CNS...17  1
     x....359  CNS...24  -1
@@ -2550,13 +2552,15 @@ COLUMNS
     y....356  UC...356  -100
     y....357  OBJ       22
     y....357  UC...357  -100
+    y....358  OBJ       23
+    y....358  UC...358  -100
     y....359  OBJ       22
     y....359  UC...359  -100
     y....360  OBJ       28
     y....360  UC...360  -100
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -78
+    RHS1      OBJ       -55
     RHS1      CNS...01  -1
     RHS1      CNS...02  14
     RHS1      CNS...03  -8
@@ -2601,6 +2605,7 @@ RHS
     RHS1      CNS...47  -1
     RHS1      CNS...48  4
     RHS1      CNS...50  6
+    RHS1      UC...320  0.25
 BOUNDS
  UP BND1      x....001  100
  UP BND1      x....002  100
@@ -2957,7 +2962,7 @@ BOUNDS
  UP BND1      x....355  100
  UP BND1      x....356  100
  UP BND1      x....357  100
- UP BND1      x....358  99.75
+ UP BND1      x....358  100
  UP BND1      x....359  100
  UP BND1      x....360  100
  BV BND1      y....001
@@ -3315,6 +3320,7 @@ BOUNDS
  BV BND1      y....355
  BV BND1      y....356
  BV BND1      y....357
+ BV BND1      y....358
  BV BND1      y....359
  BV BND1      y....360
 ENDATA

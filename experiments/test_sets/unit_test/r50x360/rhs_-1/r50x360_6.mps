@@ -1,4 +1,4 @@
-NAME r50x360_copy_pre
+NAME r50x360_pre_copy
 ROWS
  N  OBJ
  E  CNS...01
@@ -110,6 +110,7 @@ ROWS
  L  UC...058
  L  UC...059
  L  UC...060
+ L  UC...061
  L  UC...062
  L  UC...063
  L  UC...064
@@ -651,6 +652,7 @@ COLUMNS
     x....061  OBJ       2
     x....061  CNS...20  -1
     x....061  CNS...40  1
+    x....061  UC...061  1
     x....062  OBJ       8
     x....062  CNS...20  1
     x....062  CNS...40  -1
@@ -1960,6 +1962,8 @@ COLUMNS
     y....059  UC...059  -100
     y....060  OBJ       30
     y....060  UC...060  -100
+    y....061  OBJ       43
+    y....061  UC...061  -100
     y....062  OBJ       27
     y....062  UC...062  -100
     y....063  OBJ       25
@@ -2556,7 +2560,7 @@ COLUMNS
     y....360  UC...360  -100
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -98
+    RHS1      OBJ       -55
     RHS1      CNS...01  -1
     RHS1      CNS...02  14
     RHS1      CNS...03  -8
@@ -2601,6 +2605,7 @@ RHS
     RHS1      CNS...47  -1
     RHS1      CNS...48  4
     RHS1      CNS...50  6
+    RHS1      UC...061  0.25
 BOUNDS
  UP BND1      x....001  100
  UP BND1      x....002  100
@@ -2662,7 +2667,7 @@ BOUNDS
  UP BND1      x....058  100
  UP BND1      x....059  100
  UP BND1      x....060  100
- UP BND1      x....061  99.75
+ UP BND1      x....061  100
  UP BND1      x....062  100
  UP BND1      x....063  100
  UP BND1      x....064  100
@@ -3020,6 +3025,7 @@ BOUNDS
  BV BND1      y....058
  BV BND1      y....059
  BV BND1      y....060
+ BV BND1      y....061
  BV BND1      y....062
  BV BND1      y....063
  BV BND1      y....064

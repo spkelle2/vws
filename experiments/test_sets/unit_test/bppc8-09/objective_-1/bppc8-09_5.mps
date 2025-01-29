@@ -1,4 +1,4 @@
-NAME bppc8-09_copy_pre
+NAME bppc8-09_pre_copy
 ROWS
  N  OBJ
  E  c1      
@@ -128,7 +128,6 @@ COLUMNS
     h         c66       -1
     h         c67       -1
     MARKER    'MARKER'                 'INTORG'
-    X0.0      OBJ       -0.0078125
     X0.0      c1        1
     X0.0      c19       7
     X0.0      c20       7
@@ -808,7 +807,6 @@ COLUMNS
     X4.28     c58       70
     X4.28     c59       70
     X4.28     c60       70
-    X4.33     OBJ       -0.0078125
     X4.33     R74       1
     X4.33     R70       1
     X4.33     c27       70
@@ -3393,6 +3391,7 @@ COLUMNS
     X11.40    c50       85
     X11.40    c51       85
     X11.40    c52       85
+    X11.42    OBJ       -0.0078125
     X11.42    c12       1
     X11.42    c35       85
     X11.42    c36       85

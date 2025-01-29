@@ -1,4 +1,4 @@
-NAME _copy_pre
+NAME _pre_copy
 ROWS
  N  OBJ
  E  c30     
@@ -2896,7 +2896,7 @@ RHS
     RHS1      c45       9
     RHS1      c46       1
     RHS1      c47       5
-    RHS1      c48       0.75
+    RHS1      c48       1
     RHS1      c49       2
     RHS1      c50       6
     RHS1      c51       6
@@ -2934,8 +2934,16 @@ RHS
     RHS1      c96       13
     RHS1      c109      76
     RHS1      c114      19
+    RHS1      c133      1
     RHS1      c135      36
     RHS1      c137      52
+    RHS1      c296      -1
+    RHS1      c305      1
+    RHS1      c315      1
+    RHS1      c322      -1
+    RHS1      c413      1
+    RHS1      c466      -1
+    RHS1      c471      1
 BOUNDS
  BV BND1      x15     
  BV BND1      x17     

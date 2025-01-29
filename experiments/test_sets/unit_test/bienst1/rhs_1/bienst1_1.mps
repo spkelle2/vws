@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -2614,7 +2614,8 @@ RHS
     RHS1      INf       2
     RHS1      INg       2
     RHS1      INh       2
-    RHS1      CONge     -1
+    RHS1      CONbf     -1
+    RHS1      CONfc     1
     RHS1      BALab     10
     RHS1      BALac     7
     RHS1      BALad     13
@@ -2671,14 +2672,12 @@ RHS
     RHS1      BALhe     10
     RHS1      BALhf     5
     RHS1      BALhg     14
-    RHS1      VUBgaf    1
-    RHS1      VUBhea    -1
-    RHS1      VUBcef    -1
-    RHS1      VUBfeh    1
-    RHS1      VUBbfh    -1
-    RHS1      VUBfgd    -1
+    RHS1      VUBacd    1
+    RHS1      VUBhdf    1
+    RHS1      VUBbea    -1
+    RHS1      VUBffa    -1
+    RHS1      VUBhge    -1
 BOUNDS
- LO BND1      z         1
  UP BND1      z         440
  BV BND1      xab     
  BV BND1      xac     
@@ -2708,12 +2707,10 @@ BOUNDS
  BV BND1      xdf     
  BV BND1      xdg     
  BV BND1      xdh     
- LO BND1      xea       1.9607843137254943e-02
  UP BND1      xea       1
  UP BND1      xeb       1
  UP BND1      xec       1
  UP BND1      xed       1
- LO BND1      xef       1.7543859649122862e-02
  UP BND1      xef       1
  UP BND1      xeg       1
  UP BND1      xeh       1
@@ -2723,12 +2720,10 @@ BOUNDS
  UP BND1      xfd       1
  UP BND1      xfe       1
  UP BND1      xfg       1
- LO BND1      xfh       1.3888888888888840e-02
  UP BND1      xfh       1
  UP BND1      xga       1
  UP BND1      xgb       1
  UP BND1      xgc       1
- LO BND1      xgd       1.8181818181818188e-02
  UP BND1      xgd       1
  UP BND1      xge       1
  UP BND1      xgf       1
@@ -2825,7 +2820,7 @@ BOUNDS
  UP BND1      fbfd      72
  UP BND1      fbfe      72
  UP BND1      fbfg      72
- UP BND1      fbfh      71
+ UP BND1      fbfh      72
  UP BND1      fbga      72
  UP BND1      fbgc      72
  UP BND1      fbgd      72
@@ -2866,7 +2861,7 @@ BOUNDS
  UP BND1      fcea      57
  UP BND1      fceb      57
  UP BND1      fced      57
- UP BND1      fcef      56
+ UP BND1      fcef      57
  UP BND1      fceg      57
  UP BND1      fceh      57
  UP BND1      fcfa      58
@@ -3014,7 +3009,7 @@ BOUNDS
  UP BND1      ffec      61
  UP BND1      ffed      61
  UP BND1      ffeg      61
- UP BND1      ffeh      62
+ UP BND1      ffeh      61
  UP BND1      fffa      70
  UP BND1      fffb      70
  UP BND1      fffc      70
@@ -3025,7 +3020,7 @@ BOUNDS
  UP BND1      ffga      55
  UP BND1      ffgb      55
  UP BND1      ffgc      55
- UP BND1      ffgd      54
+ UP BND1      ffgd      55
  UP BND1      ffge      55
  UP BND1      ffgh      55
  UP BND1      ffha      58
@@ -3038,7 +3033,7 @@ BOUNDS
  UP BND1      fgac      59
  UP BND1      fgad      59
  UP BND1      fgae      59
- UP BND1      fgaf      60
+ UP BND1      fgaf      59
  UP BND1      fgah      59
  UP BND1      fgba      56
  UP BND1      fgbc      56
@@ -3107,7 +3102,7 @@ BOUNDS
  UP BND1      fhde      55
  UP BND1      fhdf      55
  UP BND1      fhdg      55
- UP BND1      fhea      50
+ UP BND1      fhea      51
  UP BND1      fheb      51
  UP BND1      fhec      51
  UP BND1      fhed      51

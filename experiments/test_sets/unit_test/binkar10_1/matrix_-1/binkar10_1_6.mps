@@ -1,4 +1,4 @@
-NAME binkar10_1_copy_pre
+NAME binkar10_1_pre_copy
 ROWS
  N  OBJ
  E  R0003   
@@ -665,7 +665,7 @@ ROWS
  L  R0695   
  L  R0696   
  L  R0697   
- E  R0698   
+ L  R0698   
  L  R0699   
  L  R0700   
  L  R0701   
@@ -1200,9 +1200,9 @@ COLUMNS
     C0126     R0034     1
     C0126     R0355     1
     C0126     R0364     -1
-    C0127     OBJ       8.6029997999999992e+01
+    C0127     OBJ       65.429998
     C0127     R0035     1
-    C0127     R0356     2
+    C0127     R0356     1
     C0127     R0365     -1
     C0128     OBJ       65.429998
     C0128     R0036     1
@@ -2066,10 +2066,10 @@ COLUMNS
     C0360     OBJ       152.120004
     C0360     R0060     1
     C0360     R0514     1
-    C0361     OBJ       178.350011
+    C0361     OBJ       1.8389001100000002e+02
     C0361     R0055     1
     C0361     R0515     1
-    C0361     R0521     -2
+    C0361     R0521     -1
     C0362     OBJ       1.8389001100000002e+02
     C0362     R0056     1
     C0362     R0516     1
@@ -2193,9 +2193,9 @@ COLUMNS
     C0395     R0065     1
     C0395     R0534     1
     C0395     R0543     -1
-    C0396     OBJ       82.660002
+    C0396     OBJ       68.310002
     C0396     R0066     1
-    C0396     R0535     2
+    C0396     R0535     1
     C0396     R0544     -1
     C0397     OBJ       68.310002
     C0397     R0067     1
@@ -2646,7 +2646,7 @@ COLUMNS
     C0518     R0234     -1
     C0518     R0620     -1
     C0519     OBJ       35.049999
-    C0519     R0075     1
+    C0519     R0075     2
     C0519     R0235     -1
     C0519     R0621     -1
     C0520     OBJ       35.049999
@@ -3330,7 +3330,7 @@ COLUMNS
     C0702     R0731     1
     C0702     R0740     -1
     C0703     OBJ       68.650004
-    C0703     R0093     2
+    C0703     R0093     1
     C0703     R0732     1
     C0703     R0741     -1
     C0704     OBJ       68.650004
@@ -4395,7 +4395,7 @@ COLUMNS
     C1878     R0572     1
     C1878     R0817     -1
     C1879     OBJ       4.300001
-    C1879     R0573     1
+    C1879     R0573     2
     C1879     R0818     -1
     C1881     OBJ       -7.55
     C1881     R0221     -1
@@ -4814,9 +4814,9 @@ COLUMNS
     C2044     OBJ       1.3799989999999998e+00
     C2044     R0697     1
     C2044     R0703     -1
-    C2045     OBJ       -6.9000020000000006e+00
+    C2045     OBJ       1.3799989999999998e+00
     C2045     R0698     1
-    C2045     R0704     -2
+    C2045     R0704     -1
     C2047     OBJ       1.380001
     C2047     R0700     1
     C2047     R0705     -1
@@ -5779,7 +5779,7 @@ BOUNDS
  UP BND1      C0124     1
  UP BND1      C0125     1
  UP BND1      C0126     1
- UP BND1      C0127     0.5
+ UP BND1      C0127     1
  UP BND1      C0128     1
  UP BND1      C0129     1
  UP BND1      C0130     1
@@ -6046,7 +6046,7 @@ BOUNDS
  UP BND1      C0393     1
  UP BND1      C0394     1
  UP BND1      C0395     1
- UP BND1      C0396     0.5
+ UP BND1      C0396     1
  UP BND1      C0397     1
  UP BND1      C0398     1
  UP BND1      C0399     1
@@ -6350,7 +6350,7 @@ BOUNDS
  UP BND1      C0700     1
  UP BND1      C0701     1
  UP BND1      C0702     1
- UP BND1      C0703     0.5
+ UP BND1      C0703     1
  UP BND1      C0704     1
  UP BND1      C0705     1
  UP BND1      C0706     1
@@ -6471,14 +6471,14 @@ BOUNDS
  UP BND1      C1595     2
  UP BND1      C1596     2
  UP BND1      C1597     2
- UP BND1      C1598     1.5
+ UP BND1      C1598     2
  UP BND1      C1599     2
  UP BND1      C1600     2
  UP BND1      C1601     1
  UP BND1      C1603     2
  UP BND1      C1604     2
  UP BND1      C1605     2
- UP BND1      C1606     1.5
+ UP BND1      C1606     2
  UP BND1      C1607     2
  UP BND1      C1608     1
  UP BND1      C1610     3
@@ -6663,14 +6663,14 @@ BOUNDS
  UP BND1      C1836     2
  UP BND1      C1837     2
  UP BND1      C1838     2
- UP BND1      C1839     1.5
+ UP BND1      C1839     2
  UP BND1      C1840     2
  UP BND1      C1841     1
  UP BND1      C1843     2
  UP BND1      C1844     2
  UP BND1      C1845     2
  UP BND1      C1846     2
- UP BND1      C1847     1.5
+ UP BND1      C1847     2
  UP BND1      C1848     1
  UP BND1      C1850     2
  UP BND1      C1851     2
@@ -6837,7 +6837,7 @@ BOUNDS
  UP BND1      C2042     3
  UP BND1      C2043     3
  UP BND1      C2044     2
- UP BND1      C2045     3
+ UP BND1      C2045     1
  UP BND1      C2047     3
  UP BND1      C2048     3
  UP BND1      C2049     2
@@ -6889,14 +6889,14 @@ BOUNDS
  UP BND1      C2105     1
  UP BND1      C2106     1
  UP BND1      C2108     2
- UP BND1      C2109     1.5
+ UP BND1      C2109     2
  UP BND1      C2110     2
  UP BND1      C2111     2
  UP BND1      C2112     2
  UP BND1      C2113     2
  UP BND1      C2114     1
  UP BND1      C2116     2
- UP BND1      C2117     1.5
+ UP BND1      C2117     2
  UP BND1      C2118     2
  UP BND1      C2119     2
  UP BND1      C2120     2

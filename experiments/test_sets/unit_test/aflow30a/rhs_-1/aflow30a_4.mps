@@ -1,4 +1,4 @@
-NAME _copy_pre
+NAME _pre_copy
 ROWS
  N  OBJ
  E  c30     
@@ -452,9 +452,6 @@ ROWS
  L  c479    
 COLUMNS
     MARKER    'MARKER'                 'INTORG'
-    x3        OBJ       -48
-    x3        c92       72
-    x3        c61       -47.75
     x15       OBJ       86
     x15       c60       11
     x15       c73       -97
@@ -485,6 +482,9 @@ COLUMNS
     x33       OBJ       -206
     x33       c74       89
     x33       c91       -30
+    x34       OBJ       48
+    x34       c61       48
+    x34       c92       -72
     x35       OBJ       57
     x35       c77       48
     x35       c93       -35
@@ -500,8 +500,8 @@ COLUMNS
     x41       OBJ       228
     x41       c72       12
     x41       c99       -80
-    x42       OBJ       301
-    x42       c92       72
+    x42       OBJ       349
+    x42       c61       48
     x42       c100      -89
     x43       OBJ       -13
     x43       c62       31
@@ -551,8 +551,8 @@ COLUMNS
     x60       OBJ       125
     x60       c60       11
     x60       c118      -68
-    x61       OBJ       141
-    x61       c92       72
+    x61       OBJ       189
+    x61       c61       48
     x61       c119      -95
     x62       OBJ       112
     x62       c76       17
@@ -644,8 +644,8 @@ COLUMNS
     x93       OBJ       -32
     x93       c135      36
     x93       c151      -74
-    x94       OBJ       -32
-    x94       c92       72
+    x94       OBJ       16
+    x94       c61       48
     x94       c152      -28
     x95       OBJ       22
     x95       c78       64
@@ -680,8 +680,8 @@ COLUMNS
     x105      OBJ       286
     x105      c60       11
     x105      c163      -99
-    x106      OBJ       181
-    x106      c92       72
+    x106      OBJ       229
+    x106      c61       48
     x106      c164      -65
     x107      OBJ       358
     x107      c76       17
@@ -722,8 +722,8 @@ COLUMNS
     x119      OBJ       265
     x119      c60       11
     x119      c177      -92
-    x120      OBJ       44
-    x120      c92       72
+    x120      OBJ       92
+    x120      c61       48
     x120      c178      -94
     x121      OBJ       -74
     x121      c137      52
@@ -846,8 +846,8 @@ COLUMNS
     x160      c40       -10
     x160      c33       10
     x160      c74       89
-    x161      OBJ       -27
-    x161      c92       72
+    x161      OBJ       21
+    x161      c61       48
     x161      c219      -39
     x162      OBJ       2
     x162      c76       17
@@ -882,8 +882,8 @@ COLUMNS
     x172      OBJ       157
     x172      c60       11
     x172      c230      -56
-    x173      OBJ       93
-    x173      c92       72
+    x173      OBJ       141
+    x173      c61       48
     x173      c231      -79
     x174      OBJ       4
     x174      c137      52
@@ -1020,8 +1020,8 @@ COLUMNS
     x218      OBJ       -32
     x218      c135      36
     x218      c276      -37
-    x219      OBJ       6
-    x219      c92       72
+    x219      OBJ       54
+    x219      c61       48
     x219      c277      -30
     x220      OBJ       -46
     x220      c62       31
@@ -1176,8 +1176,8 @@ COLUMNS
     x270      OBJ       1
     x270      c60       11
     x270      c328      -12
-    x271      OBJ       -60
-    x271      c92       72
+    x271      OBJ       -12
+    x271      c61       48
     x271      c329      -84
     x272      OBJ       56
     x272      c137      52
@@ -1233,8 +1233,8 @@ COLUMNS
     x289      OBJ       -305
     x289      c74       89
     x289      c347      -51
-    x290      OBJ       -44
-    x290      c92       72
+    x290      OBJ       4
+    x290      c61       48
     x290      c348      -100
     x291      OBJ       31
     x291      c76       17
@@ -1308,8 +1308,8 @@ COLUMNS
     x314      OBJ       1
     x314      c60       11
     x314      c372      -12
-    x315      OBJ       -28
-    x315      c92       72
+    x315      OBJ       20
+    x315      c61       48
     x315      c373      -29
     x316      OBJ       -30
     x316      c137      52
@@ -1467,8 +1467,8 @@ COLUMNS
     x367      OBJ       -276
     x367      c59       93
     x367      c425      -48
-    x368      OBJ       -8
-    x368      c92       72
+    x368      OBJ       40
+    x368      c61       48
     x368      c426      -68
     x369      OBJ       127
     x369      c137      52
@@ -1506,8 +1506,8 @@ COLUMNS
     x380      OBJ       -44
     x380      c74       89
     x380      c438      -78
-    x381      OBJ       -132
-    x381      c92       72
+    x381      OBJ       -84
+    x381      c61       48
     x381      c439      -12
     x382      OBJ       150
     x382      c76       17
@@ -1590,8 +1590,8 @@ COLUMNS
     x408      OBJ       -160
     x408      c74       89
     x408      c466      -98
-    x409      OBJ       56
-    x409      c92       72
+    x409      OBJ       104
+    x409      c61       48
     x409      c467      -40
     x410      OBJ       135
     x410      c62       31
@@ -2877,7 +2877,7 @@ COLUMNS
     x842      c58       1
     x842      c72       1
 RHS
-    RHS1      OBJ       -4649
+    RHS1      OBJ       -4601
     RHS1      c30       1
     RHS1      c31       6
     RHS1      c32       8
@@ -2891,7 +2891,7 @@ RHS
     RHS1      c40       4
     RHS1      c41       3
     RHS1      c42       1
-    RHS1      c43       8
+    RHS1      c43       9
     RHS1      c44       6
     RHS1      c45       9
     RHS1      c46       1
@@ -2909,13 +2909,13 @@ RHS
     RHS1      c58       3
     RHS1      c59       93
     RHS1      c60       11
-    RHS1      c61       0.25
+    RHS1      c61       48
     RHS1      c62       31
     RHS1      c63       17
     RHS1      c64       52
     RHS1      c65       46
     RHS1      c66       69
-    RHS1      c67       21
+    RHS1      c67       22
     RHS1      c68       78
     RHS1      c69       84
     RHS1      c70       84
@@ -2923,22 +2923,25 @@ RHS
     RHS1      c72       12
     RHS1      c74       89
     RHS1      c76       17
-    RHS1      c77       48
+    RHS1      c77       49
     RHS1      c78       64
     RHS1      c80       58
     RHS1      c82       95
     RHS1      c86       59
     RHS1      c87       96
     RHS1      c88       54
-    RHS1      c92       72
     RHS1      c95       61
     RHS1      c96       13
     RHS1      c109      76
     RHS1      c114      19
     RHS1      c135      36
     RHS1      c137      52
+    RHS1      c138      -1
+    RHS1      c201      1
+    RHS1      c209      -1
+    RHS1      c300      1
+    RHS1      c412      -1
 BOUNDS
- BV BND1      x3      
  BV BND1      x15     
  BV BND1      x17     
  BV BND1      x21     
@@ -2949,6 +2952,7 @@ BOUNDS
  BV BND1      x31     
  BV BND1      x32     
  BV BND1      x33     
+ BV BND1      x34     
  BV BND1      x35     
  BV BND1      x36     
  BV BND1      x39     

@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -851,6 +851,7 @@ COLUMNS
     xeb       VUBfeb    -61
     xeb       VUBgeb    -55
     xeb       VUBheb    -51
+    xec       OBJ       -0.03125
     xec       OUTe      1
     xec       INc       1
     xec       VUBaec    -62
@@ -1242,7 +1243,6 @@ COLUMNS
     fage      BALae     1
     fage      BALag     -1
     fage      VUBage    1
-    fagf      OBJ       0.03125
     fagf      CONgf     1
     fagf      BALaf     1
     fagf      BALag     -1

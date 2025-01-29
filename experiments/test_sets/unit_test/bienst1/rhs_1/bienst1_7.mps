@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -276,6 +276,13 @@ ROWS
  L  VUBech  
  L  VUBfch  
  L  VUBgch  
+ L  VUBbda  
+ L  VUBcda  
+ L  VUBdda  
+ L  VUBeda  
+ L  VUBfda  
+ L  VUBgda  
+ L  VUBhda  
  L  VUBadb  
  L  VUBcdb  
  L  VUBddb  
@@ -762,6 +769,15 @@ COLUMNS
     xch       VUBech    -63
     xch       VUBfch    -59
     xch       VUBgch    -58
+    xda       OUTd      1
+    xda       INa       1
+    xda       VUBbda    -68
+    xda       VUBcda    -52
+    xda       VUBdda    -63
+    xda       VUBeda    -66
+    xda       VUBfda    -63
+    xda       VUBgda    -51
+    xda       VUBhda    -55
     xdb       OUTd      1
     xdb       INb       1
     xdb       VUBadb    -61
@@ -1330,6 +1346,7 @@ COLUMNS
     fbda      CONda     1
     fbda      BALba     1
     fbda      BALbd     -1
+    fbda      VUBbda    1
     fbdc      CONdc     1
     fbdc      BALbc     1
     fbdc      BALbd     -1
@@ -1518,6 +1535,7 @@ COLUMNS
     fcda      CONda     1
     fcda      BALca     1
     fcda      BALcd     -1
+    fcda      VUBcda    1
     fcdb      CONdb     1
     fcdb      BALcb     1
     fcdb      BALcd     -1
@@ -1708,6 +1726,7 @@ COLUMNS
     fdch      VUBdch    1
     fdda      CONda     1
     fdda      BALda     1
+    fdda      VUBdda    1
     fddb      CONdb     1
     fddb      BALdb     1
     fddb      VUBddb    1
@@ -1897,6 +1916,7 @@ COLUMNS
     feda      CONda     1
     feda      BALea     1
     feda      BALed     -1
+    feda      VUBeda    1
     fedb      CONdb     1
     fedb      BALeb     1
     fedb      BALed     -1
@@ -2085,6 +2105,7 @@ COLUMNS
     ffda      CONda     1
     ffda      BALfa     1
     ffda      BALfd     -1
+    ffda      VUBfda    1
     ffdb      CONdb     1
     ffdb      BALfb     1
     ffdb      BALfd     -1
@@ -2273,6 +2294,7 @@ COLUMNS
     fgda      CONda     1
     fgda      BALga     1
     fgda      BALgd     -1
+    fgda      VUBgda    1
     fgdb      CONdb     1
     fgdb      BALgb     1
     fgdb      BALgd     -1
@@ -2461,6 +2483,7 @@ COLUMNS
     fhda      CONda     1
     fhda      BALha     1
     fhda      BALhd     -1
+    fhda      VUBhda    1
     fhdb      CONdb     1
     fhdb      BALhb     1
     fhdb      BALhd     -1
@@ -2578,25 +2601,24 @@ RHS
     RHS1      OUTa      2
     RHS1      OUTb      2
     RHS1      OUTc      2
-    RHS1      OUTd      1
+    RHS1      OUTd      2
     RHS1      OUTe      2
-    RHS1      OUTf      2
+    RHS1      OUTf      3
     RHS1      OUTg      2
     RHS1      OUTh      2
-    RHS1      INa       1
+    RHS1      INa       2
     RHS1      INb       2
     RHS1      INc       2
     RHS1      INd       2
     RHS1      INe       2
-    RHS1      INf       2
+    RHS1      INf       3
     RHS1      INg       2
     RHS1      INh       2
-    RHS1      CONcf     -1
-    RHS1      CONed     -1
+    RHS1      CONcd     1
     RHS1      BALab     10
     RHS1      BALac     7
     RHS1      BALad     13
-    RHS1      BALae     11
+    RHS1      BALae     12
     RHS1      BALaf     13
     RHS1      BALag     6
     RHS1      BALah     13
@@ -2629,7 +2651,7 @@ RHS
     RHS1      BALeg     14
     RHS1      BALeh     11
     RHS1      BALfa     5
-    RHS1      BALfb     10
+    RHS1      BALfb     11
     RHS1      BALfc     11
     RHS1      BALfd     7
     RHS1      BALfe     9
@@ -2649,10 +2671,11 @@ RHS
     RHS1      BALhe     10
     RHS1      BALhf     5
     RHS1      BALhg     14
-    RHS1      VUBbgf    1
-    RHS1      VUBhhb    1
+    RHS1      VUBhda    -1
+    RHS1      VUBfdg    -1
+    RHS1      VUBbfa    -1
+    RHS1      VUBgfh    1
 BOUNDS
- LO BND1      z         1
  UP BND1      z         440
  BV BND1      xab     
  BV BND1      xac     
@@ -2675,6 +2698,7 @@ BOUNDS
  BV BND1      xcf     
  BV BND1      xcg     
  BV BND1      xch     
+ BV BND1      xda     
  BV BND1      xdb     
  BV BND1      xdc     
  BV BND1      xde     
@@ -2799,7 +2823,7 @@ BOUNDS
  UP BND1      fbgc      72
  UP BND1      fbgd      72
  UP BND1      fbge      72
- UP BND1      fbgf      73
+ UP BND1      fbgf      72
  UP BND1      fbgh      72
  UP BND1      fbha      72
  UP BND1      fbhc      72
@@ -2923,7 +2947,7 @@ BOUNDS
  UP BND1      fecf      63
  UP BND1      fecg      63
  UP BND1      fech      63
- UP BND1      feda      65
+ UP BND1      feda      66
  UP BND1      fedb      66
  UP BND1      fedc      66
  UP BND1      fedf      66
@@ -3095,7 +3119,7 @@ BOUNDS
  UP BND1      fhge      47
  UP BND1      fhgf      47
  UP BND1      fhha      61
- UP BND1      fhhb      62
+ UP BND1      fhhb      61
  UP BND1      fhhc      61
  UP BND1      fhhd      61
  UP BND1      fhhe      61

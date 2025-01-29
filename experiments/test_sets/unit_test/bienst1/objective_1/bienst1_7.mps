@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -1058,7 +1058,6 @@ COLUMNS
     xhd       VUBfhd    -58
     xhd       VUBghd    -58
     xhd       VUBhhd    -61
-    xhe       OBJ       0.03125
     xhe       OUTh      1
     xhe       INe       1
     xhe       VUBahe    -61
@@ -1077,6 +1076,7 @@ COLUMNS
     xhf       VUBehf    -64
     xhf       VUBghf    -58
     xhf       VUBhhf    -61
+    xhg       OBJ       -0.03125
     xhg       OUTh      1
     xhg       INg       1
     xhg       VUBahg    -61

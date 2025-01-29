@@ -1,9 +1,0 @@
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (66.068000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 381 (real var 644), it is -1.220448e-07. Small enough error that we only send warning.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 644: dot product with obj < 0. Obj viol from solver: -0.00000012. Calculated: -0.00000012.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 60 ray 381 does not satisfy the objective cut. Activity: -0.00000012. RHS: 0.00000000. Small enough violation that we only send a warning.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (68.312000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (72.124000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (75.588000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (81.800000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (77.308000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
