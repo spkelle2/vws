@@ -228,7 +228,6 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     }
 
     // calculate a cut for each disjunctive term
-    // todo swap this order so we iterate over terms first so we only have to get their basis once
     ambiguousTermSolver = false;
     feasibleTermSolver = false;
     for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
