@@ -128,6 +128,10 @@ MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxR
 /** Solves each instance in the series and prints each's run metadata to stdout */
 void MipComp::solveSeries() {
 
+  // get the expected count of variables and constraints for the series
+  int numCols = instanceSolvers[0].getNumCols();
+  int numRows = instanceSolvers[0].getNumRows();
+
   // solve each instance in the series
   for (int i = 0; i < instanceSolvers.size(); i++) {
 
@@ -147,7 +151,11 @@ void MipComp::solveSeries() {
         std::numeric_limits<double>::max();
     RunData data;
     try {
-       data = seriesSolver.solve(instanceSolver, genType, primalBound);
+      // this isn't a hard requirement, but unless you're really doing a good job with
+      // bookkeeping, you want to keep the number of variables and constraints constant
+      verify(numCols == instanceSolver.getNumCols() && numRows == instanceSolver.getNumRows(),
+             "All instances must have the same number of variables and constraints.");
+      data = seriesSolver.solve(instanceSolver, genType, primalBound);
     } catch (const std::runtime_error& e) {
 
       // skip this experiment if we get an error other than dot product difference
