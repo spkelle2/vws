@@ -221,40 +221,32 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
     a[probIdx].resize(cutCertificates[probIdx].size());
     b[probIdx].resize(cutCertificates[probIdx].size());
-    PartialBBDisjunction param_disj = disjunctions[probIdx].get()->parameterize(si);
+    std::vector<std::unique_ptr<OsiSolverInterface>> term_solvers;
+    PartialBBDisjunction param_disj = disjunctions[probIdx].get()->parameterize(si, &term_solvers);
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
       a[probIdx][cutIdx].resize(param_disj.num_terms);
       b[probIdx][cutIdx].resize(param_disj.num_terms);
     }
 
     // calculate a cut for each disjunctive term
-    ambiguousTermSolver = false;
     feasibleTermSolver = false;
     for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
-      OsiSolverInterface* termSolver;
-      param_disj.getSolverForTerm(termSolver, termIdx, si, false, .001, NULL, true);
+      OsiSolverInterface* termSolver = term_solvers[termIdx].get();
 
       // check if we changed feasibility states for this term by perturbing
-      if (termSolver->isProvenOptimal() && !disjunctions[probIdx].get()->terms[termIdx].is_feasible){
+      if (param_disj.terms[termIdx].is_feasible && !disjunctions[probIdx].get()->terms[termIdx].is_feasible){
         data.infeasibleToFeasibleTerms++;
-      } else if (!termSolver->isProvenOptimal()){
+      } else if (!param_disj.terms[termIdx].is_feasible){
         data.infeasibleTerms++;
         if (disjunctions[probIdx].get()->terms[termIdx].is_feasible){
           data.feasibleToInfeasibleTerms++;
         }
       }
 
-      // if we don't know if we're optimal or primal infeasible,
-      // we can't safely use these cuts, so skip to next problem
-      if (!termSolver->isProvenOptimal() && !termSolver->isProvenPrimalInfeasible()){
-        ambiguousTermSolver = true;
-        break;
-      }
-
       // get the cut for this term
       for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
         a[probIdx][cutIdx][termIdx].resize(si->getNumCols());
-        if (termSolver->isProvenOptimal()) {
+        if (param_disj.terms[termIdx].is_feasible) {
           feasibleTermSolver = true;
           getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
                                 cutCertificates[probIdx][cutIdx][termIdx], termSolver);
@@ -268,7 +260,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     }
 
     // if we are unsure the status of a solver or all terms were infeasible, move on
-    if (ambiguousTermSolver || !feasibleTermSolver) {
+    if (!feasibleTermSolver) {
       continue;
     }
 
