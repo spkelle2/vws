@@ -139,6 +139,7 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   }
 
   int separated = 0;
+  // track when tightened is significantly better than non-tightened
   if (farkasSolver.getObjValue() < farkasSolverTight.getObjValue() - 1e-4 ||
       oldDisjSolver.getObjValue() < oldDisjSolverTight.getObjValue() - 1e-4){
     separated++;
@@ -481,11 +482,12 @@ TEST_CASE( "for small perturbations check that New VPCs > Old VPCc > Farkas VPCs
 
 TEST_CASE( "check that if we perturb the problem a lot that we still get valid cuts",
            "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
-           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long]" ) {
+           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long][alot]" ) {
 
   // set up reusable stuff
-  VwsSolverInterface seriesSolver(getParams(), "CBC");
+  VwsSolverInterface seriesSolver(getParams(), "GUROBI");
   OsiClpSolverInterface instanceSolver;
+  int separated = 0;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
   fs::path inputPath("../src/test/test_instances/bm23/bm23_i01.mps");
@@ -501,7 +503,7 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
 
     // update the objective to push in one dimension
     for (int col_idx=0; col_idx < instanceSolver.getNumCols(); col_idx++){
-      tmpSolver.setObjCoeff(col_idx, i == col_idx ? -2 : -1);
+      tmpSolver.setObjCoeff(col_idx, i == col_idx ? -1.1 : -1);
     }
     tmpSolver.resolve();
 
@@ -510,8 +512,24 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
 
     std::shared_ptr<OsiCuts> disjCuts =
         seriesSolver.createVpcsFromFarkasMultipliers(&tmpSolver, data);
+    std::shared_ptr<OsiCuts> disjCutsTight =
+        seriesSolver.createVpcsFromFarkasMultipliers(&tmpSolver, data, true);
+
+    // sanity check to make sure we didn't make up some extra cuts somewhere
     REQUIRE(disjCuts->sizeRowCuts() == 6);
     checkCuts(disjCuts.get(), solution);
+    REQUIRE(disjCutsTight->sizeRowCuts() == 6);
+    checkCuts(disjCutsTight.get(), solution);
+
+    OsiClpSolverInterface farkasSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+    OsiClpSolverInterface farkasSolverTight = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+    farkasSolver.applyCuts(*disjCuts);
+    farkasSolver.resolve();
+    farkasSolverTight.applyCuts(*disjCutsTight);
+    farkasSolverTight.resolve();
+    if (farkasSolver.getObjValue() < farkasSolverTight.getObjValue() - 1e-4){
+      separated++;
+    }
 
     // repeat for generating cuts from the previous disjunction
     // under large changes the PRLP may become infeasible and yield no cuts because the LP
@@ -529,8 +547,8 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
     // relax the constraint bound (to encourage original vpc infeasibility) to push in one dimension
     for (int row_idx=0; row_idx < instanceSolver.getNumRows(); row_idx++){
       double b = tmpSolver.getRowUpper()[row_idx];
-      double loose_b = b > 0 ? b * 1.25 : b / 1.25;
-      double looser_b = b > 0 ? b * 2 : b / 2;
+      double loose_b = b > 0 ? b * 1 : b / 1;
+      double looser_b = b > 0 ? b * 1.1 : b / 1.1;
       tmpSolver.setRowUpper(row_idx, i == row_idx ? looser_b: loose_b);
     }
     tmpSolver.resolve();
@@ -540,10 +558,24 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
 
     std::shared_ptr<OsiCuts> disjCuts =
         seriesSolver.createVpcsFromFarkasMultipliers(&tmpSolver, data);
+    std::shared_ptr<OsiCuts> disjCutsTight =
+        seriesSolver.createVpcsFromFarkasMultipliers(&tmpSolver, data, true);
 
     // sanity check to make sure we didn't make up some extra cuts somewhere
     REQUIRE(disjCuts->sizeRowCuts() == 6);
     checkCuts(disjCuts.get(), solution);
+    REQUIRE(disjCutsTight->sizeRowCuts() == 6);
+    checkCuts(disjCutsTight.get(), solution);
+
+    OsiClpSolverInterface farkasSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+    OsiClpSolverInterface farkasSolverTight = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+    farkasSolver.applyCuts(*disjCuts);
+    farkasSolver.resolve();
+    farkasSolverTight.applyCuts(*disjCutsTight);
+    farkasSolverTight.resolve();
+    if (farkasSolver.getObjValue() < farkasSolverTight.getObjValue() - 1e-4){
+      separated++;
+    }
 
     // repeat for generating cuts from the previous disjunction
     // under large changes the PRLP may become infeasible and yield no cuts because the LP
@@ -551,4 +583,6 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
     disjCuts = seriesSolver.createVpcsFromOldDisjunctionPRLP(&tmpSolver, data);
     checkCuts(disjCuts.get(), solution);
   }
+  // i \in {1, 4} should have infeasible terms become feasible necessitating bound tightening
+  REQUIRE(separated > 0);
 }
