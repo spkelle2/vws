@@ -14,6 +14,7 @@
 #include "OsiClpSolverInterface.hpp" // OsiClpSolverInterface
 
 // vpc modules
+#include "BBHelper.hpp" // BBInfo
 #include "CbcHelper.hpp" // CBC solve functions
 #include "GurobiHelper.hpp" // gurobi solve functions
 #include "CglVPC.hpp" // CglVPC
@@ -43,7 +44,8 @@ VwsSolverInterface::VwsSolverInterface(VPCParametersNamespace::VPCParameters par
 
 /** Solve a MIP with VPCs added and add the provided eventHandler to the solve */
 RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
-                                  const std::string vpcGenerator, double primalBound){
+                                  const std::string vpcGenerator, double primalBound,
+                                  bool tighten){
 
   // todo: enforce that we have a MIP with same number of variables and constraints
   // todo: enforce that we have a MIP with single sided constraints
@@ -81,9 +83,9 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
                     params.get(VPCParametersNamespace::CUTLIMIT) :
                     -1 * params.get(VPCParametersNamespace::CUTLIMIT) * fractional_int_vars;
   } else if (vpcGenerator == "Old") {
-    disjCuts = createVpcsFromOldDisjunctionPRLP(si, data);
+    disjCuts = createVpcsFromOldDisjunctionPRLP(si, data, tighten);
   } else if (vpcGenerator == "Farkas") {
-    disjCuts = createVpcsFromFarkasMultipliers(si, data);
+    disjCuts = createVpcsFromFarkasMultipliers(si, data, tighten);
   } else if (vpcGenerator == "None") {
     data.disjunctiveDualBound = si->getObjValue();
   } else {
@@ -111,9 +113,14 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
       doBranchAndBoundWithGurobi(params, params.get(VPCParametersNamespace::BB_STRATEGY),
                                  si, info, primalBound);
     } else {
+      std::vector<std::vector<double>> pool = std::vector<std::vector<double>>();
       doBranchAndBoundWithUserCutsGurobi(
           params, params.get(VPCParametersNamespace::BB_STRATEGY), si,
-          disjCuts.get(), info, primalBound);
+          disjCuts.get(), info, primalBound, false, &pool);
+      // merge solution pools
+      for (const auto& sol : pool) {
+        solutionPool.insert(sol);
+      }
     }
   }
 
@@ -191,7 +198,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
     if (disj->integer_sol.size() > 0){
       printf("Disjunction has integer solution. Skipping this iteration since we can't handle this\n");
     }
-    std::shared_ptr<OsiCuts> emptyCuts;
+    std::shared_ptr<OsiCuts> emptyCuts = std::make_shared<OsiCuts>();
     return emptyCuts;
   }
 }
@@ -200,7 +207,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
  *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
  *  main.cpp */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
-    OsiClpSolverInterface * si, RunData& data) {
+    OsiClpSolverInterface * si, RunData& data, bool tighten) {
 
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
@@ -208,8 +215,11 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
 
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
-  bool feasibleTermSolver;
-  bool ambiguousTermSolver;
+  bool unprunedTermSolver;
+  
+  // get a bound on best know solution if we are tightening
+  double empiricalBound = tighten ? findPrimalBound(si, solutionPool) : 
+      std::numeric_limits<double>::max();
 
   // set up vectors of disjunctive cuts
   // [problemIdx][cutIdx][termIdx][variableIdx]
@@ -229,7 +239,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     }
 
     // calculate a cut for each disjunctive term
-    feasibleTermSolver = false;
+    unprunedTermSolver = false;
     for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
       OsiSolverInterface* termSolver = term_solvers[termIdx].get();
 
@@ -246,12 +256,14 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
       // get the cut for this term
       for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
         a[probIdx][cutIdx][termIdx].resize(si->getNumCols());
-        if (param_disj.terms[termIdx].is_feasible) {
-          feasibleTermSolver = true;
+        // if the term is feasible and isn't safely prunable by bound, get the cut
+        if (param_disj.terms[termIdx].is_feasible &&
+            !lessThanVal(empiricalBound, param_disj.terms[termIdx].obj)){
+          unprunedTermSolver = true;
           getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
                                 cutCertificates[probIdx][cutIdx][termIdx], termSolver);
         } else {
-          // primal infeasible - no cuts will violate this term,
+          // pruned - no cuts will violate the optimal solution
           // so just make its cut to where it won't be chosen
           std::fill(a[probIdx][cutIdx][termIdx].begin(), a[probIdx][cutIdx][termIdx].end(), -1e50);
           b[probIdx][cutIdx][termIdx] = 1e50;
@@ -260,7 +272,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     }
 
     // if we are unsure the status of a solver or all terms were infeasible, move on
-    if (!feasibleTermSolver) {
+    if (!unprunedTermSolver) {
       continue;
     }
 
@@ -297,7 +309,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
  * interface and resolving the PRLP
  */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
-    OsiClpSolverInterface * si, RunData& data){
+    OsiClpSolverInterface * si, RunData& data, bool tighten){
 
   // make sure we have at least one disjunction already existing
   verify(disjunctions.size() > 0, "We need previous disjunctions for this method");
@@ -314,7 +326,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
   // create vpcs for each disjunction
   for (const auto& disj : disjunctions){
 
-    // parameterize the disjunction
+    // parameterize the disjunction  todo: give bound which will drop all prunable terms
     PartialBBDisjunction param_disj = disj.get()->parameterize(si);
 
     // create the cut generator and generate cuts

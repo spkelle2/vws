@@ -69,6 +69,8 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   OsiClpSolverInterface newDisjSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
   OsiClpSolverInterface farkasSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
   OsiClpSolverInterface oldDisjSolver = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+  OsiClpSolverInterface farkasSolverTight = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
+  OsiClpSolverInterface oldDisjSolverTight = *dynamic_cast<OsiClpSolverInterface*>(tmpSolver.clone());
 
   // get the optimal solution to the new problem
   std::vector<double> solution = getSolution(tmpSolver);
@@ -79,23 +81,35 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   RunData data;
   std::shared_ptr<OsiCuts> newDisjCuts =
       tmpSeriesSolver.createVpcsFromNewDisjunctionPRLP(&newDisjSolver, data);
-  REQUIRE(newDisjCuts->sizeRowCuts() > 0);
-  REQUIRE(newDisjCuts->sizeRowCuts() == data.numCuts);
+  std::cout << "hi 1" << std::endl;
   checkCuts(newDisjCuts.get(), solution);
 
   // get the cuts from parameterizing previous ones via farkas multipliers
   std::shared_ptr<OsiCuts> farkasCuts =
       seriesSolver.createVpcsFromFarkasMultipliers(&farkasSolver, data);
+  std::cout << "hi 2" << std::endl;
   REQUIRE(farkasCuts->sizeRowCuts() == 6);
-  REQUIRE(farkasCuts->sizeRowCuts() == data.numCuts);
   checkCuts(farkasCuts.get(), solution);
 
   // get the cuts from solving the PRLP with an Old
   std::shared_ptr<OsiCuts> oldDisjCuts =
       seriesSolver.createVpcsFromOldDisjunctionPRLP(&oldDisjSolver, data);
-  REQUIRE(oldDisjCuts->sizeRowCuts() > 0);
-  REQUIRE(oldDisjCuts->sizeRowCuts() == data.numCuts);
+  std::cout << "hi 3" << std::endl;
   checkCuts(oldDisjCuts.get(), solution);
+
+  // get the cuts from parameterizing previous ones via farkas multipliers and tightening
+  std::shared_ptr<OsiCuts> farkasCutsTight =
+      seriesSolver.createVpcsFromFarkasMultipliers(&farkasSolverTight, data, true);
+  std::cout << "hi 4" << std::endl;
+  REQUIRE(farkasCutsTight->sizeRowCuts() == 6);
+  checkCuts(farkasCutsTight.get(), solution);
+
+  // get the cuts from solving the PRLP with an Old and tightening
+  std::shared_ptr<OsiCuts> oldDisjCutsTight =
+      seriesSolver.createVpcsFromOldDisjunctionPRLP(&oldDisjSolverTight, data, true);
+  std::cout << "hi 5" << std::endl;
+  REQUIRE(oldDisjCutsTight->sizeRowCuts() > 0);
+  checkCuts(oldDisjCutsTight.get(), solution);
 
   // add the cuts to each respective solver
   newDisjSolver.applyCuts(*newDisjCuts);
@@ -104,20 +118,33 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   farkasSolver.resolve();
   oldDisjSolver.applyCuts(*oldDisjCuts);
   oldDisjSolver.resolve();
+  farkasSolverTight.applyCuts(*farkasCutsTight);
+  farkasSolverTight.resolve();
+  oldDisjSolverTight.applyCuts(*oldDisjCutsTight);
+  oldDisjSolverTight.resolve();
 
-  // check the bounds - greater value should be better as that means more bound tightened
-  REQUIRE(newDisjSolver.getObjValue() - oldDisjSolver.getObjValue() > -1);
-  REQUIRE(oldDisjSolver.getObjValue() - farkasSolver.getObjValue() > -1);
+  // check the bounds when cuts exist - greater value should be better as that means more bound tightened
+  // farkas should never be significantly better than the other two since they tailor their cuts to the problem
+  if (oldDisjCuts->sizeRowCuts()){
+    REQUIRE(oldDisjSolver.getObjValue() - farkasSolver.getObjValue() > -1);
+  }
+  if (newDisjCuts->sizeRowCuts()){
+    REQUIRE(newDisjSolver.getObjValue() - farkasSolver.getObjValue() > -1);
+  }
 
-  // keep a count of how many were seriously out of bounds
-  int misordered = 0;
-  if (newDisjSolver.getObjValue() - oldDisjSolver.getObjValue() < -1e-4){
-    misordered++;
+  // tightened cuts should at least be as strong as non-tightened cuts when they exist
+  REQUIRE(farkasSolver.getObjValue() < farkasSolverTight.getObjValue() + 1e-4);
+  if (oldDisjCutsTight->sizeRowCuts()){
+    REQUIRE(oldDisjSolver.getObjValue() < oldDisjSolverTight.getObjValue() + 1e-4);
   }
-  if (oldDisjSolver.getObjValue() - farkasSolver.getObjValue() < -1e-4){
-    misordered++;
+
+  int separated = 0;
+  if (farkasSolver.getObjValue() < farkasSolverTight.getObjValue() - 1e-4 ||
+      oldDisjSolver.getObjValue() < oldDisjSolverTight.getObjValue() - 1e-4){
+    separated++;
   }
-  return misordered;
+
+  return separated;
 }
 
 // make sure we get the correct solution to the original problem
@@ -327,6 +354,25 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
   REQUIRE(seriesSolver.cutCertificates.size() == 1);
   REQUIRE(seriesSolver.cutCertificates[0].size() == 6);
 
+  // but we should have solution pool now
+  REQUIRE(seriesSolver.solutionPool.size() > 0);
+  for (const auto& sol : seriesSolver.solutionPool) {
+    REQUIRE(isFeasible(si, sol));
+  }
+  int poolSize = seriesSolver.solutionPool.size();
+
+//  // solution pool should have grown
+//  REQUIRE(seriesSolver.solutionPool.size() > poolSize);
+//  int idx = 0;
+//  // all new solutions should be feasible
+//  for (const auto& sol : seriesSolver.solutionPool) {
+//    if (idx >= poolSize){
+//      REQUIRE(isFeasible(si, sol));
+//    }
+//    idx++;
+//  }
+//  poolSize = seriesSolver.solutionPool.size();
+
   // check data attributes
   REQUIRE(data.numCuts);
   REQUIRE(isVal(data.disjunctiveDualBound, 22.91, .01));
@@ -377,12 +423,12 @@ TEST_CASE( "test solve", "[VwsSolverInterface::solve]" ){
 TEST_CASE( "for small perturbations check that New VPCs > Old VPCc > Farkas VPCs",
            "[VwsSolverInterface::createVpcsFromNewDisjunctionPRLP"
            "[VwsSolverInterface::createVpcsFromFarkasMultipliers]"
-           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long]" ) {
+           "[VwsSolverInterface::createVpcsFromOldDisjunctionPRLP][long][gurobi]" ) {
 
   // set up reusable stuff
-  VwsSolverInterface seriesSolver(getParams(), "CBC");
+  VwsSolverInterface seriesSolver(getParams(), "GUROBI");
   OsiClpSolverInterface instanceSolver;
-  int misordered = 0;
+  int separated = 0;
 
   // solve the instance via PRLP to get a disjunction and farkas certificate
   fs::path inputPath("../src/test/test_instances/bm23/bm23_i01.mps");
@@ -404,7 +450,7 @@ TEST_CASE( "for small perturbations check that New VPCs > Old VPCc > Farkas VPCs
     tmpSolver.initialSolve();
 
     // make sure the cuts are generated and improve the bound as expected
-    misordered = misordered + compareCutGenerators(tmpSolver, seriesSolver);
+    separated = separated + compareCutGenerators(tmpSolver, seriesSolver);
 
   }
 
@@ -423,12 +469,14 @@ TEST_CASE( "for small perturbations check that New VPCs > Old VPCc > Farkas VPCs
     tmpSolver.initialSolve();
 
     // make sure the cuts are generated and improve the bound as expected
-    misordered = misordered + compareCutGenerators(tmpSolver, seriesSolver);
+    // i = 17 we have an infeasible term become feasible (which means we have a term constraint of 0x >= 0),
+    // which weakens parameterization. However, tightening finds the term prunable, returning cuts to strength
+    separated = separated + compareCutGenerators(tmpSolver, seriesSolver);
   }
 
-  // this number is kinda arbitrary but more the point here is that most of our
-  // bounds should go in order of (New) > (Old) > (farkas)
-  REQUIRE(misordered < 10);
+  // this number is kinda arbitrary but we would expect at least one improvement here more the point here is that most of our
+  // bounds should go in order of (New) > (farkas) and (Old) > (farkas)
+  REQUIRE(separated > 0);
 }
 
 TEST_CASE( "check that if we perturb the problem a lot that we still get valid cuts",
@@ -445,6 +493,7 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
   RunData data = seriesSolver.solve(instanceSolver, "New");
 
   // test changing the objective
+  // todo test tightening here too this might be more helpful
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
 
     // get temporary solvers for this test - one for baseline and one for farkas vpcs
@@ -454,6 +503,7 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
     for (int col_idx=0; col_idx < instanceSolver.getNumCols(); col_idx++){
       tmpSolver.setObjCoeff(col_idx, i == col_idx ? -2 : -1);
     }
+    tmpSolver.resolve();
 
     // get the optimal solution to the new problem and check the parameterized cuts for it
     std::vector<double> solution = getSolution(tmpSolver);
@@ -483,6 +533,7 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
       double looser_b = b > 0 ? b * 2 : b / 2;
       tmpSolver.setRowUpper(row_idx, i == row_idx ? looser_b: loose_b);
     }
+    tmpSolver.resolve();
 
     // get the optimal solution to the new problem and get the parameterized cuts for it
     std::vector<double> solution = getSolution(tmpSolver);

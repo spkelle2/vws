@@ -135,3 +135,10 @@ void findNonZero(
     std::vector<int>& indices,
     /// [out] nonzero elements
     std::vector<double>& elements);
+
+/** find the primal bound of a solver for a given solution pool */
+double findPrimalBound(
+    /// [in] solver
+    OsiClpSolverInterface * si,
+    /// [in] solution pool
+    const std::set<std::vector<double>> solution_pool);

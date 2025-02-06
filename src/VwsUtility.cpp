@@ -595,3 +595,27 @@ void findNonZero(
     }
   }
 }
+
+/** find the primal bound of a solver for a given solution pool */
+double findPrimalBound(
+    /// [in] solver
+    OsiClpSolverInterface * si,
+    /// [in] solution pool
+    const std::set<std::vector<double>> solution_pool){
+
+  // need to be minimizing
+  ensureMinimizationObjective(si);
+
+  double primal_bound = std::numeric_limits<double>::max();
+  for (const auto & sol : solution_pool){
+    double objective_value = 0.0;
+    // calculate objective value for this solution
+    for (int j = 0; j < si->getNumCols(); j++){
+      objective_value += si->getObjCoefficients()[j] * sol[j];
+    }
+    if (isFeasible(*si, sol) && objective_value < primal_bound){
+      primal_bound = objective_value;
+    }
+  }
+  return primal_bound;
+}
