@@ -45,7 +45,7 @@ VwsSolverInterface::VwsSolverInterface(VPCParametersNamespace::VPCParameters par
 /** Solve a MIP with VPCs added and add the provided eventHandler to the solve */
 RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
                                   const std::string vpcGenerator, double primalBound,
-                                  bool tighten){
+                                  bool tighten_primal, bool tighten_matrix){
 
   // todo: enforce that we have a MIP with same number of variables and constraints
   // todo: enforce that we have a MIP with single sided constraints
@@ -83,9 +83,9 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
                     params.get(VPCParametersNamespace::CUTLIMIT) :
                     -1 * params.get(VPCParametersNamespace::CUTLIMIT) * fractional_int_vars;
   } else if (vpcGenerator == "Old") {
-    disjCuts = createVpcsFromOldDisjunctionPRLP(si, data, tighten);
+    disjCuts = createVpcsFromOldDisjunctionPRLP(si, data, tighten_primal);
   } else if (vpcGenerator == "Farkas") {
-    disjCuts = createVpcsFromFarkasMultipliers(si, data, tighten);
+    disjCuts = createVpcsFromFarkasMultipliers(si, data, tighten_primal, tighten_matrix);
   } else if (vpcGenerator == "None") {
     data.disjunctiveDualBound = si->getObjValue();
   } else {
@@ -183,15 +183,19 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   std::shared_ptr<PartialBBDisjunction> disj =
       std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
 
+  // get the solver for later
+  std::shared_ptr<OsiClpSolverInterface> si_copy = std::make_shared<OsiClpSolverInterface>(*si);
+
   // record the disjunctive metadata
   data.disjunctiveDualBound = disj->best_obj;
   data.actualTerms = disj->num_terms;
   data.infeasibleTerms = disj->num_infeasible_terms;
 
-  // if we have cuts and no solution, save the cut generator and the Farkas multipliers
+  // if we have cuts and no solution, save the cut generator the Farkas multipliers, and the solver
   if (disj->terms.size() > 0 && disjCuts->sizeCuts() > 0 && disj->integer_sol.size() == 0){
     disjunctions.push_back(disj);
     cutCertificates.push_back(getFarkasMultipliers(*si, *disj.get(), *disjCuts));
+    solvers.push_back(si_copy);
     return disjCuts;
   }
   else {
@@ -207,7 +211,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
  *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
  *  main.cpp */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
-    OsiClpSolverInterface * si, RunData& data, bool tighten) {
+    OsiClpSolverInterface * si, RunData& data, bool tighten_primal, bool tighten_matrix){
 
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
@@ -218,7 +222,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   bool unprunedTermSolver;
   
   // get a bound on best know solution if we are tightening
-  double empiricalBound = tighten ? findPrimalBound(si, solutionPool) : 
+  double empiricalBound = tighten_primal ? findPrimalBound(si, solutionPool) :
       std::numeric_limits<double>::max();
 
   // set up vectors of disjunctive cuts
@@ -286,6 +290,16 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
       OsiRowCut cut;
       cut.setRow(indices.size(), indices.data(), elements.data());
       cut.setLb(beta);
+
+      // if the coefficient matrices changed, try tightening the cut
+      if (!sameCoefficientMatrix(si, solvers[probIdx].get()) && tighten_matrix){
+        // check that we get cuts at least as tight as before
+        // check that we get tighter cuts in some instances
+        tightenMatrixPerturbedCut(term_solvers, param_disj, empiricalBound,
+                                  cutIdx, alpha, beta, cut);
+      }
+
+      // add the cut to the disjunctive cuts
       disjCuts->insert(cut);
     }
 
@@ -309,7 +323,7 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
  * interface and resolving the PRLP
  */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromOldDisjunctionPRLP(
-    OsiClpSolverInterface * si, RunData& data, bool tighten){
+    OsiClpSolverInterface * si, RunData& data, bool tighten_primal){
 
   // make sure we have at least one disjunction already existing
   verify(disjunctions.size() > 0, "We need previous disjunctions for this method");
