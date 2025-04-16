@@ -67,7 +67,7 @@ public:
   /** Solve a MIP with VPCs added */
   RunData solve(const OsiClpSolverInterface& instanceSolver, const std::string vpcGenerator,
                 double primalBound=std::numeric_limits<double>::max(),
-                bool tighten_primal=false, bool tighten_matrix=false);
+                bool tighten_disjunction=false, bool tighten_cuts=false);
 
   /** Creates cuts from a PRLP relaxation of the disjunctive terms found from
    *  partially solving the given problem. Simplified from Strengthening's
@@ -79,11 +79,11 @@ public:
    *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
    *  main.cpp */
   std::shared_ptr<OsiCuts> createVpcsFromFarkasMultipliers(
-      OsiClpSolverInterface* si, RunData& data, bool tighten_primal=false, bool tighten_matrix=false);
+      OsiClpSolverInterface* si, RunData& data, bool tighten_disjunction=false, bool tighten_cuts=false);
 
   /// @brief create VPCs by solving each PRLP resulting from applying each disjunction in <disjunctions> to <si>
   std::shared_ptr<OsiCuts> createVpcsFromOldDisjunctionPRLP(
-      OsiClpSolverInterface* si, RunData& data, bool tighten_primal=false);
+      OsiClpSolverInterface* si, RunData& data, bool tighten_disjunction=false);
 
 }; /* VwsSolverInterface */
 
