@@ -43,11 +43,15 @@ VwsSolverInterface::VwsSolverInterface(VPCParametersNamespace::VPCParameters par
 } /* constructor */
 
 /** Solve a MIP with VPCs added and add the provided eventHandler to the solve */
-RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
-                                  const std::string vpcGenerator, double primalBound,
-                                  bool tighten_disjunction, bool tighten_cuts){
+RunData VwsSolverInterface::solve(
+    const OsiClpSolverInterface& instanceSolver, const std::string vpcGenerator,
+    double primalBound, bool tighten_disjunction, bool tighten_matrix_perturbation,
+    bool tighten_infeasible_to_feasible_term, bool tighten_feasible_to_infeasible_basis){
 
-  // todo: enforce that we have a MIP with same number of variables and constraints
+  verify(solvers.size() == 0 || (solvers[0]->getNumCols() == instanceSolver.getNumCols() &&
+                                 solvers[0]->getNumRows() == instanceSolver.getNumRows()),
+         "VwsSolverInterface::solve: problem dimension must stay fixed");
+
   // todo: enforce that we have a MIP with single sided constraints
 
   // create a container to track run stats
@@ -85,7 +89,9 @@ RunData VwsSolverInterface::solve(const OsiClpSolverInterface& instanceSolver,
   } else if (vpcGenerator == "Old") {
     disjCuts = createVpcsFromOldDisjunctionPRLP(si, data, tighten_disjunction);
   } else if (vpcGenerator == "Farkas") {
-    disjCuts = createVpcsFromFarkasMultipliers(si, data, tighten_disjunction, tighten_cuts);
+    disjCuts = createVpcsFromFarkasMultipliers(
+        si, data, tighten_disjunction, tighten_matrix_perturbation,
+        tighten_infeasible_to_feasible_term, tighten_feasible_to_infeasible_basis);
   } else if (vpcGenerator == "None") {
     data.disjunctiveDualBound = si->getObjValue();
   } else {
@@ -211,7 +217,9 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
  *  and Farkas multipliers applied to the given solver. Borrowed from Strengthening's
  *  main.cpp */
 std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
-    OsiClpSolverInterface * si, RunData& data, bool tighten_disjunction, bool tighten_cuts){
+    OsiClpSolverInterface * si, RunData& data, bool tighten_disjunction,
+    bool tighten_matrix_perturbation, bool tighten_infeasible_to_feasible_term,
+    bool tighten_feasible_to_infeasible_basis){
 
   verify(cutCertificates.size() > 0, "No certificates to create disjunctive cuts");
 
@@ -304,7 +312,8 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
 
       // if we want to try tightening the cut for changes in coefficient matrix or feasibility status
       // (assuming we find an initial cut for the feasible terms)
-      if (tighten_cuts && term_exists){
+      bool tighten_cuts = tighten_matrix_perturbation || tighten_infeasible_to_feasible_term || tighten_feasible_to_infeasible_basis;
+      if (term_exists && tighten_cuts){
 
         // get an initial parametric disjunctive cut (all tightened cuts will be parallel to this)
         std::vector<double> alpha_feasible = elementWiseMax(a_feasible);
@@ -327,10 +336,16 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
             continue;
           }
 
-          // move on if the coefficient matrix didn't change, we were initially feasible
-          // and the basis stayed feasible in the parameterized solver
-          if (disjunctions[probIdx].get()->terms[termIdx].is_feasible &&
-              sameCoefficientMatrix(solvers[probIdx].get(), si) && original_basis_feasible[termIdx]){
+          // move on if the coefficient matrix didn't change, the term was originally feasible
+          // and the basis after perturbation stayed feasible
+          bool need_matrix_tightening = !sameCoefficientMatrix(solvers[probIdx].get(), si)
+              && tighten_matrix_perturbation;
+          bool need_infeasible_term_tightening = !disjunctions[probIdx].get()->terms[termIdx].is_feasible
+              && tighten_infeasible_to_feasible_term;
+          bool need_infeasible_basis_tightening = !original_basis_feasible[termIdx]
+              && tighten_feasible_to_infeasible_basis;
+          if (!(need_matrix_tightening || need_infeasible_term_tightening ||
+                need_infeasible_basis_tightening)){
             continue;
           }
 

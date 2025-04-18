@@ -581,7 +581,9 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
   REQUIRE(separated > 0);
 }
 
-int tighteningHasEffect(fs::path inputFile, VwsSolverInterface& seriesSolver){
+int tighteningHasEffect(fs::path inputFile, VwsSolverInterface& seriesSolver,
+                        bool tighten_matrix_perturbation, bool tighten_infeasible_to_feasible_term,
+                        bool tighten_feasible_to_infeasible_basis){
   // set up cut generation for each problem
   OsiClpSolverInterface tmp_solver;
   tmp_solver.readMps(inputFile.c_str(), true, false);
@@ -590,9 +592,11 @@ int tighteningHasEffect(fs::path inputFile, VwsSolverInterface& seriesSolver){
 
   // create untightened and tightening matrix perturbed cuts
   std::shared_ptr<OsiCuts> disjCuts =
-      seriesSolver.createVpcsFromFarkasMultipliers(&tmp_solver, tmp_data, false, false);
+      seriesSolver.createVpcsFromFarkasMultipliers(&tmp_solver, tmp_data);
   std::shared_ptr<OsiCuts> disjCutsTight =
-      seriesSolver.createVpcsFromFarkasMultipliers(&tmp_solver, tmp_data, false, true);
+      seriesSolver.createVpcsFromFarkasMultipliers(
+          &tmp_solver, tmp_data, false, tighten_matrix_perturbation,
+          tighten_infeasible_to_feasible_term, tighten_feasible_to_infeasible_basis);
 
   // make sure the cuts are vaild
   checkCuts(disjCuts.get(), getSolution(tmp_solver));
@@ -646,15 +650,15 @@ TEST_CASE( "test matrix tightening", "[VwsSolverInterface::createVpcsFromFarkasM
 
   // iterate over the rest of the files to check to make sure cuts tighten as expected
   int improved = 0;
-  for (int i = 0; i < inputFiles.size(); i++){
-    improved = improved + tighteningHasEffect(inputFiles[i], seriesSolver);
+  for (int i = 1; i < inputFiles.size(); i++){
+    improved = improved + tighteningHasEffect(inputFiles[i], seriesSolver, true, false, false);
   }
 
   // we should have at least one instance for which we have decent improvements
   REQUIRE(improved > 0);
 }
 
-TEST_CASE( "test infeasibility tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][infeasibilityTightening]" ){
+TEST_CASE( "test term infeasibility tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][infeasibleTermTightening]" ){
 
   // read in and then sort alphabetically all the mps files in the test_instances folder
   fs::path inputFolder("../src/test/test_instances/rhs_1");
@@ -684,8 +688,46 @@ TEST_CASE( "test infeasibility tightening", "[VwsSolverInterface::createVpcsFrom
 
   // iterate over the rest of the files to check to make sure cuts tighten as expected
   int improved = 0;
-  for (int i = 0; i < inputFiles.size(); i++){
-    improved = improved + tighteningHasEffect(inputFiles[i], seriesSolver);
+  for (int i = 1; i < inputFiles.size(); i++){
+    improved = improved + tighteningHasEffect(inputFiles[i], seriesSolver, false, true, false);
+  }
+
+  // we should have at least one instance for which we have decent improvements
+  REQUIRE(improved > 0);
+}
+
+TEST_CASE( "test basis infeasibility tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][infeasibleBasisTightening]" ){
+
+  // read in and then sort alphabetically all the mps files in the test_instances folder
+  fs::path inputFolder("../src/test/test_instances/rhs_3");
+  std::vector<fs::path> inputFiles;
+  for (const auto& entry : fs::directory_iterator(inputFolder)){
+    if (entry.path().extension() == ".mps"){
+      inputFiles.push_back(entry.path());
+    }
+  }
+  std::sort(inputFiles.begin(), inputFiles.end());
+
+  // create a series solver to track future cut generation
+  VwsSolverInterface seriesSolver(getParams(), "CBC");
+
+  // solve the original problem
+  OsiClpSolverInterface si;
+  si.readMps(inputFiles[0].c_str(), true, false);
+  si.initialSolve();
+
+  // solve the instance making disjunctive cuts via PRLP to get a disjunction and farkas certificate
+  RunData data = seriesSolver.solve(si, "New");
+
+  // check the event handler
+  check_bm23_data(data);
+
+  std::cout << "\n\n\n\n\n\n" << std::endl;
+
+  // iterate over the rest of the files to check to make sure cuts tighten as expected
+  int improved = 0;
+  for (int i = 1; i < inputFiles.size(); i++){
+    improved = improved + tighteningHasEffect(inputFiles[i], seriesSolver, false, false, true);
   }
 
   // we should have at least one instance for which we have decent improvements
