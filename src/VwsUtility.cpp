@@ -735,10 +735,10 @@ bool isFeasible(const OsiSolverInterface* solver, const CoinWarmStartBasis* basi
   tmp_solver->resolve();
 
   // save the solution
-  std::vector<double> x(solver->getColSolution(), solver->getColSolution() + solver->getNumCols());
+  std::vector<double> x(tmp_solver->getColSolution(), tmp_solver->getColSolution() + tmp_solver->getNumCols());
 
   // check if it is feasible
-  return isFeasible(*solver, x, true);
+  return isFeasible(*tmp_solver, x, true);
 
 //  std::vector<int> rows, cols, row_bounds, col_bounds;
 //  for (int var = 0; var < solver->getNumCols() + solver->getNumRows(); var++) {
