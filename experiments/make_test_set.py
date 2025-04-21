@@ -44,7 +44,7 @@ def main(instances_fldr, remote: bool = False, samples=3):
                 subprocess.call(
                     ['qsub', '-V', '-q', 'mediumlong', '-l', f'ncpus=1,mem={mem}gb,vmem={mem}gb,pmem={mem}gb,walltime=23:59:00',
                      '-v', args, '-e', f'outfiles/{instance_name}_{p}.err', '-o', f'outfiles/{instance_name}_{p}.out',
-                     '-N', instance_name, 'submit_creation.pbs']
+                     '-N', f'{instance_name}_{p}', 'submit_creation.pbs']
                 )
             else:
                 # run locally
