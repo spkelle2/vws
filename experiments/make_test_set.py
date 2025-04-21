@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 
-def main(instances_fldr, remote: bool = True, samples=3):
+def main(instances_fldr, remote: bool = False, samples=3):
     """This function creates a test set of instances for the experiments.
 
     :param instances_fldr: the name of the folder in the instances directory
@@ -36,7 +36,7 @@ def main(instances_fldr, remote: bool = True, samples=3):
         # get the memory required for this instance
         mem = int(mem_df.loc[instance_file, 'memory']) if instance_file in mem_df.index else 4
 
-        for p in [0, 2, 4]:
+        for p in [2]:
             jobs_submitted += 1
             if remote:
                 # submit the job to the cluster

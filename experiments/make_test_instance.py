@@ -191,8 +191,7 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
     if extension != '.mps':
         return
     # make a directory to hold the series for this instance if it doesn't exist
-    if not os.path.exists(perturbed_instance_dir):
-        os.mkdir(perturbed_instance_dir)
+    os.makedirs(perturbed_instance_dir, exist_ok=True)
 
     # read in the instance
     base_mdl = gp.read(instance_pth)
