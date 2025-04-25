@@ -663,8 +663,10 @@ double findPrimalBound(
   return primal_bound;
 }
 
-/** check if two solvers have the same coefficient matrix */
-bool sameCoefficientMatrix(const OsiClpSolverInterface* solver1, const OsiClpSolverInterface* solver2) {
+/** check if two solvers have the same coefficient matrix, considering only rows
+ * with nonzero multipliers if provided */
+bool sameCoefficientMatrix(const OsiClpSolverInterface* solver1, const OsiClpSolverInterface* solver2,
+                           const std::vector<double>* multipliers) {
   // Check for null pointers
   if (!solver1 || !solver2) {
     std::cerr << "Error: One or both solver pointers are null." << std::endl;
@@ -687,6 +689,12 @@ bool sameCoefficientMatrix(const OsiClpSolverInterface* solver1, const OsiClpSol
     return false;
   }
 
+  // if we match dimensions and supplied multipliers, make sure multipliers are good too
+  // intended usage here is for the two base instances but multipliers are for each disjunctive term
+  // which should have more constraints than the base instances
+  verify(!multipliers || (matrix1->getNumRows() + matrix1->getNumCols() <= multipliers->size()),
+         "The number of multipliers should be at least the number of rows and columns in each matrix.");
+
   // Compare individual nonzero entries
   const int* rowStart1 = matrix1->getVectorStarts();
   const int* rowStart2 = matrix2->getVectorStarts();
@@ -698,6 +706,12 @@ bool sameCoefficientMatrix(const OsiClpSolverInterface* solver1, const OsiClpSol
   const double* elements2 = matrix2->getElements();
 
   for (int row = 0; row < matrix1->getNumRows(); ++row) {
+
+    // skip rows that don't have an effect on parameterizing the cut
+    if (multipliers && isZero(multipliers->at(row))) {
+      continue;
+    }
+
     if (rowLength1[row] != rowLength2[row]) {
       return false; // Different number of nonzeros in a row
     }
@@ -739,58 +753,25 @@ bool isFeasible(const OsiSolverInterface* solver, const CoinWarmStartBasis* basi
 
   // check if it is feasible
   return isFeasible(*tmp_solver, x, true);
-
-//  std::vector<int> rows, cols, row_bounds, col_bounds;
-//  for (int var = 0; var < solver->getNumCols() + solver->getNumRows(); var++) {
-//    if (var < solver->getNumCols()){
-//      if (basis->getStructStatus(var) != CoinWarmStartBasis::basic){
-//        // decision variable tight at bound => active root variable bound constraint
-//        cols.push_back(var);
-//        if (basis->getStructStatus(var) == CoinWarmStartBasis::atLowerBound) {
-//          col_bounds.push_back(solver->getColLower()[var]);
-//        } else if (basis->getStructStatus(var) == CoinWarmStartBasis::atUpperBound) {
-//          col_bounds.push_back(solver->getColUpper()[var]);
-//        }
-//      }
-//    } else {
-//      if (basis->getArtifStatus(var - solver->getNumCols()) != CoinWarmStartBasis::basic){
-//        // slack variable tight at bound means active root or disjunctive (i.e. tightened variable) constraint
-//        rows.push_back(var - solver->getNumCols());
-//
-//        if (basis->getArtifStatus(var - solver->getNumCols()) == CoinWarmStartBasis::atLowerBound) {
-//          row_bounds.push_back(solver->getRowLower()[var - solver->getNumCols()]);
-//        } else if (basis->getArtifStatus(var - solver->getNumCols()) == CoinWarmStartBasis::atUpperBound) {
-//          row_bounds.push_back(solver->getRowUpper()[var - solver->getNumCols()]);
-//        }
-//      }
-//    }
-//  }
-//  verify(cols.size() + rows.size() == solver->getNumCols(),
-//         "nonbasis should have same number of elements as there are decision variables");
-//
-//  // if we had a nonbasic variable not at a bound, I'm not sure how to check for
-//  // feasibility, so just give up :/
-//  if (rows.size() != row_bounds.size() || cols.size() != col_bounds.size()) {
-//    return -1;
-//  }
-//
-//  // Get active constraints as a matrix - constraints then variable bounds
-//  Eigen::SparseMatrix<double,Eigen::RowMajor> A;
-//  createEigenMatrix(A, solver, rows, cols);
-//  assert(A.rows() == solver->getNumCols());
-//
-//  // collect the bounds - constraints then variables
-//  Eigen::VectorXd b(solver->getNumCols());
-//  b.setZero();
-//  for (int tmp_ind = 0; tmp_ind < A.rows(); tmp_ind++) {
-//    if (tmp_ind < rows.size()) {
-//      b(tmp_ind) = row_bounds[tmp_ind];
-//    } else {
-//      b(tmp_ind) = col_bounds[tmp_ind - rows.size()];
-//    }
-//  }
-//
-//  // find x satisfying Ax = b
-//  Eigen::VectorXd x(solver->getNumCols());
-//  solveLinearSystem(x, A, b);
 }
+
+/** check if any element in a vector is true */
+bool any(std::vector<bool> vec) {
+  for (bool b : vec) {
+    if (b) {
+      return true;
+    }
+  }
+  return false;
+} /* any */
+
+/** check if any index evaluates to true for both vectors */
+bool anyBothTrue(std::vector<bool> vec1, std::vector<bool> vec2) {
+  verify(vec1.size() == vec2.size(), "The two vectors must be the same size.");
+  for (int i = 0; i < vec1.size(); i++) {
+    if (vec1[i] && vec2[i]) {
+      return true;
+    }
+  }
+  return false;
+} /* any */

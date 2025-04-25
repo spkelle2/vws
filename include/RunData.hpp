@@ -104,8 +104,29 @@ public:
   /** the number of terms that went from feasible to infeasible */
   int feasibleToInfeasibleTerms;
 
-  /** the number of terms that went from infeasible to feasible */
+  /** the number of terms going from infeasible to feasible */
   int infeasibleToFeasibleTerms;
+
+  /** the number of initially feasible terms who remain feasible but bases were infeasible */
+  int termRemainsFeasibleBasisInfeasible;
+
+  /** the number of parametric disjunctive cuts that had their coefficients changed */
+  int cutsChangedCoefficients;
+
+  /** the number of dropped terms from the disjunction */
+  int feasibleTermsPrunedByBound;
+
+  /** whether to tighten disjunctions by dropping prunable terms */
+  bool tighten_disjunction;
+
+  /** whether to tighten parametric disjunctive cuts for coefficient matrix perturbations */
+  bool tighten_matrix_perturbation;
+
+  /** whether to tighten parametric disjunctive cuts for infeasible to feasible terms */
+  bool tighten_infeasible_to_feasible_term;
+
+  /** whether to tighten parametric disjunctive cuts for feasible to infeasible bases */
+  bool tighten_feasible_to_infeasible_basis;
 
   /** constructor (default) */
   RunData();

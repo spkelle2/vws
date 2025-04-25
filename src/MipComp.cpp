@@ -34,8 +34,14 @@ namespace fs = ghc::filesystem;
  * filePath is a .test file and is located in same directory structure as MIPcc repo. */
 MipComp::MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
                  std::string vpcGenerator, int terms, std::string mipSolver,
-                 bool providePrimalBound, int seedIndex) :
-  csvPath(csvPathStr), vpcGenerator(vpcGenerator), mipSolver(mipSolver), seedIndex(seedIndex) {
+                 bool providePrimalBound, int seedIndex, bool tighten_disjunction,
+                 bool tighten_matrix_perturbation, bool tighten_infeasible_to_feasible_term,
+                 bool tighten_feasible_to_infeasible_basis) :
+  csvPath(csvPathStr), vpcGenerator(vpcGenerator), mipSolver(mipSolver),
+  seedIndex(seedIndex), tighten_disjunction(tighten_disjunction),
+  tighten_matrix_perturbation(tighten_matrix_perturbation),
+  tighten_infeasible_to_feasible_term(tighten_infeasible_to_feasible_term),
+  tighten_feasible_to_infeasible_basis(tighten_feasible_to_infeasible_basis) {
 
   // containers for sorting input files and bounds
   std::vector<fs::path> inputFiles;
@@ -147,7 +153,10 @@ void MipComp::solveSeries() {
         std::numeric_limits<double>::max();
     RunData data;
     try {
-       data = seriesSolver.solve(instanceSolver, genType, primalBound);
+       data = seriesSolver.solve(
+           instanceSolver, genType, primalBound, tighten_disjunction,
+           tighten_matrix_perturbation, tighten_infeasible_to_feasible_term,
+           tighten_feasible_to_infeasible_basis);
     } catch (const std::runtime_error& e) {
 
       // skip this experiment if we get an error other than dot product difference

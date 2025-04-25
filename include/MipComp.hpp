@@ -60,10 +60,24 @@ public:
   /** index of the random seed */
   int seedIndex;
 
+  /** whether to tighten disjunctions by dropping prunable terms */
+  bool tighten_disjunction;
+
+  /** whether to tighten parametric disjunctive cuts for coefficient matrix perturbations */
+  bool tighten_matrix_perturbation;
+
+  /** whether to tighten parametric disjunctive cuts for infeasible to feasible terms */
+  bool tighten_infeasible_to_feasible_term;
+
+  /** whether to tighten parametric disjunctive cuts for feasible to infeasible bases */
+  bool tighten_feasible_to_infeasible_basis;
+
   /** Constructor. Initializes attributes based on provided file. */
   MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
           std::string vpcGenerator, int terms, std::string mipSolver,
-          bool providePrimalBound, int seedIndex);
+          bool providePrimalBound, int seedIndex, bool tighten_disjunction,
+          bool tighten_matrix_perturbation, bool tighten_infeasible_to_feasible_term,
+          bool tighten_feasible_to_infeasible_basis);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

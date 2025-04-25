@@ -489,7 +489,6 @@ TEST_CASE( "check that if we perturb the problem a lot that we still get valid c
   RunData data = seriesSolver.solve(instanceSolver, "New");
 
   // test changing the objective
-  // todo test tightening here too this might be more helpful
   for (int i = 0; i < instanceSolver.getNumCols(); i++){
 
     // get temporary solvers for this test - one for baseline and one for farkas vpcs
@@ -618,7 +617,7 @@ int tighteningHasEffect(OsiClpSolverInterface& tmp_solver, VwsSolverInterface& s
   }
 }
 
-TEST_CASE( "test matrix tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][matrixTightening]" ){
+TEST_CASE( "test matrix tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][matrixTightening][tighten]" ){
 
   // read in and then sort alphabetically all the mps files in the test_instances folder
   fs::path inputFolder("../src/test/test_instances/matrix_1");
@@ -658,7 +657,7 @@ TEST_CASE( "test matrix tightening", "[VwsSolverInterface::createVpcsFromFarkasM
   REQUIRE(improved > 0);
 }
 
-TEST_CASE( "test term infeasibility tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][infeasibleTermTightening]" ){
+TEST_CASE( "test term infeasibility tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][infeasibleTermTightening][tighten]" ){
 
   // read in and then sort alphabetically all the mps files in the test_instances folder
   fs::path inputFolder("../src/test/test_instances/rhs_1");

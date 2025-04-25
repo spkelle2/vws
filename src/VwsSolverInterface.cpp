@@ -52,8 +52,6 @@ RunData VwsSolverInterface::solve(
                                  solvers[0]->getNumRows() == instanceSolver.getNumRows()),
          "VwsSolverInterface::solve: problem dimension must stay fixed");
 
-  // todo: enforce that we have a MIP with single sided constraints
-
   // create a container to track run stats
   RunData data;
 
@@ -229,9 +227,15 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
   bool unprunedTermSolver;
   
-  // get a bound on best know solution if we are tightening
+  // get a bound on best known solution if we are tightening
   double empiricalBound = tighten_disjunction ? findPrimalBound(si, solutionPool) :
       std::numeric_limits<double>::max();
+
+  // record parameters
+  data.tighten_disjunction = tighten_disjunction;
+  data.tighten_matrix_perturbation = tighten_matrix_perturbation;
+  data.tighten_feasible_to_infeasible_basis = tighten_feasible_to_infeasible_basis;
+  data.tighten_infeasible_to_feasible_term = tighten_infeasible_to_feasible_term;
 
   // set up vectors of disjunctive cuts
   // [problemIdx][cutIdx][termIdx][variableIdx]
@@ -241,11 +245,82 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
   a.resize(cutCertificates.size());
   b.resize(cutCertificates.size());
   for (int probIdx=0; probIdx < cutCertificates.size(); probIdx++){
+
+    // get the original solver parameterized for each term of this problem
+    std::vector<std::unique_ptr<OsiSolverInterface>> term_solvers;
+    PartialBBDisjunction param_disj = disjunctions[probIdx].get()->parameterize(si, &term_solvers);
+
+    // set up containers for filters we'll use throughout
+    // [termIdx] if an originally infeasible term becomes feasible
+    std::vector<bool> infeasible_term_becomes_feasible;
+    // [termIdx] if an initially feasible term remains feasible but initial basis becomes infeasible
+    std::vector<bool> term_remains_feasible_basis_infeasible;
+    // [termIdx] if the original basis remains feasible for this term after parameterization
+    std::vector<bool> original_basis_feasible;
+    // [cutIdx][termIdx] if cut coefficients will change with parameterization
+    std::vector<std::vector<bool>> cuts_changed_coefficients(
+        cutCertificates[probIdx].size(), std::vector<bool>(param_disj.num_terms, false));
+    // [termIdx] if we keep termIdx instead of pruning it
+    std::vector<bool> keep;
+
+
+    // fill out these containers and do data tracking
+    for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
+
+      // get pruning information
+      // check if we prune this term - infeasible or won't improve primal bound
+      keep.push_back(param_disj.terms[termIdx].is_feasible &&
+                     !lessThanVal(empiricalBound, param_disj.terms[termIdx].obj));
+      // track terms that were feasible but just pruned by bound
+      if (param_disj.terms[termIdx].is_feasible && !keep[termIdx]){
+        data.feasibleTermsPrunedByBound++;
+      }
+
+      // check if we changed feasibility states for this term by perturbing
+      infeasible_term_becomes_feasible.push_back(
+          !disjunctions[probIdx].get()->terms[termIdx].is_feasible &&
+          param_disj.terms[termIdx].is_feasible);
+      if (infeasible_term_becomes_feasible[termIdx] && keep[termIdx]){
+        data.infeasibleToFeasibleTerms++;  // only worried about terms remaining after pruning
+      }
+      if (!param_disj.terms[termIdx].is_feasible){
+        data.infeasibleTerms++;
+        if (disjunctions[probIdx].get()->terms[termIdx].is_feasible){
+          data.feasibleToInfeasibleTerms++;
+        }
+      }
+
+      // check if the original basis is feasible for the new solver
+      OsiSolverInterface* termSolver = term_solvers[termIdx].get();
+      const CoinWarmStartBasis* basis_extended =
+          dynamic_cast<const CoinWarmStartBasis*>(disjunctions[probIdx]->terms[termIdx].basis_extended);
+      bool basis_extended_feasible = isFeasible(termSolver, basis_extended);
+      original_basis_feasible.push_back(basis_extended_feasible);
+      term_remains_feasible_basis_infeasible.push_back(
+          disjunctions[probIdx]->terms[termIdx].is_feasible &&
+          param_disj.terms[termIdx].is_feasible && !basis_extended_feasible);
+      if (term_remains_feasible_basis_infeasible[termIdx] && keep[termIdx]) {
+        data.termRemainsFeasibleBasisInfeasible++;  // only worried about terms remaining after pruning
+      }
+
+      // check if term used and coefficients in constraints to be combined for parameterization changed
+      for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+        cuts_changed_coefficients[cutIdx][termIdx] =
+            !sameCoefficientMatrix(solvers[probIdx].get(), si,
+                                   &cutCertificates[probIdx][cutIdx][termIdx]);
+      }
+    }
+
+    // track the number of parametric disjunctive cuts that had their coefficients changed
+    for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
+      if (anyBothTrue(cuts_changed_coefficients[cutIdx], keep)){
+        data.cutsChangedCoefficients++;  // only worried about terms remaining after pruning
+      }
+    }
+
+    // set up cut coefficient storage
     a[probIdx].resize(cutCertificates[probIdx].size());
     b[probIdx].resize(cutCertificates[probIdx].size());
-    std::vector<std::unique_ptr<OsiSolverInterface>> term_solvers;
-    std::vector<bool> original_basis_feasible;
-    PartialBBDisjunction param_disj = disjunctions[probIdx].get()->parameterize(si, &term_solvers);
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++) {
       a[probIdx][cutIdx].resize(param_disj.num_terms);
       b[probIdx][cutIdx].resize(param_disj.num_terms);
@@ -256,27 +331,11 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++) {
       OsiSolverInterface* termSolver = term_solvers[termIdx].get();
 
-      // check if we changed feasibility states for this term by perturbing
-      if (param_disj.terms[termIdx].is_feasible && !disjunctions[probIdx].get()->terms[termIdx].is_feasible){
-        data.infeasibleToFeasibleTerms++;
-      } else if (!param_disj.terms[termIdx].is_feasible){
-        data.infeasibleTerms++;
-        if (disjunctions[probIdx].get()->terms[termIdx].is_feasible){
-          data.feasibleToInfeasibleTerms++;
-        }
-      }
-
-      // check if the original basis is feasible for the new solver
-      const CoinWarmStartBasis* basis_extended =
-          dynamic_cast<const CoinWarmStartBasis*>(disjunctions[probIdx]->terms[termIdx].basis_extended);
-      original_basis_feasible.push_back(isFeasible(termSolver, basis_extended));
-
-      // get the cut for this term
+      // get each cut for this term
       for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
         a[probIdx][cutIdx][termIdx].resize(si->getNumCols());
         // if the term is feasible and isn't safely prunable by bound, get the cut
-        if (param_disj.terms[termIdx].is_feasible &&
-            !lessThanVal(empiricalBound, param_disj.terms[termIdx].obj)){
+        if (keep[termIdx]){
           unprunedTermSolver = true;
           getCutFromCertificate(a[probIdx][cutIdx][termIdx], b[probIdx][cutIdx][termIdx],
                                 cutCertificates[probIdx][cutIdx][termIdx], termSolver);
@@ -297,13 +356,14 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
     // create a valid disjunctive cut given all the valid term cuts
     for (int cutIdx=0; cutIdx < cutCertificates[probIdx].size(); cutIdx++){
 
-      // get copy of this cut for the initially feasible terms with still feasible generating bases
+      // collect the cut coefficients for the unpruned, initially feasible terms
+      // with still feasible generating bases - allows for tightening to occur
       std::vector<std::vector<double>> a_feasible;
       std::vector<double> b_feasible;
       bool term_exists = false;
       for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++){
         if (disjunctions[probIdx].get()->terms[termIdx].is_feasible &&
-            original_basis_feasible[termIdx]){
+            original_basis_feasible[termIdx] && keep[termIdx]){
           a_feasible.push_back(a[probIdx][cutIdx][termIdx]);
           b_feasible.push_back(b[probIdx][cutIdx][termIdx]);
           term_exists = true;
@@ -331,18 +391,17 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
         for (int termIdx=0; termIdx < param_disj.num_terms; termIdx++){
 
           // move on if we can safely prune the term
-          if (!param_disj.terms[termIdx].is_feasible ||
-              lessThanVal(empiricalBound, param_disj.terms[termIdx].obj)){
+          if (!keep[termIdx]){
             continue;
           }
 
           // move on if the coefficient matrix didn't change, the term was originally feasible
           // and the basis after perturbation stayed feasible
-          bool need_matrix_tightening = !sameCoefficientMatrix(solvers[probIdx].get(), si)
+          bool need_matrix_tightening = anyBothTrue(cuts_changed_coefficients[cutIdx], keep)
               && tighten_matrix_perturbation;
-          bool need_infeasible_term_tightening = !disjunctions[probIdx].get()->terms[termIdx].is_feasible
+          bool need_infeasible_term_tightening = infeasible_term_becomes_feasible[termIdx]
               && tighten_infeasible_to_feasible_term;
-          bool need_infeasible_basis_tightening = !original_basis_feasible[termIdx]
+          bool need_infeasible_basis_tightening = term_remains_feasible_basis_infeasible[termIdx]
               && tighten_feasible_to_infeasible_basis;
           if (!(need_matrix_tightening || need_infeasible_term_tightening ||
                 need_infeasible_basis_tightening)){
