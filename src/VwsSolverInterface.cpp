@@ -408,36 +408,46 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromFarkasMultipliers(
             continue;
           }
 
-          // find the supporting basis for this cut and the certificate that
-          // generates the cut from the term solver at the given basis
-          std::vector<double> new_v;
-          getCertificate(new_v, lhs_feasible.getNumElements(), lhs_feasible.getIndices(),
-                         lhs_feasible.getElements(), rhs_feasible, term_solvers[termIdx].get());
+          // we have a candidate for tightening - give it a try
+          try {
 
-          // we already filtered out infeasible terms, so only remaining issue could be numerical
-          // continue if we failed to find a certificate for the cut due to numerical error
-          if (min(new_v) == 0.0 && max(new_v) == 0.0) {
-            continue;
-          }
+            // find the supporting basis for this cut and the certificate that
+            // generates the cut from the term solver at the given basis
+            std::vector<double> new_v;
+            getCertificate(new_v, lhs_feasible.getNumElements(), lhs_feasible.getIndices(),
+                           lhs_feasible.getElements(), rhs_feasible, term_solvers[termIdx].get());
 
-          // get the new rhs
-          std::vector<double> new_a(term_solvers[termIdx]->getNumCols());
-          double new_b = 0.0;
-          getCutFromCertificate(new_a, new_b, new_v, term_solvers[termIdx].get());
-
-          // check the coefs match. should be guarantee at this point, but you never know
-          for (int idx = 0; idx < new_a.size(); idx++){
-            if (!isVal(alpha_feasible[idx], new_a[idx])){
+            // we already filtered out infeasible terms, so only remaining issue could be numerical
+            // continue if we failed to find a certificate for the cut due to numerical error
+            if (min(new_v) == 0.0 && max(new_v) == 0.0) {
               continue;
             }
-          }
 
-          // if cut coefs changed from a[probIdx][cutIdx][termIdx] to alpha_feasible,
-          // then we want to keep the new cut whatever the rhs
-          // if cut coefs didn't change, then rhs will be at least as good as before
-          // tl;dr save the tightened cut
-          a[probIdx][cutIdx][termIdx] = alpha_feasible;
-          b[probIdx][cutIdx][termIdx] = new_b;
+            // get the new rhs
+            std::vector<double> new_a(term_solvers[termIdx]->getNumCols());
+            double new_b = 0.0;
+            getCutFromCertificate(new_a, new_b, new_v, term_solvers[termIdx].get());
+
+            // check the coefs match. should be guarantee at this point, but you never know
+            for (int idx = 0; idx < new_a.size(); idx++){
+              if (!isVal(alpha_feasible[idx], new_a[idx])){
+                continue;
+              }
+            }
+
+            // if cut coefs changed from a[probIdx][cutIdx][termIdx] to alpha_feasible,
+            // then we want to keep the new cut whatever the rhs
+            // if cut coefs didn't change, then rhs will be at least as good as before
+            // tl;dr save the tightened cut
+            a[probIdx][cutIdx][termIdx] = alpha_feasible;
+            b[probIdx][cutIdx][termIdx] = new_b;
+
+          } catch (const std::runtime_error& e) {
+
+            // don't terminate if tightening fails. just give the user the heads up
+            // and move on since we already had a certificate for the term to begin with
+            std::cerr << "warning: cut tightening failed" << std::endl;
+          }
         }
       }
 

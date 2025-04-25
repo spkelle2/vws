@@ -75,9 +75,9 @@ public:
   /** Constructor. Initializes attributes based on provided file. */
   MipComp(std::string inputFolderStr, std::string csvPathStr, double maxRunTime,
           std::string vpcGenerator, int terms, std::string mipSolver,
-          bool providePrimalBound, int seedIndex, bool tighten_disjunction,
-          bool tighten_matrix_perturbation, bool tighten_infeasible_to_feasible_term,
-          bool tighten_feasible_to_infeasible_basis);
+          bool providePrimalBound, int seedIndex, bool tighten_disjunction=false,
+          bool tighten_matrix_perturbation=false, bool tighten_infeasible_to_feasible_term=false,
+          bool tighten_feasible_to_infeasible_basis=false);
 
   /** Solve series of MIP models provided at construction. */
   void solveSeries();

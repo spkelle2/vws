@@ -77,8 +77,8 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                 if not os.path.isdir(os.path.join(input_fldr, instance, perturbation)):
                     continue
 
-                for terms in [4, 16, 64]:
-                    for generator in ["None", "New", "Old", "Farkas"]:
+                for terms in [4, 64]:
+                    for generator in ["None", "New", "Farkas", "All", "NoDisjunction", "NoTerm", "NoMatrix", "NoBasis"]:
 
                         # increment the total number of jobs
                         total_jobs += 1
@@ -102,9 +102,18 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                                 (queue == "mediumlong" and mediumlong_submissions > 2400):
                             continue
 
+                        # set flags
+                        td = generator in ["All", "NoTerm", "NoMatrix", "NoBasis"]
+                        tm = generator in ["All", "NoDisjunction", "NoTerm", "NoBasis"]
+                        tt = generator in ["All", "NoDisjunction", "NoMatrix", "NoBasis"]
+                        tb = generator in ["All", "NoDisjunction", "NoMatrix", "NoTerm"]
+
                         remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
-                            f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)},SEED_INDEX={seed_index}'
+                            f'MIP_SOLVER={mip_solver},PROVIDE_PRIMAL_BOUND={int(provide_primal_bound)},' \
+                            f'SEED_INDEX={seed_index},TIGHTEN_DISJUNCTION={td},' \
+                            f'TIGHTEN_MATRIX_PERTURBATION={tm},TIGHTEN_INFEASIBLE_TERM={tt},' \
+                            f'TIGHTEN_INFEASIBLE_BASIS={tb}'
                         if machine == "coral":
                             # submit the job to the cluster
                             print(f"submitting to queue {queue}")
@@ -127,7 +136,8 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                             # run locally
                             local_args = ["../Release/vws", series_input_fldr, stem + ".csv",
                                           str(max_time), generator, str(terms),
-                                          mip_solver, str(int(provide_primal_bound)), str(seed_index)]
+                                          mip_solver, str(int(provide_primal_bound)), str(seed_index),
+                                          str(td), str(tm), str(tt), str(tb)]
                             print(" ".join(local_args))
                             subprocess.call(local_args)
 
@@ -144,5 +154,6 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
 
 
 if __name__ == '__main__':
-    repeats = 1 if len(sys.argv) < 3 else int(sys.argv[2])
-    run_batch(sys.argv[1], repeats=repeats, mip_solver="GUROBI", machine="coral")
+    # repeats = 1 if len(sys.argv) < 3 else int(sys.argv[2])
+    max_time = 3600 if len(sys.argv) < 3 else int(sys.argv[2])
+    run_batch(sys.argv[1], max_time=max_time, mip_solver="GUROBI", machine="coral")

@@ -52,6 +52,10 @@ TEST_CASE( "Test Simple") {
     REQUIRE( testRunner.seriesSolver.params.get(PARTIAL_BB_KEEP_PRUNED_NODES) == 1 );
     REQUIRE( testRunner.mipSolver == "CBC" );
     REQUIRE( testRunner.seedIndex == 0 );
+    REQUIRE( testRunner.tighten_disjunction == false );
+    REQUIRE( testRunner.tighten_matrix_perturbation == false );
+    REQUIRE( testRunner.tighten_infeasible_to_feasible_term == false );
+    REQUIRE( testRunner.tighten_feasible_to_infeasible_basis == false );
   }
 
   SECTION("MipComp::solveSeries quits if no cuts on first instance"){
@@ -75,7 +79,8 @@ TEST_CASE( "Test Simple") {
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
                   "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([a-zA-Z ]+),"
-                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+)");
+                  "([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),([0-9\\.]+),"
+                  "([0-9\\.]+),([0-9\\.]+),([0-1]),([0-1]),([0-1]),([0-1])");
     std::smatch match;
 
     // the file should exist
@@ -136,7 +141,20 @@ TEST_CASE( "Test Simple") {
         REQUIRE(isVal(std::stoi(match[24].str()), testRunner.runData[lineIndex - 1].feasibleToInfeasibleTerms, 1e-4));
         // infeasibleToFeasibleTerms
         REQUIRE(isVal(std::stoi(match[25].str()), testRunner.runData[lineIndex - 1].infeasibleToFeasibleTerms, 1e-4));
-
+        // termRemainsFeasibleBasisInfeasible
+        REQUIRE(isVal(std::stoi(match[26].str()), testRunner.runData[lineIndex - 1].termRemainsFeasibleBasisInfeasible, 1e-4));
+        // cutsChangedCoefficients
+        REQUIRE(isVal(std::stoi(match[27].str()), testRunner.runData[lineIndex - 1].cutsChangedCoefficients, 1e-4));
+        // feasibleTermsPrunedByBound
+        REQUIRE(isVal(std::stoi(match[28].str()), testRunner.runData[lineIndex - 1].feasibleTermsPrunedByBound, 1e-4));
+        // tighten_disjunction
+        REQUIRE(std::stoi(match[29].str()) == 0);
+        // tighten_matrix_perturbation
+        REQUIRE(std::stoi(match[30].str()) == 0);
+        // tighten_infeasible_to_feasible_term
+        REQUIRE(std::stoi(match[31].str()) == 0);
+        // tighten_feasible_to_infeasible_basis
+        REQUIRE(std::stoi(match[32].str()) == 0);
       }
       lineIndex++;
     }
