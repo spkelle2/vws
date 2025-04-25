@@ -98,8 +98,9 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
   checkCuts(oldDisjCuts.get(), solution);
 
   // get the cuts from parameterizing previous ones via farkas multipliers and tightening
+  RunData data_tight;
   std::shared_ptr<OsiCuts> farkasCutsTight =
-      seriesSolver.createVpcsFromFarkasMultipliers(&farkasSolverTight, data, true);
+      seriesSolver.createVpcsFromFarkasMultipliers(&farkasSolverTight, data_tight, true);
   std::cout << "hi 4" << std::endl;
   REQUIRE(farkasCutsTight->sizeRowCuts() == 6);
   checkCuts(farkasCutsTight.get(), solution);
@@ -140,8 +141,11 @@ int compareCutGenerators(OsiClpSolverInterface tmpSolver, VwsSolverInterface ser
 
   int separated = 0;
   // track when tightened is significantly better than non-tightened
-  if (farkasSolver.getObjValue() < farkasSolverTight.getObjValue() - 1e-4 ||
-      oldDisjSolver.getObjValue() < oldDisjSolverTight.getObjValue() - 1e-4){
+  if (farkasSolver.getObjValue() < farkasSolverTight.getObjValue() - 1e-4){
+    separated++;
+    REQUIRE(data_tight.feasibleTermsPrunedByBound > 0);
+  }
+  if (oldDisjSolver.getObjValue() < oldDisjSolverTight.getObjValue() - 1e-4){
     separated++;
   }
 
@@ -586,14 +590,33 @@ int tighteningHasEffect(OsiClpSolverInterface& tmp_solver, VwsSolverInterface& s
   // set up cut generation for each problem
   tmp_solver.initialSolve();
   RunData tmp_data;
+  RunData tmp_data_tight;
 
   // create untightened and tightened matrix perturbed cuts
   std::shared_ptr<OsiCuts> disjCuts =
       seriesSolver.createVpcsFromFarkasMultipliers(&tmp_solver, tmp_data);
   std::shared_ptr<OsiCuts> disjCutsTight =
       seriesSolver.createVpcsFromFarkasMultipliers(
-          &tmp_solver, tmp_data, false, tighten_matrix_perturbation,
+          &tmp_solver, tmp_data_tight, false, tighten_matrix_perturbation,
           tighten_infeasible_to_feasible_term, tighten_feasible_to_infeasible_basis);
+
+  // check data outputs
+  tmp_data.tighten_disjunction = false;
+  tmp_data.tighten_matrix_perturbation = false;
+  tmp_data.tighten_infeasible_to_feasible_term = false;
+  tmp_data.tighten_feasible_to_infeasible_basis = false;
+  tmp_data_tight.tighten_disjunction = false;
+  tmp_data_tight.tighten_matrix_perturbation = tighten_matrix_perturbation;
+  tmp_data_tight.tighten_infeasible_to_feasible_term = tighten_infeasible_to_feasible_term;
+  tmp_data_tight.tighten_feasible_to_infeasible_basis = tighten_feasible_to_infeasible_basis;
+
+  if (sameCoefficientMatrix(seriesSolver.solvers[0].get(), &tmp_solver)){
+    REQUIRE(tmp_data.cutsChangedCoefficients == 0);
+    REQUIRE(tmp_data_tight.cutsChangedCoefficients == 0);
+  } else {
+    REQUIRE(tmp_data.cutsChangedCoefficients > 0);
+    REQUIRE(tmp_data_tight.cutsChangedCoefficients > 0);
+  }
 
   // make sure the cuts are vaild
   checkCuts(disjCuts.get(), getSolution(tmp_solver));
@@ -611,8 +634,34 @@ int tighteningHasEffect(OsiClpSolverInterface& tmp_solver, VwsSolverInterface& s
 
   // track when we have a significant improvement
   if (tmp_solver.getObjValue() < tight_solver.getObjValue() - 1e-4){
+    // if only infeasible term tightening enabled and we improve, we should have found a term
+    if (!tighten_matrix_perturbation && tighten_infeasible_to_feasible_term &&
+        !tighten_feasible_to_infeasible_basis) {
+      REQUIRE(tmp_data.infeasibleToFeasibleTerms > 0);
+      REQUIRE(tmp_data_tight.infeasibleToFeasibleTerms > 0);
+    }
+    // if exactly both infeasibility tightenings enabled and we don't have an infeasible
+    // term becoming feasible, we should have found a basis that became infeasible
+    if (!tighten_matrix_perturbation && tighten_infeasible_to_feasible_term &&
+        tighten_feasible_to_infeasible_basis && tmp_data.infeasibleToFeasibleTerms == 0) {
+      REQUIRE(tmp_data.termRemainsFeasibleBasisInfeasible > 0);
+    }
+    if (!tighten_matrix_perturbation && tighten_infeasible_to_feasible_term &&
+        tighten_feasible_to_infeasible_basis && tmp_data_tight.infeasibleToFeasibleTerms == 0) {
+      REQUIRE(tmp_data_tight.termRemainsFeasibleBasisInfeasible > 0);
+    }
     return 1;
   } else {
+    // if no improvement but we had term tightening enabled, we should have found no terms
+    if (tighten_infeasible_to_feasible_term) {
+      REQUIRE(tmp_data.infeasibleToFeasibleTerms == 0);
+      REQUIRE(tmp_data_tight.infeasibleToFeasibleTerms == 0);
+    }
+    // if no improvement but we had basis tightening enabled, we should have found no terms
+    if (tighten_feasible_to_infeasible_basis) {
+      REQUIRE(tmp_data.termRemainsFeasibleBasisInfeasible == 0);
+      REQUIRE(tmp_data_tight.termRemainsFeasibleBasisInfeasible == 0);
+    }
     return 0;
   }
 }
