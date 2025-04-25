@@ -654,7 +654,7 @@ TEST_CASE( "test matrix tightening", "[VwsSolverInterface::createVpcsFromFarkasM
   }
 
   // we should have at least one instance for which we have decent improvements
-  REQUIRE(improved > 0);
+  REQUIRE(improved > 0);  // 18
 }
 
 TEST_CASE( "test term infeasibility tightening", "[VwsSolverInterface::createVpcsFromFarkasMultipliers][infeasibleTermTightening][tighten]" ){
@@ -699,6 +699,6 @@ TEST_CASE( "test term infeasibility tightening", "[VwsSolverInterface::createVpc
   }
 
   // we should have at least one instance for which we have decent improvements
-  REQUIRE(improved > 0);
-  REQUIRE(more_improved > improved);
+  REQUIRE(improved > 0);  // 10
+  REQUIRE(more_improved > improved);  // 20
 }
