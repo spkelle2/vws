@@ -103,10 +103,10 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                             continue
 
                         # set flags
-                        td = generator in ["All", "NoTerm", "NoMatrix", "NoBasis"]
-                        tm = generator in ["All", "NoDisjunction", "NoTerm", "NoBasis"]
-                        tt = generator in ["All", "NoDisjunction", "NoMatrix", "NoBasis"]
-                        tb = generator in ["All", "NoDisjunction", "NoMatrix", "NoTerm"]
+                        td = int(generator in ["All", "NoTerm", "NoMatrix", "NoBasis"])
+                        tm = int(generator in ["All", "NoDisjunction", "NoTerm", "NoBasis"])
+                        tt = int(generator in ["All", "NoDisjunction", "NoMatrix", "NoBasis"])
+                        tb = int(generator in ["All", "NoDisjunction", "NoMatrix", "NoTerm"])
 
                         remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
