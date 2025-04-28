@@ -3,46 +3,6 @@ import pandas as pd
 import subprocess
 import sys
 
-todo = ['neos-4650160-yukon_0',
- 'neos-4650160-yukon_2',
- 'ran12x21_0',
- 'ran12x21_2',
- 'neos-4393408-tinui_2',
- 'tr12-30_0',
- 'tr12-30_4',
- 'rout_0',
- 'rout_4',
- 'ic97_tension_0',
- 'ic97_tension_2',
- 'neos-3421095-cinca_2',
- 'misc07_0',
- 'misc07_2',
- 'sp98ir_0',
- 'sp98ir_4',
- 'bienst1_0',
- 'bienst1_2',
- 'neos-860300_0',
- 'neos-860300_2',
- 'mtest4ma_0',
- 'mtest4ma_2',
- 'neos-1445743_2',
- 'neos-1445743_4',
- 'neos-5051588-culgoa_2',
- 'arki001_0',
- 'arki001_4',
- 'gsvm2rl3_0',
- 'gsvm2rl3_2',
- 'ran13x13_2',
- 'ran13x13_4',
- 'mas76_2',
- 'mas76_4',
- 'aflow30a_2',
- 'pg_2',
- 'neos-3734794-moppy_2',
- 'neos-3734794-moppy_4',
- 'neos-585192_2',
- 'neos-585192_4']
-
 
 def main(instances_fldr, remote: bool = True, samples=3):
     """This function creates a test set of instances for the experiments.
@@ -77,9 +37,6 @@ def main(instances_fldr, remote: bool = True, samples=3):
         mem = int(mem_df.loc[instance_file, 'memory']) if instance_file in mem_df.index else 4
 
         for p in [0, 2, 4]:
-
-            if f"{instance_name}_{p}" not in todo:
-                continue
 
             jobs_submitted += 1
             if remote:
