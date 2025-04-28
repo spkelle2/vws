@@ -214,6 +214,7 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
 
     start_time = time.time()
     max_duration = 23 * 60 * 60  # 23 hours in seconds
+    max_tries = 100
     count = {"objective": 1, "rhs": 1, "matrix": 1}
     for kind in count:
         # create a directory for each kind of perturbation of this instance
@@ -233,7 +234,8 @@ def make_instance_set(instance_file, instances_fldr: str, p: int, samples: int =
 
     # make a bunch of random perturbations of the instance until hopefully we get <sample> feasible ones
     iterations = 0
-    while any(v - 1 < samples for v in count.values()) and time.time() - start_time < max_duration:
+    while any(v - 1 < samples for v in count.values()) and \
+            time.time() - start_time < max_duration and iterations < max_tries:
         # update termination condition
         iterations += 1
 
