@@ -112,22 +112,29 @@ ger50-17-ptp-pop-3t.mps,15.0,hard solve
 liu.mps,15.0,hard solve
 neos-3068746-nene.mps,15.0,hard solve
 neos-3211096-shag.mps,15.0,hard solve
-ej.mps,15.0,
-neos-3661949-lesse.mps,15.0,
-mik-250-20-75-3.mps,8.0,
-mik-250-20-75-5.mps,8.0,
-f2gap201600.mps,15.0,
-control30-3-2-3.mps,8.0,
-umts.mps,8.0,
-neos-1171737.mps,8.0,
-neos-2657525-crna.mps,8.0,
-n13-3.mps,8.0,
-cost266-UUE.mps,8.0,
-mik-250-20-75-1.mps,8.0,
-bppc4-08.mps,8.0,
-nsrand-ipx.mps,8.0,
-neos-595904.mps,8.0,
-neos-5182409-nasivi.mps,8.0,
-neos-3627168-kasai.mps,8.0,
-milo-v12-6-r2-40-1.mps,8.0,
-neos17.mps,15.0,
+ej.mps,15.0,hard solve
+neos-3661949-lesse.mps,15.0,hard solve
+mik-250-20-75-3.mps,8.0,hard solve
+mik-250-20-75-5.mps,8.0,hard solve
+f2gap201600.mps,15.0,hard solve
+control30-3-2-3.mps,8.0,hard solve
+umts.mps,8.0,hard solve
+neos-1171737.mps,8.0,hard solve
+neos-2657525-crna.mps,8.0,hard solve
+n13-3.mps,8.0,hard solve
+cost266-UUE.mps,8.0,hard solve
+mik-250-20-75-1.mps,8.0,hard solve
+bppc4-08.mps,8.0,hard solve
+nsrand-ipx.mps,8.0,hard solve
+neos-595904.mps,8.0,hard solve
+neos-5182409-nasivi.mps,8.0,hard solve
+neos-3627168-kasai.mps,8.0,hard solve
+milo-v12-6-r2-40-1.mps,8.0,hard solve
+neos17.mps,15.0,hard solve
+neos-631517.mps,8.0,big disjunction
+arki001.mps,8.0,big disjunction
+bppc8-09.mps,8.0,big disjunction
+aflow30a.mps,8.0,big disjunction
+bienst1.mps,8.0,big disjunction
+cap6000.mps,8.0,big disjunction
+binkar10.mps,8.0,big disjunction
