@@ -65,6 +65,13 @@ void RunData::initialize(const RunData* const rhs) {
     this->infeasibleTerms = rhs->infeasibleTerms;
     this->feasibleToInfeasibleTerms = rhs->feasibleToInfeasibleTerms;
     this->infeasibleToFeasibleTerms = rhs->infeasibleToFeasibleTerms;
+    this->termRemainsFeasibleBasisInfeasible = rhs->termRemainsFeasibleBasisInfeasible;
+    this->cutsChangedCoefficients = rhs->cutsChangedCoefficients;
+    this->feasibleTermsPrunedByBound = rhs->feasibleTermsPrunedByBound;
+    this->tighten_disjunction = rhs->tighten_disjunction;
+    this->tighten_matrix_perturbation = rhs->tighten_matrix_perturbation;
+    this->tighten_infeasible_to_feasible_term = rhs->tighten_infeasible_to_feasible_term;
+    this->tighten_feasible_to_infeasible_basis = rhs->tighten_feasible_to_infeasible_basis;
   } else {
     this->instanceIndex = 0;
     this->seedIndex = 0;
@@ -91,6 +98,13 @@ void RunData::initialize(const RunData* const rhs) {
     this->infeasibleTerms = 0;
     this->feasibleToInfeasibleTerms = 0;
     this->infeasibleToFeasibleTerms = 0;
+    this->termRemainsFeasibleBasisInfeasible = 0;
+    this->cutsChangedCoefficients = 0;
+    this->feasibleTermsPrunedByBound = 0;
+    this->tighten_disjunction = false;
+    this->tighten_matrix_perturbation = false;
+    this->tighten_infeasible_to_feasible_term = false;
+    this->tighten_feasible_to_infeasible_basis = false;
   }
 }
 
@@ -100,7 +114,10 @@ std::string RunData::getHeader(){
          "lpBoundPostVpc,rootDualBound,dualBound,primalBound,vpcGenerationTime,"
          "rootDualBoundTime,bestSolutionTime,terminationTime,nodes,iterations,"
          "maxTime,actualTerms,numCuts,cutLimit,mipSolver,providePrimalBound,"
-         "infeasibleTerms,feasibleToInfeasibleTerms,infeasibleToFeasibleTerms";
+         "infeasibleTerms,feasibleToInfeasibleTerms,infeasibleToFeasibleTerms,"
+         "termRemainsFeasibleBasisInfeasible,cutsChangedCoefficients,"
+         "feasibleTermsPrunedByBound,tighten_disjunction,tighten_matrix_perturbation,"
+         "tighten_infeasible_to_feasible_term,tighten_feasible_to_infeasible_basis";
 }
 
 /** Get a comma-separated string of the values of RunData's attributes */
@@ -116,7 +133,10 @@ std::string RunData::getValues(){
     std::to_string(actualTerms) + "," + std::to_string(numCuts) + "," +
     std::to_string(cutLimit) + "," + mipSolver + "," + std::to_string(providePrimalBound) + "," +
     std::to_string(infeasibleTerms) + "," + std::to_string(feasibleToInfeasibleTerms) + "," +
-    std::to_string(infeasibleToFeasibleTerms);
+    std::to_string(infeasibleToFeasibleTerms) + "," + std::to_string(termRemainsFeasibleBasisInfeasible) + "," +
+    std::to_string(cutsChangedCoefficients) + "," + std::to_string(feasibleTermsPrunedByBound) + "," +
+    std::to_string(tighten_disjunction) + "," + std::to_string(tighten_matrix_perturbation) + "," +
+    std::to_string(tighten_infeasible_to_feasible_term) + "," + std::to_string(tighten_feasible_to_infeasible_basis);
 }
 
 /** writes this struct's attributes to the given csv file */

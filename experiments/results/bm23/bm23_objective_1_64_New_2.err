@@ -1,4 +1,0 @@
-*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:335: An integer (optimal) solution with value 32.5 was found prior while getting disjunction.
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1797254.polyp1.ie.lehigh.edu.SC: line 4: 18194 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX}
