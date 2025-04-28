@@ -86,14 +86,15 @@ RunData VwsSolverInterface::solve(
                     -1 * params.get(VPCParametersNamespace::CUTLIMIT) * fractional_int_vars;
   } else if (vpcGenerator == "Old") {
     disjCuts = createVpcsFromOldDisjunctionPRLP(si, data, tighten_disjunction);
-  } else if (vpcGenerator == "Farkas") {
-    disjCuts = createVpcsFromFarkasMultipliers(
-        si, data, tighten_disjunction, tighten_matrix_perturbation,
-        tighten_infeasible_to_feasible_term, tighten_feasible_to_infeasible_basis);
   } else if (vpcGenerator == "None") {
     data.disjunctiveDualBound = si->getObjValue();
   } else {
-    verify(false, "vpcGenerator must be one of New, Old, Farkas, or None");
+    // assume we are using the Farkas multipliers
+    verify(cutCertificates.size() > 0,
+           "Assuming parametric cut generation but no previous certificates found");
+    disjCuts = createVpcsFromFarkasMultipliers(
+        si, data, tighten_disjunction, tighten_matrix_perturbation,
+        tighten_infeasible_to_feasible_term, tighten_feasible_to_infeasible_basis);
   }
 
   // stop the timer for cut generation
@@ -171,6 +172,10 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   verify(si->isProvenOptimal(), "Solver must be optimal to create disjunctive cuts");
   std::shared_ptr<OsiCuts> disjCuts = std::make_shared<OsiCuts>();
 
+  // get the solver for later
+  std::shared_ptr<OsiClpSolverInterface> si_copy =
+      std::make_shared<OsiClpSolverInterface>(*dynamic_cast<OsiClpSolverInterface*>(si->clone()));
+
   params.set(VPCParametersNamespace::RECYCLED_DISJUNCTION, 0);
 
   // create cuts
@@ -186,9 +191,6 @@ std::shared_ptr<OsiCuts> VwsSolverInterface::createVpcsFromNewDisjunctionPRLP(
   // get the disjunction for later
   std::shared_ptr<PartialBBDisjunction> disj =
       std::make_shared<PartialBBDisjunction>(*dynamic_cast<PartialBBDisjunction*>(gen.disj()));
-
-  // get the solver for later
-  std::shared_ptr<OsiClpSolverInterface> si_copy = std::make_shared<OsiClpSolverInterface>(*si);
 
   // record the disjunctive metadata
   data.disjunctiveDualBound = disj->best_obj;
