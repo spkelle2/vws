@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-../Release/vws ${FILE_PATH} 1 1
+../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS}

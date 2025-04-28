@@ -4,7 +4,7 @@
  * @date 2023-02-01
  */
 
-#include <ghc/filesystem.hpp> // path
+#include <filesystem.hpp> // path
 #include <string> // string
 
 
@@ -18,15 +18,16 @@ namespace fs = ghc::filesystem;
 /****************** MAIN FUNCTION **********************/
 int main(int argc, char** argv) {
 
-  // executable, testfile, preprocessing, and time multiple should be only arguments
-  assert(argc == 4);
+  // executable, input folder, output file, max run time, cut generator, and disjunctive terms
+  assert(argc == 9);
 
   // create the test runner and solve the provided series
-  std::string filePathStr(argv[1]);
-  fs::path filePath(filePathStr);
-  MipComp testRunner(filePath.string(), "../experiments/solutions",
-                     "../experiments/" + filePath.stem().string() + ".csv",
-                     std::stoi(argv[2]), std::stod(argv[3]));
+  std::string inputFolderStr(argv[1]);
+  std::string outputFileStr(argv[2]);
+  std::string mipSolver(argv[6]);
+  MipComp testRunner(inputFolderStr, outputFileStr, std::stod(argv[3]),
+                     std::string(argv[4]), std::stoi(argv[5]), mipSolver,
+                     std::stoi(argv[7]), std::stoi(argv[8]));
   testRunner.solveSeries();
 
 } /* main */

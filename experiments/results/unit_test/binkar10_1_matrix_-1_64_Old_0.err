@@ -1,0 +1,3 @@
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 917 (real var 1206), it is -2.000000e-06. Small enough error that we only send warning.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 1206: dot product with obj < 0. Obj viol from solver: -0.00000200. Calculated: -0.00000200.
+*** WARNING (version #db383db): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 45 ray 917 does not satisfy the objective cut. Activity: -0.00000200. RHS: 0.00000000. Small enough violation that we only send a warning.

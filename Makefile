@@ -1,4 +1,4 @@
-### Makefile for strengthening project
+### Makefile borrowed from akazachk/strengthening project
 # If there are errors, debug with
 #   make --just-print
 # or check defined variables with
@@ -21,97 +21,36 @@ RM = rm -f
 ### Build type ###
 # Choose 'debug', 'release', or 'unit_test'
 # Can also be chosen through make "BUILD_CONFIG=XX" from command line 
-# Or one can call make debug, make release, or make test directly
+# Or one can call make debug, make release, or make unit_test directly
 BUILD_CONFIG = unit_test
 BUILD_CONFIG = release
 BUILD_CONFIG = debug
-UNIT_TEST_FILE = testCut/TestVwsSolverInterface.cpp
+UNIT_TEST_FILE = TestVwsSolverInterface.cpp
 
 ### Variables user should set ###
 REPOS_DIR=${PWD}/..
 PROJ_DIR=${PWD}
-COIN_VERSION = master
+COIN_VERSION = trunk
 EIG_LIB = $(REPOS_DIR)/eigen
 VPC_DIR = ${REPOS_DIR}/vpc
+COIN_OR = $(VPC_DIR)/lib/Cbc-$(COIN_VERSION)
 COIN_OR_BUILD_DIR_DEBUG = buildg
 COIN_OR_BUILD_DIR_RELEASE = build
-
-ifeq ($(USER),sean)
-  COIN_OR = /Users/sean/coin-or
-	COIN_OR_BUILD_DIR_DEBUG = dist
-	COIN_OR_BUILD_DIR_RELEASE = dist
-  #EIG_LIB = enter/dir/here
-
-  # Optional (for testing branch and bound or enabling certain functions):
-  #GUROBI_DIR = enter/dir/here
-  #GUROBI_LINK="gurobi80"
-  #CPLEX_DIR = enter/dir/here
-endif
+GUROBI_DIR = /Library/gurobi1003/macos_universal2
+GUROBI_LINK="gurobi100"
 
 ifeq ($(USER),sek519)
-  COIN_OR = /home/sek519/coin-or
-	COIN_OR_BUILD_DIR_DEBUG = dist
-	COIN_OR_BUILD_DIR_RELEASE = dist
-  #EIG_LIB = enter/dir/here
-
   # Optional (for testing branch and bound or enabling certain functions):
-  #GUROBI_DIR = enter/dir/here
-  #GUROBI_LINK="gurobi80"
-  #CPLEX_DIR = enter/dir/here
+  GUROBI_DIR = /home/sek519/gurobi1003/linux64
+  GUROBI_LINK="gurobi100"
 endif
 
-# rossobianco
-ifeq ($(USER),kazaalek)
-  GUROBI_LINK = gurobi91
-	GUROBI_DIR = ${GUROBI_HOME}
-  #CPLEX_DIR = /home/ibm/cplex/20.1/cplex
-	CPLEX_DIR = ${CPLEX_HOME}
-	COIN_OR = /local_workspace/$(USER)/coin-or/Cbc-$(COIN_VERSION)
-	EIG_LIB = ${HOME}/repos/eigen
-endif
-
-# HiPerGator
-ifeq ($(USER),akazachkov)
-  ifeq ($(UNAME),Linux)
-	  COIN_OR = ${HOME}/repos/coin-or/Cbc-$(COIN_VERSION)
-    GUROBI_LINK = gurobi95
-    GUROBI_DIR = ${GUROBI_LOCAL}
-		CPLEX_DIR = ${CPLEX_HOME}
-		CONDA_LIB = ${HOME}/.conda/envs/vpc/lib
-	endif
-	# MacStudio
-  ifeq ($(UNAME),Darwin)
-    GUROBI_LINK = gurobi95
-    GUROBI_DIR = ${GUROBI_HOME}
-    CPLEX_DIR = ${CPLEX_HOME}
-  endif
-endif
-
-ifeq ($(USER),akazachk)
-	# ComputeCanada
-  ifeq ($(UNAME),Linux)
-		COIN_OR = ${HOME}/projects/def-alodi/$(USER)/coin-or/Cbc-$(COIN_VERSION)
-    GUROBI_LINK = gurobi91
-    GUROBI_DIR = ${GUROBI_LOCAL}
-    CPLEX_DIR = ${CPLEX_HOME}
-  endif
-	# Mac
-  ifeq ($(UNAME),Darwin)
-    GUROBI_LINK = gurobi91
-    GUROBI_DIR = ${GUROBI_HOME}
-    CPLEX_DIR = ${CPLEX_HOME}
-		COIN_OR = ${COIN_OR_HOME}
-		#COIN_OR = $(PROJ_DIR)/../coin-or/Cbc-$(COIN_VERSION)
-		#COIN_OR = $(PROJ_DIR)/../vpc/lib/Cbc-$(COIN_VERSION)
-  endif
-endif
-
-# Options for solvers
+# Options for solvers - do not change these - we expect Gurobi to be installed for vws
 USE_COIN   = 1
 USE_CLP    = 1
 USE_EIGEN  = 1
 USE_CBC    = 1
-USE_GUROBI = 0
+USE_GUROBI = 1
 USE_CPLEX  = 0
 USE_CLP_SOLVER = 1
 USE_CPLEX_SOLVER = 0
@@ -127,7 +66,7 @@ ifeq ($(BUILD_CONFIG),unit_test)
 	SOURCES = test/$(UNIT_TEST_FILE)
 endif
 SRC_DIR = src
-DIR_LIST = $(SRC_DIR) $(SRC_DIR)/cut $(SRC_DIR)/utility $(SRC_DIR)/test $(SRC_DIR)/test/testCut $(SRC_DIR)/test/testUtility
+DIR_LIST = $(SRC_DIR) $(SRC_DIR)/test
 
 # Code version
 CODE_VERSION    = $(shell git log -1 --pretty=format:"%H")
@@ -136,16 +75,14 @@ VPC_CBC_VERSION = $(shell git -C ${COIN_OR}/Cbc log -1 --pretty=format:"%H")
 VPC_CLP_VERSION = $(shell git -C ${COIN_OR}/Clp log -1 --pretty=format:"%H")
 
 SOURCES += \
-	cut/VwsSolverInterface.cpp \
-	cut/CbcSolverHeuristics.cpp \
-	utility/MipComp.cpp \
-	utility/MipCompEventHandler.cpp \
-	utility/RunData.cpp \
-	utility/VwsUtility.cpp
+	VwsSolverInterface.cpp \
+	MipComp.cpp \
+	RunData.cpp \
+	VwsUtility.cpp
 
 # VPC directories
 VPC_SRC_DIR = ${VPC_DIR}/src
-VPC_DIR_LIST = $(VPC_SRC_DIR) $(VPC_SRC_DIR)/branch $(VPC_SRC_DIR)/cut $(VPC_SRC_DIR)/disjunction $(VPC_SRC_DIR)/utility
+VPC_DIR_LIST = $(VPC_SRC_DIR) $(VPC_SRC_DIR)/branch $(VPC_SRC_DIR)/cut $(VPC_SRC_DIR)/disjunction $(VPC_SRC_DIR)/utility $(VPC_SRC_DIR)/test
 
 VPC_SOURCES += \
 	branch/CbcBranchStrongDecision.cpp \
@@ -163,11 +100,8 @@ VPC_SOURCES += \
 	disjunction/Disjunction.cpp \
 	disjunction/PartialBBDisjunction.cpp \
 	disjunction/SplitDisjunction.cpp \
-	disjunction/VPCDisjunction.cpp
-
-# For running tests (need not include these or main if releasing code to others)
-#DIR_LIST += $(SRC_DIR)/test
-#SOURCES += test/analysis.cpp test/BBHelper.cpp
+	disjunction/VPCDisjunction.cpp \
+	test/BBHelper.cpp
 
 ### Set build values based on user variables ###
 ifneq ($(BUILD_CONFIG),release)
@@ -192,7 +126,7 @@ ifneq ($(BUILD_CONFIG),release)
   endif
 endif
 ifeq ($(BUILD_CONFIG),release)
-  # "Release" build - maximum optimization, no debug symbols
+  # "release" build - maximum optimization, no debug symbols
   OUT_DIR = Release
   DEBUG_FLAG = 
   OPT_FLAG = -O3
@@ -210,6 +144,9 @@ ifeq ($(USE_CLP_SOLVER),1)
   DEFS += -DUSE_CLP_SOLVER
 endif
 ifeq ($(USE_CBC),1)
+	VPC_SOURCES += test/CbcHelper.cpp \
+		test/CglStoredVpc.cpp \
+		test/CbcSolverHeuristics.cpp
   DEFS += -DUSE_CBC
   DEFS += -DVPC_CBC_VERSION="\#${VPC_CBC_VERSION}"
 endif
@@ -218,7 +155,7 @@ ifeq ($(USE_EIGEN),1)
 endif
 ifeq ($(USE_GUROBI),1)
   DEFS += -DUSE_GUROBI
-  SOURCES += test/GurobiHelper.cpp
+  VPC_SOURCES += test/GurobiHelper.cpp
   GUROBI_INC="${GUROBI_DIR}/include"
   GUROBI_LIB="${GUROBI_DIR}/lib"
 endif
@@ -234,7 +171,7 @@ endif
 ifeq ($(COIN_VERSION),2.10)
   DEFS += -DCBC_VERSION_210PLUS -DSAVE_NODE_INFO
 endif
-ifeq ($(COIN_VERSION),master)
+ifeq ($(COIN_VERSION),trunk)
   DEFS += -DCBC_VERSION_210PLUS -DCBC_TRUNK -DSAVE_NODE_INFO
 endif
 
@@ -255,7 +192,7 @@ VPC_OBJECTS = $(VPC_SOURCES:.cpp=.o)
 VPC_OUT_OBJECTS = $(addprefix $(VPC_OBJ_DIR)/,$(VPC_OBJECTS))
 
 # Set includes
-APPLINCLS = -Iinclude -Iinclude/common -Iinclude/test
+APPLINCLS = -Iinclude -Iinclude/test
 ## TEMPORARY CHANGE TO PARENT VPC (NO WIFI) - common dependency for Disjunction
 APPLINCLS += -I${VPC_DIR}/include -I${VPC_DIR}/include/common -I${VPC_DIR}/include/test
 
@@ -296,7 +233,7 @@ ifeq ($(USE_COIN),1)
 	endif
 	CBClib = $(CBC)/lib
 	# When switching from svn to coinbrew, the new include directory is coin-or not coin
-	ifeq ($(COIN_VERSION),master)
+	ifeq ($(COIN_VERSION),trunk)
 		CBCinc = $(CBC)/include/coin-or
   else
 		CBCinc = $(CBC)/include/coin

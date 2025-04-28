@@ -1,5 +1,7 @@
 # V-polyhedral cut Warm Starts
 
+A library parameterizing disjunctive inequalities to provide a warm start to the cut pool for a series of mixed-integer linear programs.
+
 ### Instructions for `Eigen`
 Clone the `Eigen` library to your machine and properly link to it in the `Makefile` with the `EIG_LIB` variable.
     git clone https://gitlab.com/libeigen/eigen.git
