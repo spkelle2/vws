@@ -1,0 +1,1 @@
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/disjunction/Disjunction.cpp:251: Objective at disjunctive term 1735/1736 is incorrect. Before, it was 'inf', now it is 1764.322.
