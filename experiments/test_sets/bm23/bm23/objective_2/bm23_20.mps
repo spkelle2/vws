@@ -1,4 +1,4 @@
-NAME BM23_copy_pre
+NAME BM23_pre_copy
 ROWS
  N  OBJ
  L  R101    
@@ -23,7 +23,7 @@ ROWS
  L  R120    
 COLUMNS
     MARKER    'MARKER'                 'INTORG'
-    C101      OBJ       3
+    C101      OBJ       4
     C101      R101      2
     C101      R102      -6
     C101      R103      5
@@ -222,7 +222,7 @@ COLUMNS
     C111      R118      2
     C111      R119      9
     C111      R120      -8
-    C112      OBJ       2
+    C112      OBJ       3
     C112      R101      3
     C112      R102      6
     C112      R103      7
@@ -360,7 +360,7 @@ COLUMNS
     C118      R118      5
     C118      R119      7
     C118      R120      -2
-    C119      OBJ       1
+    C119      OBJ       3
     C119      R101      3
     C119      R102      3
     C119      R104      -3
@@ -453,7 +453,7 @@ COLUMNS
     C123      R118      -4
     C123      R119      -7
     C123      R120      -9
-    C124      OBJ       7
+    C124      OBJ       6
     C124      R101      2
     C124      R102      5
     C124      R103      7
@@ -509,7 +509,7 @@ COLUMNS
     C126      R117      -7
     C126      R118      -2
     C126      R120      -5
-    C127      OBJ       2
+    C127      OBJ       1
     C127      R101      5
     C127      R103      -6
     C127      R105      -9

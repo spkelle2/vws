@@ -1,4 +1,4 @@
-NAME BM23_copy_pre
+NAME BM23_pre_copy
 ROWS
  N  OBJ
  L  R101    
@@ -530,26 +530,26 @@ COLUMNS
     C127      R120      1
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      R101      68
+    RHS1      R101      64
     RHS1      R102      -15
-    RHS1      R103      -9
-    RHS1      R104      33
-    RHS1      R105      13
-    RHS1      R106      32
-    RHS1      R107      -4
-    RHS1      R108      2
-    RHS1      R109      17
-    RHS1      R110      7
-    RHS1      R111      16
-    RHS1      R112      -6
+    RHS1      R103      -11
+    RHS1      R104      31
+    RHS1      R105      12
+    RHS1      R106      34
+    RHS1      R107      -3
+    RHS1      R108      3
+    RHS1      R109      20
+    RHS1      R110      10
+    RHS1      R111      17
+    RHS1      R112      -7
     RHS1      R113      3
-    RHS1      R114      20
-    RHS1      R115      23
-    RHS1      R116      -4
+    RHS1      R114      22
+    RHS1      R115      24
+    RHS1      R116      -9
     RHS1      R117      15
-    RHS1      R118      -12
-    RHS1      R119      -28
-    RHS1      R120      3
+    RHS1      R118      -11
+    RHS1      R119      -29
+    RHS1      R120      4
 BOUNDS
  BV BND1      C101    
  BV BND1      C102    
