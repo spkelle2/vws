@@ -1,4 +1,4 @@
-NAME ran12x21_copy_pre
+NAME ran12x21_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -127,6 +127,7 @@ ROWS
  L  G90     
  L  G91     
  L  G92     
+ L  G93     
  L  G94     
  L  G95     
  L  G96     
@@ -139,6 +140,7 @@ ROWS
  L  G103    
  L  G104    
  L  G105    
+ L  G106    
  L  G107    
  L  G108    
  L  G109    
@@ -659,6 +661,7 @@ COLUMNS
     X92       B8        1
     X93       OBJ       8
     X93       A4        1
+    X93       G93       1
     X93       B9        1
     X94       OBJ       2
     X94       A4        1
@@ -710,6 +713,7 @@ COLUMNS
     X105      B0        1
     X106      OBJ       4
     X106      A5        1
+    X106      G106      1
     X106      B1        1
     X107      OBJ       7
     X107      A5        1
@@ -1478,6 +1482,8 @@ COLUMNS
     Y91       G91       -26
     Y92       OBJ       157
     Y92       G92       -26
+    Y93       OBJ       202
+    Y93       G93       -9
     Y94       OBJ       263
     Y94       G94       -3
     Y95       OBJ       102
@@ -1502,6 +1508,8 @@ COLUMNS
     Y104      G104      -26
     Y105      OBJ       154
     Y105      G105      -2
+    Y106      OBJ       107
+    Y106      G106      -8
     Y107      OBJ       190
     Y107      G107      -2
     Y108      OBJ       139
@@ -1627,7 +1635,7 @@ COLUMNS
     Y168      OBJ       123
     Y168      G168      -2
     Y169      OBJ       238
-    Y169      G169      -7
+    Y169      G169      -8
     Y170      OBJ       77
     Y170      G170      -2
     Y171      OBJ       86
@@ -1794,7 +1802,6 @@ COLUMNS
     Y251      G251      -25
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -309
     RHS1      A0        24
     RHS1      A1        19
     RHS1      A2        31
@@ -1828,7 +1835,11 @@ RHS
     RHS1      B18       27
     RHS1      B19       7
     RHS1      B20       27
-    RHS1      G169      1
+    RHS1      G6        1
+    RHS1      G76       -1
+    RHS1      G77       -1
+    RHS1      G93       -1
+    RHS1      G250      -1
 BOUNDS
  UP BND1      X0        2
  UP BND1      X1        8
@@ -1923,7 +1934,7 @@ BOUNDS
  UP BND1      X90       15
  UP BND1      X91       26
  UP BND1      X92       26
- UP BND1      X93       8
+ UP BND1      X93       9
  UP BND1      X94       3
  UP BND1      X95       21
  UP BND1      X96       2
@@ -1936,7 +1947,7 @@ BOUNDS
  UP BND1      X103      7
  UP BND1      X104      26
  UP BND1      X105      2
- UP BND1      X106      7
+ UP BND1      X106      8
  UP BND1      X107      2
  UP BND1      X108      3
  UP BND1      X109      14
@@ -2175,6 +2186,7 @@ BOUNDS
  BV BND1      Y90     
  BV BND1      Y91     
  BV BND1      Y92     
+ BV BND1      Y93     
  BV BND1      Y94     
  BV BND1      Y95     
  BV BND1      Y96     
@@ -2187,6 +2199,7 @@ BOUNDS
  BV BND1      Y103    
  BV BND1      Y104    
  BV BND1      Y105    
+ BV BND1      Y106    
  BV BND1      Y107    
  BV BND1      Y108    
  BV BND1      Y109    

@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -17,7 +17,6 @@ ROWS
  E  INf     
  E  INg     
  E  INh     
- E  FLOba   
  L  CONab   
  L  CONac   
  L  CONad   
@@ -179,6 +178,7 @@ ROWS
  L  VUBeah  
  L  VUBfah  
  L  VUBgah  
+ L  VUBbba  
  L  VUBcba  
  L  VUBdba  
  L  VUBeba  
@@ -525,13 +525,13 @@ COLUMNS
     z         OBJ       1
     z         CONab     -1
     z         CONac     -1
-    z         CONad     -1
+    z         CONad     -2
     z         CONae     -1
     z         CONaf     -1
     z         CONag     -1
     z         CONah     -1
-    z         CONba     -2
-    z         CONbc     -1
+    z         CONba     -1
+    z         CONbc     -2
     z         CONbd     -1
     z         CONbe     -1
     z         CONbf     -1
@@ -540,21 +540,21 @@ COLUMNS
     z         CONca     -1
     z         CONcb     -1
     z         CONcd     -1
-    z         CONce     -1
+    z         CONce     -2
     z         CONcf     -1
     z         CONcg     -1
     z         CONch     -1
     z         CONda     -1
-    z         CONdb     -3
+    z         CONdb     -1
     z         CONdc     -1
     z         CONde     -1
     z         CONdf     -1
     z         CONdg     -1
     z         CONdh     -1
     z         CONea     -1
-    z         CONeb     -1
+    z         CONeb     -2
     z         CONec     -1
-    z         CONed     -1
+    z         CONed     -2
     z         CONef     -1
     z         CONeg     -1
     z         CONeh     -1
@@ -569,37 +569,35 @@ COLUMNS
     z         CONgb     -1
     z         CONgc     -1
     z         CONgd     -1
-    z         CONge     -1
-    z         CONgf     -2
+    z         CONge     -2
+    z         CONgf     -1
     z         CONgh     -1
     z         CONha     -1
     z         CONhb     -1
     z         CONhc     -1
     z         CONhd     -1
     z         CONhe     -1
-    z         CONhf     -2
+    z         CONhf     -1
     z         CONhg     -1
-    floba     FLOba     1
-    floba     CONba     1
     MARKER    'MARKER'                 'INTORG'
     xab       OUTa      1
     xab       INb       1
     xab       VUBaab    -74
     xab       VUBcab    -50
-    xab       VUBdab    -56
+    xab       VUBdab    -57
     xab       VUBeab    -67
-    xab       VUBfab    -64
+    xab       VUBfab    -65
     xab       VUBgab    -59
     xab       VUBhab    -50
     xac       OUTa      1
-    xac       INc       1
+    xac       INc       2
     xac       VUBaac    -74
     xac       VUBbac    -67
     xac       VUBdac    -56
     xac       VUBeac    -67
     xac       VUBfac    -65
     xac       VUBgac    -59
-    xac       VUBhac    -51
+    xac       VUBhac    -50
     xad       OUTa      1
     xad       INd       1
     xad       VUBaad    -74
@@ -607,14 +605,14 @@ COLUMNS
     xad       VUBcad    -50
     xad       VUBead    -67
     xad       VUBfad    -65
-    xad       VUBgad    -58
+    xad       VUBgad    -59
     xad       VUBhad    -50
     xae       OUTa      1
     xae       INe       1
-    xae       VUBaae    -73
+    xae       VUBaae    -74
     xae       VUBbae    -67
     xae       VUBcae    -50
-    xae       VUBdae    -58
+    xae       VUBdae    -55
     xae       VUBfae    -65
     xae       VUBgae    -59
     xae       VUBhae    -50
@@ -622,11 +620,11 @@ COLUMNS
     xaf       INf       1
     xaf       VUBaaf    -74
     xaf       VUBbaf    -67
-    xaf       VUBcaf    -51
+    xaf       VUBcaf    -50
     xaf       VUBdaf    -56
     xaf       VUBeaf    -67
-    xaf       VUBgaf    -59
-    xaf       VUBhaf    -50
+    xaf       VUBgaf    -60
+    xaf       VUBhaf    -51
     xag       OUTa      1
     xag       INg       1
     xag       VUBaag    -74
@@ -635,7 +633,7 @@ COLUMNS
     xag       VUBdag    -56
     xag       VUBeag    -67
     xag       VUBfag    -65
-    xag       VUBhag    -51
+    xag       VUBhag    -49
     xah       OUTa      1
     xah       INh       1
     xah       VUBaah    -74
@@ -647,48 +645,49 @@ COLUMNS
     xah       VUBgah    -59
     xba       OUTb      1
     xba       INa       1
-    xba       VUBcba    -54
-    xba       VUBdba    -56
+    xba       VUBbba    -81
+    xba       VUBcba    -55
+    xba       VUBdba    -55
     xba       VUBeba    -63
     xba       VUBfba    -59
     xba       VUBgba    -56
     xba       VUBhba    -54
     xbc       OUTb      1
-    xbc       INc       2
-    xbc       VUBabc    -65
-    xbc       VUBbbc    -81
-    xbc       VUBdbc    -55
-    xbc       VUBebc    -63
+    xbc       INc       1
+    xbc       VUBabc    -64
+    xbc       VUBbbc    -80
+    xbc       VUBdbc    -54
+    xbc       VUBebc    -62
     xbc       VUBfbc    -59
     xbc       VUBgbc    -56
     xbc       VUBhbc    -54
-    xbd       OUTb      1
+    xbd       OUTb      3
     xbd       INd       1
-    xbd       VUBabd    -64
+    xbd       VUBabd    -63
     xbd       VUBbbd    -81
     xbd       VUBcbd    -54
     xbd       VUBebd    -63
     xbd       VUBfbd    -59
-    xbd       VUBgbd    -57
+    xbd       VUBgbd    -55
     xbd       VUBhbd    -54
     xbe       OUTb      1
     xbe       INe       1
-    xbe       VUBabe    -63
+    xbe       VUBabe    -64
     xbe       VUBbbe    -81
     xbe       VUBcbe    -54
     xbe       VUBdbe    -55
-    xbe       VUBfbe    -60
+    xbe       VUBfbe    -59
     xbe       VUBgbe    -56
     xbe       VUBhbe    -54
     xbf       OUTb      1
     xbf       INf       1
-    xbf       VUBabf    -64
-    xbf       VUBbbf    -80
+    xbf       VUBabf    -63
+    xbf       VUBbbf    -82
     xbf       VUBcbf    -54
     xbf       VUBdbf    -55
     xbf       VUBebf    -63
     xbf       VUBgbf    -56
-    xbf       VUBhbf    -54
+    xbf       VUBhbf    -56
     xbg       OUTb      1
     xbg       INg       1
     xbg       VUBabg    -64
@@ -703,7 +702,7 @@ COLUMNS
     xbh       VUBabh    -64
     xbh       VUBbbh    -81
     xbh       VUBcbh    -54
-    xbh       VUBdbh    -55
+    xbh       VUBdbh    -54
     xbh       VUBebh    -63
     xbh       VUBfbh    -59
     xbh       VUBgbh    -56
@@ -713,17 +712,17 @@ COLUMNS
     xca       VUBcca    -63
     xca       VUBdca    -48
     xca       VUBeca    -63
-    xca       VUBfca    -58
+    xca       VUBfca    -59
     xca       VUBgca    -58
-    xca       VUBhca    -53
+    xca       VUBhca    -54
     xcb       OUTc      1
     xcb       INb       1
     xcb       VUBacb    -67
     xcb       VUBccb    -63
     xcb       VUBdcb    -48
-    xcb       VUBecb    -63
+    xcb       VUBecb    -64
     xcb       VUBfcb    -59
-    xcb       VUBgcb    -58
+    xcb       VUBgcb    -57
     xcb       VUBhcb    -53
     xcd       OUTc      1
     xcd       INd       1
@@ -733,26 +732,26 @@ COLUMNS
     xcd       VUBecd    -63
     xcd       VUBfcd    -58
     xcd       VUBgcd    -58
-    xcd       VUBhcd    -53
+    xcd       VUBhcd    -52
     xce       OUTc      1
     xce       INe       1
     xce       VUBace    -67
     xce       VUBbce    -66
-    xce       VUBcce    -62
+    xce       VUBcce    -63
     xce       VUBdce    -48
-    xce       VUBfce    -60
+    xce       VUBfce    -59
     xce       VUBgce    -58
-    xce       VUBhce    -54
+    xce       VUBhce    -53
     xcf       OUTc      1
     xcf       INf       1
     xcf       VUBacf    -67
     xcf       VUBbcf    -66
-    xcf       VUBccf    -63
-    xcf       VUBdcf    -47
-    xcf       VUBecf    -63
+    xcf       VUBccf    -62
+    xcf       VUBdcf    -48
+    xcf       VUBecf    -62
     xcf       VUBgcf    -58
     xcf       VUBhcf    -53
-    xcg       OUTc      1
+    xcg       OUTc      2
     xcg       INg       1
     xcg       VUBacg    -67
     xcg       VUBbcg    -66
@@ -766,27 +765,27 @@ COLUMNS
     xch       VUBach    -67
     xch       VUBbch    -66
     xch       VUBcch    -63
-    xch       VUBdch    -48
-    xch       VUBech    -62
-    xch       VUBfch    -59
-    xch       VUBgch    -58
+    xch       VUBdch    -49
+    xch       VUBech    -63
+    xch       VUBfch    -58
+    xch       VUBgch    -57
     xda       OUTd      1
     xda       INa       1
     xda       VUBbda    -68
-    xda       VUBcda    -52
+    xda       VUBcda    -53
     xda       VUBdda    -63
-    xda       VUBeda    -66
+    xda       VUBeda    -65
     xda       VUBfda    -63
-    xda       VUBgda    -51
-    xda       VUBhda    -53
+    xda       VUBgda    -50
+    xda       VUBhda    -54
     xdb       OUTd      1
     xdb       INb       1
     xdb       VUBadb    -61
     xdb       VUBcdb    -52
-    xdb       VUBddb    -63
+    xdb       VUBddb    -64
     xdb       VUBedb    -66
-    xdb       VUBfdb    -64
-    xdb       VUBgdb    -52
+    xdb       VUBfdb    -63
+    xdb       VUBgdb    -51
     xdb       VUBhdb    -55
     xdc       OUTd      1
     xdc       INc       1
@@ -801,21 +800,21 @@ COLUMNS
     xde       INe       1
     xde       VUBade    -61
     xde       VUBbde    -68
-    xde       VUBcde    -53
+    xde       VUBcde    -52
     xde       VUBdde    -63
     xde       VUBfde    -63
-    xde       VUBgde    -51
-    xde       VUBhde    -55
+    xde       VUBgde    -50
+    xde       VUBhde    -54
     xdf       OUTd      1
     xdf       INf       1
-    xdf       VUBadf    -62
+    xdf       VUBadf    -61
     xdf       VUBbdf    -68
-    xdf       VUBcdf    -52
+    xdf       VUBcdf    -53
     xdf       VUBddf    -63
     xdf       VUBedf    -66
     xdf       VUBgdf    -51
     xdf       VUBhdf    -55
-    xdg       OUTd      1
+    xdg       OUTd      2
     xdg       INg       1
     xdg       VUBadg    -61
     xdg       VUBbdg    -68
@@ -825,12 +824,12 @@ COLUMNS
     xdg       VUBfdg    -63
     xdg       VUBhdg    -55
     xdh       OUTd      1
-    xdh       INh       1
+    xdh       INh       2
     xdh       VUBadh    -62
-    xdh       VUBbdh    -68
-    xdh       VUBcdh    -53
+    xdh       VUBbdh    -69
+    xdh       VUBcdh    -51
     xdh       VUBddh    -63
-    xdh       VUBedh    -67
+    xdh       VUBedh    -66
     xdh       VUBfdh    -63
     xdh       VUBgdh    -51
     MARKER    'MARKER'                 'INTEND'
@@ -840,30 +839,30 @@ COLUMNS
     xea       VUBcea    -57
     xea       VUBdea    -56
     xea       VUBeea    -75
-    xea       VUBfea    -62
+    xea       VUBfea    -61
     xea       VUBgea    -55
     xea       VUBhea    -51
     xeb       OUTe      1
     xeb       INb       1
     xeb       VUBaeb    -62
-    xeb       VUBceb    -57
+    xeb       VUBceb    -58
     xeb       VUBdeb    -56
-    xeb       VUBeeb    -76
+    xeb       VUBeeb    -75
     xeb       VUBfeb    -61
     xeb       VUBgeb    -55
-    xeb       VUBheb    -50
+    xeb       VUBheb    -51
     xec       OUTe      1
     xec       INc       1
-    xec       VUBaec    -61
+    xec       VUBaec    -62
     xec       VUBbec    -69
     xec       VUBdec    -56
-    xec       VUBeec    -75
+    xec       VUBeec    -74
     xec       VUBfec    -61
-    xec       VUBgec    -55
+    xec       VUBgec    -54
     xec       VUBhec    -51
     xed       OUTe      1
     xed       INd       1
-    xed       VUBaed    -63
+    xed       VUBaed    -62
     xed       VUBbed    -69
     xed       VUBced    -57
     xed       VUBeed    -75
@@ -875,67 +874,67 @@ COLUMNS
     xef       VUBaef    -62
     xef       VUBbef    -69
     xef       VUBcef    -57
-    xef       VUBdef    -55
+    xef       VUBdef    -57
     xef       VUBeef    -75
     xef       VUBgef    -55
     xef       VUBhef    -51
     xeg       OUTe      2
     xeg       INg       1
-    xeg       VUBaeg    -61
-    xeg       VUBbeg    -70
-    xeg       VUBceg    -56
+    xeg       VUBaeg    -62
+    xeg       VUBbeg    -68
+    xeg       VUBceg    -57
     xeg       VUBdeg    -56
-    xeg       VUBeeg    -75
+    xeg       VUBeeg    -74
     xeg       VUBfeg    -61
     xeg       VUBheg    -51
-    xeh       OUTe      1
-    xeh       INh       1
+    xeh       OUTe      2
+    xeh       INh       2
     xeh       VUBaeh    -62
     xeh       VUBbeh    -69
     xeh       VUBceh    -57
     xeh       VUBdeh    -56
-    xeh       VUBeeh    -76
+    xeh       VUBeeh    -75
     xeh       VUBfeh    -61
     xeh       VUBgeh    -55
     xfa       OUTf      1
     xfa       INa       1
     xfa       VUBbfa    -72
     xfa       VUBcfa    -58
-    xfa       VUBdfa    -57
+    xfa       VUBdfa    -56
     xfa       VUBefa    -66
     xfa       VUBffa    -70
     xfa       VUBgfa    -53
-    xfa       VUBhfa    -56
+    xfa       VUBhfa    -57
     xfb       OUTf      1
     xfb       INb       1
-    xfb       VUBafb    -60
+    xfb       VUBafb    -61
     xfb       VUBcfb    -58
     xfb       VUBdfb    -57
     xfb       VUBefb    -66
-    xfb       VUBffb    -71
+    xfb       VUBffb    -70
     xfb       VUBgfb    -53
     xfb       VUBhfb    -56
     xfc       OUTf      1
     xfc       INc       1
     xfc       VUBafc    -61
-    xfc       VUBbfc    -72
+    xfc       VUBbfc    -71
     xfc       VUBdfc    -57
     xfc       VUBefc    -66
-    xfc       VUBffc    -71
+    xfc       VUBffc    -72
     xfc       VUBgfc    -53
-    xfc       VUBhfc    -56
+    xfc       VUBhfc    -57
     xfd       OUTf      1
     xfd       INd       1
-    xfd       VUBafd    -62
-    xfd       VUBbfd    -72
+    xfd       VUBafd    -61
+    xfd       VUBbfd    -73
     xfd       VUBcfd    -58
-    xfd       VUBefd    -68
+    xfd       VUBefd    -66
     xfd       VUBffd    -70
     xfd       VUBgfd    -53
     xfd       VUBhfd    -56
-    xfe       OUTf      2
+    xfe       OUTf      1
     xfe       INe       1
-    xfe       VUBafe    -62
+    xfe       VUBafe    -61
     xfe       VUBbfe    -72
     xfe       VUBcfe    -58
     xfe       VUBdfe    -57
@@ -947,55 +946,55 @@ COLUMNS
     xfg       VUBafg    -61
     xfg       VUBbfg    -72
     xfg       VUBcfg    -58
-    xfg       VUBdfg    -57
+    xfg       VUBdfg    -56
     xfg       VUBefg    -66
     xfg       VUBffg    -70
     xfg       VUBhfg    -56
     xfh       OUTf      1
-    xfh       INh       1
-    xfh       VUBafh    -60
+    xfh       INh       2
+    xfh       VUBafh    -61
     xfh       VUBbfh    -72
     xfh       VUBcfh    -58
     xfh       VUBdfh    -57
-    xfh       VUBefh    -66
-    xfh       VUBffh    -70
-    xfh       VUBgfh    -53
+    xfh       VUBefh    -67
+    xfh       VUBffh    -71
+    xfh       VUBgfh    -54
     xga       OUTg      1
     xga       INa       1
     xga       VUBbga    -72
     xga       VUBcga    -52
-    xga       VUBdga    -53
-    xga       VUBega    -62
-    xga       VUBfga    -55
-    xga       VUBgga    -64
-    xga       VUBhga    -46
+    xga       VUBdga    -52
+    xga       VUBega    -61
+    xga       VUBfga    -54
+    xga       VUBgga    -65
+    xga       VUBhga    -47
     xgb       OUTg      1
-    xgb       INb       1
+    xgb       INb       2
     xgb       VUBagb    -68
     xgb       VUBcgb    -52
-    xgb       VUBdgb    -52
+    xgb       VUBdgb    -51
     xgb       VUBegb    -61
-    xgb       VUBfgb    -55
+    xgb       VUBfgb    -56
     xgb       VUBggb    -65
     xgb       VUBhgb    -47
     xgc       OUTg      1
     xgc       INc       1
     xgc       VUBagc    -68
     xgc       VUBbgc    -72
-    xgc       VUBdgc    -52
+    xgc       VUBdgc    -51
     xgc       VUBegc    -61
     xgc       VUBfgc    -55
-    xgc       VUBggc    -64
+    xgc       VUBggc    -65
     xgc       VUBhgc    -47
-    xgd       OUTg      1
+    xgd       OUTg      2
     xgd       INd       1
     xgd       VUBagd    -68
-    xgd       VUBbgd    -72
-    xgd       VUBcgd    -52
-    xgd       VUBegd    -62
+    xgd       VUBbgd    -73
+    xgd       VUBcgd    -53
+    xgd       VUBegd    -61
     xgd       VUBfgd    -55
-    xgd       VUBggd    -65
-    xgd       VUBhgd    -48
+    xgd       VUBggd    -66
+    xgd       VUBhgd    -47
     xge       OUTg      1
     xge       INe       1
     xge       VUBage    -68
@@ -1009,20 +1008,20 @@ COLUMNS
     xgf       INf       1
     xgf       VUBagf    -68
     xgf       VUBbgf    -72
-    xgf       VUBcgf    -52
-    xgf       VUBdgf    -51
+    xgf       VUBcgf    -53
+    xgf       VUBdgf    -52
     xgf       VUBegf    -61
     xgf       VUBggf    -65
-    xgf       VUBhgf    -47
+    xgf       VUBhgf    -48
     xgh       OUTg      1
     xgh       INh       1
-    xgh       VUBagh    -68
+    xgh       VUBagh    -69
     xgh       VUBbgh    -73
-    xgh       VUBcgh    -53
-    xgh       VUBdgh    -51
+    xgh       VUBcgh    -52
+    xgh       VUBdgh    -52
     xgh       VUBegh    -61
-    xgh       VUBfgh    -54
-    xgh       VUBggh    -65
+    xgh       VUBfgh    -55
+    xgh       VUBggh    -63
     xha       OUTh      1
     xha       INa       1
     xha       VUBbha    -72
@@ -1034,10 +1033,10 @@ COLUMNS
     xha       VUBhha    -61
     xhb       OUTh      1
     xhb       INb       1
-    xhb       VUBahb    -60
+    xhb       VUBahb    -61
     xhb       VUBchb    -55
     xhb       VUBdhb    -54
-    xhb       VUBehb    -64
+    xhb       VUBehb    -63
     xhb       VUBfhb    -58
     xhb       VUBghb    -58
     xhb       VUBhhb    -61
@@ -1045,11 +1044,11 @@ COLUMNS
     xhc       INc       1
     xhc       VUBahc    -61
     xhc       VUBbhc    -72
-    xhc       VUBdhc    -54
+    xhc       VUBdhc    -55
     xhc       VUBehc    -64
     xhc       VUBfhc    -58
     xhc       VUBghc    -58
-    xhc       VUBhhc    -61
+    xhc       VUBhhc    -60
     xhd       OUTh      1
     xhd       INd       1
     xhd       VUBahd    -61
@@ -1057,32 +1056,32 @@ COLUMNS
     xhd       VUBchd    -55
     xhd       VUBehd    -64
     xhd       VUBfhd    -58
-    xhd       VUBghd    -59
+    xhd       VUBghd    -57
     xhd       VUBhhd    -61
     xhe       OUTh      1
     xhe       INe       1
-    xhe       VUBahe    -62
+    xhe       VUBahe    -60
     xhe       VUBbhe    -72
-    xhe       VUBche    -54
+    xhe       VUBche    -55
     xhe       VUBdhe    -54
     xhe       VUBfhe    -58
     xhe       VUBghe    -58
-    xhe       VUBhhe    -61
-    xhf       OUTh      2
+    xhe       VUBhhe    -63
+    xhf       OUTh      1
     xhf       INf       1
-    xhf       VUBahf    -61
+    xhf       VUBahf    -60
     xhf       VUBbhf    -72
-    xhf       VUBchf    -55
+    xhf       VUBchf    -54
     xhf       VUBdhf    -54
     xhf       VUBehf    -64
     xhf       VUBghf    -58
     xhf       VUBhhf    -61
-    xhg       OUTh      2
+    xhg       OUTh      1
     xhg       INg       1
-    xhg       VUBahg    -62
+    xhg       VUBahg    -61
     xhg       VUBbhg    -72
-    xhg       VUBchg    -55
-    xhg       VUBdhg    -53
+    xhg       VUBchg    -54
+    xhg       VUBdhg    -54
     xhg       VUBehg    -64
     xhg       VUBfhg    -58
     xhg       VUBhhg    -61
@@ -1092,8 +1091,8 @@ COLUMNS
     faac      CONac     1
     faac      BALac     1
     faac      VUBaac    1
-    faad      CONad     2
-    faad      BALad     2
+    faad      CONad     1
+    faad      BALad     1
     faad      VUBaad    1
     faae      CONae     1
     faae      BALae     1
@@ -1109,13 +1108,13 @@ COLUMNS
     faah      VUBaah    1
     fabc      CONbc     1
     fabc      BALab     -1
-    fabc      BALac     1
+    fabc      BALac     2
     fabc      VUBabc    1
     fabd      CONbd     1
     fabd      BALab     -1
     fabd      BALad     1
     fabd      VUBabd    1
-    fabe      CONbe     2
+    fabe      CONbe     1
     fabe      BALab     -1
     fabe      BALae     1
     fabe      VUBabe    1
@@ -1123,7 +1122,7 @@ COLUMNS
     fabf      BALab     -1
     fabf      BALaf     1
     fabf      VUBabf    1
-    fabg      CONbg     0.5
+    fabg      CONbg     1
     fabg      BALab     -1
     fabg      BALag     1
     fabg      VUBabg    1
@@ -1143,16 +1142,16 @@ COLUMNS
     face      BALac     -1
     face      BALae     1
     face      VUBace    1
-    facf      CONcf     2
+    facf      CONcf     1
     facf      BALac     -1
     facf      BALaf     1
     facf      VUBacf    1
     facg      CONcg     1
-    facg      BALac     -2
+    facg      BALac     -1
     facg      BALag     1
     facg      VUBacg    1
     fach      CONch     1
-    fach      BALac     -2
+    fach      BALac     -1
     fach      BALah     1
     fach      VUBach    1
     fadb      CONdb     1
@@ -1163,10 +1162,10 @@ COLUMNS
     fadc      BALac     1
     fadc      BALad     -1
     fadc      VUBadc    1
-    fade      CONde     2
+    fade      CONde     1
     fade      BALad     -1
     fade      BALae     1
-    fade      VUBade    1
+    fade      VUBade    2
     fadf      CONdf     1
     fadf      BALad     -1
     fadf      BALaf     1
@@ -1174,31 +1173,31 @@ COLUMNS
     fadg      CONdg     1
     fadg      BALad     -1
     fadg      BALag     1
-    fadg      VUBadg    1
+    fadg      VUBadg    2
     fadh      CONdh     1
     fadh      BALad     -1
-    fadh      BALah     2
+    fadh      BALah     1
     fadh      VUBadh    1
-    faeb      CONeb     1
+    faeb      CONeb     2
     faeb      BALab     1
-    faeb      BALae     -1
-    faeb      VUBaeb    3
+    faeb      BALae     -2
+    faeb      VUBaeb    1
     faec      CONec     1
     faec      BALac     1
     faec      BALae     -1
     faec      VUBaec    1
-    faed      CONed     2
+    faed      CONed     1
     faed      BALad     1
     faed      BALae     -1
     faed      VUBaed    1
-    faef      CONef     3
+    faef      CONef     1
     faef      BALae     -1
     faef      BALaf     1
     faef      VUBaef    1
     faeg      CONeg     1
-    faeg      BALae     -1
+    faeg      BALae     -2
     faeg      BALag     1
-    faeg      VUBaeg    1
+    faeg      VUBaeg    2
     faeh      CONeh     1
     faeh      BALae     -1
     faeh      BALah     1
@@ -1206,16 +1205,16 @@ COLUMNS
     fafb      CONfb     1
     fafb      BALab     1
     fafb      BALaf     -1
-    fafb      VUBafb    2
+    fafb      VUBafb    1
     fafc      CONfc     1
     fafc      BALac     1
     fafc      BALaf     -1
-    fafc      VUBafc    1
+    fafc      VUBafc    2
     fafd      CONfd     1
     fafd      BALad     1
     fafd      BALaf     -1
     fafd      VUBafd    1
-    fafe      CONfe     0.5
+    fafe      CONfe     1
     fafe      BALae     1
     fafe      BALaf     -1
     fafe      VUBafe    1
@@ -1223,55 +1222,55 @@ COLUMNS
     fafg      BALaf     -1
     fafg      BALag     1
     fafg      VUBafg    1
-    fafh      CONfh     0.5
+    fafh      CONfh     2
     fafh      BALaf     -1
     fafh      BALah     1
     fafh      VUBafh    1
     fagb      CONgb     1
     fagb      BALab     1
-    fagb      BALag     -1
-    fagb      VUBagb    1
+    fagb      BALag     -2
+    fagb      VUBagb    2
     fagc      CONgc     1
     fagc      BALac     1
     fagc      BALag     -1
-    fagc      VUBagc    2
+    fagc      VUBagc    1
     fagd      CONgd     1
     fagd      BALad     1
     fagd      BALag     -1
     fagd      VUBagd    1
     fage      CONge     1
-    fage      BALae     1
+    fage      BALae     2
     fage      BALag     -1
-    fage      VUBage    2
+    fage      VUBage    1
     fagf      CONgf     1
-    fagf      BALaf     2
+    fagf      BALaf     1
     fagf      BALag     -1
-    fagf      VUBagf    2
-    fagh      CONgh     0.5
-    fagh      BALag     -1
+    fagf      VUBagf    1
+    fagh      CONgh     1
+    fagh      BALag     -2
     fagh      BALah     1
     fagh      VUBagh    1
-    fahb      CONhb     1
+    fahb      CONhb     2
     fahb      BALab     1
     fahb      BALah     -1
     fahb      VUBahb    1
-    fahc      CONhc     1
+    fahc      CONhc     2
     fahc      BALac     1
     fahc      BALah     -1
     fahc      VUBahc    1
-    fahd      CONhd     2
-    fahd      BALad     2
+    fahd      CONhd     1
+    fahd      BALad     1
     fahd      BALah     -1
     fahd      VUBahd    1
-    fahe      CONhe     2
+    fahe      CONhe     1
     fahe      BALae     1
     fahe      BALah     -1
     fahe      VUBahe    1
-    fahf      CONhf     1
+    fahf      CONhf     -2
     fahf      BALaf     1
     fahf      BALah     -1
     fahf      VUBahf    1
-    fahg      CONhg     2
+    fahg      CONhg     1
     fahg      BALag     1
     fahg      BALah     -1
     fahg      VUBahg    1
@@ -1279,9 +1278,9 @@ COLUMNS
     fbac      BALba     -1
     fbac      BALbc     1
     fbac      VUBbac    1
-    fbad      CONad     2
+    fbad      CONad     1
     fbad      BALba     -1
-    fbad      BALbd     2
+    fbad      BALbd     1
     fbad      VUBbad    1
     fbae      CONae     1
     fbae      BALba     -1
@@ -1293,68 +1292,69 @@ COLUMNS
     fbaf      VUBbaf    1
     fbag      CONag     1
     fbag      BALba     -1
-    fbag      BALbg     1
+    fbag      BALbg     2
     fbag      VUBbag    1
     fbah      CONah     1
     fbah      BALba     -1
     fbah      BALbh     1
     fbah      VUBbah    1
-    fbba      FLOba     -1
+    fbba      CONba     1
     fbba      BALba     1
+    fbba      VUBbba    1
     fbbc      CONbc     1
     fbbc      BALbc     1
     fbbc      VUBbbc    1
     fbbd      CONbd     1
     fbbd      BALbd     1
-    fbbd      VUBbbd    2
+    fbbd      VUBbbd    1
     fbbe      CONbe     1
     fbbe      BALbe     1
     fbbe      VUBbbe    1
     fbbf      CONbf     1
-    fbbf      BALbf     1
-    fbbf      VUBbbf    2
-    fbbg      CONbg     0.5
+    fbbf      BALbf     2
+    fbbf      VUBbbf    1
+    fbbg      CONbg     1
     fbbg      BALbg     1
     fbbg      VUBbbg    1
-    fbbh      CONbh     2
+    fbbh      CONbh     1
     fbbh      BALbh     1
     fbbh      VUBbbh    1
-    fbca      CONca     0.5
+    fbca      CONca     1
     fbca      BALba     1
     fbca      BALbc     -1
     fbca      VUBbca    1
-    fbcd      CONcd     2
+    fbcd      CONcd     1
     fbcd      BALbc     -1
-    fbcd      BALbd     1
+    fbcd      BALbd     2
     fbcd      VUBbcd    1
-    fbce      CONce     1
-    fbce      BALbc     -1
+    fbce      CONce     2
+    fbce      BALbc     -2
     fbce      BALbe     1
     fbce      VUBbce    1
     fbcf      CONcf     1
     fbcf      BALbc     -1
-    fbcf      BALbf     1
-    fbcf      VUBbcf    2
+    fbcf      BALbf     2
+    fbcf      VUBbcf    1
     fbcg      CONcg     1
     fbcg      BALbc     -1
     fbcg      BALbg     1
     fbcg      VUBbcg    1
     fbch      CONch     1
-    fbch      BALbc     -2
+    fbch      BALbc     -1
     fbch      BALbh     1
     fbch      VUBbch    1
-    fbda      CONda     2
-    fbda      BALba     2
+    fbda      CONda     1
+    fbda      BALba     1
     fbda      BALbd     -1
     fbda      VUBbda    1
     fbdc      CONdc     1
     fbdc      BALbc     1
     fbdc      BALbd     -1
     fbdc      VUBbdc    1
-    fbde      CONde     2
+    fbde      CONde     1
     fbde      BALbd     -1
     fbde      BALbe     1
-    fbde      VUBbde    1
+    fbde      VUBbde    2
     fbdf      CONdf     1
     fbdf      BALbd     -1
     fbdf      BALbf     1
@@ -1367,33 +1367,33 @@ COLUMNS
     fbdh      BALbd     -1
     fbdh      BALbh     1
     fbdh      VUBbdh    1
-    fbea      CONea     2
+    fbea      CONea     1
     fbea      BALba     1
     fbea      BALbe     -1
     fbea      VUBbea    1
-    fbec      CONec     2
-    fbec      BALbc     2
+    fbec      CONec     1
+    fbec      BALbc     1
     fbec      BALbe     -1
     fbec      VUBbec    1
     fbed      CONed     1
     fbed      BALbd     1
     fbed      BALbe     -1
     fbed      VUBbed    1
-    fbef      CONef     3
+    fbef      CONef     1
     fbef      BALbe     -1
     fbef      BALbf     1
     fbef      VUBbef    1
-    fbeg      CONeg     1
+    fbeg      CONeg     2
     fbeg      BALbe     -1
-    fbeg      BALbg     2
+    fbeg      BALbg     1
     fbeg      VUBbeg    1
-    fbeh      CONeh     2
+    fbeh      CONeh     1
     fbeh      BALbe     -1
     fbeh      BALbh     1
     fbeh      VUBbeh    1
     fbfa      CONfa     1
     fbfa      BALba     1
-    fbfa      BALbf     -1
+    fbfa      BALbf     -2
     fbfa      VUBbfa    1
     fbfc      CONfc     1
     fbfc      BALbc     1
@@ -1408,10 +1408,10 @@ COLUMNS
     fbfe      BALbf     -1
     fbfe      VUBbfe    1
     fbfg      CONfg     1
-    fbfg      BALbf     -1
+    fbfg      BALbf     -2
     fbfg      BALbg     1
     fbfg      VUBbfg    1
-    fbfh      CONfh     0.5
+    fbfh      CONfh     1
     fbfh      BALbf     -1
     fbfh      BALbh     1
     fbfh      VUBbfh    1
@@ -1423,7 +1423,7 @@ COLUMNS
     fbgc      BALbc     1
     fbgc      BALbg     -1
     fbgc      VUBbgc    1
-    fbgd      CONgd     2
+    fbgd      CONgd     1
     fbgd      BALbd     1
     fbgd      BALbg     -1
     fbgd      VUBbgd    1
@@ -1434,26 +1434,26 @@ COLUMNS
     fbgf      CONgf     1
     fbgf      BALbf     1
     fbgf      BALbg     -1
-    fbgf      VUBbgf    1
-    fbgh      CONgh     0.5
+    fbgf      VUBbgf    2
+    fbgh      CONgh     1
     fbgh      BALbg     -1
     fbgh      BALbh     1
     fbgh      VUBbgh    1
     fbha      CONha     1
-    fbha      BALba     1
+    fbha      BALba     2
     fbha      BALbh     -1
     fbha      VUBbha    1
     fbhc      CONhc     1
     fbhc      BALbc     1
-    fbhc      BALbh     -2
+    fbhc      BALbh     -1
     fbhc      VUBbhc    1
-    fbhd      CONhd     2
+    fbhd      CONhd     1
     fbhd      BALbd     1
     fbhd      BALbh     -2
     fbhd      VUBbhd    1
     fbhe      CONhe     1
     fbhe      BALbe     1
-    fbhe      BALbh     -1
+    fbhe      BALbh     -2
     fbhe      VUBbhe    1
     fbhf      CONhf     1
     fbhf      BALbf     1
@@ -1462,10 +1462,10 @@ COLUMNS
     fbhg      CONhg     1
     fbhg      BALbg     1
     fbhg      BALbh     -1
-    fbhg      VUBbhg    1
+    fbhg      VUBbhg    2
     fcab      CONab     1
-    fcab      BALca     -1
-    fcab      BALcb     2
+    fcab      BALca     -2
+    fcab      BALcb     1
     fcab      VUBcab    1
     fcad      CONad     2
     fcad      BALca     -1
@@ -1475,73 +1475,73 @@ COLUMNS
     fcae      BALca     -1
     fcae      BALce     1
     fcae      VUBcae    1
-    fcaf      CONaf     1
+    fcaf      CONaf     3
     fcaf      BALca     -1
     fcaf      BALcf     1
     fcaf      VUBcaf    1
     fcag      CONag     1
     fcag      BALca     -1
     fcag      BALcg     1
-    fcag      VUBcag    1
+    fcag      VUBcag    2
     fcah      CONah     1
     fcah      BALca     -1
     fcah      BALch     1
     fcah      VUBcah    1
-    fcba      FLOba     -1
-    fcba      BALca     1
+    fcba      CONba     1
+    fcba      BALca     2
     fcba      BALcb     -1
-    fcba      VUBcba    2
+    fcba      VUBcba    1
     fcbd      CONbd     1
     fcbd      BALcb     -2
-    fcbd      BALcd     1
-    fcbd      VUBcbd    2
-    fcbe      CONbe     2
+    fcbd      BALcd     2
+    fcbd      VUBcbd    1
+    fcbe      CONbe     1
     fcbe      BALcb     -1
     fcbe      BALce     1
     fcbe      VUBcbe    1
-    fcbf      CONbf     2
+    fcbf      CONbf     1
     fcbf      BALcb     -1
-    fcbf      BALcf     2
+    fcbf      BALcf     1
     fcbf      VUBcbf    1
-    fcbg      CONbg     0.5
+    fcbg      CONbg     1
     fcbg      BALcb     -1
     fcbg      BALcg     1
-    fcbg      VUBcbg    1
+    fcbg      VUBcbg    2
     fcbh      CONbh     1
     fcbh      BALcb     -1
     fcbh      BALch     1
     fcbh      VUBcbh    1
-    fcca      CONca     0.5
+    fcca      CONca     1
     fcca      BALca     1
     fcca      VUBcca    1
     fccb      CONcb     1
     fccb      BALcb     1
     fccb      VUBccb    1
     fccd      CONcd     1
-    fccd      BALcd     1
+    fccd      BALcd     2
     fccd      VUBccd    1
     fcce      CONce     1
-    fcce      BALce     2
+    fcce      BALce     1
     fcce      VUBcce    1
     fccf      CONcf     1
-    fccf      BALcf     1
+    fccf      BALcf     2
     fccf      VUBccf    1
     fccg      CONcg     1
     fccg      BALcg     1
     fccg      VUBccg    1
     fcch      CONch     1
     fcch      BALch     1
-    fcch      VUBcch    3
+    fcch      VUBcch    1
     fcda      CONda     1
-    fcda      BALca     2
+    fcda      BALca     1
     fcda      BALcd     -1
     fcda      VUBcda    1
     fcdb      CONdb     1
     fcdb      BALcb     1
     fcdb      BALcd     -1
     fcdb      VUBcdb    1
-    fcde      CONde     2
-    fcde      BALcd     -3
+    fcde      CONde     -1
+    fcde      BALcd     -1
     fcde      BALce     1
     fcde      VUBcde    1
     fcdf      CONdf     1
@@ -1550,25 +1550,25 @@ COLUMNS
     fcdf      VUBcdf    1
     fcdg      CONdg     1
     fcdg      BALcd     -1
-    fcdg      BALcg     1
+    fcdg      BALcg     -1
     fcdg      VUBcdg    1
     fcdh      CONdh     1
-    fcdh      BALcd     -1
+    fcdh      BALcd     -2
     fcdh      BALch     1
     fcdh      VUBcdh    1
-    fcea      CONea     2
+    fcea      CONea     1
     fcea      BALca     1
     fcea      BALce     -1
-    fcea      VUBcea    1
+    fcea      VUBcea    2
     fceb      CONeb     1
     fceb      BALcb     1
-    fceb      BALce     -1
-    fceb      VUBceb    2
+    fceb      BALce     -2
+    fceb      VUBceb    1
     fced      CONed     1
     fced      BALcd     1
     fced      BALce     -1
     fced      VUBced    1
-    fcef      CONef     3
+    fcef      CONef     1
     fcef      BALce     -1
     fcef      BALcf     1
     fcef      VUBcef    1
@@ -1576,7 +1576,7 @@ COLUMNS
     fceg      BALce     -1
     fceg      BALcg     1
     fceg      VUBceg    1
-    fceh      CONeh     3
+    fceh      CONeh     2
     fceh      BALce     -1
     fceh      BALch     1
     fceh      VUBceh    1
@@ -1600,21 +1600,21 @@ COLUMNS
     fcfg      BALcf     -1
     fcfg      BALcg     1
     fcfg      VUBcfg    1
-    fcfh      CONfh     0.5
+    fcfh      CONfh     1
     fcfh      BALcf     -1
     fcfh      BALch     1
     fcfh      VUBcfh    1
     fcga      CONga     1
     fcga      BALca     1
     fcga      BALcg     -1
-    fcga      VUBcga    2
+    fcga      VUBcga    1
     fcgb      CONgb     1
     fcgb      BALcb     1
     fcgb      BALcg     -1
     fcgb      VUBcgb    1
     fcgd      CONgd     1
     fcgd      BALcd     1
-    fcgd      BALcg     -3
+    fcgd      BALcg     -1
     fcgd      VUBcgd    1
     fcge      CONge     1
     fcge      BALce     1
@@ -1623,28 +1623,28 @@ COLUMNS
     fcgf      CONgf     1
     fcgf      BALcf     1
     fcgf      BALcg     -1
-    fcgf      VUBcgf    2
-    fcgh      CONgh     0.5
+    fcgf      VUBcgf    1
+    fcgh      CONgh     1
     fcgh      BALcg     -1
     fcgh      BALch     1
     fcgh      VUBcgh    1
     fcha      CONha     1
     fcha      BALca     1
-    fcha      BALch     -2
+    fcha      BALch     -1
     fcha      VUBcha    1
     fchb      CONhb     1
-    fchb      BALcb     2
+    fchb      BALcb     1
     fchb      BALch     -1
     fchb      VUBchb    1
-    fchd      CONhd     2
+    fchd      CONhd     1
     fchd      BALcd     1
-    fchd      BALch     -2
+    fchd      BALch     -1
     fchd      VUBchd    1
     fche      CONhe     1
     fche      BALce     1
     fche      BALch     -1
     fche      VUBche    1
-    fchf      CONhf     2
+    fchf      CONhf     1
     fchf      BALcf     1
     fchf      BALch     -1
     fchf      VUBchf    1
@@ -1669,14 +1669,14 @@ COLUMNS
     fdaf      BALdf     1
     fdaf      VUBdaf    1
     fdag      CONag     1
-    fdag      BALda     -1
+    fdag      BALda     -2
     fdag      BALdg     1
     fdag      VUBdag    1
     fdah      CONah     1
     fdah      BALda     -1
     fdah      BALdh     1
     fdah      VUBdah    1
-    fdba      FLOba     -1
+    fdba      CONba     1
     fdba      BALda     1
     fdba      BALdb     -1
     fdba      VUBdba    1
@@ -1684,22 +1684,22 @@ COLUMNS
     fdbc      BALdb     -1
     fdbc      BALdc     1
     fdbc      VUBdbc    1
-    fdbe      CONbe     2
+    fdbe      CONbe     1
     fdbe      BALdb     -1
     fdbe      BALde     1
     fdbe      VUBdbe    1
     fdbf      CONbf     2
     fdbf      BALdb     -1
-    fdbf      BALdf     -1
-    fdbf      VUBdbf    2
-    fdbg      CONbg     0.5
+    fdbf      BALdf     1
+    fdbf      VUBdbf    1
+    fdbg      CONbg     1
     fdbg      BALdb     -1
     fdbg      BALdg     1
     fdbg      VUBdbg    1
     fdbh      CONbh     1
     fdbh      BALdb     -1
     fdbh      BALdh     1
-    fdbh      VUBdbh    1
+    fdbh      VUBdbh    2
     fdca      CONca     1
     fdca      BALda     1
     fdca      BALdc     -1
@@ -1708,7 +1708,7 @@ COLUMNS
     fdcb      BALdb     1
     fdcb      BALdc     -1
     fdcb      VUBdcb    1
-    fdce      CONce     1
+    fdce      CONce     2
     fdce      BALdc     -1
     fdce      BALde     1
     fdce      VUBdce    2
@@ -1733,34 +1733,34 @@ COLUMNS
     fddc      CONdc     1
     fddc      BALdc     1
     fddc      VUBddc    1
-    fdde      CONde     2
-    fdde      BALde     2
-    fdde      VUBdde    1
+    fdde      CONde     1
+    fdde      BALde     1
+    fdde      VUBdde    2
     fddf      CONdf     1
     fddf      BALdf     1
     fddf      VUBddf    1
     fddg      CONdg     1
-    fddg      BALdg     2
+    fddg      BALdg     1
     fddg      VUBddg    1
     fddh      CONdh     1
     fddh      BALdh     1
-    fddh      VUBddh    2
-    fdea      CONea     2
+    fddh      VUBddh    1
+    fdea      CONea     1
     fdea      BALda     1
     fdea      BALde     -1
-    fdea      VUBdea    1
+    fdea      VUBdea    2
     fdeb      CONeb     1
     fdeb      BALdb     1
     fdeb      BALde     -1
-    fdeb      VUBdeb    1
+    fdeb      VUBdeb    -1
     fdec      CONec     1
     fdec      BALdc     1
     fdec      BALde     -1
     fdec      VUBdec    1
-    fdef      CONef     3
+    fdef      CONef     1
     fdef      BALde     -1
     fdef      BALdf     1
-    fdef      VUBdef    2
+    fdef      VUBdef    1
     fdeg      CONeg     1
     fdeg      BALde     -1
     fdeg      BALdg     1
@@ -1772,30 +1772,30 @@ COLUMNS
     fdfa      CONfa     1
     fdfa      BALda     1
     fdfa      BALdf     -1
-    fdfa      VUBdfa    2
+    fdfa      VUBdfa    1
     fdfb      CONfb     1
     fdfb      BALdb     1
     fdfb      BALdf     -1
-    fdfb      VUBdfb    3
+    fdfb      VUBdfb    1
     fdfc      CONfc     1
-    fdfc      BALdc     1
+    fdfc      BALdc     2
     fdfc      BALdf     -1
     fdfc      VUBdfc    1
-    fdfe      CONfe     0.5
-    fdfe      BALde     1
+    fdfe      CONfe     1
+    fdfe      BALde     -1
     fdfe      BALdf     -1
     fdfe      VUBdfe    1
     fdfg      CONfg     1
     fdfg      BALdf     -1
     fdfg      BALdg     1
     fdfg      VUBdfg    1
-    fdfh      CONfh     0.5
+    fdfh      CONfh     1
     fdfh      BALdf     -1
     fdfh      BALdh     1
     fdfh      VUBdfh    1
     fdga      CONga     1
-    fdga      BALda     1
-    fdga      BALdg     -2
+    fdga      BALda     2
+    fdga      BALdg     -1
     fdga      VUBdga    1
     fdgb      CONgb     1
     fdgb      BALdb     1
@@ -1810,36 +1810,36 @@ COLUMNS
     fdge      BALdg     -1
     fdge      VUBdge    1
     fdgf      CONgf     1
-    fdgf      BALdf     1
+    fdgf      BALdf     2
     fdgf      BALdg     -1
     fdgf      VUBdgf    1
-    fdgh      CONgh     0.5
-    fdgh      BALdg     -2
+    fdgh      CONgh     1
+    fdgh      BALdg     -1
     fdgh      BALdh     1
-    fdgh      VUBdgh    1
+    fdgh      VUBdgh    -1
     fdha      CONha     1
     fdha      BALda     1
-    fdha      BALdh     1
+    fdha      BALdh     -1
     fdha      VUBdha    1
     fdhb      CONhb     1
-    fdhb      BALdb     2
+    fdhb      BALdb     1
     fdhb      BALdh     -1
-    fdhb      VUBdhb    3
+    fdhb      VUBdhb    1
     fdhc      CONhc     1
     fdhc      BALdc     1
     fdhc      BALdh     -1
-    fdhc      VUBdhc    2
+    fdhc      VUBdhc    1
     fdhe      CONhe     1
     fdhe      BALde     1
-    fdhe      BALdh     -1
+    fdhe      BALdh     -2
     fdhe      VUBdhe    1
     fdhf      CONhf     1
     fdhf      BALdf     1
     fdhf      BALdh     -1
-    fdhf      VUBdhf    2
+    fdhf      VUBdhf    1
     fdhg      CONhg     1
     fdhg      BALdg     1
-    fdhg      BALdh     -2
+    fdhg      BALdh     -1
     fdhg      VUBdhg    1
     feab      CONab     1
     feab      BALea     -1
@@ -1849,39 +1849,39 @@ COLUMNS
     feac      BALea     -1
     feac      BALec     1
     feac      VUBeac    1
-    fead      CONad     2
+    fead      CONad     1
     fead      BALea     -1
     fead      BALed     1
     fead      VUBead    1
     feaf      CONaf     1
-    feaf      BALea     -1
-    feaf      BALef     2
+    feaf      BALea     -2
+    feaf      BALef     1
     feaf      VUBeaf    1
     feag      CONag     1
     feag      BALea     -1
-    feag      BALeg     -1
+    feag      BALeg     1
     feag      VUBeag    1
     feah      CONah     1
     feah      BALea     -1
     feah      BALeh     1
     feah      VUBeah    1
-    feba      FLOba     -1
+    feba      CONba     1
     feba      BALea     2
-    feba      BALeb     -2
+    feba      BALeb     -1
     feba      VUBeba    1
-    febc      CONbc     2
+    febc      CONbc     1
     febc      BALeb     -1
     febc      BALec     1
     febc      VUBebc    1
     febd      CONbd     1
     febd      BALeb     -1
-    febd      BALed     1
+    febd      BALed     2
     febd      VUBebd    1
     febf      CONbf     1
     febf      BALeb     -1
-    febf      BALef     1
+    febf      BALef     2
     febf      VUBebf    1
-    febg      CONbg     0.5
+    febg      CONbg     1
     febg      BALeb     -1
     febg      BALeg     1
     febg      VUBebg    1
@@ -1889,16 +1889,16 @@ COLUMNS
     febh      BALeb     -1
     febh      BALeh     1
     febh      VUBebh    1
-    feca      CONca     0.5
+    feca      CONca     1
     feca      BALea     1
-    feca      BALec     -1
+    feca      BALec     -2
     feca      VUBeca    1
     fecb      CONcb     1
     fecb      BALeb     1
-    fecb      BALec     -2
+    fecb      BALec     -1
     fecb      VUBecb    1
     fecd      CONcd     1
-    fecd      BALec     -2
+    fecd      BALec     -1
     fecd      BALed     1
     fecd      VUBecd    1
     fecf      CONcf     1
@@ -1906,16 +1906,16 @@ COLUMNS
     fecf      BALef     1
     fecf      VUBecf    1
     fecg      CONcg     1
-    fecg      BALec     1
+    fecg      BALec     -1
     fecg      BALeg     1
     fecg      VUBecg    1
-    fech      CONch     2
+    fech      CONch     1
     fech      BALec     -1
     fech      BALeh     1
-    fech      VUBech    2
-    feda      CONda     2
-    feda      BALea     1
-    feda      BALed     -1
+    fech      VUBech    1
+    feda      CONda     1
+    feda      BALea     2
+    feda      BALed     -2
     feda      VUBeda    1
     fedb      CONdb     1
     fedb      BALeb     1
@@ -1925,19 +1925,19 @@ COLUMNS
     fedc      BALec     1
     fedc      BALed     -1
     fedc      VUBedc    1
-    fedf      CONdf     1
+    fedf      CONdf     2
     fedf      BALed     -1
     fedf      BALef     1
     fedf      VUBedf    1
     fedg      CONdg     1
     fedg      BALed     -1
     fedg      BALeg     1
-    fedg      VUBedg    2
+    fedg      VUBedg    1
     fedh      CONdh     1
     fedh      BALed     -1
     fedh      BALeh     1
     fedh      VUBedh    1
-    feea      CONea     2
+    feea      CONea     1
     feea      BALea     1
     feea      VUBeea    1
     feeb      CONeb     1
@@ -1945,66 +1945,66 @@ COLUMNS
     feeb      VUBeeb    1
     feec      CONec     1
     feec      BALec     1
-    feec      VUBeec    1
+    feec      VUBeec    2
     feed      CONed     1
     feed      BALed     1
     feed      VUBeed    1
-    feef      CONef     3
+    feef      CONef     1
     feef      BALef     1
-    feef      VUBeef    2
+    feef      VUBeef    1
     feeg      CONeg     1
     feeg      BALeg     1
     feeg      VUBeeg    1
-    feeh      CONeh     2
+    feeh      CONeh     1
     feeh      BALeh     1
     feeh      VUBeeh    1
-    fefa      CONfa     2
+    fefa      CONfa     1
     fefa      BALea     1
     fefa      BALef     -1
     fefa      VUBefa    1
     fefb      CONfb     1
-    fefb      BALeb     1
+    fefb      BALeb     2
     fefb      BALef     -1
     fefb      VUBefb    1
     fefc      CONfc     1
-    fefc      BALec     1
-    fefc      BALef     -1
+    fefc      BALec     2
+    fefc      BALef     -2
     fefc      VUBefc    1
     fefd      CONfd     1
-    fefd      BALed     2
+    fefd      BALed     1
     fefd      BALef     -1
-    fefd      VUBefd    2
+    fefd      VUBefd    1
     fefg      CONfg     1
-    fefg      BALef     -2
+    fefg      BALef     -1
     fefg      BALeg     1
     fefg      VUBefg    1
-    fefh      CONfh     0.5
+    fefh      CONfh     1
     fefh      BALef     -1
     fefh      BALeh     1
-    fefh      VUBefh    2
-    fega      CONga     2
+    fefh      VUBefh    1
+    fega      CONga     1
     fega      BALea     1
-    fega      BALeg     -2
+    fega      BALeg     -1
     fega      VUBega    1
     fegb      CONgb     1
     fegb      BALeb     1
     fegb      BALeg     -1
     fegb      VUBegb    1
     fegc      CONgc     1
-    fegc      BALec     1
+    fegc      BALec     -1
     fegc      BALeg     -1
     fegc      VUBegc    1
     fegd      CONgd     1
-    fegd      BALed     -1
+    fegd      BALed     1
     fegd      BALeg     -1
     fegd      VUBegd    1
-    fegf      CONgf     2
+    fegf      CONgf     1
     fegf      BALef     1
     fegf      BALeg     -1
-    fegf      VUBegf    1
-    fegh      CONgh     0.5
+    fegf      VUBegf    2
+    fegh      CONgh     2
     fegh      BALeg     -1
-    fegh      BALeh     3
+    fegh      BALeh     1
     fegh      VUBegh    1
     feha      CONha     1
     feha      BALea     1
@@ -2014,21 +2014,21 @@ COLUMNS
     fehb      BALeb     1
     fehb      BALeh     -1
     fehb      VUBehb    1
-    fehc      CONhc     1
+    fehc      CONhc     2
     fehc      BALec     1
     fehc      BALeh     -1
     fehc      VUBehc    1
-    fehd      CONhd     2
+    fehd      CONhd     1
     fehd      BALed     1
-    fehd      BALeh     -1
+    fehd      BALeh     1
     fehd      VUBehd    1
     fehf      CONhf     1
-    fehf      BALef     2
+    fehf      BALef     1
     fehf      BALeh     -1
-    fehf      VUBehf    2
-    fehg      CONhg     1
+    fehf      VUBehf    1
+    fehg      CONhg     2
     fehg      BALeg     1
-    fehg      BALeh     -1
+    fehg      BALeh     -2
     fehg      VUBehg    1
     ffab      CONab     1
     ffab      BALfa     -1
@@ -2038,7 +2038,7 @@ COLUMNS
     ffac      BALfa     -1
     ffac      BALfc     1
     ffac      VUBfac    1
-    ffad      CONad     2
+    ffad      CONad     1
     ffad      BALfa     -1
     ffad      BALfd     1
     ffad      VUBfad    1
@@ -2054,7 +2054,7 @@ COLUMNS
     ffah      BALfa     -1
     ffah      BALfh     1
     ffah      VUBfah    1
-    ffba      FLOba     -1
+    ffba      CONba     1
     ffba      BALfa     1
     ffba      BALfb     -1
     ffba      VUBfba    1
@@ -2064,9 +2064,9 @@ COLUMNS
     ffbc      VUBfbc    1
     ffbd      CONbd     1
     ffbd      BALfb     -1
-    ffbd      BALfd     3
+    ffbd      BALfd     1
     ffbd      VUBfbd    1
-    ffbe      CONbe     1
+    ffbe      CONbe     2
     ffbe      BALfb     -2
     ffbe      BALfe     1
     ffbe      VUBfbe    1
@@ -2078,7 +2078,7 @@ COLUMNS
     ffbh      BALfb     -1
     ffbh      BALfh     1
     ffbh      VUBfbh    1
-    ffca      CONca     0.5
+    ffca      CONca     1
     ffca      BALfa     1
     ffca      BALfc     -1
     ffca      VUBfca    1
@@ -2087,8 +2087,8 @@ COLUMNS
     ffcb      BALfc     -1
     ffcb      VUBfcb    1
     ffcd      CONcd     1
-    ffcd      BALfc     -1
-    ffcd      BALfd     1
+    ffcd      BALfc     -2
+    ffcd      BALfd     2
     ffcd      VUBfcd    1
     ffce      CONce     1
     ffce      BALfc     -1
@@ -2099,7 +2099,7 @@ COLUMNS
     ffcg      BALfg     1
     ffcg      VUBfcg    1
     ffch      CONch     1
-    ffch      BALfc     -1
+    ffch      BALfc     -2
     ffch      BALfh     1
     ffch      VUBfch    1
     ffda      CONda     1
@@ -2110,11 +2110,11 @@ COLUMNS
     ffdb      BALfb     1
     ffdb      BALfd     -1
     ffdb      VUBfdb    1
-    ffdc      CONdc     1
+    ffdc      CONdc     2
     ffdc      BALfc     1
     ffdc      BALfd     -1
     ffdc      VUBfdc    1
-    ffde      CONde     2
+    ffde      CONde     1
     ffde      BALfd     -1
     ffde      BALfe     1
     ffde      VUBfde    1
@@ -2125,8 +2125,8 @@ COLUMNS
     ffdh      CONdh     1
     ffdh      BALfd     -1
     ffdh      BALfh     1
-    ffdh      VUBfdh    2
-    ffea      CONea     2
+    ffdh      VUBfdh    1
+    ffea      CONea     1
     ffea      BALfa     1
     ffea      BALfe     -1
     ffea      VUBfea    1
@@ -2140,40 +2140,40 @@ COLUMNS
     ffec      VUBfec    1
     ffed      CONed     1
     ffed      BALfd     1
-    ffed      BALfe     -1
+    ffed      BALfe     -2
     ffed      VUBfed    1
-    ffeg      CONeg     1
+    ffeg      CONeg     2
     ffeg      BALfe     -1
     ffeg      BALfg     1
     ffeg      VUBfeg    1
     ffeh      CONeh     1
     ffeh      BALfe     -1
     ffeh      BALfh     1
-    ffeh      VUBfeh    2
+    ffeh      VUBfeh    1
     fffa      CONfa     1
     fffa      BALfa     1
     fffa      VUBffa    1
     fffb      CONfb     2
-    fffb      BALfb     1
-    fffb      VUBffb    2
-    fffc      CONfc     1
+    fffb      BALfb     2
+    fffb      VUBffb    1
+    fffc      CONfc     2
     fffc      BALfc     1
     fffc      VUBffc    1
     fffd      CONfd     1
     fffd      BALfd     1
     fffd      VUBffd    1
-    fffe      CONfe     0.5
+    fffe      CONfe     -1
     fffe      BALfe     1
     fffe      VUBffe    1
     fffg      CONfg     1
-    fffg      BALfg     1
+    fffg      BALfg     2
     fffg      VUBffg    1
-    fffh      CONfh     0.5
+    fffh      CONfh     1
     fffh      BALfh     1
     fffh      VUBffh    1
     ffga      CONga     1
     ffga      BALfa     1
-    ffga      BALfg     -1
+    ffga      BALfg     -2
     ffga      VUBfga    1
     ffgb      CONgb     1
     ffgb      BALfb     1
@@ -2184,14 +2184,14 @@ COLUMNS
     ffgc      BALfg     -1
     ffgc      VUBfgc    1
     ffgd      CONgd     1
-    ffgd      BALfd     2
-    ffgd      BALfg     -2
-    ffgd      VUBfgd    2
+    ffgd      BALfd     1
+    ffgd      BALfg     -1
+    ffgd      VUBfgd    1
     ffge      CONge     1
     ffge      BALfe     1
-    ffge      BALfg     -1
+    ffge      BALfg     -2
     ffge      VUBfge    1
-    ffgh      CONgh     0.5
+    ffgh      CONgh     1
     ffgh      BALfg     -1
     ffgh      BALfh     1
     ffgh      VUBfgh    1
@@ -2199,15 +2199,15 @@ COLUMNS
     ffha      BALfa     1
     ffha      BALfh     -1
     ffha      VUBfha    1
-    ffhb      CONhb     1
+    ffhb      CONhb     2
     ffhb      BALfb     1
-    ffhb      BALfh     -1
-    ffhb      VUBfhb    1
-    ffhc      CONhc     1
+    ffhb      BALfh     -2
+    ffhb      VUBfhb    2
+    ffhc      CONhc     2
     ffhc      BALfc     1
     ffhc      BALfh     -1
     ffhc      VUBfhc    1
-    ffhd      CONhd     2
+    ffhd      CONhd     1
     ffhd      BALfd     1
     ffhd      BALfh     -1
     ffhd      VUBfhd    1
@@ -2227,7 +2227,7 @@ COLUMNS
     fgac      BALga     -1
     fgac      BALgc     1
     fgac      VUBgac    1
-    fgad      CONad     2
+    fgad      CONad     1
     fgad      BALga     -1
     fgad      BALgd     1
     fgad      VUBgad    1
@@ -2243,9 +2243,9 @@ COLUMNS
     fgah      BALga     -1
     fgah      BALgh     1
     fgah      VUBgah    1
-    fgba      FLOba     1
-    fgba      BALga     1
-    fgba      BALgb     -2
+    fgba      CONba     3
+    fgba      BALga     2
+    fgba      BALgb     -1
     fgba      VUBgba    1
     fgbc      CONbc     1
     fgbc      BALgb     -1
@@ -2256,20 +2256,20 @@ COLUMNS
     fgbd      BALgd     1
     fgbd      VUBgbd    1
     fgbe      CONbe     1
-    fgbe      BALgb     -2
+    fgbe      BALgb     -1
     fgbe      BALge     1
-    fgbe      VUBgbe    2
+    fgbe      VUBgbe    1
     fgbf      CONbf     1
     fgbf      BALgb     -1
-    fgbf      BALgf     1
-    fgbf      VUBgbf    1
-    fgbh      CONbh     2
+    fgbf      BALgf     2
+    fgbf      VUBgbf    2
+    fgbh      CONbh     1
     fgbh      BALgb     -1
-    fgbh      BALgh     2
+    fgbh      BALgh     1
     fgbh      VUBgbh    1
     fgca      CONca     1
-    fgca      BALga     2
-    fgca      BALgc     -1
+    fgca      BALga     1
+    fgca      BALgc     -2
     fgca      VUBgca    1
     fgcb      CONcb     1
     fgcb      BALgb     1
@@ -2279,7 +2279,7 @@ COLUMNS
     fgcd      BALgc     -1
     fgcd      BALgd     1
     fgcd      VUBgcd    1
-    fgce      CONce     2
+    fgce      CONce     1
     fgce      BALgc     -1
     fgce      BALge     1
     fgce      VUBgce    1
@@ -2296,15 +2296,15 @@ COLUMNS
     fgda      BALgd     -1
     fgda      VUBgda    1
     fgdb      CONdb     1
-    fgdb      BALgb     2
+    fgdb      BALgb     1
     fgdb      BALgd     -1
     fgdb      VUBgdb    1
     fgdc      CONdc     1
     fgdc      BALgc     1
     fgdc      BALgd     -1
     fgdc      VUBgdc    1
-    fgde      CONde     2
-    fgde      BALgd     -1
+    fgde      CONde     1
+    fgde      BALgd     -2
     fgde      BALge     1
     fgde      VUBgde    1
     fgdf      CONdf     1
@@ -2315,15 +2315,15 @@ COLUMNS
     fgdh      BALgd     -1
     fgdh      BALgh     1
     fgdh      VUBgdh    1
-    fgea      CONea     2
+    fgea      CONea     1
     fgea      BALga     1
     fgea      BALge     -1
     fgea      VUBgea    1
-    fgeb      CONeb     1
+    fgeb      CONeb     2
     fgeb      BALgb     1
     fgeb      BALge     -1
-    fgeb      VUBgeb    1
-    fgec      CONec     1
+    fgeb      VUBgeb    2
+    fgec      CONec     2
     fgec      BALgc     1
     fgec      BALge     -1
     fgec      VUBgec    1
@@ -2331,12 +2331,12 @@ COLUMNS
     fged      BALgd     1
     fged      BALge     -1
     fged      VUBged    1
-    fgef      CONef     3
+    fgef      CONef     1
     fgef      BALge     -1
     fgef      BALgf     1
     fgef      VUBgef    1
     fgeh      CONeh     1
-    fgeh      BALge     -1
+    fgeh      BALge     -2
     fgeh      BALgh     1
     fgeh      VUBgeh    1
     fgfa      CONfa     1
@@ -2352,14 +2352,14 @@ COLUMNS
     fgfc      BALgf     -1
     fgfc      VUBgfc    1
     fgfd      CONfd     1
-    fgfd      BALgd     3
+    fgfd      BALgd     2
     fgfd      BALgf     -1
     fgfd      VUBgfd    1
-    fgfe      CONfe     0.5
+    fgfe      CONfe     1
     fgfe      BALge     1
-    fgfe      BALgf     -1
+    fgfe      BALgf     -2
     fgfe      VUBgfe    1
-    fgfh      CONfh     0.5
+    fgfh      CONfh     1
     fgfh      BALgf     -1
     fgfh      BALgh     1
     fgfh      VUBgfh    1
@@ -2372,21 +2372,21 @@ COLUMNS
     fggc      CONgc     1
     fggc      BALgc     1
     fggc      VUBggc    1
-    fggd      CONgd     2
+    fggd      CONgd     1
     fggd      BALgd     1
     fggd      VUBggd    1
     fgge      CONge     1
     fgge      BALge     1
     fgge      VUBgge    1
-    fggf      CONgf     2
+    fggf      CONgf     1
     fggf      BALgf     1
     fggf      VUBggf    1
-    fggh      CONgh     0.5
-    fggh      BALgh     1
+    fggh      CONgh     1
+    fggh      BALgh     2
     fggh      VUBggh    1
-    fgha      CONha     1
+    fgha      CONha     3
     fgha      BALga     1
-    fgha      BALgh     -2
+    fgha      BALgh     -1
     fgha      VUBgha    1
     fghb      CONhb     1
     fghb      BALgb     1
@@ -2396,14 +2396,14 @@ COLUMNS
     fghc      BALgc     1
     fghc      BALgh     -1
     fghc      VUBghc    1
-    fghd      CONhd     2
+    fghd      CONhd     1
     fghd      BALgd     1
     fghd      BALgh     -1
-    fghd      VUBghd    1
+    fghd      VUBghd    2
     fghe      CONhe     1
     fghe      BALge     1
     fghe      BALgh     -1
-    fghe      VUBghe    2
+    fghe      VUBghe    1
     fghf      CONhf     1
     fghf      BALgf     1
     fghf      BALgh     -1
@@ -2415,13 +2415,13 @@ COLUMNS
     fhac      CONac     1
     fhac      BALha     -1
     fhac      BALhc     1
-    fhac      VUBhac    1
-    fhad      CONad     2
+    fhac      VUBhac    2
+    fhad      CONad     1
     fhad      BALha     -1
     fhad      BALhd     1
     fhad      VUBhad    1
-    fhae      CONae     1
-    fhae      BALha     -2
+    fhae      CONae     2
+    fhae      BALha     -1
     fhae      BALhe     1
     fhae      VUBhae    1
     fhaf      CONaf     1
@@ -2429,11 +2429,11 @@ COLUMNS
     fhaf      BALhf     1
     fhaf      VUBhaf    1
     fhag      CONag     1
-    fhag      BALha     -2
+    fhag      BALha     -1
     fhag      BALhg     1
     fhag      VUBhag    1
-    fhba      FLOba     -1
-    fhba      BALha     -1
+    fhba      CONba     1
+    fhba      BALha     1
     fhba      BALhb     -1
     fhba      VUBhba    1
     fhbc      CONbc     1
@@ -2442,21 +2442,21 @@ COLUMNS
     fhbc      VUBhbc    1
     fhbd      CONbd     1
     fhbd      BALhb     -1
-    fhbd      BALhd     2
+    fhbd      BALhd     1
     fhbd      VUBhbd    1
     fhbe      CONbe     1
     fhbe      BALhb     -1
     fhbe      BALhe     1
     fhbe      VUBhbe    1
     fhbf      CONbf     1
-    fhbf      BALhb     -1
+    fhbf      BALhb     -2
     fhbf      BALhf     1
     fhbf      VUBhbf    1
-    fhbg      CONbg     0.5
+    fhbg      CONbg     1
     fhbg      BALhb     -1
     fhbg      BALhg     1
     fhbg      VUBhbg    1
-    fhca      CONca     0.5
+    fhca      CONca     1
     fhca      BALha     1
     fhca      BALhc     -1
     fhca      VUBhca    1
@@ -2465,11 +2465,11 @@ COLUMNS
     fhcb      BALhc     -1
     fhcb      VUBhcb    1
     fhcd      CONcd     1
-    fhcd      BALhc     -2
+    fhcd      BALhc     -1
     fhcd      BALhd     1
     fhcd      VUBhcd    1
     fhce      CONce     1
-    fhce      BALhc     -1
+    fhce      BALhc     -2
     fhce      BALhe     1
     fhce      VUBhce    1
     fhcf      CONcf     1
@@ -2484,19 +2484,19 @@ COLUMNS
     fhda      BALha     1
     fhda      BALhd     -1
     fhda      VUBhda    1
-    fhdb      CONdb     1
+    fhdb      CONdb     2
     fhdb      BALhb     1
     fhdb      BALhd     -1
     fhdb      VUBhdb    1
     fhdc      CONdc     1
     fhdc      BALhc     1
     fhdc      BALhd     -1
-    fhdc      VUBhdc    1
-    fhde      CONde     2
+    fhdc      VUBhdc    2
+    fhde      CONde     1
     fhde      BALhd     -1
     fhde      BALhe     1
     fhde      VUBhde    1
-    fhdf      CONdf     2
+    fhdf      CONdf     1
     fhdf      BALhd     -1
     fhdf      BALhf     1
     fhdf      VUBhdf    1
@@ -2504,13 +2504,13 @@ COLUMNS
     fhdg      BALhd     -1
     fhdg      BALhg     1
     fhdg      VUBhdg    1
-    fhea      CONea     2
+    fhea      CONea     1
     fhea      BALha     1
-    fhea      BALhe     -2
-    fhea      VUBhea    2
+    fhea      BALhe     -1
+    fhea      VUBhea    1
     fheb      CONeb     1
     fheb      BALhb     1
-    fheb      BALhe     -2
+    fheb      BALhe     -1
     fheb      VUBheb    1
     fhec      CONec     1
     fhec      BALhc     1
@@ -2520,7 +2520,7 @@ COLUMNS
     fhed      BALhd     1
     fhed      BALhe     -1
     fhed      VUBhed    1
-    fhef      CONef     3
+    fhef      CONef     1
     fhef      BALhe     -1
     fhef      BALhf     1
     fhef      VUBhef    1
@@ -2530,28 +2530,28 @@ COLUMNS
     fheg      VUBheg    1
     fhfa      CONfa     1
     fhfa      BALha     1
-    fhfa      BALhf     -1
+    fhfa      BALhf     -2
     fhfa      VUBhfa    1
     fhfb      CONfb     1
-    fhfb      BALhb     1
+    fhfb      BALhb     2
     fhfb      BALhf     -1
-    fhfb      VUBhfb    2
+    fhfb      VUBhfb    1
     fhfc      CONfc     1
     fhfc      BALhc     1
     fhfc      BALhf     -1
-    fhfc      VUBhfc    1
+    fhfc      VUBhfc    2
     fhfd      CONfd     1
     fhfd      BALhd     1
     fhfd      BALhf     -1
-    fhfd      VUBhfd    2
-    fhfe      CONfe     0.5
+    fhfd      VUBhfd    1
+    fhfe      CONfe     1
     fhfe      BALhe     1
-    fhfe      BALhf     -2
+    fhfe      BALhf     -1
     fhfe      VUBhfe    1
-    fhfg      CONfg     2
+    fhfg      CONfg     1
     fhfg      BALhf     -1
     fhfg      BALhg     1
-    fhfg      VUBhfg    1
+    fhfg      VUBhfg    3
     fhga      CONga     1
     fhga      BALha     1
     fhga      BALhg     -1
@@ -2567,7 +2567,7 @@ COLUMNS
     fhgd      CONgd     1
     fhgd      BALhd     1
     fhgd      BALhg     -1
-    fhgd      VUBhgd    1
+    fhgd      VUBhgd    2
     fhge      CONge     1
     fhge      BALhe     1
     fhge      BALhg     -1
@@ -2575,25 +2575,25 @@ COLUMNS
     fhgf      CONgf     1
     fhgf      BALhf     1
     fhgf      BALhg     -1
-    fhgf      VUBhgf    1
+    fhgf      VUBhgf    2
     fhha      CONha     1
-    fhha      BALha     2
+    fhha      BALha     1
     fhha      VUBhha    1
     fhhb      CONhb     1
     fhhb      BALhb     1
     fhhb      VUBhhb    1
     fhhc      CONhc     1
     fhhc      BALhc     1
-    fhhc      VUBhhc    1
-    fhhd      CONhd     2
-    fhhd      BALhd     1
+    fhhc      VUBhhc    -1
+    fhhd      CONhd     1
+    fhhd      BALhd     2
     fhhd      VUBhhd    1
     fhhe      CONhe     1
     fhhe      BALhe     1
     fhhe      VUBhhe    1
     fhhf      CONhf     1
     fhhf      BALhf     1
-    fhhf      VUBhhf    1
+    fhhf      VUBhhf    2
     fhhg      CONhg     1
     fhhg      BALhg     1
     fhhg      VUBhhg    1
@@ -2671,8 +2671,7 @@ RHS
     RHS1      BALhf     5
     RHS1      BALhg     14
 BOUNDS
- UP BND1      z         1077
- UP BND1      floba     675
+ UP BND1      z         440
  BV BND1      xab     
  BV BND1      xac     
  BV BND1      xad     
@@ -2732,13 +2731,13 @@ BOUNDS
  UP BND1      faab      74
  UP BND1      faac      74
  UP BND1      faad      74
- UP BND1      faae      73
+ UP BND1      faae      74
  UP BND1      faaf      74
  UP BND1      faag      74
  UP BND1      faah      74
- UP BND1      fabc      65
+ UP BND1      fabc      64
  UP BND1      fabd      64
- UP BND1      fabe      63
+ UP BND1      fabe      64
  UP BND1      fabf      64
  UP BND1      fabg      64
  UP BND1      fabh      64
@@ -2751,50 +2750,50 @@ BOUNDS
  UP BND1      fadb      61
  UP BND1      fadc      61
  UP BND1      fade      61
- UP BND1      fadf      62
+ UP BND1      fadf      61
  UP BND1      fadg      61
- UP BND1      fadh      62
- UP BND1      faeb      2.0666666666666668e+01
- UP BND1      faec      61
- UP BND1      faed      63
+ UP BND1      fadh      61
+ UP BND1      faeb      62
+ UP BND1      faec      62
+ UP BND1      faed      62
  UP BND1      faef      62
- UP BND1      faeg      61
+ UP BND1      faeg      62
  UP BND1      faeh      62
- UP BND1      fafb      30
+ UP BND1      fafb      61
  UP BND1      fafc      61
- UP BND1      fafd      62
- UP BND1      fafe      62
+ UP BND1      fafd      61
+ UP BND1      fafe      61
  UP BND1      fafg      61
- UP BND1      fafh      60
+ UP BND1      fafh      61
  UP BND1      fagb      68
- UP BND1      fagc      34
+ UP BND1      fagc      68
  UP BND1      fagd      68
- UP BND1      fage      34
- UP BND1      fagf      34
+ UP BND1      fage      68
+ UP BND1      fagf      68
  UP BND1      fagh      68
- UP BND1      fahb      60
+ UP BND1      fahb      61
  UP BND1      fahc      61
  UP BND1      fahd      61
- UP BND1      fahe      62
+ UP BND1      fahe      61
  UP BND1      fahf      61
- UP BND1      fahg      62
+ UP BND1      fahg      61
  UP BND1      fbac      67
  UP BND1      fbad      67
  UP BND1      fbae      67
  UP BND1      fbaf      67
  UP BND1      fbag      67
  UP BND1      fbah      67
- UP BND1      fbba      416
+ UP BND1      fbba      81
  UP BND1      fbbc      81
- UP BND1      fbbd      40.5
+ UP BND1      fbbd      81
  UP BND1      fbbe      81
- UP BND1      fbbf      40
+ UP BND1      fbbf      81
  UP BND1      fbbg      81
  UP BND1      fbbh      81
  UP BND1      fbca      66
  UP BND1      fbcd      66
  UP BND1      fbce      66
- UP BND1      fbcf      33
+ UP BND1      fbcf      66
  UP BND1      fbcg      66
  UP BND1      fbch      66
  UP BND1      fbda      68
@@ -2807,7 +2806,7 @@ BOUNDS
  UP BND1      fbec      69
  UP BND1      fbed      69
  UP BND1      fbef      69
- UP BND1      fbeg      70
+ UP BND1      fbeg      69
  UP BND1      fbeh      69
  UP BND1      fbfa      72
  UP BND1      fbfc      72
@@ -2820,7 +2819,7 @@ BOUNDS
  UP BND1      fbgd      72
  UP BND1      fbge      72
  UP BND1      fbgf      72
- UP BND1      fbgh      73
+ UP BND1      fbgh      72
  UP BND1      fbha      72
  UP BND1      fbhc      72
  UP BND1      fbhd      72
@@ -2830,11 +2829,11 @@ BOUNDS
  UP BND1      fcab      50
  UP BND1      fcad      50
  UP BND1      fcae      50
- UP BND1      fcaf      51
+ UP BND1      fcaf      50
  UP BND1      fcag      50
  UP BND1      fcah      50
- UP BND1      fcba      27
- UP BND1      fcbd      27
+ UP BND1      fcba      54
+ UP BND1      fcbd      54
  UP BND1      fcbe      54
  UP BND1      fcbf      54
  UP BND1      fcbg      54
@@ -2842,21 +2841,21 @@ BOUNDS
  UP BND1      fcca      63
  UP BND1      fccb      63
  UP BND1      fccd      63
- UP BND1      fcce      62
+ UP BND1      fcce      63
  UP BND1      fccf      63
  UP BND1      fccg      63
- UP BND1      fcch      21
+ UP BND1      fcch      63
  UP BND1      fcda      52
  UP BND1      fcdb      52
- UP BND1      fcde      53
+ UP BND1      fcde      52
  UP BND1      fcdf      52
  UP BND1      fcdg      52
- UP BND1      fcdh      53
+ UP BND1      fcdh      52
  UP BND1      fcea      57
- UP BND1      fceb      28.5
+ UP BND1      fceb      57
  UP BND1      fced      57
  UP BND1      fcef      57
- UP BND1      fceg      56
+ UP BND1      fceg      57
  UP BND1      fceh      57
  UP BND1      fcfa      58
  UP BND1      fcfb      58
@@ -2864,34 +2863,34 @@ BOUNDS
  UP BND1      fcfe      58
  UP BND1      fcfg      58
  UP BND1      fcfh      58
- UP BND1      fcga      26
+ UP BND1      fcga      52
  UP BND1      fcgb      52
  UP BND1      fcgd      52
  UP BND1      fcge      52
- UP BND1      fcgf      26
- UP BND1      fcgh      53
+ UP BND1      fcgf      52
+ UP BND1      fcgh      52
  UP BND1      fcha      55
  UP BND1      fchb      55
  UP BND1      fchd      55
- UP BND1      fche      54
+ UP BND1      fche      55
  UP BND1      fchf      55
  UP BND1      fchg      55
  UP BND1      fdab      56
  UP BND1      fdac      56
- UP BND1      fdae      58
+ UP BND1      fdae      56
  UP BND1      fdaf      56
  UP BND1      fdag      56
- UP BND1      fdah      57
- UP BND1      fdba      56
+ UP BND1      fdah      56
+ UP BND1      fdba      55
  UP BND1      fdbc      55
  UP BND1      fdbe      55
- UP BND1      fdbf      27.5
+ UP BND1      fdbf      55
  UP BND1      fdbg      55
  UP BND1      fdbh      55
  UP BND1      fdca      48
  UP BND1      fdcb      48
- UP BND1      fdce      24
- UP BND1      fdcf      47
+ UP BND1      fdce      48
+ UP BND1      fdcf      48
  UP BND1      fdcg      48
  UP BND1      fdch      48
  UP BND1      fdda      63
@@ -2900,31 +2899,31 @@ BOUNDS
  UP BND1      fdde      63
  UP BND1      fddf      63
  UP BND1      fddg      63
- UP BND1      fddh      31.5
+ UP BND1      fddh      63
  UP BND1      fdea      56
  UP BND1      fdeb      56
  UP BND1      fdec      56
- UP BND1      fdef      27.5
+ UP BND1      fdef      56
  UP BND1      fdeg      56
  UP BND1      fdeh      56
- UP BND1      fdfa      28.5
- UP BND1      fdfb      19
+ UP BND1      fdfa      57
+ UP BND1      fdfb      57
  UP BND1      fdfc      57
  UP BND1      fdfe      57
  UP BND1      fdfg      57
  UP BND1      fdfh      57
- UP BND1      fdga      53
+ UP BND1      fdga      52
  UP BND1      fdgb      52
  UP BND1      fdgc      52
  UP BND1      fdge      52
- UP BND1      fdgf      51
- UP BND1      fdgh      51
+ UP BND1      fdgf      52
+ UP BND1      fdgh      52
  UP BND1      fdha      54
- UP BND1      fdhb      18
- UP BND1      fdhc      27
+ UP BND1      fdhb      54
+ UP BND1      fdhc      54
  UP BND1      fdhe      54
- UP BND1      fdhf      27
- UP BND1      fdhg      53
+ UP BND1      fdhf      54
+ UP BND1      fdhg      54
  UP BND1      feab      67
  UP BND1      feac      67
  UP BND1      fead      67
@@ -2942,39 +2941,39 @@ BOUNDS
  UP BND1      fecd      63
  UP BND1      fecf      63
  UP BND1      fecg      63
- UP BND1      fech      31
+ UP BND1      fech      63
  UP BND1      feda      66
  UP BND1      fedb      66
  UP BND1      fedc      66
  UP BND1      fedf      66
- UP BND1      fedg      33
- UP BND1      fedh      67
+ UP BND1      fedg      66
+ UP BND1      fedh      66
  UP BND1      feea      75
- UP BND1      feeb      76
+ UP BND1      feeb      75
  UP BND1      feec      75
  UP BND1      feed      75
- UP BND1      feef      37.5
+ UP BND1      feef      75
  UP BND1      feeg      75
- UP BND1      feeh      76
+ UP BND1      feeh      75
  UP BND1      fefa      66
  UP BND1      fefb      66
  UP BND1      fefc      66
- UP BND1      fefd      34
+ UP BND1      fefd      66
  UP BND1      fefg      66
- UP BND1      fefh      33
- UP BND1      fega      62
+ UP BND1      fefh      66
+ UP BND1      fega      61
  UP BND1      fegb      61
  UP BND1      fegc      61
- UP BND1      fegd      62
+ UP BND1      fegd      61
  UP BND1      fegf      61
  UP BND1      fegh      61
  UP BND1      feha      64
  UP BND1      fehb      64
  UP BND1      fehc      64
  UP BND1      fehd      64
- UP BND1      fehf      32
+ UP BND1      fehf      64
  UP BND1      fehg      64
- UP BND1      ffab      64
+ UP BND1      ffab      65
  UP BND1      ffac      65
  UP BND1      ffad      65
  UP BND1      ffae      65
@@ -2983,30 +2982,30 @@ BOUNDS
  UP BND1      ffba      59
  UP BND1      ffbc      59
  UP BND1      ffbd      59
- UP BND1      ffbe      60
+ UP BND1      ffbe      59
  UP BND1      ffbg      59
  UP BND1      ffbh      59
- UP BND1      ffca      58
+ UP BND1      ffca      59
  UP BND1      ffcb      59
- UP BND1      ffcd      58
- UP BND1      ffce      60
+ UP BND1      ffcd      59
+ UP BND1      ffce      59
  UP BND1      ffcg      59
  UP BND1      ffch      59
  UP BND1      ffda      63
- UP BND1      ffdb      64
+ UP BND1      ffdb      63
  UP BND1      ffdc      63
  UP BND1      ffde      63
  UP BND1      ffdg      63
- UP BND1      ffdh      31.5
- UP BND1      ffea      62
+ UP BND1      ffdh      63
+ UP BND1      ffea      61
  UP BND1      ffeb      61
  UP BND1      ffec      61
  UP BND1      ffed      61
  UP BND1      ffeg      61
- UP BND1      ffeh      30.5
+ UP BND1      ffeh      61
  UP BND1      fffa      70
- UP BND1      fffb      35.5
- UP BND1      fffc      71
+ UP BND1      fffb      70
+ UP BND1      fffc      70
  UP BND1      fffd      70
  UP BND1      fffe      70
  UP BND1      fffg      70
@@ -3014,9 +3013,9 @@ BOUNDS
  UP BND1      ffga      55
  UP BND1      ffgb      55
  UP BND1      ffgc      55
- UP BND1      ffgd      27.5
+ UP BND1      ffgd      55
  UP BND1      ffge      55
- UP BND1      ffgh      54
+ UP BND1      ffgh      55
  UP BND1      ffha      58
  UP BND1      ffhb      58
  UP BND1      ffhc      58
@@ -3025,14 +3024,14 @@ BOUNDS
  UP BND1      ffhg      58
  UP BND1      fgab      59
  UP BND1      fgac      59
- UP BND1      fgad      58
+ UP BND1      fgad      59
  UP BND1      fgae      59
  UP BND1      fgaf      59
  UP BND1      fgah      59
  UP BND1      fgba      56
  UP BND1      fgbc      56
- UP BND1      fgbd      57
- UP BND1      fgbe      28
+ UP BND1      fgbd      56
+ UP BND1      fgbe      56
  UP BND1      fgbf      56
  UP BND1      fgbh      56
  UP BND1      fgca      58
@@ -3042,7 +3041,7 @@ BOUNDS
  UP BND1      fgcf      58
  UP BND1      fgch      58
  UP BND1      fgda      51
- UP BND1      fgdb      52
+ UP BND1      fgdb      51
  UP BND1      fgdc      51
  UP BND1      fgde      51
  UP BND1      fgdf      51
@@ -3059,9 +3058,9 @@ BOUNDS
  UP BND1      fgfd      53
  UP BND1      fgfe      53
  UP BND1      fgfh      53
- UP BND1      fgga      64
+ UP BND1      fgga      65
  UP BND1      fggb      65
- UP BND1      fggc      64
+ UP BND1      fggc      65
  UP BND1      fggd      65
  UP BND1      fgge      65
  UP BND1      fggf      65
@@ -3069,15 +3068,15 @@ BOUNDS
  UP BND1      fgha      58
  UP BND1      fghb      58
  UP BND1      fghc      58
- UP BND1      fghd      59
- UP BND1      fghe      29
+ UP BND1      fghd      58
+ UP BND1      fghe      58
  UP BND1      fghf      58
  UP BND1      fhab      50
- UP BND1      fhac      51
+ UP BND1      fhac      50
  UP BND1      fhad      50
  UP BND1      fhae      50
  UP BND1      fhaf      50
- UP BND1      fhag      51
+ UP BND1      fhag      50
  UP BND1      fhba      54
  UP BND1      fhbc      54
  UP BND1      fhbd      54
@@ -3087,31 +3086,31 @@ BOUNDS
  UP BND1      fhca      53
  UP BND1      fhcb      53
  UP BND1      fhcd      53
- UP BND1      fhce      54
+ UP BND1      fhce      53
  UP BND1      fhcf      53
  UP BND1      fhcg      53
- UP BND1      fhda      53
+ UP BND1      fhda      55
  UP BND1      fhdb      55
  UP BND1      fhdc      55
  UP BND1      fhde      55
  UP BND1      fhdf      55
  UP BND1      fhdg      55
- UP BND1      fhea      25.5
- UP BND1      fheb      50
+ UP BND1      fhea      51
+ UP BND1      fheb      51
  UP BND1      fhec      51
  UP BND1      fhed      51
  UP BND1      fhef      51
  UP BND1      fheg      51
  UP BND1      fhfa      56
- UP BND1      fhfb      28
+ UP BND1      fhfb      56
  UP BND1      fhfc      56
- UP BND1      fhfd      28
+ UP BND1      fhfd      56
  UP BND1      fhfe      56
  UP BND1      fhfg      56
- UP BND1      fhga      46
+ UP BND1      fhga      47
  UP BND1      fhgb      47
  UP BND1      fhgc      47
- UP BND1      fhgd      48
+ UP BND1      fhgd      47
  UP BND1      fhge      47
  UP BND1      fhgf      47
  UP BND1      fhha      61

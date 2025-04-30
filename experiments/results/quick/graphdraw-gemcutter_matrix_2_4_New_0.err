@@ -1,20 +1,4 @@
-VwsSolverInterface::solve: problem dimension must stay fixed
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/disjunction/Disjunction.cpp:258: Objective at disjunctive term 40/40 is incorrect. Before, it was 5057.417, now it is 5055.868.
+Objective values must match for feasible terms.
 Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/disjunction/Disjunction.cpp:251: Objective at disjunctive term 40/40 is incorrect. Before, it was 'inf', now it is 5173.905.

@@ -1,4 +1,4 @@
-NAME blp-ir98_copy_pre
+NAME blp-ir98_pre_copy
 ROWS
  N  OBJ
  E  defblpfreq(AhNmR)
@@ -444,6 +444,7 @@ ROWS
  L  oneblpline(Rm.Ut.1)
  L  oneblpline(Rm.Vl.1)
  L  oneblpline(Rm.Zl.1)
+ L  oneblpline(Rm.Zp.1)
  L  oneblpline(Rsd.Shl.1)
  L  oneblpline(Rsd.Tbwt.1)
  L  oneblpline(Rsd.Ut.1)
@@ -14597,6 +14598,51 @@ COLUMNS
     x(Rm.Zl.1.2.1)  defblpreq(AhZpR)  -7
     x(Rm.Zl.1.2.1)  defblpreq(DvZpR)  -7
     x(Rm.Zl.1.2.1)  oneblpline(Rm.Zl.1)  1
+    x(Rm.Zp.1.1.0)  OBJ       134.1030576
+    x(Rm.Zp.1.1.0)  defblpfreq(AhNmR)  1
+    x(Rm.Zp.1.1.0)  defblpfreq(AhZpR)  1
+    x(Rm.Zp.1.1.0)  defblpfreq(BmrNmR)  1
+    x(Rm.Zp.1.1.0)  defblpfreq(BmrVlR)  1
+    x(Rm.Zp.1.1.0)  defblpfreq(RmVlR)  1
+    x(Rm.Zp.1.1.0)  defblpreq(AhNmR)  -3
+    x(Rm.Zp.1.1.0)  defblpreq(AhZpR)  -3
+    x(Rm.Zp.1.1.0)  oneblpline(Rm.Zp.1)  1
+    x(Rm.Zp.1.1.1)  OBJ       157.0601728
+    x(Rm.Zp.1.1.1)  defblpfreq(AhNmR)  1
+    x(Rm.Zp.1.1.1)  defblpfreq(AhZpR)  1
+    x(Rm.Zp.1.1.1)  defblpfreq(BmrNmR)  1
+    x(Rm.Zp.1.1.1)  defblpfreq(BmrVlR)  1
+    x(Rm.Zp.1.1.1)  defblpfreq(RmVlR)  1
+    x(Rm.Zp.1.1.1)  defblpreq(AhNmR)  -4
+    x(Rm.Zp.1.1.1)  defblpreq(AhZpR)  -4
+    x(Rm.Zp.1.1.1)  oneblpline(Rm.Zp.1)  1
+    x(Rm.Zp.1.1.4)  OBJ       225.9315184
+    x(Rm.Zp.1.1.4)  defblpfreq(AhNmR)  1
+    x(Rm.Zp.1.1.4)  defblpfreq(AhZpR)  1
+    x(Rm.Zp.1.1.4)  defblpfreq(BmrNmR)  1
+    x(Rm.Zp.1.1.4)  defblpfreq(BmrVlR)  1
+    x(Rm.Zp.1.1.4)  defblpfreq(RmVlR)  1
+    x(Rm.Zp.1.1.4)  defblpreq(AhNmR)  -7
+    x(Rm.Zp.1.1.4)  defblpreq(AhZpR)  -7
+    x(Rm.Zp.1.1.4)  oneblpline(Rm.Zp.1)  1
+    x(Rm.Zp.1.2.0)  OBJ       268.2061152
+    x(Rm.Zp.1.2.0)  defblpfreq(AhNmR)  2
+    x(Rm.Zp.1.2.0)  defblpfreq(AhZpR)  2
+    x(Rm.Zp.1.2.0)  defblpfreq(BmrNmR)  2
+    x(Rm.Zp.1.2.0)  defblpfreq(BmrVlR)  2
+    x(Rm.Zp.1.2.0)  defblpfreq(RmVlR)  2
+    x(Rm.Zp.1.2.0)  defblpreq(AhNmR)  -4
+    x(Rm.Zp.1.2.0)  defblpreq(AhZpR)  -4
+    x(Rm.Zp.1.2.0)  oneblpline(Rm.Zp.1)  1
+    x(Rm.Zp.1.2.1)  OBJ       314.1203456
+    x(Rm.Zp.1.2.1)  defblpfreq(AhNmR)  2
+    x(Rm.Zp.1.2.1)  defblpfreq(AhZpR)  2
+    x(Rm.Zp.1.2.1)  defblpfreq(BmrNmR)  2
+    x(Rm.Zp.1.2.1)  defblpfreq(BmrVlR)  2
+    x(Rm.Zp.1.2.1)  defblpfreq(RmVlR)  2
+    x(Rm.Zp.1.2.1)  defblpreq(AhNmR)  -7
+    x(Rm.Zp.1.2.1)  defblpreq(AhZpR)  -7
+    x(Rm.Zp.1.2.1)  oneblpline(Rm.Zp.1)  1
     x(Rsd.Zl.1.1.0)  OBJ       205.6376832
     x(Rsd.Zl.1.1.0)  defblpfreq(AhNmR)  1
     x(Rsd.Zl.1.1.0)  defblpfreq(AhZpR)  1
@@ -62741,7 +62787,7 @@ RHS
     RHS1      oneblpline(Alm.Vl.1)  1
     RHS1      oneblpline(Alm.Zp.1)  1
     RHS1      oneblpline(Amf.Amr.1)  1
-    RHS1      oneblpline(Amf.Asd.1)  1
+    RHS1      oneblpline(Amf.Asd.1)  1.5
     RHS1      oneblpline(Amf.Bd.1)  1
     RHS1      oneblpline(Amf.Bd.2)  1
     RHS1      oneblpline(Amf.Bmr.1)  1
@@ -62856,7 +62902,7 @@ RHS
     RHS1      oneblpline(Bv.Rtd.1)  1
     RHS1      oneblpline(Bv.Ut.1)  1
     RHS1      oneblpline(Bv.Vl.1)  1
-    RHS1      oneblpline(Bv.Zp.1)  1
+    RHS1      oneblpline(Bv.Zp.1)  0.5
     RHS1      oneblpline(Ddr.Dv.1)  1
     RHS1      oneblpline(Ddr.Gdm.1)  1
     RHS1      oneblpline(Ddr.Gv.1)  1
@@ -63058,6 +63104,7 @@ RHS
     RHS1      oneblpline(Rm.Ut.1)  1
     RHS1      oneblpline(Rm.Vl.1)  1
     RHS1      oneblpline(Rm.Zl.1)  1
+    RHS1      oneblpline(Rm.Zp.1)  1
     RHS1      oneblpline(Rsd.Shl.1)  1
     RHS1      oneblpline(Rsd.Tbwt.1)  1
     RHS1      oneblpline(Rsd.Ut.1)  1
@@ -63978,6 +64025,11 @@ BOUNDS
  BV BND1      x(Rm.Zl.1.1.4)
  BV BND1      x(Rm.Zl.1.2.0)
  BV BND1      x(Rm.Zl.1.2.1)
+ BV BND1      x(Rm.Zp.1.1.0)
+ BV BND1      x(Rm.Zp.1.1.1)
+ BV BND1      x(Rm.Zp.1.1.4)
+ BV BND1      x(Rm.Zp.1.2.0)
+ BV BND1      x(Rm.Zp.1.2.1)
  BV BND1      x(Rsd.Zl.1.1.0)
  BV BND1      x(Rsd.Zl.1.1.1)
  BV BND1      x(Rsd.Zl.1.1.2)

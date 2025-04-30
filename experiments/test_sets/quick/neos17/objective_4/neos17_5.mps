@@ -1,4 +1,4 @@
-NAME neos17_copy_pre
+NAME neos17_pre_copy
 ROWS
  N  OBJ
  L  OBS0001 
@@ -421,6 +421,7 @@ ROWS
  L  OBS0418 
  L  OBS0419 
  L  OBS0420 
+ L  OBS0421 
  L  OBS0422 
  L  OBS0423 
  L  OBS0424 
@@ -545,6 +546,7 @@ COLUMNS
     A01       OBS0406   1
     A01       OBS0417   1
     A01       OBS0419   -1
+    A01       OBS0421   1
     A01       OBS0429   -1
     A01       OBS0441   1
     A01       OBS0479   1
@@ -1509,6 +1511,7 @@ COLUMNS
     A16       OBS0417   1
     A16       OBS0419   -1
     A16       OBS0420   1
+    A16       OBS0421   1
     A16       OBS0427   1
     A16       OBS0429   -1
     A16       OBS0431   1
@@ -2082,6 +2085,7 @@ COLUMNS
     A22       OBS0386   1
     A22       OBS0400   1
     A22       OBS0413   1
+    A22       OBS0421   1
     A22       OBS0429   -1
     A22       OBS0433   1
     A22       OBS0443   1
@@ -2641,6 +2645,7 @@ COLUMNS
     A25       OBS0418   1
     A25       OBS0419   -1
     A25       OBS0420   1
+    A25       OBS0421   1
     A25       OBS0422   1
     A25       OBS0423   1
     A25       OBS0424   1
@@ -3126,6 +3131,7 @@ COLUMNS
     B25       OBS0418   -1
     B25       OBS0419   1
     B25       OBS0420   -1
+    B25       OBS0421   -1
     B25       OBS0422   -1
     B25       OBS0423   -1
     B25       OBS0424   -1
@@ -3230,7 +3236,7 @@ COLUMNS
     D0018     OBS0018   -1.001
     D0019     OBJ       0.00178
     D0019     OBS0019   -1.001
-    D0020     OBJ       0.00045
+    D0020     OBJ       -0.06205
     D0020     OBS0020   -1.001
     D0021     OBJ       0.00045
     D0021     OBS0021   -1.001
@@ -3911,7 +3917,7 @@ COLUMNS
     D0358     OBS0358   -1.001
     D0359     OBJ       0.00045
     D0359     OBS0359   -1.001
-    D0360     OBJ       0.06295
+    D0360     OBJ       0.00045
     D0360     OBS0360   -1.001
     D0361     OBJ       0.00045
     D0361     OBS0361   -1.001
@@ -4023,7 +4029,7 @@ COLUMNS
     D0414     OBS0414   -1.001
     D0415     OBJ       0.00045
     D0415     OBS0415   -1.001
-    D0416     OBJ       0.00045
+    D0416     OBJ       -0.06205
     D0416     OBS0416   -1.001
     D0417     OBJ       0.00045
     D0417     OBS0417   -1.001
@@ -4033,6 +4039,8 @@ COLUMNS
     D0419     OBS0419   -1.001
     D0420     OBJ       0.00045
     D0420     OBS0420   -1.001
+    D0421     OBJ       0.00045
+    D0421     OBS0421   -1.001
     D0422     OBJ       0.00045
     D0422     OBS0422   -1.001
     D0423     OBJ       0.00045
@@ -4162,7 +4170,6 @@ COLUMNS
     D0485     OBJ       0.02326
     D0485     OBS0485   -1.001
 RHS
-    RHS1      OBJ       0.06205
     RHS1      OBS0001   -0.001
     RHS1      OBS0002   -0.001
     RHS1      OBS0003   -0.001
@@ -4583,6 +4590,7 @@ RHS
     RHS1      OBS0418   -0.001
     RHS1      OBS0419   -0.001
     RHS1      OBS0420   -0.001
+    RHS1      OBS0421   -0.001
     RHS1      OBS0422   -0.001
     RHS1      OBS0423   -0.001
     RHS1      OBS0424   -0.001
@@ -5095,6 +5103,7 @@ BOUNDS
  UP BND1      D0418     1
  UP BND1      D0419     1
  UP BND1      D0420     1
+ UP BND1      D0421     1
  UP BND1      D0422     1
  UP BND1      D0423     1
  UP BND1      D0424     1

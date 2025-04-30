@@ -1,4 +1,4 @@
-NAME ic97_tension_copy_pre
+NAME ic97_tension_pre_copy
 ROWS
  N  OBJ
  E  cycle3  
@@ -554,7 +554,7 @@ COLUMNS
     x3259     cycle140  -1
     x3259     cycle108  -1
     x3259     cycle129  -1
-    x3263     OBJ       1.5
+    x3263     OBJ       1
     x3263     cycle318  1
     x3266     OBJ       1
     x3266     cycle195  -1
@@ -613,8 +613,6 @@ COLUMNS
     x3284     cycle140  1
     x3284     cycle17   -1
     x3284     cycle314  1
-    x3287     OBJ       1
-    x3287     cycle318  1
     x3291     OBJ       1
     x3291     cycle111  -1
     x3291     cycle195  1
@@ -688,7 +686,7 @@ COLUMNS
     x3308     cycle60   1
     x3308     cycle239  -1
     x3308     cycle291  1
-    x3309     OBJ       1
+    x3309     OBJ       0.5
     x3309     cycle56   1
     x3309     cycle240  -1
     x3310     OBJ       1
@@ -1338,7 +1336,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q179      cycle179  -60
     MARKER    'MARKER'                 'INTEND'
-    x2877     OBJ       0.5
     x2877     cycle180  1
     MARKER    'MARKER'                 'INTORG'
     q180      cycle180  -60
@@ -1365,7 +1362,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q184      cycle184  -60
     MARKER    'MARKER'                 'INTEND'
-    x1358     OBJ       0.5
     x1358     cycle185  1
     x1358     cycle203  1
     MARKER    'MARKER'                 'INTORG'
@@ -1752,6 +1748,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q275      cycle275  -60
     MARKER    'MARKER'                 'INTEND'
+    x2948     OBJ       0.5
     x2948     cycle276  1
     x3069     cycle276  -1
     x3069     cycle284  1
@@ -1859,6 +1856,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q301      cycle301  -60
     MARKER    'MARKER'                 'INTEND'
+    x2036     OBJ       0.5
     x2036     cycle302  1
     MARKER    'MARKER'                 'INTORG'
     q302      cycle302  -60
@@ -2172,8 +2170,8 @@ BOUNDS
  UP BND1      x3258     35
  LO BND1      x3259     21
  UP BND1      x3259     28
- LO BND1      x3263     4
- UP BND1      x3263     11
+ LO BND1      x3263     80
+ UP BND1      x3263     122
  LO BND1      x3266     17
  UP BND1      x3266     24
  LO BND1      x3267     51
@@ -2196,8 +2194,6 @@ BOUNDS
  UP BND1      x3283     20
  LO BND1      x3284     23
  UP BND1      x3284     30
- LO BND1      x3287     76
- UP BND1      x3287     111
  LO BND1      x3291     17
  UP BND1      x3291     24
  LO BND1      x3292     35

@@ -1,4 +1,4 @@
-NAME blp-ir98_copy_pre
+NAME blp-ir98_pre_copy
 ROWS
  N  OBJ
  E  defblpfreq(AhNmR)
@@ -62989,7 +62989,7 @@ RHS
     RHS1      oneblpline(Gv.Nm.2)  1
     RHS1      oneblpline(Gv.Rtd.1)  1
     RHS1      oneblpline(Gv.Ut.1)  1
-    RHS1      oneblpline(Gv.Vl.1)  1
+    RHS1      oneblpline(Gv.Vl.1)  0.5
     RHS1      oneblpline(Gv.Vl.2)  1
     RHS1      oneblpline(Gv.Zp.1)  1
     RHS1      oneblpline(Gv.Zp.2)  1
@@ -62999,7 +62999,7 @@ RHS
     RHS1      oneblpline(Gvc.Hvs.1)  1
     RHS1      oneblpline(Gvc.Lls.1)  1
     RHS1      oneblpline(Gvc.Nm.1)  1
-    RHS1      oneblpline(Gvc.Sgn.1)  1
+    RHS1      oneblpline(Gvc.Sgn.1)  1.5
     RHS1      oneblpline(Gvc.Shl.1)  1
     RHS1      oneblpline(Gvc.Tbwt.1)  1
     RHS1      oneblpline(Gvc.Ut.1)  1

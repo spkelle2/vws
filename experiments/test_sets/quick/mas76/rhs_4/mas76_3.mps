@@ -1,4 +1,4 @@
-NAME mas76_copy_pre
+NAME mas76_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -1780,18 +1780,18 @@ COLUMNS
     x151      c11       -1
     x151      c12       -1
 RHS
-    RHS1      c1        25
-    RHS1      c2        -157331.61033
-    RHS1      c3        -117833.82287
-    RHS1      c4        -121386.97778
-    RHS1      c5        -122528.5819
+    RHS1      c1        12
+    RHS1      c2        -157366.61033
+    RHS1      c3        -117868.82287
+    RHS1      c4        -121413.97778
+    RHS1      c5        -122504.5819
     RHS1      c6        -124181.83991
-    RHS1      c7        -110790.52457
-    RHS1      c8        -111957.66667
-    RHS1      c9        -115958
-    RHS1      c10       -127072.14155
-    RHS1      c11       -112434.0906
-    RHS1      c12       -123191
+    RHS1      c7        -110809.52457
+    RHS1      c8        -111980.66667
+    RHS1      c9        -115932
+    RHS1      c10       -127081.14155
+    RHS1      c11       -112433.0906
+    RHS1      c12       -123193
 BOUNDS
  BV BND1      x1      
  BV BND1      x2      
@@ -1940,5 +1940,6 @@ BOUNDS
  BV BND1      x148    
  BV BND1      x149    
  BV BND1      x150    
- UP BND1      x151      157331.61033
+ LO BND1      x151      1.7947610329998541e+04
+ UP BND1      x151      157344.61033
 ENDATA

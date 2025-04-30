@@ -1,4 +1,4 @@
-NAME neos17_copy_pre
+NAME neos17_pre_copy
 ROWS
  N  OBJ
  L  OBS0001 
@@ -492,15 +492,15 @@ COLUMNS
     A01       OBS0035   1
     A01       OBS0048   1
     A01       OBS0052   1
-    A01       OBS0055   1
-    A01       OBS0065   1
+    A01       OBS0055   2
+    A01       OBS0065   2
     A01       OBS0068   1
-    A01       OBS0069   1
+    A01       OBS0069   2
     A01       OBS0077   1
     A01       OBS0083   1
     A01       OBS0107   -1
     A01       OBS0112   1
-    A01       OBS0121   -1
+    A01       OBS0121   -2
     A01       OBS0131   1
     A01       OBS0178   1
     A01       OBS0179   1
@@ -510,21 +510,21 @@ COLUMNS
     A01       OBS0201   1
     A01       OBS0207   1
     A01       OBS0209   1
-    A01       OBS0225   1
+    A01       OBS0225   2
     A01       OBS0231   1
     A01       OBS0234   1
     A01       OBS0235   1
     A01       OBS0245   1
-    A01       OBS0247   2
+    A01       OBS0247   1
     A01       OBS0251   1
-    A01       OBS0254   -1
+    A01       OBS0254   -2
     A01       OBS0268   1
     A01       OBS0271   1
     A01       OBS0275   1
     A01       OBS0279   1
     A01       OBS0291   1
     A01       OBS0293   1
-    A01       OBS0302   1
+    A01       OBS0302   2
     A01       OBS0303   1
     A01       OBS0306   1
     A01       OBS0309   1
@@ -534,7 +534,7 @@ COLUMNS
     A01       OBS0346   1
     A01       OBS0351   1
     A01       OBS0352   1
-    A01       OBS0354   2
+    A01       OBS0354   1
     A01       OBS0364   1
     A01       OBS0367   1
     A01       OBS0369   1
@@ -546,7 +546,7 @@ COLUMNS
     A01       OBS0406   1
     A01       OBS0417   1
     A01       OBS0419   -1
-    A01       OBS0421   2
+    A01       OBS0421   1
     A01       OBS0429   -1
     A01       OBS0441   1
     A01       OBS0479   1
@@ -567,7 +567,7 @@ COLUMNS
     A02       OBS0027   1
     A02       OBS0028   -1
     A02       OBS0030   1
-    A02       OBS0033   1
+    A02       OBS0033   2
     A02       OBS0034   1
     A02       OBS0038   1
     A02       OBS0039   1
@@ -611,9 +611,9 @@ COLUMNS
     A02       OBS0135   1
     A02       OBS0139   1
     A02       OBS0140   1
-    A02       OBS0142   2
+    A02       OBS0142   1
     A02       OBS0144   1
-    A02       OBS0145   1
+    A02       OBS0145   2
     A02       OBS0147   1
     A02       OBS0148   1
     A02       OBS0151   1
@@ -639,7 +639,7 @@ COLUMNS
     A02       OBS0207   1
     A02       OBS0209   1
     A02       OBS0212   1
-    A02       OBS0213   1
+    A02       OBS0213   2
     A02       OBS0216   1
     A02       OBS0220   1
     A02       OBS0222   1
@@ -660,7 +660,7 @@ COLUMNS
     A02       OBS0261   1
     A02       OBS0264   1
     A02       OBS0265   1
-    A02       OBS0267   1
+    A02       OBS0267   2
     A02       OBS0277   1
     A02       OBS0278   1
     A02       OBS0279   1
@@ -668,9 +668,9 @@ COLUMNS
     A02       OBS0285   1
     A02       OBS0288   1
     A02       OBS0289   1
-    A02       OBS0290   1
+    A02       OBS0290   2
     A02       OBS0292   1
-    A02       OBS0299   1
+    A02       OBS0299   2
     A02       OBS0302   1
     A02       OBS0308   1
     A02       OBS0311   1
@@ -710,7 +710,7 @@ COLUMNS
     A02       OBS0392   1
     A02       OBS0394   1
     A02       OBS0397   1
-    A02       OBS0398   2
+    A02       OBS0398   1
     A02       OBS0400   1
     A02       OBS0401   -1
     A02       OBS0402   1
@@ -731,7 +731,7 @@ COLUMNS
     A02       OBS0442   1
     A02       OBS0448   1
     A02       OBS0451   1
-    A02       OBS0456   2
+    A02       OBS0456   1
     A02       OBS0457   1
     A02       OBS0458   1
     A02       OBS0460   1
@@ -740,12 +740,12 @@ COLUMNS
     A02       OBS0467   1
     A02       OBS0468   1
     A02       OBS0470   1
-    A02       OBS0474   1
+    A02       OBS0474   2
     A02       OBS0476   1
     A02       OBS0478   1
     A02       OBS0480   1
     A02       OBS0484   1
-    A02       EQCONST   1
+    A02       EQCONST   2
     A03       OBS0005   1
     A03       OBS0041   1
     A03       OBS0051   1
@@ -757,10 +757,10 @@ COLUMNS
     A03       OBS0217   1
     A03       OBS0237   1
     A03       OBS0307   1
-    A03       OBS0317   1
+    A03       OBS0317   2
     A03       OBS0361   1
     A03       OBS0400   1
-    A03       OBS0409   1
+    A03       OBS0409   2
     A03       OBS0419   -1
     A03       OBS0463   1
     A03       EQCONST   1
@@ -776,10 +776,10 @@ COLUMNS
     A04       OBS0215   1
     A04       OBS0232   1
     A04       OBS0241   1
-    A04       OBS0254   -2
+    A04       OBS0254   -1
     A04       OBS0257   -1
     A04       OBS0285   1
-    A04       OBS0325   -2
+    A04       OBS0325   -1
     A04       OBS0334   1
     A04       OBS0430   1
     A04       OBS0434   1
@@ -818,19 +818,19 @@ COLUMNS
     A06       OBS0107   -1
     A06       OBS0111   1
     A06       OBS0115   1
-    A06       OBS0118   1
+    A06       OBS0118   2
     A06       OBS0120   1
     A06       OBS0132   1
     A06       OBS0148   1
     A06       OBS0152   1
     A06       OBS0169   1
     A06       OBS0177   1
-    A06       OBS0181   1
+    A06       OBS0181   2
     A06       OBS0183   1
     A06       OBS0187   1
     A06       OBS0201   1
     A06       OBS0204   1
-    A06       OBS0227   -1
+    A06       OBS0227   -2
     A06       OBS0230   1
     A06       OBS0252   1
     A06       OBS0255   1
@@ -842,9 +842,9 @@ COLUMNS
     A06       OBS0290   1
     A06       OBS0292   1
     A06       OBS0294   1
-    A06       OBS0298   2
+    A06       OBS0298   1
     A06       OBS0316   1
-    A06       OBS0341   2
+    A06       OBS0341   1
     A06       OBS0344   1
     A06       OBS0345   1
     A06       OBS0347   1
@@ -880,7 +880,7 @@ COLUMNS
     A07       OBS0184   -1
     A07       OBS0196   1
     A07       OBS0225   1
-    A07       OBS0229   1
+    A07       OBS0229   2
     A07       OBS0254   -1
     A07       OBS0287   1
     A07       OBS0308   1
@@ -933,12 +933,12 @@ COLUMNS
     A09       OBS0054   1
     A09       OBS0060   1
     A09       OBS0074   1
-    A09       OBS0077   1
+    A09       OBS0077   2
     A09       OBS0081   1
     A09       OBS0087   1
-    A09       OBS0097   2
+    A09       OBS0097   1
     A09       OBS0098   1
-    A09       OBS0107   -2
+    A09       OBS0107   -1
     A09       OBS0118   1
     A09       OBS0137   1
     A09       OBS0142   1
@@ -955,7 +955,7 @@ COLUMNS
     A09       OBS0209   1
     A09       OBS0221   1
     A09       OBS0225   1
-    A09       OBS0237   1
+    A09       OBS0237   2
     A09       OBS0247   1
     A09       OBS0251   1
     A09       OBS0252   1
@@ -965,7 +965,7 @@ COLUMNS
     A09       OBS0269   1
     A09       OBS0270   1
     A09       OBS0333   1
-    A09       OBS0357   1
+    A09       OBS0357   2
     A09       OBS0368   1
     A09       OBS0377   1
     A09       OBS0396   -1
@@ -974,7 +974,7 @@ COLUMNS
     A09       OBS0428   1
     A09       OBS0433   1
     A09       OBS0441   1
-    A09       OBS0444   2
+    A09       OBS0444   1
     A09       OBS0455   1
     A09       OBS0477   1
     A09       OBS0482   1
@@ -1017,7 +1017,7 @@ COLUMNS
     A10       OBS0282   1
     A10       OBS0287   1
     A10       OBS0300   1
-    A10       OBS0312   2
+    A10       OBS0312   1
     A10       OBS0314   1
     A10       OBS0316   1
     A10       OBS0317   1
@@ -1066,14 +1066,14 @@ COLUMNS
     A11       OBS0090   1
     A11       OBS0099   1
     A11       OBS0104   1
-    A11       OBS0110   2
+    A11       OBS0110   1
     A11       OBS0116   1
     A11       OBS0124   1
     A11       OBS0125   -1
     A11       OBS0137   1
     A11       OBS0148   1
     A11       OBS0150   1
-    A11       OBS0157   2
+    A11       OBS0157   1
     A11       OBS0158   1
     A11       OBS0164   1
     A11       OBS0169   1
@@ -1104,18 +1104,18 @@ COLUMNS
     A11       OBS0354   1
     A11       OBS0371   1
     A11       OBS0372   1
-    A11       OBS0380   2
+    A11       OBS0380   1
     A11       OBS0388   1
     A11       OBS0389   1
-    A11       OBS0390   2
+    A11       OBS0390   1
     A11       OBS0392   1
     A11       OBS0393   1
     A11       OBS0406   1
     A11       OBS0411   1
-    A11       OBS0420   1
+    A11       OBS0420   2
     A11       OBS0436   1
     A11       OBS0441   1
-    A11       OBS0450   2
+    A11       OBS0450   1
     A11       OBS0464   1
     A11       OBS0476   1
     A11       OBS0481   -1
@@ -1171,7 +1171,7 @@ COLUMNS
     A13       OBS0144   1
     A13       OBS0148   1
     A13       OBS0150   1
-    A13       OBS0152   1
+    A13       OBS0152   2
     A13       OBS0154   1
     A13       OBS0162   1
     A13       OBS0166   1
@@ -1181,23 +1181,23 @@ COLUMNS
     A13       OBS0185   1
     A13       OBS0187   1
     A13       OBS0199   1
-    A13       OBS0200   2
+    A13       OBS0200   1
     A13       OBS0204   1
     A13       OBS0206   1
     A13       OBS0216   1
     A13       OBS0217   1
-    A13       OBS0219   2
+    A13       OBS0219   1
     A13       OBS0221   1
     A13       OBS0226   1
     A13       OBS0227   -1
-    A13       OBS0228   -1
-    A13       OBS0230   2
+    A13       OBS0228   -2
+    A13       OBS0230   1
     A13       OBS0236   1
     A13       OBS0240   -1
     A13       OBS0242   1
     A13       OBS0253   1
     A13       OBS0264   1
-    A13       OBS0270   1
+    A13       OBS0270   2
     A13       OBS0274   1
     A13       OBS0280   1
     A13       OBS0281   1
@@ -1207,7 +1207,7 @@ COLUMNS
     A13       OBS0301   1
     A13       OBS0305   1
     A13       OBS0312   1
-    A13       OBS0318   2
+    A13       OBS0318   1
     A13       OBS0319   1
     A13       OBS0324   1
     A13       OBS0327   1
@@ -1222,7 +1222,7 @@ COLUMNS
     A13       OBS0364   1
     A13       OBS0375   1
     A13       OBS0387   1
-    A13       OBS0399   1
+    A13       OBS0399   2
     A13       OBS0400   1
     A13       OBS0401   -1
     A13       OBS0403   1
@@ -1235,7 +1235,7 @@ COLUMNS
     A13       OBS0466   1
     A13       OBS0467   1
     A13       OBS0478   1
-    A13       OBS0481   -1
+    A13       OBS0481   -2
     A13       EQCONST   1
     A14       OBS0017   1
     A14       OBS0020   1
@@ -1247,7 +1247,7 @@ COLUMNS
     A14       OBS0085   -1
     A14       OBS0086   1
     A14       OBS0100   -1
-    A14       OBS0108   1
+    A14       OBS0108   2
     A14       OBS0121   -1
     A14       OBS0126   1
     A14       OBS0142   1
@@ -1289,26 +1289,26 @@ COLUMNS
     A14       OBS0458   1
     A14       OBS0462   1
     A14       OBS0473   1
-    A14       OBS0485   -2
+    A14       OBS0485   -1
     A14       EQCONST   1
-    A15       OBS0012   3
+    A15       OBS0012   1
     A15       OBS0017   1
     A15       OBS0018   1
     A15       OBS0031   1
     A15       OBS0045   1
     A15       OBS0048   1
-    A15       OBS0054   1
+    A15       OBS0054   2
     A15       OBS0055   1
     A15       OBS0059   1
     A15       OBS0062   1
     A15       OBS0063   1
     A15       OBS0066   1
     A15       OBS0067   1
-    A15       OBS0070   1
-    A15       OBS0071   2
+    A15       OBS0070   2
+    A15       OBS0071   1
     A15       OBS0074   1
     A15       OBS0076   -1
-    A15       OBS0081   2
+    A15       OBS0081   1
     A15       OBS0091   1
     A15       OBS0102   1
     A15       OBS0105   1
@@ -1320,7 +1320,7 @@ COLUMNS
     A15       OBS0148   1
     A15       OBS0154   1
     A15       OBS0158   1
-    A15       OBS0160   1
+    A15       OBS0160   2
     A15       OBS0168   1
     A15       OBS0173   1
     A15       OBS0181   1
@@ -1329,9 +1329,9 @@ COLUMNS
     A15       OBS0185   1
     A15       OBS0197   1
     A15       OBS0198   1
-    A15       OBS0212   2
+    A15       OBS0212   1
     A15       OBS0213   1
-    A15       OBS0216   1
+    A15       OBS0216   2
     A15       OBS0217   1
     A15       OBS0219   1
     A15       OBS0222   1
@@ -1365,7 +1365,7 @@ COLUMNS
     A15       OBS0345   1
     A15       OBS0347   1
     A15       OBS0351   1
-    A15       OBS0352   1
+    A15       OBS0352   2
     A15       OBS0354   1
     A15       OBS0357   1
     A15       OBS0364   1
@@ -1381,7 +1381,7 @@ COLUMNS
     A15       OBS0391   1
     A15       OBS0396   -1
     A15       OBS0398   1
-    A15       OBS0399   1
+    A15       OBS0399   2
     A15       OBS0401   -1
     A15       OBS0402   1
     A15       OBS0404   -1
@@ -1391,14 +1391,14 @@ COLUMNS
     A15       OBS0410   1
     A15       OBS0414   1
     A15       OBS0418   1
-    A15       OBS0425   2
+    A15       OBS0425   1
     A15       OBS0429   -1
     A15       OBS0431   1
     A15       OBS0434   1
     A15       OBS0435   1
     A15       OBS0436   1
     A15       OBS0437   -1
-    A15       OBS0438   1
+    A15       OBS0438   2
     A15       OBS0439   1
     A15       OBS0441   1
     A15       OBS0443   1
@@ -1406,7 +1406,7 @@ COLUMNS
     A15       OBS0448   1
     A15       OBS0451   1
     A15       OBS0452   1
-    A15       OBS0454   2
+    A15       OBS0454   1
     A15       OBS0458   1
     A15       OBS0459   1
     A15       OBS0461   1
@@ -1415,7 +1415,7 @@ COLUMNS
     A15       OBS0475   -1
     A15       OBS0476   1
     A15       OBS0477   1
-    A15       OBS0478   1
+    A15       OBS0478   2
     A15       OBS0480   1
     A15       OBS0482   1
     A15       OBS0484   1
@@ -1424,10 +1424,10 @@ COLUMNS
     A16       OBS0002   1
     A16       OBS0014   1
     A16       OBS0018   1
-    A16       OBS0021   1
+    A16       OBS0021   2
     A16       OBS0035   1
     A16       OBS0041   1
-    A16       OBS0042   1
+    A16       OBS0042   2
     A16       OBS0052   1
     A16       OBS0055   1
     A16       OBS0056   1
@@ -1444,7 +1444,7 @@ COLUMNS
     A16       OBS0083   1
     A16       OBS0087   1
     A16       OBS0093   1
-    A16       OBS0108   1
+    A16       OBS0108   2
     A16       OBS0112   1
     A16       OBS0113   1
     A16       OBS0121   -1
@@ -1484,15 +1484,15 @@ COLUMNS
     A16       OBS0268   1
     A16       OBS0271   1
     A16       OBS0295   1
-    A16       OBS0299   1
+    A16       OBS0299   2
     A16       OBS0301   1
     A16       OBS0302   1
     A16       OBS0311   1
     A16       OBS0316   1
-    A16       OBS0317   1
+    A16       OBS0317   2
     A16       OBS0319   1
     A16       OBS0321   1
-    A16       OBS0324   2
+    A16       OBS0324   1
     A16       OBS0325   -1
     A16       OBS0331   1
     A16       OBS0337   1
@@ -1522,22 +1522,22 @@ COLUMNS
     A16       OBS0455   1
     A16       OBS0462   1
     A16       OBS0467   1
-    A16       OBS0469   2
+    A16       OBS0469   1
     A16       OBS0479   1
     A16       OBS0480   1
     A16       EQCONST   1
-    A17       OBS0055   2
+    A17       OBS0055   1
     A17       OBS0071   1
     A17       OBS0091   1
     A17       OBS0107   -1
     A17       OBS0113   1
     A17       OBS0147   1
-    A17       OBS0188   1
+    A17       OBS0188   2
     A17       OBS0205   1
     A17       OBS0232   1
     A17       OBS0241   1
     A17       OBS0250   1
-    A17       OBS0311   2
+    A17       OBS0311   1
     A17       OBS0322   1
     A17       OBS0343   1
     A17       OBS0354   1
@@ -1546,14 +1546,14 @@ COLUMNS
     A17       OBS0419   -1
     A17       OBS0423   1
     A17       OBS0430   1
-    A17       EQCONST   1
+    A17       EQCONST   2
     A18       OBS0001   1
     A18       OBS0002   1
     A18       OBS0004   1
-    A18       OBS0012   1
-    A18       OBS0018   1
+    A18       OBS0012   2
+    A18       OBS0018   2
     A18       OBS0032   1
-    A18       OBS0034   2
+    A18       OBS0034   1
     A18       OBS0036   1
     A18       OBS0039   1
     A18       OBS0049   1
@@ -1565,7 +1565,7 @@ COLUMNS
     A18       OBS0129   1
     A18       OBS0130   1
     A18       OBS0140   1
-    A18       OBS0143   1
+    A18       OBS0143   2
     A18       OBS0148   1
     A18       OBS0153   1
     A18       OBS0161   1
@@ -1576,9 +1576,9 @@ COLUMNS
     A18       OBS0193   1
     A18       OBS0198   1
     A18       OBS0202   1
-    A18       OBS0207   2
+    A18       OBS0207   1
     A18       OBS0208   1
-    A18       OBS0213   2
+    A18       OBS0213   1
     A18       OBS0242   1
     A18       OBS0248   1
     A18       OBS0249   1
@@ -1598,7 +1598,7 @@ COLUMNS
     A18       OBS0378   1
     A18       OBS0381   1
     A18       OBS0386   1
-    A18       OBS0387   1
+    A18       OBS0387   2
     A18       OBS0389   1
     A18       OBS0394   1
     A18       OBS0395   1
@@ -1631,10 +1631,10 @@ COLUMNS
     A19       OBS0033   1
     A19       OBS0037   1
     A19       OBS0039   1
-    A19       OBS0040   2
+    A19       OBS0040   1
     A19       OBS0041   1
     A19       OBS0049   1
-    A19       OBS0051   1
+    A19       OBS0051   2
     A19       OBS0052   1
     A19       OBS0054   1
     A19       OBS0057   1
@@ -1644,8 +1644,8 @@ COLUMNS
     A19       OBS0070   1
     A19       OBS0071   1
     A19       OBS0072   1
-    A19       OBS0075   1
-    A19       OBS0077   2
+    A19       OBS0075   2
+    A19       OBS0077   1
     A19       OBS0081   1
     A19       OBS0086   1
     A19       OBS0087   1
@@ -1656,7 +1656,7 @@ COLUMNS
     A19       OBS0099   1
     A19       OBS0105   1
     A19       OBS0106   1
-    A19       OBS0108   2
+    A19       OBS0108   1
     A19       OBS0110   1
     A19       OBS0111   1
     A19       OBS0112   1
@@ -1669,7 +1669,7 @@ COLUMNS
     A19       OBS0126   1
     A19       OBS0127   1
     A19       OBS0128   1
-    A19       OBS0129   2
+    A19       OBS0129   1
     A19       OBS0134   1
     A19       OBS0136   1
     A19       OBS0137   1
@@ -1691,16 +1691,16 @@ COLUMNS
     A19       OBS0165   1
     A19       OBS0168   1
     A19       OBS0171   1
-    A19       OBS0173   2
+    A19       OBS0173   1
     A19       OBS0174   1
     A19       OBS0175   1
     A19       OBS0176   1
-    A19       OBS0180   2
+    A19       OBS0180   1
     A19       OBS0181   1
     A19       OBS0184   -1
     A19       OBS0186   1
     A19       OBS0189   1
-    A19       OBS0192   2
+    A19       OBS0192   1
     A19       OBS0197   1
     A19       OBS0202   1
     A19       OBS0205   1
@@ -1710,7 +1710,7 @@ COLUMNS
     A19       OBS0212   1
     A19       OBS0214   1
     A19       OBS0216   1
-    A19       OBS0217   1
+    A19       OBS0217   2
     A19       OBS0221   1
     A19       OBS0222   1
     A19       OBS0230   1
@@ -1722,7 +1722,7 @@ COLUMNS
     A19       OBS0243   1
     A19       OBS0244   1
     A19       OBS0248   1
-    A19       OBS0250   1
+    A19       OBS0250   2
     A19       OBS0251   1
     A19       OBS0256   1
     A19       OBS0257   -1
@@ -1739,7 +1739,7 @@ COLUMNS
     A19       OBS0275   1
     A19       OBS0276   1
     A19       OBS0277   1
-    A19       OBS0278   1
+    A19       OBS0278   2
     A19       OBS0280   1
     A19       OBS0282   1
     A19       OBS0284   1
@@ -1755,10 +1755,10 @@ COLUMNS
     A19       OBS0300   1
     A19       OBS0309   1
     A19       OBS0313   1
-    A19       OBS0317   1
+    A19       OBS0317   2
     A19       OBS0318   1
     A19       OBS0321   1
-    A19       OBS0325   -1
+    A19       OBS0325   -2
     A19       OBS0328   1
     A19       OBS0330   1
     A19       OBS0333   1
@@ -1782,7 +1782,7 @@ COLUMNS
     A19       OBS0383   1
     A19       OBS0390   1
     A19       OBS0392   1
-    A19       OBS0393   2
+    A19       OBS0393   1
     A19       OBS0398   1
     A19       OBS0399   1
     A19       OBS0400   1
@@ -1809,23 +1809,23 @@ COLUMNS
     A19       OBS0456   1
     A19       OBS0457   1
     A19       OBS0458   1
-    A19       OBS0459   1
-    A19       OBS0460   1
+    A19       OBS0459   2
+    A19       OBS0460   2
     A19       OBS0461   1
     A19       OBS0462   1
     A19       OBS0464   1
     A19       OBS0465   1
     A19       OBS0469   1
-    A19       OBS0470   2
+    A19       OBS0470   1
     A19       OBS0475   -1
-    A19       OBS0477   1
+    A19       OBS0477   2
     A19       OBS0479   1
     A19       OBS0480   1
     A19       OBS0484   1
     A19       OBS0485   -1
     A19       EQCONST   1
     A20       OBS0020   1
-    A20       OBS0026   3
+    A20       OBS0026   1
     A20       OBS0043   1
     A20       OBS0047   -1
     A20       OBS0120   1
@@ -1833,7 +1833,7 @@ COLUMNS
     A20       OBS0211   -1
     A20       OBS0223   1
     A20       OBS0239   1
-    A20       OBS0260   2
+    A20       OBS0260   1
     A20       OBS0283   1
     A20       OBS0352   1
     A20       OBS0353   1
@@ -1861,7 +1861,7 @@ COLUMNS
     A21       OBS0037   1
     A21       OBS0038   1
     A21       OBS0039   1
-    A21       OBS0040   2
+    A21       OBS0040   1
     A21       OBS0041   1
     A21       OBS0051   1
     A21       OBS0052   1
@@ -1875,11 +1875,11 @@ COLUMNS
     A21       OBS0064   1
     A21       OBS0069   1
     A21       OBS0074   1
-    A21       OBS0077   2
+    A21       OBS0077   1
     A21       OBS0080   -1
     A21       OBS0093   1
     A21       OBS0097   1
-    A21       OBS0098   2
+    A21       OBS0098   1
     A21       OBS0099   1
     A21       OBS0101   1
     A21       OBS0104   1
@@ -1893,7 +1893,7 @@ COLUMNS
     A21       OBS0119   1
     A21       OBS0125   -1
     A21       OBS0126   1
-    A21       OBS0129   1
+    A21       OBS0129   2
     A21       OBS0133   1
     A21       OBS0136   1
     A21       OBS0139   1
@@ -1906,7 +1906,7 @@ COLUMNS
     A21       OBS0151   1
     A21       OBS0152   1
     A21       OBS0153   1
-    A21       OBS0154   1
+    A21       OBS0154   2
     A21       OBS0156   1
     A21       OBS0157   1
     A21       OBS0158   1
@@ -1927,7 +1927,7 @@ COLUMNS
     A21       OBS0194   1
     A21       OBS0195   1
     A21       OBS0196   1
-    A21       OBS0199   1
+    A21       OBS0199   2
     A21       OBS0203   1
     A21       OBS0204   1
     A21       OBS0207   1
@@ -1936,7 +1936,7 @@ COLUMNS
     A21       OBS0220   1
     A21       OBS0221   1
     A21       OBS0223   1
-    A21       OBS0224   2
+    A21       OBS0224   1
     A21       OBS0225   1
     A21       OBS0227   -1
     A21       OBS0230   1
@@ -1947,20 +1947,20 @@ COLUMNS
     A21       OBS0240   -1
     A21       OBS0244   1
     A21       OBS0245   1
-    A21       OBS0249   1
+    A21       OBS0249   2
     A21       OBS0250   1
     A21       OBS0251   1
     A21       OBS0252   1
     A21       OBS0258   1
-    A21       OBS0261   1
-    A21       OBS0266   1
+    A21       OBS0261   2
+    A21       OBS0266   2
     A21       OBS0269   1
     A21       OBS0271   1
     A21       OBS0272   1
     A21       OBS0278   1
     A21       OBS0281   1
     A21       OBS0283   1
-    A21       OBS0286   1
+    A21       OBS0286   2
     A21       OBS0287   1
     A21       OBS0288   1
     A21       OBS0289   1
@@ -1987,7 +1987,7 @@ COLUMNS
     A21       OBS0344   1
     A21       OBS0345   1
     A21       OBS0350   1
-    A21       OBS0357   1
+    A21       OBS0357   2
     A21       OBS0358   1
     A21       OBS0359   1
     A21       OBS0360   1
@@ -1996,11 +1996,11 @@ COLUMNS
     A21       OBS0364   1
     A21       OBS0366   1
     A21       OBS0367   1
-    A21       OBS0368   1
-    A21       OBS0375   2
+    A21       OBS0368   2
+    A21       OBS0375   1
     A21       OBS0377   1
     A21       OBS0378   1
-    A21       OBS0388   -1
+    A21       OBS0388   1
     A21       OBS0390   1
     A21       OBS0391   1
     A21       OBS0393   1
@@ -2008,7 +2008,7 @@ COLUMNS
     A21       OBS0397   1
     A21       OBS0398   1
     A21       OBS0400   1
-    A21       OBS0401   -2
+    A21       OBS0401   -1
     A21       OBS0404   -1
     A21       OBS0405   1
     A21       OBS0411   1
@@ -2016,11 +2016,11 @@ COLUMNS
     A21       OBS0418   1
     A21       OBS0420   1
     A21       OBS0422   1
-    A21       OBS0424   2
+    A21       OBS0424   1
     A21       OBS0425   1
     A21       OBS0426   1
     A21       OBS0428   1
-    A21       OBS0429   -1
+    A21       OBS0429   -2
     A21       OBS0430   1
     A21       OBS0433   1
     A21       OBS0435   1
@@ -2046,7 +2046,7 @@ COLUMNS
     A22       OBS0006   1
     A22       OBS0007   1
     A22       OBS0018   1
-    A22       OBS0025   2
+    A22       OBS0025   1
     A22       OBS0034   1
     A22       OBS0057   1
     A22       OBS0095   1
@@ -2077,12 +2077,12 @@ COLUMNS
     A22       OBS0313   1
     A22       OBS0314   1
     A22       OBS0327   1
-    A22       OBS0328   1
+    A22       OBS0328   2
     A22       OBS0329   1
     A22       OBS0348   1
-    A22       OBS0358   2
-    A22       OBS0367   2
-    A22       OBS0386   1
+    A22       OBS0358   1
+    A22       OBS0367   1
+    A22       OBS0386   2
     A22       OBS0400   1
     A22       OBS0413   1
     A22       OBS0421   1
@@ -2094,11 +2094,11 @@ COLUMNS
     A22       OBS0468   1
     A22       OBS0471   1
     A22       OBS0480   1
-    A22       EQCONST   2
+    A22       EQCONST   1
     A23       OBS0001   1
     A23       OBS0006   1
     A23       OBS0030   1
-    A23       OBS0037   2
+    A23       OBS0037   1
     A23       OBS0058   -1
     A23       OBS0060   1
     A23       OBS0094   1
@@ -2113,7 +2113,7 @@ COLUMNS
     A23       OBS0370   1
     A23       OBS0428   1
     A23       OBS0454   1
-    A23       OBS0464   1
+    A23       OBS0464   2
     A23       EQCONST   1
     A24       OBS0004   1
     A24       OBS0005   1
@@ -2146,7 +2146,7 @@ COLUMNS
     A24       OBS0124   1
     A24       OBS0130   1
     A24       OBS0140   1
-    A24       OBS0142   2
+    A24       OBS0142   1
     A24       OBS0143   1
     A24       OBS0144   1
     A24       OBS0148   1
@@ -2187,7 +2187,7 @@ COLUMNS
     A24       OBS0327   1
     A24       OBS0328   1
     A24       OBS0329   1
-    A24       OBS0344   1
+    A24       OBS0344   2
     A24       OBS0350   1
     A24       OBS0353   1
     A24       OBS0358   1
@@ -2198,13 +2198,13 @@ COLUMNS
     A24       OBS0378   1
     A24       OBS0379   1
     A24       OBS0391   1
-    A24       OBS0398   1
+    A24       OBS0398   2
     A24       OBS0400   1
     A24       OBS0401   -1
     A24       OBS0402   1
     A24       OBS0407   1
     A24       OBS0408   1
-    A24       OBS0410   1
+    A24       OBS0410   2
     A24       OBS0411   1
     A24       OBS0415   1
     A24       OBS0419   -1
@@ -2213,9 +2213,9 @@ COLUMNS
     A24       OBS0438   1
     A24       OBS0439   1
     A24       OBS0440   1
-    A24       OBS0444   2
-    A24       OBS0446   2
-    A24       OBS0447   2
+    A24       OBS0444   1
+    A24       OBS0446   1
+    A24       OBS0447   1
     A24       OBS0448   1
     A24       OBS0449   1
     A24       OBS0451   1
@@ -2246,10 +2246,10 @@ COLUMNS
     A25       OBS0019   1
     A25       OBS0020   1
     A25       OBS0021   1
-    A25       OBS0022   -1
+    A25       OBS0022   -2
     A25       OBS0023   1
     A25       OBS0024   1
-    A25       OBS0025   1
+    A25       OBS0025   2
     A25       OBS0026   1
     A25       OBS0027   1
     A25       OBS0028   -1
@@ -2261,7 +2261,7 @@ COLUMNS
     A25       OBS0034   1
     A25       OBS0035   1
     A25       OBS0036   1
-    A25       OBS0037   1
+    A25       OBS0037   2
     A25       OBS0038   1
     A25       OBS0039   1
     A25       OBS0040   1
@@ -2269,7 +2269,7 @@ COLUMNS
     A25       OBS0042   1
     A25       OBS0043   1
     A25       OBS0044   -1
-    A25       OBS0045   1
+    A25       OBS0045   2
     A25       OBS0046   1
     A25       OBS0047   -1
     A25       OBS0048   1
@@ -2298,7 +2298,7 @@ COLUMNS
     A25       OBS0071   1
     A25       OBS0072   1
     A25       OBS0073   1
-    A25       OBS0074   2
+    A25       OBS0074   1
     A25       OBS0075   1
     A25       OBS0076   -1
     A25       OBS0077   1
@@ -2327,19 +2327,19 @@ COLUMNS
     A25       OBS0100   -1
     A25       OBS0101   1
     A25       OBS0102   1
-    A25       OBS0103   -1
+    A25       OBS0103   -2
     A25       OBS0104   1
-    A25       OBS0105   2
+    A25       OBS0105   1
     A25       OBS0106   1
     A25       OBS0107   -1
-    A25       OBS0108   1
+    A25       OBS0108   2
     A25       OBS0109   1
     A25       OBS0110   1
     A25       OBS0111   1
     A25       OBS0112   1
-    A25       OBS0113   2
+    A25       OBS0113   1
     A25       OBS0114   1
-    A25       OBS0115   2
+    A25       OBS0115   1
     A25       OBS0116   1
     A25       OBS0117   -1
     A25       OBS0118   1
@@ -2355,7 +2355,7 @@ COLUMNS
     A25       OBS0128   1
     A25       OBS0129   1
     A25       OBS0130   1
-    A25       OBS0131   2
+    A25       OBS0131   1
     A25       OBS0132   1
     A25       OBS0133   1
     A25       OBS0134   1
@@ -2408,7 +2408,7 @@ COLUMNS
     A25       OBS0181   1
     A25       OBS0182   1
     A25       OBS0183   1
-    A25       OBS0184   1
+    A25       OBS0184   -1
     A25       OBS0185   1
     A25       OBS0186   1
     A25       OBS0187   1
@@ -2420,7 +2420,7 @@ COLUMNS
     A25       OBS0193   1
     A25       OBS0194   1
     A25       OBS0195   1
-    A25       OBS0196   2
+    A25       OBS0196   1
     A25       OBS0197   1
     A25       OBS0198   1
     A25       OBS0199   1
@@ -2429,7 +2429,7 @@ COLUMNS
     A25       OBS0202   1
     A25       OBS0203   1
     A25       OBS0204   1
-    A25       OBS0205   1
+    A25       OBS0205   2
     A25       OBS0206   1
     A25       OBS0207   1
     A25       OBS0208   1
@@ -2445,7 +2445,7 @@ COLUMNS
     A25       OBS0218   1
     A25       OBS0219   1
     A25       OBS0220   1
-    A25       OBS0221   1
+    A25       OBS0221   2
     A25       OBS0222   1
     A25       OBS0223   1
     A25       OBS0224   1
@@ -2480,7 +2480,7 @@ COLUMNS
     A25       OBS0253   1
     A25       OBS0254   -1
     A25       OBS0255   1
-    A25       OBS0256   1
+    A25       OBS0256   2
     A25       OBS0257   -1
     A25       OBS0258   1
     A25       OBS0259   1
@@ -2496,14 +2496,14 @@ COLUMNS
     A25       OBS0269   1
     A25       OBS0270   1
     A25       OBS0271   1
-    A25       OBS0272   2
+    A25       OBS0272   1
     A25       OBS0273   1
     A25       OBS0274   1
     A25       OBS0275   1
     A25       OBS0276   1
     A25       OBS0277   1
     A25       OBS0278   1
-    A25       OBS0279   2
+    A25       OBS0279   1
     A25       OBS0280   1
     A25       OBS0281   1
     A25       OBS0282   1
@@ -2511,8 +2511,8 @@ COLUMNS
     A25       OBS0284   1
     A25       OBS0285   1
     A25       OBS0286   1
-    A25       OBS0287   2
-    A25       OBS0288   1
+    A25       OBS0287   1
+    A25       OBS0288   2
     A25       OBS0289   1
     A25       OBS0290   1
     A25       OBS0291   1
@@ -2540,28 +2540,28 @@ COLUMNS
     A25       OBS0313   1
     A25       OBS0314   1
     A25       OBS0315   1
-    A25       OBS0316   1
+    A25       OBS0316   2
     A25       OBS0317   1
-    A25       OBS0318   1
+    A25       OBS0318   2
     A25       OBS0319   1
     A25       OBS0320   1
     A25       OBS0321   1
-    A25       OBS0322   2
-    A25       OBS0323   1
+    A25       OBS0322   1
+    A25       OBS0323   2
     A25       OBS0324   1
     A25       OBS0325   -1
     A25       OBS0326   1
     A25       OBS0327   1
     A25       OBS0328   1
     A25       OBS0329   1
-    A25       OBS0330   1
+    A25       OBS0330   2
     A25       OBS0331   1
     A25       OBS0332   1
     A25       OBS0333   1
     A25       OBS0334   1
     A25       OBS0335   -1
     A25       OBS0336   -1
-    A25       OBS0337   2
+    A25       OBS0337   1
     A25       OBS0338   1
     A25       OBS0339   -1
     A25       OBS0340   1
@@ -2570,7 +2570,7 @@ COLUMNS
     A25       OBS0343   1
     A25       OBS0344   1
     A25       OBS0345   1
-    A25       OBS0346   2
+    A25       OBS0346   1
     A25       OBS0347   1
     A25       OBS0348   1
     A25       OBS0349   1
@@ -2581,8 +2581,8 @@ COLUMNS
     A25       OBS0354   1
     A25       OBS0355   1
     A25       OBS0356   1
-    A25       OBS0357   2
-    A25       OBS0358   2
+    A25       OBS0357   1
+    A25       OBS0358   1
     A25       OBS0359   1
     A25       OBS0360   1
     A25       OBS0361   1
@@ -2598,13 +2598,13 @@ COLUMNS
     A25       OBS0371   1
     A25       OBS0372   1
     A25       OBS0373   1
-    A25       OBS0374   3
+    A25       OBS0374   1
     A25       OBS0375   1
     A25       OBS0376   1
     A25       OBS0377   1
     A25       OBS0378   1
     A25       OBS0379   1
-    A25       OBS0380   2
+    A25       OBS0380   1
     A25       OBS0381   1
     A25       OBS0382   1
     A25       OBS0383   1
@@ -2630,7 +2630,7 @@ COLUMNS
     A25       OBS0403   1
     A25       OBS0404   -1
     A25       OBS0405   1
-    A25       OBS0406   2
+    A25       OBS0406   1
     A25       OBS0407   1
     A25       OBS0408   1
     A25       OBS0409   1
@@ -2646,7 +2646,7 @@ COLUMNS
     A25       OBS0419   -1
     A25       OBS0420   1
     A25       OBS0421   1
-    A25       OBS0422   2
+    A25       OBS0422   1
     A25       OBS0423   1
     A25       OBS0424   1
     A25       OBS0425   1
@@ -2655,11 +2655,11 @@ COLUMNS
     A25       OBS0428   1
     A25       OBS0429   -1
     A25       OBS0430   1
-    A25       OBS0431   3
+    A25       OBS0431   1
     A25       OBS0432   1
     A25       OBS0433   1
     A25       OBS0434   1
-    A25       OBS0435   1
+    A25       OBS0435   2
     A25       OBS0436   1
     A25       OBS0437   -1
     A25       OBS0438   1
@@ -2670,7 +2670,7 @@ COLUMNS
     A25       OBS0443   1
     A25       OBS0444   1
     A25       OBS0445   1
-    A25       OBS0446   2
+    A25       OBS0446   1
     A25       OBS0447   1
     A25       OBS0448   1
     A25       OBS0449   1
@@ -2682,9 +2682,9 @@ COLUMNS
     A25       OBS0455   1
     A25       OBS0456   1
     A25       OBS0457   1
-    A25       OBS0458   1
+    A25       OBS0458   2
     A25       OBS0459   1
-    A25       OBS0460   1
+    A25       OBS0460   2
     A25       OBS0461   1
     A25       OBS0462   1
     A25       OBS0463   1
@@ -2717,18 +2717,18 @@ COLUMNS
     B25       OBS0004   -1
     B25       OBS0005   -1
     B25       OBS0006   -1
-    B25       OBS0007   -1
+    B25       OBS0007   -2
     B25       OBS0008   -1
     B25       OBS0009   -1
     B25       OBS0010   -1
     B25       OBS0011   -1
-    B25       OBS0012   -1
+    B25       OBS0012   -2
     B25       OBS0013   -1
     B25       OBS0014   -1
     B25       OBS0015   -1
     B25       OBS0016   -1
     B25       OBS0017   -1
-    B25       OBS0018   -1
+    B25       OBS0018   -2
     B25       OBS0019   -1
     B25       OBS0020   -1
     B25       OBS0021   -1
@@ -2744,9 +2744,9 @@ COLUMNS
     B25       OBS0031   -1
     B25       OBS0032   -1
     B25       OBS0033   -1
-    B25       OBS0034   -1
+    B25       OBS0034   -2
     B25       OBS0035   -1
-    B25       OBS0036   -3
+    B25       OBS0036   -1
     B25       OBS0037   -1
     B25       OBS0038   -1
     B25       OBS0039   -1
@@ -2766,7 +2766,7 @@ COLUMNS
     B25       OBS0053   -1
     B25       OBS0054   -1
     B25       OBS0055   -1
-    B25       OBS0056   -2
+    B25       OBS0056   -1
     B25       OBS0057   -1
     B25       OBS0058   1
     B25       OBS0059   -1
@@ -2776,9 +2776,9 @@ COLUMNS
     B25       OBS0063   -1
     B25       OBS0064   -1
     B25       OBS0065   -1
-    B25       OBS0066   -1
+    B25       OBS0066   -2
     B25       OBS0067   -1
-    B25       OBS0068   -3
+    B25       OBS0068   -1
     B25       OBS0069   -1
     B25       OBS0070   -1
     B25       OBS0071   -1
@@ -2809,7 +2809,7 @@ COLUMNS
     B25       OBS0096   -1
     B25       OBS0097   -1
     B25       OBS0098   -1
-    B25       OBS0099   -2
+    B25       OBS0099   -1
     B25       OBS0100   1
     B25       OBS0101   -1
     B25       OBS0102   -1
@@ -2837,7 +2837,7 @@ COLUMNS
     B25       OBS0124   -1
     B25       OBS0125   1
     B25       OBS0126   -1
-    B25       OBS0127   -2
+    B25       OBS0127   -1
     B25       OBS0128   -1
     B25       OBS0129   -1
     B25       OBS0130   -1
@@ -2846,12 +2846,12 @@ COLUMNS
     B25       OBS0133   -1
     B25       OBS0134   -1
     B25       OBS0135   -1
-    B25       OBS0136   -1
+    B25       OBS0136   -2
     B25       OBS0137   -1
     B25       OBS0138   -1
-    B25       OBS0139   -2
+    B25       OBS0139   -1
     B25       OBS0140   -1
-    B25       OBS0141   -2
+    B25       OBS0141   -1
     B25       OBS0142   -1
     B25       OBS0143   -1
     B25       OBS0144   -1
@@ -2859,12 +2859,12 @@ COLUMNS
     B25       OBS0146   -1
     B25       OBS0147   -1
     B25       OBS0148   -1
-    B25       OBS0149   -2
+    B25       OBS0149   -1
     B25       OBS0150   -1
     B25       OBS0151   -1
     B25       OBS0152   -1
     B25       OBS0153   -1
-    B25       OBS0154   -2
+    B25       OBS0154   -1
     B25       OBS0155   -1
     B25       OBS0156   -1
     B25       OBS0157   -1
@@ -2903,7 +2903,7 @@ COLUMNS
     B25       OBS0190   -1
     B25       OBS0191   -1
     B25       OBS0192   -1
-    B25       OBS0193   -1
+    B25       OBS0193   -2
     B25       OBS0194   -1
     B25       OBS0195   -1
     B25       OBS0196   -1
@@ -2920,13 +2920,13 @@ COLUMNS
     B25       OBS0207   -1
     B25       OBS0208   -1
     B25       OBS0209   -1
-    B25       OBS0210   -1
+    B25       OBS0210   -2
     B25       OBS0211   1
     B25       OBS0212   -1
     B25       OBS0213   -1
     B25       OBS0214   -1
     B25       OBS0215   -1
-    B25       OBS0216   -2
+    B25       OBS0216   -1
     B25       OBS0217   -1
     B25       OBS0218   -1
     B25       OBS0219   -1
@@ -2949,13 +2949,13 @@ COLUMNS
     B25       OBS0236   -1
     B25       OBS0237   -1
     B25       OBS0238   -1
-    B25       OBS0239   -1
+    B25       OBS0239   -2
     B25       OBS0240   1
     B25       OBS0241   -1
     B25       OBS0242   -1
     B25       OBS0243   -1
     B25       OBS0244   -1
-    B25       OBS0245   -1
+    B25       OBS0245   -2
     B25       OBS0246   -1
     B25       OBS0247   -1
     B25       OBS0248   -1
@@ -3019,7 +3019,7 @@ COLUMNS
     B25       OBS0306   -1
     B25       OBS0307   -1
     B25       OBS0308   -1
-    B25       OBS0309   -2
+    B25       OBS0309   -1
     B25       OBS0310   -1
     B25       OBS0311   -1
     B25       OBS0312   -1
@@ -3036,14 +3036,14 @@ COLUMNS
     B25       OBS0323   -1
     B25       OBS0324   -1
     B25       OBS0325   1
-    B25       OBS0326   -1
+    B25       OBS0326   -2
     B25       OBS0327   -1
     B25       OBS0328   -1
     B25       OBS0329   -1
     B25       OBS0330   -1
     B25       OBS0331   -1
-    B25       OBS0332   -2
-    B25       OBS0333   -1
+    B25       OBS0332   -1
+    B25       OBS0333   -2
     B25       OBS0334   -1
     B25       OBS0335   1
     B25       OBS0336   1
@@ -3085,7 +3085,7 @@ COLUMNS
     B25       OBS0372   -1
     B25       OBS0373   -1
     B25       OBS0374   -1
-    B25       OBS0375   -2
+    B25       OBS0375   -1
     B25       OBS0376   -1
     B25       OBS0377   -1
     B25       OBS0378   -1
@@ -3097,12 +3097,12 @@ COLUMNS
     B25       OBS0384   -1
     B25       OBS0385   -1
     B25       OBS0386   -1
-    B25       OBS0387   -2
+    B25       OBS0387   -1
     B25       OBS0388   -1
     B25       OBS0389   -1
     B25       OBS0390   -1
     B25       OBS0391   -1
-    B25       OBS0392   -1
+    B25       OBS0392   -2
     B25       OBS0393   -1
     B25       OBS0394   -1
     B25       OBS0395   -1
@@ -3117,14 +3117,14 @@ COLUMNS
     B25       OBS0404   1
     B25       OBS0405   -1
     B25       OBS0406   -1
-    B25       OBS0407   -2
+    B25       OBS0407   -1
     B25       OBS0408   -1
     B25       OBS0409   -1
     B25       OBS0410   -1
     B25       OBS0411   -1
-    B25       OBS0412   -1
+    B25       OBS0412   -3
     B25       OBS0413   -1
-    B25       OBS0414   -2
+    B25       OBS0414   -1
     B25       OBS0415   -1
     B25       OBS0416   -1
     B25       OBS0417   -1
@@ -3134,7 +3134,7 @@ COLUMNS
     B25       OBS0421   -1
     B25       OBS0422   -1
     B25       OBS0423   -1
-    B25       OBS0424   -2
+    B25       OBS0424   -1
     B25       OBS0425   -1
     B25       OBS0426   -1
     B25       OBS0427   -1
@@ -3163,14 +3163,14 @@ COLUMNS
     B25       OBS0450   -1
     B25       OBS0451   -1
     B25       OBS0452   -1
-    B25       OBS0453   -1
-    B25       OBS0454   -1
+    B25       OBS0453   -2
+    B25       OBS0454   -2
     B25       OBS0455   -1
     B25       OBS0456   -1
     B25       OBS0457   -1
-    B25       OBS0458   -2
+    B25       OBS0458   -1
     B25       OBS0459   -1
-    B25       OBS0460   -1
+    B25       OBS0460   -2
     B25       OBS0461   -1
     B25       OBS0462   -1
     B25       OBS0463   -1
@@ -3183,7 +3183,7 @@ COLUMNS
     B25       OBS0470   -1
     B25       OBS0471   -1
     B25       OBS0472   -1
-    B25       OBS0473   -1
+    B25       OBS0473   -2
     B25       OBS0474   -1
     B25       OBS0475   1
     B25       OBS0476   -1
@@ -3192,7 +3192,7 @@ COLUMNS
     B25       OBS0479   -1
     B25       OBS0480   -1
     B25       OBS0481   1
-    B25       OBS0482   -1
+    B25       OBS0482   -2
     B25       OBS0483   -1
     B25       OBS0484   -1
     B25       OBS0485   1
@@ -3203,9 +3203,9 @@ COLUMNS
     D0002     OBJ       0.00045
     D0002     OBS0002   -1.001
     D0003     OBJ       0.00089
-    D0003     OBS0003   -6.6766666666666663e-01
+    D0003     OBS0003   -1.001
     D0004     OBJ       0.00045
-    D0004     OBS0004   -1.001
+    D0004     OBS0004   -2.001
     D0005     OBJ       0.00045
     D0005     OBS0005   -1.001
     D0006     OBJ       0.00045
@@ -3213,27 +3213,27 @@ COLUMNS
     D0007     OBJ       0.00134
     D0007     OBS0007   -1.001
     D0008     OBJ       0.00045
-    D0008     OBS0008   -9.9999999999988987e-04
+    D0008     OBS0008   -1.001
     D0009     OBJ       0.01425
-    D0009     OBS0009   -6.6766666666666663e-01
+    D0009     OBS0009   -1.001
     D0010     OBJ       0.00223
-    D0010     OBS0010   -6.6766666666666663e-01
+    D0010     OBS0010   -1.001
     D0011     OBJ       0.00045
     D0011     OBS0011   -1.001
     D0012     OBJ       0.00045
     D0012     OBS0012   -1.001
     D0013     OBJ       0.00267
-    D0013     OBS0013   -6.6766666666666663e-01
+    D0013     OBS0013   -1.001
     D0014     OBJ       0.00045
     D0014     OBS0014   -1.001
     D0015     OBJ       0.02048
-    D0015     OBS0015   -6.6766666666666663e-01
+    D0015     OBS0015   -1.001
     D0016     OBJ       0.27015
-    D0016     OBS0016   -6.6766666666666674e-01
+    D0016     OBS0016   -1.001
     D0017     OBJ       0.00045
     D0017     OBS0017   -1.001
     D0018     OBJ       0.00045
-    D0018     OBS0018   -2.001
+    D0018     OBS0018   -9.9999999999988987e-04
     D0019     OBJ       0.00178
     D0019     OBS0019   -1.001
     D0020     OBJ       0.00045
@@ -3241,39 +3241,39 @@ COLUMNS
     D0021     OBJ       0.00045
     D0021     OBS0021   -1.001
     D0022     OBJ       0.01723
-    D0022     OBS0022   -1.0010000000000001e+00
+    D0022     OBS0022   -9.9999999999988987e-04
     D0023     OBJ       0.07257
-    D0023     OBS0023   -6.6766666666666663e-01
+    D0023     OBS0023   -1.001
     D0024     OBJ       0.01336
-    D0024     OBS0024   -6.6766666666666663e-01
+    D0024     OBS0024   -1.001
     D0025     OBJ       0.00045
     D0025     OBS0025   -1.001
     D0026     OBJ       0.00045
     D0026     OBS0026   -1.001
     D0027     OBJ       0.00089
-    D0027     OBS0027   -6.6766666666666663e-01
+    D0027     OBS0027   -1.001
     D0028     OBJ       0.01302
-    D0028     OBS0028   -1.0010000000000001e+00
+    D0028     OBS0028   -1.001
     D0029     OBJ       0.01158
-    D0029     OBS0029   -6.6766666666666663e-01
+    D0029     OBS0029   -1.001
     D0030     OBJ       0.00045
-    D0030     OBS0030   -1.001
+    D0030     OBS0030   -9.9999999999988987e-04
     D0031     OBJ       0.00045
-    D0031     OBS0031   -2.001
+    D0031     OBS0031   -1.001
     D0032     OBJ       0.0049
     D0032     OBS0032   -1.001
     D0033     OBJ       0.00267
-    D0033     OBS0033   -6.6766666666666663e-01
+    D0033     OBS0033   -1.001
     D0034     OBJ       0.00045
     D0034     OBS0034   -1.001
     D0035     OBJ       0.00356
     D0035     OBS0035   -1.001
     D0036     OBJ       0.02493
-    D0036     OBS0036   -6.6766666666666663e-01
+    D0036     OBS0036   -1.001
     D0037     OBJ       0.00045
     D0037     OBS0037   -1.001
     D0038     OBJ       0.00045
-    D0038     OBS0038   -6.6766666666666663e-01
+    D0038     OBS0038   -1.001
     D0039     OBJ       0.00045
     D0039     OBS0039   -1.001
     D0040     OBJ       0.00089
@@ -3281,9 +3281,9 @@ COLUMNS
     D0041     OBJ       0.00045
     D0041     OBS0041   -1.001
     D0042     OBJ       0.01647
-    D0042     OBS0042   -6.6766666666666663e-01
+    D0042     OBS0042   -1.001
     D0043     OBJ       0.00223
-    D0043     OBS0043   -6.6766666666666663e-01
+    D0043     OBS0043   -9.9999999999988987e-04
     D0044     OBJ       0.0336
     D0044     OBS0044   -1.001
     D0045     OBJ       0.00045
@@ -3299,7 +3299,7 @@ COLUMNS
     D0050     OBJ       0.00089
     D0050     OBS0050   -1.001
     D0051     OBJ       0.00089
-    D0051     OBS0051   -1.001
+    D0051     OBS0051   -9.9999999999988987e-04
     D0052     OBJ       0.00045
     D0052     OBS0052   -1.001
     D0053     OBJ       0.00045
@@ -3309,17 +3309,17 @@ COLUMNS
     D0055     OBJ       0.00045
     D0055     OBS0055   -1.001
     D0056     OBJ       0.00045
-    D0056     OBS0056   -6.6766666666666663e-01
+    D0056     OBS0056   -1.001
     D0057     OBJ       0.00045
-    D0057     OBS0057   -1.001
+    D0057     OBS0057   -2.001
     D0058     OBJ       0.02281
     D0058     OBS0058   -1.001
     D0059     OBJ       0.00846
-    D0059     OBS0059   -1.001
+    D0059     OBS0059   -2.001
     D0060     OBJ       0.00045
-    D0060     OBS0060   -1.6676666666666664e+00
+    D0060     OBS0060   -1.001
     D0061     OBJ       0.00178
-    D0061     OBS0061   -6.6766666666666663e-01
+    D0061     OBS0061   -1.001
     D0062     OBJ       0.00045
     D0062     OBS0062   -1.001
     D0063     OBJ       0.00312
@@ -3327,7 +3327,7 @@ COLUMNS
     D0064     OBJ       0.00045
     D0064     OBS0064   -1.001
     D0065     OBJ       0.00045
-    D0065     OBS0065   -1.6676666666666664e+00
+    D0065     OBS0065   -1.001
     D0066     OBJ       0.00089
     D0066     OBS0066   -1.001
     D0067     OBJ       0.00178
@@ -3345,51 +3345,51 @@ COLUMNS
     D0073     OBJ       0.00045
     D0073     OBS0073   -1.001
     D0074     OBJ       0.00045
-    D0074     OBS0074   -1.001
+    D0074     OBS0074   -9.9999999999988987e-04
     D0075     OBJ       0.02706
-    D0075     OBS0075   -6.6766666666666663e-01
+    D0075     OBS0075   -1.001
     D0076     OBJ       0.06186
     D0076     OBS0076   -1.001
     D0077     OBJ       0.00045
     D0077     OBS0077   -1.001
     D0078     OBJ       0.00178
-    D0078     OBS0078   -6.6766666666666663e-01
+    D0078     OBS0078   -9.9999999999988987e-04
     D0079     OBJ       0.00045
     D0079     OBS0079   -1.001
     D0080     OBJ       0.02326
     D0080     OBS0080   -1.001
     D0081     OBJ       0.00045
-    D0081     OBS0081   -2.001
+    D0081     OBS0081   -1.001
     D0082     OBJ       0.00045
     D0082     OBS0082   -1.001
     D0083     OBJ       0.00045
     D0083     OBS0083   -1.001
     D0084     OBJ       0.00134
-    D0084     OBS0084   -6.6766666666666663e-01
+    D0084     OBS0084   -1.001
     D0085     OBJ       0.02014
     D0085     OBS0085   -1.001
     D0086     OBJ       0.00223
-    D0086     OBS0086   -6.6766666666666663e-01
+    D0086     OBS0086   -1.001
     D0087     OBJ       0.00045
     D0087     OBS0087   -1.001
     D0088     OBJ       0.00178
-    D0088     OBS0088   -6.6766666666666663e-01
+    D0088     OBS0088   -1.001
     D0089     OBJ       0.00134
     D0089     OBS0089   -1.001
     D0090     OBJ       0.00045
-    D0090     OBS0090   -6.6766666666666663e-01
+    D0090     OBS0090   -1.001
     D0091     OBJ       0.00134
     D0091     OBS0091   -1.001
     D0092     OBJ       0.00579
-    D0092     OBS0092   -6.6766666666666663e-01
+    D0092     OBS0092   -2.001
     D0093     OBJ       0.00312
-    D0093     OBS0093   -6.6766666666666663e-01
+    D0093     OBS0093   -1.001
     D0094     OBJ       0.00045
     D0094     OBS0094   -1.001
     D0095     OBJ       0.00045
     D0095     OBS0095   -1.001
     D0096     OBJ       0.00579
-    D0096     OBS0096   -6.6766666666666663e-01
+    D0096     OBS0096   -1.001
     D0097     OBJ       0.00045
     D0097     OBS0097   -1.001
     D0098     OBJ       0.00045
@@ -3409,13 +3409,13 @@ COLUMNS
     D0105     OBJ       0.00267
     D0105     OBS0105   -1.001
     D0106     OBJ       0.00757
-    D0106     OBS0106   -6.6766666666666663e-01
+    D0106     OBS0106   -1.001
     D0107     OBJ       0.02326
     D0107     OBS0107   -1.001
     D0108     OBJ       0.00045
-    D0108     OBS0108   -2.001
+    D0108     OBS0108   -1.001
     D0109     OBJ       0.00356
-    D0109     OBS0109   -6.6766666666666663e-01
+    D0109     OBS0109   -1.001
     D0110     OBJ       0.00089
     D0110     OBS0110   -1.001
     D0111     OBJ       0.00089
@@ -3429,7 +3429,7 @@ COLUMNS
     D0115     OBJ       0.00045
     D0115     OBS0115   -1.001
     D0116     OBJ       0.00401
-    D0116     OBS0116   -6.6766666666666663e-01
+    D0116     OBS0116   -9.9999999999988987e-04
     D0117     OBJ       0.02326
     D0117     OBS0117   -1.001
     D0118     OBJ       0.00045
@@ -3441,7 +3441,7 @@ COLUMNS
     D0121     OBJ       0.02326
     D0121     OBS0121   -1.001
     D0122     OBJ       0.02281
-    D0122     OBS0122   -9.9999999999988987e-04
+    D0122     OBS0122   -1.001
     D0123     OBJ       0.00045
     D0123     OBS0123   -1.001
     D0124     OBJ       0.00045
@@ -3449,25 +3449,25 @@ COLUMNS
     D0125     OBJ       0.02326
     D0125     OBS0125   -1.001
     D0126     OBJ       0.00045
-    D0126     OBS0126   -9.9999999999988987e-04
+    D0126     OBS0126   -1.001
     D0127     OBJ       0.00668
     D0127     OBS0127   -1.001
     D0128     OBJ       0.00045
-    D0128     OBS0128   -1.001
+    D0128     OBS0128   -2.001
     D0129     OBJ       0.00223
     D0129     OBS0129   -1.001
     D0130     OBJ       0.00134
-    D0130     OBS0130   -6.6766666666666663e-01
+    D0130     OBS0130   -1.001
     D0131     OBJ       0.00045
     D0131     OBS0131   -1.001
     D0132     OBJ       0.00134
-    D0132     OBS0132   -6.6766666666666663e-01
+    D0132     OBS0132   -1.001
     D0133     OBJ       0.00045
     D0133     OBS0133   -1.001
     D0134     OBJ       0.00045
     D0134     OBS0134   -1.001
     D0135     OBJ       0.00312
-    D0135     OBS0135   -6.6766666666666663e-01
+    D0135     OBS0135   -1.001
     D0136     OBJ       0.00178
     D0136     OBS0136   -1.001
     D0137     OBJ       0.00045
@@ -3479,7 +3479,7 @@ COLUMNS
     D0140     OBJ       0.00045
     D0140     OBS0140   -1.001
     D0141     OBJ       0.00267
-    D0141     OBS0141   -6.6766666666666663e-01
+    D0141     OBS0141   -1.001
     D0142     OBJ       0.00045
     D0142     OBS0142   -1.001
     D0143     OBJ       0.00045
@@ -3509,25 +3509,25 @@ COLUMNS
     D0155     OBJ       0.00089
     D0155     OBS0155   -1.001
     D0156     OBJ       0.00178
-    D0156     OBS0156   -6.6766666666666663e-01
+    D0156     OBS0156   -1.001
     D0157     OBJ       0.00045
     D0157     OBS0157   -1.001
     D0158     OBJ       0.00089
     D0158     OBS0158   -1.001
     D0159     OBJ       0.00089
-    D0159     OBS0159   -6.6766666666666663e-01
+    D0159     OBS0159   -1.001
     D0160     OBJ       0.00089
-    D0160     OBS0160   -2.001
+    D0160     OBS0160   -1.001
     D0161     OBJ       0.00089
     D0161     OBS0161   -1.001
     D0162     OBJ       0.00267
-    D0162     OBS0162   -1.001
+    D0162     OBS0162   -9.9999999999988987e-04
     D0163     OBJ       0.00045
     D0163     OBS0163   -1.001
     D0164     OBJ       0.00045
     D0164     OBS0164   -1.001
     D0165     OBJ       0.00045
-    D0165     OBS0165   -6.6766666666666663e-01
+    D0165     OBS0165   -1.001
     D0166     OBJ       0.00045
     D0166     OBS0166   -1.001
     D0167     OBJ       0.00045
@@ -3541,21 +3541,21 @@ COLUMNS
     D0171     OBJ       0.00045
     D0171     OBS0171   -1.001
     D0172     OBJ       0.00267
-    D0172     OBS0172   -6.6766666666666663e-01
+    D0172     OBS0172   -1.001
     D0173     OBJ       0.00267
     D0173     OBS0173   -1.001
     D0174     OBJ       0.00045
-    D0174     OBS0174   -6.6766666666666663e-01
+    D0174     OBS0174   -1.001
     D0175     OBJ       0.00134
     D0175     OBS0175   -1.001
     D0176     OBJ       0.00045
     D0176     OBS0176   -1.001
     D0177     OBJ       0.00178
-    D0177     OBS0177   -6.6766666666666663e-01
+    D0177     OBS0177   -1.001
     D0178     OBJ       0.00045
     D0178     OBS0178   -1.001
     D0179     OBJ       0.00401
-    D0179     OBS0179   -6.6766666666666663e-01
+    D0179     OBS0179   -1.001
     D0180     OBJ       0.00045
     D0180     OBS0180   -1.001
     D0181     OBJ       0.00089
@@ -3569,23 +3569,25 @@ COLUMNS
     D0185     OBJ       0.00089
     D0185     OBS0185   -1.001
     D0186     OBJ       0.00045
-    D0186     OBS0186   -1.6676666666666664e+00
+    D0186     OBS0186   -1.001
     D0187     OBJ       0.00045
-    D0187     OBS0187   -1.001
+    D0187     OBS0187   -9.9999999999988987e-04
     D0188     OBJ       0.00223
     D0188     OBS0188   -1.001
     D0189     OBJ       0.00045
-    D0189     OBS0189   -1.6676666666666664e+00
+    D0189     OBS0189   -1.001
     D0190     OBJ       0.00045
     D0190     OBS0190   -1.001
     D0191     OBJ       0.00089
-    D0191     OBS0191   -6.6766666666666663e-01
+    D0191     OBS0191   -1.001
     D0192     OBJ       0.00045
     D0192     OBS0192   -1.001
+    D0193     OBJ       0.00089
+    D0193     OBS0193   -1.001
     D0194     OBJ       0.00178
-    D0194     OBS0194   -6.6766666666666663e-01
+    D0194     OBS0194   -1.001
     D0195     OBJ       0.00045
-    D0195     OBS0195   -1.6676666666666664e+00
+    D0195     OBS0195   -1.001
     D0196     OBJ       0.00045
     D0196     OBS0196   -1.001
     D0197     OBJ       0.00045
@@ -3593,13 +3595,13 @@ COLUMNS
     D0198     OBJ       0.00267
     D0198     OBS0198   -1.001
     D0199     OBJ       0.00089
-    D0199     OBS0199   -1.001
+    D0199     OBS0199   -2.001
     D0200     OBJ       0.00089
-    D0200     OBS0200   -1.001
+    D0200     OBS0200   -9.9999999999988987e-04
     D0201     OBJ       0.00045
     D0201     OBS0201   -1.001
     D0202     OBJ       0.00267
-    D0202     OBS0202   -6.6766666666666663e-01
+    D0202     OBS0202   -1.001
     D0203     OBJ       0.00045
     D0203     OBS0203   -1.001
     D0204     OBJ       0.00045
@@ -3607,17 +3609,17 @@ COLUMNS
     D0205     OBJ       0.00045
     D0205     OBS0205   -1.001
     D0206     OBJ       0.00045
-    D0206     OBS0206   -9.9999999999988987e-04
+    D0206     OBS0206   -1.001
     D0207     OBJ       0.00045
     D0207     OBS0207   -1.001
     D0208     OBJ       0.00134
     D0208     OBS0208   -1.001
     D0209     OBJ       0.00045
-    D0209     OBS0209   -9.9999999999988987e-04
+    D0209     OBS0209   -1.001
     D0210     OBJ       0.00045
     D0210     OBS0210   -1.001
     D0211     OBJ       0.02326
-    D0211     OBS0211   -1.001
+    D0211     OBS0211   -9.9999999999988987e-04
     D0212     OBJ       0.00045
     D0212     OBS0212   -1.001
     D0213     OBJ       0.00045
@@ -3625,7 +3627,7 @@ COLUMNS
     D0214     OBJ       0.00045
     D0214     OBS0214   -1.001
     D0215     OBJ       0.00267
-    D0215     OBS0215   -6.6766666666666663e-01
+    D0215     OBS0215   -1.001
     D0216     OBJ       0.00045
     D0216     OBS0216   -1.001
     D0217     OBJ       0.00045
@@ -3633,9 +3635,9 @@ COLUMNS
     D0218     OBJ       0.00089
     D0218     OBS0218   -1.001
     D0219     OBJ       0.00267
-    D0219     OBS0219   -1.001
+    D0219     OBS0219   -2.001
     D0220     OBJ       0.00045
-    D0220     OBS0220   -6.6766666666666663e-01
+    D0220     OBS0220   -1.001
     D0221     OBJ       0.00045
     D0221     OBS0221   -1.001
     D0222     OBJ       0.00045
@@ -3651,7 +3653,7 @@ COLUMNS
     D0227     OBJ       0.02326
     D0227     OBS0227   -1.001
     D0228     OBJ       0.02326
-    D0228     OBS0228   -1.001
+    D0228     OBS0228   -9.9999999999988987e-04
     D0229     OBJ       0.00045
     D0229     OBS0229   -1.001
     D0230     OBJ       0.00045
@@ -3665,7 +3667,7 @@ COLUMNS
     D0234     OBJ       0.00045
     D0234     OBS0234   -1.001
     D0235     OBJ       0.00045
-    D0235     OBS0235   -1.001
+    D0235     OBS0235   -2.001
     D0236     OBJ       0.00045
     D0236     OBS0236   -1.001
     D0237     OBJ       0.00045
@@ -3673,7 +3675,7 @@ COLUMNS
     D0238     OBJ       0.00045
     D0238     OBS0238   -1.001
     D0239     OBJ       0.00089
-    D0239     OBS0239   -6.6766666666666663e-01
+    D0239     OBS0239   -1.001
     D0240     OBJ       0.02281
     D0240     OBS0240   -1.001
     D0241     OBJ       0.00045
@@ -3683,11 +3685,11 @@ COLUMNS
     D0243     OBJ       0.00223
     D0243     OBS0243   -1.001
     D0244     OBJ       0.00178
-    D0244     OBS0244   -6.6766666666666663e-01
+    D0244     OBS0244   -1.001
     D0245     OBJ       0.00045
-    D0245     OBS0245   -1.001
+    D0245     OBS0245   -2.001
     D0246     OBJ       0.00134
-    D0246     OBS0246   -6.6766666666666663e-01
+    D0246     OBS0246   -1.001
     D0247     OBJ       0.00134
     D0247     OBS0247   -1.001
     D0248     OBJ       0.00045
@@ -3707,17 +3709,17 @@ COLUMNS
     D0255     OBJ       0.00089
     D0255     OBS0255   -1.001
     D0256     OBJ       0.00089
-    D0256     OBS0256   -6.6766666666666663e-01
+    D0256     OBS0256   -1.001
     D0257     OBJ       0.02281
     D0257     OBS0257   -1.001
     D0258     OBJ       0.00045
     D0258     OBS0258   -1.001
     D0259     OBJ       0.00134
-    D0259     OBS0259   -6.6766666666666663e-01
+    D0259     OBS0259   -1.001
     D0260     OBJ       0.00045
-    D0260     OBS0260   -9.9999999999988987e-04
+    D0260     OBS0260   -1.001
     D0261     OBJ       0.00045
-    D0261     OBS0261   -1.001
+    D0261     OBS0261   -2.001
     D0262     OBJ       0.00045
     D0262     OBS0262   -1.001
     D0263     OBJ       0.00045
@@ -3727,7 +3729,7 @@ COLUMNS
     D0265     OBJ       0.00045
     D0265     OBS0265   -1.001
     D0266     OBJ       0.00045
-    D0266     OBS0266   -6.6766666666666663e-01
+    D0266     OBS0266   -1.001
     D0267     OBJ       0.00045
     D0267     OBS0267   -1.001
     D0268     OBJ       0.00045
@@ -3739,13 +3741,13 @@ COLUMNS
     D0271     OBJ       0.00045
     D0271     OBS0271   -1.001
     D0272     OBJ       0.00579
-    D0272     OBS0272   -1.001
+    D0272     OBS0272   -9.9999999999988987e-04
     D0273     OBJ       0.00178
     D0273     OBS0273   -1.001
     D0274     OBJ       0.00089
-    D0274     OBS0274   -6.6766666666666663e-01
+    D0274     OBS0274   -1.001
     D0275     OBJ       0.00045
-    D0275     OBS0275   -6.6766666666666663e-01
+    D0275     OBS0275   -1.001
     D0276     OBJ       0.00045
     D0276     OBS0276   -1.001
     D0277     OBJ       0.00045
@@ -3761,17 +3763,17 @@ COLUMNS
     D0282     OBJ       0.00045
     D0282     OBS0282   -1.001
     D0283     OBJ       0.00045
-    D0283     OBS0283   -1.001
+    D0283     OBS0283   -9.9999999999988987e-04
     D0284     OBJ       0.00178
-    D0284     OBS0284   -6.6766666666666663e-01
+    D0284     OBS0284   -1.001
     D0285     OBJ       0.00045
     D0285     OBS0285   -1.001
     D0286     OBJ       0.00045
-    D0286     OBS0286   -2.001
+    D0286     OBS0286   -1.001
     D0287     OBJ       0.00045
     D0287     OBS0287   -1.001
     D0288     OBJ       0.00045
-    D0288     OBS0288   -6.6766666666666663e-01
+    D0288     OBS0288   -9.9999999999988987e-04
     D0289     OBJ       0.00045
     D0289     OBS0289   -1.001
     D0290     OBJ       0.00045
@@ -3783,13 +3785,13 @@ COLUMNS
     D0293     OBJ       0.00045
     D0293     OBS0293   -1.001
     D0294     OBJ       0.00089
-    D0294     OBS0294   -6.6766666666666663e-01
+    D0294     OBS0294   -1.001
     D0295     OBJ       0.00045
     D0295     OBS0295   -1.001
     D0296     OBJ       0.00045
     D0296     OBS0296   -1.001
     D0297     OBJ       0.00045
-    D0297     OBS0297   -6.6766666666666663e-01
+    D0297     OBS0297   -1.001
     D0298     OBJ       0.00045
     D0298     OBS0298   -1.001
     D0299     OBJ       0.00045
@@ -3806,7 +3808,7 @@ COLUMNS
     D0304     OBJ       0.00045
     D0304     OBS0304   -1.001
     D0305     OBJ       0.00045
-    D0305     OBS0305   -1.001
+    D0305     OBS0305   -9.9999999999988987e-04
     D0306     OBJ       0.00089
     D0306     OBS0306   -1.001
     D0307     OBJ       0.00045
@@ -3814,7 +3816,7 @@ COLUMNS
     D0308     OBJ       0.00045
     D0308     OBS0308   -1.001
     D0309     OBJ       0.00045
-    D0309     OBS0309   -1.001
+    D0309     OBS0309   -2.001
     D0310     OBJ       0.00178
     D0310     OBS0310   -1.001
     D0311     OBJ       0.00045
@@ -3828,13 +3830,13 @@ COLUMNS
     D0315     OBJ       0.00045
     D0315     OBS0315   -1.001
     D0316     OBJ       0.00045
-    D0316     OBS0316   -9.9999999999988987e-04
+    D0316     OBS0316   -1.001
     D0317     OBJ       0.00045
     D0317     OBS0317   -1.001
     D0318     OBJ       0.00045
     D0318     OBS0318   -1.001
     D0319     OBJ       0.00045
-    D0319     OBS0319   -1.001
+    D0319     OBS0319   -9.9999999999988987e-04
     D0320     OBJ       0.00134
     D0320     OBS0320   -1.001
     D0321     OBJ       0.00045
@@ -3884,7 +3886,7 @@ COLUMNS
     D0343     OBJ       0.00045
     D0343     OBS0343   -1.001
     D0344     OBJ       0.00045
-    D0344     OBS0344   -1.001
+    D0344     OBS0344   -2.001
     D0345     OBJ       0.00045
     D0345     OBS0345   -1.001
     D0346     OBJ       0.00045
@@ -3908,7 +3910,7 @@ COLUMNS
     D0355     OBJ       0.00045
     D0355     OBS0355   -1.001
     D0356     OBJ       0.00045
-    D0356     OBS0356   -1.001
+    D0356     OBS0356   -2.001
     D0357     OBJ       0.00045
     D0357     OBS0357   -1.001
     D0358     OBJ       0.00045
@@ -3916,9 +3918,9 @@ COLUMNS
     D0359     OBJ       0.00045
     D0359     OBS0359   -1.001
     D0360     OBJ       0.00045
-    D0360     OBS0360   -1.001
+    D0360     OBS0360   -9.9999999999988987e-04
     D0361     OBJ       0.00045
-    D0361     OBS0361   -2.001
+    D0361     OBS0361   -1.001
     D0362     OBJ       0.00045
     D0362     OBS0362   -1.001
     D0363     OBJ       0.00045
@@ -3928,9 +3930,9 @@ COLUMNS
     D0365     OBJ       0.00045
     D0365     OBS0365   -1.001
     D0366     OBJ       0.00045
-    D0366     OBS0366   -9.9999999999988987e-04
+    D0366     OBS0366   -1.001
     D0367     OBJ       0.00045
-    D0367     OBS0367   -1.001
+    D0367     OBS0367   -2.001
     D0368     OBJ       0.00045
     D0368     OBS0368   -1.001
     D0369     OBJ       0.00045
@@ -3940,7 +3942,7 @@ COLUMNS
     D0371     OBJ       0.00045
     D0371     OBS0371   -1.001
     D0372     OBJ       0.00045
-    D0372     OBS0372   -1.001
+    D0372     OBS0372   -9.9999999999988987e-04
     D0373     OBJ       0.00045
     D0373     OBS0373   -1.001
     D0374     OBJ       0.00089
@@ -3978,9 +3980,9 @@ COLUMNS
     D0390     OBJ       0.00045
     D0390     OBS0390   -1.001
     D0391     OBJ       0.00045
-    D0391     OBS0391   -9.9999999999988987e-04
+    D0391     OBS0391   -1.001
     D0392     OBJ       0.00045
-    D0392     OBS0392   -1.001
+    D0392     OBS0392   -2.001
     D0393     OBJ       0.00089
     D0393     OBS0393   -1.001
     D0394     OBJ       0.00045
@@ -4002,7 +4004,7 @@ COLUMNS
     D0402     OBJ       0.00089
     D0402     OBS0402   -1.001
     D0403     OBJ       0.00045
-    D0403     OBS0403   -1.001
+    D0403     OBS0403   -2.001
     D0404     OBJ       0.02326
     D0404     OBS0404   -1.001
     D0405     OBJ       0.00045
@@ -4018,7 +4020,7 @@ COLUMNS
     D0410     OBJ       0.00045
     D0410     OBS0410   -1.001
     D0411     OBJ       0.00045
-    D0411     OBS0411   -1.001
+    D0411     OBS0411   -2.001
     D0412     OBJ       0.00045
     D0412     OBS0412   -1.001
     D0413     OBJ       0.00045
@@ -4044,7 +4046,7 @@ COLUMNS
     D0423     OBJ       0.00045
     D0423     OBS0423   -1.001
     D0424     OBJ       0.00045
-    D0424     OBS0424   -2.001
+    D0424     OBS0424   -1.001
     D0425     OBJ       0.00089
     D0425     OBS0425   -1.001
     D0426     OBJ       0.00045
@@ -4058,9 +4060,9 @@ COLUMNS
     D0430     OBJ       0.00045
     D0430     OBS0430   -1.001
     D0431     OBJ       0.00045
-    D0431     OBS0431   -1.001
+    D0431     OBS0431   -2.001
     D0432     OBJ       0.00045
-    D0432     OBS0432   -9.9999999999988987e-04
+    D0432     OBS0432   -1.001
     D0433     OBJ       0.00045
     D0433     OBS0433   -1.001
     D0434     OBJ       0.00045
@@ -4070,11 +4072,11 @@ COLUMNS
     D0436     OBJ       0.00045
     D0436     OBS0436   -1.001
     D0437     OBJ       0.02326
-    D0437     OBS0437   -9.9999999999988987e-04
+    D0437     OBS0437   -1.001
     D0438     OBJ       0.00045
     D0438     OBS0438   -1.001
     D0439     OBJ       0.00045
-    D0439     OBS0439   -1.001
+    D0439     OBS0439   -2.001
     D0440     OBJ       0.00045
     D0440     OBS0440   -1.001
     D0441     OBJ       0.00045
@@ -4082,7 +4084,7 @@ COLUMNS
     D0442     OBJ       0.00045
     D0442     OBS0442   -1.001
     D0443     OBJ       0.00045
-    D0443     OBS0443   -1.001
+    D0443     OBS0443   9.9900000000000011e-01
     D0444     OBJ       0.00045
     D0444     OBS0444   -1.001
     D0445     OBJ       0.00089
@@ -4106,7 +4108,7 @@ COLUMNS
     D0454     OBJ       0.00045
     D0454     OBS0454   -1.001
     D0455     OBJ       0.00045
-    D0455     OBS0455   -1.001
+    D0455     OBS0455   -2.001
     D0456     OBJ       0.00045
     D0456     OBS0456   -1.001
     D0457     OBJ       0.00045
@@ -4114,7 +4116,7 @@ COLUMNS
     D0458     OBJ       0.00045
     D0458     OBS0458   -1.001
     D0459     OBJ       0.00045
-    D0459     OBS0459   -9.9999999999988987e-04
+    D0459     OBS0459   -1.001
     D0460     OBJ       0.00045
     D0460     OBS0460   -1.001
     D0461     OBJ       0.00045
@@ -4136,11 +4138,11 @@ COLUMNS
     D0469     OBJ       0.00045
     D0469     OBS0469   -1.001
     D0470     OBJ       0.00045
-    D0470     OBS0470   -2.001
+    D0470     OBS0470   -1.001
     D0471     OBJ       0.00045
     D0471     OBS0471   -1.001
     D0472     OBJ       0.00045
-    D0472     OBS0472   -1.001
+    D0472     OBS0472   -9.9999999999988987e-04
     D0473     OBJ       0.00045
     D0473     OBS0473   -1.001
     D0474     OBJ       0.00045
@@ -4164,9 +4166,9 @@ COLUMNS
     D0483     OBJ       0.00045
     D0483     OBS0483   -1.001
     D0484     OBJ       0.00045
-    D0484     OBS0484   -9.9999999999988987e-04
+    D0484     OBS0484   -1.001
     D0485     OBJ       0.02326
-    D0485     OBS0485   -1.001
+    D0485     OBS0485   -9.9999999999988987e-04
 RHS
     RHS1      OBS0001   -0.001
     RHS1      OBS0002   -0.001
@@ -4669,17 +4671,17 @@ BOUNDS
  UP BND1      A12       1
  UP BND1      A13       1
  UP BND1      A14       1
- UP BND1      A15       6.6666666666666663e-01
+ UP BND1      A15       1
  UP BND1      A16       1
  UP BND1      A17       1
  UP BND1      A18       1
  UP BND1      A19       1
- UP BND1      A20       0.5
+ UP BND1      A20       1
  UP BND1      A21       1
- UP BND1      A22       0.5
+ UP BND1      A22       1
  UP BND1      A23       1
  UP BND1      A24       1
- UP BND1      A25       6.6666666666666663e-01
+ UP BND1      A25       1
  UP BND1      B25       1
  BV BND1      D0001   
  BV BND1      D0002   
@@ -4873,6 +4875,7 @@ BOUNDS
  BV BND1      D0190   
  BV BND1      D0191   
  BV BND1      D0192   
+ BV BND1      D0193   
  BV BND1      D0194   
  BV BND1      D0195   
  BV BND1      D0196   

@@ -1,4 +1,4 @@
-NAME seymour1_copy_pre
+NAME seymour1_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -37155,7 +37155,7 @@ RHS
     RHS1      c2094     -1
     RHS1      c2095     -1
     RHS1      c2096     -1
-    RHS1      c2097     -2
+    RHS1      c2097     -1
     RHS1      c2098     -1
     RHS1      c2099     -1
     RHS1      c2100     -1
@@ -37971,7 +37971,6 @@ RHS
     RHS1      c2963     -1
     RHS1      c2965     -1
     RHS1      c2966     -1
-    RHS1      c2967     -1
     RHS1      c2968     -1
     RHS1      c2969     -1
     RHS1      c2970     -1

@@ -1,16 +1,6 @@
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 270 (real var 702), it is -3.121878e-07. Small enough error that we only send warning.
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 702: dot product with obj < 0. Obj viol from solver: -0.00000031. Calculated: -0.00000031.
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 45 ray 270 does not satisfy the objective cut. Activity: -0.00000031. RHS: 0.00000000. Small enough violation that we only send a warning.
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:683: Nonbasic reduced cost should be >= 0 in the complemented nonbasic space. However, for nb var 350 (real var 803), it is -6.243756e-07. Small enough error that we only send warning.
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 803: dot product with obj < 0. Obj viol from solver: -0.00000062. Calculated: -0.00000062.
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1280: Term 50 ray 350 does not satisfy the objective cut. Activity: -0.00000062. RHS: 0.00000000. Small enough violation that we only send a warning.

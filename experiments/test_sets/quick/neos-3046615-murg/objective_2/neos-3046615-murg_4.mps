@@ -1,4 +1,4 @@
-NAME neos-3046615-murg_copy_pre
+NAME neos-3046615-murg_pre_copy
 ROWS
  N  OBJ
  L  R0241   
@@ -255,7 +255,7 @@ COLUMNS
     C0001     R0481     -1
     C0003     OBJ       1
     C0003     R0483     -1
-    C0004     OBJ       1
+    C0004     OBJ       1.25
     C0004     R0484     -1
     C0005     OBJ       1
     C0005     R0485     -1
@@ -267,7 +267,7 @@ COLUMNS
     C0012     R0492     -1
     C0013     OBJ       1
     C0013     R0493     -1
-    C0015     OBJ       1
+    C0015     OBJ       1.25
     C0015     R0495     -1
     MARKER    'MARKER'                 'INTORG'
     C0019     R0256     10000
@@ -358,6 +358,7 @@ COLUMNS
     C0067     R0289     -10000
     C0068     R0319     10000
     C0068     R0290     -10000
+    C0069     OBJ       -0.25
     C0069     R0334     10000
     C0069     R0291     -10000
     C0070     R0349     10000
@@ -416,7 +417,6 @@ COLUMNS
     C0105     R0327     -10000
     C0106     R0441     10000
     C0106     R0328     -10000
-    C0107     OBJ       0.0625
     C0107     R0456     10000
     C0107     R0329     -10000
     C0108     R0471     10000
@@ -543,7 +543,7 @@ COLUMNS
     C0259     R0451     1
     C0259     R0466     1
     C0259     R0481     1
-    C0260     OBJ       1.9375
+    C0260     OBJ       2
     C0260     R0241     1
     C0260     R0256     -1
     C0260     R0257     -1
@@ -1018,7 +1018,7 @@ COLUMNS
     C0274     R0480     -1
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       373.875
+    RHS1      OBJ       374
     RHS1      R0241     -12
     RHS1      R0242     -7
     RHS1      R0243     -11

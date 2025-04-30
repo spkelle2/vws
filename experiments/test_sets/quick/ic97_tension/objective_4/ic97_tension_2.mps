@@ -1,4 +1,4 @@
-NAME ic97_tension_copy_pre
+NAME ic97_tension_pre_copy
 ROWS
  N  OBJ
  E  cycle3  
@@ -7,7 +7,6 @@ ROWS
  E  cycle14 
  E  cycle17 
  E  cycle19 
- E  cycle21 
  E  cycle30 
  E  cycle31 
  E  cycle41 
@@ -296,13 +295,14 @@ COLUMNS
     x25       OBJ       1
     x25       cycle108  1
     x25       cycle317  1
-    x26       OBJ       2
+    x26       OBJ       1
     x26       cycle194  -1
     x26       cycle111  1
     x26       cycle105  1
     x28       OBJ       1
     x28       cycle129  1
     x28       cycle314  -1
+    x29       OBJ       1
     x29       cycle194  1
     x29       cycle86   1
     x29       cycle317  1
@@ -313,7 +313,9 @@ COLUMNS
     x31       OBJ       1
     x31       cycle105  1
     x31       cycle316  1
-    x51       cycle21   1
+    x51       OBJ       1
+    x51       cycle315  1
+    x51       cycle3    -1
     x51       cycle138  1
     x51       cycle145  -1
     x51       cycle147  -1
@@ -328,13 +330,6 @@ COLUMNS
     x51       cycle273  1
     x51       cycle289  -1
     x51       cycle310  1
-    x52       OBJ       1
-    x52       cycle21   -1
-    x52       cycle145  1
-    x52       cycle147  1
-    x52       cycle151  1
-    x52       cycle289  1
-    x52       cycle300  1
     x54       OBJ       1
     x54       cycle122  1
     x54       cycle123  1
@@ -411,7 +406,6 @@ COLUMNS
     x3227     cycle138  1
     x3227     cycle193  1
     x3227     cycle317  -1
-    x3228     OBJ       1
     x3228     cycle193  1
     x3228     cycle206  -1
     x3228     cycle207  -1
@@ -419,14 +413,13 @@ COLUMNS
     x3229     OBJ       1
     x3229     cycle57   1
     x3229     cycle310  1
-    x3230     OBJ       1
+    x3230     OBJ       2
     x3230     cycle48   -1
     x3230     cycle146  -1
     x3230     cycle183  1
     x3230     cycle185  -1
     x3230     cycle310  1
     x3230     cycle316  -1
-    x3231     OBJ       1
     x3231     cycle303  1
     x3234     OBJ       1
     x3234     cycle302  -1
@@ -559,8 +552,8 @@ COLUMNS
     x3259     cycle140  -1
     x3259     cycle108  -1
     x3259     cycle129  -1
-    x3265     OBJ       1
-    x3265     cycle318  1
+    x3263     OBJ       1
+    x3263     cycle318  1
     x3266     OBJ       1
     x3266     cycle195  -1
     x3266     cycle86   -1
@@ -587,7 +580,7 @@ COLUMNS
     x3275     cycle194  1
     x3275     cycle195  1
     x3275     cycle317  1
-    x3277     OBJ       1
+    x3277     OBJ       2
     x3277     cycle201  -1
     x3280     OBJ       1
     x3280     cycle186  1
@@ -818,14 +811,13 @@ COLUMNS
     x3349     cycle276  1
     x3349     cycle282  -1
     x3349     cycle283  -1
-    x3350     OBJ       1
     x3350     cycle13   1
     x3350     cycle263  1
     x3350     cycle275  1
     x3350     cycle276  1
     x3350     cycle283  -1
     x3350     cycle293  1
-    x3351     OBJ       2
+    x3351     OBJ       1
     x3351     cycle104  -1
     x3351     cycle253  1
     x3352     OBJ       1
@@ -835,7 +827,7 @@ COLUMNS
     x3353     OBJ       1
     x3353     cycle183  1
     x3353     cycle253  1
-    x3354     OBJ       1
+    x3354     OBJ       2
     x3354     cycle183  1
     x3354     cycle241  1
     x3354     cycle249  1
@@ -850,6 +842,7 @@ COLUMNS
     x3356     cycle313  -1
     x3357     OBJ       1
     x3357     cycle273  1
+    x3358     OBJ       1
     x3358     cycle271  1
     x3359     OBJ       1
     x3359     cycle238  1
@@ -860,7 +853,6 @@ COLUMNS
     x3361     cycle153  1
     x3361     cycle159  -1
     x3361     cycle229  1
-    x3362     OBJ       1
     x3362     cycle139  1
     x3362     cycle153  1
     x3362     cycle157  -1
@@ -911,29 +903,15 @@ COLUMNS
     x3372     cycle193  -1
     x3372     cycle207  1
     x3372     cycle316  -1
-    x3374     OBJ       1
-    x3374     cycle21   1
-    x3374     cycle138  1
-    x3374     cycle145  -1
-    x3374     cycle147  -1
-    x3374     cycle151  -1
-    x3374     cycle185  -1
-    x3374     cycle193  1
-    x3374     cycle246  1
-    x3374     cycle252  1
-    x3374     cycle255  -1
-    x3374     cycle256  -1
-    x3374     cycle267  -1
-    x3374     cycle273  1
-    x3374     cycle289  -1
-    x3374     cycle310  1
     x3375     OBJ       1
     x3375     cycle122  -1
     x3375     cycle123  -1
     x3375     cycle284  -1
     x3375     cycle290  1
     x3375     cycle291  1
-    x3376     cycle21   -1
+    x3376     OBJ       1
+    x3376     cycle315  -1
+    x3376     cycle3    1
     x3376     cycle145  1
     x3376     cycle147  1
     x3376     cycle151  1
@@ -1034,9 +1012,6 @@ COLUMNS
     x3396     cycle143  1
     x3396     cycle146  1
     x3396     cycle275  -1
-    x1756     cycle3    -1
-    x1756     cycle21   -1
-    x1756     cycle315  1
     x2947     cycle13   1
     x2947     cycle292  1
     x2947     cycle307  1
@@ -1225,6 +1200,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q154      cycle154  -60
     MARKER    'MARKER'                 'INTEND'
+    x3034     OBJ       1
     x3034     cycle155  1
     x3034     cycle156  1
     MARKER    'MARKER'                 'INTORG'
@@ -1233,14 +1209,12 @@ COLUMNS
     MARKER    'MARKER'                 'INTEND'
     x3015     cycle157  1
     MARKER    'MARKER'                 'INTORG'
-    q157      OBJ       1
     q157      cycle157  -60
     MARKER    'MARKER'                 'INTEND'
     x3025     cycle158  1
     MARKER    'MARKER'                 'INTORG'
     q158      cycle158  -60
     MARKER    'MARKER'                 'INTEND'
-    x3005     OBJ       1
     x3005     cycle159  1
     MARKER    'MARKER'                 'INTORG'
     q159      cycle159  -60
@@ -1273,6 +1247,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q163      cycle163  -60
     MARKER    'MARKER'                 'INTEND'
+    x2834     OBJ       -1
     x2834     cycle164  1
     MARKER    'MARKER'                 'INTORG'
     q164      cycle164  -60
@@ -1415,7 +1390,6 @@ COLUMNS
     q192      cycle192  -60
     MARKER    'MARKER'                 'INTEND'
     x1623     cycle193  1
-    x1476     OBJ       -1
     x1476     cycle193  1
     x1476     cycle196  -1
     x1476     cycle200  -1
@@ -1427,6 +1401,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q193      cycle193  -60
     MARKER    'MARKER'                 'INTEND'
+    x2184     OBJ       -1
     x2184     cycle194  1
     MARKER    'MARKER'                 'INTORG'
     q194      cycle194  -60
@@ -1503,7 +1478,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q209      cycle209  -60
     MARKER    'MARKER'                 'INTEND'
-    x1420     OBJ       -1
     x1420     cycle210  1
     MARKER    'MARKER'                 'INTORG'
     q210      cycle210  -60
@@ -1655,7 +1629,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q242      cycle242  -60
     MARKER    'MARKER'                 'INTEND'
-    x2648     OBJ       1
     x2648     cycle243  1
     x2648     cycle249  1
     MARKER    'MARKER'                 'INTORG'
@@ -1722,11 +1695,13 @@ COLUMNS
     MARKER    'MARKER'                 'INTEND'
     x2524     cycle258  1
     MARKER    'MARKER'                 'INTORG'
+    q258      OBJ       1
     q258      cycle258  -60
     MARKER    'MARKER'                 'INTEND'
     x1989     cycle259  1
     MARKER    'MARKER'                 'INTORG'
     q259      cycle259  -60
+    q260      OBJ       -1
     q260      cycle260  -60
     q261      cycle261  -60
     MARKER    'MARKER'                 'INTEND'
@@ -1753,7 +1728,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q268      cycle268  -60
     MARKER    'MARKER'                 'INTEND'
-    x1375     OBJ       -1
     x1375     cycle269  -1
     x1375     cycle272  -1
     MARKER    'MARKER'                 'INTORG'
@@ -1809,10 +1783,10 @@ COLUMNS
     q281      cycle281  -60
     q282      cycle282  -60
     MARKER    'MARKER'                 'INTEND'
-    x1953     OBJ       1
     x1953     cycle283  1
     x1953     cycle292  1
     MARKER    'MARKER'                 'INTORG'
+    q283      OBJ       1
     q283      cycle283  -60
     q284      cycle284  -60
     MARKER    'MARKER'                 'INTEND'
@@ -1922,6 +1896,7 @@ COLUMNS
     x2047     cycle312  1
     MARKER    'MARKER'                 'INTORG'
     q312      cycle312  -60
+    q313      OBJ       -1
     q313      cycle313  -60
     q314      cycle314  -60
     q315      cycle315  -60
@@ -1933,14 +1908,12 @@ COLUMNS
     q318      cycle318  -60
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -396
-    RHS1      cycle3    -30
+    RHS1      OBJ       -381
     RHS1      cycle10   7
     RHS1      cycle13   30
     RHS1      cycle14   30
     RHS1      cycle17   30
     RHS1      cycle19   30
-    RHS1      cycle21   -30
     RHS1      cycle30   -75
     RHS1      cycle31   15
     RHS1      cycle48   -30
@@ -2075,7 +2048,7 @@ RHS
     RHS1      cycle312  -60
     RHS1      cycle313  -7
     RHS1      cycle314  -110
-    RHS1      cycle315  -15
+    RHS1      cycle315  -45
     RHS1      cycle316  -255
     RHS1      cycle317  -45
     RHS1      cycle318  30
@@ -2116,10 +2089,8 @@ BOUNDS
  UP BND1      x30       29
  LO BND1      x31       4
  UP BND1      x31       9
- LO BND1      x51       10
- UP BND1      x51       15
- LO BND1      x52       10
- UP BND1      x52       15
+ LO BND1      x51       36
+ UP BND1      x51       48
  LO BND1      x54       47
  UP BND1      x54       59
  LO BND1      x57       19
@@ -2200,8 +2171,8 @@ BOUNDS
  UP BND1      x3258     35
  LO BND1      x3259     21
  UP BND1      x3259     28
- LO BND1      x3265     80
- UP BND1      x3265     122
+ LO BND1      x3263     80
+ UP BND1      x3263     122
  LO BND1      x3266     17
  UP BND1      x3266     24
  LO BND1      x3267     51
@@ -2356,12 +2327,10 @@ BOUNDS
  UP BND1      x3370     34
  LO BND1      x3372     33
  UP BND1      x3372     40
- LO BND1      x3374     26
- UP BND1      x3374     33
  LO BND1      x3375     22
  UP BND1      x3375     34
- LO BND1      x3376     26
- UP BND1      x3376     33
+ LO BND1      x3376     36
+ UP BND1      x3376     48
  LO BND1      x3377     7
  UP BND1      x3377     14
  LO BND1      x3378     30
@@ -2386,8 +2355,6 @@ BOUNDS
  UP BND1      x3395     17
  LO BND1      x3396     14
  UP BND1      x3396     21
- LO BND1      x1756     18
- UP BND1      x1756     42
  LO BND1      x2947     9
  UP BND1      x2947     51
  LO BND1      x2382     17

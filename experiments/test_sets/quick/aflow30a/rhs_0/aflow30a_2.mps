@@ -1,4 +1,4 @@
-NAME aflow30a_copy_pre
+NAME aflow30a_pre_copy
 ROWS
  N  OBJ
  E  c30     
@@ -1625,7 +1625,7 @@ COLUMNS
     x419      c477      -35
     x420      OBJ       -232
     x420      c88       54
-    x420      c478      -37.5
+    x420      c478      -38
     x421      OBJ       64
     x421      c71       74
     x421      c479      -69
@@ -2897,13 +2897,13 @@ RHS
     RHS1      c46       1
     RHS1      c47       5
     RHS1      c48       1
-    RHS1      c49       2
+    RHS1      c49       3
     RHS1      c50       6
     RHS1      c51       6
     RHS1      c52       7
     RHS1      c53       2
     RHS1      c54       2
-    RHS1      c55       9
+    RHS1      c55       10
     RHS1      c56       5
     RHS1      c57       1
     RHS1      c58       3
@@ -2920,11 +2920,11 @@ RHS
     RHS1      c69       84
     RHS1      c70       84
     RHS1      c71       74
-    RHS1      c72       12
+    RHS1      c72       13
     RHS1      c74       89
     RHS1      c76       17
     RHS1      c77       48
-    RHS1      c78       64
+    RHS1      c78       65
     RHS1      c80       58
     RHS1      c82       95
     RHS1      c86       59
@@ -2932,11 +2932,35 @@ RHS
     RHS1      c88       54
     RHS1      c95       61
     RHS1      c96       13
+    RHS1      c101      -1
     RHS1      c109      76
     RHS1      c114      19
+    RHS1      c128      1
+    RHS1      c130      1
     RHS1      c135      36
     RHS1      c137      52
-    RHS1      c478      0.5
+    RHS1      c138      -1
+    RHS1      c155      1
+    RHS1      c198      1
+    RHS1      c205      1
+    RHS1      c226      -1
+    RHS1      c230      -1
+    RHS1      c258      1
+    RHS1      c293      1
+    RHS1      c319      -1
+    RHS1      c321      1
+    RHS1      c326      -1
+    RHS1      c341      1
+    RHS1      c344      1
+    RHS1      c361      1
+    RHS1      c381      -1
+    RHS1      c386      1
+    RHS1      c388      2
+    RHS1      c391      -1
+    RHS1      c416      -1
+    RHS1      c427      -1
+    RHS1      c444      1
+    RHS1      c445      -1
 BOUNDS
  BV BND1      x15     
  BV BND1      x17     

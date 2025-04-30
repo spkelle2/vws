@@ -1,4 +1,4 @@
-NAME graphdraw-gemcutter_copy_pre
+NAME graphdraw-gemcutter_pre_copy
 ROWS
  N  OBJ
  E  choose1[Rubygem,User]
@@ -13,6 +13,7 @@ ROWS
  E  choose1[User,Ownership]
  E  choose1[User,Linkset]
  E  choose1[User,Version]
+ E  choose1[User,Dependency]
  E  choose1[WebHook,Subscription]
  E  choose1[WebHook,Ownership]
  E  choose1[WebHook,Linkset]
@@ -72,6 +73,7 @@ ROWS
  L  axisVdifLB[r,User,Ownership]
  L  axisVdifLB[r,User,Linkset]
  L  axisVdifLB[r,User,Version]
+ L  axisVdifLB[r,User,Dependency]
  L  axisVdifLB[r,WebHook,Subscription]
  L  axisVdifLB[r,WebHook,Ownership]
  L  axisVdifLB[r,WebHook,Linkset]
@@ -127,6 +129,7 @@ ROWS
  L  axisVdifRT[r,User,Ownership]
  L  axisVdifRT[r,User,Linkset]
  L  axisVdifRT[r,User,Version]
+ L  axisVdifRT[r,User,Dependency]
  L  axisVdifRT[r,WebHook,Subscription]
  L  axisVdifRT[r,WebHook,Ownership]
  L  axisVdifRT[r,WebHook,Linkset]
@@ -157,6 +160,7 @@ ROWS
  L  axisVdifRT[c,User,Dependency]
  L  axisVdifRT[c,WebHook,Subscription]
  L  axisVdifRT[c,WebHook,Ownership]
+ L  axisVdifRT[c,WebHook,Linkset]
  L  axisVdifRT[c,WebHook,Version]
  L  axisVdifRT[c,WebHook,Dependency]
  L  axisVdifRT[c,Subscription,Ownership]
@@ -167,6 +171,7 @@ ROWS
  L  axisVdifRT[c,Ownership,Version]
  L  axisVdifRT[c,Ownership,Dependency]
  L  axisVdifRT[c,Linkset,Version]
+ L  axisVdifRT[c,Linkset,Dependency]
  L  axisVdifRT[c,Version,Dependency]
  L  compDistAxis1[r,Rubygem,User]
  L  compDistAxis1[r,User,WebHook]
@@ -256,12 +261,14 @@ ROWS
  L  triangle1[Rubygem,User,Linkset,c]
  L  triangle1[Rubygem,User,Version,r]
  L  triangle1[Rubygem,User,Version,c]
+ L  triangle1[Rubygem,User,Dependency,r]
  L  triangle1[Rubygem,User,Dependency,c]
  L  triangle1[Rubygem,WebHook,Subscription,r]
  L  triangle1[Rubygem,WebHook,Subscription,c]
  L  triangle1[Rubygem,WebHook,Ownership,r]
  L  triangle1[Rubygem,WebHook,Ownership,c]
  L  triangle1[Rubygem,WebHook,Linkset,r]
+ L  triangle1[Rubygem,WebHook,Linkset,c]
  L  triangle1[Rubygem,WebHook,Version,r]
  L  triangle1[Rubygem,WebHook,Version,c]
  L  triangle1[Rubygem,WebHook,Dependency,r]
@@ -283,6 +290,7 @@ ROWS
  L  triangle1[Rubygem,Linkset,Version,r]
  L  triangle1[Rubygem,Linkset,Version,c]
  L  triangle1[Rubygem,Linkset,Dependency,r]
+ L  triangle1[Rubygem,Linkset,Dependency,c]
  L  triangle1[Rubygem,Version,Dependency,r]
  L  triangle1[Rubygem,Version,Dependency,c]
  L  triangle1[User,WebHook,Subscription,r]
@@ -290,8 +298,10 @@ ROWS
  L  triangle1[User,WebHook,Ownership,r]
  L  triangle1[User,WebHook,Ownership,c]
  L  triangle1[User,WebHook,Linkset,r]
+ L  triangle1[User,WebHook,Linkset,c]
  L  triangle1[User,WebHook,Version,r]
  L  triangle1[User,WebHook,Version,c]
+ L  triangle1[User,WebHook,Dependency,r]
  L  triangle1[User,WebHook,Dependency,c]
  L  triangle1[User,Subscription,Ownership,r]
  L  triangle1[User,Subscription,Ownership,c]
@@ -299,14 +309,19 @@ ROWS
  L  triangle1[User,Subscription,Linkset,c]
  L  triangle1[User,Subscription,Version,r]
  L  triangle1[User,Subscription,Version,c]
+ L  triangle1[User,Subscription,Dependency,r]
  L  triangle1[User,Subscription,Dependency,c]
  L  triangle1[User,Ownership,Linkset,r]
  L  triangle1[User,Ownership,Linkset,c]
  L  triangle1[User,Ownership,Version,r]
  L  triangle1[User,Ownership,Version,c]
+ L  triangle1[User,Ownership,Dependency,r]
  L  triangle1[User,Ownership,Dependency,c]
  L  triangle1[User,Linkset,Version,r]
  L  triangle1[User,Linkset,Version,c]
+ L  triangle1[User,Linkset,Dependency,r]
+ L  triangle1[User,Linkset,Dependency,c]
+ L  triangle1[User,Version,Dependency,r]
  L  triangle1[User,Version,Dependency,c]
  L  triangle1[WebHook,Subscription,Ownership,r]
  L  triangle1[WebHook,Subscription,Ownership,c]
@@ -323,7 +338,9 @@ ROWS
  L  triangle1[WebHook,Ownership,Dependency,r]
  L  triangle1[WebHook,Ownership,Dependency,c]
  L  triangle1[WebHook,Linkset,Version,r]
+ L  triangle1[WebHook,Linkset,Version,c]
  L  triangle1[WebHook,Linkset,Dependency,r]
+ L  triangle1[WebHook,Linkset,Dependency,c]
  L  triangle1[WebHook,Version,Dependency,r]
  L  triangle1[WebHook,Version,Dependency,c]
  L  triangle1[Subscription,Ownership,Linkset,r]
@@ -335,11 +352,13 @@ ROWS
  L  triangle1[Subscription,Linkset,Version,r]
  L  triangle1[Subscription,Linkset,Version,c]
  L  triangle1[Subscription,Linkset,Dependency,r]
+ L  triangle1[Subscription,Linkset,Dependency,c]
  L  triangle1[Subscription,Version,Dependency,r]
  L  triangle1[Subscription,Version,Dependency,c]
  L  triangle1[Ownership,Linkset,Version,r]
  L  triangle1[Ownership,Linkset,Version,c]
  L  triangle1[Ownership,Linkset,Dependency,r]
+ L  triangle1[Ownership,Linkset,Dependency,c]
  L  triangle1[Ownership,Version,Dependency,r]
  L  triangle1[Ownership,Version,Dependency,c]
  L  triangle1[Linkset,Version,Dependency,r]
@@ -354,6 +373,7 @@ ROWS
  L  triangle2[Rubygem,User,Linkset,c]
  L  triangle2[Rubygem,User,Version,r]
  L  triangle2[Rubygem,User,Version,c]
+ L  triangle2[Rubygem,User,Dependency,r]
  L  triangle2[Rubygem,User,Dependency,c]
  L  triangle2[Rubygem,WebHook,Subscription,r]
  L  triangle2[Rubygem,WebHook,Subscription,c]
@@ -393,6 +413,7 @@ ROWS
  L  triangle2[User,WebHook,Linkset,c]
  L  triangle2[User,WebHook,Version,r]
  L  triangle2[User,WebHook,Version,c]
+ L  triangle2[User,WebHook,Dependency,r]
  L  triangle2[User,WebHook,Dependency,c]
  L  triangle2[User,Subscription,Ownership,r]
  L  triangle2[User,Subscription,Ownership,c]
@@ -400,24 +421,30 @@ ROWS
  L  triangle2[User,Subscription,Linkset,c]
  L  triangle2[User,Subscription,Version,r]
  L  triangle2[User,Subscription,Version,c]
+ L  triangle2[User,Subscription,Dependency,r]
  L  triangle2[User,Subscription,Dependency,c]
  L  triangle2[User,Ownership,Linkset,r]
  L  triangle2[User,Ownership,Linkset,c]
  L  triangle2[User,Ownership,Version,r]
  L  triangle2[User,Ownership,Version,c]
+ L  triangle2[User,Ownership,Dependency,r]
  L  triangle2[User,Ownership,Dependency,c]
  L  triangle2[User,Linkset,Version,r]
  L  triangle2[User,Linkset,Version,c]
+ L  triangle2[User,Linkset,Dependency,r]
  L  triangle2[User,Linkset,Dependency,c]
+ L  triangle2[User,Version,Dependency,r]
  L  triangle2[User,Version,Dependency,c]
  L  triangle2[WebHook,Subscription,Ownership,r]
  L  triangle2[WebHook,Subscription,Ownership,c]
  L  triangle2[WebHook,Subscription,Linkset,r]
+ L  triangle2[WebHook,Subscription,Linkset,c]
  L  triangle2[WebHook,Subscription,Version,r]
  L  triangle2[WebHook,Subscription,Version,c]
  L  triangle2[WebHook,Subscription,Dependency,r]
  L  triangle2[WebHook,Subscription,Dependency,c]
  L  triangle2[WebHook,Ownership,Linkset,r]
+ L  triangle2[WebHook,Ownership,Linkset,c]
  L  triangle2[WebHook,Ownership,Version,r]
  L  triangle2[WebHook,Ownership,Version,c]
  L  triangle2[WebHook,Ownership,Dependency,r]
@@ -447,6 +474,7 @@ ROWS
  L  triangle2[Ownership,Version,Dependency,r]
  L  triangle2[Ownership,Version,Dependency,c]
  L  triangle2[Linkset,Version,Dependency,r]
+ L  triangle2[Linkset,Version,Dependency,c]
 COLUMNS
     MARKER    'MARKER'                 'INTORG'
     x[r,Rubygem]  centerDistAxis1[r,Rubygem]  -1
@@ -460,10 +488,10 @@ COLUMNS
     x[r,Rubygem]  axisVdifLB[r,Rubygem,Dependency]  1
     x[r,Rubygem]  axisVdifRT[r,Rubygem,User]  -1
     x[r,Rubygem]  axisVdifRT[r,Rubygem,WebHook]  -1
-    x[r,Rubygem]  axisVdifRT[r,Rubygem,Subscription]  -2
+    x[r,Rubygem]  axisVdifRT[r,Rubygem,Subscription]  -1
     x[r,Rubygem]  axisVdifRT[r,Rubygem,Ownership]  -1
     x[r,Rubygem]  axisVdifRT[r,Rubygem,Linkset]  -1
-    x[r,Rubygem]  axisVdifRT[r,Rubygem,Version]  -2
+    x[r,Rubygem]  axisVdifRT[r,Rubygem,Version]  -1
     x[r,Rubygem]  axisVdifRT[r,Rubygem,Dependency]  -1
     x[r,Rubygem]  compDistAxis1[r,Rubygem,User]  1
     x[r,Rubygem]  compDistAxis1[r,Rubygem,Subscription]  1
@@ -487,12 +515,14 @@ COLUMNS
     x[r,User]  axisVdifLB[r,User,Ownership]  1
     x[r,User]  axisVdifLB[r,User,Linkset]  1
     x[r,User]  axisVdifLB[r,User,Version]  1
+    x[r,User]  axisVdifLB[r,User,Dependency]  1
     x[r,User]  axisVdifRT[r,Rubygem,User]  1
     x[r,User]  axisVdifRT[r,User,WebHook]  -1
     x[r,User]  axisVdifRT[r,User,Subscription]  -1
     x[r,User]  axisVdifRT[r,User,Ownership]  -1
     x[r,User]  axisVdifRT[r,User,Linkset]  -1
     x[r,User]  axisVdifRT[r,User,Version]  -1
+    x[r,User]  axisVdifRT[r,User,Dependency]  -1
     x[r,User]  compDistAxis1[r,Rubygem,User]  -1
     x[r,User]  compDistAxis1[r,User,WebHook]  1
     x[r,User]  compDistAxis1[r,User,Subscription]  1
@@ -517,10 +547,10 @@ COLUMNS
     x[r,WebHook]  axisVdifRT[r,WebHook,Linkset]  -1
     x[r,WebHook]  axisVdifRT[r,WebHook,Version]  -1
     x[r,WebHook]  axisVdifRT[r,WebHook,Dependency]  -1
-    x[r,WebHook]  compDistAxis1[r,User,WebHook]  -1
+    x[r,WebHook]  compDistAxis1[r,User,WebHook]  -2
     x[r,WebHook]  compDistAxis1[r,Rubygem,WebHook]  -1
     x[r,WebHook]  compDistAxis2[r,User,WebHook]  1
-    x[r,WebHook]  compDistAxis2[r,Rubygem,WebHook]  2
+    x[r,WebHook]  compDistAxis2[r,Rubygem,WebHook]  1
     x[r,Subscription]  centerDistAxis1[r,Subscription]  -1
     x[r,Subscription]  centerDistAxis2[r,Subscription]  1
     x[r,Subscription]  axisVdifLB[r,Rubygem,Subscription]  -1
@@ -539,7 +569,7 @@ COLUMNS
     x[r,Subscription]  axisVdifRT[r,Subscription,Dependency]  -1
     x[r,Subscription]  compDistAxis1[r,User,Subscription]  -1
     x[r,Subscription]  compDistAxis1[r,Rubygem,Subscription]  -1
-    x[r,Subscription]  compDistAxis2[r,User,Subscription]  1
+    x[r,Subscription]  compDistAxis2[r,User,Subscription]  2
     x[r,Subscription]  compDistAxis2[r,Rubygem,Subscription]  1
     x[r,Ownership]  centerDistAxis1[r,Ownership]  -1
     x[r,Ownership]  centerDistAxis2[r,Ownership]  1
@@ -572,7 +602,7 @@ COLUMNS
     x[r,Linkset]  axisVdifLB[r,Linkset,Dependency]  1
     x[r,Linkset]  axisVdifRT[r,Rubygem,Linkset]  1
     x[r,Linkset]  axisVdifRT[r,User,Linkset]  1
-    x[r,Linkset]  axisVdifRT[r,WebHook,Linkset]  1
+    x[r,Linkset]  axisVdifRT[r,WebHook,Linkset]  2
     x[r,Linkset]  axisVdifRT[r,Subscription,Linkset]  1
     x[r,Linkset]  axisVdifRT[r,Ownership,Linkset]  1
     x[r,Linkset]  axisVdifRT[r,Linkset,Version]  -1
@@ -580,7 +610,7 @@ COLUMNS
     x[r,Linkset]  compDistAxis1[r,Rubygem,Linkset]  -1
     x[r,Linkset]  compDistAxis2[r,Rubygem,Linkset]  1
     x[r,Version]  centerDistAxis1[r,Version]  -1
-    x[r,Version]  centerDistAxis2[r,Version]  2
+    x[r,Version]  centerDistAxis2[r,Version]  1
     x[r,Version]  axisVdifLB[r,Rubygem,Version]  -1
     x[r,Version]  axisVdifLB[r,User,Version]  -1
     x[r,Version]  axisVdifLB[r,WebHook,Version]  -1
@@ -602,14 +632,16 @@ COLUMNS
     x[r,Dependency]  centerDistAxis1[r,Dependency]  -1
     x[r,Dependency]  centerDistAxis2[r,Dependency]  1
     x[r,Dependency]  axisVdifLB[r,Rubygem,Dependency]  -1
+    x[r,Dependency]  axisVdifLB[r,User,Dependency]  -1
     x[r,Dependency]  axisVdifLB[r,WebHook,Dependency]  -1
     x[r,Dependency]  axisVdifLB[r,Subscription,Dependency]  -1
     x[r,Dependency]  axisVdifLB[r,Ownership,Dependency]  -1
     x[r,Dependency]  axisVdifLB[r,Linkset,Dependency]  -1
     x[r,Dependency]  axisVdifLB[r,Version,Dependency]  -1
     x[r,Dependency]  axisVdifRT[r,Rubygem,Dependency]  1
+    x[r,Dependency]  axisVdifRT[r,User,Dependency]  1
     x[r,Dependency]  axisVdifRT[r,WebHook,Dependency]  1
-    x[r,Dependency]  axisVdifRT[r,Subscription,Dependency]  1
+    x[r,Dependency]  axisVdifRT[r,Subscription,Dependency]  2
     x[r,Dependency]  axisVdifRT[r,Ownership,Dependency]  1
     x[r,Dependency]  axisVdifRT[r,Linkset,Dependency]  1
     x[r,Dependency]  axisVdifRT[r,Version,Dependency]  1
@@ -630,7 +662,7 @@ COLUMNS
     x[c,Rubygem]  axisVdifRT[c,Rubygem,WebHook]  -1
     x[c,Rubygem]  axisVdifRT[c,Rubygem,Subscription]  -1
     x[c,Rubygem]  axisVdifRT[c,Rubygem,Ownership]  -1
-    x[c,Rubygem]  axisVdifRT[c,Rubygem,Linkset]  -1
+    x[c,Rubygem]  axisVdifRT[c,Rubygem,Linkset]  -2
     x[c,Rubygem]  axisVdifRT[c,Rubygem,Version]  -1
     x[c,Rubygem]  axisVdifRT[c,Rubygem,Dependency]  -1
     x[c,Rubygem]  compDistAxis1[c,Rubygem,User]  1
@@ -680,10 +712,11 @@ COLUMNS
     x[c,WebHook]  axisVdifLB[c,WebHook,Linkset]  1
     x[c,WebHook]  axisVdifLB[c,WebHook,Version]  1
     x[c,WebHook]  axisVdifLB[c,WebHook,Dependency]  1
-    x[c,WebHook]  axisVdifRT[c,Rubygem,WebHook]  2
+    x[c,WebHook]  axisVdifRT[c,Rubygem,WebHook]  1
     x[c,WebHook]  axisVdifRT[c,User,WebHook]  1
     x[c,WebHook]  axisVdifRT[c,WebHook,Subscription]  -1
     x[c,WebHook]  axisVdifRT[c,WebHook,Ownership]  -1
+    x[c,WebHook]  axisVdifRT[c,WebHook,Linkset]  -1
     x[c,WebHook]  axisVdifRT[c,WebHook,Version]  -1
     x[c,WebHook]  axisVdifRT[c,WebHook,Dependency]  -1
     x[c,WebHook]  compDistAxis1[c,User,WebHook]  -1
@@ -710,7 +743,7 @@ COLUMNS
     x[c,Subscription]  compDistAxis1[c,Rubygem,Subscription]  -1
     x[c,Subscription]  compDistAxis2[c,User,Subscription]  1
     x[c,Subscription]  compDistAxis2[c,Rubygem,Subscription]  1
-    x[c,Ownership]  centerDistAxis1[c,Ownership]  -2
+    x[c,Ownership]  centerDistAxis1[c,Ownership]  -1
     x[c,Ownership]  centerDistAxis2[c,Ownership]  1
     x[c,Ownership]  axisVdifLB[c,Rubygem,Ownership]  -1
     x[c,Ownership]  axisVdifLB[c,User,Ownership]  -1
@@ -719,7 +752,7 @@ COLUMNS
     x[c,Ownership]  axisVdifLB[c,Ownership,Linkset]  1
     x[c,Ownership]  axisVdifLB[c,Ownership,Version]  1
     x[c,Ownership]  axisVdifLB[c,Ownership,Dependency]  1
-    x[c,Ownership]  axisVdifRT[c,Rubygem,Ownership]  2
+    x[c,Ownership]  axisVdifRT[c,Rubygem,Ownership]  1
     x[c,Ownership]  axisVdifRT[c,User,Ownership]  1
     x[c,Ownership]  axisVdifRT[c,WebHook,Ownership]  1
     x[c,Ownership]  axisVdifRT[c,Subscription,Ownership]  1
@@ -741,9 +774,11 @@ COLUMNS
     x[c,Linkset]  axisVdifLB[c,Linkset,Dependency]  1
     x[c,Linkset]  axisVdifRT[c,Rubygem,Linkset]  1
     x[c,Linkset]  axisVdifRT[c,User,Linkset]  1
+    x[c,Linkset]  axisVdifRT[c,WebHook,Linkset]  1
     x[c,Linkset]  axisVdifRT[c,Subscription,Linkset]  1
     x[c,Linkset]  axisVdifRT[c,Ownership,Linkset]  1
     x[c,Linkset]  axisVdifRT[c,Linkset,Version]  -1
+    x[c,Linkset]  axisVdifRT[c,Linkset,Dependency]  -1
     x[c,Linkset]  compDistAxis1[c,Rubygem,Linkset]  -1
     x[c,Linkset]  compDistAxis2[c,Rubygem,Linkset]  1
     x[c,Version]  centerDistAxis1[c,Version]  -1
@@ -780,6 +815,7 @@ COLUMNS
     x[c,Dependency]  axisVdifRT[c,WebHook,Dependency]  1
     x[c,Dependency]  axisVdifRT[c,Subscription,Dependency]  1
     x[c,Dependency]  axisVdifRT[c,Ownership,Dependency]  1
+    x[c,Dependency]  axisVdifRT[c,Linkset,Dependency]  1
     x[c,Dependency]  axisVdifRT[c,Version,Dependency]  1
     x[c,Dependency]  compDistAxis1[c,Rubygem,Dependency]  -1
     x[c,Dependency]  compDistAxis1[c,Version,Dependency]  -1
@@ -797,7 +833,7 @@ COLUMNS
     center_dist[r,WebHook]  OBJ       1
     center_dist[r,WebHook]  centerDistAxis1[r,WebHook]  -1
     center_dist[r,WebHook]  centerDistAxis2[r,WebHook]  -1
-    center_dist[r,WebHook]  CenterDistSumLB  -1
+    center_dist[r,WebHook]  CenterDistSumLB  -2
     center_dist[r,Subscription]  OBJ       1
     center_dist[r,Subscription]  centerDistAxis1[r,Subscription]  -1
     center_dist[r,Subscription]  centerDistAxis2[r,Subscription]  -1
@@ -969,12 +1005,9 @@ COLUMNS
     zV[r,rt,Rubygem,User]  triangle1[Rubygem,User,Ownership,r]  1
     zV[r,rt,Rubygem,User]  triangle1[Rubygem,User,Linkset,r]  1
     zV[r,rt,Rubygem,User]  triangle1[Rubygem,User,Version,r]  1
-    zV[c,rt,Rubygem,User]  triangle2[Rubygem,Ownership,Dependency,c]  1
-    zV[c,rt,Rubygem,User]  triangle1[Rubygem,Subscription,Dependency,c]  1
+    zV[r,rt,Rubygem,User]  triangle1[Rubygem,User,Dependency,r]  1
     zV[c,rt,Rubygem,User]  DistSumLB[Rubygem,User]  4.5
-    zV[c,rt,Rubygem,User]  compDistAxis2[c,Rubygem,User]  16
-    zV[c,rt,Rubygem,User]  axisVdifRT[c,Rubygem,Dependency]  14
-    zV[c,rt,Rubygem,User]  axisVdifLB[c,Rubygem,Dependency]  14
+    zV[c,rt,Rubygem,User]  compDistAxis2[c,Rubygem,User]  15
     zV[c,rt,Rubygem,User]  centerDistAxis1[c,Rubygem]  6
     zV[c,rt,Rubygem,User]  choose1[Rubygem,User]  1
     zV[c,rt,Rubygem,User]  axisVdifRT[c,Rubygem,User]  31
@@ -993,24 +1026,21 @@ COLUMNS
     zV[r,lb,Rubygem,User]  triangle2[Rubygem,User,Ownership,r]  1
     zV[r,lb,Rubygem,User]  triangle2[Rubygem,User,Linkset,r]  1
     zV[r,lb,Rubygem,User]  triangle2[Rubygem,User,Version,r]  1
-    zV[c,lb,Rubygem,User]  triangle2[Rubygem,Ownership,Dependency,c]  1
-    zV[c,lb,Rubygem,User]  triangle1[Rubygem,Subscription,Dependency,c]  1
+    zV[r,lb,Rubygem,User]  triangle2[Rubygem,User,Dependency,r]  1
     zV[c,lb,Rubygem,User]  DistSumLB[Rubygem,User]  4.5
-    zV[c,lb,Rubygem,User]  compDistAxis1[c,Rubygem,User]  16
-    zV[c,lb,Rubygem,User]  axisVdifRT[c,Rubygem,Dependency]  14
-    zV[c,lb,Rubygem,User]  axisVdifLB[c,Rubygem,Dependency]  14
+    zV[c,lb,Rubygem,User]  compDistAxis1[c,Rubygem,User]  15
     zV[c,lb,Rubygem,User]  centerDistAxis2[c,Rubygem]  6
     zV[c,lb,Rubygem,User]  choose1[Rubygem,User]  1
     zV[c,lb,Rubygem,User]  axisVdifLB[c,Rubygem,User]  31
     zV[c,lb,Rubygem,User]  DistAxisLB1[r,Rubygem,User]  -7
     zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,WebHook,c]  1
-    zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,Subscription,c]  2
+    zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,Subscription,c]  1
     zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,Ownership,c]  1
     zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,Linkset,c]  1
     zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,Version,c]  1
     zV[c,lb,Rubygem,User]  triangle2[Rubygem,User,Dependency,c]  1
     zV[r,rt,Rubygem,WebHook]  choose1[Rubygem,WebHook]  1
-    zV[r,rt,Rubygem,WebHook]  axisVdifRT[r,Rubygem,WebHook]  20
+    zV[r,rt,Rubygem,WebHook]  axisVdifRT[r,Rubygem,WebHook]  31
     zV[r,rt,Rubygem,WebHook]  DistAxisLB1[c,Rubygem,WebHook]  -10
     zV[r,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Subscription,r]  1
     zV[r,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Ownership,r]  1
@@ -1019,17 +1049,16 @@ COLUMNS
     zV[r,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Dependency,r]  1
     zV[r,rt,Rubygem,WebHook]  triangle2[Rubygem,User,WebHook,r]  1
     zV[c,rt,Rubygem,WebHook]  DistSumLB[Rubygem,WebHook]  5
-    zV[c,rt,Rubygem,WebHook]  compDistAxis2[c,Rubygem,WebHook]  16
-    zV[c,rt,Rubygem,WebHook]  centerDistAxis2[c,WebHook]  10
+    zV[c,rt,Rubygem,WebHook]  compDistAxis2[c,Rubygem,WebHook]  9
     zV[c,rt,Rubygem,WebHook]  choose1[Rubygem,WebHook]  1
-    zV[c,rt,Rubygem,WebHook]  axisVdifRT[c,Rubygem,WebHook]  42
+    zV[c,rt,Rubygem,WebHook]  axisVdifRT[c,Rubygem,WebHook]  31
     zV[c,rt,Rubygem,WebHook]  DistAxisLB1[r,Rubygem,WebHook]  -5
     zV[c,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Subscription,c]  1
     zV[c,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Ownership,c]  1
+    zV[c,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Linkset,c]  1
     zV[c,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Version,c]  1
     zV[c,rt,Rubygem,WebHook]  triangle1[Rubygem,WebHook,Dependency,c]  1
     zV[c,rt,Rubygem,WebHook]  triangle2[Rubygem,User,WebHook,c]  1
-    zV[r,lb,Rubygem,WebHook]  axisVdifLB[r,WebHook,Version]  1
     zV[r,lb,Rubygem,WebHook]  choose1[Rubygem,WebHook]  1
     zV[r,lb,Rubygem,WebHook]  axisVdifLB[r,Rubygem,WebHook]  31
     zV[r,lb,Rubygem,WebHook]  DistAxisLB1[c,Rubygem,WebHook]  -10
@@ -1037,9 +1066,9 @@ COLUMNS
     zV[r,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Subscription,r]  1
     zV[r,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Ownership,r]  1
     zV[r,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Linkset,r]  1
-    zV[r,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Version,r]  2
+    zV[r,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Version,r]  1
     zV[r,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Dependency,r]  1
-    zV[c,lb,Rubygem,WebHook]  DistSumLB[Rubygem,WebHook]  5
+    zV[c,lb,Rubygem,WebHook]  DistSumLB[Rubygem,WebHook]  6
     zV[c,lb,Rubygem,WebHook]  compDistAxis1[c,Rubygem,WebHook]  9
     zV[c,lb,Rubygem,WebHook]  choose1[Rubygem,WebHook]  1
     zV[c,lb,Rubygem,WebHook]  axisVdifLB[c,Rubygem,WebHook]  31
@@ -1051,7 +1080,7 @@ COLUMNS
     zV[c,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Version,c]  1
     zV[c,lb,Rubygem,WebHook]  triangle2[Rubygem,WebHook,Dependency,c]  1
     zV[r,rt,Rubygem,Subscription]  choose1[Rubygem,Subscription]  1
-    zV[r,rt,Rubygem,Subscription]  axisVdifRT[r,Rubygem,Subscription]  30
+    zV[r,rt,Rubygem,Subscription]  axisVdifRT[r,Rubygem,Subscription]  31
     zV[r,rt,Rubygem,Subscription]  DistAxisLB1[c,Rubygem,Subscription]  -8.5
     zV[r,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Ownership,r]  1
     zV[r,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Linkset,r]  1
@@ -1059,15 +1088,15 @@ COLUMNS
     zV[r,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Dependency,r]  1
     zV[r,rt,Rubygem,Subscription]  triangle2[Rubygem,User,Subscription,r]  1
     zV[r,rt,Rubygem,Subscription]  triangle2[Rubygem,WebHook,Subscription,r]  1
-    zV[c,rt,Rubygem,Subscription]  DistSumLB[Rubygem,Subscription]  5
+    zV[c,rt,Rubygem,Subscription]  DistSumLB[Rubygem,Subscription]  4
     zV[c,rt,Rubygem,Subscription]  compDistAxis2[c,Rubygem,Subscription]  3
     zV[c,rt,Rubygem,Subscription]  choose1[Rubygem,Subscription]  1
     zV[c,rt,Rubygem,Subscription]  axisVdifRT[c,Rubygem,Subscription]  31
-    zV[c,rt,Rubygem,Subscription]  DistAxisLB1[r,Rubygem,Subscription]  -3.5
+    zV[c,rt,Rubygem,Subscription]  DistAxisLB1[r,Rubygem,Subscription]  -4.5
     zV[c,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Ownership,c]  1
     zV[c,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Linkset,c]  1
     zV[c,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Version,c]  1
-    zV[c,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Dependency,c]  1
+    zV[c,rt,Rubygem,Subscription]  triangle1[Rubygem,Subscription,Dependency,c]  2
     zV[c,rt,Rubygem,Subscription]  triangle2[Rubygem,User,Subscription,c]  1
     zV[c,rt,Rubygem,Subscription]  triangle2[Rubygem,WebHook,Subscription,c]  1
     zV[r,lb,Rubygem,Subscription]  choose1[Rubygem,Subscription]  1
@@ -1075,7 +1104,7 @@ COLUMNS
     zV[r,lb,Rubygem,Subscription]  DistAxisLB1[c,Rubygem,Subscription]  -8.5
     zV[r,lb,Rubygem,Subscription]  triangle1[Rubygem,User,Subscription,r]  1
     zV[r,lb,Rubygem,Subscription]  triangle1[Rubygem,WebHook,Subscription,r]  1
-    zV[r,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Ownership,r]  2
+    zV[r,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Ownership,r]  1
     zV[r,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Linkset,r]  1
     zV[r,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Version,r]  1
     zV[r,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Dependency,r]  1
@@ -1091,19 +1120,18 @@ COLUMNS
     zV[c,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Version,c]  1
     zV[c,lb,Rubygem,Subscription]  triangle2[Rubygem,Subscription,Dependency,c]  1
     zV[r,rt,Rubygem,Ownership]  choose1[Rubygem,Ownership]  1
-    zV[r,rt,Rubygem,Ownership]  axisVdifRT[r,Rubygem,Ownership]  32
+    zV[r,rt,Rubygem,Ownership]  axisVdifRT[r,Rubygem,Ownership]  31
     zV[r,rt,Rubygem,Ownership]  DistAxisLB1[c,Rubygem,Ownership]  -9
     zV[r,rt,Rubygem,Ownership]  triangle1[Rubygem,Ownership,Linkset,r]  1
     zV[r,rt,Rubygem,Ownership]  triangle1[Rubygem,Ownership,Version,r]  1
-    zV[r,rt,Rubygem,Ownership]  triangle1[Rubygem,Ownership,Dependency,r]  1
+    zV[r,rt,Rubygem,Ownership]  triangle1[Rubygem,Ownership,Dependency,r]  2
     zV[r,rt,Rubygem,Ownership]  triangle2[Rubygem,User,Ownership,r]  1
     zV[r,rt,Rubygem,Ownership]  triangle2[Rubygem,WebHook,Ownership,r]  1
     zV[r,rt,Rubygem,Ownership]  triangle2[Rubygem,Subscription,Ownership,r]  1
     zV[c,rt,Rubygem,Ownership]  DistSumLB[Rubygem,Ownership]  4
-    zV[c,rt,Rubygem,Ownership]  compDistAxis2[c,Rubygem,Ownership]  13
-    zV[c,rt,Rubygem,Ownership]  centerDistAxis2[c,Ownership]  3
+    zV[c,rt,Rubygem,Ownership]  compDistAxis2[c,Rubygem,Ownership]  5
     zV[c,rt,Rubygem,Ownership]  choose1[Rubygem,Ownership]  1
-    zV[c,rt,Rubygem,Ownership]  axisVdifRT[c,Rubygem,Ownership]  40
+    zV[c,rt,Rubygem,Ownership]  axisVdifRT[c,Rubygem,Ownership]  31
     zV[c,rt,Rubygem,Ownership]  DistAxisLB1[r,Rubygem,Ownership]  -5
     zV[c,rt,Rubygem,Ownership]  triangle1[Rubygem,Ownership,Linkset,c]  1
     zV[c,rt,Rubygem,Ownership]  triangle1[Rubygem,Ownership,Version,c]  1
@@ -1121,7 +1149,7 @@ COLUMNS
     zV[r,lb,Rubygem,Ownership]  triangle2[Rubygem,Ownership,Version,r]  1
     zV[r,lb,Rubygem,Ownership]  triangle2[Rubygem,Ownership,Dependency,r]  1
     zV[c,lb,Rubygem,Ownership]  DistSumLB[Rubygem,Ownership]  4
-    zV[c,lb,Rubygem,Ownership]  compDistAxis1[c,Rubygem,Ownership]  6
+    zV[c,lb,Rubygem,Ownership]  compDistAxis1[c,Rubygem,Ownership]  5
     zV[c,lb,Rubygem,Ownership]  choose1[Rubygem,Ownership]  1
     zV[c,lb,Rubygem,Ownership]  axisVdifLB[c,Rubygem,Ownership]  31
     zV[c,lb,Rubygem,Ownership]  DistAxisLB1[r,Rubygem,Ownership]  -5
@@ -1146,6 +1174,7 @@ COLUMNS
     zV[c,rt,Rubygem,Linkset]  axisVdifRT[c,Rubygem,Linkset]  31
     zV[c,rt,Rubygem,Linkset]  DistAxisLB1[r,Rubygem,Linkset]  -6
     zV[c,rt,Rubygem,Linkset]  triangle1[Rubygem,Linkset,Version,c]  1
+    zV[c,rt,Rubygem,Linkset]  triangle1[Rubygem,Linkset,Dependency,c]  1
     zV[c,rt,Rubygem,Linkset]  triangle2[Rubygem,User,Linkset,c]  1
     zV[c,rt,Rubygem,Linkset]  triangle2[Rubygem,WebHook,Linkset,c]  1
     zV[c,rt,Rubygem,Linkset]  triangle2[Rubygem,Subscription,Linkset,c]  1
@@ -1159,18 +1188,19 @@ COLUMNS
     zV[r,lb,Rubygem,Linkset]  triangle1[Rubygem,Ownership,Linkset,r]  1
     zV[r,lb,Rubygem,Linkset]  triangle2[Rubygem,Linkset,Version,r]  1
     zV[r,lb,Rubygem,Linkset]  triangle2[Rubygem,Linkset,Dependency,r]  1
-    zV[c,lb,Rubygem,Linkset]  DistSumLB[Rubygem,Linkset]  3
+    zV[c,lb,Rubygem,Linkset]  DistSumLB[Rubygem,Linkset]  2
     zV[c,lb,Rubygem,Linkset]  compDistAxis1[c,Rubygem,Linkset]  1
     zV[c,lb,Rubygem,Linkset]  choose1[Rubygem,Linkset]  1
     zV[c,lb,Rubygem,Linkset]  axisVdifLB[c,Rubygem,Linkset]  31
-    zV[c,lb,Rubygem,Linkset]  DistAxisLB1[r,Rubygem,Linkset]  -5
+    zV[c,lb,Rubygem,Linkset]  DistAxisLB1[r,Rubygem,Linkset]  -6
     zV[c,lb,Rubygem,Linkset]  triangle1[Rubygem,User,Linkset,c]  1
+    zV[c,lb,Rubygem,Linkset]  triangle1[Rubygem,WebHook,Linkset,c]  1
     zV[c,lb,Rubygem,Linkset]  triangle1[Rubygem,Subscription,Linkset,c]  1
     zV[c,lb,Rubygem,Linkset]  triangle1[Rubygem,Ownership,Linkset,c]  1
     zV[c,lb,Rubygem,Linkset]  triangle2[Rubygem,Linkset,Version,c]  1
     zV[c,lb,Rubygem,Linkset]  triangle2[Rubygem,Linkset,Dependency,c]  1
     zV[r,rt,Rubygem,Version]  choose1[Rubygem,Version]  1
-    zV[r,rt,Rubygem,Version]  axisVdifRT[r,Rubygem,Version]  30
+    zV[r,rt,Rubygem,Version]  axisVdifRT[r,Rubygem,Version]  31
     zV[r,rt,Rubygem,Version]  DistAxisLB1[c,Rubygem,Version]  -10.5
     zV[r,rt,Rubygem,Version]  triangle1[Rubygem,Version,Dependency,r]  1
     zV[r,rt,Rubygem,Version]  triangle2[Rubygem,User,Version,r]  1
@@ -1198,7 +1228,7 @@ COLUMNS
     zV[r,lb,Rubygem,Version]  triangle1[Rubygem,Ownership,Version,r]  1
     zV[r,lb,Rubygem,Version]  triangle1[Rubygem,Linkset,Version,r]  1
     zV[r,lb,Rubygem,Version]  triangle2[Rubygem,Version,Dependency,r]  1
-    zV[c,lb,Rubygem,Version]  DistSumLB[Rubygem,Version]  3.5
+    zV[c,lb,Rubygem,Version]  DistSumLB[Rubygem,Version]  2.5
     zV[c,lb,Rubygem,Version]  compDistAxis1[c,Rubygem,Version]  11
     zV[c,lb,Rubygem,Version]  choose1[Rubygem,Version]  1
     zV[c,lb,Rubygem,Version]  axisVdifLB[c,Rubygem,Version]  31
@@ -1212,20 +1242,18 @@ COLUMNS
     zV[r,rt,Rubygem,Dependency]  choose1[Rubygem,Dependency]  1
     zV[r,rt,Rubygem,Dependency]  axisVdifRT[r,Rubygem,Dependency]  31
     zV[r,rt,Rubygem,Dependency]  DistAxisLB1[c,Rubygem,Dependency]  -9.5
-    zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,WebHook,Dependency,r]  1
+    zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,User,Dependency,r]  1
+    zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,WebHook,Dependency,r]  2
     zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,Subscription,Dependency,r]  1
     zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,Ownership,Dependency,r]  1
     zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,Linkset,Dependency,r]  1
     zV[r,rt,Rubygem,Dependency]  triangle2[Rubygem,Version,Dependency,r]  1
-    zV[c,rt,Rubygem,Dependency]  triangle1[Rubygem,User,Dependency,c]  1
     zV[c,rt,Rubygem,Dependency]  DistSumLB[Rubygem,Dependency]  4.5
-    zV[c,rt,Rubygem,Dependency]  compDistAxis2[c,Rubygem,Dependency]  12
-    zV[c,rt,Rubygem,Dependency]  axisVdifRT[c,Rubygem,User]  10
-    zV[c,rt,Rubygem,Dependency]  axisVdifLB[c,Rubygem,User]  10
+    zV[c,rt,Rubygem,Dependency]  compDistAxis2[c,Rubygem,Dependency]  7
     zV[c,rt,Rubygem,Dependency]  choose1[Rubygem,Dependency]  1
     zV[c,rt,Rubygem,Dependency]  axisVdifRT[c,Rubygem,Dependency]  31
     zV[c,rt,Rubygem,Dependency]  DistAxisLB1[r,Rubygem,Dependency]  -5
-    zV[c,rt,Rubygem,Dependency]  triangle2[Rubygem,User,Dependency,c]  2
+    zV[c,rt,Rubygem,Dependency]  triangle2[Rubygem,User,Dependency,c]  1
     zV[c,rt,Rubygem,Dependency]  triangle2[Rubygem,WebHook,Dependency,c]  1
     zV[c,rt,Rubygem,Dependency]  triangle2[Rubygem,Subscription,Dependency,c]  1
     zV[c,rt,Rubygem,Dependency]  triangle2[Rubygem,Ownership,Dependency,c]  1
@@ -1234,23 +1262,22 @@ COLUMNS
     zV[r,lb,Rubygem,Dependency]  choose1[Rubygem,Dependency]  1
     zV[r,lb,Rubygem,Dependency]  axisVdifLB[r,Rubygem,Dependency]  31
     zV[r,lb,Rubygem,Dependency]  DistAxisLB1[c,Rubygem,Dependency]  -9.5
+    zV[r,lb,Rubygem,Dependency]  triangle1[Rubygem,User,Dependency,r]  1
     zV[r,lb,Rubygem,Dependency]  triangle1[Rubygem,WebHook,Dependency,r]  1
     zV[r,lb,Rubygem,Dependency]  triangle1[Rubygem,Subscription,Dependency,r]  1
     zV[r,lb,Rubygem,Dependency]  triangle1[Rubygem,Ownership,Dependency,r]  1
     zV[r,lb,Rubygem,Dependency]  triangle1[Rubygem,Linkset,Dependency,r]  1
     zV[r,lb,Rubygem,Dependency]  triangle1[Rubygem,Version,Dependency,r]  1
-    zV[c,lb,Rubygem,Dependency]  triangle2[Rubygem,User,Dependency,c]  1
     zV[c,lb,Rubygem,Dependency]  DistSumLB[Rubygem,Dependency]  4.5
-    zV[c,lb,Rubygem,Dependency]  compDistAxis1[c,Rubygem,Dependency]  12
-    zV[c,lb,Rubygem,Dependency]  axisVdifRT[c,Rubygem,User]  10
-    zV[c,lb,Rubygem,Dependency]  axisVdifLB[c,Rubygem,User]  10
+    zV[c,lb,Rubygem,Dependency]  compDistAxis1[c,Rubygem,Dependency]  7
     zV[c,lb,Rubygem,Dependency]  choose1[Rubygem,Dependency]  1
     zV[c,lb,Rubygem,Dependency]  axisVdifLB[c,Rubygem,Dependency]  31
     zV[c,lb,Rubygem,Dependency]  DistAxisLB1[r,Rubygem,Dependency]  -5
-    zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,User,Dependency,c]  2
+    zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,User,Dependency,c]  1
     zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,WebHook,Dependency,c]  1
     zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,Subscription,Dependency,c]  1
     zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,Ownership,Dependency,c]  1
+    zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,Linkset,Dependency,c]  1
     zV[c,lb,Rubygem,Dependency]  triangle1[Rubygem,Version,Dependency,c]  1
     zV[r,rt,User,WebHook]  choose1[User,WebHook]  1
     zV[r,rt,User,WebHook]  axisVdifRT[r,User,WebHook]  31
@@ -1260,18 +1287,17 @@ COLUMNS
     zV[r,rt,User,WebHook]  triangle1[User,WebHook,Ownership,r]  1
     zV[r,rt,User,WebHook]  triangle1[User,WebHook,Linkset,r]  1
     zV[r,rt,User,WebHook]  triangle1[User,WebHook,Version,r]  1
-    zV[c,rt,User,WebHook]  triangle2[Rubygem,WebHook,Dependency,c]  1
-    zV[c,rt,User,WebHook]  triangle1[Rubygem,WebHook,Dependency,c]  1
+    zV[r,rt,User,WebHook]  triangle1[User,WebHook,Dependency,r]  1
     zV[c,rt,User,WebHook]  DistSumLB[User,WebHook]  5.5
     zV[c,rt,User,WebHook]  compDistAxis2[c,User,WebHook]  19
-    zV[c,rt,User,WebHook]  axisVdifRT[c,WebHook,Dependency]  14
-    zV[c,rt,User,WebHook]  axisVdifLB[c,WebHook,Dependency]  14
+    zV[c,rt,User,WebHook]  centerDistAxis2[c,WebHook]  8
     zV[c,rt,User,WebHook]  choose1[User,WebHook]  1
     zV[c,rt,User,WebHook]  axisVdifRT[c,User,WebHook]  31
     zV[c,rt,User,WebHook]  DistAxisLB1[r,User,WebHook]  -7
-    zV[c,rt,User,WebHook]  triangle1[Rubygem,User,WebHook,c]  1
+    zV[c,rt,User,WebHook]  triangle1[Rubygem,User,WebHook,c]  2
     zV[c,rt,User,WebHook]  triangle1[User,WebHook,Subscription,c]  1
     zV[c,rt,User,WebHook]  triangle1[User,WebHook,Ownership,c]  1
+    zV[c,rt,User,WebHook]  triangle1[User,WebHook,Linkset,c]  1
     zV[c,rt,User,WebHook]  triangle1[User,WebHook,Version,c]  1
     zV[c,rt,User,WebHook]  triangle1[User,WebHook,Dependency,c]  1
     zV[r,lb,User,WebHook]  choose1[User,WebHook]  1
@@ -1282,18 +1308,14 @@ COLUMNS
     zV[r,lb,User,WebHook]  triangle2[User,WebHook,Ownership,r]  1
     zV[r,lb,User,WebHook]  triangle2[User,WebHook,Linkset,r]  1
     zV[r,lb,User,WebHook]  triangle2[User,WebHook,Version,r]  1
-    zV[c,lb,User,WebHook]  triangle2[WebHook,Linkset,Dependency,c]  1
-    zV[c,lb,User,WebHook]  triangle2[Rubygem,WebHook,Dependency,c]  1
-    zV[c,lb,User,WebHook]  triangle1[Rubygem,WebHook,Dependency,c]  1
+    zV[r,lb,User,WebHook]  triangle2[User,WebHook,Dependency,r]  1
     zV[c,lb,User,WebHook]  DistSumLB[User,WebHook]  5.5
     zV[c,lb,User,WebHook]  compDistAxis1[c,User,WebHook]  19
-    zV[c,lb,User,WebHook]  axisVdifRT[c,WebHook,Dependency]  14
-    zV[c,lb,User,WebHook]  axisVdifLB[c,WebHook,Dependency]  14
     zV[c,lb,User,WebHook]  centerDistAxis1[c,WebHook]  8
     zV[c,lb,User,WebHook]  choose1[User,WebHook]  1
     zV[c,lb,User,WebHook]  axisVdifLB[c,User,WebHook]  31
     zV[c,lb,User,WebHook]  DistAxisLB1[r,User,WebHook]  -7
-    zV[c,lb,User,WebHook]  triangle2[Rubygem,User,WebHook,c]  1
+    zV[c,lb,User,WebHook]  triangle2[Rubygem,User,WebHook,c]  2
     zV[c,lb,User,WebHook]  triangle2[User,WebHook,Subscription,c]  1
     zV[c,lb,User,WebHook]  triangle2[User,WebHook,Ownership,c]  1
     zV[c,lb,User,WebHook]  triangle2[User,WebHook,Linkset,c]  1
@@ -1306,20 +1328,16 @@ COLUMNS
     zV[r,rt,User,Subscription]  triangle1[User,Subscription,Ownership,r]  1
     zV[r,rt,User,Subscription]  triangle1[User,Subscription,Linkset,r]  1
     zV[r,rt,User,Subscription]  triangle1[User,Subscription,Version,r]  1
+    zV[r,rt,User,Subscription]  triangle1[User,Subscription,Dependency,r]  1
     zV[r,rt,User,Subscription]  triangle2[User,WebHook,Subscription,r]  1
-    zV[c,rt,User,Subscription]  triangle2[WebHook,Subscription,Dependency,c]  1
-    zV[c,rt,User,Subscription]  triangle2[Rubygem,Subscription,Dependency,c]  1
-    zV[c,rt,User,Subscription]  triangle1[WebHook,Subscription,Dependency,c]  1
     zV[c,rt,User,Subscription]  DistSumLB[User,Subscription]  4.5
-    zV[c,rt,User,Subscription]  compDistAxis2[c,User,Subscription]  15
-    zV[c,rt,User,Subscription]  axisVdifRT[c,Subscription,Dependency]  14
-    zV[c,rt,User,Subscription]  axisVdifLB[c,Subscription,Dependency]  14
+    zV[c,rt,User,Subscription]  compDistAxis2[c,User,Subscription]  13
     zV[c,rt,User,Subscription]  centerDistAxis2[c,Subscription]  5
     zV[c,rt,User,Subscription]  choose1[User,Subscription]  1
     zV[c,rt,User,Subscription]  axisVdifRT[c,User,Subscription]  31
     zV[c,rt,User,Subscription]  DistAxisLB1[r,User,Subscription]  -6.5
-    zV[c,rt,User,Subscription]  triangle1[Rubygem,User,Subscription,c]  2
-    zV[c,rt,User,Subscription]  triangle1[User,Subscription,Ownership,c]  1
+    zV[c,rt,User,Subscription]  triangle1[Rubygem,User,Subscription,c]  1
+    zV[c,rt,User,Subscription]  triangle1[User,Subscription,Ownership,c]  2
     zV[c,rt,User,Subscription]  triangle1[User,Subscription,Linkset,c]  1
     zV[c,rt,User,Subscription]  triangle1[User,Subscription,Version,c]  1
     zV[c,rt,User,Subscription]  triangle1[User,Subscription,Dependency,c]  1
@@ -1332,20 +1350,16 @@ COLUMNS
     zV[r,lb,User,Subscription]  triangle2[User,Subscription,Ownership,r]  1
     zV[r,lb,User,Subscription]  triangle2[User,Subscription,Linkset,r]  1
     zV[r,lb,User,Subscription]  triangle2[User,Subscription,Version,r]  1
-    zV[c,lb,User,Subscription]  triangle2[WebHook,Subscription,Dependency,c]  1
-    zV[c,lb,User,Subscription]  triangle2[Rubygem,Subscription,Dependency,c]  1
-    zV[c,lb,User,Subscription]  triangle1[WebHook,Subscription,Dependency,c]  1
+    zV[r,lb,User,Subscription]  triangle2[User,Subscription,Dependency,r]  1
     zV[c,lb,User,Subscription]  DistSumLB[User,Subscription]  4.5
-    zV[c,lb,User,Subscription]  compDistAxis1[c,User,Subscription]  15
-    zV[c,lb,User,Subscription]  axisVdifRT[c,Subscription,Dependency]  14
-    zV[c,lb,User,Subscription]  axisVdifLB[c,Subscription,Dependency]  14
+    zV[c,lb,User,Subscription]  compDistAxis1[c,User,Subscription]  13
     zV[c,lb,User,Subscription]  centerDistAxis1[c,Subscription]  5
     zV[c,lb,User,Subscription]  choose1[User,Subscription]  1
     zV[c,lb,User,Subscription]  axisVdifLB[c,User,Subscription]  31
     zV[c,lb,User,Subscription]  DistAxisLB1[r,User,Subscription]  -6.5
     zV[c,lb,User,Subscription]  triangle1[User,WebHook,Subscription,c]  1
     zV[c,lb,User,Subscription]  triangle2[Rubygem,User,Subscription,c]  1
-    zV[c,lb,User,Subscription]  triangle2[User,Subscription,Ownership,c]  1
+    zV[c,lb,User,Subscription]  triangle2[User,Subscription,Ownership,c]  2
     zV[c,lb,User,Subscription]  triangle2[User,Subscription,Linkset,c]  1
     zV[c,lb,User,Subscription]  triangle2[User,Subscription,Version,c]  1
     zV[c,lb,User,Subscription]  triangle2[User,Subscription,Dependency,c]  1
@@ -1355,20 +1369,16 @@ COLUMNS
     zV[r,rt,User,Ownership]  triangle1[Rubygem,User,Ownership,r]  1
     zV[r,rt,User,Ownership]  triangle1[User,Ownership,Linkset,r]  1
     zV[r,rt,User,Ownership]  triangle1[User,Ownership,Version,r]  1
+    zV[r,rt,User,Ownership]  triangle1[User,Ownership,Dependency,r]  1
     zV[r,rt,User,Ownership]  triangle2[User,WebHook,Ownership,r]  1
     zV[r,rt,User,Ownership]  triangle2[User,Subscription,Ownership,r]  1
-    zV[c,rt,User,Ownership]  triangle2[WebHook,Ownership,Dependency,c]  1
-    zV[c,rt,User,Ownership]  triangle1[Subscription,Ownership,Dependency,c]  1
-    zV[c,rt,User,Ownership]  triangle1[WebHook,Ownership,Dependency,c]  1
-    zV[c,rt,User,Ownership]  triangle1[Rubygem,Ownership,Dependency,c]  1
     zV[c,rt,User,Ownership]  DistSumLB[User,Ownership]  4.5
     zV[c,rt,User,Ownership]  compDistAxis2[c,User,Ownership]  15
-    zV[c,rt,User,Ownership]  axisVdifRT[c,Ownership,Dependency]  14
-    zV[c,rt,User,Ownership]  axisVdifLB[c,Ownership,Dependency]  13
+    zV[c,rt,User,Ownership]  centerDistAxis2[c,Ownership]  6
     zV[c,rt,User,Ownership]  choose1[User,Ownership]  1
-    zV[c,rt,User,Ownership]  axisVdifRT[c,User,Ownership]  30
+    zV[c,rt,User,Ownership]  axisVdifRT[c,User,Ownership]  31
     zV[c,rt,User,Ownership]  DistAxisLB1[r,User,Ownership]  -7
-    zV[c,rt,User,Ownership]  triangle1[Rubygem,User,Ownership,c]  1
+    zV[c,rt,User,Ownership]  triangle1[Rubygem,User,Ownership,c]  2
     zV[c,rt,User,Ownership]  triangle1[User,Ownership,Linkset,c]  1
     zV[c,rt,User,Ownership]  triangle1[User,Ownership,Version,c]  1
     zV[c,rt,User,Ownership]  triangle1[User,Ownership,Dependency,c]  1
@@ -1382,15 +1392,10 @@ COLUMNS
     zV[r,lb,User,Ownership]  triangle2[Rubygem,User,Ownership,r]  1
     zV[r,lb,User,Ownership]  triangle2[User,Ownership,Linkset,r]  1
     zV[r,lb,User,Ownership]  triangle2[User,Ownership,Version,r]  1
-    zV[c,lb,User,Ownership]  triangle2[Subscription,Ownership,Dependency,c]  1
-    zV[c,lb,User,Ownership]  triangle2[WebHook,Ownership,Dependency,c]  1
-    zV[c,lb,User,Ownership]  triangle1[WebHook,Ownership,Dependency,c]  1
-    zV[c,lb,User,Ownership]  triangle1[Rubygem,Ownership,Dependency,c]  1
+    zV[r,lb,User,Ownership]  triangle2[User,Ownership,Dependency,r]  1
     zV[c,lb,User,Ownership]  DistSumLB[User,Ownership]  4.5
-    zV[c,lb,User,Ownership]  compDistAxis1[c,User,Ownership]  16
-    zV[c,lb,User,Ownership]  axisVdifRT[c,Ownership,Dependency]  14
-    zV[c,lb,User,Ownership]  axisVdifLB[c,Ownership,Dependency]  14
-    zV[c,lb,User,Ownership]  centerDistAxis1[c,Ownership]  21
+    zV[c,lb,User,Ownership]  compDistAxis1[c,User,Ownership]  15
+    zV[c,lb,User,Ownership]  centerDistAxis1[c,Ownership]  6
     zV[c,lb,User,Ownership]  choose1[User,Ownership]  1
     zV[c,lb,User,Ownership]  axisVdifLB[c,User,Ownership]  31
     zV[c,lb,User,Ownership]  DistAxisLB1[r,User,Ownership]  -7
@@ -1404,6 +1409,7 @@ COLUMNS
     zV[r,rt,User,Linkset]  axisVdifRT[r,User,Linkset]  31
     zV[r,rt,User,Linkset]  triangle1[Rubygem,User,Linkset,r]  1
     zV[r,rt,User,Linkset]  triangle1[User,Linkset,Version,r]  1
+    zV[r,rt,User,Linkset]  triangle1[User,Linkset,Dependency,r]  1
     zV[r,rt,User,Linkset]  triangle2[User,WebHook,Linkset,r]  1
     zV[r,rt,User,Linkset]  triangle2[User,Subscription,Linkset,r]  1
     zV[r,rt,User,Linkset]  triangle2[User,Ownership,Linkset,r]  1
@@ -1412,19 +1418,22 @@ COLUMNS
     zV[c,rt,User,Linkset]  axisVdifRT[c,User,Linkset]  31
     zV[c,rt,User,Linkset]  triangle1[Rubygem,User,Linkset,c]  1
     zV[c,rt,User,Linkset]  triangle1[User,Linkset,Version,c]  1
+    zV[c,rt,User,Linkset]  triangle1[User,Linkset,Dependency,c]  1
     zV[c,rt,User,Linkset]  triangle2[User,WebHook,Linkset,c]  1
     zV[c,rt,User,Linkset]  triangle2[User,Subscription,Linkset,c]  1
     zV[c,rt,User,Linkset]  triangle2[User,Ownership,Linkset,c]  1
     zV[r,lb,User,Linkset]  choose1[User,Linkset]  1
-    zV[r,lb,User,Linkset]  axisVdifLB[r,User,Linkset]  32
+    zV[r,lb,User,Linkset]  axisVdifLB[r,User,Linkset]  31
     zV[r,lb,User,Linkset]  triangle1[User,WebHook,Linkset,r]  1
     zV[r,lb,User,Linkset]  triangle1[User,Subscription,Linkset,r]  1
     zV[r,lb,User,Linkset]  triangle1[User,Ownership,Linkset,r]  1
     zV[r,lb,User,Linkset]  triangle2[Rubygem,User,Linkset,r]  1
     zV[r,lb,User,Linkset]  triangle2[User,Linkset,Version,r]  1
+    zV[r,lb,User,Linkset]  triangle2[User,Linkset,Dependency,r]  1
     zV[c,lb,User,Linkset]  centerDistAxis1[c,Linkset]  4
     zV[c,lb,User,Linkset]  choose1[User,Linkset]  1
     zV[c,lb,User,Linkset]  axisVdifLB[c,User,Linkset]  31
+    zV[c,lb,User,Linkset]  triangle1[User,WebHook,Linkset,c]  1
     zV[c,lb,User,Linkset]  triangle1[User,Subscription,Linkset,c]  1
     zV[c,lb,User,Linkset]  triangle1[User,Ownership,Linkset,c]  1
     zV[c,lb,User,Linkset]  triangle2[Rubygem,User,Linkset,c]  1
@@ -1433,31 +1442,21 @@ COLUMNS
     zV[r,rt,User,Version]  choose1[User,Version]  1
     zV[r,rt,User,Version]  axisVdifRT[r,User,Version]  31
     zV[r,rt,User,Version]  triangle1[Rubygem,User,Version,r]  1
+    zV[r,rt,User,Version]  triangle1[User,Version,Dependency,r]  1
     zV[r,rt,User,Version]  triangle2[User,WebHook,Version,r]  1
     zV[r,rt,User,Version]  triangle2[User,Subscription,Version,r]  1
     zV[r,rt,User,Version]  triangle2[User,Ownership,Version,r]  1
     zV[r,rt,User,Version]  triangle2[User,Linkset,Version,r]  1
-    zV[c,rt,User,Version]  triangle2[Ownership,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle2[Subscription,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle2[WebHook,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle2[Rubygem,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle1[Ownership,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle1[Subscription,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle1[WebHook,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  triangle1[Rubygem,Version,Dependency,c]  1
-    zV[c,rt,User,Version]  axisVdifRT[c,Version,Dependency]  14
-    zV[c,rt,User,Version]  axisVdifLB[c,Version,Dependency]  14
     zV[c,rt,User,Version]  centerDistAxis2[c,Version]  9
     zV[c,rt,User,Version]  centerDistAxis1[c,User]  7
     zV[c,rt,User,Version]  choose1[User,Version]  1
     zV[c,rt,User,Version]  axisVdifRT[c,User,Version]  31
-    zV[c,rt,User,Version]  triangle1[Rubygem,User,Version,c]  1
+    zV[c,rt,User,Version]  triangle1[Rubygem,User,Version,c]  2
     zV[c,rt,User,Version]  triangle1[User,Version,Dependency,c]  1
     zV[c,rt,User,Version]  triangle2[User,WebHook,Version,c]  1
     zV[c,rt,User,Version]  triangle2[User,Subscription,Version,c]  1
     zV[c,rt,User,Version]  triangle2[User,Ownership,Version,c]  1
     zV[c,rt,User,Version]  triangle2[User,Linkset,Version,c]  1
-    zV[r,lb,User,Version]  centerDistAxis1[r,Version]  6
     zV[r,lb,User,Version]  choose1[User,Version]  1
     zV[r,lb,User,Version]  axisVdifLB[r,User,Version]  31
     zV[r,lb,User,Version]  triangle1[User,WebHook,Version,r]  1
@@ -1465,17 +1464,7 @@ COLUMNS
     zV[r,lb,User,Version]  triangle1[User,Ownership,Version,r]  1
     zV[r,lb,User,Version]  triangle1[User,Linkset,Version,r]  1
     zV[r,lb,User,Version]  triangle2[Rubygem,User,Version,r]  1
-    zV[c,lb,User,Version]  triangle2[Ownership,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle2[Subscription,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle2[WebHook,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle2[Rubygem,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle1[Linkset,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle1[Ownership,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle1[Subscription,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle1[WebHook,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  triangle1[Rubygem,Version,Dependency,c]  1
-    zV[c,lb,User,Version]  axisVdifRT[c,Version,Dependency]  14
-    zV[c,lb,User,Version]  axisVdifLB[c,Version,Dependency]  14
+    zV[r,lb,User,Version]  triangle2[User,Version,Dependency,r]  1
     zV[c,lb,User,Version]  centerDistAxis2[c,User]  7
     zV[c,lb,User,Version]  centerDistAxis1[c,Version]  9
     zV[c,lb,User,Version]  choose1[User,Version]  1
@@ -1484,21 +1473,42 @@ COLUMNS
     zV[c,lb,User,Version]  triangle1[User,Subscription,Version,c]  1
     zV[c,lb,User,Version]  triangle1[User,Ownership,Version,c]  1
     zV[c,lb,User,Version]  triangle1[User,Linkset,Version,c]  1
-    zV[c,lb,User,Version]  triangle2[Rubygem,User,Version,c]  1
+    zV[c,lb,User,Version]  triangle2[Rubygem,User,Version,c]  2
     zV[c,lb,User,Version]  triangle2[User,Version,Dependency,c]  1
-    zV[c,lb,User,Dependency]  triangle2[User,Version,Dependency,c]  -1
-    zV[c,lb,User,Dependency]  triangle2[User,Linkset,Dependency,c]  -1
-    zV[c,lb,User,Dependency]  triangle2[User,Ownership,Dependency,c]  -1
-    zV[c,lb,User,Dependency]  triangle2[User,Subscription,Dependency,c]  -1
-    zV[c,lb,User,Dependency]  triangle2[User,WebHook,Dependency,c]  -1
-    zV[c,lb,User,Dependency]  triangle1[Rubygem,User,Dependency,c]  -1
-    zV[c,lb,User,Dependency]  axisVdifRT[c,User,Dependency]  -31
+    zV[r,rt,User,Dependency]  choose1[User,Dependency]  1
+    zV[r,rt,User,Dependency]  axisVdifRT[r,User,Dependency]  31
+    zV[r,rt,User,Dependency]  triangle1[Rubygem,User,Dependency,r]  1
+    zV[r,rt,User,Dependency]  triangle2[User,WebHook,Dependency,r]  1
+    zV[r,rt,User,Dependency]  triangle2[User,Subscription,Dependency,r]  1
+    zV[r,rt,User,Dependency]  triangle2[User,Ownership,Dependency,r]  1
+    zV[r,rt,User,Dependency]  triangle2[User,Linkset,Dependency,r]  1
+    zV[r,rt,User,Dependency]  triangle2[User,Version,Dependency,r]  1
+    zV[c,rt,User,Dependency]  centerDistAxis2[c,Dependency]  7
+    zV[c,rt,User,Dependency]  choose1[User,Dependency]  1
+    zV[c,rt,User,Dependency]  axisVdifRT[c,User,Dependency]  31
+    zV[c,rt,User,Dependency]  triangle1[Rubygem,User,Dependency,c]  2
+    zV[c,rt,User,Dependency]  triangle2[User,WebHook,Dependency,c]  1
+    zV[c,rt,User,Dependency]  triangle2[User,Subscription,Dependency,c]  1
+    zV[c,rt,User,Dependency]  triangle2[User,Ownership,Dependency,c]  1
+    zV[c,rt,User,Dependency]  triangle2[User,Linkset,Dependency,c]  1
+    zV[c,rt,User,Dependency]  triangle2[User,Version,Dependency,c]  1
+    zV[r,lb,User,Dependency]  choose1[User,Dependency]  1
+    zV[r,lb,User,Dependency]  axisVdifLB[r,User,Dependency]  31
+    zV[r,lb,User,Dependency]  triangle1[User,WebHook,Dependency,r]  1
+    zV[r,lb,User,Dependency]  triangle1[User,Subscription,Dependency,r]  1
+    zV[r,lb,User,Dependency]  triangle1[User,Ownership,Dependency,r]  1
+    zV[r,lb,User,Dependency]  triangle1[User,Linkset,Dependency,r]  1
+    zV[r,lb,User,Dependency]  triangle1[User,Version,Dependency,r]  1
+    zV[r,lb,User,Dependency]  triangle2[Rubygem,User,Dependency,r]  1
+    zV[c,lb,User,Dependency]  centerDistAxis1[c,Dependency]  7
+    zV[c,lb,User,Dependency]  choose1[User,Dependency]  1
     zV[c,lb,User,Dependency]  axisVdifLB[c,User,Dependency]  31
     zV[c,lb,User,Dependency]  triangle1[User,WebHook,Dependency,c]  1
     zV[c,lb,User,Dependency]  triangle1[User,Subscription,Dependency,c]  1
     zV[c,lb,User,Dependency]  triangle1[User,Ownership,Dependency,c]  1
+    zV[c,lb,User,Dependency]  triangle1[User,Linkset,Dependency,c]  1
     zV[c,lb,User,Dependency]  triangle1[User,Version,Dependency,c]  1
-    zV[c,lb,User,Dependency]  triangle2[Rubygem,User,Dependency,c]  1
+    zV[c,lb,User,Dependency]  triangle2[Rubygem,User,Dependency,c]  2
     zV[r,rt,WebHook,Subscription]  choose1[WebHook,Subscription]  1
     zV[r,rt,WebHook,Subscription]  axisVdifRT[r,WebHook,Subscription]  31
     zV[r,rt,WebHook,Subscription]  triangle1[Rubygem,WebHook,Subscription,r]  1
@@ -1509,8 +1519,8 @@ COLUMNS
     zV[r,rt,WebHook,Subscription]  triangle1[WebHook,Subscription,Dependency,r]  1
     zV[c,rt,WebHook,Subscription]  choose1[WebHook,Subscription]  1
     zV[c,rt,WebHook,Subscription]  axisVdifRT[c,WebHook,Subscription]  31
-    zV[c,rt,WebHook,Subscription]  triangle1[Rubygem,WebHook,Subscription,c]  2
-    zV[c,rt,WebHook,Subscription]  triangle1[User,WebHook,Subscription,c]  1
+    zV[c,rt,WebHook,Subscription]  triangle1[Rubygem,WebHook,Subscription,c]  1
+    zV[c,rt,WebHook,Subscription]  triangle1[User,WebHook,Subscription,c]  2
     zV[c,rt,WebHook,Subscription]  triangle1[WebHook,Subscription,Ownership,c]  1
     zV[c,rt,WebHook,Subscription]  triangle1[WebHook,Subscription,Linkset,c]  1
     zV[c,rt,WebHook,Subscription]  triangle1[WebHook,Subscription,Version,c]  1
@@ -1526,8 +1536,9 @@ COLUMNS
     zV[c,lb,WebHook,Subscription]  choose1[WebHook,Subscription]  1
     zV[c,lb,WebHook,Subscription]  axisVdifLB[c,WebHook,Subscription]  31
     zV[c,lb,WebHook,Subscription]  triangle2[Rubygem,WebHook,Subscription,c]  1
-    zV[c,lb,WebHook,Subscription]  triangle2[User,WebHook,Subscription,c]  1
+    zV[c,lb,WebHook,Subscription]  triangle2[User,WebHook,Subscription,c]  2
     zV[c,lb,WebHook,Subscription]  triangle2[WebHook,Subscription,Ownership,c]  1
+    zV[c,lb,WebHook,Subscription]  triangle2[WebHook,Subscription,Linkset,c]  1
     zV[c,lb,WebHook,Subscription]  triangle2[WebHook,Subscription,Version,c]  1
     zV[c,lb,WebHook,Subscription]  triangle2[WebHook,Subscription,Dependency,c]  1
     zV[r,rt,WebHook,Ownership]  choose1[WebHook,Ownership]  1
@@ -1541,10 +1552,10 @@ COLUMNS
     zV[c,rt,WebHook,Ownership]  choose1[WebHook,Ownership]  1
     zV[c,rt,WebHook,Ownership]  axisVdifRT[c,WebHook,Ownership]  31
     zV[c,rt,WebHook,Ownership]  triangle1[Rubygem,WebHook,Ownership,c]  1
-    zV[c,rt,WebHook,Ownership]  triangle1[User,WebHook,Ownership,c]  1
+    zV[c,rt,WebHook,Ownership]  triangle1[User,WebHook,Ownership,c]  2
     zV[c,rt,WebHook,Ownership]  triangle1[WebHook,Ownership,Linkset,c]  1
     zV[c,rt,WebHook,Ownership]  triangle1[WebHook,Ownership,Version,c]  1
-    zV[c,rt,WebHook,Ownership]  triangle1[WebHook,Ownership,Dependency,c]  1
+    zV[c,rt,WebHook,Ownership]  triangle1[WebHook,Ownership,Dependency,c]  2
     zV[c,rt,WebHook,Ownership]  triangle2[WebHook,Subscription,Ownership,c]  1
     zV[r,lb,WebHook,Ownership]  choose1[WebHook,Ownership]  1
     zV[r,lb,WebHook,Ownership]  axisVdifLB[r,WebHook,Ownership]  31
@@ -1557,8 +1568,9 @@ COLUMNS
     zV[c,lb,WebHook,Ownership]  choose1[WebHook,Ownership]  1
     zV[c,lb,WebHook,Ownership]  axisVdifLB[c,WebHook,Ownership]  31
     zV[c,lb,WebHook,Ownership]  triangle1[WebHook,Subscription,Ownership,c]  1
-    zV[c,lb,WebHook,Ownership]  triangle2[Rubygem,WebHook,Ownership,c]  1
-    zV[c,lb,WebHook,Ownership]  triangle2[User,WebHook,Ownership,c]  1
+    zV[c,lb,WebHook,Ownership]  triangle2[Rubygem,WebHook,Ownership,c]  2
+    zV[c,lb,WebHook,Ownership]  triangle2[User,WebHook,Ownership,c]  2
+    zV[c,lb,WebHook,Ownership]  triangle2[WebHook,Ownership,Linkset,c]  1
     zV[c,lb,WebHook,Ownership]  triangle2[WebHook,Ownership,Version,c]  1
     zV[c,lb,WebHook,Ownership]  triangle2[WebHook,Ownership,Dependency,c]  1
     zV[r,rt,WebHook,Linkset]  choose1[WebHook,Linkset]  1
@@ -1569,6 +1581,14 @@ COLUMNS
     zV[r,rt,WebHook,Linkset]  triangle1[WebHook,Linkset,Dependency,r]  1
     zV[r,rt,WebHook,Linkset]  triangle2[WebHook,Subscription,Linkset,r]  1
     zV[r,rt,WebHook,Linkset]  triangle2[WebHook,Ownership,Linkset,r]  1
+    zV[c,rt,WebHook,Linkset]  choose1[WebHook,Linkset]  1
+    zV[c,rt,WebHook,Linkset]  axisVdifRT[c,WebHook,Linkset]  31
+    zV[c,rt,WebHook,Linkset]  triangle1[Rubygem,WebHook,Linkset,c]  1
+    zV[c,rt,WebHook,Linkset]  triangle1[User,WebHook,Linkset,c]  2
+    zV[c,rt,WebHook,Linkset]  triangle1[WebHook,Linkset,Version,c]  1
+    zV[c,rt,WebHook,Linkset]  triangle1[WebHook,Linkset,Dependency,c]  1
+    zV[c,rt,WebHook,Linkset]  triangle2[WebHook,Subscription,Linkset,c]  1
+    zV[c,rt,WebHook,Linkset]  triangle2[WebHook,Ownership,Linkset,c]  1
     zV[r,lb,WebHook,Linkset]  choose1[WebHook,Linkset]  1
     zV[r,lb,WebHook,Linkset]  axisVdifLB[r,WebHook,Linkset]  31
     zV[r,lb,WebHook,Linkset]  triangle1[WebHook,Subscription,Linkset,r]  1
@@ -1596,7 +1616,7 @@ COLUMNS
     zV[c,rt,WebHook,Version]  choose1[WebHook,Version]  1
     zV[c,rt,WebHook,Version]  axisVdifRT[c,WebHook,Version]  31
     zV[c,rt,WebHook,Version]  triangle1[Rubygem,WebHook,Version,c]  2
-    zV[c,rt,WebHook,Version]  triangle1[User,WebHook,Version,c]  1
+    zV[c,rt,WebHook,Version]  triangle1[User,WebHook,Version,c]  2
     zV[c,rt,WebHook,Version]  triangle1[WebHook,Version,Dependency,c]  1
     zV[c,rt,WebHook,Version]  triangle2[WebHook,Subscription,Version,c]  1
     zV[c,rt,WebHook,Version]  triangle2[WebHook,Ownership,Version,c]  1
@@ -1610,24 +1630,21 @@ COLUMNS
     zV[r,lb,WebHook,Version]  triangle2[User,WebHook,Version,r]  1
     zV[r,lb,WebHook,Version]  triangle2[WebHook,Version,Dependency,r]  1
     zV[c,lb,WebHook,Version]  choose1[WebHook,Version]  1
-    zV[c,lb,WebHook,Version]  axisVdifLB[c,WebHook,Version]  31
+    zV[c,lb,WebHook,Version]  axisVdifLB[c,WebHook,Version]  32
     zV[c,lb,WebHook,Version]  triangle1[WebHook,Subscription,Version,c]  1
     zV[c,lb,WebHook,Version]  triangle1[WebHook,Ownership,Version,c]  1
+    zV[c,lb,WebHook,Version]  triangle1[WebHook,Linkset,Version,c]  1
     zV[c,lb,WebHook,Version]  triangle2[Rubygem,WebHook,Version,c]  2
-    zV[c,lb,WebHook,Version]  triangle2[User,WebHook,Version,c]  1
+    zV[c,lb,WebHook,Version]  triangle2[User,WebHook,Version,c]  2
     zV[c,lb,WebHook,Version]  triangle2[WebHook,Version,Dependency,c]  1
     zV[r,rt,WebHook,Dependency]  choose1[WebHook,Dependency]  1
     zV[r,rt,WebHook,Dependency]  axisVdifRT[r,WebHook,Dependency]  31
     zV[r,rt,WebHook,Dependency]  triangle1[Rubygem,WebHook,Dependency,r]  1
+    zV[r,rt,WebHook,Dependency]  triangle1[User,WebHook,Dependency,r]  1
     zV[r,rt,WebHook,Dependency]  triangle2[WebHook,Subscription,Dependency,r]  1
     zV[r,rt,WebHook,Dependency]  triangle2[WebHook,Ownership,Dependency,r]  1
     zV[r,rt,WebHook,Dependency]  triangle2[WebHook,Linkset,Dependency,r]  1
     zV[r,rt,WebHook,Dependency]  triangle2[WebHook,Version,Dependency,r]  1
-    zV[c,rt,WebHook,Dependency]  triangle2[User,WebHook,Dependency,c]  1
-    zV[c,rt,WebHook,Dependency]  triangle2[Rubygem,User,WebHook,c]  1
-    zV[c,rt,WebHook,Dependency]  triangle1[Rubygem,User,WebHook,c]  1
-    zV[c,rt,WebHook,Dependency]  axisVdifRT[c,User,WebHook]  10
-    zV[c,rt,WebHook,Dependency]  axisVdifLB[c,User,WebHook]  10
     zV[c,rt,WebHook,Dependency]  choose1[WebHook,Dependency]  1
     zV[c,rt,WebHook,Dependency]  axisVdifRT[c,WebHook,Dependency]  31
     zV[c,rt,WebHook,Dependency]  triangle1[Rubygem,WebHook,Dependency,c]  1
@@ -1643,19 +1660,17 @@ COLUMNS
     zV[r,lb,WebHook,Dependency]  triangle1[WebHook,Linkset,Dependency,r]  1
     zV[r,lb,WebHook,Dependency]  triangle1[WebHook,Version,Dependency,r]  1
     zV[r,lb,WebHook,Dependency]  triangle2[Rubygem,WebHook,Dependency,r]  1
-    zV[c,lb,WebHook,Dependency]  triangle2[Rubygem,User,WebHook,c]  1
-    zV[c,lb,WebHook,Dependency]  triangle1[User,WebHook,Dependency,c]  1
-    zV[c,lb,WebHook,Dependency]  axisVdifRT[c,User,WebHook]  10
-    zV[c,lb,WebHook,Dependency]  axisVdifLB[c,User,WebHook]  10
+    zV[r,lb,WebHook,Dependency]  triangle2[User,WebHook,Dependency,r]  1
     zV[c,lb,WebHook,Dependency]  choose1[WebHook,Dependency]  1
     zV[c,lb,WebHook,Dependency]  axisVdifLB[c,WebHook,Dependency]  31
     zV[c,lb,WebHook,Dependency]  triangle1[WebHook,Subscription,Dependency,c]  1
     zV[c,lb,WebHook,Dependency]  triangle1[WebHook,Ownership,Dependency,c]  1
+    zV[c,lb,WebHook,Dependency]  triangle1[WebHook,Linkset,Dependency,c]  1
     zV[c,lb,WebHook,Dependency]  triangle1[WebHook,Version,Dependency,c]  1
     zV[c,lb,WebHook,Dependency]  triangle2[Rubygem,WebHook,Dependency,c]  1
     zV[c,lb,WebHook,Dependency]  triangle2[User,WebHook,Dependency,c]  2
     zV[r,rt,Subscription,Ownership]  choose1[Subscription,Ownership]  1
-    zV[r,rt,Subscription,Ownership]  axisVdifRT[r,Subscription,Ownership]  30
+    zV[r,rt,Subscription,Ownership]  axisVdifRT[r,Subscription,Ownership]  31
     zV[r,rt,Subscription,Ownership]  triangle1[Rubygem,Subscription,Ownership,r]  1
     zV[r,rt,Subscription,Ownership]  triangle1[User,Subscription,Ownership,r]  1
     zV[r,rt,Subscription,Ownership]  triangle1[WebHook,Subscription,Ownership,r]  1
@@ -1679,11 +1694,11 @@ COLUMNS
     zV[r,lb,Subscription,Ownership]  triangle2[Subscription,Ownership,Version,r]  1
     zV[r,lb,Subscription,Ownership]  triangle2[Subscription,Ownership,Dependency,r]  1
     zV[c,lb,Subscription,Ownership]  choose1[Subscription,Ownership]  1
-    zV[c,lb,Subscription,Ownership]  axisVdifLB[c,Subscription,Ownership]  31
+    zV[c,lb,Subscription,Ownership]  axisVdifLB[c,Subscription,Ownership]  32
     zV[c,lb,Subscription,Ownership]  triangle2[Rubygem,Subscription,Ownership,c]  1
     zV[c,lb,Subscription,Ownership]  triangle2[User,Subscription,Ownership,c]  1
     zV[c,lb,Subscription,Ownership]  triangle2[WebHook,Subscription,Ownership,c]  1
-    zV[c,lb,Subscription,Ownership]  triangle2[Subscription,Ownership,Linkset,c]  2
+    zV[c,lb,Subscription,Ownership]  triangle2[Subscription,Ownership,Linkset,c]  1
     zV[c,lb,Subscription,Ownership]  triangle2[Subscription,Ownership,Version,c]  1
     zV[c,lb,Subscription,Ownership]  triangle2[Subscription,Ownership,Dependency,c]  1
     zV[r,rt,Subscription,Linkset]  choose1[Subscription,Linkset]  1
@@ -1700,8 +1715,9 @@ COLUMNS
     zV[c,rt,Subscription,Linkset]  triangle1[User,Subscription,Linkset,c]  1
     zV[c,rt,Subscription,Linkset]  triangle1[WebHook,Subscription,Linkset,c]  1
     zV[c,rt,Subscription,Linkset]  triangle1[Subscription,Linkset,Version,c]  1
+    zV[c,rt,Subscription,Linkset]  triangle1[Subscription,Linkset,Dependency,c]  1
     zV[c,rt,Subscription,Linkset]  triangle2[Subscription,Ownership,Linkset,c]  1
-    zV[r,lb,Subscription,Linkset]  choose1[Subscription,Linkset]  1
+    zV[r,lb,Subscription,Linkset]  choose1[Subscription,Linkset]  2
     zV[r,lb,Subscription,Linkset]  axisVdifLB[r,Subscription,Linkset]  31
     zV[r,lb,Subscription,Linkset]  triangle1[Subscription,Ownership,Linkset,r]  1
     zV[r,lb,Subscription,Linkset]  triangle2[Rubygem,Subscription,Linkset,r]  1
@@ -1714,6 +1730,7 @@ COLUMNS
     zV[c,lb,Subscription,Linkset]  triangle1[Subscription,Ownership,Linkset,c]  1
     zV[c,lb,Subscription,Linkset]  triangle2[Rubygem,Subscription,Linkset,c]  1
     zV[c,lb,Subscription,Linkset]  triangle2[User,Subscription,Linkset,c]  1
+    zV[c,lb,Subscription,Linkset]  triangle2[WebHook,Subscription,Linkset,c]  1
     zV[c,lb,Subscription,Linkset]  triangle2[Subscription,Linkset,Version,c]  1
     zV[c,lb,Subscription,Linkset]  triangle2[Subscription,Linkset,Dependency,c]  1
     zV[r,rt,Subscription,Version]  choose1[Subscription,Version]  1
@@ -1727,7 +1744,7 @@ COLUMNS
     zV[c,rt,Subscription,Version]  choose1[Subscription,Version]  1
     zV[c,rt,Subscription,Version]  axisVdifRT[c,Subscription,Version]  31
     zV[c,rt,Subscription,Version]  triangle1[Rubygem,Subscription,Version,c]  1
-    zV[c,rt,Subscription,Version]  triangle1[User,Subscription,Version,c]  1
+    zV[c,rt,Subscription,Version]  triangle1[User,Subscription,Version,c]  2
     zV[c,rt,Subscription,Version]  triangle1[WebHook,Subscription,Version,c]  1
     zV[c,rt,Subscription,Version]  triangle1[Subscription,Version,Dependency,c]  1
     zV[c,rt,Subscription,Version]  triangle2[Subscription,Ownership,Version,c]  1
@@ -1745,21 +1762,17 @@ COLUMNS
     zV[c,lb,Subscription,Version]  triangle1[Subscription,Ownership,Version,c]  1
     zV[c,lb,Subscription,Version]  triangle1[Subscription,Linkset,Version,c]  1
     zV[c,lb,Subscription,Version]  triangle2[Rubygem,Subscription,Version,c]  1
-    zV[c,lb,Subscription,Version]  triangle2[User,Subscription,Version,c]  1
+    zV[c,lb,Subscription,Version]  triangle2[User,Subscription,Version,c]  2
     zV[c,lb,Subscription,Version]  triangle2[WebHook,Subscription,Version,c]  1
     zV[c,lb,Subscription,Version]  triangle2[Subscription,Version,Dependency,c]  1
     zV[r,rt,Subscription,Dependency]  choose1[Subscription,Dependency]  1
     zV[r,rt,Subscription,Dependency]  axisVdifRT[r,Subscription,Dependency]  31
     zV[r,rt,Subscription,Dependency]  triangle1[Rubygem,Subscription,Dependency,r]  1
+    zV[r,rt,Subscription,Dependency]  triangle1[User,Subscription,Dependency,r]  1
     zV[r,rt,Subscription,Dependency]  triangle1[WebHook,Subscription,Dependency,r]  1
     zV[r,rt,Subscription,Dependency]  triangle2[Subscription,Ownership,Dependency,r]  1
     zV[r,rt,Subscription,Dependency]  triangle2[Subscription,Linkset,Dependency,r]  1
     zV[r,rt,Subscription,Dependency]  triangle2[Subscription,Version,Dependency,r]  1
-    zV[c,rt,Subscription,Dependency]  triangle2[User,Subscription,Dependency,c]  1
-    zV[c,rt,Subscription,Dependency]  triangle2[User,WebHook,Subscription,c]  1
-    zV[c,rt,Subscription,Dependency]  triangle1[Rubygem,User,Subscription,c]  1
-    zV[c,rt,Subscription,Dependency]  axisVdifRT[c,User,Subscription]  10
-    zV[c,rt,Subscription,Dependency]  axisVdifLB[c,User,Subscription]  10
     zV[c,rt,Subscription,Dependency]  choose1[Subscription,Dependency]  1
     zV[c,rt,Subscription,Dependency]  axisVdifRT[c,Subscription,Dependency]  31
     zV[c,rt,Subscription,Dependency]  triangle1[Rubygem,Subscription,Dependency,c]  1
@@ -1774,15 +1787,12 @@ COLUMNS
     zV[r,lb,Subscription,Dependency]  triangle1[Subscription,Linkset,Dependency,r]  1
     zV[r,lb,Subscription,Dependency]  triangle1[Subscription,Version,Dependency,r]  1
     zV[r,lb,Subscription,Dependency]  triangle2[Rubygem,Subscription,Dependency,r]  1
-    zV[r,lb,Subscription,Dependency]  triangle2[WebHook,Subscription,Dependency,r]  1
-    zV[c,lb,Subscription,Dependency]  triangle2[Rubygem,User,Subscription,c]  1
-    zV[c,lb,Subscription,Dependency]  triangle1[User,Subscription,Dependency,c]  1
-    zV[c,lb,Subscription,Dependency]  triangle1[User,WebHook,Subscription,c]  1
-    zV[c,lb,Subscription,Dependency]  axisVdifRT[c,User,Subscription]  10
-    zV[c,lb,Subscription,Dependency]  axisVdifLB[c,User,Subscription]  10
+    zV[r,lb,Subscription,Dependency]  triangle2[User,Subscription,Dependency,r]  1
+    zV[r,lb,Subscription,Dependency]  triangle2[WebHook,Subscription,Dependency,r]  2
     zV[c,lb,Subscription,Dependency]  choose1[Subscription,Dependency]  1
     zV[c,lb,Subscription,Dependency]  axisVdifLB[c,Subscription,Dependency]  31
     zV[c,lb,Subscription,Dependency]  triangle1[Subscription,Ownership,Dependency,c]  1
+    zV[c,lb,Subscription,Dependency]  triangle1[Subscription,Linkset,Dependency,c]  1
     zV[c,lb,Subscription,Dependency]  triangle1[Subscription,Version,Dependency,c]  1
     zV[c,lb,Subscription,Dependency]  triangle2[Rubygem,Subscription,Dependency,c]  1
     zV[c,lb,Subscription,Dependency]  triangle2[User,Subscription,Dependency,c]  2
@@ -1802,6 +1812,7 @@ COLUMNS
     zV[c,rt,Ownership,Linkset]  triangle1[WebHook,Ownership,Linkset,c]  1
     zV[c,rt,Ownership,Linkset]  triangle1[Subscription,Ownership,Linkset,c]  1
     zV[c,rt,Ownership,Linkset]  triangle1[Ownership,Linkset,Version,c]  1
+    zV[c,rt,Ownership,Linkset]  triangle1[Ownership,Linkset,Dependency,c]  1
     zV[r,lb,Ownership,Linkset]  choose1[Ownership,Linkset]  1
     zV[r,lb,Ownership,Linkset]  axisVdifLB[r,Ownership,Linkset]  31
     zV[r,lb,Ownership,Linkset]  triangle2[Rubygem,Ownership,Linkset,r]  1
@@ -1814,6 +1825,7 @@ COLUMNS
     zV[c,lb,Ownership,Linkset]  axisVdifLB[c,Ownership,Linkset]  31
     zV[c,lb,Ownership,Linkset]  triangle2[Rubygem,Ownership,Linkset,c]  1
     zV[c,lb,Ownership,Linkset]  triangle2[User,Ownership,Linkset,c]  1
+    zV[c,lb,Ownership,Linkset]  triangle2[WebHook,Ownership,Linkset,c]  1
     zV[c,lb,Ownership,Linkset]  triangle2[Subscription,Ownership,Linkset,c]  1
     zV[c,lb,Ownership,Linkset]  triangle2[Ownership,Linkset,Version,c]  1
     zV[c,lb,Ownership,Linkset]  triangle2[Ownership,Linkset,Dependency,c]  1
@@ -1828,11 +1840,11 @@ COLUMNS
     zV[c,rt,Ownership,Version]  choose1[Ownership,Version]  1
     zV[c,rt,Ownership,Version]  axisVdifRT[c,Ownership,Version]  31
     zV[c,rt,Ownership,Version]  triangle1[Rubygem,Ownership,Version,c]  1
-    zV[c,rt,Ownership,Version]  triangle1[User,Ownership,Version,c]  1
+    zV[c,rt,Ownership,Version]  triangle1[User,Ownership,Version,c]  2
     zV[c,rt,Ownership,Version]  triangle1[WebHook,Ownership,Version,c]  2
     zV[c,rt,Ownership,Version]  triangle1[Subscription,Ownership,Version,c]  1
     zV[c,rt,Ownership,Version]  triangle1[Ownership,Version,Dependency,c]  1
-    zV[c,rt,Ownership,Version]  triangle2[Ownership,Linkset,Version,c]  2
+    zV[c,rt,Ownership,Version]  triangle2[Ownership,Linkset,Version,c]  1
     zV[r,lb,Ownership,Version]  choose1[Ownership,Version]  1
     zV[r,lb,Ownership,Version]  axisVdifLB[r,Ownership,Version]  31
     zV[r,lb,Ownership,Version]  triangle1[Ownership,Linkset,Version,r]  1
@@ -1845,30 +1857,24 @@ COLUMNS
     zV[c,lb,Ownership,Version]  axisVdifLB[c,Ownership,Version]  31
     zV[c,lb,Ownership,Version]  triangle1[Ownership,Linkset,Version,c]  1
     zV[c,lb,Ownership,Version]  triangle2[Rubygem,Ownership,Version,c]  1
-    zV[c,lb,Ownership,Version]  triangle2[User,Ownership,Version,c]  1
+    zV[c,lb,Ownership,Version]  triangle2[User,Ownership,Version,c]  2
     zV[c,lb,Ownership,Version]  triangle2[WebHook,Ownership,Version,c]  2
     zV[c,lb,Ownership,Version]  triangle2[Subscription,Ownership,Version,c]  1
     zV[c,lb,Ownership,Version]  triangle2[Ownership,Version,Dependency,c]  1
     zV[r,rt,Ownership,Dependency]  choose1[Ownership,Dependency]  1
     zV[r,rt,Ownership,Dependency]  axisVdifRT[r,Ownership,Dependency]  31
     zV[r,rt,Ownership,Dependency]  triangle1[Rubygem,Ownership,Dependency,r]  1
+    zV[r,rt,Ownership,Dependency]  triangle1[User,Ownership,Dependency,r]  1
     zV[r,rt,Ownership,Dependency]  triangle1[WebHook,Ownership,Dependency,r]  1
     zV[r,rt,Ownership,Dependency]  triangle1[Subscription,Ownership,Dependency,r]  1
     zV[r,rt,Ownership,Dependency]  triangle2[Ownership,Linkset,Dependency,r]  1
     zV[r,rt,Ownership,Dependency]  triangle2[Ownership,Version,Dependency,r]  1
-    zV[c,rt,Ownership,Dependency]  triangle2[User,Ownership,Dependency,c]  1
-    zV[c,rt,Ownership,Dependency]  triangle2[User,Subscription,Ownership,c]  1
-    zV[c,rt,Ownership,Dependency]  triangle2[User,WebHook,Ownership,c]  1
-    zV[c,rt,Ownership,Dependency]  triangle2[Rubygem,User,Ownership,c]  1
-    zV[c,rt,Ownership,Dependency]  triangle1[Rubygem,User,Ownership,c]  1
-    zV[c,rt,Ownership,Dependency]  axisVdifRT[c,User,Ownership]  10
-    zV[c,rt,Ownership,Dependency]  axisVdifLB[c,User,Ownership]  10
     zV[c,rt,Ownership,Dependency]  choose1[Ownership,Dependency]  1
     zV[c,rt,Ownership,Dependency]  axisVdifRT[c,Ownership,Dependency]  31
     zV[c,rt,Ownership,Dependency]  triangle1[Rubygem,Ownership,Dependency,c]  1
     zV[c,rt,Ownership,Dependency]  triangle1[User,Ownership,Dependency,c]  2
     zV[c,rt,Ownership,Dependency]  triangle1[WebHook,Ownership,Dependency,c]  1
-    zV[c,rt,Ownership,Dependency]  triangle1[Subscription,Ownership,Dependency,c]  1
+    zV[c,rt,Ownership,Dependency]  triangle1[Subscription,Ownership,Dependency,c]  2
     zV[c,rt,Ownership,Dependency]  triangle2[Ownership,Linkset,Dependency,c]  1
     zV[c,rt,Ownership,Dependency]  triangle2[Ownership,Version,Dependency,c]  1
     zV[r,lb,Ownership,Dependency]  choose1[Ownership,Dependency]  1
@@ -1876,16 +1882,12 @@ COLUMNS
     zV[r,lb,Ownership,Dependency]  triangle1[Ownership,Linkset,Dependency,r]  1
     zV[r,lb,Ownership,Dependency]  triangle1[Ownership,Version,Dependency,r]  1
     zV[r,lb,Ownership,Dependency]  triangle2[Rubygem,Ownership,Dependency,r]  1
+    zV[r,lb,Ownership,Dependency]  triangle2[User,Ownership,Dependency,r]  1
     zV[r,lb,Ownership,Dependency]  triangle2[WebHook,Ownership,Dependency,r]  1
     zV[r,lb,Ownership,Dependency]  triangle2[Subscription,Ownership,Dependency,r]  1
-    zV[c,lb,Ownership,Dependency]  triangle2[Rubygem,User,Ownership,c]  1
-    zV[c,lb,Ownership,Dependency]  triangle1[User,Ownership,Dependency,c]  1
-    zV[c,lb,Ownership,Dependency]  triangle1[User,Subscription,Ownership,c]  1
-    zV[c,lb,Ownership,Dependency]  triangle1[User,WebHook,Ownership,c]  1
-    zV[c,lb,Ownership,Dependency]  axisVdifRT[c,User,Ownership]  10
-    zV[c,lb,Ownership,Dependency]  axisVdifLB[c,User,Ownership]  10
     zV[c,lb,Ownership,Dependency]  choose1[Ownership,Dependency]  1
     zV[c,lb,Ownership,Dependency]  axisVdifLB[c,Ownership,Dependency]  31
+    zV[c,lb,Ownership,Dependency]  triangle1[Ownership,Linkset,Dependency,c]  1
     zV[c,lb,Ownership,Dependency]  triangle1[Ownership,Version,Dependency,c]  1
     zV[c,lb,Ownership,Dependency]  triangle2[Rubygem,Ownership,Dependency,c]  1
     zV[c,lb,Ownership,Dependency]  triangle2[User,Ownership,Dependency,c]  2
@@ -1903,6 +1905,7 @@ COLUMNS
     zV[c,rt,Linkset,Version]  axisVdifRT[c,Linkset,Version]  31
     zV[c,rt,Linkset,Version]  triangle1[Rubygem,Linkset,Version,c]  1
     zV[c,rt,Linkset,Version]  triangle1[User,Linkset,Version,c]  2
+    zV[c,rt,Linkset,Version]  triangle1[WebHook,Linkset,Version,c]  1
     zV[c,rt,Linkset,Version]  triangle1[Subscription,Linkset,Version,c]  1
     zV[c,rt,Linkset,Version]  triangle1[Ownership,Linkset,Version,c]  1
     zV[c,rt,Linkset,Version]  triangle1[Linkset,Version,Dependency,c]  1
@@ -1921,22 +1924,33 @@ COLUMNS
     zV[c,lb,Linkset,Version]  triangle2[WebHook,Linkset,Version,c]  1
     zV[c,lb,Linkset,Version]  triangle2[Subscription,Linkset,Version,c]  1
     zV[c,lb,Linkset,Version]  triangle2[Ownership,Linkset,Version,c]  1
+    zV[c,lb,Linkset,Version]  triangle2[Linkset,Version,Dependency,c]  1
     zV[r,rt,Linkset,Dependency]  choose1[Linkset,Dependency]  1
     zV[r,rt,Linkset,Dependency]  axisVdifRT[r,Linkset,Dependency]  31
     zV[r,rt,Linkset,Dependency]  triangle1[Rubygem,Linkset,Dependency,r]  1
+    zV[r,rt,Linkset,Dependency]  triangle1[User,Linkset,Dependency,r]  1
     zV[r,rt,Linkset,Dependency]  triangle1[WebHook,Linkset,Dependency,r]  1
     zV[r,rt,Linkset,Dependency]  triangle1[Subscription,Linkset,Dependency,r]  1
     zV[r,rt,Linkset,Dependency]  triangle1[Ownership,Linkset,Dependency,r]  1
     zV[r,rt,Linkset,Dependency]  triangle2[Linkset,Version,Dependency,r]  1
+    zV[c,rt,Linkset,Dependency]  choose1[Linkset,Dependency]  1
+    zV[c,rt,Linkset,Dependency]  axisVdifRT[c,Linkset,Dependency]  31
+    zV[c,rt,Linkset,Dependency]  triangle1[Rubygem,Linkset,Dependency,c]  1
+    zV[c,rt,Linkset,Dependency]  triangle1[User,Linkset,Dependency,c]  1
+    zV[c,rt,Linkset,Dependency]  triangle1[WebHook,Linkset,Dependency,c]  1
+    zV[c,rt,Linkset,Dependency]  triangle1[Subscription,Linkset,Dependency,c]  1
+    zV[c,rt,Linkset,Dependency]  triangle1[Ownership,Linkset,Dependency,c]  1
+    zV[c,rt,Linkset,Dependency]  triangle2[Linkset,Version,Dependency,c]  1
     zV[r,lb,Linkset,Dependency]  choose1[Linkset,Dependency]  1
     zV[r,lb,Linkset,Dependency]  axisVdifLB[r,Linkset,Dependency]  31
     zV[r,lb,Linkset,Dependency]  triangle1[Linkset,Version,Dependency,r]  1
     zV[r,lb,Linkset,Dependency]  triangle2[Rubygem,Linkset,Dependency,r]  1
+    zV[r,lb,Linkset,Dependency]  triangle2[User,Linkset,Dependency,r]  1
     zV[r,lb,Linkset,Dependency]  triangle2[WebHook,Linkset,Dependency,r]  1
     zV[r,lb,Linkset,Dependency]  triangle2[Subscription,Linkset,Dependency,r]  1
     zV[r,lb,Linkset,Dependency]  triangle2[Ownership,Linkset,Dependency,r]  1
     zV[c,lb,Linkset,Dependency]  choose1[Linkset,Dependency]  1
-    zV[c,lb,Linkset,Dependency]  axisVdifLB[c,Linkset,Dependency]  30
+    zV[c,lb,Linkset,Dependency]  axisVdifLB[c,Linkset,Dependency]  31
     zV[c,lb,Linkset,Dependency]  triangle1[Linkset,Version,Dependency,c]  1
     zV[c,lb,Linkset,Dependency]  triangle2[Rubygem,Linkset,Dependency,c]  1
     zV[c,lb,Linkset,Dependency]  triangle2[User,Linkset,Dependency,c]  1
@@ -1947,27 +1961,19 @@ COLUMNS
     zV[r,rt,Version,Dependency]  axisVdifRT[r,Version,Dependency]  31
     zV[r,rt,Version,Dependency]  DistAxisLB1[c,Version,Dependency]  -11
     zV[r,rt,Version,Dependency]  triangle1[Rubygem,Version,Dependency,r]  1
+    zV[r,rt,Version,Dependency]  triangle1[User,Version,Dependency,r]  1
     zV[r,rt,Version,Dependency]  triangle1[WebHook,Version,Dependency,r]  1
     zV[r,rt,Version,Dependency]  triangle1[Subscription,Version,Dependency,r]  1
     zV[r,rt,Version,Dependency]  triangle1[Ownership,Version,Dependency,r]  1
     zV[r,rt,Version,Dependency]  triangle1[Linkset,Version,Dependency,r]  1
-    zV[c,rt,Version,Dependency]  triangle2[User,Version,Dependency,c]  1
-    zV[c,rt,Version,Dependency]  triangle2[User,Ownership,Version,c]  1
-    zV[c,rt,Version,Dependency]  triangle2[User,Subscription,Version,c]  1
-    zV[c,rt,Version,Dependency]  triangle2[User,WebHook,Version,c]  1
-    zV[c,rt,Version,Dependency]  triangle1[User,WebHook,Version,c]  1
-    zV[c,rt,Version,Dependency]  triangle1[Rubygem,User,Version,c]  1
     zV[c,rt,Version,Dependency]  DistSumLB[Version,Dependency]  4
-    zV[c,rt,Version,Dependency]  compDistAxis2[c,Version,Dependency]  15
-    zV[c,rt,Version,Dependency]  axisVdifRT[c,User,Version]  10
-    zV[c,rt,Version,Dependency]  axisVdifLB[c,User,Version]  10
-    zV[c,rt,Version,Dependency]  centerDistAxis2[c,Dependency]  7
+    zV[c,rt,Version,Dependency]  compDistAxis2[c,Version,Dependency]  13
     zV[c,rt,Version,Dependency]  choose1[Version,Dependency]  1
     zV[c,rt,Version,Dependency]  axisVdifRT[c,Version,Dependency]  31
     zV[c,rt,Version,Dependency]  DistAxisLB1[r,Version,Dependency]  -7
     zV[c,rt,Version,Dependency]  triangle1[Rubygem,Version,Dependency,c]  1
     zV[c,rt,Version,Dependency]  triangle1[User,Version,Dependency,c]  2
-    zV[c,rt,Version,Dependency]  triangle1[WebHook,Version,Dependency,c]  1
+    zV[c,rt,Version,Dependency]  triangle1[WebHook,Version,Dependency,c]  2
     zV[c,rt,Version,Dependency]  triangle1[Subscription,Version,Dependency,c]  1
     zV[c,rt,Version,Dependency]  triangle1[Ownership,Version,Dependency,c]  1
     zV[c,rt,Version,Dependency]  triangle1[Linkset,Version,Dependency,c]  1
@@ -1975,29 +1981,22 @@ COLUMNS
     zV[r,lb,Version,Dependency]  axisVdifLB[r,Version,Dependency]  31
     zV[r,lb,Version,Dependency]  DistAxisLB1[c,Version,Dependency]  -11
     zV[r,lb,Version,Dependency]  triangle2[Rubygem,Version,Dependency,r]  1
+    zV[r,lb,Version,Dependency]  triangle2[User,Version,Dependency,r]  1
     zV[r,lb,Version,Dependency]  triangle2[WebHook,Version,Dependency,r]  1
     zV[r,lb,Version,Dependency]  triangle2[Subscription,Version,Dependency,r]  1
     zV[r,lb,Version,Dependency]  triangle2[Ownership,Version,Dependency,r]  1
     zV[r,lb,Version,Dependency]  triangle2[Linkset,Version,Dependency,r]  1
-    zV[c,lb,Version,Dependency]  triangle2[User,WebHook,Version,c]  1
-    zV[c,lb,Version,Dependency]  triangle2[Rubygem,User,Version,c]  1
-    zV[c,lb,Version,Dependency]  triangle1[User,Version,Dependency,c]  1
-    zV[c,lb,Version,Dependency]  triangle1[User,Ownership,Version,c]  1
-    zV[c,lb,Version,Dependency]  triangle1[User,Subscription,Version,c]  1
-    zV[c,lb,Version,Dependency]  triangle1[User,WebHook,Version,c]  1
-    zV[c,lb,Version,Dependency]  DistSumLB[Version,Dependency]  5
-    zV[c,lb,Version,Dependency]  compDistAxis1[c,Version,Dependency]  15
-    zV[c,lb,Version,Dependency]  axisVdifRT[c,User,Version]  10
-    zV[c,lb,Version,Dependency]  axisVdifLB[c,User,Version]  10
-    zV[c,lb,Version,Dependency]  centerDistAxis1[c,Dependency]  7
+    zV[c,lb,Version,Dependency]  DistSumLB[Version,Dependency]  4
+    zV[c,lb,Version,Dependency]  compDistAxis1[c,Version,Dependency]  13
     zV[c,lb,Version,Dependency]  choose1[Version,Dependency]  1
     zV[c,lb,Version,Dependency]  axisVdifLB[c,Version,Dependency]  31
-    zV[c,lb,Version,Dependency]  DistAxisLB1[r,Version,Dependency]  -6
+    zV[c,lb,Version,Dependency]  DistAxisLB1[r,Version,Dependency]  -7
     zV[c,lb,Version,Dependency]  triangle2[Rubygem,Version,Dependency,c]  1
     zV[c,lb,Version,Dependency]  triangle2[User,Version,Dependency,c]  2
-    zV[c,lb,Version,Dependency]  triangle2[WebHook,Version,Dependency,c]  1
+    zV[c,lb,Version,Dependency]  triangle2[WebHook,Version,Dependency,c]  2
     zV[c,lb,Version,Dependency]  triangle2[Subscription,Version,Dependency,c]  1
     zV[c,lb,Version,Dependency]  triangle2[Ownership,Version,Dependency,c]  1
+    zV[c,lb,Version,Dependency]  triangle2[Linkset,Version,Dependency,c]  1
     MARKER    'MARKER'                 'INTEND'
 RHS
     RHS1      choose1[Rubygem,User]  1
@@ -2012,6 +2011,7 @@ RHS
     RHS1      choose1[User,Ownership]  1
     RHS1      choose1[User,Linkset]  1
     RHS1      choose1[User,Version]  1
+    RHS1      choose1[User,Dependency]  1
     RHS1      choose1[WebHook,Subscription]  1
     RHS1      choose1[WebHook,Ownership]  1
     RHS1      choose1[WebHook,Linkset]  1
@@ -2071,6 +2071,7 @@ RHS
     RHS1      axisVdifLB[r,User,Ownership]  22
     RHS1      axisVdifLB[r,User,Linkset]  22
     RHS1      axisVdifLB[r,User,Version]  22
+    RHS1      axisVdifLB[r,User,Dependency]  22
     RHS1      axisVdifLB[r,WebHook,Subscription]  26
     RHS1      axisVdifLB[r,WebHook,Ownership]  26
     RHS1      axisVdifLB[r,WebHook,Linkset]  26
@@ -2115,17 +2116,18 @@ RHS
     RHS1      axisVdifLB[c,Linkset,Dependency]  24
     RHS1      axisVdifLB[c,Version,Dependency]  19
     RHS1      axisVdifRT[r,Rubygem,User]  22
-    RHS1      axisVdifRT[r,Rubygem,WebHook]  15
-    RHS1      axisVdifRT[r,Rubygem,Subscription]  26
+    RHS1      axisVdifRT[r,Rubygem,WebHook]  26
+    RHS1      axisVdifRT[r,Rubygem,Subscription]  27
     RHS1      axisVdifRT[r,Rubygem,Ownership]  26
     RHS1      axisVdifRT[r,Rubygem,Linkset]  24
-    RHS1      axisVdifRT[r,Rubygem,Version]  21
+    RHS1      axisVdifRT[r,Rubygem,Version]  22
     RHS1      axisVdifRT[r,Rubygem,Dependency]  26
     RHS1      axisVdifRT[r,User,WebHook]  26
     RHS1      axisVdifRT[r,User,Subscription]  27
     RHS1      axisVdifRT[r,User,Ownership]  26
     RHS1      axisVdifRT[r,User,Linkset]  24
     RHS1      axisVdifRT[r,User,Version]  22
+    RHS1      axisVdifRT[r,User,Dependency]  26
     RHS1      axisVdifRT[r,WebHook,Subscription]  27
     RHS1      axisVdifRT[r,WebHook,Ownership]  26
     RHS1      axisVdifRT[r,WebHook,Linkset]  24
@@ -2142,9 +2144,9 @@ RHS
     RHS1      axisVdifRT[r,Linkset,Dependency]  26
     RHS1      axisVdifRT[r,Version,Dependency]  26
     RHS1      axisVdifRT[c,Rubygem,User]  17
-    RHS1      axisVdifRT[c,Rubygem,WebHook]  31
+    RHS1      axisVdifRT[c,Rubygem,WebHook]  20
     RHS1      axisVdifRT[c,Rubygem,Subscription]  23
-    RHS1      axisVdifRT[c,Rubygem,Ownership]  31
+    RHS1      axisVdifRT[c,Rubygem,Ownership]  22
     RHS1      axisVdifRT[c,Rubygem,Linkset]  24
     RHS1      axisVdifRT[c,Rubygem,Version]  19
     RHS1      axisVdifRT[c,Rubygem,Dependency]  21
@@ -2153,9 +2155,10 @@ RHS
     RHS1      axisVdifRT[c,User,Ownership]  22
     RHS1      axisVdifRT[c,User,Linkset]  24
     RHS1      axisVdifRT[c,User,Version]  19
-    RHS1      axisVdifRT[c,User,Dependency]  -10
+    RHS1      axisVdifRT[c,User,Dependency]  21
     RHS1      axisVdifRT[c,WebHook,Subscription]  23
     RHS1      axisVdifRT[c,WebHook,Ownership]  22
+    RHS1      axisVdifRT[c,WebHook,Linkset]  24
     RHS1      axisVdifRT[c,WebHook,Version]  19
     RHS1      axisVdifRT[c,WebHook,Dependency]  21
     RHS1      axisVdifRT[c,Subscription,Ownership]  22
@@ -2166,6 +2169,7 @@ RHS
     RHS1      axisVdifRT[c,Ownership,Version]  19
     RHS1      axisVdifRT[c,Ownership,Dependency]  21
     RHS1      axisVdifRT[c,Linkset,Version]  19
+    RHS1      axisVdifRT[c,Linkset,Dependency]  21
     RHS1      axisVdifRT[c,Version,Dependency]  21
     RHS1      compDistAxis1[r,Rubygem,User]  2
     RHS1      compDistAxis1[r,User,WebHook]  -2
@@ -2247,12 +2251,14 @@ RHS
     RHS1      triangle1[Rubygem,User,Linkset,c]  2
     RHS1      triangle1[Rubygem,User,Version,r]  2
     RHS1      triangle1[Rubygem,User,Version,c]  2
-    RHS1      triangle1[Rubygem,User,Dependency,c]  1
+    RHS1      triangle1[Rubygem,User,Dependency,r]  2
+    RHS1      triangle1[Rubygem,User,Dependency,c]  2
     RHS1      triangle1[Rubygem,WebHook,Subscription,r]  2
     RHS1      triangle1[Rubygem,WebHook,Subscription,c]  2
     RHS1      triangle1[Rubygem,WebHook,Ownership,r]  2
     RHS1      triangle1[Rubygem,WebHook,Ownership,c]  2
     RHS1      triangle1[Rubygem,WebHook,Linkset,r]  2
+    RHS1      triangle1[Rubygem,WebHook,Linkset,c]  2
     RHS1      triangle1[Rubygem,WebHook,Version,r]  2
     RHS1      triangle1[Rubygem,WebHook,Version,c]  2
     RHS1      triangle1[Rubygem,WebHook,Dependency,r]  2
@@ -2263,7 +2269,7 @@ RHS
     RHS1      triangle1[Rubygem,Subscription,Linkset,c]  2
     RHS1      triangle1[Rubygem,Subscription,Version,r]  2
     RHS1      triangle1[Rubygem,Subscription,Version,c]  2
-    RHS1      triangle1[Rubygem,Subscription,Dependency,r]  1
+    RHS1      triangle1[Rubygem,Subscription,Dependency,r]  2
     RHS1      triangle1[Rubygem,Subscription,Dependency,c]  2
     RHS1      triangle1[Rubygem,Ownership,Linkset,r]  2
     RHS1      triangle1[Rubygem,Ownership,Linkset,c]  2
@@ -2274,6 +2280,7 @@ RHS
     RHS1      triangle1[Rubygem,Linkset,Version,r]  2
     RHS1      triangle1[Rubygem,Linkset,Version,c]  2
     RHS1      triangle1[Rubygem,Linkset,Dependency,r]  2
+    RHS1      triangle1[Rubygem,Linkset,Dependency,c]  2
     RHS1      triangle1[Rubygem,Version,Dependency,r]  2
     RHS1      triangle1[Rubygem,Version,Dependency,c]  2
     RHS1      triangle1[User,WebHook,Subscription,r]  2
@@ -2281,8 +2288,10 @@ RHS
     RHS1      triangle1[User,WebHook,Ownership,r]  2
     RHS1      triangle1[User,WebHook,Ownership,c]  2
     RHS1      triangle1[User,WebHook,Linkset,r]  2
+    RHS1      triangle1[User,WebHook,Linkset,c]  2
     RHS1      triangle1[User,WebHook,Version,r]  2
     RHS1      triangle1[User,WebHook,Version,c]  2
+    RHS1      triangle1[User,WebHook,Dependency,r]  2
     RHS1      triangle1[User,WebHook,Dependency,c]  2
     RHS1      triangle1[User,Subscription,Ownership,r]  2
     RHS1      triangle1[User,Subscription,Ownership,c]  2
@@ -2290,14 +2299,19 @@ RHS
     RHS1      triangle1[User,Subscription,Linkset,c]  2
     RHS1      triangle1[User,Subscription,Version,r]  2
     RHS1      triangle1[User,Subscription,Version,c]  2
+    RHS1      triangle1[User,Subscription,Dependency,r]  2
     RHS1      triangle1[User,Subscription,Dependency,c]  2
     RHS1      triangle1[User,Ownership,Linkset,r]  2
     RHS1      triangle1[User,Ownership,Linkset,c]  2
     RHS1      triangle1[User,Ownership,Version,r]  2
     RHS1      triangle1[User,Ownership,Version,c]  2
+    RHS1      triangle1[User,Ownership,Dependency,r]  2
     RHS1      triangle1[User,Ownership,Dependency,c]  2
     RHS1      triangle1[User,Linkset,Version,r]  2
     RHS1      triangle1[User,Linkset,Version,c]  2
+    RHS1      triangle1[User,Linkset,Dependency,r]  2
+    RHS1      triangle1[User,Linkset,Dependency,c]  2
+    RHS1      triangle1[User,Version,Dependency,r]  2
     RHS1      triangle1[User,Version,Dependency,c]  2
     RHS1      triangle1[WebHook,Subscription,Ownership,r]  2
     RHS1      triangle1[WebHook,Subscription,Ownership,c]  2
@@ -2314,7 +2328,9 @@ RHS
     RHS1      triangle1[WebHook,Ownership,Dependency,r]  2
     RHS1      triangle1[WebHook,Ownership,Dependency,c]  2
     RHS1      triangle1[WebHook,Linkset,Version,r]  2
+    RHS1      triangle1[WebHook,Linkset,Version,c]  2
     RHS1      triangle1[WebHook,Linkset,Dependency,r]  2
+    RHS1      triangle1[WebHook,Linkset,Dependency,c]  2
     RHS1      triangle1[WebHook,Version,Dependency,r]  2
     RHS1      triangle1[WebHook,Version,Dependency,c]  2
     RHS1      triangle1[Subscription,Ownership,Linkset,r]  2
@@ -2326,11 +2342,13 @@ RHS
     RHS1      triangle1[Subscription,Linkset,Version,r]  2
     RHS1      triangle1[Subscription,Linkset,Version,c]  2
     RHS1      triangle1[Subscription,Linkset,Dependency,r]  2
+    RHS1      triangle1[Subscription,Linkset,Dependency,c]  2
     RHS1      triangle1[Subscription,Version,Dependency,r]  2
     RHS1      triangle1[Subscription,Version,Dependency,c]  2
     RHS1      triangle1[Ownership,Linkset,Version,r]  2
     RHS1      triangle1[Ownership,Linkset,Version,c]  2
     RHS1      triangle1[Ownership,Linkset,Dependency,r]  2
+    RHS1      triangle1[Ownership,Linkset,Dependency,c]  2
     RHS1      triangle1[Ownership,Version,Dependency,r]  2
     RHS1      triangle1[Ownership,Version,Dependency,c]  2
     RHS1      triangle1[Linkset,Version,Dependency,r]  2
@@ -2345,6 +2363,7 @@ RHS
     RHS1      triangle2[Rubygem,User,Linkset,c]  2
     RHS1      triangle2[Rubygem,User,Version,r]  2
     RHS1      triangle2[Rubygem,User,Version,c]  2
+    RHS1      triangle2[Rubygem,User,Dependency,r]  2
     RHS1      triangle2[Rubygem,User,Dependency,c]  2
     RHS1      triangle2[Rubygem,WebHook,Subscription,r]  2
     RHS1      triangle2[Rubygem,WebHook,Subscription,c]  2
@@ -2384,31 +2403,38 @@ RHS
     RHS1      triangle2[User,WebHook,Linkset,c]  2
     RHS1      triangle2[User,WebHook,Version,r]  2
     RHS1      triangle2[User,WebHook,Version,c]  2
-    RHS1      triangle2[User,WebHook,Dependency,c]  1
+    RHS1      triangle2[User,WebHook,Dependency,r]  2
+    RHS1      triangle2[User,WebHook,Dependency,c]  2
     RHS1      triangle2[User,Subscription,Ownership,r]  2
     RHS1      triangle2[User,Subscription,Ownership,c]  2
     RHS1      triangle2[User,Subscription,Linkset,r]  2
     RHS1      triangle2[User,Subscription,Linkset,c]  2
     RHS1      triangle2[User,Subscription,Version,r]  2
     RHS1      triangle2[User,Subscription,Version,c]  2
-    RHS1      triangle2[User,Subscription,Dependency,c]  1
+    RHS1      triangle2[User,Subscription,Dependency,r]  2
+    RHS1      triangle2[User,Subscription,Dependency,c]  2
     RHS1      triangle2[User,Ownership,Linkset,r]  2
     RHS1      triangle2[User,Ownership,Linkset,c]  2
     RHS1      triangle2[User,Ownership,Version,r]  2
     RHS1      triangle2[User,Ownership,Version,c]  2
-    RHS1      triangle2[User,Ownership,Dependency,c]  1
+    RHS1      triangle2[User,Ownership,Dependency,r]  2
+    RHS1      triangle2[User,Ownership,Dependency,c]  2
     RHS1      triangle2[User,Linkset,Version,r]  2
     RHS1      triangle2[User,Linkset,Version,c]  2
-    RHS1      triangle2[User,Linkset,Dependency,c]  1
-    RHS1      triangle2[User,Version,Dependency,c]  1
+    RHS1      triangle2[User,Linkset,Dependency,r]  2
+    RHS1      triangle2[User,Linkset,Dependency,c]  2
+    RHS1      triangle2[User,Version,Dependency,r]  2
+    RHS1      triangle2[User,Version,Dependency,c]  2
     RHS1      triangle2[WebHook,Subscription,Ownership,r]  2
     RHS1      triangle2[WebHook,Subscription,Ownership,c]  2
     RHS1      triangle2[WebHook,Subscription,Linkset,r]  2
+    RHS1      triangle2[WebHook,Subscription,Linkset,c]  2
     RHS1      triangle2[WebHook,Subscription,Version,r]  2
     RHS1      triangle2[WebHook,Subscription,Version,c]  2
     RHS1      triangle2[WebHook,Subscription,Dependency,r]  2
     RHS1      triangle2[WebHook,Subscription,Dependency,c]  2
     RHS1      triangle2[WebHook,Ownership,Linkset,r]  2
+    RHS1      triangle2[WebHook,Ownership,Linkset,c]  2
     RHS1      triangle2[WebHook,Ownership,Version,r]  2
     RHS1      triangle2[WebHook,Ownership,Version,c]  2
     RHS1      triangle2[WebHook,Ownership,Dependency,r]  2
@@ -2438,6 +2464,7 @@ RHS
     RHS1      triangle2[Ownership,Version,Dependency,r]  2
     RHS1      triangle2[Ownership,Version,Dependency,c]  2
     RHS1      triangle2[Linkset,Version,Dependency,r]  2
+    RHS1      triangle2[Linkset,Version,Dependency,c]  2
 BOUNDS
  LO BND1      x[r,Rubygem]  1
  UP BND1      x[r,Rubygem]  27
@@ -2472,43 +2499,43 @@ BOUNDS
  LO BND1      x[c,Dependency]  1
  UP BND1      x[c,Dependency]  22
  LO BND1      center_dist[r,Rubygem]  -13
- UP BND1      center_dist[r,Rubygem]  167.5
+ UP BND1      center_dist[r,Rubygem]  192.5
  LO BND1      center_dist[r,User]  -11
- UP BND1      center_dist[r,User]  169.5
+ UP BND1      center_dist[r,User]  194.5
  LO BND1      center_dist[r,WebHook]  -13
- UP BND1      center_dist[r,WebHook]  167.5
+ UP BND1      center_dist[r,WebHook]  192.5
  LO BND1      center_dist[r,Subscription]  -13.5
- UP BND1      center_dist[r,Subscription]  167
+ UP BND1      center_dist[r,Subscription]  192
  LO BND1      center_dist[r,Ownership]  -13
- UP BND1      center_dist[r,Ownership]  167.5
+ UP BND1      center_dist[r,Ownership]  192.5
  LO BND1      center_dist[r,Linkset]  -12
- UP BND1      center_dist[r,Linkset]  168.5
- LO BND1      center_dist[r,Version]  -10
- UP BND1      center_dist[r,Version]  170.5
+ UP BND1      center_dist[r,Linkset]  193.5
+ LO BND1      center_dist[r,Version]  -11
+ UP BND1      center_dist[r,Version]  194.5
  LO BND1      center_dist[r,Dependency]  -13
- UP BND1      center_dist[r,Dependency]  167.5
+ UP BND1      center_dist[r,Dependency]  192.5
  LO BND1      center_dist[c,Rubygem]  -11
- UP BND1      center_dist[c,Rubygem]  169.5
- LO BND1      center_dist[c,User]  1.5
- UP BND1      center_dist[c,User]  182
+ UP BND1      center_dist[c,Rubygem]  194.5
+ LO BND1      center_dist[c,User]  -8.5
+ UP BND1      center_dist[c,User]  197
  LO BND1      center_dist[c,WebHook]  -10
- UP BND1      center_dist[c,WebHook]  170.5
+ UP BND1      center_dist[c,WebHook]  195.5
  LO BND1      center_dist[c,Subscription]  -11.5
- UP BND1      center_dist[c,Subscription]  169
+ UP BND1      center_dist[c,Subscription]  194
  LO BND1      center_dist[c,Ownership]  -11
- UP BND1      center_dist[c,Ownership]  169.5
+ UP BND1      center_dist[c,Ownership]  194.5
  LO BND1      center_dist[c,Linkset]  -12
- UP BND1      center_dist[c,Linkset]  168.5
+ UP BND1      center_dist[c,Linkset]  193.5
  LO BND1      center_dist[c,Version]  -9.5
- UP BND1      center_dist[c,Version]  171
- LO BND1      center_dist[c,Dependency]  3.5
- UP BND1      center_dist[c,Dependency]  184
+ UP BND1      center_dist[c,Version]  196
+ LO BND1      center_dist[c,Dependency]  -10.5
+ UP BND1      center_dist[c,Dependency]  195
  UP BND1      dist[r,Rubygem,User]  24
  UP BND1      dist[r,User,WebHook]  24
  UP BND1      dist[r,User,Subscription]  24.5
  UP BND1      dist[r,User,Ownership]  24
  UP BND1      dist[r,Rubygem,Subscription]  26.5
- UP BND1      dist[r,Rubygem,WebHook]  31
+ UP BND1      dist[r,Rubygem,WebHook]  26
  UP BND1      dist[r,Rubygem,Linkset]  25
  UP BND1      dist[r,Rubygem,Ownership]  26
  UP BND1      dist[r,Rubygem,Version]  24
@@ -2573,6 +2600,9 @@ BOUNDS
  BV BND1      zV[c,rt,User,Version]
  BV BND1      zV[r,lb,User,Version]
  BV BND1      zV[c,lb,User,Version]
+ BV BND1      zV[r,rt,User,Dependency]
+ BV BND1      zV[c,rt,User,Dependency]
+ BV BND1      zV[r,lb,User,Dependency]
  BV BND1      zV[c,lb,User,Dependency]
  BV BND1      zV[r,rt,WebHook,Subscription]
  BV BND1      zV[c,rt,WebHook,Subscription]
@@ -2583,6 +2613,7 @@ BOUNDS
  BV BND1      zV[r,lb,WebHook,Ownership]
  BV BND1      zV[c,lb,WebHook,Ownership]
  BV BND1      zV[r,rt,WebHook,Linkset]
+ BV BND1      zV[c,rt,WebHook,Linkset]
  BV BND1      zV[r,lb,WebHook,Linkset]
  BV BND1      zV[c,lb,WebHook,Linkset]
  BV BND1      zV[r,rt,WebHook,Version]
@@ -2626,6 +2657,7 @@ BOUNDS
  BV BND1      zV[r,lb,Linkset,Version]
  BV BND1      zV[c,lb,Linkset,Version]
  BV BND1      zV[r,rt,Linkset,Dependency]
+ BV BND1      zV[c,rt,Linkset,Dependency]
  BV BND1      zV[r,lb,Linkset,Dependency]
  BV BND1      zV[c,lb,Linkset,Dependency]
  BV BND1      zV[r,rt,Version,Dependency]

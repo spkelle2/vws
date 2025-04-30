@@ -1,4 +1,4 @@
-NAME neos17_copy_pre
+NAME neos17_pre_copy
 ROWS
  N  OBJ
  L  OBS0001 
@@ -693,7 +693,7 @@ COLUMNS
     A02       OBS0356   1
     A02       OBS0359   1
     A02       OBS0362   1
-    A02       OBS0363   1
+    A02       OBS0363   0.5
     A02       OBS0366   1
     A02       OBS0368   1
     A02       OBS0369   1
@@ -1525,7 +1525,7 @@ COLUMNS
     A16       OBS0469   1
     A16       OBS0479   1
     A16       OBS0480   1
-    A16       EQCONST   1
+    A16       EQCONST   1.5
     A17       OBS0055   1
     A17       OBS0071   1
     A17       OBS0091   1
@@ -2716,7 +2716,7 @@ COLUMNS
     B25       OBS0003   -1
     B25       OBS0004   -1
     B25       OBS0005   -1
-    B25       OBS0006   -1
+    B25       OBS0006   -1.5
     B25       OBS0007   -1
     B25       OBS0008   -1
     B25       OBS0009   -1

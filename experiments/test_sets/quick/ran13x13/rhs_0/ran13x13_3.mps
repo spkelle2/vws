@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -54,6 +54,7 @@ ROWS
  L  G24     
  L  G25     
  L  G26     
+ L  G27     
  L  G28     
  L  G29     
  L  G30     
@@ -306,6 +307,7 @@ COLUMNS
     X26       B0        1
     X27       OBJ       10
     X27       A2        1
+    X27       G27       1
     X27       B1        1
     X28       OBJ       4
     X28       A2        1
@@ -926,6 +928,8 @@ COLUMNS
     Y25       G25       -5
     Y26       OBJ       212
     Y26       G26       -11
+    Y27       OBJ       247
+    Y27       G27       -11
     Y28       OBJ       282
     Y28       G28       -11
     Y29       OBJ       114
@@ -1167,7 +1171,7 @@ COLUMNS
     Y147      OBJ       272
     Y147      G147      -3
     Y148      OBJ       98
-    Y148      G148      -11
+    Y148      G148      -12
     Y149      OBJ       293
     Y149      G149      -4
     Y150      OBJ       288
@@ -1210,7 +1214,6 @@ COLUMNS
     Y168      G168      -5
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -247
     RHS1      A0        14
     RHS1      A1        21
     RHS1      A2        11
@@ -1237,7 +1240,8 @@ RHS
     RHS1      B10       2
     RHS1      B11       9
     RHS1      B12       5
-    RHS1      G148      1
+    RHS1      G34       -1
+    RHS1      G142      1
 BOUNDS
  UP BND1      X0        14
  UP BND1      X1        14
@@ -1266,7 +1270,7 @@ BOUNDS
  UP BND1      X24       9
  UP BND1      X25       5
  UP BND1      X26       11
- UP BND1      X27       10
+ UP BND1      X27       11
  UP BND1      X28       11
  UP BND1      X29       6
  UP BND1      X30       3
@@ -1435,6 +1439,7 @@ BOUNDS
  BV BND1      Y24     
  BV BND1      Y25     
  BV BND1      Y26     
+ BV BND1      Y27     
  BV BND1      Y28     
  BV BND1      Y29     
  BV BND1      Y30     

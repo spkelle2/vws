@@ -1,3 +1,4 @@
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (69.256000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1812849.polyp1.ie.lehigh.edu.SC: line 4:  6769 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX} ${TIGHTEN_DISJUNCTION} ${TIGHTEN_MATRIX_PERTURBATION} ${TIGHTEN_INFEASIBLE_TERM} ${TIGHTEN_INFEASIBLE_BASIS}
+/var/spool/torque/mom_priv/jobs/1818344.polyp1.ie.lehigh.edu.SC: line 4: 30921 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX} ${TIGHTEN_DISJUNCTION} ${TIGHTEN_MATRIX_PERTURBATION} ${TIGHTEN_INFEASIBLE_TERM} ${TIGHTEN_INFEASIBLE_BASIS}

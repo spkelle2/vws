@@ -1,4 +1,4 @@
-NAME qiu_copy_pre
+NAME qiu_pre_copy
 ROWS
  N  OBJ
  E  c1      
@@ -1705,7 +1705,7 @@ COLUMNS
     x43       c1046     -3.51
     x43       c1054     -0.26
     x43       c1062     -1.3
-    x43       c1070     -0.26
+    x43       c1070     -1.26
     x43       c1078     -0.26
     x43       c1086     -0.26
     x43       c1094     -3.51
@@ -4006,7 +4006,7 @@ COLUMNS
     x606      c724      1
     x607      c74       1
     x607      c194      -1
-    x607      c663      1
+    x607      c663      2
     x607      c726      1
     x608      c74       1
     x608      c196      -1
@@ -4316,7 +4316,7 @@ COLUMNS
     x684      c348      -1
     x684      c664      1
     x684      c880      1
-    x685      c94       1
+    x685      c94       2
     x685      c350      -1
     x685      c661      1
     x685      c882      1
@@ -4379,7 +4379,7 @@ COLUMNS
     x700      c97       1
     x700      c380      -1
     x700      c664      1
-    x700      c912      2
+    x700      c912      1
     x701      c98       1
     x701      c382      -1
     x701      c661      1
@@ -5249,7 +5249,7 @@ BOUNDS
  UP BND1      x169      0.26
  UP BND1      x170      0.26
  UP BND1      x171      0.26
- UP BND1      x172      0.13
+ UP BND1      x172      0.26
  UP BND1      x173      3.9
  UP BND1      x174      3.9
  UP BND1      x175      3.9
@@ -5777,7 +5777,7 @@ BOUNDS
  UP BND1      x697      0.26
  UP BND1      x698      0.26
  UP BND1      x699      0.26
- UP BND1      x700      0.13
+ UP BND1      x700      0.26
  UP BND1      x701      3.9
  UP BND1      x702      3.9
  UP BND1      x703      3.9

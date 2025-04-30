@@ -1,4 +1,4 @@
-NAME aflow30a_copy_pre
+NAME aflow30a_pre_copy
 ROWS
  N  OBJ
  E  c30     
@@ -2882,13 +2882,13 @@ RHS
     RHS1      c31       6
     RHS1      c32       8
     RHS1      c33       10
-    RHS1      c34       7
+    RHS1      c34       6
     RHS1      c35       7
     RHS1      c36       5
     RHS1      c37       8
-    RHS1      c38       5
+    RHS1      c38       6
     RHS1      c39       3
-    RHS1      c40       4
+    RHS1      c40       3
     RHS1      c41       3
     RHS1      c42       1
     RHS1      c43       8
@@ -2896,7 +2896,7 @@ RHS
     RHS1      c45       9
     RHS1      c46       1
     RHS1      c47       5
-    RHS1      c48       0.5
+    RHS1      c48       1
     RHS1      c49       2
     RHS1      c50       6
     RHS1      c51       6
@@ -2910,7 +2910,7 @@ RHS
     RHS1      c59       93
     RHS1      c60       11
     RHS1      c61       48
-    RHS1      c62       31
+    RHS1      c62       32
     RHS1      c63       17
     RHS1      c64       52
     RHS1      c65       46
@@ -2932,10 +2932,35 @@ RHS
     RHS1      c88       54
     RHS1      c95       61
     RHS1      c96       13
+    RHS1      c100      2
     RHS1      c109      76
     RHS1      c114      19
+    RHS1      c123      -1
+    RHS1      c126      1
     RHS1      c135      36
     RHS1      c137      52
+    RHS1      c165      1
+    RHS1      c182      1
+    RHS1      c187      -1
+    RHS1      c191      1
+    RHS1      c195      1
+    RHS1      c217      1
+    RHS1      c220      1
+    RHS1      c224      -1
+    RHS1      c236      -1
+    RHS1      c261      1
+    RHS1      c262      -1
+    RHS1      c282      -1
+    RHS1      c308      1
+    RHS1      c326      1
+    RHS1      c338      1
+    RHS1      c362      -1
+    RHS1      c377      1
+    RHS1      c434      -1
+    RHS1      c453      1
+    RHS1      c459      1
+    RHS1      c460      -1
+    RHS1      c464      1
 BOUNDS
  BV BND1      x15     
  BV BND1      x17     

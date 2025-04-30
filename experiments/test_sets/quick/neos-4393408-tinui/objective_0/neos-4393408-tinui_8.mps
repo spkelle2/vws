@@ -1,4 +1,4 @@
-NAME neos-4393408-tinui_copy_pre
+NAME neos-4393408-tinui_pre_copy
 ROWS
  N  OBJ
  E  R0005   
@@ -12405,7 +12405,7 @@ COLUMNS
     C2243     R2804     1
     C2243     R2936     1
     C2243     R2945     1
-    C2244     OBJ       0.707105
+    C2244     OBJ       2.0710499999999998e-01
     C2244     R0794     -1
     C2244     R2654     1
     C2244     R2791     1

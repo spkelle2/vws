@@ -1,4 +1,4 @@
-NAME bppc8-09_copy_pre
+NAME bppc8-09_pre_copy
 ROWS
  N  OBJ
  E  c1      
@@ -1848,7 +1848,6 @@ COLUMNS
     X7.63     c65       96
     X7.63     c66       96
     X7.63     c67       96
-    X8.0      OBJ       0.0625
     X8.0      c9        1
     X8.0      c19       91
     X8.0      c20       91
@@ -1922,6 +1921,7 @@ COLUMNS
     X8.19     c42       91
     X8.19     c43       91
     X8.19     c44       91
+    X8.21     OBJ       0.0625
     X8.21     c9        1
     X8.21     c23       91
     X8.21     c24       91
@@ -2422,7 +2422,6 @@ COLUMNS
     X9.34     c51       97
     X9.34     c52       97
     X9.34     c53       97
-    X9.36     OBJ       0.0625
     X9.36     c10       1
     X9.36     c30       97
     X9.36     c31       97

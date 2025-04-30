@@ -1,4 +1,4 @@
-NAME ran12x21_copy_pre
+NAME ran12x21_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -109,6 +109,7 @@ ROWS
  L  G72     
  L  G73     
  L  G74     
+ L  G75     
  L  G76     
  L  G77     
  L  G78     
@@ -230,6 +231,7 @@ ROWS
  L  G194    
  L  G195    
  L  G196    
+ L  G197    
  L  G198    
  L  G199    
  L  G200    
@@ -587,6 +589,7 @@ COLUMNS
     X74       B11       1
     X75       OBJ       5
     X75       A3        1
+    X75       G75       1
     X75       B12       1
     X76       OBJ       2
     X76       A3        1
@@ -1074,6 +1077,7 @@ COLUMNS
     X196      B7        1
     X197      OBJ       8
     X197      A9        1
+    X197      G197      1
     X197      B8        1
     X198      OBJ       10
     X198      A9        1
@@ -1347,7 +1351,7 @@ COLUMNS
     Y26       OBJ       112
     Y26       G26       -5
     Y27       OBJ       157
-    Y27       G27       -14
+    Y27       G27       -15
     Y28       OBJ       172
     Y28       G28       -19
     Y29       OBJ       167
@@ -1373,7 +1377,7 @@ COLUMNS
     Y39       OBJ       246
     Y39       G39       -19
     Y40       OBJ       196
-    Y40       G40       -6
+    Y40       G40       -7
     Y41       OBJ       91
     Y41       G41       -19
     Y42       OBJ       123
@@ -1442,6 +1446,8 @@ COLUMNS
     Y73       G73       -3
     Y74       OBJ       196
     Y74       G74       -21
+    Y75       OBJ       117
+    Y75       G75       -2
     Y76       OBJ       133
     Y76       G76       -29
     Y77       OBJ       94
@@ -1583,7 +1589,7 @@ COLUMNS
     Y145      OBJ       67
     Y145      G145      -7
     Y146      OBJ       234
-    Y146      G146      -22
+    Y146      G146      -23
     Y147      OBJ       144
     Y147      G147      -2
     Y148      OBJ       185
@@ -1684,6 +1690,8 @@ COLUMNS
     Y195      G195      -13
     Y196      OBJ       207
     Y196      G196      -13
+    Y197      OBJ       203
+    Y197      G197      -13
     Y198      OBJ       217
     Y198      G198      -9
     Y199      OBJ       158
@@ -1794,7 +1802,6 @@ COLUMNS
     Y251      G251      -25
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -320
     RHS1      A0        24
     RHS1      A1        19
     RHS1      A2        31
@@ -1828,9 +1835,11 @@ RHS
     RHS1      B18       27
     RHS1      B19       7
     RHS1      B20       27
-    RHS1      G27       1
-    RHS1      G40       1
-    RHS1      G146      1
+    RHS1      G173      -1
+    RHS1      G174      -1
+    RHS1      G215      -1
+    RHS1      G216      -1
+    RHS1      G219      1
 BOUNDS
  UP BND1      X0        2
  UP BND1      X1        8
@@ -1907,7 +1916,7 @@ BOUNDS
  UP BND1      X72       9
  UP BND1      X73       3
  UP BND1      X74       21
- UP BND1      X75       1
+ UP BND1      X75       2
  UP BND1      X76       29
  UP BND1      X77       5
  UP BND1      X78       30
@@ -2029,7 +2038,7 @@ BOUNDS
  UP BND1      X194      5
  UP BND1      X195      13
  UP BND1      X196      13
- UP BND1      X197      12
+ UP BND1      X197      13
  UP BND1      X198      9
  UP BND1      X199      3
  UP BND1      X200      13
@@ -2159,6 +2168,7 @@ BOUNDS
  BV BND1      Y72     
  BV BND1      Y73     
  BV BND1      Y74     
+ BV BND1      Y75     
  BV BND1      Y76     
  BV BND1      Y77     
  BV BND1      Y78     
@@ -2280,6 +2290,7 @@ BOUNDS
  BV BND1      Y194    
  BV BND1      Y195    
  BV BND1      Y196    
+ BV BND1      Y197    
  BV BND1      Y198    
  BV BND1      Y199    
  BV BND1      Y200    

@@ -1,4 +1,4 @@
-NAME mc11_copy_pre
+NAME mc11_pre_copy
 ROWS
  N  OBJ
  E  CNS..002
@@ -920,6 +920,7 @@ ROWS
  L  UC..0520
  L  UC..0521
  L  UC..0522
+ L  UC..0523
  L  UC..0524
  L  UC..0525
  L  UC..0526
@@ -1304,6 +1305,7 @@ ROWS
  L  UC..0905
  L  UC..0906
  L  UC..0907
+ L  UC..0908
  L  UC..0909
  L  UC..0910
  L  UC..0911
@@ -1488,6 +1490,7 @@ ROWS
  L  UC..1090
  L  UC..1091
  L  UC..1092
+ L  UC..1093
  L  UC..1094
  L  UC..1095
  L  UC..1096
@@ -1528,6 +1531,7 @@ ROWS
  L  UC..1131
  L  UC..1132
  L  UC..1133
+ L  UC..1134
  L  UC..1135
  L  UC..1136
  L  UC..1137
@@ -1595,6 +1599,7 @@ ROWS
  L  UC..1199
  L  UC..1200
  L  UC..1201
+ L  UC..1202
  L  UC..1203
  L  UC..1204
  L  UC..1205
@@ -3474,6 +3479,7 @@ COLUMNS
     x...0522  UC..0522  1
     x...0523  CNS..134  -1
     x...0523  CNS..154  1
+    x...0523  UC..0523  1
     x...0524  CNS..134  1
     x...0524  CNS..154  -1
     x...0524  UC..0524  1
@@ -4628,6 +4634,7 @@ COLUMNS
     x...0907  UC..0907  1
     x...0908  CNS..233  1
     x...0908  CNS..234  -1
+    x...0908  UC..0908  1
     x...0909  CNS..233  -1
     x...0909  CNS..253  1
     x...0909  UC..0909  1
@@ -5182,6 +5189,7 @@ COLUMNS
     x...1092  UC..1092  1
     x...1093  CNS..281  -1
     x...1093  CNS..282  1
+    x...1093  UC..1093  1
     x...1094  CNS..281  1
     x...1094  CNS..282  -1
     x...1094  UC..1094  1
@@ -5304,6 +5312,7 @@ COLUMNS
     x...1133  UC..1133  1
     x...1134  CNS..291  1
     x...1134  CNS..292  -1
+    x...1134  UC..1134  1
     x...1135  CNS..291  -1
     x...1135  CNS..311  1
     x...1135  UC..1135  1
@@ -5507,6 +5516,7 @@ COLUMNS
     x...1201  UC..1201  1
     x...1202  CNS..308  1
     x...1202  CNS..328  -1
+    x...1202  UC..1202  1
     x...1203  CNS..309  -1
     x...1203  CNS..310  1
     x...1203  UC..1203  1
@@ -7502,6 +7512,8 @@ COLUMNS
     y...0521  UC..0521  -212
     y...0522  OBJ       9
     y...0522  UC..0522  -212
+    y...0523  OBJ       215
+    y...0523  UC..0523  -212
     y...0524  OBJ       215
     y...0524  UC..0524  -212
     y...0525  OBJ       8
@@ -8270,6 +8282,8 @@ COLUMNS
     y...0906  UC..0906  -212
     y...0907  OBJ       219
     y...0907  UC..0907  -212
+    y...0908  OBJ       219
+    y...0908  UC..0908  -212
     y...0909  OBJ       38
     y...0909  UC..0909  -212
     y...0910  OBJ       38
@@ -8638,6 +8652,8 @@ COLUMNS
     y...1091  UC..1091  -212
     y...1092  OBJ       43
     y...1092  UC..1092  -212
+    y...1093  OBJ       36
+    y...1093  UC..1093  -212
     y...1094  OBJ       36
     y...1094  UC..1094  -212
     y...1095  OBJ       44
@@ -8718,6 +8734,8 @@ COLUMNS
     y...1132  UC..1132  -212
     y...1133  OBJ       20
     y...1133  UC..1133  -212
+    y...1134  OBJ       20
+    y...1134  UC..1134  -212
     y...1135  OBJ       34
     y...1135  UC..1135  -212
     y...1136  OBJ       34
@@ -8852,6 +8870,8 @@ COLUMNS
     y...1200  UC..1200  -212
     y...1201  OBJ       30
     y...1201  UC..1201  -212
+    y...1202  OBJ       30
+    y...1202  UC..1202  -212
     y...1203  OBJ       37
     y...1203  UC..1203  -212
     y...1204  OBJ       37
@@ -9490,7 +9510,6 @@ COLUMNS
     y...1520  UC..1520  -212
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -520
     RHS1      CNS..002  -211
     RHS1      CNS..004  1
     RHS1      CNS..005  1
@@ -9504,6 +9523,7 @@ RHS
     RHS1      CNS..020  1
     RHS1      CNS..021  1
     RHS1      CNS..025  1
+    RHS1      CNS..027  -1
     RHS1      CNS..028  1
     RHS1      CNS..029  1
     RHS1      CNS..031  1
@@ -9518,17 +9538,18 @@ RHS
     RHS1      CNS..043  1
     RHS1      CNS..047  1
     RHS1      CNS..048  1
-    RHS1      CNS..049  2
+    RHS1      CNS..049  1
     RHS1      CNS..051  1
     RHS1      CNS..052  1
     RHS1      CNS..053  1
+    RHS1      CNS..054  1
     RHS1      CNS..057  1
     RHS1      CNS..058  1
     RHS1      CNS..059  1
     RHS1      CNS..062  1
     RHS1      CNS..064  1
     RHS1      CNS..067  1
-    RHS1      CNS..070  2
+    RHS1      CNS..070  1
     RHS1      CNS..071  1
     RHS1      CNS..073  1
     RHS1      CNS..074  1
@@ -9536,7 +9557,7 @@ RHS
     RHS1      CNS..076  1
     RHS1      CNS..077  1
     RHS1      CNS..078  1
-    RHS1      CNS..080  1
+    RHS1      CNS..080  2
     RHS1      CNS..082  1
     RHS1      CNS..084  1
     RHS1      CNS..085  1
@@ -9574,6 +9595,7 @@ RHS
     RHS1      CNS..137  1
     RHS1      CNS..138  1
     RHS1      CNS..139  1
+    RHS1      CNS..142  -1
     RHS1      CNS..143  1
     RHS1      CNS..144  1
     RHS1      CNS..146  1
@@ -9637,7 +9659,7 @@ RHS
     RHS1      CNS..273  1
     RHS1      CNS..274  1
     RHS1      CNS..275  1
-    RHS1      CNS..276  1
+    RHS1      CNS..276  2
     RHS1      CNS..277  1
     RHS1      CNS..278  1
     RHS1      CNS..283  1
@@ -9657,7 +9679,6 @@ RHS
     RHS1      CNS..306  1
     RHS1      CNS..307  1
     RHS1      CNS..308  1
-    RHS1      CNS..309  -1
     RHS1      CNS..312  1
     RHS1      CNS..313  1
     RHS1      CNS..314  1
@@ -9704,10 +9725,29 @@ RHS
     RHS1      CNS..398  1
     RHS1      CNS..400  1
     RHS1      UC..0001  -212
-    RHS1      UC..0068  1
-    RHS1      UC..0123  1
-    RHS1      UC..0968  1
-    RHS1      UC..1409  1
+    RHS1      UC..0075  1
+    RHS1      UC..0086  -1
+    RHS1      UC..0091  -1
+    RHS1      UC..0125  1
+    RHS1      UC..0309  1
+    RHS1      UC..0323  -1
+    RHS1      UC..0324  -1
+    RHS1      UC..0376  -1
+    RHS1      UC..0486  1
+    RHS1      UC..0519  -1
+    RHS1      UC..0526  1
+    RHS1      UC..0723  1
+    RHS1      UC..0793  -1
+    RHS1      UC..0803  -1
+    RHS1      UC..0806  1
+    RHS1      UC..0862  -1
+    RHS1      UC..0887  -1
+    RHS1      UC..0898  1
+    RHS1      UC..0979  1
+    RHS1      UC..1140  1
+    RHS1      UC..1405  -1
+    RHS1      UC..1414  -1
+    RHS1      UC..1502  -1
 BOUNDS
  UP BND1      x...0003  212
  UP BND1      x...0005  212
@@ -9773,7 +9813,7 @@ BOUNDS
  UP BND1      x...0065  212
  UP BND1      x...0066  212
  UP BND1      x...0067  212
- UP BND1      x...0068  213
+ UP BND1      x...0068  212
  UP BND1      x...0069  212
  UP BND1      x...0070  212
  UP BND1      x...0071  212
@@ -9828,7 +9868,7 @@ BOUNDS
  UP BND1      x...0120  212
  UP BND1      x...0121  212
  UP BND1      x...0122  212
- UP BND1      x...0123  213
+ UP BND1      x...0123  212
  UP BND1      x...0124  212
  UP BND1      x...0125  212
  UP BND1      x...0126  212
@@ -10228,7 +10268,7 @@ BOUNDS
  UP BND1      x...0520  212
  UP BND1      x...0521  212
  UP BND1      x...0522  212
- UP BND1      x...0523  211
+ UP BND1      x...0523  212
  UP BND1      x...0524  212
  UP BND1      x...0525  212
  UP BND1      x...0526  212
@@ -10613,7 +10653,7 @@ BOUNDS
  UP BND1      x...0905  212
  UP BND1      x...0906  212
  UP BND1      x...0907  212
- UP BND1      x...0908  211
+ UP BND1      x...0908  212
  UP BND1      x...0909  212
  UP BND1      x...0910  212
  UP BND1      x...0911  212
@@ -10673,7 +10713,7 @@ BOUNDS
  UP BND1      x...0965  212
  UP BND1      x...0966  212
  UP BND1      x...0967  212
- UP BND1      x...0968  213
+ UP BND1      x...0968  212
  UP BND1      x...0969  212
  UP BND1      x...0970  212
  UP BND1      x...0971  212
@@ -10798,7 +10838,7 @@ BOUNDS
  UP BND1      x...1090  212
  UP BND1      x...1091  212
  UP BND1      x...1092  212
- UP BND1      x...1093  211
+ UP BND1      x...1093  212
  UP BND1      x...1094  212
  UP BND1      x...1095  212
  UP BND1      x...1096  212
@@ -10839,7 +10879,7 @@ BOUNDS
  UP BND1      x...1131  212
  UP BND1      x...1132  212
  UP BND1      x...1133  212
- UP BND1      x...1134  211
+ UP BND1      x...1134  212
  UP BND1      x...1135  212
  UP BND1      x...1136  212
  UP BND1      x...1137  212
@@ -10907,7 +10947,7 @@ BOUNDS
  UP BND1      x...1199  212
  UP BND1      x...1200  212
  UP BND1      x...1201  212
- UP BND1      x...1202  211
+ UP BND1      x...1202  212
  UP BND1      x...1203  212
  UP BND1      x...1204  212
  UP BND1      x...1205  212
@@ -11114,7 +11154,7 @@ BOUNDS
  UP BND1      x...1406  212
  UP BND1      x...1407  212
  UP BND1      x...1408  212
- UP BND1      x...1409  213
+ UP BND1      x...1409  212
  UP BND1      x...1410  212
  UP BND1      x...1411  212
  UP BND1      x...1412  212
@@ -11746,6 +11786,7 @@ BOUNDS
  BV BND1      y...0520
  BV BND1      y...0521
  BV BND1      y...0522
+ BV BND1      y...0523
  BV BND1      y...0524
  BV BND1      y...0525
  BV BND1      y...0526
@@ -12130,6 +12171,7 @@ BOUNDS
  BV BND1      y...0905
  BV BND1      y...0906
  BV BND1      y...0907
+ BV BND1      y...0908
  BV BND1      y...0909
  BV BND1      y...0910
  BV BND1      y...0911
@@ -12314,6 +12356,7 @@ BOUNDS
  BV BND1      y...1090
  BV BND1      y...1091
  BV BND1      y...1092
+ BV BND1      y...1093
  BV BND1      y...1094
  BV BND1      y...1095
  BV BND1      y...1096
@@ -12354,6 +12397,7 @@ BOUNDS
  BV BND1      y...1131
  BV BND1      y...1132
  BV BND1      y...1133
+ BV BND1      y...1134
  BV BND1      y...1135
  BV BND1      y...1136
  BV BND1      y...1137
@@ -12421,6 +12465,7 @@ BOUNDS
  BV BND1      y...1199
  BV BND1      y...1200
  BV BND1      y...1201
+ BV BND1      y...1202
  BV BND1      y...1203
  BV BND1      y...1204
  BV BND1      y...1205

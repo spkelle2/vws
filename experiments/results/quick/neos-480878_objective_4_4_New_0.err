@@ -1,19 +1,6 @@
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.28695521. Calculated: 0.27758285.
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 4.38081979. Calculated: 4.37563822.
 VPC tried to exit with error code 1
 Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.27982990. Calculated: 0.26986677.
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.37292144. Calculated: 0.36335830.
 VPC tried to exit with error code 1
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.28148407. Calculated: 0.26992094.
-VPC tried to exit with error code 1
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
 Assertion failed

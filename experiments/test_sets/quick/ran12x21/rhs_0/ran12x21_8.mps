@@ -1,4 +1,4 @@
-NAME ran12x21_copy_pre
+NAME ran12x21_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -203,6 +203,7 @@ ROWS
  L  G166    
  L  G167    
  L  G168    
+ L  G169    
  L  G170    
  L  G171    
  L  G172    
@@ -234,6 +235,7 @@ ROWS
  L  G198    
  L  G199    
  L  G200    
+ L  G201    
  L  G202    
  L  G203    
  L  G204    
@@ -252,6 +254,7 @@ ROWS
  L  G217    
  L  G218    
  L  G219    
+ L  G220    
  L  G221    
  L  G222    
  L  G223    
@@ -962,6 +965,7 @@ COLUMNS
     X168      B0        1
     X169      OBJ       1
     X169      A8        1
+    X169      G169      1
     X169      B1        1
     X170      OBJ       10
     X170      A8        1
@@ -1089,6 +1093,7 @@ COLUMNS
     X200      B11       1
     X201      OBJ       2
     X201      A9        1
+    X201      G201      1
     X201      B12       1
     X202      OBJ       6
     X202      A9        1
@@ -1164,6 +1169,7 @@ COLUMNS
     X219      B9        1
     X220      OBJ       10
     X220      A10       1
+    X220      G220      1
     X220      B10       1
     X221      OBJ       10
     X221      A10       1
@@ -1425,7 +1431,7 @@ COLUMNS
     Y66       OBJ       152
     Y66       G66       -3
     Y67       OBJ       110
-    Y67       G67       -18
+    Y67       G67       -19
     Y68       OBJ       73
     Y68       G68       -5
     Y69       OBJ       253
@@ -1521,7 +1527,7 @@ COLUMNS
     Y114      OBJ       134
     Y114      G114      -9
     Y115      OBJ       203
-    Y115      G115      -2
+    Y115      G115      -3
     Y116      OBJ       84
     Y116      G116      -14
     Y117      OBJ       177
@@ -1628,6 +1634,8 @@ COLUMNS
     Y167      G167      -20
     Y168      OBJ       123
     Y168      G168      -2
+    Y169      OBJ       238
+    Y169      G169      -8
     Y170      OBJ       77
     Y170      G170      -2
     Y171      OBJ       86
@@ -1690,6 +1698,8 @@ COLUMNS
     Y199      G199      -3
     Y200      OBJ       129
     Y200      G200      -13
+    Y201      OBJ       225
+    Y201      G201      -2
     Y202      OBJ       178
     Y202      G202      -13
     Y203      OBJ       103
@@ -1726,6 +1736,8 @@ COLUMNS
     Y218      G218      -32
     Y219      OBJ       76
     Y219      G219      -9
+    Y220      OBJ       183
+    Y220      G220      -3
     Y221      OBJ       122
     Y221      G221      -21
     Y222      OBJ       178
@@ -1790,7 +1802,6 @@ COLUMNS
     Y251      G251      -25
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -646
     RHS1      A0        24
     RHS1      A1        19
     RHS1      A2        31
@@ -1824,8 +1835,11 @@ RHS
     RHS1      B18       27
     RHS1      B19       7
     RHS1      B20       27
-    RHS1      G67       1
-    RHS1      G115      1
+    RHS1      G23       1
+    RHS1      G57       -1
+    RHS1      G134      1
+    RHS1      G187      1
+    RHS1      G211      1
 BOUNDS
  UP BND1      X0        2
  UP BND1      X1        8
@@ -1996,7 +2010,7 @@ BOUNDS
  UP BND1      X166      7
  UP BND1      X167      20
  UP BND1      X168      2
- UP BND1      X169      7
+ UP BND1      X169      8
  UP BND1      X170      2
  UP BND1      X171      3
  UP BND1      X172      19
@@ -2028,7 +2042,7 @@ BOUNDS
  UP BND1      X198      9
  UP BND1      X199      3
  UP BND1      X200      13
- UP BND1      X201      1
+ UP BND1      X201      2
  UP BND1      X202      13
  UP BND1      X203      5
  UP BND1      X204      13
@@ -2047,7 +2061,7 @@ BOUNDS
  UP BND1      X217      32
  UP BND1      X218      32
  UP BND1      X219      9
- UP BND1      X220      2
+ UP BND1      X220      3
  UP BND1      X221      21
  UP BND1      X222      2
  UP BND1      X223      29
@@ -2248,6 +2262,7 @@ BOUNDS
  BV BND1      Y166    
  BV BND1      Y167    
  BV BND1      Y168    
+ BV BND1      Y169    
  BV BND1      Y170    
  BV BND1      Y171    
  BV BND1      Y172    
@@ -2279,6 +2294,7 @@ BOUNDS
  BV BND1      Y198    
  BV BND1      Y199    
  BV BND1      Y200    
+ BV BND1      Y201    
  BV BND1      Y202    
  BV BND1      Y203    
  BV BND1      Y204    
@@ -2297,6 +2313,7 @@ BOUNDS
  BV BND1      Y217    
  BV BND1      Y218    
  BV BND1      Y219    
+ BV BND1      Y220    
  BV BND1      Y221    
  BV BND1      Y222    
  BV BND1      Y223    

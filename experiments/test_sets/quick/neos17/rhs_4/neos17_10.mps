@@ -1,4 +1,4 @@
-NAME neos17_copy_pre
+NAME neos17_pre_copy
 ROWS
  N  OBJ
  L  OBS0001 
@@ -4425,7 +4425,7 @@ RHS
     RHS1      OBS0253   -0.001
     RHS1      OBS0254   -0.001
     RHS1      OBS0255   -0.001
-    RHS1      OBS0256   -0.001
+    RHS1      OBS0256   -0.251
     RHS1      OBS0257   -0.001
     RHS1      OBS0258   -0.001
     RHS1      OBS0259   -0.001
@@ -4639,7 +4639,7 @@ RHS
     RHS1      OBS0467   -0.001
     RHS1      OBS0468   -0.001
     RHS1      OBS0469   -0.001
-    RHS1      OBS0470   -0.251
+    RHS1      OBS0470   -0.001
     RHS1      OBS0471   -0.001
     RHS1      OBS0472   -0.001
     RHS1      OBS0473   -0.001

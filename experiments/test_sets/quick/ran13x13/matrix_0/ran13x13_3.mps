@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -335,7 +335,7 @@ COLUMNS
     X33       B7        1
     X34       OBJ       1
     X34       A2        1
-    X34       G34       1
+    X34       G34       2
     X34       B8        1
     X35       OBJ       4
     X35       A2        1
@@ -474,7 +474,7 @@ COLUMNS
     X68       G68       1
     X68       B3        1
     X69       OBJ       9
-    X69       A5        1
+    X69       A5        2
     X69       G69       1
     X69       B4        1
     X70       OBJ       8
@@ -483,7 +483,7 @@ COLUMNS
     X70       B5        1
     X71       OBJ       2
     X71       A5        1
-    X71       G71       2
+    X71       G71       1
     X71       B6        1
     X72       OBJ       2
     X72       A5        1
@@ -511,7 +511,7 @@ COLUMNS
     X77       B12       1
     X78       OBJ       8
     X78       A6        1
-    X78       G78       2
+    X78       G78       1
     X78       B0        1
     X79       OBJ       1
     X79       A6        1
@@ -626,7 +626,7 @@ COLUMNS
     X106      G106      1
     X106      B2        1
     X107      OBJ       3
-    X107      A8        1
+    X107      A8        2
     X107      G107      1
     X107      B3        1
     X108      OBJ       9
@@ -672,7 +672,7 @@ COLUMNS
     X118      OBJ       7
     X118      A9        1
     X118      G118      1
-    X118      B1        2
+    X118      B1        1
     X119      OBJ       3
     X119      A9        1
     X119      G119      1
@@ -854,7 +854,7 @@ COLUMNS
     X163      G163      1
     X163      B7        1
     X164      OBJ       5
-    X164      A12       1
+    X164      A12       2
     X164      G164      1
     X164      B8        1
     X165      OBJ       6
@@ -1103,7 +1103,7 @@ COLUMNS
     Y113      OBJ       147
     Y113      G113      -18
     Y114      OBJ       202
-    Y114      G114      -1
+    Y114      G114      -2
     Y115      OBJ       228
     Y115      G115      -9
     Y116      OBJ       267
@@ -1312,14 +1312,14 @@ BOUNDS
  UP BND1      X68       6
  UP BND1      X69       3
  UP BND1      X70       7
- UP BND1      X71       2
+ UP BND1      X71       4
  UP BND1      X72       1
  UP BND1      X73       7
  UP BND1      X74       7
  UP BND1      X75       2
  UP BND1      X76       7
  UP BND1      X77       5
- UP BND1      X78       10
+ UP BND1      X78       20
  UP BND1      X79       21
  UP BND1      X80       13
  UP BND1      X81       6
@@ -1355,7 +1355,7 @@ BOUNDS
  UP BND1      X111      1
  UP BND1      X112      18
  UP BND1      X113      18
- UP BND1      X114      1
+ UP BND1      X114      2
  UP BND1      X115      9
  UP BND1      X116      5
  UP BND1      X117      12

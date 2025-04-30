@@ -1,4 +1,4 @@
-NAME neos18_copy_pre
+NAME neos18_pre_copy
 ROWS
  N  OBJ
  L  R275    
@@ -8960,6 +8960,7 @@ COLUMNS
     h_28_54   R4628     -1
     h_28_54   R4630     -1
     h_28_54   R8542     1
+    h_28_58   OBJ       0.5
     h_28_58   R4635     -1
     h_28_58   R4637     -1
     h_28_58   R4638     -1
@@ -11077,7 +11078,7 @@ COLUMNS
     r_72      R8586     -1
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -2.5
+    RHS1      OBJ       -3
     RHS1      R277      -1
     RHS1      R294      -1
     RHS1      R295      1

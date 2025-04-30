@@ -1,4 +1,4 @@
-NAME neos-480878_copy_pre
+NAME neos-480878_pre_copy
 ROWS
  N  OBJ
  E  c0      
@@ -16173,7 +16173,7 @@ COLUMNS
     C0254     c460      -1
     C0254     c601      -1
     C0254     c737      -1
-    C0255     OBJ       2.23848
+    C0255     OBJ       3.23848
     C0255     c317      -1
     C0255     c461      -1
     C0255     c602      -1
@@ -16916,7 +16916,7 @@ COLUMNS
     C0459     OBJ       4
     C0459     c168      1
     C0459     c223      -420
-    C0460     OBJ       4
+    C0460     OBJ       5
     C0460     c168      1
     C0460     c224      -420
     C0461     OBJ       4

@@ -1,4 +1,4 @@
-NAME neos-4393408-tinui_copy_pre
+NAME neos-4393408-tinui_pre_copy
 ROWS
  N  OBJ
  E  R0005   
@@ -4774,7 +4774,7 @@ COLUMNS
     C0277     R0315     1
     C0277     R0316     -1
     C0277     R0831     0.015151515
-    C0278     OBJ       1
+    C0278     OBJ       0.5
     C0278     R0315     -1
     C0278     R0335     1
     C0278     R0832     0.015151515
@@ -11618,7 +11618,6 @@ COLUMNS
     C2117     R2667     2
     C2117     R2807     1
     C2117     R2811     1
-    C2118     OBJ       0.5
     C2118     R0668     -1
     C2118     R2668     2
     C2118     R2669     1

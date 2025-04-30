@@ -1,4 +1,4 @@
-NAME ic97_tension_copy_pre
+NAME ic97_tension_pre_copy
 ROWS
  N  OBJ
  E  cycle3  
@@ -783,7 +783,7 @@ COLUMNS
     x3336     OBJ       1
     x3336     cycle31   -1
     x3336     cycle152  1
-    x3337     OBJ       0.875
+    x3337     OBJ       1
     x3337     cycle187  1
     x3346     OBJ       1
     x3346     cycle10   -1
@@ -1301,6 +1301,7 @@ COLUMNS
     x2756     cycle174  -1
     x2756     cycle175  1
     MARKER    'MARKER'                 'INTORG'
+    q174      OBJ       0.125
     q174      cycle174  -60
     MARKER    'MARKER'                 'INTEND'
     x2749     cycle175  -1
@@ -1496,6 +1497,7 @@ COLUMNS
     x1394     cycle217  -1
     x1394     cycle317  1
     MARKER    'MARKER'                 'INTORG'
+    q213      OBJ       0.125
     q213      cycle213  -60
     MARKER    'MARKER'                 'INTEND'
     x1387     cycle214  1
@@ -1732,7 +1734,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q269      cycle269  -60
     MARKER    'MARKER'                 'INTEND'
-    x2662     OBJ       -0.125
     x2662     cycle270  1
     x2568     cycle270  -1
     x2568     cycle271  1
@@ -1819,6 +1820,7 @@ COLUMNS
     x1956     cycle291  -1
     x1956     cycle293  -1
     MARKER    'MARKER'                 'INTORG'
+    q291      OBJ       -0.125
     q291      cycle291  -60
     MARKER    'MARKER'                 'INTEND'
     x1954     cycle292  -1
@@ -1906,7 +1908,7 @@ COLUMNS
     q318      cycle318  -60
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -377.25
+    RHS1      OBJ       -381
     RHS1      cycle10   7
     RHS1      cycle13   30
     RHS1      cycle14   30

@@ -1,6 +1,9 @@
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.26710220. Calculated: 0.26192064.
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.27520394. Calculated: 0.27002238.
 VPC tried to exit with error code 1
 Assertion failed
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.26512110. Calculated: 0.25734875.
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.68731806. Calculated: 0.69768119.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.23972843. Calculated: 0.23494686.
 VPC tried to exit with error code 1
 Assertion failed

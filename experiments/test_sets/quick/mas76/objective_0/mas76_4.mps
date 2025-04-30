@@ -1,4 +1,4 @@
-NAME mas76_copy_pre
+NAME mas76_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -526,7 +526,7 @@ COLUMNS
     x43       c10       -8807
     x43       c11       -8807
     x43       c12       -8807
-    x44       OBJ       0.015635
+    x44       OBJ       1e-05
     x44       c1        1
     x44       c2        -3261
     x44       c3        -3261
@@ -1767,7 +1767,7 @@ COLUMNS
     x150      c8        -9936
     x150      c10       -9936
     MARKER    'MARKER'                 'INTEND'
-    x151      OBJ       1
+    x151      OBJ       1.0625
     x151      c2        -1
     x151      c3        -1
     x151      c4        -1

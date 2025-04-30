@@ -1,4 +1,4 @@
-NAME aligninq_copy_pre
+NAME aligninq_pre_copy
 ROWS
  N  OBJ
  L  R00001  
@@ -6064,6 +6064,7 @@ COLUMNS
     X00619    R00062    -1
     X00619    R00253    -1
     X00619    R00337    -1
+    X00620    OBJ       0.25
     X00620    ZOBJ      79
     X00620    R00012    -1
     X00620    R00027    -1
@@ -6152,7 +6153,6 @@ COLUMNS
     X00630    R00062    -1
     X00630    R00296    -4
     X00630    R00337    -1
-    X00631    OBJ       -0.25
     X00631    ZOBJ      14
     X00631    R00012    -1
     X00631    R00038    -1

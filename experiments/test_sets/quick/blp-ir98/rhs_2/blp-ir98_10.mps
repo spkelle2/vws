@@ -1,4 +1,4 @@
-NAME blp-ir98_copy_pre
+NAME blp-ir98_pre_copy
 ROWS
  N  OBJ
  E  defblpfreq(AhNmR)
@@ -58159,21 +58159,6 @@ COLUMNS
     x(Ledn.Nm.2.1.5)  defblpreq(HtNmR)  -8
     x(Ledn.Nm.2.1.5)  defblpreq(HtTbwtR)  -7
     x(Ledn.Nm.2.1.5)  oneblpline(Ledn.Nm.2)  1
-    x(Ledn.Nm.2.1.6)  OBJ       349.32888
-    x(Ledn.Nm.2.1.6)  defblpfreq(BdDdrR)  1
-    x(Ledn.Nm.2.1.6)  defblpfreq(BdTbwtR)  1
-    x(Ledn.Nm.2.1.6)  defblpfreq(DdrRtdR)  1
-    x(Ledn.Nm.2.1.6)  defblpfreq(GvLednR)  1
-    x(Ledn.Nm.2.1.6)  defblpfreq(GvRtdR)  1
-    x(Ledn.Nm.2.1.6)  defblpfreq(HtNmR)  1
-    x(Ledn.Nm.2.1.6)  defblpfreq(HtTbwtR)  1
-    x(Ledn.Nm.2.1.6)  defblpreq(BdTbwtR)  -7
-    x(Ledn.Nm.2.1.6)  defblpreq(DdrRtdR)  -7
-    x(Ledn.Nm.2.1.6)  defblpreq(GvLednR)  -7
-    x(Ledn.Nm.2.1.6)  defblpreq(GvRtdR)  -8
-    x(Ledn.Nm.2.1.6)  defblpreq(HtNmR)  -8
-    x(Ledn.Nm.2.1.6)  defblpreq(HtTbwtR)  -7
-    x(Ledn.Nm.2.1.6)  oneblpline(Ledn.Nm.2)  1
     x(Ledn.Nm.2.1.7)  OBJ       378.6064
     x(Ledn.Nm.2.1.7)  defblpfreq(BdDdrR)  1
     x(Ledn.Nm.2.1.7)  defblpfreq(BdTbwtR)  1
@@ -58234,51 +58219,6 @@ COLUMNS
     x(Ledn.Nm.2.2.2)  defblpreq(HtNmR)  -8
     x(Ledn.Nm.2.2.2)  defblpreq(HtTbwtR)  -10
     x(Ledn.Nm.2.2.2)  oneblpline(Ledn.Nm.2)  1
-    x(Ledn.Nm.2.2.3)  OBJ       522.99264
-    x(Ledn.Nm.2.2.3)  defblpfreq(BdDdrR)  2
-    x(Ledn.Nm.2.2.3)  defblpfreq(BdTbwtR)  2
-    x(Ledn.Nm.2.2.3)  defblpfreq(DdrRtdR)  2
-    x(Ledn.Nm.2.2.3)  defblpfreq(GvLednR)  2
-    x(Ledn.Nm.2.2.3)  defblpfreq(GvRtdR)  2
-    x(Ledn.Nm.2.2.3)  defblpfreq(HtNmR)  2
-    x(Ledn.Nm.2.2.3)  defblpfreq(HtTbwtR)  2
-    x(Ledn.Nm.2.2.3)  defblpreq(BdTbwtR)  -10
-    x(Ledn.Nm.2.2.3)  defblpreq(DdrRtdR)  -7
-    x(Ledn.Nm.2.2.3)  defblpreq(GvLednR)  -10
-    x(Ledn.Nm.2.2.3)  defblpreq(GvRtdR)  -8
-    x(Ledn.Nm.2.2.3)  defblpreq(HtNmR)  -8
-    x(Ledn.Nm.2.2.3)  defblpreq(HtTbwtR)  -10
-    x(Ledn.Nm.2.2.3)  oneblpline(Ledn.Nm.2)  1
-    x(Ledn.Nm.2.2.4)  OBJ       581.54768
-    x(Ledn.Nm.2.2.4)  defblpfreq(BdDdrR)  2
-    x(Ledn.Nm.2.2.4)  defblpfreq(BdTbwtR)  2
-    x(Ledn.Nm.2.2.4)  defblpfreq(DdrRtdR)  2
-    x(Ledn.Nm.2.2.4)  defblpfreq(GvLednR)  2
-    x(Ledn.Nm.2.2.4)  defblpfreq(GvRtdR)  2
-    x(Ledn.Nm.2.2.4)  defblpfreq(HtNmR)  2
-    x(Ledn.Nm.2.2.4)  defblpfreq(HtTbwtR)  2
-    x(Ledn.Nm.2.2.4)  defblpreq(BdTbwtR)  -10
-    x(Ledn.Nm.2.2.4)  defblpreq(DdrRtdR)  -7
-    x(Ledn.Nm.2.2.4)  defblpreq(GvLednR)  -10
-    x(Ledn.Nm.2.2.4)  defblpreq(GvRtdR)  -8
-    x(Ledn.Nm.2.2.4)  defblpreq(HtNmR)  -8
-    x(Ledn.Nm.2.2.4)  defblpreq(HtTbwtR)  -10
-    x(Ledn.Nm.2.2.4)  oneblpline(Ledn.Nm.2)  1
-    x(Ledn.Nm.2.2.5)  OBJ       640.10272
-    x(Ledn.Nm.2.2.5)  defblpfreq(BdDdrR)  2
-    x(Ledn.Nm.2.2.5)  defblpfreq(BdTbwtR)  2
-    x(Ledn.Nm.2.2.5)  defblpfreq(DdrRtdR)  2
-    x(Ledn.Nm.2.2.5)  defblpfreq(GvLednR)  2
-    x(Ledn.Nm.2.2.5)  defblpfreq(GvRtdR)  2
-    x(Ledn.Nm.2.2.5)  defblpfreq(HtNmR)  2
-    x(Ledn.Nm.2.2.5)  defblpfreq(HtTbwtR)  2
-    x(Ledn.Nm.2.2.5)  defblpreq(BdTbwtR)  -10
-    x(Ledn.Nm.2.2.5)  defblpreq(DdrRtdR)  -7
-    x(Ledn.Nm.2.2.5)  defblpreq(GvLednR)  -10
-    x(Ledn.Nm.2.2.5)  defblpreq(GvRtdR)  -8
-    x(Ledn.Nm.2.2.5)  defblpreq(HtNmR)  -8
-    x(Ledn.Nm.2.2.5)  defblpreq(HtTbwtR)  -10
-    x(Ledn.Nm.2.2.5)  oneblpline(Ledn.Nm.2)  1
     x(Ledn.Vl.2.1.0)  OBJ       226.3288992
     x(Ledn.Vl.2.1.0)  defblpfreq(BdDdrR)  1
     x(Ledn.Vl.2.1.0)  defblpfreq(BdTbwtR)  1
@@ -62757,6 +62697,7 @@ RHS
     RHS1      defblpfreq(AssShlR)  6
     RHS1      defblpfreq(CasZdR)  2
     RHS1      defblpfreq(HnZdR)  2
+    RHS1      defblpfreq(HwdSgnR)  1
     RHS1      defblpreq(AhNmR)  -7
     RHS1      defblpreq(AhZpR)  -7
     RHS1      defblpreq(AlmWpR)  -9
@@ -62812,7 +62753,7 @@ RHS
     RHS1      oneblpline(Ah.Shl.2)  1
     RHS1      oneblpline(Ah.Tbwt.1)  1
     RHS1      oneblpline(Ah.Ut.1)  1
-    RHS1      oneblpline(Ah.Vl.1)  1
+    RHS1      oneblpline(Ah.Vl.1)  2
     RHS1      oneblpline(Ah.Zl.1)  1
     RHS1      oneblpline(Ah.Zp.1)  1
     RHS1      oneblpline(Alm.Amr.1)  1
@@ -62823,7 +62764,7 @@ RHS
     RHS1      oneblpline(Alm.Bv.1)  1
     RHS1      oneblpline(Alm.Ddr.1)  1
     RHS1      oneblpline(Alm.Ddr.2)  1
-    RHS1      oneblpline(Alm.Dv.1)  1
+    RHS1      oneblpline(Alm.Dv.1)  2
     RHS1      oneblpline(Alm.Ehv.1)  1
     RHS1      oneblpline(Alm.Gdm.1)  1
     RHS1      oneblpline(Alm.Gv.1)  1
@@ -62858,7 +62799,7 @@ RHS
     RHS1      oneblpline(Amf.Ehv.1)  1
     RHS1      oneblpline(Amf.Gdm.1)  1
     RHS1      oneblpline(Amf.Gv.1)  1
-    RHS1      oneblpline(Amf.Gvc.1)  1
+    RHS1      oneblpline(Amf.Gvc.1)  2
     RHS1      oneblpline(Amf.Hlm.1)  1
     RHS1      oneblpline(Amf.Hlm.2)  1
     RHS1      oneblpline(Amf.Hn.1)  1
@@ -62878,7 +62819,7 @@ RHS
     RHS1      oneblpline(Amf.Zp.1)  1
     RHS1      oneblpline(Amr.Asd.1)  1
     RHS1      oneblpline(Amr.Ddr.1)  1
-    RHS1      oneblpline(Amr.Ehv.1)  1
+    RHS1      oneblpline(Amr.Ehv.1)  2
     RHS1      oneblpline(Amr.Gvc.1)  1
     RHS1      oneblpline(Amr.Hlm.1)  1
     RHS1      oneblpline(Amr.Hn.1)  1
@@ -62887,7 +62828,6 @@ RHS
     RHS1      oneblpline(Amr.Nm.1)  1
     RHS1      oneblpline(Amr.Rtd.1)  1
     RHS1      oneblpline(Amr.Ut.1)  1
-    RHS1      oneblpline(Amr.Vl.1)  1
     RHS1      oneblpline(Amr.Zp.1)  1
     RHS1      oneblpline(Asd.Bd.1)  1
     RHS1      oneblpline(Asd.Bd.2)  1
@@ -62947,10 +62887,10 @@ RHS
     RHS1      oneblpline(Bmr.Rtd.1)  1
     RHS1      oneblpline(Bmr.Ut.1)  1
     RHS1      oneblpline(Bmr.Vl.1)  1
-    RHS1      oneblpline(Bmr.Zl.1)  1
+    RHS1      oneblpline(Bmr.Zl.1)  2
     RHS1      oneblpline(Bmr.Zp.1)  1
     RHS1      oneblpline(Bv.Ddr.1)  1
-    RHS1      oneblpline(Bv.Ehv.1)  1
+    RHS1      oneblpline(Bv.Ehv.1)  2
     RHS1      oneblpline(Bv.Ehv.2)  1
     RHS1      oneblpline(Bv.Gvc.1)  1
     RHS1      oneblpline(Bv.Hn.1)  1
@@ -63018,7 +62958,6 @@ RHS
     RHS1      oneblpline(Ehv.Vl.1)  1
     RHS1      oneblpline(Ehv.Zl.1)  1
     RHS1      oneblpline(Ehv.Zp.1)  1
-    RHS1      oneblpline(Emn.Gdm.1)  1
     RHS1      oneblpline(Emn.Ht.1)  1
     RHS1      oneblpline(Emn.Nm.1)  1
     RHS1      oneblpline(Emn.Omn.1)  1
@@ -63065,7 +63004,7 @@ RHS
     RHS1      oneblpline(Gvc.Ut.1)  1
     RHS1      oneblpline(Gvc.Vl.1)  1
     RHS1      oneblpline(Gvc.Zp.1)  1
-    RHS1      oneblpline(Hlm.Hn.1)  1
+    RHS1      oneblpline(Hlm.Hn.1)  2
     RHS1      oneblpline(Hlm.Ht.1)  1
     RHS1      oneblpline(Hlm.Ht.2)  1
     RHS1      oneblpline(Hlm.Hvs.1)  1
@@ -63110,7 +63049,6 @@ RHS
     RHS1      oneblpline(Ht.Rm.1)  1
     RHS1      oneblpline(Ht.Rsd.1)  1
     RHS1      oneblpline(Ht.Rtd.1)  1
-    RHS1      oneblpline(Ht.Sgn.1)  1
     RHS1      oneblpline(Ht.Shl.1)  1
     RHS1      oneblpline(Ht.Tbwt.1)  1
     RHS1      oneblpline(Ht.Ut.1)  1
@@ -63119,13 +63057,13 @@ RHS
     RHS1      oneblpline(Ht.Zp.1)  1
     RHS1      oneblpline(Hvs.Nm.1)  1
     RHS1      oneblpline(Hvs.Rsd.1)  1
-    RHS1      oneblpline(Hvs.Rtd.1)  2
+    RHS1      oneblpline(Hvs.Rtd.1)  1
     RHS1      oneblpline(Hvs.Ut.1)  1
     RHS1      oneblpline(Hvs.Vl.1)  1
     RHS1      oneblpline(Hvs.Zp.1)  1
     RHS1      oneblpline(Ledn.Lls.1)  1
     RHS1      oneblpline(Ledn.Nm.1)  1
-    RHS1      oneblpline(Ledn.Nm.2)  2
+    RHS1      oneblpline(Ledn.Nm.2)  1
     RHS1      oneblpline(Ledn.Rtd.1)  1
     RHS1      oneblpline(Ledn.Ut.1)  1
     RHS1      oneblpline(Ledn.Vl.1)  1
@@ -67304,14 +67242,10 @@ BOUNDS
  BV BND1      x(Ledn.Nm.2.1.3)
  BV BND1      x(Ledn.Nm.2.1.4)
  BV BND1      x(Ledn.Nm.2.1.5)
- BV BND1      x(Ledn.Nm.2.1.6)
  BV BND1      x(Ledn.Nm.2.1.7)
  BV BND1      x(Ledn.Nm.2.2.0)
  BV BND1      x(Ledn.Nm.2.2.1)
  BV BND1      x(Ledn.Nm.2.2.2)
- BV BND1      x(Ledn.Nm.2.2.3)
- BV BND1      x(Ledn.Nm.2.2.4)
- BV BND1      x(Ledn.Nm.2.2.5)
  BV BND1      x(Ledn.Vl.2.1.0)
  BV BND1      x(Ledn.Vl.2.1.1)
  BV BND1      x(Ledn.Vl.2.1.2)

@@ -1,4 +1,4 @@
-NAME seymour1_copy_pre
+NAME seymour1_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -4759,10 +4759,10 @@ COLUMNS
     x100      OBJ       1
     x100      c63       -1
     x100      c110      -1
-    x104      OBJ       1
-    x104      c68       -1
-    x104      c110      -1
-    x104      c112      -1
+    x105      OBJ       1
+    x105      c68       -1
+    x105      c110      -1
+    x105      c112      -1
     x106      OBJ       1
     x106      c69       -1
     x106      c94       -1
@@ -38551,7 +38551,7 @@ RHS
     RHS1      c3551     -1
     RHS1      c3552     -1
     RHS1      c3553     -1
-    RHS1      c3554     -1
+    RHS1      c3554     -2
     RHS1      c3555     -1
     RHS1      c3556     -1
     RHS1      c3557     -1
@@ -39963,7 +39963,7 @@ BOUNDS
  BV BND1      x90     
  BV BND1      x99     
  BV BND1      x100    
- BV BND1      x104    
+ BV BND1      x105    
  BV BND1      x106    
  BV BND1      x107    
  BV BND1      x108    

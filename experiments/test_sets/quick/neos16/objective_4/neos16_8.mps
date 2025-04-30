@@ -1,4 +1,4 @@
-NAME neos16_copy_pre
+NAME neos16_pre_copy
 ROWS
  N  OBJ
  E  R0001   
@@ -461,7 +461,6 @@ COLUMNS
     C0055     R0148     -7
     C0056     R0317     7
     C0056     R0149     -7
-    C0057     OBJ       -0.25
     C0057     R0318     7
     C0057     R0150     -7
     C0058     R0319     7
@@ -542,6 +541,7 @@ COLUMNS
     C0179     R0608     -7
     C0180     R0777     7
     C0180     R0609     -7
+    C0181     OBJ       -0.5
     C0181     R0778     7
     C0181     R0610     -7
     C0182     R0779     7
@@ -632,6 +632,7 @@ COLUMNS
     C0224     R0653     -7
     C0225     R0822     7
     C0225     R0654     -7
+    C0226     OBJ       -0.5
     C0226     R0823     7
     C0226     R0655     -7
     C0227     R0824     7
@@ -750,7 +751,7 @@ COLUMNS
     C0339     R0790     1
     C0339     R0791     1
     C0339     R0792     1
-    C0340     OBJ       1
+    C0340     OBJ       1.5
     C0340     R0002     1
     C0340     R0096     1
     C0340     R0101     1
@@ -1448,7 +1449,7 @@ COLUMNS
     C0376     R0849     -1
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -417.25
+    RHS1      OBJ       -417
     RHS1      R0001     26
     RHS1      R0002     35
     RHS1      R0003     37

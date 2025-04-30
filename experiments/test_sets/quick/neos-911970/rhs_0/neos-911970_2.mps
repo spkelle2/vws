@@ -1,4 +1,4 @@
-NAME neos-911970_copy_pre
+NAME neos-911970_pre_copy
 ROWS
  N  OBJ
  L  R0001   
@@ -3570,65 +3570,63 @@ COLUMNS
 RHS
     RHS1      R0001     650
     RHS1      R0002     650
-    RHS1      R0003     650
+    RHS1      R0003     651
     RHS1      R0004     650
     RHS1      R0005     650
     RHS1      R0006     650
-    RHS1      R0007     550
+    RHS1      R0007     549
     RHS1      R0008     550
     RHS1      R0009     550
-    RHS1      R0010     650
+    RHS1      R0010     648
     RHS1      R0011     650
     RHS1      R0012     650
-    RHS1      R0013     650
+    RHS1      R0013     649
     RHS1      R0014     650
     RHS1      R0015     650
     RHS1      R0016     650
-    RHS1      R0017     650
-    RHS1      R0018     550
+    RHS1      R0017     649
+    RHS1      R0018     649
     RHS1      R0019     650
-    RHS1      R0020     650
+    RHS1      R0020     651
     RHS1      R0021     650
     RHS1      R0022     550
     RHS1      R0023     550
-    RHS1      R0024     550
-    RHS1      R0025     65
-    RHS1      R0026     64
+    RHS1      R0024     549
+    RHS1      R0025     66
+    RHS1      R0026     65
     RHS1      R0027     65
     RHS1      R0028     55
     RHS1      R0029     55
     RHS1      R0030     55
-    RHS1      R0031     74
-    RHS1      R0032     75
+    RHS1      R0031     75
+    RHS1      R0032     74
     RHS1      R0033     75
     RHS1      R0034     45
-    RHS1      R0035     45
+    RHS1      R0035     46
     RHS1      R0036     45
     RHS1      R0037     50
-    RHS1      R0038     50
+    RHS1      R0038     51
     RHS1      R0039     50
-    RHS1      R0040     50
+    RHS1      R0040     51
     RHS1      R0041     50
     RHS1      R0042     50
-    RHS1      R0043     47
+    RHS1      R0043     50
     RHS1      R0044     50
     RHS1      R0045     50
     RHS1      R0046     75
     RHS1      R0047     75
-    RHS1      R0048     75
+    RHS1      R0048     74
     RHS1      R0049     1
-    RHS1      R0050     1
     RHS1      R0051     1
     RHS1      R0052     1
-    RHS1      R0053     1
+    RHS1      R0053     2
     RHS1      R0054     1
-    RHS1      R0055     2
+    RHS1      R0055     1
     RHS1      R0056     1
     RHS1      R0057     1
     RHS1      R0058     1
     RHS1      R0059     1
-    RHS1      R0060     1
-    RHS1      R0061     2
+    RHS1      R0061     1
     RHS1      R0062     1
     RHS1      R0063     1
     RHS1      R0064     1
@@ -3636,20 +3634,20 @@ RHS
     RHS1      R0066     1
     RHS1      R0067     1
     RHS1      R0068     1
-    RHS1      R0069     2
+    RHS1      R0069     1
     RHS1      R0070     1
-    RHS1      R0071     1
+    RHS1      R0071     2
     RHS1      R0072     1
     RHS1      R0073     1
     RHS1      R0074     1
     RHS1      R0075     1
-    RHS1      R0076     1
+    RHS1      R0076     2
     RHS1      R0077     1
     RHS1      R0078     1
-    RHS1      R0079     1
+    RHS1      R0079     2
     RHS1      R0080     1
     RHS1      R0081     1
-    RHS1      R0082     1
+    RHS1      R0082     2
     RHS1      R0083     1
     RHS1      R0084     -1
     RHS1      R0085     -1
@@ -3661,10 +3659,9 @@ RHS
     RHS1      R0091     -1
     RHS1      R0092     -1
     RHS1      R0093     -1
-    RHS1      R0094     -1
     RHS1      R0095     -1
     RHS1      R0096     -1
-    RHS1      R0097     -1
+    RHS1      R0097     -2
     RHS1      R0098     -1
     RHS1      R0099     -1
     RHS1      R0100     -1
@@ -3677,12 +3674,12 @@ RHS
     RHS1      R0107     -1
 BOUNDS
  UP BND1      C0001     931
- UP BND1      C0002     932
+ UP BND1      C0002     931
  UP BND1      C0003     931
  UP BND1      C0004     962
  UP BND1      C0005     962
  UP BND1      C0006     962
- UP BND1      C0007     2507
+ UP BND1      C0007     2506
  UP BND1      C0008     2506
  UP BND1      C0009     2506
  UP BND1      C0010     1154
@@ -3694,7 +3691,7 @@ BOUNDS
  UP BND1      C0016     1390
  UP BND1      C0017     1390
  UP BND1      C0018     1390
- UP BND1      C0019     970
+ UP BND1      C0019     967
  UP BND1      C0020     967
  UP BND1      C0021     967
  UP BND1      C0022     2445
@@ -3717,7 +3714,7 @@ BOUNDS
  UP BND1      C0039     1.6676000000000051e+04
  UP BND1      C0040     1.6676000000000051e+04
  UP BND1      C0041     1.6676000000000051e+04
- UP BND1      C0042     1.6776000000000051e+04
+ UP BND1      C0042     1.6676000000000051e+04
  UP BND1      C0043     1.6676000000000051e+04
  UP BND1      C0044     1.6676000000000051e+04
  UP BND1      C0045     1.6676000000000051e+04

@@ -1,4 +1,4 @@
-NAME neos-1582420_copy_pre
+NAME neos-1582420_pre_copy
 ROWS
  N  OBJ
  L  R0001   
@@ -526,6 +526,32 @@ ROWS
  L  R2443   
  L  R2444   
  L  R2454   
+ L  R2504   
+ L  R2505   
+ L  R2506   
+ L  R2507   
+ L  R2514   
+ L  R2515   
+ L  R2516   
+ L  R2517   
+ L  R2518   
+ L  R2519   
+ L  R2522   
+ L  R2523   
+ L  R2524   
+ L  R2525   
+ L  R2526   
+ L  R2527   
+ L  R2528   
+ L  R2529   
+ L  R2530   
+ L  R2533   
+ L  R2534   
+ L  R2537   
+ L  R2538   
+ L  R2539   
+ L  R2544   
+ L  R2548   
  L  R2605   
  L  R2606   
  L  R2607   
@@ -4544,80 +4570,106 @@ COLUMNS
     C2454     R10044    -1
     C2454     R10104    9
     C2504     OBJ       4
+    C2504     R2504     1
     C2504     R10004    -1
     C2504     R10105    1
     C2505     OBJ       3
+    C2505     R2505     1
     C2505     R10005    -1
     C2505     R10105    5
     C2506     OBJ       2
+    C2506     R2506     1
     C2506     R10006    -1
     C2506     R10105    5.9999999999999991e+00
     C2507     OBJ       3
+    C2507     R2507     1
     C2507     R10007    -1
     C2507     R10105    1
     C2514     OBJ       3
+    C2514     R2514     1
     C2514     R10010    -1
     C2514     R10105    2
     C2515     OBJ       2
+    C2515     R2515     1
     C2515     R10011    -1
     C2515     R10105    4
     C2516     OBJ       1
+    C2516     R2516     1
     C2516     R10012    -1
     C2516     R10105    6.9999999999999991e+00
     C2517     OBJ       2
+    C2517     R2517     1
     C2517     R10013    -1
     C2517     R10105    8
     C2518     OBJ       3
+    C2518     R2518     1
     C2518     R10014    -1
     C2518     R10105    9
     C2519     OBJ       4
+    C2519     R2519     1
     C2519     R10015    -1
     C2519     R10105    1
     C2522     OBJ       4
+    C2522     R2522     1
     C2522     R10018    -1
     C2522     R10105    4
     C2523     OBJ       3
+    C2523     R2523     1
     C2523     R10019    -1
     C2523     R10105    2
     C2524     OBJ       2
+    C2524     R2524     1
     C2524     R10020    -1
     C2524     R10105    8
     C2525     OBJ       1
+    C2525     R2525     1
     C2525     R10021    -1
     C2525     R10105    5.9999999999999991e+00
+    C2526     R2526     1
     C2526     R10022    -1
     C2526     R10105    8
     C2527     OBJ       1
+    C2527     R2527     1
     C2527     R10023    -1
     C2527     R10105    10
     C2528     OBJ       2
+    C2528     R2528     1
     C2528     R10024    -1
     C2528     R10105    10
     C2529     OBJ       3
+    C2529     R2529     1
     C2529     R10025    -1
     C2529     R10105    5.9999999999999991e+00
     C2530     OBJ       4
+    C2530     R2530     1
     C2530     R10026    -1
     C2530     R10105    2
     C2533     OBJ       4
+    C2533     R2533     1
     C2533     R10028    -1
     C2533     R10105    2.9999999999999996e+00
     C2534     OBJ       3
+    C2534     R2534     1
     C2534     R10029    -1
     C2534     R10105    5
     C2537     OBJ       2
+    C2537     R2537     1
     C2537     R10030    -1
     C2537     R10105    9
     C2538     OBJ       3
+    C2538     R2538     1
     C2538     R10031    -1
     C2538     R10105    6.9999999999999991e+00
     C2539     OBJ       4
+    C2539     R2539     1
     C2539     R10032    -1
     C2539     R10105    5.9999999999999991e+00
     C2544     OBJ       4
+    C2544     R2544     1
     C2544     R10037    -1
     C2544     R10105    2.9999999999999996e+00
     C2548     OBJ       4
+    C2548     R2548     1
     C2548     R10038    -1
     C2548     R10105    5.9999999999999991e+00
     C2605     OBJ       4
@@ -12162,6 +12214,32 @@ COLUMNS
     C10025    R2454     -1
     C10025    R10104    -30
     C10025    R10180    1
+    C10026    R2504     -1
+    C10026    R2505     -1
+    C10026    R2506     -1
+    C10026    R2507     -1
+    C10026    R2514     -1
+    C10026    R2515     -1
+    C10026    R2516     -1
+    C10026    R2517     -1
+    C10026    R2518     -1
+    C10026    R2519     -1
+    C10026    R2522     -1
+    C10026    R2523     -1
+    C10026    R2524     -1
+    C10026    R2525     -1
+    C10026    R2526     -1
+    C10026    R2527     -1
+    C10026    R2528     -1
+    C10026    R2529     -1
+    C10026    R2530     -1
+    C10026    R2533     -1
+    C10026    R2534     -1
+    C10026    R2537     -1
+    C10026    R2538     -1
+    C10026    R2539     -1
+    C10026    R2544     -1
+    C10026    R2548     -1
     C10026    R10105    -30
     C10026    R10180    1
     C10027    R2605     -1
@@ -14070,6 +14148,7 @@ COLUMNS
     C10100    R10180    1
     MARKER    'MARKER'                 'INTEND'
 RHS
+    RHS1      R6790     0.25
     RHS1      R10001    -1
     RHS1      R10002    -1
     RHS1      R10003    -1
@@ -16458,105 +16537,104 @@ BOUNDS
  BV BND1      C9998   
  BV BND1      C9999   
  BV BND1      C10000  
- UP BND1      C10001    12
- UP BND1      C10002    12
- UP BND1      C10003    12
- UP BND1      C10004    12
- UP BND1      C10005    12
- UP BND1      C10006    12
- UP BND1      C10007    12
- UP BND1      C10008    12
- UP BND1      C10009    12
- UP BND1      C10010    12
- UP BND1      C10011    12
- UP BND1      C10012    12
- UP BND1      C10013    12
- UP BND1      C10014    12
- UP BND1      C10015    12
- UP BND1      C10016    12
- UP BND1      C10017    12
- UP BND1      C10018    12
- UP BND1      C10019    12
- UP BND1      C10020    12
- UP BND1      C10021    12
- UP BND1      C10022    12
- UP BND1      C10023    12
- UP BND1      C10024    12
- UP BND1      C10025    12
- LO BND1      C10026    1
+ UP BND1      C10001    13
+ UP BND1      C10002    13
+ UP BND1      C10003    13
+ UP BND1      C10004    13
+ UP BND1      C10005    13
+ UP BND1      C10006    13
+ UP BND1      C10007    13
+ UP BND1      C10008    13
+ UP BND1      C10009    13
+ UP BND1      C10010    13
+ UP BND1      C10011    13
+ UP BND1      C10012    13
+ UP BND1      C10013    13
+ UP BND1      C10014    13
+ UP BND1      C10015    13
+ UP BND1      C10016    13
+ UP BND1      C10017    13
+ UP BND1      C10018    13
+ UP BND1      C10019    13
+ UP BND1      C10020    13
+ UP BND1      C10021    13
+ UP BND1      C10022    13
+ UP BND1      C10023    13
+ UP BND1      C10024    13
+ UP BND1      C10025    13
  UP BND1      C10026    13
- UP BND1      C10027    12
- UP BND1      C10028    12
- UP BND1      C10029    12
- UP BND1      C10030    12
- UP BND1      C10031    12
- UP BND1      C10032    12
- UP BND1      C10033    12
- UP BND1      C10034    12
- UP BND1      C10035    12
- UP BND1      C10036    12
- UP BND1      C10037    12
- UP BND1      C10038    12
- UP BND1      C10039    12
- UP BND1      C10040    12
- UP BND1      C10041    12
- UP BND1      C10042    12
- UP BND1      C10043    12
- UP BND1      C10044    12
- UP BND1      C10045    12
- UP BND1      C10046    12
- UP BND1      C10047    12
- UP BND1      C10048    12
- UP BND1      C10049    12
- UP BND1      C10050    12
- UP BND1      C10051    12
- UP BND1      C10052    12
- UP BND1      C10053    12
- UP BND1      C10054    12
- UP BND1      C10055    12
- UP BND1      C10056    12
- UP BND1      C10057    12
- UP BND1      C10058    12
- UP BND1      C10059    12
- UP BND1      C10060    12
- UP BND1      C10061    12
- UP BND1      C10062    12
- UP BND1      C10063    12
- UP BND1      C10064    12
- UP BND1      C10065    12
- UP BND1      C10066    12
- UP BND1      C10067    12
- UP BND1      C10068    12
- UP BND1      C10069    12
- UP BND1      C10070    12
- UP BND1      C10071    12
- UP BND1      C10072    12
- UP BND1      C10073    12
- UP BND1      C10074    12
- UP BND1      C10075    12
- UP BND1      C10076    12
- UP BND1      C10077    12
- UP BND1      C10078    12
- UP BND1      C10079    12
- UP BND1      C10080    12
- UP BND1      C10081    12
- UP BND1      C10082    12
- UP BND1      C10083    12
- UP BND1      C10084    12
- UP BND1      C10085    12
- UP BND1      C10086    12
- UP BND1      C10087    12
- UP BND1      C10088    12
- UP BND1      C10089    12
- UP BND1      C10090    12
- UP BND1      C10091    12
- UP BND1      C10092    12
- UP BND1      C10093    12
- UP BND1      C10094    12
- UP BND1      C10095    12
- UP BND1      C10096    12
- UP BND1      C10097    12
- UP BND1      C10098    12
- UP BND1      C10099    12
- UP BND1      C10100    12
+ UP BND1      C10027    13
+ UP BND1      C10028    13
+ UP BND1      C10029    13
+ UP BND1      C10030    13
+ UP BND1      C10031    13
+ UP BND1      C10032    13
+ UP BND1      C10033    13
+ UP BND1      C10034    13
+ UP BND1      C10035    13
+ UP BND1      C10036    13
+ UP BND1      C10037    13
+ UP BND1      C10038    13
+ UP BND1      C10039    13
+ UP BND1      C10040    13
+ UP BND1      C10041    13
+ UP BND1      C10042    13
+ UP BND1      C10043    13
+ UP BND1      C10044    13
+ UP BND1      C10045    13
+ UP BND1      C10046    13
+ UP BND1      C10047    13
+ UP BND1      C10048    13
+ UP BND1      C10049    13
+ UP BND1      C10050    13
+ UP BND1      C10051    13
+ UP BND1      C10052    13
+ UP BND1      C10053    13
+ UP BND1      C10054    13
+ UP BND1      C10055    13
+ UP BND1      C10056    13
+ UP BND1      C10057    13
+ UP BND1      C10058    13
+ UP BND1      C10059    13
+ UP BND1      C10060    13
+ UP BND1      C10061    13
+ UP BND1      C10062    13
+ UP BND1      C10063    13
+ UP BND1      C10064    13
+ UP BND1      C10065    13
+ UP BND1      C10066    13
+ UP BND1      C10067    13
+ UP BND1      C10068    13
+ UP BND1      C10069    13
+ UP BND1      C10070    13
+ UP BND1      C10071    13
+ UP BND1      C10072    13
+ UP BND1      C10073    13
+ UP BND1      C10074    13
+ UP BND1      C10075    13
+ UP BND1      C10076    13
+ UP BND1      C10077    13
+ UP BND1      C10078    13
+ UP BND1      C10079    13
+ UP BND1      C10080    13
+ UP BND1      C10081    13
+ UP BND1      C10082    13
+ UP BND1      C10083    13
+ UP BND1      C10084    13
+ UP BND1      C10085    13
+ UP BND1      C10086    13
+ UP BND1      C10087    13
+ UP BND1      C10088    13
+ UP BND1      C10089    13
+ UP BND1      C10090    13
+ UP BND1      C10091    13
+ UP BND1      C10092    13
+ UP BND1      C10093    13
+ UP BND1      C10094    13
+ UP BND1      C10095    13
+ UP BND1      C10096    13
+ UP BND1      C10097    13
+ UP BND1      C10098    13
+ UP BND1      C10099    13
+ UP BND1      C10100    13
 ENDATA

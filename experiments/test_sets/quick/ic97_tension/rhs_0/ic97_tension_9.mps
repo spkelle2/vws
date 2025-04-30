@@ -1,4 +1,4 @@
-NAME ic97_tension_copy_pre
+NAME ic97_tension_pre_copy
 ROWS
  N  OBJ
  E  cycle3  
@@ -15,7 +15,6 @@ ROWS
  E  cycle46 
  E  cycle47 
  E  cycle48 
- E  cycle51 
  E  cycle52 
  E  cycle53 
  E  cycle54 
@@ -164,7 +163,6 @@ ROWS
  E  cycle261
  E  cycle262
  E  cycle263
- E  cycle264
  E  cycle265
  E  cycle266
  E  cycle267
@@ -372,7 +370,6 @@ COLUMNS
     x61       OBJ       1
     x61       cycle57   1
     x61       cycle44   -1
-    x61       cycle51   -1
     x61       cycle265  1
     x61       cycle284  -1
     x61       cycle290  1
@@ -678,7 +675,6 @@ COLUMNS
     x3306     cycle64   -1
     x3306     cycle266  -1
     x3307     OBJ       1
-    x3307     cycle51   1
     x3307     cycle57   -1
     x3307     cycle265  -1
     x3308     OBJ       1
@@ -1055,8 +1051,6 @@ COLUMNS
     x2561     cycle61   -1
     x2561     cycle262  1
     x2561     cycle270  1
-    x2628     cycle51   -1
-    x2628     cycle264  -1
     x2336     cycle65   -1
     x2336     cycle148  1
     x2336     cycle150  -1
@@ -1721,10 +1715,8 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q263      cycle263  -60
     MARKER    'MARKER'                 'INTEND'
-    x1518     cycle264  1
     x2629     cycle265  1
     MARKER    'MARKER'                 'INTORG'
-    q265      cycle264  -60
     q265      cycle265  -60
     q266      cycle266  -60
     q267      cycle267  -60
@@ -1913,158 +1905,185 @@ COLUMNS
     q318      cycle318  -60
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -379
+    RHS1      OBJ       -381
     RHS1      cycle10   7
-    RHS1      cycle13   30
+    RHS1      cycle13   29
     RHS1      cycle14   30
-    RHS1      cycle17   30
+    RHS1      cycle17   31
     RHS1      cycle19   30
     RHS1      cycle30   -75
-    RHS1      cycle31   15
-    RHS1      cycle44   1
+    RHS1      cycle31   16
+    RHS1      cycle44   -1
     RHS1      cycle48   -30
-    RHS1      cycle51   -30
     RHS1      cycle52   30
-    RHS1      cycle54   32
-    RHS1      cycle56   -30
+    RHS1      cycle54   31
+    RHS1      cycle56   -29
     RHS1      cycle57   -1
-    RHS1      cycle60   29
-    RHS1      cycle61   -30
-    RHS1      cycle64   -29
+    RHS1      cycle60   31
+    RHS1      cycle61   -32
+    RHS1      cycle64   -30
     RHS1      cycle65   -31
-    RHS1      cycle67   30
+    RHS1      cycle67   29
     RHS1      cycle72   30
     RHS1      cycle80   40
-    RHS1      cycle90   -30
-    RHS1      cycle122  31
+    RHS1      cycle90   -28
+    RHS1      cycle104  1
+    RHS1      cycle122  30
     RHS1      cycle123  90
     RHS1      cycle129  -1
     RHS1      cycle134  30
     RHS1      cycle136  -30
-    RHS1      cycle138  126
+    RHS1      cycle138  125
     RHS1      cycle139  -30
-    RHS1      cycle140  -29
-    RHS1      cycle141  -59
-    RHS1      cycle145  30
-    RHS1      cycle146  -60
+    RHS1      cycle140  -30
+    RHS1      cycle141  -60
+    RHS1      cycle143  -1
+    RHS1      cycle144  -1
+    RHS1      cycle145  28
+    RHS1      cycle146  -62
     RHS1      cycle147  90
-    RHS1      cycle148  -1
     RHS1      cycle149  -15
     RHS1      cycle150  -60
     RHS1      cycle151  30
-    RHS1      cycle152  -60
-    RHS1      cycle153  -30
+    RHS1      cycle152  -61
+    RHS1      cycle153  -31
     RHS1      cycle155  -45
-    RHS1      cycle156  -105
+    RHS1      cycle156  -106
     RHS1      cycle157  -45
-    RHS1      cycle158  -45
-    RHS1      cycle159  -45
+    RHS1      cycle158  -47
+    RHS1      cycle159  -47
+    RHS1      cycle160  -1
+    RHS1      cycle161  3
     RHS1      cycle162  -45
+    RHS1      cycle163  2
     RHS1      cycle164  -15
-    RHS1      cycle165  -15
+    RHS1      cycle165  -14
     RHS1      cycle166  -15
+    RHS1      cycle168  1
     RHS1      cycle170  -60
-    RHS1      cycle171  -60
+    RHS1      cycle171  -59
     RHS1      cycle172  105
-    RHS1      cycle173  -60
+    RHS1      cycle173  -59
     RHS1      cycle174  -60
-    RHS1      cycle176  243
+    RHS1      cycle175  2
+    RHS1      cycle176  242
     RHS1      cycle177  -59
-    RHS1      cycle178  -30
+    RHS1      cycle178  -33
+    RHS1      cycle180  1
     RHS1      cycle181  -60
-    RHS1      cycle183  243
-    RHS1      cycle184  -61
+    RHS1      cycle182  -1
+    RHS1      cycle183  244
+    RHS1      cycle184  -60
     RHS1      cycle185  -150
-    RHS1      cycle186  -15
-    RHS1      cycle188  -60
+    RHS1      cycle186  -14
+    RHS1      cycle188  -61
     RHS1      cycle189  -60
     RHS1      cycle190  -30
     RHS1      cycle193  111
-    RHS1      cycle195  -59
+    RHS1      cycle194  -1
+    RHS1      cycle195  -57
     RHS1      cycle196  -31
-    RHS1      cycle197  -30
+    RHS1      cycle197  -28
     RHS1      cycle199  -30
     RHS1      cycle200  -15
     RHS1      cycle201  -1
-    RHS1      cycle202  -46
+    RHS1      cycle202  -45
     RHS1      cycle203  90
     RHS1      cycle204  -30
-    RHS1      cycle205  90
+    RHS1      cycle205  93
     RHS1      cycle206  15
-    RHS1      cycle207  -14
-    RHS1      cycle209  -31
-    RHS1      cycle210  -61
-    RHS1      cycle211  -91
-    RHS1      cycle212  -60
-    RHS1      cycle214  -50
-    RHS1      cycle216  -17
-    RHS1      cycle217  -30
-    RHS1      cycle218  -1
-    RHS1      cycle223  -1
+    RHS1      cycle207  -17
+    RHS1      cycle209  -30
+    RHS1      cycle210  -60
+    RHS1      cycle211  -90
+    RHS1      cycle212  -59
+    RHS1      cycle214  -51
+    RHS1      cycle216  -14
+    RHS1      cycle217  -31
+    RHS1      cycle218  1
+    RHS1      cycle219  1
+    RHS1      cycle220  1
+    RHS1      cycle221  -1
     RHS1      cycle224  -30
-    RHS1      cycle225  -30
-    RHS1      cycle227  -44
+    RHS1      cycle225  -31
+    RHS1      cycle227  -45
     RHS1      cycle228  -31
-    RHS1      cycle229  -15
+    RHS1      cycle229  -14
     RHS1      cycle230  -15
-    RHS1      cycle231  -45
-    RHS1      cycle232  -15
-    RHS1      cycle233  -30
+    RHS1      cycle231  -44
+    RHS1      cycle232  -17
+    RHS1      cycle233  -32
+    RHS1      cycle234  -1
     RHS1      cycle235  -30
     RHS1      cycle236  30
     RHS1      cycle237  -30
-    RHS1      cycle238  -30
-    RHS1      cycle241  244
-    RHS1      cycle246  117
-    RHS1      cycle248  -53
-    RHS1      cycle252  -183
+    RHS1      cycle238  -29
+    RHS1      cycle240  -1
+    RHS1      cycle241  243
+    RHS1      cycle242  1
+    RHS1      cycle244  1
+    RHS1      cycle245  1
+    RHS1      cycle246  118
+    RHS1      cycle248  -54
+    RHS1      cycle249  -1
+    RHS1      cycle250  2
+    RHS1      cycle252  -184
     RHS1      cycle253  -30
-    RHS1      cycle255  90
+    RHS1      cycle254  -2
+    RHS1      cycle255  91
     RHS1      cycle256  120
-    RHS1      cycle257  -46
+    RHS1      cycle257  -45
+    RHS1      cycle258  1
     RHS1      cycle259  -61
-    RHS1      cycle260  -61
-    RHS1      cycle261  -60
+    RHS1      cycle260  -60
+    RHS1      cycle261  -58
     RHS1      cycle263  -30
-    RHS1      cycle264  -31
-    RHS1      cycle266  -61
+    RHS1      cycle265  -1
+    RHS1      cycle266  -60
     RHS1      cycle267  120
+    RHS1      cycle269  -2
+    RHS1      cycle270  -2
     RHS1      cycle271  -60
-    RHS1      cycle272  -30
-    RHS1      cycle273  124
-    RHS1      cycle275  -14
+    RHS1      cycle272  -32
+    RHS1      cycle273  125
+    RHS1      cycle274  1
+    RHS1      cycle275  -15
     RHS1      cycle276  -30
-    RHS1      cycle277  -59
+    RHS1      cycle277  -60
     RHS1      cycle278  -120
-    RHS1      cycle279  61
-    RHS1      cycle281  -32
-    RHS1      cycle282  -46
-    RHS1      cycle283  -45
-    RHS1      cycle284  75
-    RHS1      cycle285  60
-    RHS1      cycle288  60
+    RHS1      cycle279  58
+    RHS1      cycle281  -30
+    RHS1      cycle282  -45
+    RHS1      cycle283  -44
+    RHS1      cycle284  76
+    RHS1      cycle285  59
+    RHS1      cycle287  1
+    RHS1      cycle288  59
     RHS1      cycle289  90
-    RHS1      cycle290  -120
-    RHS1      cycle291  -92
+    RHS1      cycle290  -119
+    RHS1      cycle291  -89
+    RHS1      cycle293  1
     RHS1      cycle294  -31
-    RHS1      cycle295  30
-    RHS1      cycle296  -29
-    RHS1      cycle300  -60
-    RHS1      cycle302  31
-    RHS1      cycle303  -1
-    RHS1      cycle304  -1
-    RHS1      cycle306  -30
-    RHS1      cycle308  -30
+    RHS1      cycle295  28
+    RHS1      cycle296  -31
+    RHS1      cycle299  -3
+    RHS1      cycle300  -62
+    RHS1      cycle302  30
+    RHS1      cycle303  1
+    RHS1      cycle305  1
+    RHS1      cycle306  -31
+    RHS1      cycle307  1
+    RHS1      cycle308  -29
     RHS1      cycle309  -30
-    RHS1      cycle310  140
-    RHS1      cycle311  61
+    RHS1      cycle310  138
+    RHS1      cycle311  62
     RHS1      cycle312  -60
-    RHS1      cycle313  -7
-    RHS1      cycle314  -110
-    RHS1      cycle315  -45
+    RHS1      cycle313  -6
+    RHS1      cycle314  -108
+    RHS1      cycle315  -46
     RHS1      cycle316  -255
-    RHS1      cycle317  -45
-    RHS1      cycle318  30
+    RHS1      cycle317  -44
+    RHS1      cycle318  29
 BOUNDS
  LO BND1      x1        16
  UP BND1      x1        21
@@ -2122,7 +2141,7 @@ BOUNDS
  UP BND1      x67       35
  LO BND1      x69       28
  UP BND1      x69       35
- LO BND1      x79       38
+ LO BND1      x79       36
  UP BND1      x79       41
  LO BND1      x83       32
  UP BND1      x83       37
@@ -2378,24 +2397,22 @@ BOUNDS
  UP BND1      x2412     84
  LO BND1      x2337     9
  UP BND1      x2337     23
- LO BND1      x3161     13
+ LO BND1      x3161     11
  UP BND1      x3161     51
  LO BND1      x1979     17
  UP BND1      x1979     43
  LO BND1      x2531     23
  UP BND1      x2531     37
- LO BND1      x2494     15
- UP BND1      x2494     41
+ LO BND1      x2494     16
+ UP BND1      x2494     42
  LO BND1      x2561     9
  UP BND1      x2561     51
- LO BND1      x2628     32
- UP BND1      x2628     45
- LO BND1      x2336     24
- UP BND1      x2336     38
+ LO BND1      x2336     23
+ UP BND1      x2336     37
  LO BND1      x2043     36
- UP BND1      x2043     43
- LO BND1      x2264     39
- UP BND1      x2264     53
+ UP BND1      x2043     44
+ LO BND1      x2264     38
+ UP BND1      x2264     52
  LO BND1      x1585     10
  UP BND1      x1585     50
  LO BND1      x1980     5
@@ -2403,7 +2420,7 @@ BOUNDS
  LO BND1      x2642     4
  UP BND1      x2642     57
  LO BND1      x1882     14
- UP BND1      x1882     50
+ UP BND1      x1882     49
  LO BND1      x1817     74
  UP BND1      x1817     105
  LO BND1      x1925     20
@@ -2610,7 +2627,7 @@ BOUNDS
  LO BND1      x1478     3
  UP BND1      x1478     56
  BV BND1      q200    
- LO BND1      x1504     22
+ LO BND1      x1504     23
  UP BND1      x1504     75
  LO BND1      x1477     3
  UP BND1      x1477     56
@@ -2806,8 +2823,6 @@ BOUNDS
  LO BND1      x3070     4
  UP BND1      x3070     57
  BV BND1      q263    
- LO BND1      x1518     13
- UP BND1      x1518     66
  LO BND1      x2629     13
  UP BND1      x2629     66
  BV BND1      q265    

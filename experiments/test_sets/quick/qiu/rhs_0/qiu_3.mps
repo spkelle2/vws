@@ -1,4 +1,4 @@
-NAME qiu_copy_pre
+NAME qiu_pre_copy
 ROWS
  N  OBJ
  E  c1      
@@ -475,6 +475,8 @@ ROWS
  L  c472    
  L  c473    
  L  c474    
+ L  c475    
+ L  c476    
  L  c477    
  L  c478    
  L  c479    
@@ -579,6 +581,8 @@ ROWS
  L  c578    
  L  c579    
  L  c580    
+ L  c581    
+ L  c582    
  L  c583    
  L  c584    
  L  c585    
@@ -621,6 +625,8 @@ ROWS
  L  c622    
  L  c623    
  L  c624    
+ L  c625    
+ L  c626    
  L  c627    
  L  c628    
  L  c629    
@@ -2450,6 +2456,10 @@ COLUMNS
     x219      c473      1
     x219      c474      1
     x219      c663      -1
+    x220      OBJ       -16.947
+    x220      c475      1
+    x220      c476      1
+    x220      c664      -1
     x221      OBJ       -16.947
     x221      c477      1
     x221      c478      1
@@ -2658,6 +2668,10 @@ COLUMNS
     x272      c579      1
     x272      c580      1
     x272      c664      -1
+    x273      OBJ       -16.947
+    x273      c581      1
+    x273      c582      1
+    x273      c661      -1
     x274      OBJ       -16.947
     x274      c583      1
     x274      c584      1
@@ -2742,6 +2756,10 @@ COLUMNS
     x294      c623      1
     x294      c624      1
     x294      c662      -1
+    x295      OBJ       -16.947
+    x295      c625      1
+    x295      c626      1
+    x295      c663      -1
     x296      OBJ       -16.947
     x296      c627      1
     x296      c628      1
@@ -3495,6 +3513,7 @@ COLUMNS
     x483      c663      1
     x483      c1005     1
     x484      c43       1
+    x484      c475      -1
     x484      c664      1
     x484      c1007     1
     x485      c44       1
@@ -3706,6 +3725,7 @@ COLUMNS
     x536      c664      1
     x536      c1111     1
     x537      c57       1
+    x537      c581      -1
     x537      c661      1
     x537      c1113     1
     x538      c57       1
@@ -3793,6 +3813,7 @@ COLUMNS
     x558      c662      1
     x558      c1155     1
     x559      c62       1
+    x559      c625      -1
     x559      c663      1
     x559      c1157     1
     x560      c62       1
@@ -4547,8 +4568,9 @@ COLUMNS
     x747      c474      -1
     x747      c663      1
     x747      c1006     1
-    x748      OBJ       -16.947
     x748      c109      1
+    x748      c476      -1
+    x748      c664      1
     x748      c1008     1
     x749      c110      1
     x749      c478      -1
@@ -4758,8 +4780,9 @@ COLUMNS
     x800      c580      -1
     x800      c664      1
     x800      c1112     1
-    x801      OBJ       -16.947
     x801      c123      1
+    x801      c582      -1
+    x801      c661      1
     x801      c1114     1
     x802      c123      1
     x802      c584      -1
@@ -4845,8 +4868,9 @@ COLUMNS
     x822      c624      -1
     x822      c662      1
     x822      c1156     1
-    x823      OBJ       -16.947
     x823      c128      1
+    x823      c626      -1
+    x823      c663      1
     x823      c1158     1
     x824      c128      1
     x824      c628      -1
@@ -5049,10 +5073,13 @@ RHS
     RHS1      c130      3.12
     RHS1      c131      0.52
     RHS1      c132      0.26
+    RHS1      c512      1
     RHS1      c661      48
     RHS1      c662      48
     RHS1      c663      48
     RHS1      c664      48
+    RHS1      c726      1
+    RHS1      c900      1
 BOUNDS
  BV BND1      x1      
  BV BND1      x2      
@@ -5273,6 +5300,7 @@ BOUNDS
  UP BND1      x217      0.26
  UP BND1      x218      0.26
  UP BND1      x219      0.26
+ UP BND1      x220      0.26
  UP BND1      x221      0.52
  UP BND1      x222      0.52
  UP BND1      x223      0.52
@@ -5325,6 +5353,7 @@ BOUNDS
  UP BND1      x270      0.26
  UP BND1      x271      0.26
  UP BND1      x272      0.26
+ UP BND1      x273      0.26
  UP BND1      x274      0.26
  UP BND1      x275      0.26
  UP BND1      x276      0.26
@@ -5346,6 +5375,7 @@ BOUNDS
  UP BND1      x292      0.26
  UP BND1      x293      0.26
  UP BND1      x294      0.26
+ UP BND1      x295      0.26
  UP BND1      x296      0.26
  UP BND1      x297      0.26
  UP BND1      x298      0.26

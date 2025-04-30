@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -97,6 +97,7 @@ ROWS
  L  G67     
  L  G68     
  L  G69     
+ L  G70     
  L  G71     
  L  G72     
  L  G73     
@@ -163,6 +164,7 @@ ROWS
  L  G134    
  L  G135    
  L  G136    
+ L  G137    
  L  G138    
  L  G139    
  L  G140    
@@ -477,6 +479,7 @@ COLUMNS
     X69       B4        1
     X70       OBJ       8
     X70       A5        1
+    X70       G70       1
     X70       B5        1
     X71       OBJ       2
     X71       A5        1
@@ -742,6 +745,10 @@ COLUMNS
     X136      A10       1
     X136      G136      1
     X136      B6        1
+    X137      OBJ       5
+    X137      A10       1
+    X137      G137      1
+    X137      B7        1
     X138      OBJ       1
     X138      A10       1
     X138      G138      1
@@ -1007,6 +1014,8 @@ COLUMNS
     Y68       G68       -6
     Y69       OBJ       133
     Y69       G69       -3
+    Y70       OBJ       205
+    Y70       G70       -7
     Y71       OBJ       197
     Y71       G71       -4
     Y72       OBJ       297
@@ -1139,6 +1148,8 @@ COLUMNS
     Y135      G135      -16
     Y136      OBJ       200
     Y136      G136      -4
+    Y137      OBJ       112
+    Y137      G137      -1
     Y138      OBJ       269
     Y138      G138      -16
     Y139      OBJ       213
@@ -1203,7 +1214,6 @@ COLUMNS
     Y168      G168      -5
     MARKER    'MARKER'                 'INTEND'
 RHS
-    RHS1      OBJ       -317
     RHS1      A0        14
     RHS1      A1        21
     RHS1      A2        11
@@ -1230,6 +1240,8 @@ RHS
     RHS1      B10       2
     RHS1      B11       9
     RHS1      B12       5
+    RHS1      G120      -1
+    RHS1      G137      -1
 BOUNDS
  UP BND1      X0        14
  UP BND1      X1        14
@@ -1301,7 +1313,7 @@ BOUNDS
  UP BND1      X67       7
  UP BND1      X68       6
  UP BND1      X69       3
- UP BND1      X70       6
+ UP BND1      X70       7
  UP BND1      X71       4
  UP BND1      X72       1
  UP BND1      X73       7
@@ -1368,6 +1380,7 @@ BOUNDS
  UP BND1      X134      3
  UP BND1      X135      16
  UP BND1      X136      4
+ UP BND1      X137      1
  UP BND1      X138      16
  UP BND1      X139      16
  UP BND1      X140      2
@@ -1469,6 +1482,7 @@ BOUNDS
  BV BND1      Y67     
  BV BND1      Y68     
  BV BND1      Y69     
+ BV BND1      Y70     
  BV BND1      Y71     
  BV BND1      Y72     
  BV BND1      Y73     
@@ -1535,6 +1549,7 @@ BOUNDS
  BV BND1      Y134    
  BV BND1      Y135    
  BV BND1      Y136    
+ BV BND1      Y137    
  BV BND1      Y138    
  BV BND1      Y139    
  BV BND1      Y140    

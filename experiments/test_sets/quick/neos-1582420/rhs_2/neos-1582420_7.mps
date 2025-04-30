@@ -1,4 +1,4 @@
-NAME neos-1582420_copy_pre
+NAME neos-1582420_pre_copy
 ROWS
  N  OBJ
  L  R0001   
@@ -1711,6 +1711,7 @@ ROWS
  L  R7175   
  L  R7182   
  L  R7183   
+ L  R7184   
  L  R7185   
  L  R7192   
  L  R7193   
@@ -9275,6 +9276,7 @@ COLUMNS
     C7183     R10064    -1
     C7183     R10151    8
     C7184     OBJ       3
+    C7184     R7184     1
     C7184     R10065    -1
     C7184     R10151    8
     C7185     OBJ       4
@@ -13489,6 +13491,7 @@ COLUMNS
     C10072    R7175     -1
     C10072    R7182     -1
     C10072    R7183     -1
+    C10072    R7184     -1
     C10072    R7185     -1
     C10072    R7192     -1
     C10072    R7193     -1
@@ -14145,6 +14148,7 @@ COLUMNS
     C10100    R10180    1
     MARKER    'MARKER'                 'INTEND'
 RHS
+    RHS1      R5534     -1
     RHS1      R10001    -1
     RHS1      R10002    -1
     RHS1      R10003    -1

@@ -1,4 +1,4 @@
-NAME qiu_copy_pre
+NAME qiu_pre_copy
 ROWS
  N  OBJ
  E  c1      
@@ -315,6 +315,8 @@ ROWS
  L  c312    
  L  c313    
  L  c314    
+ L  c315    
+ L  c316    
  L  c317    
  L  c318    
  L  c319    
@@ -1614,14 +1616,13 @@ COLUMNS
     x35       c1093     -3.51
     x35       c1173     -3.12
     x36       OBJ       114.034
-    x36       c644      -1
     x36       c896      -2.73
     x36       c904      -3.51
     x36       c912      -0.26
     x36       c920      -3.9
     x36       c928      -19.37
     x36       c936      -2.73
-    x36       c944      -2.38
+    x36       c944      -3.38
     x36       c952      -3.38
     x36       c1023     -4.42
     x36       c1095     -3.51
@@ -2135,6 +2136,10 @@ COLUMNS
     x139      c313      1
     x139      c314      1
     x139      c663      -1
+    x140      OBJ       -16.947
+    x140      c315      1
+    x140      c316      1
+    x140      c664      -1
     x141      OBJ       -16.947
     x141      c317      1
     x141      c318      1
@@ -3188,6 +3193,7 @@ COLUMNS
     x403      c663      1
     x403      c845      1
     x404      c23       1
+    x404      c315      -1
     x404      c664      1
     x404      c847      1
     x405      c24       1
@@ -4242,8 +4248,9 @@ COLUMNS
     x667      c314      -1
     x667      c663      1
     x667      c846      1
-    x668      OBJ       -16.947
     x668      c89       1
+    x668      c316      -1
+    x668      c664      1
     x668      c848      1
     x669      c90       1
     x669      c318      -1
@@ -5066,11 +5073,13 @@ RHS
     RHS1      c130      3.12
     RHS1      c131      0.52
     RHS1      c132      0.26
+    RHS1      c339      -1
+    RHS1      c491      1
     RHS1      c661      48
     RHS1      c662      48
     RHS1      c663      48
     RHS1      c664      48
-    RHS1      c944      1
+    RHS1      c931      -1
 BOUNDS
  BV BND1      x1      
  BV BND1      x2      
@@ -5211,6 +5220,7 @@ BOUNDS
  UP BND1      x137      0.26
  UP BND1      x138      0.26
  UP BND1      x139      0.26
+ UP BND1      x140      0.26
  UP BND1      x141      3.38
  UP BND1      x142      3.38
  UP BND1      x143      3.38

@@ -1,4 +1,4 @@
-NAME gsvm2rl3_copy_pre
+NAME gsvm2rl3_pre_copy
 ROWS
  N  OBJ
  L  R0      
@@ -4388,7 +4388,7 @@ RHS
     RHS1      R0        -1
     RHS1      R1        -1
     RHS1      R2        -1
-    RHS1      R3        -1
+    RHS1      R3        -1.125
     RHS1      R4        -1
     RHS1      R5        -1
     RHS1      R6        -1
@@ -4445,7 +4445,6 @@ RHS
     RHS1      R57       -1
     RHS1      R58       -1
     RHS1      R59       -1
-    RHS1      R112      -0.125
 BOUNDS
  UP BND1      xi_1      2
  UP BND1      xi_2      2

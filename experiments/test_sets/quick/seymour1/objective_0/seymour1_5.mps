@@ -1,4 +1,4 @@
-NAME seymour1_copy_pre
+NAME seymour1_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -32884,7 +32884,7 @@ COLUMNS
     x1260     c3632     -1
     x1260     c3634     -1
     x1260     c3642     -1
-    x1261     OBJ       1
+    x1261     OBJ       1.5
     x1261     c2242     -1
     x1261     c2243     -1
     x1261     c2449     -1
@@ -35472,7 +35472,7 @@ COLUMNS
     x1371     c4882     -1
     x1371     c4895     -1
 RHS
-    RHS1      OBJ       -188.5
+    RHS1      OBJ       -189
     RHS1      c1        -1
     RHS1      c9        -1
     RHS1      c10       -1

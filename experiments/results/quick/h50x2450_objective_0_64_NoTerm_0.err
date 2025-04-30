@@ -1,20 +1,3 @@
-vpcGenerator must be one of New, Old, Farkas, or None
-Assertion failed
-vpcGenerator must be one of New, Old, Farkas, or None
-Assertion failed
-vpcGenerator must be one of New, Old, Farkas, or None
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-vpcGenerator must be one of New, Old, Farkas, or None
-Assertion failed
-vpcGenerator must be one of New, Old, Farkas, or None
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
-vpcGenerator must be one of New, Old, Farkas, or None
-Assertion failed
-VwsSolverInterface::solve: problem dimension must stay fixed
-Assertion failed
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/var/spool/torque/mom_priv/jobs/1818460.polyp1.ie.lehigh.edu.SC: line 4:  2749 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX} ${TIGHTEN_DISJUNCTION} ${TIGHTEN_MATRIX_PERTURBATION} ${TIGHTEN_INFEASIBLE_TERM} ${TIGHTEN_INFEASIBLE_BASIS}

@@ -1,4 +1,4 @@
-NAME pg_copy_pre
+NAME pg_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -128,14 +128,28 @@ ROWS
  E  c125    
 COLUMNS
     MARKER    'MARKER'                 'INTORG'
+    z0        OBJ       64
+    z0        c26       1364
+    z1        OBJ       5
+    z1        c27       1107
+    z2        OBJ       92
+    z2        c28       1249
     z3        OBJ       113
     z3        c29       1038
+    z4        OBJ       93
+    z4        c30       984
     z5        OBJ       73
     z5        c31       1438
     z6        OBJ       46
     z6        c32       1286
+    z7        OBJ       91
+    z7        c33       1224
     z8        OBJ       129
     z8        c34       1236
+    z9        OBJ       64
+    z9        c35       1293
+    z10       OBJ       139
+    z10       c36       1125
     z11       OBJ       92
     z11       c37       1195
     z12       OBJ       56
@@ -144,6 +158,8 @@ COLUMNS
     z13       c39       956
     z14       OBJ       79
     z14       c40       1215
+    z15       OBJ       5
+    z15       c41       1097
     z16       OBJ       32
     z16       c42       991
     z17       OBJ       131
@@ -152,34 +168,56 @@ COLUMNS
     z18       c44       1045
     z19       OBJ       85
     z19       c45       1443
+    z20       OBJ       65
+    z20       c46       1249
     z21       OBJ       70
     z21       c47       1313
     z22       OBJ       115
     z22       c48       1444
+    z23       OBJ       64
+    z23       c49       1370
     z24       OBJ       107
     z24       c50       1119
+    z25       OBJ       7
+    z25       c51       1170
     z26       OBJ       47
     z26       c52       1153
     z27       OBJ       62
     z27       c53       1380
+    z28       OBJ       105
+    z28       c54       1357
     z29       OBJ       38
     z29       c55       1163
+    z30       OBJ       111
+    z30       c56       1549
     z31       OBJ       128
     z31       c57       1247
     z32       OBJ       19
     z32       c58       1064
+    z33       OBJ       59
+    z33       c59       1290
+    z34       OBJ       84
+    z34       c60       1457
     z35       OBJ       83
     z35       c61       1281
+    z36       OBJ       17
+    z36       c62       1235
     z37       OBJ       90
     z37       c63       1249
     z38       OBJ       119
     z38       c64       1149
+    z39       OBJ       16
+    z39       c65       1281
     z40       OBJ       90
     z40       c66       1133
     z41       OBJ       9
     z41       c67       1397
+    z42       OBJ       89
+    z42       c68       1106
     z43       OBJ       66
     z43       c69       1163
+    z44       OBJ       13
+    z44       c70       1349
     z45       OBJ       62
     z45       c71       991
     z46       OBJ       4
@@ -188,10 +226,18 @@ COLUMNS
     z47       c73       906
     z48       OBJ       116
     z48       c74       1290
+    z49       OBJ       48
+    z49       c75       1039
+    z50       OBJ       81
+    z50       c76       1017
+    z51       OBJ       19
+    z51       c77       1163
     z52       OBJ       11
     z52       c78       1183
     z53       OBJ       132
     z53       c79       1007
+    z54       OBJ       61
+    z54       c80       1073
     z55       OBJ       88
     z55       c81       1487
     z56       OBJ       110
@@ -204,38 +250,76 @@ COLUMNS
     z59       c85       1344
     z60       OBJ       1
     z60       c86       895
+    z61       OBJ       49
+    z61       c87       1474
     z62       OBJ       132
     z62       c88       1000
+    z63       OBJ       108
+    z63       c89       1043
+    z64       OBJ       137
+    z64       c90       1086
     z65       OBJ       132
     z65       c91       1208
     z66       OBJ       72
     z66       c92       1348
+    z67       OBJ       31
+    z67       c93       1250
     z68       OBJ       134
     z68       c94       1112
     z69       OBJ       78
     z69       c95       1292
+    z70       OBJ       73
+    z70       c96       1262
+    z71       OBJ       80
+    z71       c97       1256
     z72       OBJ       57
     z72       c98       1126
+    z73       OBJ       97
+    z73       c99       1378
     z74       OBJ       109
     z74       c100      1279
+    z75       OBJ       87
+    z75       c101      878
     z76       OBJ       100
     z76       c102      1094
+    z77       OBJ       115
+    z77       c103      1089
+    z78       OBJ       13
+    z78       c104      1107
     z79       OBJ       135
     z79       c105      1123
+    z80       OBJ       41
+    z80       c106      1115
     z81       OBJ       8
     z81       c107      1324
+    z82       OBJ       57
+    z82       c108      1067
     z83       OBJ       17
     z83       c109      1117
     z84       OBJ       101
     z84       c110      1449
     z85       OBJ       30
     z85       c111      1194
+    z86       OBJ       13
+    z86       c112      1407
     z87       OBJ       134
     z87       c113      1607
     z88       OBJ       50
     z88       c114      1461
+    z89       OBJ       25
+    z89       c115      1241
+    z90       OBJ       60
+    z90       c116      1344
     z91       OBJ       27
     z91       c117      1336
+    z92       OBJ       110
+    z92       c118      1156
+    z93       OBJ       101
+    z93       c119      1475
+    z94       OBJ       90
+    z94       c120      900
+    z95       OBJ       70
+    z95       c121      1164
     z96       OBJ       119
     z96       c122      1086
     z97       OBJ       63
@@ -7846,186 +7930,228 @@ COLUMNS
     f98       c124      1
     f99       c125      1
 RHS
-    RHS1      c1        2465
+    RHS1      c1        2470
     RHS1      c2        1468
-    RHS1      c3        1952
-    RHS1      c4        1723
-    RHS1      c5        1593
-    RHS1      c6        2453
-    RHS1      c7        1856
-    RHS1      c8        1706
-    RHS1      c9        2458
-    RHS1      c10       2000
+    RHS1      c3        1948
+    RHS1      c4        1722
+    RHS1      c5        1598
+    RHS1      c6        2462
+    RHS1      c7        1861
+    RHS1      c8        1703
+    RHS1      c9        2457
+    RHS1      c10       2004
     RHS1      c11       1429
-    RHS1      c12       1910
-    RHS1      c13       1005
-    RHS1      c14       1019
+    RHS1      c12       1912
+    RHS1      c13       1009
+    RHS1      c14       1017
     RHS1      c15       2308
-    RHS1      c16       1810
-    RHS1      c17       1444
-    RHS1      c18       1076
-    RHS1      c19       2174
-    RHS1      c20       1632
-    RHS1      c21       1070
-    RHS1      c22       1619
-    RHS1      c23       1132
-    RHS1      c24       1202
+    RHS1      c16       1806
+    RHS1      c17       1438
+    RHS1      c18       1073
+    RHS1      c19       2173
+    RHS1      c20       1633
+    RHS1      c21       1074
+    RHS1      c22       1624
+    RHS1      c23       1129
+    RHS1      c24       1200
     RHS1      c25       1694
-    RHS1      c26       1363
-    RHS1      c27       1106
-    RHS1      c28       1248
-    RHS1      c29       1039
-    RHS1      c30       982
-    RHS1      c31       1439
-    RHS1      c32       1288
-    RHS1      c33       1222
-    RHS1      c34       1238
+    RHS1      c26       1364
+    RHS1      c27       1108
+    RHS1      c28       1250
+    RHS1      c29       1037
+    RHS1      c30       981
+    RHS1      c31       1434
+    RHS1      c32       1284
+    RHS1      c33       1225
+    RHS1      c34       1232
     RHS1      c35       1292
-    RHS1      c36       1124
-    RHS1      c37       1197
-    RHS1      c38       1123
-    RHS1      c39       956
-    RHS1      c40       1216
-    RHS1      c41       1091
-    RHS1      c42       991
-    RHS1      c43       1288
-    RHS1      c44       1048
+    RHS1      c36       1125
+    RHS1      c37       1199
+    RHS1      c38       1119
+    RHS1      c39       954
+    RHS1      c40       1215
+    RHS1      c41       1096
+    RHS1      c42       990
+    RHS1      c43       1289
+    RHS1      c44       1041
     RHS1      c45       1444
-    RHS1      c46       1248
-    RHS1      c47       1314
-    RHS1      c48       1445
-    RHS1      c49       1369
-    RHS1      c50       1119
-    RHS1      c51       1168
-    RHS1      c52       1156
-    RHS1      c53       1382
-    RHS1      c54       1354
-    RHS1      c55       1165
+    RHS1      c46       1251
+    RHS1      c47       1313
+    RHS1      c48       1443
+    RHS1      c49       1368
+    RHS1      c50       1120
+    RHS1      c51       1169
+    RHS1      c52       1150
+    RHS1      c53       1379
+    RHS1      c54       1359
+    RHS1      c55       1164
     RHS1      c56       1547
     RHS1      c57       1247
     RHS1      c58       1064
     RHS1      c59       1289
-    RHS1      c60       1455
-    RHS1      c61       1282
-    RHS1      c62       1234
+    RHS1      c60       1460
+    RHS1      c61       1278
+    RHS1      c62       1231
     RHS1      c63       1249
     RHS1      c64       1149
-    RHS1      c65       1277
-    RHS1      c66       1136
-    RHS1      c67       1399
-    RHS1      c68       1105
-    RHS1      c69       1163
-    RHS1      c70       1346
-    RHS1      c71       995
-    RHS1      c72       984
-    RHS1      c73       909
-    RHS1      c74       1293
-    RHS1      c75       1036
-    RHS1      c76       1014
-    RHS1      c77       1162
-    RHS1      c78       1187
-    RHS1      c79       1008
-    RHS1      c80       1071
-    RHS1      c81       1488
-    RHS1      c82       1092
+    RHS1      c65       1281
+    RHS1      c66       1135
+    RHS1      c67       1395
+    RHS1      c68       1107
+    RHS1      c69       1161
+    RHS1      c70       1345
+    RHS1      c71       990
+    RHS1      c72       980
+    RHS1      c73       905
+    RHS1      c74       1289
+    RHS1      c75       1039
+    RHS1      c76       1016
+    RHS1      c77       1163
+    RHS1      c78       1185
+    RHS1      c79       1004
+    RHS1      c80       1073
+    RHS1      c81       1486
+    RHS1      c82       1087
     RHS1      c83       1220
     RHS1      c84       1299
-    RHS1      c85       1345
-    RHS1      c86       895
-    RHS1      c87       1473
+    RHS1      c85       1343
+    RHS1      c86       896
+    RHS1      c87       1470
     RHS1      c88       1000
-    RHS1      c89       1039
-    RHS1      c90       1084
-    RHS1      c91       1208
+    RHS1      c89       1040
+    RHS1      c90       1088
+    RHS1      c91       1206
     RHS1      c92       1349
-    RHS1      c93       1249
+    RHS1      c93       1252
     RHS1      c94       1115
-    RHS1      c95       1295
+    RHS1      c95       1294
     RHS1      c96       1260
     RHS1      c97       1254
-    RHS1      c98       1126
-    RHS1      c99       1371
-    RHS1      c100      1280
+    RHS1      c98       1130
+    RHS1      c99       1375
+    RHS1      c100      1277
     RHS1      c101      876
-    RHS1      c102      1100
-    RHS1      c103      1086
-    RHS1      c104      1105
-    RHS1      c105      1124
-    RHS1      c106      1112
-    RHS1      c107      1327
-    RHS1      c108      1066
-    RHS1      c109      1117
-    RHS1      c110      1449
-    RHS1      c111      1195
-    RHS1      c112      1406
-    RHS1      c113      1607
-    RHS1      c114      1461
-    RHS1      c115      1238
-    RHS1      c116      1343
-    RHS1      c117      1336
-    RHS1      c118      1155
-    RHS1      c119      1472
-    RHS1      c120      899
-    RHS1      c121      1161
-    RHS1      c122      1090
-    RHS1      c123      1279
-    RHS1      c124      1140
-    RHS1      c125      1167
+    RHS1      c102      1094
+    RHS1      c103      1088
+    RHS1      c104      1110
+    RHS1      c105      1123
+    RHS1      c106      1115
+    RHS1      c107      1324
+    RHS1      c108      1068
+    RHS1      c109      1121
+    RHS1      c110      1447
+    RHS1      c111      1192
+    RHS1      c112      1408
+    RHS1      c113      1609
+    RHS1      c114      1459
+    RHS1      c115      1239
+    RHS1      c116      1346
+    RHS1      c117      1337
+    RHS1      c118      1158
+    RHS1      c119      1471
+    RHS1      c120      897
+    RHS1      c121      1162
+    RHS1      c122      1089
+    RHS1      c123      1280
+    RHS1      c124      1139
+    RHS1      c125      1168
 BOUNDS
+ BV BND1      z0      
+ BV BND1      z1      
+ BV BND1      z2      
  BV BND1      z3      
+ BV BND1      z4      
  BV BND1      z5      
  BV BND1      z6      
+ BV BND1      z7      
  BV BND1      z8      
+ BV BND1      z9      
+ BV BND1      z10     
  BV BND1      z11     
  BV BND1      z12     
  BV BND1      z13     
  BV BND1      z14     
+ BV BND1      z15     
  BV BND1      z16     
  BV BND1      z17     
  BV BND1      z18     
  BV BND1      z19     
+ BV BND1      z20     
  BV BND1      z21     
  BV BND1      z22     
+ BV BND1      z23     
  BV BND1      z24     
+ BV BND1      z25     
  BV BND1      z26     
  BV BND1      z27     
+ BV BND1      z28     
  BV BND1      z29     
+ BV BND1      z30     
  BV BND1      z31     
  BV BND1      z32     
+ BV BND1      z33     
+ BV BND1      z34     
  BV BND1      z35     
+ BV BND1      z36     
  BV BND1      z37     
  BV BND1      z38     
+ BV BND1      z39     
  BV BND1      z40     
  BV BND1      z41     
+ BV BND1      z42     
  BV BND1      z43     
+ BV BND1      z44     
  BV BND1      z45     
  BV BND1      z46     
  BV BND1      z47     
  BV BND1      z48     
+ BV BND1      z49     
+ BV BND1      z50     
+ BV BND1      z51     
  BV BND1      z52     
  BV BND1      z53     
+ BV BND1      z54     
  BV BND1      z55     
  BV BND1      z56     
  BV BND1      z57     
  BV BND1      z58     
  BV BND1      z59     
  BV BND1      z60     
+ BV BND1      z61     
  BV BND1      z62     
+ BV BND1      z63     
+ BV BND1      z64     
  BV BND1      z65     
  BV BND1      z66     
+ BV BND1      z67     
  BV BND1      z68     
  BV BND1      z69     
+ BV BND1      z70     
+ BV BND1      z71     
  BV BND1      z72     
+ BV BND1      z73     
  BV BND1      z74     
+ BV BND1      z75     
  BV BND1      z76     
+ BV BND1      z77     
+ BV BND1      z78     
  BV BND1      z79     
+ BV BND1      z80     
  BV BND1      z81     
+ BV BND1      z82     
  BV BND1      z83     
  BV BND1      z84     
  BV BND1      z85     
+ BV BND1      z86     
  BV BND1      z87     
  BV BND1      z88     
+ BV BND1      z89     
+ BV BND1      z90     
  BV BND1      z91     
+ BV BND1      z92     
+ BV BND1      z93     
+ BV BND1      z94     
+ BV BND1      z95     
  BV BND1      z96     
  BV BND1      z97     
  BV BND1      z98     

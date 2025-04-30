@@ -1,4 +1,4 @@
-NAME mas76_copy_pre
+NAME mas76_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -1782,14 +1782,14 @@ COLUMNS
 RHS
     RHS1      c1        15
     RHS1      c2        -157344.61033
-    RHS1      c3        -117846.82287
+    RHS1      c3        -117844.82287
     RHS1      c4        -121387.97778
-    RHS1      c5        -122530.5819
+    RHS1      c5        -122528.5819
     RHS1      c6        -124193.83991
     RHS1      c7        -110802.52457
-    RHS1      c8        -111974.66667
-    RHS1      c9        -115941
-    RHS1      c10       -127089.14155
+    RHS1      c8        -111973.66667
+    RHS1      c9        -115942
+    RHS1      c10       -127087.14155
     RHS1      c11       -112419.0906
     RHS1      c12       -123188
 BOUNDS

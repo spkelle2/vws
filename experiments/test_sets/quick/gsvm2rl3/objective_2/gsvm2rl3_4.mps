@@ -1,4 +1,4 @@
-NAME gsvm2rl3_copy_pre
+NAME gsvm2rl3_pre_copy
 ROWS
  N  OBJ
  L  R0      
@@ -499,6 +499,8 @@ COLUMNS
     z_7       R6        -100
     z_8       OBJ       0.0206896551724138
     z_8       R7        -100
+    z_9       OBJ       0.0206896551724138
+    z_9       R8        -100
     z_10      OBJ       0.0193548387096774
     z_10      R9        -100
     z_11      OBJ       0.0193548387096774
@@ -563,7 +565,7 @@ COLUMNS
     z_40      R39       -100
     z_41      OBJ       0.0193548387096774
     z_41      R40       -100
-    z_42      OBJ       0.0206896551724138
+    z_42      OBJ       5.2068965517241383e-01
     z_42      R41       -100
     z_43      OBJ       0.0193548387096774
     z_43      R42       -100
@@ -4383,7 +4385,6 @@ COLUMNS
     b         R58       -1
     b         R59       -1
 RHS
-    RHS1      OBJ       4.7931034482758622e-01
     RHS1      R0        -1
     RHS1      R1        -1
     RHS1      R2        -1
@@ -4392,7 +4393,7 @@ RHS
     RHS1      R5        -1
     RHS1      R6        -1
     RHS1      R7        -1
-    RHS1      R8        99
+    RHS1      R8        -1
     RHS1      R9        -1
     RHS1      R10       -1
     RHS1      R11       -1
@@ -4513,6 +4514,7 @@ BOUNDS
  BV BND1      z_6     
  BV BND1      z_7     
  BV BND1      z_8     
+ BV BND1      z_9     
  BV BND1      z_10    
  BV BND1      z_11    
  BV BND1      z_12    

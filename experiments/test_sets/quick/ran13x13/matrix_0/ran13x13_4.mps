@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -264,7 +264,7 @@ COLUMNS
     X16       OBJ       8
     X16       A1        1
     X16       G16       1
-    X16       B3        2
+    X16       B3        1
     X17       OBJ       8
     X17       A1        1
     X17       G17       1
@@ -292,7 +292,7 @@ COLUMNS
     X23       OBJ       6
     X23       A1        1
     X23       G23       1
-    X23       B10       1
+    X23       B10       2
     X24       OBJ       10
     X24       A1        1
     X24       G24       1
@@ -506,7 +506,7 @@ COLUMNS
     X76       G76       1
     X76       B11       1
     X77       OBJ       9
-    X77       A5        1
+    X77       A5        2
     X77       G77       1
     X77       B12       1
     X78       OBJ       8
@@ -614,7 +614,7 @@ COLUMNS
     X103      G103      1
     X103      B12       1
     X104      OBJ       7
-    X104      A8        2
+    X104      A8        1
     X104      G104      1
     X104      B0        1
     X105      OBJ       10
@@ -650,7 +650,7 @@ COLUMNS
     X112      G112      1
     X112      B8        1
     X113      OBJ       7
-    X113      A8        2
+    X113      A8        1
     X113      G113      1
     X113      B9        1
     X114      OBJ       5
@@ -824,7 +824,7 @@ COLUMNS
     X156      OBJ       10
     X156      A12       1
     X156      G156      1
-    X156      B0        1
+    X156      B0        2
     X157      OBJ       7
     X157      A12       1
     X157      G157      1
@@ -907,7 +907,7 @@ COLUMNS
     Y15       OBJ       165
     Y15       G15       -13
     Y16       OBJ       251
-    Y16       G16       -3
+    Y16       G16       -6
     Y17       OBJ       161
     Y17       G17       -3
     Y18       OBJ       92
@@ -1083,7 +1083,7 @@ COLUMNS
     Y103      OBJ       263
     Y103      G103      -5
     Y104      OBJ       89
-    Y104      G104      -9
+    Y104      G104      -18
     Y105      OBJ       93
     Y105      G105      -18
     Y106      OBJ       282
@@ -1101,13 +1101,13 @@ COLUMNS
     Y112      OBJ       108
     Y112      G112      -18
     Y113      OBJ       147
-    Y113      G113      -9
+    Y113      G113      -18
     Y114      OBJ       202
     Y114      G114      -2
     Y115      OBJ       228
     Y115      G115      -9
     Y116      OBJ       267
-    Y116      G116      -5
+    Y116      G116      -4
     Y117      OBJ       124
     Y117      G117      -12
     Y118      OBJ       173
@@ -1257,7 +1257,7 @@ BOUNDS
  UP BND1      X13       20
  UP BND1      X14       21
  UP BND1      X15       13
- UP BND1      X16       3
+ UP BND1      X16       6
  UP BND1      X17       3
  UP BND1      X18       21
  UP BND1      X19       4
@@ -1345,7 +1345,7 @@ BOUNDS
  UP BND1      X101      2
  UP BND1      X102      7
  UP BND1      X103      5
- UP BND1      X104      9
+ UP BND1      X104      18
  UP BND1      X105      18
  UP BND1      X106      13
  UP BND1      X107      6
@@ -1354,7 +1354,7 @@ BOUNDS
  UP BND1      X110      4
  UP BND1      X111      1
  UP BND1      X112      18
- UP BND1      X113      9
+ UP BND1      X113      18
  UP BND1      X114      2
  UP BND1      X115      9
  UP BND1      X116      5

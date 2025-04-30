@@ -1,4 +1,4 @@
-NAME qiu_copy_pre
+NAME qiu_pre_copy
 ROWS
  N  OBJ
  E  c1      
@@ -3526,7 +3526,7 @@ COLUMNS
     x486      c1011     1
     x487      c44       1
     x487      c481      -1
-    x487      c663      1
+    x487      c663      2
     x487      c1013     1
     x488      c44       1
     x488      c483      -1
@@ -4085,7 +4085,7 @@ COLUMNS
     x626      c662      1
     x626      c764      1
     x627      c79       1
-    x627      c234      -1
+    x627      c234      -2
     x627      c663      1
     x627      c766      1
     x628      c79       1

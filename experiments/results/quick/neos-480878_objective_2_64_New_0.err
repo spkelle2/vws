@@ -1,26 +1,15 @@
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.26436408. Calculated: 0.25918251.
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.27689934. Calculated: 0.27171777.
+VPC tried to exit with error code 1
+Assertion failed
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.63849316. Calculated: 0.64885630.
+VPC tried to exit with error code 1
+Assertion failed
+*** WARNING (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:149: Point: Calculated dot product with obj differs from solver's. Obj viol from solver: 27.60171655. Calculated: 27.60171777.
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 0: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.30722561. Calculated: 0.30244404.
 VPC tried to exit with error code 1
 Assertion failed
 messed up a farkas cofficient
 setting all farkas coefficients to 0
-messed up a farkas cofficient
-setting all farkas coefficients to 0
-messed up a farkas cofficient
-setting all farkas coefficients to 0
-messed up a farkas cofficient
-setting all farkas coefficients to 0
-messed up a farkas cofficient
-setting all farkas coefficients to 0
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 10: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.26692008. Calculated: 0.25914773.
-VPC tried to exit with error code 1
-Assertion failed
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:495: Gurobi: Exception caught: Out of memory
-VPC tried to exit with error code 1
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:579: Gurobi: Unknown exception caught.
-VPC tried to exit with error code 1
-*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:636: Gurobi: Unknown exception caught.
-VPC tried to exit with error code 1
-Assertion failed
 terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
-/var/spool/torque/mom_priv/jobs/1816209.polyp1.ie.lehigh.edu.SC: line 4: 32243 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX} ${TIGHTEN_DISJUNCTION} ${TIGHTEN_MATRIX_PERTURBATION} ${TIGHTEN_INFEASIBLE_TERM} ${TIGHTEN_INFEASIBLE_BASIS}
+/var/spool/torque/mom_priv/jobs/1823728.polyp1.ie.lehigh.edu.SC: line 4:  5615 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX} ${TIGHTEN_DISJUNCTION} ${TIGHTEN_MATRIX_PERTURBATION} ${TIGHTEN_INFEASIBLE_TERM} ${TIGHTEN_INFEASIBLE_BASIS}

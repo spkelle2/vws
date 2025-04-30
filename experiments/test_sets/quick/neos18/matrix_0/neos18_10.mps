@@ -1,4 +1,4 @@
-NAME neos18_copy_pre
+NAME neos18_pre_copy
 ROWS
  N  OBJ
  L  R275    
@@ -10998,7 +10998,7 @@ COLUMNS
     r_18      OBJ       1
     r_18      R8532     -1
     r_19      OBJ       1
-    r_19      R8533     -1
+    r_19      R8533     -2
     r_22      OBJ       1
     r_22      R8536     -1
     r_23      OBJ       1

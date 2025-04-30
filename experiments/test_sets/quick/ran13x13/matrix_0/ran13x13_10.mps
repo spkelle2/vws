@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -355,7 +355,7 @@ COLUMNS
     X38       B12       1
     X39       OBJ       10
     X39       A3        1
-    X39       G39       2
+    X39       G39       1
     X39       B0        1
     X40       OBJ       6
     X40       A3        1
@@ -603,7 +603,7 @@ COLUMNS
     X100      B9        1
     X101      OBJ       2
     X101      A7        1
-    X101      G101      2
+    X101      G101      1
     X101      B10       1
     X102      OBJ       7
     X102      A7        1
@@ -770,7 +770,7 @@ COLUMNS
     X142      G142      1
     X142      B12       1
     X143      OBJ       5
-    X143      A11       1
+    X143      A11       2
     X143      G143      1
     X143      B0        1
     X144      OBJ       1
@@ -806,7 +806,7 @@ COLUMNS
     X151      G151      1
     X151      B8        1
     X152      OBJ       4
-    X152      A11       1
+    X152      A11       2
     X152      G152      1
     X152      B9        1
     X153      OBJ       5
@@ -1001,7 +1001,7 @@ COLUMNS
     Y62       OBJ       298
     Y62       G62       -2
     Y63       OBJ       234
-    Y63       G63       -6.5
+    Y63       G63       -9
     Y64       OBJ       127
     Y64       G64       -5
     Y65       OBJ       201
@@ -1280,7 +1280,7 @@ BOUNDS
  UP BND1      X36       2
  UP BND1      X37       9
  UP BND1      X38       5
- UP BND1      X39       10
+ UP BND1      X39       20
  UP BND1      X40       28
  UP BND1      X41       13
  UP BND1      X42       6
@@ -1304,7 +1304,7 @@ BOUNDS
  UP BND1      X60       13
  UP BND1      X61       13
  UP BND1      X62       2
- UP BND1      X63       6.5
+ UP BND1      X63       9
  UP BND1      X64       5
  UP BND1      X65       7
  UP BND1      X66       7
@@ -1342,7 +1342,7 @@ BOUNDS
  UP BND1      X98       1
  UP BND1      X99       7
  UP BND1      X100      7
- UP BND1      X101      1
+ UP BND1      X101      2
  UP BND1      X102      7
  UP BND1      X103      5
  UP BND1      X104      18

@@ -1,4 +1,4 @@
-NAME neos18_copy_pre
+NAME neos18_pre_copy
 ROWS
  N  OBJ
  L  R275    
@@ -12304,7 +12304,7 @@ RHS
     RHS1      R8520     16
     RHS1      R8521     28
     RHS1      R8522     17
-    RHS1      R8527     7
+    RHS1      R8527     8
     RHS1      R8528     24
     RHS1      R8529     2
     RHS1      R8532     22
@@ -12332,7 +12332,7 @@ RHS
     RHS1      R8562     6
     RHS1      R8563     7
     RHS1      R8564     16
-    RHS1      R8566     17
+    RHS1      R8566     18
     RHS1      R8567     4
     RHS1      R8568     13
     RHS1      R8569     2

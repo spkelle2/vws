@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -624,7 +624,7 @@ COLUMNS
     X106      OBJ       4
     X106      A8        1
     X106      G106      1
-    X106      B2        2
+    X106      B2        1
     X107      OBJ       3
     X107      A8        1
     X107      G107      1
@@ -1013,7 +1013,7 @@ COLUMNS
     Y68       OBJ       226
     Y68       G68       -6
     Y69       OBJ       133
-    Y69       G69       -2
+    Y69       G69       -3
     Y70       OBJ       205
     Y70       G70       -7
     Y71       OBJ       197
@@ -1053,11 +1053,11 @@ COLUMNS
     Y88       OBJ       157
     Y88       G88       -2
     Y89       OBJ       85
-    Y89       G89       -9
+    Y89       G89       -8
     Y90       OBJ       211
     Y90       G90       -5
     Y91       OBJ       231
-    Y91       G91       -6
+    Y91       G91       -7
     Y92       OBJ       214
     Y92       G92       -7
     Y93       OBJ       84
@@ -1077,7 +1077,7 @@ COLUMNS
     Y100      OBJ       194
     Y100      G100      -7
     Y101      OBJ       141
-    Y101      G101      -2
+    Y101      G101      -3
     Y102      OBJ       100
     Y102      G102      -7
     Y103      OBJ       263
@@ -1087,7 +1087,7 @@ COLUMNS
     Y105      OBJ       93
     Y105      G105      -18
     Y106      OBJ       282
-    Y106      G106      -6.5
+    Y106      G106      -13
     Y107      OBJ       127
     Y107      G107      -6
     Y108      OBJ       275
@@ -1310,7 +1310,7 @@ BOUNDS
  UP BND1      X66       7
  UP BND1      X67       7
  UP BND1      X68       6
- UP BND1      X69       2
+ UP BND1      X69       3
  UP BND1      X70       7
  UP BND1      X71       4
  UP BND1      X72       1
@@ -1332,7 +1332,7 @@ BOUNDS
  UP BND1      X88       2
  UP BND1      X89       9
  UP BND1      X90       5
- UP BND1      X91       6
+ UP BND1      X91       7
  UP BND1      X92       7
  UP BND1      X93       7
  UP BND1      X94       6
@@ -1347,7 +1347,7 @@ BOUNDS
  UP BND1      X103      5
  UP BND1      X104      18
  UP BND1      X105      18
- UP BND1      X106      6.5
+ UP BND1      X106      13
  UP BND1      X107      6
  UP BND1      X108      3
  UP BND1      X109      18

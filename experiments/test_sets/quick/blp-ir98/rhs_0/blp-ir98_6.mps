@@ -1,4 +1,4 @@
-NAME blp-ir98_copy_pre
+NAME blp-ir98_pre_copy
 ROWS
  N  OBJ
  E  defblpfreq(AhNmR)
@@ -419,6 +419,7 @@ ROWS
  L  oneblpline(Lls.Sgn.1)
  L  oneblpline(Lls.Shl.1)
  L  oneblpline(Lls.Tbwt.1)
+ L  oneblpline(Lls.Tbwt.2)
  L  oneblpline(Lls.Ut.1)
  L  oneblpline(Lls.Vl.1)
  L  oneblpline(Lls.Zp.1)
@@ -21633,6 +21634,293 @@ COLUMNS
     x(Lls.Tbwt.1.2.6)  defblpreq(GdmUtR)  -9
     x(Lls.Tbwt.1.2.6)  defblpreq(HtTbwtR)  -10
     x(Lls.Tbwt.1.2.6)  oneblpline(Lls.Tbwt.1)  1
+    x(Lls.Tbwt.2.1.0)  OBJ       206.3273904
+    x(Lls.Tbwt.2.1.0)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.0)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.0)  defblpreq(AlmWpR)  -3
+    x(Lls.Tbwt.2.1.0)  defblpreq(AsdWpR)  -3
+    x(Lls.Tbwt.2.1.0)  defblpreq(BdTbwtR)  -3
+    x(Lls.Tbwt.2.1.0)  defblpreq(DdrRtdR)  -3
+    x(Lls.Tbwt.2.1.0)  defblpreq(GvLednR)  -3
+    x(Lls.Tbwt.2.1.0)  defblpreq(GvRtdR)  -3
+    x(Lls.Tbwt.2.1.0)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.1)  OBJ       241.2611712
+    x(Lls.Tbwt.2.1.1)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.1)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.1)  defblpreq(AlmWpR)  -4
+    x(Lls.Tbwt.2.1.1)  defblpreq(AsdAssR)  -1
+    x(Lls.Tbwt.2.1.1)  defblpreq(AsdWpR)  -4
+    x(Lls.Tbwt.2.1.1)  defblpreq(BdTbwtR)  -4
+    x(Lls.Tbwt.2.1.1)  defblpreq(DdrRtdR)  -4
+    x(Lls.Tbwt.2.1.1)  defblpreq(GvLednR)  -4
+    x(Lls.Tbwt.2.1.1)  defblpreq(GvRtdR)  -4
+    x(Lls.Tbwt.2.1.1)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.2)  OBJ       276.194952
+    x(Lls.Tbwt.2.1.2)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.2)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.2)  defblpreq(AlmWpR)  -5
+    x(Lls.Tbwt.2.1.2)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.2)  defblpreq(AsdWpR)  -5
+    x(Lls.Tbwt.2.1.2)  defblpreq(BdTbwtR)  -5
+    x(Lls.Tbwt.2.1.2)  defblpreq(DdrRtdR)  -4
+    x(Lls.Tbwt.2.1.2)  defblpreq(GvLednR)  -5
+    x(Lls.Tbwt.2.1.2)  defblpreq(GvRtdR)  -5
+    x(Lls.Tbwt.2.1.2)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.3)  OBJ       311.1287328
+    x(Lls.Tbwt.2.1.3)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.3)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.3)  defblpreq(AlmWpR)  -6
+    x(Lls.Tbwt.2.1.3)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.3)  defblpreq(AsdWpR)  -6
+    x(Lls.Tbwt.2.1.3)  defblpreq(BdTbwtR)  -6
+    x(Lls.Tbwt.2.1.3)  defblpreq(DdrRtdR)  -4
+    x(Lls.Tbwt.2.1.3)  defblpreq(GvLednR)  -6
+    x(Lls.Tbwt.2.1.3)  defblpreq(GvRtdR)  -5
+    x(Lls.Tbwt.2.1.3)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.4)  OBJ       346.0625136
+    x(Lls.Tbwt.2.1.4)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.4)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.4)  defblpreq(AlmWpR)  -6
+    x(Lls.Tbwt.2.1.4)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.4)  defblpreq(AsdWpR)  -7
+    x(Lls.Tbwt.2.1.4)  defblpreq(BdTbwtR)  -7
+    x(Lls.Tbwt.2.1.4)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.1.4)  defblpreq(GvLednR)  -7
+    x(Lls.Tbwt.2.1.4)  defblpreq(GvRtdR)  -5
+    x(Lls.Tbwt.2.1.4)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.5)  OBJ       380.9962944
+    x(Lls.Tbwt.2.1.5)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.5)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.5)  defblpreq(AlmWpR)  -6
+    x(Lls.Tbwt.2.1.5)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.5)  defblpreq(AsdWpR)  -8
+    x(Lls.Tbwt.2.1.5)  defblpreq(BdTbwtR)  -7
+    x(Lls.Tbwt.2.1.5)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.1.5)  defblpreq(GvLednR)  -7
+    x(Lls.Tbwt.2.1.5)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.1.5)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.6)  OBJ       415.9300752
+    x(Lls.Tbwt.2.1.6)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.6)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.6)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.1.6)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.6)  defblpreq(AsdWpR)  -9
+    x(Lls.Tbwt.2.1.6)  defblpreq(BdTbwtR)  -7
+    x(Lls.Tbwt.2.1.6)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.1.6)  defblpreq(GvLednR)  -7
+    x(Lls.Tbwt.2.1.6)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.1.6)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.7)  OBJ       450.863856
+    x(Lls.Tbwt.2.1.7)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.7)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.7)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.1.7)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.7)  defblpreq(AsdWpR)  -10
+    x(Lls.Tbwt.2.1.7)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.1.7)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.1.7)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.1.7)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.1.7)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.8)  OBJ       485.7976368
+    x(Lls.Tbwt.2.1.8)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.8)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.8)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.1.8)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.8)  defblpreq(AsdWpR)  -11
+    x(Lls.Tbwt.2.1.8)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.1.8)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.1.8)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.1.8)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.1.8)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.1.9)  OBJ       520.7314176
+    x(Lls.Tbwt.2.1.9)  defblpfreq(AlmLlsR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(AssShlR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(BdDdrR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(BdTbwtR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(DdrRtdR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(GvLednR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(GvRtdR)  1
+    x(Lls.Tbwt.2.1.9)  defblpfreq(LednShlR)  1
+    x(Lls.Tbwt.2.1.9)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.1.9)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.1.9)  defblpreq(AsdWpR)  -12
+    x(Lls.Tbwt.2.1.9)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.1.9)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.1.9)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.1.9)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.1.9)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.0)  OBJ       402.0617808
+    x(Lls.Tbwt.2.2.0)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.0)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.0)  defblpreq(AlmWpR)  -6
+    x(Lls.Tbwt.2.2.0)  defblpreq(AsdWpR)  -6
+    x(Lls.Tbwt.2.2.0)  defblpreq(BdTbwtR)  -6
+    x(Lls.Tbwt.2.2.0)  defblpreq(DdrRtdR)  -4
+    x(Lls.Tbwt.2.2.0)  defblpreq(GvLednR)  -6
+    x(Lls.Tbwt.2.2.0)  defblpreq(GvRtdR)  -5
+    x(Lls.Tbwt.2.2.0)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.1)  OBJ       468.3983424
+    x(Lls.Tbwt.2.2.1)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.1)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.1)  defblpreq(AlmWpR)  -6
+    x(Lls.Tbwt.2.2.1)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.2.1)  defblpreq(AsdWpR)  -8
+    x(Lls.Tbwt.2.2.1)  defblpreq(BdTbwtR)  -7
+    x(Lls.Tbwt.2.2.1)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.2.1)  defblpreq(GvLednR)  -7
+    x(Lls.Tbwt.2.2.1)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.2.1)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.2)  OBJ       534.734904
+    x(Lls.Tbwt.2.2.2)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.2)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.2)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.2.2)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.2.2)  defblpreq(AsdWpR)  -10
+    x(Lls.Tbwt.2.2.2)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.2.2)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.2.2)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.2.2)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.2.2)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.3)  OBJ       601.0714656
+    x(Lls.Tbwt.2.2.3)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.3)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.3)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.2.3)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.2.3)  defblpreq(AsdWpR)  -12
+    x(Lls.Tbwt.2.2.3)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.2.3)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.2.3)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.2.3)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.2.3)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.4)  OBJ       667.4080272
+    x(Lls.Tbwt.2.2.4)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.4)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.4)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.2.4)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.2.4)  defblpreq(AsdWpR)  -14
+    x(Lls.Tbwt.2.2.4)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.2.4)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.2.4)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.2.4)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.2.4)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.5)  OBJ       733.7445888
+    x(Lls.Tbwt.2.2.5)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.5)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.5)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.2.5)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.2.5)  defblpreq(AsdWpR)  -15
+    x(Lls.Tbwt.2.2.5)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.2.5)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.2.5)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.2.5)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.2.5)  oneblpline(Lls.Tbwt.2)  1
+    x(Lls.Tbwt.2.2.6)  OBJ       800.0811504
+    x(Lls.Tbwt.2.2.6)  defblpfreq(AlmLlsR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(AssShlR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(BdDdrR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(BdTbwtR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(DdrRtdR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(GvLednR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(GvRtdR)  2
+    x(Lls.Tbwt.2.2.6)  defblpfreq(LednShlR)  2
+    x(Lls.Tbwt.2.2.6)  defblpreq(AlmWpR)  -9
+    x(Lls.Tbwt.2.2.6)  defblpreq(AsdAssR)  -2
+    x(Lls.Tbwt.2.2.6)  defblpreq(AsdWpR)  -18
+    x(Lls.Tbwt.2.2.6)  defblpreq(BdTbwtR)  -10
+    x(Lls.Tbwt.2.2.6)  defblpreq(DdrRtdR)  -7
+    x(Lls.Tbwt.2.2.6)  defblpreq(GvLednR)  -10
+    x(Lls.Tbwt.2.2.6)  defblpreq(GvRtdR)  -8
+    x(Lls.Tbwt.2.2.6)  oneblpline(Lls.Tbwt.2)  1
     x(Lls.Ut.1.1.0)  OBJ       95.9217696
     x(Lls.Ut.1.1.0)  defblpfreq(AlmLlsR)  1
     x(Lls.Ut.1.1.0)  defblpfreq(AsdUtR)  1
@@ -62405,7 +62693,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTEND'
 RHS
     RHS1      OBJ       -96.1691616
-    RHS1      defblpfreq(AlmWpR)  10
+    RHS1      defblpfreq(AlmWpR)  10.5
     RHS1      defblpfreq(AssShlR)  6
     RHS1      defblpfreq(CasZdR)  2
     RHS1      defblpfreq(HnZdR)  2
@@ -62791,6 +63079,7 @@ RHS
     RHS1      oneblpline(Lls.Sgn.1)  1
     RHS1      oneblpline(Lls.Shl.1)  1
     RHS1      oneblpline(Lls.Tbwt.1)  1
+    RHS1      oneblpline(Lls.Tbwt.2)  1
     RHS1      oneblpline(Lls.Ut.1)  1
     RHS1      oneblpline(Lls.Vl.1)  1
     RHS1      oneblpline(Lls.Zp.1)  1
@@ -62835,7 +63124,7 @@ RHS
     RHS1      oneblpline(Shl.Ut.1)  1
     RHS1      oneblpline(Shl.Vl.1)  1
     RHS1      oneblpline(Shl.Zp.1)  1
-    RHS1      oneblpline(Tbwt.Ut.1)  1
+    RHS1      oneblpline(Tbwt.Ut.1)  0.5
     RHS1      oneblpline(Tbwt.Vl.1)  1
     RHS1      oneblpline(Tbwt.Zl.1)  1
     RHS1      oneblpline(Tbwt.Zp.1)  1
@@ -64289,6 +64578,23 @@ BOUNDS
  BV BND1      x(Lls.Tbwt.1.2.4)
  BV BND1      x(Lls.Tbwt.1.2.5)
  BV BND1      x(Lls.Tbwt.1.2.6)
+ BV BND1      x(Lls.Tbwt.2.1.0)
+ BV BND1      x(Lls.Tbwt.2.1.1)
+ BV BND1      x(Lls.Tbwt.2.1.2)
+ BV BND1      x(Lls.Tbwt.2.1.3)
+ BV BND1      x(Lls.Tbwt.2.1.4)
+ BV BND1      x(Lls.Tbwt.2.1.5)
+ BV BND1      x(Lls.Tbwt.2.1.6)
+ BV BND1      x(Lls.Tbwt.2.1.7)
+ BV BND1      x(Lls.Tbwt.2.1.8)
+ BV BND1      x(Lls.Tbwt.2.1.9)
+ BV BND1      x(Lls.Tbwt.2.2.0)
+ BV BND1      x(Lls.Tbwt.2.2.1)
+ BV BND1      x(Lls.Tbwt.2.2.2)
+ BV BND1      x(Lls.Tbwt.2.2.3)
+ BV BND1      x(Lls.Tbwt.2.2.4)
+ BV BND1      x(Lls.Tbwt.2.2.5)
+ BV BND1      x(Lls.Tbwt.2.2.6)
  BV BND1      x(Lls.Ut.1.1.0)
  BV BND1      x(Lls.Ut.1.1.1)
  BV BND1      x(Lls.Ut.1.1.2)

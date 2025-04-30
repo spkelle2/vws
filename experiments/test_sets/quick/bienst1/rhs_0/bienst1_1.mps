@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -304,6 +304,13 @@ ROWS
  L  VUBfde  
  L  VUBgde  
  L  VUBhde  
+ L  VUBadf  
+ L  VUBbdf  
+ L  VUBcdf  
+ L  VUBddf  
+ L  VUBedf  
+ L  VUBgdf  
+ L  VUBhdf  
  L  VUBadg  
  L  VUBbdg  
  L  VUBcdg  
@@ -798,6 +805,15 @@ COLUMNS
     xde       VUBfde    -63
     xde       VUBgde    -51
     xde       VUBhde    -55
+    xdf       OUTd      1
+    xdf       INf       1
+    xdf       VUBadf    -61
+    xdf       VUBbdf    -68
+    xdf       VUBcdf    -52
+    xdf       VUBddf    -63
+    xdf       VUBedf    -66
+    xdf       VUBgdf    -51
+    xdf       VUBhdf    -55
     xdg       OUTd      1
     xdg       INg       1
     xdg       VUBadg    -61
@@ -1153,6 +1169,7 @@ COLUMNS
     fadf      CONdf     1
     fadf      BALad     -1
     fadf      BALaf     1
+    fadf      VUBadf    1
     fadg      CONdg     1
     fadg      BALad     -1
     fadg      BALag     1
@@ -1341,6 +1358,7 @@ COLUMNS
     fbdf      CONdf     1
     fbdf      BALbd     -1
     fbdf      BALbf     1
+    fbdf      VUBbdf    1
     fbdg      CONdg     1
     fbdg      BALbd     -1
     fbdg      BALbg     1
@@ -1529,6 +1547,7 @@ COLUMNS
     fcdf      CONdf     1
     fcdf      BALcd     -1
     fcdf      BALcf     1
+    fcdf      VUBcdf    1
     fcdg      CONdg     1
     fcdg      BALcd     -1
     fcdg      BALcg     1
@@ -1719,6 +1738,7 @@ COLUMNS
     fdde      VUBdde    1
     fddf      CONdf     1
     fddf      BALdf     1
+    fddf      VUBddf    1
     fddg      CONdg     1
     fddg      BALdg     1
     fddg      VUBddg    1
@@ -1908,6 +1928,7 @@ COLUMNS
     fedf      CONdf     1
     fedf      BALed     -1
     fedf      BALef     1
+    fedf      VUBedf    1
     fedg      CONdg     1
     fedg      BALed     -1
     fedg      BALeg     1
@@ -2289,6 +2310,7 @@ COLUMNS
     fgdf      CONdf     1
     fgdf      BALgd     -1
     fgdf      BALgf     1
+    fgdf      VUBgdf    1
     fgdh      CONdh     1
     fgdh      BALgd     -1
     fgdh      BALgh     1
@@ -2477,6 +2499,7 @@ COLUMNS
     fhdf      CONdf     1
     fhdf      BALhd     -1
     fhdf      BALhf     1
+    fhdf      VUBhdf    1
     fhdg      CONdg     1
     fhdg      BALhd     -1
     fhdg      BALhg     1
@@ -2578,7 +2601,7 @@ RHS
     RHS1      OUTa      2
     RHS1      OUTb      2
     RHS1      OUTc      2
-    RHS1      OUTd      1
+    RHS1      OUTd      2
     RHS1      OUTe      2
     RHS1      OUTf      2
     RHS1      OUTg      2
@@ -2588,7 +2611,7 @@ RHS
     RHS1      INc       2
     RHS1      INd       2
     RHS1      INe       2
-    RHS1      INf       1
+    RHS1      INf       2
     RHS1      INg       2
     RHS1      INh       2
     RHS1      BALab     10
@@ -2618,7 +2641,7 @@ RHS
     RHS1      BALde     7
     RHS1      BALdf     6
     RHS1      BALdg     11
-    RHS1      BALdh     9
+    RHS1      BALdh     8
     RHS1      BALea     8
     RHS1      BALeb     12
     RHS1      BALec     12
@@ -2674,6 +2697,7 @@ BOUNDS
  BV BND1      xdb     
  BV BND1      xdc     
  BV BND1      xde     
+ BV BND1      xdf     
  BV BND1      xdg     
  BV BND1      xdh     
  UP BND1      xea       1
@@ -2921,7 +2945,7 @@ BOUNDS
  UP BND1      feda      66
  UP BND1      fedb      66
  UP BND1      fedc      66
- UP BND1      fedf      65
+ UP BND1      fedf      66
  UP BND1      fedg      66
  UP BND1      fedh      66
  UP BND1      feea      75

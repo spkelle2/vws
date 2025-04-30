@@ -1,4 +1,4 @@
-NAME mas76_copy_pre
+NAME mas76_pre_copy
 ROWS
  N  OBJ
  L  c1      
@@ -404,7 +404,7 @@ COLUMNS
     x33       c10       -6049
     x33       c11       -6049
     x33       c12       -6049
-    x34       OBJ       1e-05
+    x34       OBJ       0.015635
     x34       c1        1
     x34       c2        -9317
     x34       c4        -9317
@@ -787,7 +787,7 @@ COLUMNS
     x65       c8        -7341
     x65       c9        -6295.6057364
     x65       c11       -7341
-    x66       OBJ       -0.015615
+    x66       OBJ       1e-05
     x66       c1        1
     x66       c2        -8541
     x66       c3        -8541

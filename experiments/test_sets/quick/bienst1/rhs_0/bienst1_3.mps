@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -262,6 +262,13 @@ ROWS
  L  VUBecf  
  L  VUBgcf  
  L  VUBhcf  
+ L  VUBacg  
+ L  VUBbcg  
+ L  VUBccg  
+ L  VUBdcg  
+ L  VUBecg  
+ L  VUBfcg  
+ L  VUBhcg  
  L  VUBach  
  L  VUBbch  
  L  VUBcch  
@@ -744,6 +751,15 @@ COLUMNS
     xcf       VUBecf    -63
     xcf       VUBgcf    -58
     xcf       VUBhcf    -53
+    xcg       OUTc      1
+    xcg       INg       1
+    xcg       VUBacg    -67
+    xcg       VUBbcg    -66
+    xcg       VUBccg    -63
+    xcg       VUBdcg    -48
+    xcg       VUBecg    -63
+    xcg       VUBfcg    -59
+    xcg       VUBhcg    -53
     xch       OUTc      1
     xch       INh       1
     xch       VUBach    -67
@@ -1133,6 +1149,7 @@ COLUMNS
     facg      CONcg     1
     facg      BALac     -1
     facg      BALag     1
+    facg      VUBacg    1
     fach      CONch     1
     fach      BALac     -1
     fach      BALah     1
@@ -1321,6 +1338,7 @@ COLUMNS
     fbcg      CONcg     1
     fbcg      BALbc     -1
     fbcg      BALbg     1
+    fbcg      VUBbcg    1
     fbch      CONch     1
     fbch      BALbc     -1
     fbch      BALbh     1
@@ -1510,6 +1528,7 @@ COLUMNS
     fccf      VUBccf    1
     fccg      CONcg     1
     fccg      BALcg     1
+    fccg      VUBccg    1
     fcch      CONch     1
     fcch      BALch     1
     fcch      VUBcch    1
@@ -1700,6 +1719,7 @@ COLUMNS
     fdcg      CONcg     1
     fdcg      BALdc     -1
     fdcg      BALdg     1
+    fdcg      VUBdcg    1
     fdch      CONch     1
     fdch      BALdc     -1
     fdch      BALdh     1
@@ -1888,6 +1908,7 @@ COLUMNS
     fecg      CONcg     1
     fecg      BALec     -1
     fecg      BALeg     1
+    fecg      VUBecg    1
     fech      CONch     1
     fech      BALec     -1
     fech      BALeh     1
@@ -2076,6 +2097,7 @@ COLUMNS
     ffcg      CONcg     1
     ffcg      BALfc     -1
     ffcg      BALfg     1
+    ffcg      VUBfcg    1
     ffch      CONch     1
     ffch      BALfc     -1
     ffch      BALfh     1
@@ -2457,6 +2479,7 @@ COLUMNS
     fhcg      CONcg     1
     fhcg      BALhc     -1
     fhcg      BALhg     1
+    fhcg      VUBhcg    1
     fhda      CONda     1
     fhda      BALha     1
     fhda      BALhd     -1
@@ -2577,7 +2600,7 @@ COLUMNS
 RHS
     RHS1      OUTa      2
     RHS1      OUTb      2
-    RHS1      OUTc      1
+    RHS1      OUTc      2
     RHS1      OUTd      2
     RHS1      OUTe      2
     RHS1      OUTf      2
@@ -2589,7 +2612,7 @@ RHS
     RHS1      INd       2
     RHS1      INe       2
     RHS1      INf       2
-    RHS1      INg       1
+    RHS1      INg       2
     RHS1      INh       2
     RHS1      BALab     10
     RHS1      BALac     7
@@ -2647,6 +2670,7 @@ RHS
     RHS1      BALhe     10
     RHS1      BALhf     5
     RHS1      BALhg     14
+    RHS1      VUBbdh    1
 BOUNDS
  UP BND1      z         440
  BV BND1      xab     
@@ -2668,6 +2692,7 @@ BOUNDS
  BV BND1      xcd     
  BV BND1      xce     
  BV BND1      xcf     
+ BV BND1      xcg     
  BV BND1      xch     
  BV BND1      xda     
  BV BND1      xdb     
@@ -2819,7 +2844,7 @@ BOUNDS
  UP BND1      fccd      63
  UP BND1      fcce      63
  UP BND1      fccf      63
- UP BND1      fccg      62
+ UP BND1      fccg      63
  UP BND1      fcch      63
  UP BND1      fcda      52
  UP BND1      fcdb      52

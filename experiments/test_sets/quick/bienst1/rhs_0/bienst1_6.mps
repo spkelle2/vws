@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -2670,7 +2670,7 @@ RHS
     RHS1      BALhe     10
     RHS1      BALhf     5
     RHS1      BALhg     14
-    RHS1      VUBbce    1
+    RHS1      VUBbac    1
 BOUNDS
  UP BND1      z         440
  BV BND1      xab     
@@ -2793,7 +2793,7 @@ BOUNDS
  UP BND1      fbbh      81
  UP BND1      fbca      66
  UP BND1      fbcd      66
- UP BND1      fbce      67
+ UP BND1      fbce      66
  UP BND1      fbcf      66
  UP BND1      fbcg      66
  UP BND1      fbch      66

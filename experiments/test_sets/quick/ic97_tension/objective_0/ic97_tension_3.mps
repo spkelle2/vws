@@ -1,4 +1,4 @@
-NAME ic97_tension_copy_pre
+NAME ic97_tension_pre_copy
 ROWS
  N  OBJ
  E  cycle3  
@@ -554,8 +554,8 @@ COLUMNS
     x3259     cycle140  -1
     x3259     cycle108  -1
     x3259     cycle129  -1
-    x3265     OBJ       1
-    x3265     cycle318  1
+    x3263     OBJ       1
+    x3263     cycle318  1
     x3266     OBJ       1
     x3266     cycle195  -1
     x3266     cycle86   -1
@@ -616,10 +616,8 @@ COLUMNS
     x3291     OBJ       1
     x3291     cycle111  -1
     x3291     cycle195  1
-    x3292     OBJ       0.875
+    x3292     OBJ       1
     x3292     cycle111  -1
-    x3293     OBJ       1
-    x3293     cycle111  -1
     x3294     OBJ       1
     x3294     cycle14   1
     x3294     cycle30   1
@@ -679,7 +677,7 @@ COLUMNS
     x3307     OBJ       1
     x3307     cycle57   -1
     x3307     cycle265  -1
-    x3308     OBJ       1
+    x3308     OBJ       1.125
     x3308     cycle41   -1
     x3308     cycle43   1
     x3308     cycle44   -1
@@ -1159,7 +1157,6 @@ COLUMNS
     MARKER    'MARKER'                 'INTORG'
     q147      cycle147  -60
     MARKER    'MARKER'                 'INTEND'
-    x2720     OBJ       0.125
     x2720     cycle148  1
     x2303     cycle148  -1
     x2303     cycle151  1
@@ -1294,6 +1291,7 @@ COLUMNS
     x1651     cycle297  1
     x1651     cycle299  1
     MARKER    'MARKER'                 'INTORG'
+    q172      OBJ       0.125
     q172      cycle172  -60
     MARKER    'MARKER'                 'INTEND'
     x2423     cycle173  -1
@@ -1548,7 +1546,6 @@ COLUMNS
     x1374     cycle224  1
     x1374     cycle269  1
     MARKER    'MARKER'                 'INTORG'
-    q224      OBJ       0.125
     q224      cycle224  -60
     MARKER    'MARKER'                 'INTEND'
     x1380     cycle225  -1
@@ -1869,6 +1866,7 @@ COLUMNS
     MARKER    'MARKER'                 'INTEND'
     x2028     cycle304  1
     MARKER    'MARKER'                 'INTORG'
+    q304      OBJ       0.125
     q304      cycle304  -60
     MARKER    'MARKER'                 'INTEND'
     x1369     cycle305  1
@@ -2172,8 +2170,8 @@ BOUNDS
  UP BND1      x3258     35
  LO BND1      x3259     21
  UP BND1      x3259     28
- LO BND1      x3265     80
- UP BND1      x3265     122
+ LO BND1      x3263     80
+ UP BND1      x3263     122
  LO BND1      x3266     17
  UP BND1      x3266     24
  LO BND1      x3267     51
@@ -2198,10 +2196,8 @@ BOUNDS
  UP BND1      x3284     30
  LO BND1      x3291     17
  UP BND1      x3291     24
- LO BND1      x3292     22
- UP BND1      x3292     29
- LO BND1      x3293     13
- UP BND1      x3293     20
+ LO BND1      x3292     35
+ UP BND1      x3292     49
  LO BND1      x3294     16
  UP BND1      x3294     23
  LO BND1      x3295     13

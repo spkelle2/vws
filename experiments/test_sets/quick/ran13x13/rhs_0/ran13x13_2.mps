@@ -1,4 +1,4 @@
-NAME ran13x13_copy_pre
+NAME ran13x13_pre_copy
 ROWS
  N  OBJ
  E  A0      
@@ -125,6 +125,7 @@ ROWS
  L  G95     
  L  G96     
  L  G97     
+ L  G98     
  L  G99     
  L  G100    
  L  G101    
@@ -590,6 +591,7 @@ COLUMNS
     X97       B6        1
     X98       OBJ       2
     X98       A7        1
+    X98       G98       1
     X98       B7        1
     X99       OBJ       6
     X99       A7        1
@@ -1045,7 +1047,7 @@ COLUMNS
     Y85       OBJ       176
     Y85       G85       -1
     Y86       OBJ       138
-    Y86       G86       -20
+    Y86       G86       -21
     Y87       OBJ       203
     Y87       G87       -21
     Y88       OBJ       157
@@ -1068,6 +1070,8 @@ COLUMNS
     Y96       G96       -7
     Y97       OBJ       196
     Y97       G97       -4
+    Y98       OBJ       155
+    Y98       G98       -1
     Y99       OBJ       159
     Y99       G99       -7
     Y100      OBJ       194
@@ -1236,7 +1240,8 @@ RHS
     RHS1      B10       2
     RHS1      B11       9
     RHS1      B12       5
-    RHS1      G86       1
+    RHS1      G42       -1
+    RHS1      G134      -1
 BOUNDS
  UP BND1      X0        14
  UP BND1      X1        14
@@ -1505,6 +1510,7 @@ BOUNDS
  BV BND1      Y95     
  BV BND1      Y96     
  BV BND1      Y97     
+ BV BND1      Y98     
  BV BND1      Y99     
  BV BND1      Y100    
  BV BND1      Y101    

@@ -1,0 +1,3 @@
+The path /home/sek519/warm_starting/vws/experiments/test_sets/quick/mc11/objective_0 must exist and be a folder.
+vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:663: void verify(bool, const std::string&, bool): Assertion `false' failed.
+/var/spool/torque/mom_priv/jobs/1821397.polyp1.ie.lehigh.edu.SC: line 4: 16672 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND} ${SEED_INDEX} ${TIGHTEN_DISJUNCTION} ${TIGHTEN_MATRIX_PERTURBATION} ${TIGHTEN_INFEASIBLE_TERM} ${TIGHTEN_INFEASIBLE_BASIS}

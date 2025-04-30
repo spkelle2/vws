@@ -1,4 +1,4 @@
-NAME gsvm2rl3_copy_pre
+NAME gsvm2rl3_pre_copy
 ROWS
  N  OBJ
  L  R0      
@@ -218,7 +218,7 @@ COLUMNS
     s_12      OBJ       1
     s_12      R71       -1
     s_12      R131      -1
-    s_13      OBJ       1
+    s_13      OBJ       0.875
     s_13      R72       -1
     s_13      R132      -1
     s_14      OBJ       1
@@ -1410,7 +1410,6 @@ COLUMNS
     u_13      R59       24.178326
     u_13      R72       -1
     u_13      R132      1
-    u_14      OBJ       0.125
     u_14      R0        -0.966941
     u_14      R1        0.381978
     u_14      R2        4.942647

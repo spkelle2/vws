@@ -1,4 +1,4 @@
-NAME neos17_copy_pre
+NAME neos17_pre_copy
 ROWS
  N  OBJ
  L  OBS0001 
@@ -2773,7 +2773,7 @@ COLUMNS
     B25       OBS0060   -1
     B25       OBS0061   -1
     B25       OBS0062   -1
-    B25       OBS0063   -1
+    B25       OBS0063   -1.5
     B25       OBS0064   -1
     B25       OBS0065   -1
     B25       OBS0066   -1
@@ -2807,7 +2807,7 @@ COLUMNS
     B25       OBS0094   -1
     B25       OBS0095   -1
     B25       OBS0096   -1
-    B25       OBS0097   -1
+    B25       OBS0097   -0.5
     B25       OBS0098   -1
     B25       OBS0099   -1
     B25       OBS0100   1
@@ -3196,7 +3196,7 @@ COLUMNS
     B25       OBS0483   -1
     B25       OBS0484   -1
     B25       OBS0485   1
-    B25       EQCONST   1
+    B25       EQCONST   0.5
     MARKER    'MARKER'                 'INTORG'
     D0001     OBJ       0.00045
     D0001     OBS0001   -1.001

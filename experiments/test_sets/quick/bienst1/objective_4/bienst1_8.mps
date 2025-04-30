@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -1238,7 +1238,6 @@ COLUMNS
     fagd      BALad     1
     fagd      BALag     -1
     fagd      VUBagd    1
-    fage      OBJ       -0.25
     fage      CONge     1
     fage      BALae     1
     fage      BALag     -1
@@ -1428,7 +1427,6 @@ COLUMNS
     fbgd      BALbd     1
     fbgd      BALbg     -1
     fbgd      VUBbgd    1
-    fbge      OBJ       -0.25
     fbge      CONge     1
     fbge      BALbe     1
     fbge      BALbg     -1
@@ -1505,6 +1503,7 @@ COLUMNS
     fcbf      BALcb     -1
     fcbf      BALcf     1
     fcbf      VUBcbf    1
+    fcbg      OBJ       0.25
     fcbg      CONbg     1
     fcbg      BALcb     -1
     fcbg      BALcg     1
@@ -1618,7 +1617,6 @@ COLUMNS
     fcgd      BALcd     1
     fcgd      BALcg     -1
     fcgd      VUBcgd    1
-    fcge      OBJ       -0.25
     fcge      CONge     1
     fcge      BALce     1
     fcge      BALcg     -1
@@ -1808,7 +1806,6 @@ COLUMNS
     fdgc      BALdc     1
     fdgc      BALdg     -1
     fdgc      VUBdgc    1
-    fdge      OBJ       -0.25
     fdge      CONge     1
     fdge      BALde     1
     fdge      BALdg     -1
@@ -2191,7 +2188,6 @@ COLUMNS
     ffgd      BALfd     1
     ffgd      BALfg     -1
     ffgd      VUBfgd    1
-    ffge      OBJ       -0.25
     ffge      CONge     1
     ffge      BALfe     1
     ffge      BALfg     -1
@@ -2380,7 +2376,6 @@ COLUMNS
     fggd      CONgd     1
     fggd      BALgd     1
     fggd      VUBggd    1
-    fgge      OBJ       -0.25
     fgge      CONge     1
     fgge      BALge     1
     fgge      VUBgge    1
@@ -2574,7 +2569,6 @@ COLUMNS
     fhgd      BALhd     1
     fhgd      BALhg     -1
     fhgd      VUBhgd    1
-    fhge      OBJ       -0.25
     fhge      CONge     1
     fhge      BALhe     1
     fhge      BALhg     -1

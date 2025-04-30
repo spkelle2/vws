@@ -1,4 +1,4 @@
-NAME aflow30a_copy_pre
+NAME aflow30a_pre_copy
 ROWS
  N  OBJ
  E  c30     
@@ -42,6 +42,7 @@ ROWS
  L  c68     
  L  c69     
  L  c70     
+ L  c71     
  L  c72     
  L  c73     
  L  c74     
@@ -85,6 +86,7 @@ ROWS
  L  c112    
  L  c113    
  L  c114    
+ L  c115    
  L  c116    
  L  c117    
  L  c118    
@@ -119,6 +121,7 @@ ROWS
  L  c147    
  L  c148    
  L  c149    
+ L  c150    
  L  c151    
  L  c152    
  L  c153    
@@ -158,6 +161,7 @@ ROWS
  L  c187    
  L  c188    
  L  c189    
+ L  c190    
  L  c191    
  L  c192    
  L  c193    
@@ -183,6 +187,7 @@ ROWS
  L  c213    
  L  c214    
  L  c215    
+ L  c216    
  L  c217    
  L  c219    
  L  c220    
@@ -266,6 +271,7 @@ ROWS
  L  c298    
  L  c299    
  L  c300    
+ L  c301    
  L  c302    
  L  c303    
  L  c304    
@@ -288,6 +294,7 @@ ROWS
  L  c321    
  L  c322    
  L  c323    
+ L  c324    
  L  c325    
  L  c326    
  L  c327    
@@ -307,6 +314,7 @@ ROWS
  L  c341    
  L  c342    
  L  c343    
+ L  c344    
  L  c345    
  L  c346    
  L  c347    
@@ -359,6 +367,7 @@ ROWS
  L  c394    
  L  c395    
  L  c396    
+ L  c397    
  L  c398    
  L  c399    
  L  c400    
@@ -370,6 +379,7 @@ ROWS
  L  c406    
  L  c407    
  L  c408    
+ L  c409    
  L  c410    
  L  c411    
  L  c412    
@@ -412,6 +422,7 @@ ROWS
  L  c449    
  L  c450    
  L  c451    
+ L  c452    
  L  c453    
  L  c454    
  L  c455    
@@ -438,6 +449,7 @@ ROWS
  L  c476    
  L  c477    
  L  c478    
+ L  c479    
 COLUMNS
     MARKER    'MARKER'                 'INTORG'
     x15       OBJ       86
@@ -527,6 +539,9 @@ COLUMNS
     x55       OBJ       -9
     x55       c88       54
     x55       c113      -87
+    x57       OBJ       326
+    x57       c71       74
+    x57       c115      -100
     x58       OBJ       260
     x58       c72       12
     x58       c116      -68
@@ -623,6 +638,9 @@ COLUMNS
     x91       OBJ       260
     x91       c114      19
     x91       c149      -93
+    x92       OBJ       -44
+    x92       c71       74
+    x92       c150      -30
     x93       OBJ       -32
     x93       c135      36
     x93       c151      -74
@@ -740,6 +758,9 @@ COLUMNS
     x131      OBJ       -171
     x131      c88       54
     x131      c189      -99
+    x132      OBJ       -4
+    x132      c71       74
+    x132      c190      -35
     x133      OBJ       453
     x133      c72       12
     x133      c191      -93
@@ -815,6 +836,9 @@ COLUMNS
     x157      OBJ       -240
     x157      c88       54
     x157      c215      -10
+    x158      OBJ       326
+    x158      c71       74
+    x158      c216      -80
     x159      OBJ       -104
     x159      c135      36
     x159      c217      -38
@@ -1068,6 +1092,9 @@ COLUMNS
     x242      OBJ       356
     x242      c114      19
     x242      c300      -75
+    x243      OBJ       -55
+    x243      c71       74
+    x243      c301      -19
     x244      OBJ       220
     x244      c135      36
     x244      c302      -80
@@ -1134,6 +1161,9 @@ COLUMNS
     x265      OBJ       107
     x265      c114      19
     x265      c323      -42
+    x266      OBJ       4
+    x266      c71       74
+    x266      c324      -26
     x267      OBJ       368
     x267      c72       12
     x267      c325      -76
@@ -1191,6 +1221,9 @@ COLUMNS
     x285      OBJ       -238
     x285      c88       54
     x285      c343      -32
+    x286      OBJ       214
+    x286      c71       74
+    x286      c344      -72
     x287      OBJ       58
     x287      c72       12
     x287      c345      -14
@@ -1347,6 +1380,9 @@ COLUMNS
     x338      OBJ       -420
     x338      c87       96
     x338      c396      -12
+    x339      OBJ       46
+    x339      c71       74
+    x339      c397      -40
     x340      OBJ       434
     x340      c60       11
     x340      c398      -89
@@ -1380,6 +1416,9 @@ COLUMNS
     x350      OBJ       113
     x350      c114      19
     x350      c408      -66
+    x351      OBJ       124
+    x351      c71       74
+    x351      c409      -66
     x352      OBJ       -1
     x352      c72       12
     x352      c410      -11
@@ -1506,6 +1545,9 @@ COLUMNS
     x393      OBJ       -239
     x393      c88       54
     x393      c451      -31
+    x394      OBJ       6
+    x394      c71       74
+    x394      c452      -16
     x395      OBJ       376
     x395      c72       12
     x395      c453      -97
@@ -1514,22 +1556,22 @@ COLUMNS
     x396      c454      -16
     x397      OBJ       -92
     x397      c135      36
-    x397      c455      -33.5
+    x397      c455      -88
     x398      OBJ       145
     x398      c60       11
-    x398      c456      -33.5
+    x398      c456      -52
     x399      OBJ       347
     x399      c62       31
-    x399      c457      -33.5
+    x399      c457      -88
     x400      OBJ       -46
     x400      c78       64
-    x400      c458      -33.5
+    x400      c458      -41
     x401      OBJ       -151
     x401      c95       61
     x401      c459      -31
     x402      OBJ       24
     x402      c66       69
-    x402      c460      -33.5
+    x402      c460      -75
     x403      OBJ       -250
     x403      c109      76
     x403      c461      -26
@@ -1538,13 +1580,13 @@ COLUMNS
     x404      c462      -11
     x405      OBJ       -66
     x405      c68       78
-    x405      c463      -33.5
+    x405      c463      -90
     x406      OBJ       241
     x406      c69       84
-    x406      c464      -33.5
+    x406      c464      -65
     x407      OBJ       471
     x407      c114      19
-    x407      c465      -33.5
+    x407      c465      -98
     x408      OBJ       -160
     x408      c74       89
     x408      c466      -98
@@ -1584,6 +1626,9 @@ COLUMNS
     x420      OBJ       -232
     x420      c88       54
     x420      c478      -38
+    x421      OBJ       64
+    x421      c71       74
+    x421      c479      -69
     MARKER    'MARKER'                 'INTEND'
     x422      c30       1
     x422      c59       1
@@ -1823,6 +1868,9 @@ COLUMNS
     x501      c32       -1
     x501      c56       1
     x501      c114      1
+    x502      c32       -1
+    x502      c57       1
+    x502      c115      1
     x503      c32       -1
     x503      c58       1
     x503      c116      1
@@ -1984,6 +2032,9 @@ COLUMNS
     x557      c34       -1
     x557      c56       1
     x557      c149      1
+    x558      c34       -1
+    x558      c57       1
+    x558      c150      1
     x559      c35       1
     x559      c37       -1
     x559      c179      1
@@ -2168,6 +2219,7 @@ COLUMNS
     x619      c189      1
     x620      c37       -1
     x620      c57       1
+    x620      c190      1
     x621      c37       -1
     x621      c58       1
     x621      c191      1
@@ -2288,6 +2340,9 @@ COLUMNS
     x660      c39       -1
     x660      c55       1
     x660      c215      1
+    x661      c39       -1
+    x661      c57       1
+    x661      c216      1
     x662      c40       1
     x662      c63       1
     x663      c40       1
@@ -2575,6 +2630,9 @@ COLUMNS
     x758      c45       -1
     x758      c56       1
     x758      c300      1
+    x759      c45       -1
+    x759      c57       1
+    x759      c301      1
     x760      c46       1
     x760      c67       1
     x761      c46       1
@@ -2640,6 +2698,9 @@ COLUMNS
     x781      c47       -1
     x781      c56       1
     x781      c323      1
+    x782      c47       -1
+    x782      c57       1
+    x782      c324      1
     x783      c47       -1
     x783      c58       1
     x783      c325      1
@@ -2676,6 +2737,9 @@ COLUMNS
     x794      c48       -1
     x794      c55       1
     x794      c343      1
+    x795      c48       -1
+    x795      c57       1
+    x795      c344      1
     x796      c48       -1
     x796      c58       1
     x796      c345      1
@@ -2751,6 +2815,9 @@ COLUMNS
     x821      c52       -1
     x821      c54       1
     x821      c396      1
+    x822      c52       -1
+    x822      c57       1
+    x822      c397      1
     x823      c53       1
     x823      c54       -1
     x823      c421      1
@@ -2763,6 +2830,9 @@ COLUMNS
     x826      c53       -1
     x826      c56       1
     x826      c408      1
+    x827      c53       -1
+    x827      c57       1
+    x827      c409      1
     x828      c53       -1
     x828      c58       1
     x828      c410      1
@@ -2793,24 +2863,32 @@ COLUMNS
     x837      c56       1
     x837      c57       -1
     x837      c465      1
+    x838      c56       -1
+    x838      c57       1
+    x838      c452      1
     x839      c56       -1
     x839      c58       1
     x839      c453      1
+    x840      c57       1
+    x840      c71       1
+    x841      c57       1
+    x841      c58       -1
+    x841      c479      1
     x842      c58       1
     x842      c72       1
 RHS
-    RHS1      OBJ       -4597
+    RHS1      OBJ       -4601
     RHS1      c30       1
     RHS1      c31       6
-    RHS1      c32       8
+    RHS1      c32       7
     RHS1      c33       10
     RHS1      c34       7
     RHS1      c35       7
     RHS1      c36       5
     RHS1      c37       8
-    RHS1      c38       5
+    RHS1      c38       6
     RHS1      c39       3
-    RHS1      c40       4
+    RHS1      c40       5
     RHS1      c41       3
     RHS1      c42       1
     RHS1      c43       8
@@ -2824,10 +2902,10 @@ RHS
     RHS1      c51       6
     RHS1      c52       7
     RHS1      c53       2
-    RHS1      c54       2
+    RHS1      c54       3
     RHS1      c55       9
     RHS1      c56       5
-    RHS1      c57       1
+    RHS1      c57       2
     RHS1      c58       3
     RHS1      c59       93
     RHS1      c60       11
@@ -2841,6 +2919,7 @@ RHS
     RHS1      c68       78
     RHS1      c69       84
     RHS1      c70       84
+    RHS1      c71       74
     RHS1      c72       12
     RHS1      c74       89
     RHS1      c76       17
@@ -2848,6 +2927,7 @@ RHS
     RHS1      c78       64
     RHS1      c80       58
     RHS1      c82       95
+    RHS1      c83       1
     RHS1      c86       59
     RHS1      c87       96
     RHS1      c88       54
@@ -2857,6 +2937,29 @@ RHS
     RHS1      c114      19
     RHS1      c135      36
     RHS1      c137      52
+    RHS1      c166      -1
+    RHS1      c184      1
+    RHS1      c187      1
+    RHS1      c188      1
+    RHS1      c228      1
+    RHS1      c233      1
+    RHS1      c239      1
+    RHS1      c244      1
+    RHS1      c253      -1
+    RHS1      c270      1
+    RHS1      c273      1
+    RHS1      c292      -1
+    RHS1      c363      1
+    RHS1      c375      1
+    RHS1      c381      1
+    RHS1      c383      -1
+    RHS1      c387      1
+    RHS1      c399      -1
+    RHS1      c414      2
+    RHS1      c418      1
+    RHS1      c469      1
+    RHS1      c475      1
+    RHS1      c477      -1
 BOUNDS
  BV BND1      x15     
  BV BND1      x17     
@@ -2887,6 +2990,7 @@ BOUNDS
  BV BND1      x53     
  BV BND1      x54     
  BV BND1      x55     
+ BV BND1      x57     
  BV BND1      x58     
  BV BND1      x59     
  BV BND1      x60     
@@ -2919,6 +3023,7 @@ BOUNDS
  BV BND1      x89     
  BV BND1      x90     
  BV BND1      x91     
+ BV BND1      x92     
  BV BND1      x93     
  BV BND1      x94     
  BV BND1      x95     
@@ -2958,6 +3063,7 @@ BOUNDS
  BV BND1      x129    
  BV BND1      x130    
  BV BND1      x131    
+ BV BND1      x132    
  BV BND1      x133    
  BV BND1      x134    
  BV BND1      x135    
@@ -2983,6 +3089,7 @@ BOUNDS
  BV BND1      x155    
  BV BND1      x156    
  BV BND1      x157    
+ BV BND1      x158    
  BV BND1      x159    
  BV BND1      x160    
  BV BND1      x161    
@@ -3067,6 +3174,7 @@ BOUNDS
  BV BND1      x240    
  BV BND1      x241    
  BV BND1      x242    
+ BV BND1      x243    
  BV BND1      x244    
  BV BND1      x245    
  BV BND1      x246    
@@ -3089,6 +3197,7 @@ BOUNDS
  BV BND1      x263    
  BV BND1      x264    
  BV BND1      x265    
+ BV BND1      x266    
  BV BND1      x267    
  BV BND1      x268    
  BV BND1      x269    
@@ -3108,6 +3217,7 @@ BOUNDS
  BV BND1      x283    
  BV BND1      x284    
  BV BND1      x285    
+ BV BND1      x286    
  BV BND1      x287    
  BV BND1      x288    
  BV BND1      x289    
@@ -3160,6 +3270,7 @@ BOUNDS
  BV BND1      x336    
  BV BND1      x337    
  BV BND1      x338    
+ BV BND1      x339    
  BV BND1      x340    
  BV BND1      x341    
  BV BND1      x342    
@@ -3171,6 +3282,7 @@ BOUNDS
  BV BND1      x348    
  BV BND1      x349    
  BV BND1      x350    
+ BV BND1      x351    
  BV BND1      x352    
  BV BND1      x353    
  BV BND1      x354    
@@ -3213,6 +3325,7 @@ BOUNDS
  BV BND1      x391    
  BV BND1      x392    
  BV BND1      x393    
+ BV BND1      x394    
  BV BND1      x395    
  BV BND1      x396    
  BV BND1      x397    
@@ -3239,6 +3352,7 @@ BOUNDS
  BV BND1      x418    
  BV BND1      x419    
  BV BND1      x420    
+ BV BND1      x421    
  UP BND1      x422      93
  UP BND1      x423      26
  UP BND1      x424      19
@@ -3278,7 +3392,7 @@ BOUNDS
  UP BND1      x458      93
  UP BND1      x459      14
  UP BND1      x460      60
- UP BND1      x461      33.5
+ UP BND1      x461      88
  UP BND1      x462      26
  UP BND1      x463      30
  UP BND1      x464      72
@@ -3303,7 +3417,7 @@ BOUNDS
  UP BND1      x483      12
  UP BND1      x484      89
  UP BND1      x485      58
- UP BND1      x486      33.5
+ UP BND1      x486      52
  UP BND1      x487      89
  UP BND1      x488      20
  UP BND1      x489      73
@@ -3319,6 +3433,7 @@ BOUNDS
  UP BND1      x499      85
  UP BND1      x500      87
  UP BND1      x501      19
+ UP BND1      x502      100
  UP BND1      x503      68
  UP BND1      x504      28
  UP BND1      x505      98
@@ -3373,6 +3488,7 @@ BOUNDS
  UP BND1      x555      78
  UP BND1      x556      18
  UP BND1      x557      93
+ UP BND1      x558      30
  UP BND1      x559      10
  UP BND1      x560      27
  UP BND1      x561      64
@@ -3403,7 +3519,7 @@ BOUNDS
  UP BND1      x586      97
  UP BND1      x587      35
  UP BND1      x588      57
- UP BND1      x589      33.5
+ UP BND1      x589      88
  UP BND1      x590      57
  UP BND1      x591      98
  UP BND1      x592      37
@@ -3434,8 +3550,7 @@ BOUNDS
  UP BND1      x617      25
  UP BND1      x618      84
  UP BND1      x619      99
- LO BND1      x620      1
- UP BND1      x620      34.5
+ UP BND1      x620      35
  UP BND1      x621      93
  UP BND1      x622      94
  UP BND1      x623      94
@@ -3467,7 +3582,7 @@ BOUNDS
  UP BND1      x649      44
  UP BND1      x650      56
  UP BND1      x651      94
- UP BND1      x652      33.5
+ UP BND1      x652      41
  UP BND1      x653      27
  UP BND1      x654      99
  UP BND1      x655      70
@@ -3476,6 +3591,7 @@ BOUNDS
  UP BND1      x658      24
  UP BND1      x659      62
  UP BND1      x660      10
+ UP BND1      x661      80
  UP BND1      x662      17
  UP BND1      x663      79
  UP BND1      x664      78
@@ -3565,7 +3681,7 @@ BOUNDS
  UP BND1      x748      50
  UP BND1      x749      65
  UP BND1      x750      80
- UP BND1      x751      33.5
+ UP BND1      x751      75
  UP BND1      x752      45
  UP BND1      x753      30
  UP BND1      x754      49
@@ -3573,6 +3689,7 @@ BOUNDS
  UP BND1      x756      71
  UP BND1      x757      14
  UP BND1      x758      75
+ UP BND1      x759      19
  UP BND1      x760      21
  UP BND1      x761      80
  UP BND1      x762      67
@@ -3595,6 +3712,7 @@ BOUNDS
  UP BND1      x779      82
  UP BND1      x780      96
  UP BND1      x781      42
+ UP BND1      x782      26
  UP BND1      x783      76
  UP BND1      x784      72
  UP BND1      x785      52
@@ -3607,11 +3725,12 @@ BOUNDS
  UP BND1      x792      63
  UP BND1      x793      39
  UP BND1      x794      32
+ UP BND1      x795      72
  UP BND1      x796      14
  UP BND1      x797      78
  UP BND1      x798      13
  UP BND1      x799      83
- UP BND1      x800      33.5
+ UP BND1      x800      90
  UP BND1      x801      61
  UP BND1      x802      36
  UP BND1      x803      56
@@ -3623,7 +3742,7 @@ BOUNDS
  UP BND1      x809      41
  UP BND1      x810      84
  UP BND1      x811      53
- UP BND1      x812      33.5
+ UP BND1      x812      65
  UP BND1      x813      60
  UP BND1      x814      43
  UP BND1      x815      84
@@ -3633,10 +3752,12 @@ BOUNDS
  UP BND1      x819      35
  UP BND1      x820      39
  UP BND1      x821      12
+ UP BND1      x822      40
  UP BND1      x823      70
  UP BND1      x824      22
  UP BND1      x825      25
  UP BND1      x826      66
+ UP BND1      x827      66
  UP BND1      x828      11
  UP BND1      x829      49
  UP BND1      x830      28
@@ -3646,7 +3767,10 @@ BOUNDS
  UP BND1      x834      38
  UP BND1      x835      95
  UP BND1      x836      24
- UP BND1      x837      33.5
+ UP BND1      x837      98
+ UP BND1      x838      16
  UP BND1      x839      97
+ UP BND1      x840      74
+ UP BND1      x841      69
  UP BND1      x842      12
 ENDATA

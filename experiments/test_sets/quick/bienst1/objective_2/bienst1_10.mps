@@ -1,4 +1,4 @@
-NAME bienst1_copy_pre
+NAME bienst1_pre_copy
 ROWS
  N  OBJ
  E  OUTa    
@@ -1327,7 +1327,6 @@ COLUMNS
     fbcd      BALbc     -1
     fbcd      BALbd     1
     fbcd      VUBbcd    1
-    fbce      OBJ       -0.0625
     fbce      CONce     1
     fbce      BALbc     -1
     fbce      BALbe     1
@@ -1802,6 +1801,7 @@ COLUMNS
     fdgb      BALdb     1
     fdgb      BALdg     -1
     fdgb      VUBdgb    1
+    fdgc      OBJ       -0.0625
     fdgc      CONgc     1
     fdgc      BALdc     1
     fdgc      BALdg     -1
