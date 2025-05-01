@@ -78,7 +78,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     continue
 
                 for terms in [4, 64]:
-                    for generator in ["None", "New", "Farkas", "All"]:  #, "NoDisjunction", "NoTerm", "NoMatrix", "NoBasis"]:
+                    for generator in ["None", "New", "Farkas", "All", "Disjunction", "Matrix", "Term", "Basis"]:  #, "NoDisjunction", "NoTerm", "NoMatrix", "NoBasis"]:
 
                         # increment the total number of jobs
                         total_jobs += 1
@@ -103,10 +103,10 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                             continue
 
                         # set flags
-                        td = int(generator in ["All", "NoTerm", "NoMatrix", "NoBasis"])
-                        tm = int(generator in ["All", "NoDisjunction", "NoTerm", "NoBasis"])
-                        tt = int(generator in ["All", "NoDisjunction", "NoMatrix", "NoBasis"])
-                        tb = int(generator in ["All", "NoDisjunction", "NoMatrix", "NoTerm"])
+                        td = int(generator in ["All", "NoTerm", "NoMatrix", "NoBasis", "Disjunction"])
+                        tm = int(generator in ["All", "NoDisjunction", "NoTerm", "NoBasis", "Matrix"])
+                        tt = int(generator in ["All", "NoDisjunction", "NoMatrix", "NoBasis", "Term"])
+                        tb = int(generator in ["All", "NoDisjunction", "NoMatrix", "NoTerm", "Basis"])
 
                         remote_args = f'INPUT_FOLDER={series_input_fldr},OUTPUT_FILE={stem + ".csv"},' \
                             f'MAX_TIME={max_time},GENERATOR={generator},TERMS={terms},' \
