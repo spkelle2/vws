@@ -78,7 +78,7 @@ def run_batch(test_fldr: str, machine: str = "coral", max_time: int = 3600,
                     continue
 
                 for terms in [4, 64]:
-                    for generator in ["None", "New", "Farkas", "All"]:  #, "Disjunction", "Matrix", "Term", "Basis"]:  #, "NoDisjunction", "NoTerm", "NoMatrix", "NoBasis"]:
+                    for generator in ["None", "New", "Farkas", "All", "Disjunction", "Matrix", "Term", "Basis"]:  #, "NoDisjunction", "NoTerm", "NoMatrix", "NoBasis"]:
 
                         # increment the total number of jobs
                         total_jobs += 1
