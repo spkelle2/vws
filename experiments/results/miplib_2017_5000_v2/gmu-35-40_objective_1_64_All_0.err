@@ -1,0 +1,7 @@
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:495: Gurobi: Exception caught: Out of memory
+VPC tried to exit with error code 1
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:579: Gurobi: Unknown exception caught.
+VPC tried to exit with error code 1
+*** ERROR (version #e563127): /home/sek519/warm_starting/vws/../vpc/src/test/GurobiHelper.cpp:636: Gurobi: Unknown exception caught.
+VPC tried to exit with error code 1
+Assertion failed

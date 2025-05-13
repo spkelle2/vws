@@ -1,0 +1,4 @@
+VwsSolverInterface::solve: problem dimension must stay fixed
+Assertion failed
+messed up a farkas cofficient
+setting all farkas coefficients to 0
