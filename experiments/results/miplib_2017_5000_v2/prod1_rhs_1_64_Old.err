@@ -1,2 +1,0 @@
-vws: malloc.c:3760: _int_malloc: Assertion `(unsigned long) (size) >= (unsigned long) (nb)' failed.
-/var/spool/torque/mom_priv/jobs/1764539.polyp1.ie.lehigh.edu.SC: line 4:  5453 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

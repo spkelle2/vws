@@ -1,7 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (68.620000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 52: Calculated dot product with obj differs from solver's. Obj viol from solver: 3.98009159. Calculated: 3.98009172.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1049: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01990841. Calculated: 0.01990828.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 32: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.78911107. Calculated: 0.78911091.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 1013: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.01088893. Calculated: 0.01088909.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (63.256000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.
-/var/spool/torque/mom_priv/jobs/1764311.polyp1.ie.lehigh.edu.SC: line 4:  8644 Segmentation fault      ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

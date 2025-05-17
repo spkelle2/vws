@@ -1,2 +1,0 @@
-vws: /home/sek519/warm_starting/vws/../vpc/src/branch/VPCEventHandler.cpp:131: void setNodeStatistics(NodeStatistics&, const CbcNode*, const CbcModel*, const std::vector<NodeStatistics>&, const std::vector<double>&, const std::vector<double>&, bool, bool): Assertion `stats.id == stats_vec[stats_vec.size()-1].id + 1' failed.
-/var/spool/torque/mom_priv/jobs/1756732.polyp1.ie.lehigh.edu.SC: line 4:  6987 Aborted                 (core dumped) ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}

@@ -1,7 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:387: PRLP is primal infeasible; giving up on this point-ray collection.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 3149: Calculated dot product with obj differs from solver's. Obj viol from solver: 2.22847210. Calculated: 2.22847198.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 3160: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.54993873. Calculated: 0.54993883.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 3172: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.64671381. Calculated: 0.64671393.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 3465: Calculated dot product with obj differs from solver's. Obj viol from solver: 1.58609386. Calculated: 1.58609369.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/PRLP.cpp:392: PRLP took too long to solve (63.384000 sec, with limit of 60.000000 sec); giving up on this point-ray collection.

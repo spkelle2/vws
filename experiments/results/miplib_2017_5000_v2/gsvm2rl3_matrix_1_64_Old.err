@@ -1,3 +1,0 @@
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:354: Ray 236: dot product with obj < 0. Obj viol from solver: 0.00004777. Calculated: -0.00004777.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:368: Ray 236: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.00004777. Calculated: -0.00004777.
-*** WARNING (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/cut/CglVPC.cpp:1244: Term 22 ray 99 does not satisfy the objective cut. Activity: -0.00004777. RHS: 0.00000000. Small enough violation that we only send a warning.

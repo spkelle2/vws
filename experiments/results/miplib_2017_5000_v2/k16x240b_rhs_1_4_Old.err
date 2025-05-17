@@ -1,1 +1,0 @@
-*** ERROR (version #1531bee): /home/sek519/warm_starting/vws/../vpc/src/utility/nbspace.cpp:362: Ray 75: Calculated dot product with obj differs from solver's. Obj viol from solver: 0.46900000. Calculated: 4.46900000.

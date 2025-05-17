@@ -1,4 +1,0 @@
-The number of Farkas multipliers should match the number of constraints and variables.
-
-vws: /home/sek519/warm_starting/vws/../vpc/src/utility/utility.cpp:659: void verify(bool, const std::string&): Assertion `false' failed.
-/var/spool/torque/mom_priv/jobs/1756471.polyp1.ie.lehigh.edu.SC: line 4: 32371 Aborted                 ../Release/vws ${INPUT_FOLDER} ${OUTPUT_FILE} ${MAX_TIME} ${GENERATOR} ${TERMS} ${MIP_SOLVER} ${PROVIDE_PRIMAL_BOUND}
