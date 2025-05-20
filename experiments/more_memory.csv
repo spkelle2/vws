@@ -18,7 +18,7 @@ pigeon-12.mps,8.0,hard solve
 pigeon-13.mps,8.0,hard solve
 go19.mps,8.0,hard solve
 r80x800.mps,8.0,hard solve
-markshare1.mps,8.0,hard solve
+markshare1.mps,15.0,hard solve
 m100n500k4r1.mps,15.0,hard solve
 neos-3592146-hawea.mps,15.0,hard solve
 neos-3530903-gauja.mps,8.0,hard solve
@@ -30,7 +30,7 @@ neos-574665.mps,15.0,hard solve
 neos-5051588-culgoa.mps,15.0,hard solve
 milo-v13-4-3d-3-0.mps,8.0,hard solve
 bppc6-02.mps,15.0,hard solve
-gmu-35-50.mps,8.0,hard solve
+gmu-35-50.mps,15.0,hard solve
 icir97_potential.mps,8.0,hard solve
 neos-1464762.mps,15.0,hard solve
 neos-3762025-ognon.mps,15.0,hard solve
@@ -118,7 +118,7 @@ mik-250-20-75-3.mps,8.0,hard solve
 mik-250-20-75-5.mps,8.0,hard solve
 f2gap201600.mps,15.0,hard solve
 control30-3-2-3.mps,8.0,hard solve
-umts.mps,8.0,hard solve
+umts.mps,15.0,hard solve
 neos-1171737.mps,8.0,hard solve
 neos-2657525-crna.mps,8.0,hard solve
 n13-3.mps,8.0,hard solve
@@ -127,7 +127,7 @@ mik-250-20-75-1.mps,8.0,hard solve
 bppc4-08.mps,8.0,hard solve
 nsrand-ipx.mps,8.0,hard solve
 neos-595904.mps,8.0,hard solve
-neos-5182409-nasivi.mps,8.0,hard solve
+neos-5182409-nasivi.mps,15.0,hard solve
 neos-3627168-kasai.mps,8.0,hard solve
 milo-v12-6-r2-40-1.mps,8.0,hard solve
 neos17.mps,15.0,hard solve
@@ -137,4 +137,102 @@ bppc8-09.mps,8.0,big disjunction
 aflow30a.mps,8.0,big disjunction
 bienst1.mps,8.0,big disjunction
 cap6000.mps,8.0,big disjunction
-binkar10.mps,8.0,big disjunction
+binkar10.mps,15.0,big disjunction
+seymour.mps,8.0,
+neos-1582420.mps,8.0,
+traininstance2.mps,8.0,
+rocI-4-11.mps,8.0,
+22433.mps,8.0,
+neos5.mps,8.0,
+set3-20.mps,8.0,
+neos-1396125.mps,8.0,
+cvs16r106-72.mps,8.0,
+misc07.mps,8.0,
+neos16.mps,8.0,
+prod1.mps,8.0,
+neos-585192.mps,8.0,
+nu25-pr12.mps,8.0,
+gen-ip036.mps,8.0,
+fillomino7x7-0i.mps,8.0,
+fastxgemm-n2r6s0t2.mps,8.0,
+uct-subprob.mps,8.0,
+neos-1445743.mps,8.0,
+supportcase26.mps,8.0,
+neos-555001.mps,8.0,
+nexp-50-20-4-2.mps,8.0,
+fastxgemm-n2r7s4t1.mps,8.0,
+ran13x13.mps,8.0,
+neos-3421095-cinca.mps,8.0,
+rout.mps,8.0,
+app1-1.mps,8.0,
+ran12x21.mps,8.0,
+mcsched.mps,8.0,
+23588.mps,8.0,
+neos-3754480-nidda.mps,8.0,
+csched007.mps,8.0,
+mappingmesh3x3mpeg2i.mps,8.0,
+ns2071214.mps,8.0,
+noswot.mps,8.0,
+cvs16r128-89.mps,8.0,
+pigeon-10.mps,8.0,
+pg.mps,8.0,
+pigeon-08.mps,8.0,
+blp-ir98.mps,8.0,
+markshare.mps,8.0,
+a1c1s1.mps,8.0,
+csched010.mps,8.0,
+neos-555884.mps,8.0,
+mkc1.mps,8.0,
+nh97.mps,8.0,
+gus-sch.mps,8.0,
+aligninq.mps,8.0,
+bnatt500.mps,8.0,
+pk1.mps,8.0,
+bienst2.mps,8.0,
+neos-3734794-moppy.mps,8.0,
+sp98ir.mps,8.0,
+ci-s4.mps,8.0,
+neos-686190.mps,8.0,
+csched008.mps,8.0,
+gen-ip021.mps,8.0,
+icir97.mps,8.0,
+gmu-35-40.mps,8.0,
+neos-1445738.mps,8.0,
+neos-2328163-agri.mps,8.0,
+g200x740.mps,8.0,
+mik-250-20-75-2.mps,8.0,
+xmas10.mps,8.0,
+neos-860300.mps,8.0,
+neos-1605061.mps,8.0,
+neos-3660371-kurow.mps,8.0,
+neos-807639.mps,8.0,
+b1c1s1.mps,8.0,
+pw-myciel4.mps,8.0,
+toll-like.mps,8.0,
+no-ip-64999.mps,8.0,
+mtest4ma.mps,8.0,
+fhnw-binpack4-18.mps,8.0,
+ns1208400.mps,8.0,
+neos-4387871-tavua.mps,8.0,
+hgms-det.mps,8.0,
+timtab1CUTS.mps,8.0,
+ic97.mps,8.0,
+lotsize.mps,8.0,
+neos-2656603-coxs.mps,8.0,
+p0201.mps,8.0,
+neos-3083784-nive.mps,8.0,
+f2gap401600.mps,8.0,
+gen-ip002.mps,8.0,
+cvrpsimple2i.mps,8.0,
+danoint.mps,8.0,
+beavma.mps,8.0,
+neos-555424.mps,8.0,
+neos-503737.mps,8.0,
+b2c1s1.mps,8.0,
+neos-1330346.mps,8.0,
+set3-16.mps,8.0,
+traininstance6.mps,8.0,
+nu120-pr12.mps,8.0,
+h50x2450.mps,8.0,
+qap10.mps,8.0,
+supportcase30.mps,8.0,
